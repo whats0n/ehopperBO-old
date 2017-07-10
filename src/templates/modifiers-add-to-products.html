@@ -49,7 +49,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 					<!-- begin n-search -->
 					<div class="n-search">
 						<div class="n-search__field">
-							<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
+							<input type="text" class="form-control input-lg" placeholder="Search product by title of code" />
 						</div>
 					</div>
 					<!-- end n-search -->
@@ -93,14 +93,18 @@ paneBodyWrapperClassList: 'n-modifiers'
 				</div>
 				<div class="n-module__body">
 					{% set items = {
-						columns: [ 'half', 'half' ],
+						columns: [ 'default', 'default', 'default', 'default', 'default' ],
 						rows: [
-							{ title: 'Soup', group: 'vegetables, salt' },
-							{ title: 'Hamburger', group: 'burgers' },
-							{ title: 'Pizza', group: 'sizes' }
+							{ title: 'Soup', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'vegetables, salt' },
+							{ title: 'Hamburger', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'burgers' },
+							{ title: 'Pizza', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'sizes <span class="n-items__more">(+ corn, mashrooms)</span>' }
 						]
 					} %}
-					<div class="n-items">
+					<!-- 5 colums = data-size="xs"  -->
+					<!-- 4 colums = data-size="sm"  -->
+					<!-- 3 colums = data-size="md"  -->
+					<!-- 2 colums = data-size="lg" or without data-size (lg is default sizes)  -->
+					<div class="n-items" data-size="xs">
 						<div class="n-items__head">
 							<div class="n-items__checkbox">
 								<div class="checkbox">
@@ -108,27 +112,42 @@ paneBodyWrapperClassList: 'n-modifiers'
 									<label for="all-ingredients"></label>
 								</div>
 							</div>
-							<div class="n-items__col" data-column="{{items.columns[0]}}">Product Name</div>
-							<div class="n-items__col" data-column="{{items.columns[1]}}">Group Names</div>
+							<div class="n-items__table">
+								<div class="n-items__tr">
+									<div class="n-items__col">Product Name</div>
+									<div class="n-items__col">Department</div>
+									<div class="n-items__col">Category</div>
+									<div class="n-items__col">Inventory type</div>
+									<div class="n-items__col">Group Names</div>
+								</div>
+							</div>
 						</div>
 						<div class="n-items__body">
 							{% for item in range(0,5) %}
+								{% set active = loop.index + '' %}
 								{% for item in items.rows %}
 									<div class="n-items__row">
 										<div class="n-items__checkbox">
 											<div class="checkbox">
-												<input type="checkbox" id="ingredient-{{loop.index}}">
-												<label for="ingredient-{{loop.index}}"></label>
+												<input type="checkbox" id="ingredient-{{active + loop.index}}">
+												<label for="ingredient-{{active + loop.index}}"></label>
 											</div>
 										</div>
-										<div class="n-items__col" data-column="{{items.columns[0]}}">{{item.title}}</div>
-										<div class="n-items__col" data-column="{{items.columns[1]}}">{{item.group}}</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">{{item.title}}</div>
+												<div class="n-items__col">{{item.department}}</div>
+												<div class="n-items__col">{{item.category}}</div>
+												<div class="n-items__col">{{item.type}}</div>
+												<div class="n-items__col">{{item.group | safe}}</div>
+											</div>
+										</div>
 									</div>
 								{% endfor %}
 							{% endfor %}
 						</div>
 						<div class="n-items__footer">
-							<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Done">
+							<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Copy">
 							<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
 						</div>
 					</div>

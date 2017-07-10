@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="content/favicon.ico">
     <link rel="stylesheet" href="content/bootstrap.css" />
     <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
     <link rel="stylesheet" href="content/font-awesome.css" />
@@ -76,7 +76,7 @@
                     <div class="n-module__header">
                       <!-- begin n-search -->
                       <div class="n-search">
-                        <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search For Ingredient" /> </div>
+                        <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search product by title of code" /> </div>
                       </div>
                       <!-- end n-search -->
                       <!-- begin n-filters -->
@@ -121,122 +121,238 @@
                       <!-- end n-filters -->
                     </div>
                     <div class="n-module__body">
-                      <div class="n-items">
+                      <!-- 5 colums = data-size="xs"  -->
+                      <!-- 4 colums = data-size="sm"  -->
+                      <!-- 3 colums = data-size="md"  -->
+                      <!-- 2 colums = data-size="lg" or without data-size (lg is default sizes)  -->
+                      <div class="n-items" data-size="xs">
                         <div class="n-items__head">
                           <div class="n-items__checkbox">
                             <div class="checkbox"> <input type="checkbox" id="all-ingredients"> <label for="all-ingredients"></label> </div>
                           </div>
-                          <div class="n-items__col" data-column="half">Product Name</div>
-                          <div class="n-items__col" data-column="half">Group Names</div>
+                          <div class="n-items__table">
+                            <div class="n-items__tr">
+                              <div class="n-items__col">Product Name</div>
+                              <div class="n-items__col">Department</div>
+                              <div class="n-items__col">Category</div>
+                              <div class="n-items__col">Inventory type</div>
+                              <div class="n-items__col">Group Names</div>
+                            </div>
+                          </div>
                         </div>
                         <div class="n-items__body">
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-1"> <label for="ingredient-1"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-11"> <label for="ingredient-11"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Soup</div>
-                            <div class="n-items__col" data-column="half">vegetables, salt</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Soup</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">vegetables, salt</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-2"> <label for="ingredient-2"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-12"> <label for="ingredient-12"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Hamburger</div>
-                            <div class="n-items__col" data-column="half">burgers</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Hamburger</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">burgers</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-3"> <label for="ingredient-3"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-13"> <label for="ingredient-13"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Pizza</div>
-                            <div class="n-items__col" data-column="half">sizes</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Pizza</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-1"> <label for="ingredient-1"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-21"> <label for="ingredient-21"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Soup</div>
-                            <div class="n-items__col" data-column="half">vegetables, salt</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Soup</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">vegetables, salt</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-2"> <label for="ingredient-2"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-22"> <label for="ingredient-22"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Hamburger</div>
-                            <div class="n-items__col" data-column="half">burgers</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Hamburger</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">burgers</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-3"> <label for="ingredient-3"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-23"> <label for="ingredient-23"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Pizza</div>
-                            <div class="n-items__col" data-column="half">sizes</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Pizza</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-1"> <label for="ingredient-1"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-31"> <label for="ingredient-31"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Soup</div>
-                            <div class="n-items__col" data-column="half">vegetables, salt</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Soup</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">vegetables, salt</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-2"> <label for="ingredient-2"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-32"> <label for="ingredient-32"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Hamburger</div>
-                            <div class="n-items__col" data-column="half">burgers</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Hamburger</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">burgers</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-3"> <label for="ingredient-3"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-33"> <label for="ingredient-33"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Pizza</div>
-                            <div class="n-items__col" data-column="half">sizes</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Pizza</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-1"> <label for="ingredient-1"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-41"> <label for="ingredient-41"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Soup</div>
-                            <div class="n-items__col" data-column="half">vegetables, salt</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Soup</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">vegetables, salt</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-2"> <label for="ingredient-2"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-42"> <label for="ingredient-42"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Hamburger</div>
-                            <div class="n-items__col" data-column="half">burgers</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Hamburger</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">burgers</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-3"> <label for="ingredient-3"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-43"> <label for="ingredient-43"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Pizza</div>
-                            <div class="n-items__col" data-column="half">sizes</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Pizza</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-1"> <label for="ingredient-1"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-51"> <label for="ingredient-51"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Soup</div>
-                            <div class="n-items__col" data-column="half">vegetables, salt</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Soup</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">vegetables, salt</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-2"> <label for="ingredient-2"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-52"> <label for="ingredient-52"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Hamburger</div>
-                            <div class="n-items__col" data-column="half">burgers</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Hamburger</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">burgers</div>
+                              </div>
+                            </div>
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-3"> <label for="ingredient-3"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-53"> <label for="ingredient-53"></label> </div>
                             </div>
-                            <div class="n-items__col" data-column="half">Pizza</div>
-                            <div class="n-items__col" data-column="half">sizes</div>
+                            <div class="n-items__table">
+                              <div class="n-items__tr">
+                                <div class="n-items__col">Pizza</div>
+                                <div class="n-items__col">ASDasd1!</div>
+                                <div class="n-items__col">1122h!</div>
+                                <div class="n-items__col">Inventory</div>
+                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div class="n-items__footer"> <input class="btn btn-lg btn-primary n-items__btn" type="button" value="Done"> <input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel"> </div>
+                        <div class="n-items__footer"> <input class="btn btn-lg btn-primary n-items__btn" type="button" value="Copy"> <input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel"> </div>
                       </div>
                     </div>
                   </div>

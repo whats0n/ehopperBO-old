@@ -64,8 +64,8 @@ paneBodyWrapperClassList: 'n-modifiers'
 						</div>
 						
 						{% set choice = [
-							{ title: 'one option', description: 'eg: small, medium, large', attrs: 'checked' },
-							{ title: 'multiple options', description: 'Need text' },
+							{ title: 'one option', description: 'eg: small, medium, large' },
+							{ title: 'multiple options', description: 'Need text', attrs: 'checked' },
 							{ title: 'NO options', description: 'eg: No salt, No sugar' }
 						] %}
 
@@ -83,7 +83,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 				</div>
 				<div class="n-table-wrapper">
 					{% set table = {
-						columns: [ 'option-name', 'option-price', 'option-close' ],
+						columns: [ 'option-name', 'option-price', 'auto', 'close' ],
 						ingredientsColumns: [ 'ingredients-name', 'ingredients-qty', 'ingredients-rest' ]
 					} %}
 					<div class="n-table">
@@ -114,7 +114,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 											{% endif %}>
 										<span class="validationMessage" style="display: none;"></span>
 									</div>
-									<div class="n-table__col" data-column="{{table.columns[2]}}">
+									<div class="n-table__col" data-column="{{table.columns[3]}}">
 										<input class="n-table__close delete-row-button" type="button">
 									</div>
 									<div class="n-table__inner">
@@ -129,7 +129,6 @@ paneBodyWrapperClassList: 'n-modifiers'
 													{% for item in range(0,2) %}
 														<div class="n-table__row" data-row="option">
 															<div class="n-table__col" data-column="{{table.ingredientsColumns[0]}}">
-																<i class="n-table__i-draggble"></i>
 																<input class="form-control input-lg" 
 																	type="text" 
 																	maxlength="100" 
@@ -144,8 +143,10 @@ paneBodyWrapperClassList: 'n-modifiers'
 																	value="10">
 																<span class="validationMessage" style="display: none;"></span>
 															</div>
-															<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">
-																<span>it</span>
+															<div class="n-table__col" data-column="{{table.columns[2]}}">
+																<div class="n-table__unit"><span>it</span></div>
+															</div>
+															<div class="n-table__col" data-column="{{table.columns[3]}}">
 																<input class="n-table__close delete-row-button" type="button">
 															</div>
 														</div>

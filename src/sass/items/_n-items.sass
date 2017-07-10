@@ -1,16 +1,38 @@
 .n-items
 	position: relative
-	padding-top: 45px
+	padding-top: 46px
 	padding-bottom: 93px
 	height: 100%
+	&[data-size="xs"]
+		.n-items
+			&__col
+				font-size: 12px
+	&[data-size="sm"]
+		.n-items
+			&__col
+				font-size: 13px
+	&[data-size="md"]
+		.n-items
+			&__col
+				font-size: 14px
+	&[data-size="lg"]
+		.n-items
+			&__col
+				font-size: 16px
 	&__head
 		position: absolute
 		top: 0	
 		left: 0
 		right: 0
 		padding-left: 55px
+		border-bottom: 1px solid #aaa
 		background: #eef0f4
+		font-weight: bold
 		+clr
+		.n-items
+			&__col
+				vertical-align: middle
+				height: 45px
 	&__body
 		overflow: auto
 		border-bottom: 1px solid #eaeaea
@@ -27,11 +49,18 @@
 		&:not(:last-child)
 			border-bottom: 1px solid #eaeaea
 	&__col
-		float: left
+		// float: left
+		display: table-cell
 		padding: 12px 10px 11px
 		font-size: 16px
-		&[data-column="half"]
-			width: 50%
+		// &[data-column="half"]
+		// 	width: 50%
+	&__table
+		display: table
+		table-layout: fixed
+		width: 100%
+	&__tr
+		display: table-row
 	&__footer
 		position: absolute
 		bottom: 0
@@ -46,3 +75,20 @@
 	input[type="checkbox"] + label:before, input[type="radio"] + label:before
 		top: 0
 		margin: 0
+	&__more
+		position: relative
+		display: inline-block
+		vertical-align: top
+		// padding: 0 5px
+		color: orange
+		// &:before,
+		// &:after
+		// 	position: absolute
+		// &:before
+		// 	content: "("
+		// 	top: 0
+		// 	left: 0
+		// &:after
+		// 	content: ")"
+		// 	right: 0
+		// 	bottom: 0

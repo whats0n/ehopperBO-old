@@ -83,7 +83,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 				</div>
 				<div class="n-table-wrapper">
 					{% set table = {
-						columns: [ 'option-name', 'option-price', 'option-rest' ]
+						columns: [ 'option-name', 'option-price', 'auto', 'close' ]
 					} %}
 					<div class="n-table">
 						<div class="n-table__head" data-row="option">
@@ -122,6 +122,8 @@ paneBodyWrapperClassList: 'n-modifiers'
 											<label for="default_0_2{{loop.index}}"></label>
 											<label for="default_0_2{{loop.index}}">Default</label>
 										</div>
+									</div>
+									<div class="n-table__col" data-column="{{table.columns[3]}}">
 										<input class="n-table__close delete-row-button" type="button">
 									</div>
 								</div>

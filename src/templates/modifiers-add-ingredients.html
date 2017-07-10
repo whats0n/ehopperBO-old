@@ -77,21 +77,30 @@ paneBodyWrapperClassList: 'n-modifiers'
 									<label for="all-ingredients"></label>
 								</div>
 							</div>
-							<div class="n-items__col" data-column="{{items.columns[0]}}">Ingredient Name</div>
-							<div class="n-items__col" data-column="{{items.columns[1]}}">Unit of measurement</div>
+							<div class="n-items__table">
+								<div class="n-items__tr">
+									<div class="n-items__col">Ingredient Name</div>
+									<div class="n-items__col">Unit of measurement</div>
+								</div>
+							</div>
 						</div>
 						<div class="n-items__body">
-							{% for item in range(0,5) %}
+							{% for row in range(0,5) %}
+								{% set active = loop.index + '' %}
 								{% for item in items.rows %}
 									<div class="n-items__row">
 										<div class="n-items__checkbox">
 											<div class="checkbox">
-												<input type="checkbox" id="ingredient-{{loop.index}}">
-												<label for="ingredient-{{loop.index}}"></label>
+												<input type="checkbox" id="ingredient-{{active + loop.index}}" {% if loop.index == 1 %}checked disabled{% endif %}>
+												<label for="ingredient-{{active + loop.index}}"></label>
 											</div>
 										</div>
-										<div class="n-items__col" data-column="{{items.columns[0]}}">{{item.title}}</div>
-										<div class="n-items__col" data-column="{{items.columns[1]}}">{{item.unit}}</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">{{item.title}}</div>
+												<div class="n-items__col">{{item.unit}}</div>
+											</div>
+										</div>
 									</div>
 								{% endfor %}
 							{% endfor %}

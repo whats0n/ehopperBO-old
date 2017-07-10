@@ -13,18 +13,11 @@
 					width: 44%
 				&[data-column="option-price"]
 					width: 30%
-				&[data-column="option-rest"]
-					width: 26%
-				&[data-column="option-close"]
-					width: 35px
-					height: 73px
 
 				&[data-column="ingredients-name"]
-					width: 49%
+					width: 44%
 				&[data-column="ingredients-qty"]
 					width: 73px
-				&[data-column="ingredients-rest"]
-					width: 26%
 	&__row
 		+hover
 			background: #F3F9FD
@@ -35,18 +28,26 @@
 		padding: 10px
 		width: 100%
 		font-size: 14px
-		&[data-column="option-name"],
-		&[data-column="ingredients-name"]
+		&[data-column="option-name"]
 			padding-left: 50px
-		&[data-column="option-rest"],
-		&[data-column="ingredients-rest"]
-			padding-right: 40px
 		&[data-column="ingredients-qty"]
 			input
 				text-align: center
-		&[data-column="ingredients-rest"]
+		&[data-column="auto"]
+			width: auto
+		&[data-column="close"]
+			width: 35px
 			height: 73px
-			line-height: 53px
+	&__unit
+		display: inline-block
+		vertical-align: top
+		width: 60px
+		height: 53px
+		line-height: 53px
+		span 
+			line-height: 1
+			display: inline-block
+			vertical-align: middle
 	&__i-draggble
 		position: absolute
 		top: 0
