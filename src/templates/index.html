@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pages</title>
+</head>
+<body>
+	{% set pages = [
+		'modifiers',
+		'modifiers-ingredient',
+		'modifiers-successfully',
+		'modifiers-empty',
+		'modifiers-add-ingredients',
+		'modifiers-add-to-products'
+	] %}
+	<ul style="font-size: 18px;">
+		{% for page in pages %}
+			<li>
+				<a href="{{page}}.html" style="display: block; color: blue; text-decoration: none;" target="_blank">{{page}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>

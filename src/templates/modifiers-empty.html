@@ -1,0 +1,38 @@
+---
+title: Modifiers Empty
+headerTitle: Modifiers
+paneBodyWrapperClassList: 'menu-builder'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			
+			<!-- begin n-search -->
+			<div class="n-search">
+				<div class="n-search__aside">
+					<a href="#" class="n-link n-search__link">New modifier</a>
+				</div>
+				<div class="n-search__field">
+					<input type="text" class="form-control input-lg" placeholder="Search Modifiers" />
+				</div>
+			</div>
+			<!-- end n-search -->
+
+			{% set list = [
+				{ title: 'Toppings', active: 'is-active' },
+				{ title: 'Sizes' },
+				{ title: 'Icecream Flafors' }
+			] %}
+
+			<!-- begin n-empty -->
+			<div class="n-empty">
+				<div class="n-empty__title">There are no modifiers created. <a href="#" class="n-link">Add new</a>.</div>
+			</div>
+			<!-- end n-empty -->
+
+		</div>
+		<div class="pane pane-right"></div>
+	</div>
+{% endblock %}

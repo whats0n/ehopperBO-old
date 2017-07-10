@@ -1,0 +1,31 @@
+.n-item
+	position: relative
+	padding-right: 40px !important
+	cursor: default !important
+	+clr
+	&.is-active
+		background: $azure !important
+	&__actions
+		float: right
+		padding: 0
+		margin: 0
+		white-space: nowrap
+	&__action
+		display: inline-block
+		vertical-align: top
+		&:not(:first-child)
+			padding-left: 6px
+			margin-left: 6px
+			border-left: 2px solid #eaeaea 
+	&__link
+		color: $blue
+		font-size: 14px
+		text-decoration: none
+	&__title
+		+text-overflow
+	&__close
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		width: 40px

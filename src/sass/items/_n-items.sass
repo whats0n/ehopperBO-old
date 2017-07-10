@@ -1,0 +1,48 @@
+.n-items
+	position: relative
+	padding-top: 45px
+	padding-bottom: 93px
+	height: 100%
+	&__head
+		position: absolute
+		top: 0	
+		left: 0
+		right: 0
+		padding-left: 55px
+		background: #eef0f4
+		+clr
+	&__body
+		overflow: auto
+		border-bottom: 1px solid #eaeaea
+		height: 100%
+	&__checkbox
+		position: absolute
+		top: 0
+		left: 10px
+		padding: 10px
+	&__row
+		position: relative
+		padding-left: 55px
+		+clr
+		&:not(:last-child)
+			border-bottom: 1px solid #eaeaea
+	&__col
+		float: left
+		padding: 12px 10px 11px
+		font-size: 16px
+		&[data-column="half"]
+			width: 50%
+	&__footer
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		padding: 20px
+		.btn 
+			margin-right: 20px
+	.checkbox
+		margin: 0
+		font-size: 0
+	input[type="checkbox"] + label:before, input[type="radio"] + label:before
+		top: 0
+		margin: 0

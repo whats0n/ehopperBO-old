@@ -1,0 +1,72 @@
+.n-table-wrapper
+	&__add
+		padding: 10px 0
+
+.n-table
+	&__head,
+	&__row
+		font-size: 0
+		+clr
+		&[data-row="option"]
+			.n-table__col
+				&[data-column="option-name"]
+					width: 44%
+				&[data-column="option-price"]
+					width: 30%
+				&[data-column="option-rest"]
+					width: 26%
+				&[data-column="option-close"]
+					width: 35px
+					height: 73px
+
+				&[data-column="ingredients-name"]
+					width: 49%
+				&[data-column="ingredients-qty"]
+					width: 73px
+				&[data-column="ingredients-rest"]
+					width: 26%
+	&__row
+		+hover
+			background: #F3F9FD
+	&__col
+		position: relative
+		display: inline-block
+		vertical-align: top
+		padding: 10px
+		width: 100%
+		font-size: 14px
+		&[data-column="option-name"],
+		&[data-column="ingredients-name"]
+			padding-left: 50px
+		&[data-column="option-rest"],
+		&[data-column="ingredients-rest"]
+			padding-right: 40px
+		&[data-column="ingredients-qty"]
+			input
+				text-align: center
+		&[data-column="ingredients-rest"]
+			height: 73px
+			line-height: 53px
+	&__i-draggble
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		width: 40px
+		background: url('../content/images/modifiers/drag-modifier-inactive.png') center center no-repeat
+		cursor: move
+	&__close
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		width: 25px
+	&__inner
+		clear: both
+		padding-left: 50px
+		.n-table
+			&__row
+				+hover
+					background: darken(#F3F9FD, 3%)
+	&__add
+		padding: 10px 0 15px

@@ -1,0 +1,89 @@
+.n-columns-layout
+	position: relative
+	min-width: 1180px
+	height: 100%
+	+clr
+
+.n-link
+	display: inline-block
+	vertical-align: top
+	color: $blue
+	font-size: inherit
+	text-decoration: underline
+
+.n-add
+	a
+		display: inline-block
+		vertical-align: top
+		color: $blue
+		font-size: 16px
+		text-decoration: underline
+	i
+		margin-right: 8px
+
+.n-back
+	i
+		margin-right: 8px
+
+.n-close
+	padding: 0
+	border: none
+	color: $red
+	background: none
+	i
+		font-size: 16px
+
+
+//containers
+.n-section
+	padding: 20px
+	&_container
+		margin: 0 auto
+		max-width: 800px
+
+.n-box
+	padding-bottom: 20px
+
+.n-label
+	display: block
+
+.n-radio-container
+	padding-bottom: 10px
+	.radio
+		margin-top: 0
+
+.n-vertical-center
+	height: 100%
+	+vertical
+	&__content
+		display: inline-block
+		vertical-align: middle
+		width: 100%
+
+//modifiers styles
+.n-modifiers
+	.pane-left
+		background: #f6f4f4
+		padding: 20px
+		width: 40%
+		overflow-y: auto
+		overflow-x: hidden
+	.pane-right
+		margin-left: 40%
+		overflow-y: auto
+		overflow-x: hidden
+	.list
+		padding: 0
+		margin: 20px 0
+		list-style: none
+		background: white
+		.item
+			position: relative
+			padding: 10px 10px 10px 20px
+			margin-top: -1px
+			border: 1px solid #eaeaea 
+			&:before
+				content: "\2261"
+				position: absolute
+				left: 7px
+				color: silver

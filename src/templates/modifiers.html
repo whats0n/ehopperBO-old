@@ -1,0 +1,146 @@
+---
+title: Modifiers
+headerTitle: Modifiers
+paneBodyWrapperClassList: 'n-modifiers'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			
+			<!-- begin n-search -->
+			<div class="n-search">
+				<div class="n-search__aside">
+					<a href="#" class="n-link n-search__link">New modifier</a>
+				</div>
+				<div class="n-search__field">
+					<input type="text" class="form-control input-lg" placeholder="Search Modifiers" />
+				</div>
+			</div>
+			<!-- end n-search -->
+
+			{% set list = [
+				{ title: 'Toppings', active: 'is-active' },
+				{ title: 'Sizes' },
+				{ title: 'Icecream Flafors' }
+			] %}
+
+			<!-- begin n-list -->
+			<ul class="list n-list">
+				{% for item in list %}
+					<li class="item n-item {{item.active}}">
+						<button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+						<ul class="n-item__actions">
+							<li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
+							<li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+							<li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
+						</ul>
+						<div class="n-item__title">{{item.title}}</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<!-- end n-list -->
+
+		</div>
+		<div class="pane pane-right">
+			<div class="n-section">
+				<div class="language-selector">
+					<a class="selected">English</a>
+					<a>Ukrainian</a>
+					<a>Russian</a>
+				</div>
+				<div class="n-form-group n-box" data-bind="validationOptions: { insertMessages: false }">
+					<label class="n-label">Group Name:</label>
+					<div class="n-form-group__field">
+						<input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name">
+					</div>
+					<p class="validationMessage">Error message</p>
+				</div>
+				<div class="n-container">
+					<div class="n-row">
+						<div class="n-col">
+							<label class="n-label">Select option type:</label>
+						</div>
+						
+						{% set choice = [
+							{ title: 'one option', description: 'eg: small, medium, large', attrs: 'checked' },
+							{ title: 'multiple options', description: 'Need text' },
+							{ title: 'NO options', description: 'eg: No salt, No sugar' }
+						] %}
+
+						{% for item in choice %}
+							<div class="n-col n-col_sm n-radio-container">
+								<div class="radio">
+									<input type="radio" value="{{loop.index}}" id="default_0_{{loop.index}}" name="ko_unique_1" {{item.attrs | safe}}>
+									<label for="default_0_{{loop.index}}"></label>
+									<label for="default_0_{{loop.index}}">{{item.title}}</label>
+								</div>
+								<label class="n-label" for="default_0_{{loop.index}}">{{item.description}}</label>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="n-table-wrapper">
+					{% set table = {
+						columns: [ 'option-name', 'option-price', 'option-rest' ]
+					} %}
+					<div class="n-table">
+						<div class="n-table__head" data-row="option">
+							<div class="n-table__col" data-column="{{table.columns[0]}}">Option:</div>
+							<div class="n-table__col" data-column="{{table.columns[1]}}">Price:</div>
+						</div>
+						<div class="n-table__body">
+							{% for item in range(0,3) %}
+								<div class="n-table__row" data-row="option">
+									<div class="n-table__col" data-column="{{table.columns[0]}}">
+										<i class="n-table__i-draggble"></i>
+										<input class="form-control input-lg" 
+											type="text" 
+											maxlength="100" 
+											placeholder="Add option" 
+											{% if loop.index == 1 %}value="Cheese"{% endif %}
+											data-lang="EN">
+										<span class="fieldError" style="display: none;"></span>
+									</div>
+									<div class="n-table__col" data-column="{{table.columns[1]}}">
+										<input class="form-control input-lg" 
+											type="text" 
+											{% if loop.index == 1 %}
+											value="15.67"
+											{% else %}
+											value="0.00"
+											{% endif %}>
+										<span class="validationMessage" style="display: none;"></span>
+									</div>
+									<div class="n-table__col" data-column="{{table.columns[2]}}">
+										<div class="radio">
+											<input type="radio" 
+												value="{{loop.index}}" 
+												id="default_0_2{{loop.index}}" 
+												name="ko_unique_2" {% if loop.index == 1 %}checked{% endif %}>
+											<label for="default_0_2{{loop.index}}"></label>
+											<label for="default_0_2{{loop.index}}">Default</label>
+										</div>
+										<input class="n-table__close delete-row-button" type="button">
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="n-add n-table-wrapper__add">
+						<a href="#"><i class="fa fa-plus"></i> Add an option</a>
+					</div>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" checked id="isActive_0">
+					<label for="isActive_0">Is Active</label>
+				</div>
+				<div class="form-buttons">
+					<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+					<input class="btn btn-lg btn-default" type="button" value="Cancel">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
