@@ -100,7 +100,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 											type="text" 
 											maxlength="100" 
 											placeholder="Add option" 
-											{% if loop.index == 2 %}value="Bun"{% endif %}
+											{% if loop.index == 2 %}value="Hot pepper"{% endif %}
 											data-lang="EN">
 										<span class="fieldError" style="display: none;"></span>
 									</div>
@@ -133,18 +133,18 @@ paneBodyWrapperClassList: 'n-modifiers'
 																	type="text" 
 																	maxlength="100" 
 																	placeholder="Add ingredient" 
-																	value="Patty"
+																	value="{% if loop.index == 1 %}Hot pepper{% else %}Hot souce{% endif %}"
 																	data-lang="EN">
 																<span class="fieldError" style="display: none;"></span>
 															</div>
 															<div class="n-table__col" data-column="{{table.ingredientsColumns[1]}}">
 																<input class="form-control input-lg" 
 																	type="text" 
-																	value="10">
+																	value="{% if loop.index == 1 %}1{% else %}0.05{% endif %}">
 																<span class="validationMessage" style="display: none;"></span>
 															</div>
 															<div class="n-table__col" data-column="{{table.columns[2]}}">
-																<div class="n-table__unit"><span>it</span></div>
+																<div class="n-table__unit"><span>{% if loop.index == 1 %}it{% else %}l{% endif %}</span></div>
 															</div>
 															<div class="n-table__col" data-column="{{table.columns[3]}}">
 																<input class="n-table__close delete-row-button" type="button">
