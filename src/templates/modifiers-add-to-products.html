@@ -8,43 +8,45 @@ paneBodyWrapperClassList: 'n-modifiers'
 {% block content %}
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
+			<div class="n-pane__inner is-disabled">
 			
-			<!-- begin n-search -->
-			<div class="n-search">
-				<div class="n-search__aside">
-					<a href="#" class="n-link n-search__link">New modifier</a>
+				<!-- begin n-search -->
+				<div class="n-search">
+					<div class="n-search__aside">
+						<a href="#" class="n-link n-search__link">New modifier</a>
+					</div>
+					<div class="n-search__field">
+						<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
+					</div>
 				</div>
-				<div class="n-search__field">
-					<input type="text" class="form-control input-lg" placeholder="Search Modifiers" />
-				</div>
+				<!-- end n-search -->
+
+				{% set list = [
+					{ title: 'Toppings', active: 'is-active' },
+					{ title: 'Sizes' },
+					{ title: 'Icecream Flafors' }
+				] %}
+
+				<!-- begin n-list -->
+				<ul class="list n-list">
+					{% for item in list %}
+						<li class="item n-item {{item.active}}">
+							<button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+							<ul class="n-item__actions">
+								<li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
+								<li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+								<li class="n-item__action"><a href="#" class="n-item__link {{item.active}}">Add to products</a></li>
+							</ul>
+							<div class="n-item__title">{{item.title}}</div>
+						</li>
+					{% endfor %}
+				</ul>
+				<!-- end n-list -->
+
 			</div>
-			<!-- end n-search -->
-
-			{% set list = [
-				{ title: 'Toppings', active: 'is-active' },
-				{ title: 'Sizes' },
-				{ title: 'Icecream Flafors' }
-			] %}
-
-			<!-- begin n-list -->
-			<ul class="list n-list">
-				{% for item in list %}
-					<li class="item n-item {{item.active}}">
-						<button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-						<ul class="n-item__actions">
-							<li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-							<li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-							<li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-						</ul>
-						<div class="n-item__title">{{item.title}}</div>
-					</li>
-				{% endfor %}
-			</ul>
-			<!-- end n-list -->
-
 		</div>
 		<div class="pane pane-right">
-			<div class="n-module n-module_filters">
+			<div class="n-module n-module_filters is-open">
 				<div class="n-module__header">
 					<!-- begin n-search -->
 					<div class="n-search">
@@ -97,14 +99,10 @@ paneBodyWrapperClassList: 'n-modifiers'
 						rows: [
 							{ title: 'Soup', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'vegetables, salt' },
 							{ title: 'Hamburger', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'burgers' },
-							{ title: 'Pizza', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'sizes <span class="n-items__more">(+ corn, mashrooms)</span>' }
+							{ title: 'Pizza', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'sizes' }
 						]
 					} %}
-					<!-- 5 colums = data-size="xs"  -->
-					<!-- 4 colums = data-size="sm"  -->
-					<!-- 3 colums = data-size="md"  -->
-					<!-- 2 colums = data-size="lg" or without data-size (lg is default sizes)  -->
-					<div class="n-items" data-size="xs">
+					<div class="n-items">
 						<div class="n-items__head">
 							<div class="n-items__checkbox">
 								<div class="checkbox">
@@ -115,9 +113,9 @@ paneBodyWrapperClassList: 'n-modifiers'
 							<div class="n-items__table">
 								<div class="n-items__tr">
 									<div class="n-items__col">Product Name</div>
-									<div class="n-items__col">Department</div>
+									{#<div class="n-items__col">Department</div>
 									<div class="n-items__col">Category</div>
-									<div class="n-items__col">Inventory type</div>
+									<div class="n-items__col">Inventory type</div>#}
 									<div class="n-items__col">Group Names</div>
 								</div>
 							</div>
@@ -136,9 +134,9 @@ paneBodyWrapperClassList: 'n-modifiers'
 										<div class="n-items__table">
 											<div class="n-items__tr">
 												<div class="n-items__col">{{item.title}}</div>
-												<div class="n-items__col">{{item.department}}</div>
+												{#<div class="n-items__col">{{item.department}}</div>
 												<div class="n-items__col">{{item.category}}</div>
-												<div class="n-items__col">{{item.type}}</div>
+												<div class="n-items__col">{{item.type}}</div>#}
 												<div class="n-items__col">{{item.group | safe}}</div>
 											</div>
 										</div>

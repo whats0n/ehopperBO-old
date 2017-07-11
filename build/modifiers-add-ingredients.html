@@ -36,47 +36,49 @@
             <div class="pane-body-wrapper n-modifiers">
               <div class="n-columns-layout">
                 <div class="pane pane-left">
-                  <!-- begin n-search -->
-                  <div class="n-search">
-                    <div class="n-search__aside"> <a href="#" class="n-link n-search__link">New modifier</a> </div>
-                    <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search Modifiers" /> </div>
+                  <div class="n-pane__inner is-disabled">
+                    <!-- begin n-search -->
+                    <div class="n-search">
+                      <div class="n-search__aside"> <a href="#" class="n-link n-search__link">New modifier</a> </div>
+                      <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search Modifiers" /> </div>
+                    </div>
+                    <!-- end n-search -->
+                    <!-- begin n-list -->
+                    <ul class="list n-list">
+                      <li class="item n-item is-active"> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link is-active">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Toppings</div>
+                      </li>
+                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link ">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Sizes</div>
+                      </li>
+                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link ">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Icecream Flafors</div>
+                      </li>
+                    </ul>
+                    <!-- end n-list -->
                   </div>
-                  <!-- end n-search -->
-                  <!-- begin n-list -->
-                  <ul class="list n-list">
-                    <li class="item n-item is-active"> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Toppings</div>
-                    </li>
-                    <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Sizes</div>
-                    </li>
-                    <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Icecream Flafors</div>
-                    </li>
-                  </ul>
-                  <!-- end n-list -->
                 </div>
                 <div class="pane pane-right">
-                  <div class="n-module">
-                    <div class="n-module__header"> <button class="n-back btn btn-lg btn-primary n-module__back">
-						<i class="fa fa-arrow-left"></i>
-						<span>Back</span>
-					</button>
+                  <div class="n-module is-open" data-modal-container="add-ingredient">
+                    <div class="n-module__header"> <button class="n-back btn btn-lg btn-primary n-module__back" data-modal-close="add-ingredient">
+			<i class="fa fa-arrow-left"></i>
+			<span>Back</span>
+		</button>
                       <div class="n-module__title">Add ingredients to "Bun" option</div>
                       <!-- begin n-search -->
                       <div class="n-search n-module__search">
@@ -100,7 +102,7 @@
                         <div class="n-items__body">
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-11" checked disabled> <label for="ingredient-11"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-11"> <label for="ingredient-11"></label> </div>
                             </div>
                             <div class="n-items__table">
                               <div class="n-items__tr">
@@ -133,7 +135,7 @@
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-21" checked disabled> <label for="ingredient-21"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-21"> <label for="ingredient-21"></label> </div>
                             </div>
                             <div class="n-items__table">
                               <div class="n-items__tr">
@@ -166,7 +168,7 @@
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-31" checked disabled> <label for="ingredient-31"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-31"> <label for="ingredient-31"></label> </div>
                             </div>
                             <div class="n-items__table">
                               <div class="n-items__tr">
@@ -199,7 +201,7 @@
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-41" checked disabled> <label for="ingredient-41"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-41"> <label for="ingredient-41"></label> </div>
                             </div>
                             <div class="n-items__table">
                               <div class="n-items__tr">
@@ -232,7 +234,7 @@
                           </div>
                           <div class="n-items__row">
                             <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="ingredient-51" checked disabled> <label for="ingredient-51"></label> </div>
+                              <div class="checkbox"> <input type="checkbox" id="ingredient-51"> <label for="ingredient-51"></label> </div>
                             </div>
                             <div class="n-items__table">
                               <div class="n-items__tr">

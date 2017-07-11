@@ -63,8 +63,8 @@
 
 .n-form-group__field {
   position: relative;
-  padding-right: 40px;
-  max-width: 340px;
+  padding-right: 10px;
+  max-width: 74%;
 }
 
 .n-form-group__close {
@@ -125,6 +125,49 @@
   width: 100%;
 }
 
+.n-fake-radio {
+  position: relative;
+  font-size: 0;
+}
+
+.n-fake-radio_block {
+  display: block;
+}
+
+.n-fake-radio_block .n-fake-radio__content {
+  display: block;
+}
+
+.n-fake-radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.n-fake-radio input:checked + .n-fake-radio__content {
+  color: #fff;
+  background: #2E9ADB;
+}
+
+.n-fake-radio__content {
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px 21px;
+  border: 1px solid #2E9ADB;
+  border-radius: 3px;
+  color: #2E9ADB;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  transition: color 0.175s ease-in-out, background 0.175s ease-in-out;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .n-item {
   position: relative;
   padding-right: 40px !important;
@@ -164,6 +207,10 @@
   color: #337ab7;
   font-size: 14px;
   text-decoration: none;
+}
+
+.n-item__link.is-active {
+  text-decoration: underline;
 }
 
 .n-item__title {
@@ -277,10 +324,11 @@
   left: 0;
   right: 0;
   padding: 20px;
+  text-align: center;
 }
 
 .n-items__footer .btn {
-  margin-right: 20px;
+  margin: 0 5px;
 }
 
 .n-items .checkbox {
@@ -314,6 +362,10 @@
   padding: 10px 0;
 }
 
+.n-table-wrapper .n-table-wrapper__label {
+  margin-bottom: 0;
+}
+
 .n-table__head, .n-table__row {
   font-size: 0;
   *zoom: 1;
@@ -338,7 +390,11 @@
 }
 
 .n-table__head[data-row="option"] .n-table__col[data-column="ingredients-qty"], .n-table__row[data-row="option"] .n-table__col[data-column="ingredients-qty"] {
-  width: 73px;
+  width: 113px;
+}
+
+.n-table__head[data-row="option"] .n-table__col[data-column="ingredients-uom"], .n-table__row[data-row="option"] .n-table__col[data-column="ingredients-uom"] {
+  width: 80px;
 }
 
 .n-table__row:hover {
@@ -417,9 +473,20 @@
 }
 
 .n-module {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding-top: 166px;
   height: 100%;
+  background: #fff;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.4s ease-in-out;
+}
+
+.n-module.is-open {
+  transform: translate3d(0, 0, 0);
 }
 
 .n-module_filters {
@@ -436,11 +503,13 @@
 
 .n-module__back {
   float: left;
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
 }
 
 .n-module__title {
-  overflow: hidden;
-  padding: 9px 0 10px;
+  padding: 9px 120px 10px;
   color: #999;
   font-size: 24px;
   text-align: center;
@@ -501,6 +570,18 @@
   width: 75%;
 }
 
+.n-pane__inner {
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.n-pane__inner.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .n-columns-layout {
   position: relative;
   min-width: 1180px;
@@ -550,12 +631,42 @@
 }
 
 .n-section {
+  position: relative;
   padding: 20px;
 }
 
-.n-section_container {
+.n-section_step {
+  padding: 0 0 93px;
+  height: 100%;
+}
+
+.n-section__body {
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+}
+
+.n-section__container {
   margin: 0 auto;
   max-width: 800px;
+}
+
+.n-section__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.n-section__footer .form-buttons {
+  margin: 0;
+}
+
+.n-section__footer .form-buttons > .btn,
+.n-section__footer .form-buttons > .btn:last-child {
+  margin: 0 5px;
 }
 
 .n-box {
@@ -564,6 +675,11 @@
 
 .n-label {
   display: block;
+}
+
+.n-label_bold {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .n-radio-container {
@@ -596,10 +712,7 @@
 
 .n-modifiers .pane-left {
   background: #f6f4f4;
-  padding: 20px;
   width: 40%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .n-modifiers .pane-right {

@@ -1,6 +1,8 @@
 .n-table-wrapper
 	&__add
 		padding: 10px 0
+	.n-table-wrapper__label
+		margin-bottom: 0
 
 .n-table
 	&__head,
@@ -17,7 +19,9 @@
 				&[data-column="ingredients-name"]
 					width: 44%
 				&[data-column="ingredients-qty"]
-					width: 73px
+					width: 113px
+				&[data-column="ingredients-uom"]
+					width: 80px
 	&__row
 		+hover
 			background: #F3F9FD

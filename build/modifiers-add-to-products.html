@@ -36,43 +36,45 @@
             <div class="pane-body-wrapper n-modifiers">
               <div class="n-columns-layout">
                 <div class="pane pane-left">
-                  <!-- begin n-search -->
-                  <div class="n-search">
-                    <div class="n-search__aside"> <a href="#" class="n-link n-search__link">New modifier</a> </div>
-                    <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search Modifiers" /> </div>
+                  <div class="n-pane__inner is-disabled">
+                    <!-- begin n-search -->
+                    <div class="n-search">
+                      <div class="n-search__aside"> <a href="#" class="n-link n-search__link">New modifier</a> </div>
+                      <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search For Ingredient" /> </div>
+                    </div>
+                    <!-- end n-search -->
+                    <!-- begin n-list -->
+                    <ul class="list n-list">
+                      <li class="item n-item is-active"> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link is-active">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Toppings</div>
+                      </li>
+                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link ">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Sizes</div>
+                      </li>
+                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
+                        <ul class="n-item__actions">
+                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
+                          <li class="n-item__action"><a href="#" class="n-item__link ">Add to products</a></li>
+                        </ul>
+                        <div class="n-item__title">Icecream Flafors</div>
+                      </li>
+                    </ul>
+                    <!-- end n-list -->
                   </div>
-                  <!-- end n-search -->
-                  <!-- begin n-list -->
-                  <ul class="list n-list">
-                    <li class="item n-item is-active"> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Toppings</div>
-                    </li>
-                    <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Sizes</div>
-                    </li>
-                    <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                      <ul class="n-item__actions">
-                        <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                        <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                      </ul>
-                      <div class="n-item__title">Icecream Flafors</div>
-                    </li>
-                  </ul>
-                  <!-- end n-list -->
                 </div>
                 <div class="pane pane-right">
-                  <div class="n-module n-module_filters">
+                  <div class="n-module n-module_filters is-open">
                     <div class="n-module__header">
                       <!-- begin n-search -->
                       <div class="n-search">
@@ -121,11 +123,7 @@
                       <!-- end n-filters -->
                     </div>
                     <div class="n-module__body">
-                      <!-- 5 colums = data-size="xs"  -->
-                      <!-- 4 colums = data-size="sm"  -->
-                      <!-- 3 colums = data-size="md"  -->
-                      <!-- 2 colums = data-size="lg" or without data-size (lg is default sizes)  -->
-                      <div class="n-items" data-size="xs">
+                      <div class="n-items">
                         <div class="n-items__head">
                           <div class="n-items__checkbox">
                             <div class="checkbox"> <input type="checkbox" id="all-ingredients"> <label for="all-ingredients"></label> </div>
@@ -133,9 +131,6 @@
                           <div class="n-items__table">
                             <div class="n-items__tr">
                               <div class="n-items__col">Product Name</div>
-                              <div class="n-items__col">Department</div>
-                              <div class="n-items__col">Category</div>
-                              <div class="n-items__col">Inventory type</div>
                               <div class="n-items__col">Group Names</div>
                             </div>
                           </div>
@@ -148,9 +143,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Soup</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">vegetables, salt</div>
                               </div>
                             </div>
@@ -162,9 +154,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Hamburger</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">burgers</div>
                               </div>
                             </div>
@@ -176,10 +165,7 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Pizza</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
-                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                                <div class="n-items__col">sizes</div>
                               </div>
                             </div>
                           </div>
@@ -190,9 +176,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Soup</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">vegetables, salt</div>
                               </div>
                             </div>
@@ -204,9 +187,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Hamburger</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">burgers</div>
                               </div>
                             </div>
@@ -218,10 +198,7 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Pizza</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
-                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                                <div class="n-items__col">sizes</div>
                               </div>
                             </div>
                           </div>
@@ -232,9 +209,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Soup</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">vegetables, salt</div>
                               </div>
                             </div>
@@ -246,9 +220,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Hamburger</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">burgers</div>
                               </div>
                             </div>
@@ -260,10 +231,7 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Pizza</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
-                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                                <div class="n-items__col">sizes</div>
                               </div>
                             </div>
                           </div>
@@ -274,9 +242,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Soup</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">vegetables, salt</div>
                               </div>
                             </div>
@@ -288,9 +253,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Hamburger</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">burgers</div>
                               </div>
                             </div>
@@ -302,10 +264,7 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Pizza</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
-                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                                <div class="n-items__col">sizes</div>
                               </div>
                             </div>
                           </div>
@@ -316,9 +275,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Soup</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">vegetables, salt</div>
                               </div>
                             </div>
@@ -330,9 +286,6 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Hamburger</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
                                 <div class="n-items__col">burgers</div>
                               </div>
                             </div>
@@ -344,10 +297,7 @@
                             <div class="n-items__table">
                               <div class="n-items__tr">
                                 <div class="n-items__col">Pizza</div>
-                                <div class="n-items__col">ASDasd1!</div>
-                                <div class="n-items__col">1122h!</div>
-                                <div class="n-items__col">Inventory</div>
-                                <div class="n-items__col">sizes <span class="n-items__more">(+ corn, mashrooms)</span></div>
+                                <div class="n-items__col">sizes</div>
                               </div>
                             </div>
                           </div>

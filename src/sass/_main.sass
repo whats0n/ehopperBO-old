@@ -1,3 +1,14 @@
+.n-pane
+	&__inner
+		height: 100%
+		padding: 20px
+		overflow-y: auto
+		overflow-x: hidden
+		&.is-disabled
+			opacity: 0.5
+			pointer-events: none
+
+
 .n-columns-layout
 	position: relative
 	min-width: 1180px
@@ -36,16 +47,39 @@
 
 //containers
 .n-section
+	position: relative
 	padding: 20px
-	&_container
+	&_step
+		padding: 0 0 93px
+		height: 100%
+	&__body
+		padding: 20px
+		height: 100%
+		overflow: auto
+	&__container
 		margin: 0 auto
 		max-width: 800px
+	&__footer
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		padding: 20px
+		text-align: center
+		.form-buttons 
+			margin: 0
+			> .btn,
+			> .btn:last-child
+				margin: 0 5px
 
 .n-box
 	padding-bottom: 20px
 
 .n-label
 	display: block
+	&_bold
+		font-weight: bold
+		margin-bottom: 8px
 
 .n-radio-container
 	padding-bottom: 10px
@@ -64,10 +98,7 @@
 .n-modifiers
 	.pane-left
 		background: #f6f4f4
-		padding: 20px
 		width: 40%
-		overflow-y: auto
-		overflow-x: hidden
 	.pane-right
 		margin-left: 40%
 		overflow-y: auto

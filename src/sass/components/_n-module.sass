@@ -1,7 +1,16 @@
 .n-module
-	position: relative
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
 	padding-top: 166px
 	height: 100%
+	background: $white
+	transform: translate3d(-100%,0,0)
+	transition: transform 0.4s ease-in-out
+	&.is-open
+		+gpu
 	&_filters
 		padding-top: 191px
 	&__header
@@ -11,10 +20,12 @@
 		right: 0
 		padding: 20px
 	&__back
-		float: left 
+		float: left
+		width: 120px 
+		min-width: 120px 
+		max-width: 120px 
 	&__title
-		overflow: hidden
-		padding: 9px 0 10px
+		padding: 9px 120px 10px
 		color: #999
 		font-size: 24px
 		text-align: center

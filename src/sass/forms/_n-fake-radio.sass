@@ -1,0 +1,28 @@
+.n-fake-radio
+	position: relative
+	font-size: 0
+	&_block
+		display: block
+		.n-fake-radio__content
+			display: block
+	input
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		&:checked + .n-fake-radio__content
+			color: $white
+			background: #2E9ADB
+	&__content
+		display: inline-block
+		vertical-align: top
+		padding: 15px 21px
+		border: 1px solid #2E9ADB
+		border-radius: 3px
+		color: #2E9ADB
+		font-size: 16px
+		line-height: 21px
+		text-align: center
+		transition: color 0.175s ease-in-out, background 0.175s ease-in-out
+		cursor: pointer
+		+nosel
