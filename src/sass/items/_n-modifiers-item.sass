@@ -1,0 +1,44 @@
+.n-modifiers-item
+	padding: 10px 10px 15px
+	margin: 0 -10px
+	+hover
+		background: #F3F9FD
+	&__row
+		margin: 0 -10px
+		+clr
+	&__col
+		position: relative
+		float: left
+		padding: 10px
+		&[data-column="name"]
+			padding-left: 50px
+			width: 320px
+		&[data-column="toggle"]
+			width: 180px
+		&[data-column="close"]
+			width: 25px
+			height: 73px
+	&__close
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+	&__i-draggble
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		width: 40px
+		background: url('../content/images/modifiers/drag-modifier-inactive.png') center center no-repeat
+		cursor: move
+	&__label
+		padding-left: 40px
+	&__options
+		padding-left: 40px
+	.n-table__row
+		+hover
+			background: darken(#F3F9FD, 3%)
+	.n-table__inner
+		.n-table__row
+			+hover
+				background: darken(#F3F9FD, 6%)

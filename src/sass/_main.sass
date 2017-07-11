@@ -44,6 +44,40 @@
 	i
 		font-size: 16px
 
+.n-btn-toggle
+	position: relative
+	display: inline-block
+	vertical-align: top
+	padding: 15px 15px 15px 15px
+	border: none
+	width: 160px
+	color: $blue
+	background: none
+	font-size: 16px
+	text-align: left
+	&.is-active
+		.n-btn-toggle
+			&__show
+				display: none
+			&__hide
+				display: inline-block
+			&__arrow
+				transform: rotate(180deg)
+	&__show
+		display: inline-block
+	&__hide
+		display: none
+	&__show,
+	&__hide
+		vertical-align: top
+	&__arrow
+		display: inline-block
+		vertical-align: top
+		margin-left: 5px
+		font-size: 22px
+		+gpu
+		transition: transform 0.175s ease-in-out
+		
 
 //containers
 .n-section
@@ -120,3 +154,19 @@
 				position: absolute
 				left: 7px
 				color: silver
+
+//product modifiers
+.n-modifiers-container
+	max-width: 650px
+.n-modifiers-section
+	margin-bottom: 20px
+	+clr
+	&__btn
+		padding-left: 20px
+.n-modifiers-block
+	&__title
+		padding: 10px 0
+		margin-bottom: 20px
+		border-bottom: 2px solid #eee
+		color: $blue
+		font-size: 20px
