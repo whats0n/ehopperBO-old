@@ -78,13 +78,13 @@
                     <div class="n-section__body">
                       <div class="n-section__container">
                         <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
-                        <div class="n-form-group n-box" data-bind="validationOptions: { insertMessages: false }"> <label class="n-label n-label_bold">Group Name:</label>
+                        <div class="n-form-group n-box" data-bind="validationOptions: { insertMessages: false }"> <label class="n-label n-label_title">Group Name:</label>
                           <div class="n-form-group__field"> <input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name"> </div>
                           <p class="validationMessage">Error message</p>
                         </div>
-                        <div class="n-container">
+                        <div class="n-container n-section__radios">
                           <div class="n-row">
-                            <div class="n-col"> <label class="n-label n-label_bold">Select option type:</label> </div>
+                            <div class="n-col"> <label class="n-label n-label_title">Select option type:</label> </div>
                             <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
 											<input type="radio" value="1" id="default_0_1" name="ko_unique_1" checked>
 											<span class="n-fake-radio__content">one option</span>
@@ -99,7 +99,7 @@
 										</label> <label class="n-label" for="default_0_3">eg: No salt, No sugar</label> </div>
                           </div>
                         </div>
-                        <div class="n-table-wrapper"> <label class="n-label n-label_bold n-table-wrapper__label">Add options:</label>
+                        <div class="n-table-wrapper"> <label class="n-label n-label_title n-table-wrapper__label">Add options:</label>
                           <div class="n-table">
                             <div class="n-table__head" data-row="option">
                               <div class="n-table__col" data-column="option-name">Option:</div>
@@ -164,10 +164,7 @@
                     </div>
                   </div>
                   <div class="n-module " data-modal-container="add-ingredient">
-                    <div class="n-module__header"> <button class="n-back btn btn-lg btn-primary n-module__back" data-modal-close="add-ingredient">
-			<i class="fa fa-arrow-left"></i>
-			<span>Back</span>
-		</button>
+                    <div class="n-module__header">
                       <div class="n-module__title">Add ingredients to "Bun" option</div>
                       <!-- begin n-search -->
                       <div class="n-search n-module__search">

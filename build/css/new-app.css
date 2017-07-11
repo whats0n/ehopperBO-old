@@ -363,7 +363,7 @@
 }
 
 .n-table-wrapper .n-table-wrapper__label {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .n-table__head, .n-table__row {
@@ -501,18 +501,11 @@
   padding: 20px;
 }
 
-.n-module__back {
-  float: left;
-  width: 120px;
-  min-width: 120px;
-  max-width: 120px;
-}
-
 .n-module__title {
-  padding: 9px 120px 10px;
+  padding: 9px 0 10px;
   color: #999;
   font-size: 24px;
-  text-align: center;
+  text-align: left;
 }
 
 .n-module__search, .n-module__filters {
@@ -669,6 +662,10 @@
   margin: 0 5px;
 }
 
+.n-section__radios {
+  max-width: 600px;
+}
+
 .n-box {
   padding-bottom: 20px;
 }
@@ -677,9 +674,9 @@
   display: block;
 }
 
-.n-label_bold {
-  font-weight: bold;
-  margin-bottom: 8px;
+.n-label_title {
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .n-radio-container {
