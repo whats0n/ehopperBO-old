@@ -410,6 +410,18 @@
   padding-left: 40px;
 }
 
+.n-modifiers-item__content {
+  display: none;
+}
+
+.n-modifiers-item__content.is-open {
+  display: block;
+}
+
+.n-modifiers-item__radios {
+  padding: 10px 0 0;
+}
+
 .n-modifiers-item .n-table__row:hover {
   background: #e6f2fb;
 }
@@ -881,7 +893,7 @@
 }
 
 .n-modifiers-section__btn {
-  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .n-modifiers-block__title {

@@ -47,7 +47,15 @@ addIngredients: 'is-open'
 
 			<div class="tab-content" id="modifiersTab">
 				<div class="n-modifiers-container">
-					<div class="n-modifiers-section">
+					{% set modifiers = {
+						columns: [ 'name', 'toggle', 'close' ],
+						items: [
+							{ name: 'Size' },
+							{ name: 'Toppings', open: 'is-open', active: 'is-active' }
+						]
+					} %}
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Choose a store</div>
 						<div class="pull-left">
 							<select id="store_select">
 								<option value="All">All Stores</option>
@@ -60,26 +68,32 @@ addIngredients: 'is-open'
 								<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 							</select>
 						</div>
-						<div class="pull-right n-modifiers-section__btn">
+					</div>
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Add modifiers</div>
+						<div class="pull-left n-modifiers-section__btn">
 							<input class="btn btn-lg btn-primary" type="button" value="Copy Existing">
 						</div>
-						<div class="pull-right n-modifiers-section__btn">
+						<div class="pull-left n-modifiers-section__btn">
 							<input class="btn btn-lg btn-primary" type="button" value="Create New">
 						</div>
 					</div>
-					{% set modifiers = {
-						columns: [ 'name', 'toggle', 'close' ],
-						items: [
-							{ name: 'Size' },
-							{ name: 'Toppings', open: 'is-open', active: 'is-active' }
-						]
-					} %}
 					<div class="n-modifiers-block">
 						<div class="n-modifiers-block__title">Current Modifiers</div>
+						<div class="n-modifiers-block__lang">
+							<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true">
+								<a class="selected">English</a>
+								<a>Custom</a>
+								<a>Español</a>
+								<a>Français</a>
+								<a>Русский</a>
+							</div>
+						</div>
 						<div class="n-modifiers-items">
 							{% for item in modifiers.items %}
-								<div class="n-modifiers-item">
-									<label class="n-label n-modifiers-item__label" for="modifier-name-{{loop.index}}">Modifiers Name:</label>
+								{% set index = loop.index + '' %}
+								<div class="n-modifiers-item js-toggle">
+									<label class="n-label n-modifiers-item__label" for="modifier-name-{{loop.index}}">Group Name:</label>
 									<div class="n-modifiers-item__row">
 										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[0]}}">
 											<i class="n-modifiers-item__i-draggble"></i>
@@ -91,7 +105,7 @@ addIngredients: 'is-open'
 												data-lang="EN">
 										</div>
 										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[1]}}">
-											<button class="n-btn-toggle {{item.active}}">
+											<button class="n-btn-toggle js-toggle-btn">
 												<span class="n-btn-toggle__show">Show Options</span>
 												<span class="n-btn-toggle__hide">Hide Options</span>
 												<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
@@ -101,8 +115,32 @@ addIngredients: 'is-open'
 											<input class="n-modifiers-item__close delete-row-button" type="button">
 										</div>
 									</div>
-									{% if item.open %}
+									<div class="n-modifiers-item__content js-toggle-container">
+										<div class="n-container n-modifiers-item__radios">
+											<div class="n-row">
+												<div class="n-col">
+													<label class="n-label n-label_title">Select option type:</label>
+												</div>
+												
+												{% set choice = [
+													{ title: 'one option', description: 'eg: small, medium, large', attrs: 'checked' },
+													{ title: 'multiple options', description: 'eg: cheese, sousage' },
+													{ title: 'NO options', description: 'eg: No salt, No sugar' }
+												] %}
+
+												{% for item in choice %}
+													<div class="n-col n-col_sm n-radio-container">
+														<label class="n-fake-radio n-fake-radio_block">
+															<input type="radio" value="{{loop.index}}" id="default_0_{{index + loop.index}}" name="ko_unique_1{{index}}" {{item.attrs | safe}}>
+															<span class="n-fake-radio__content">{{item.title}}</span>
+														</label>
+														<label class="n-label" for="default_0_{{index + loop.index}}">{{item.description}}</label>
+													</div>
+												{% endfor %}
+											</div>
+										</div>
 										<div class="n-modifiers-item__options n-table-wrapper">
+											<label class="n-label n-label_title n-table-wrapper__label">Add options:</label>
 											{% set table = {
 												columns: [ 'option-name', 'option-price', 'auto', 'close' ],
 												ingredientsColumns: [ 'ingredients-name', 'ingredients-qty', 'ingredients-uom' ]
@@ -193,7 +231,11 @@ addIngredients: 'is-open'
 												<a href="#"><i class="fa fa-plus"></i> Add an option</a>
 											</div>
 										</div>
-									{% endif %}
+										<div class="checkbox">
+											<input type="checkbox" checked id="isActive_0">
+											<label for="isActive_0">Is Active</label>
+										</div>
+									</div>
 								</div>
 							{% endfor %}
 						</div>
