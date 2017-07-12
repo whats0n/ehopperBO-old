@@ -563,7 +563,7 @@
 }
 
 .n-module_filters {
-  padding-top: 191px;
+  padding-top: 284px;
 }
 
 .n-module__header {
@@ -579,6 +579,11 @@
   color: #999;
   font-size: 24px;
   text-align: left;
+}
+
+.n-module__description {
+  padding-bottom: 20px;
+  font-size: 14px;
 }
 
 .n-module__search, .n-module__filters {
