@@ -60,6 +60,15 @@
   line-height: 53px;
   font-size: 16px;
   text-align: center;
+  text-decoration: none;
+}
+
+.n-search__btn:hover, .n-search__link:hover {
+  text-decoration: underline;
+}
+
+.n-search__btn.is-active, .n-search__link.is-active {
+  text-decoration: underline;
 }
 
 .n-form-group__field {
@@ -623,6 +632,19 @@
   height: 100%;
 }
 
+.n-modal__header {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.n-modal__title {
+  padding: 9px 0 10px;
+  color: #999;
+  font-size: 24px;
+  text-align: center;
+}
+
 .n-container {
   *zoom: 1;
 }
@@ -700,7 +722,6 @@
   vertical-align: top;
   color: #337ab7;
   font-size: inherit;
-  text-decoration: underline;
 }
 
 .n-add a {
@@ -795,7 +816,7 @@
 
 .n-section__container {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .n-section__footer {
