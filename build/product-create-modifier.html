@@ -35,8 +35,11 @@
               <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b> </div>
             <div class="pane-body-wrapper ">
               <!-- begin n-modal -->
-              <div class="n-modal " data-modal-container="create-modifier">
-                <div class="n-modal__header">
+              <div class="n-modal is-open" data-modal-container="create-modifier">
+                <div class="n-modal__header"> <button class="n-back btn btn-lg btn-primary n-modal__back" data-modal-close="create-modifier">
+			<i class="fa fa-arrow-left"></i>
+			<span>Back</span>
+		</button>
                   <div class="n-modal__title">Create new modifier</div>
                 </div>
                 <div class="n-section n-section_step">
