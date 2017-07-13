@@ -4,7 +4,6 @@
 	left: 0
 	right: 0
 	bottom: 0
-	padding-top: 166px
 	height: 100%
 	background: $white
 	transform: translate3d(-100%,0,0)
@@ -13,9 +12,11 @@
 		+gpu
 	&_filters
 		// padding-top: 191px
-		padding-top: 284px
+		.n-module__container
+			padding-top: 244px
 	&_simple
-		padding-top: 146px
+		.n-module__container
+			padding-top: 93px
 	&__header
 		position: absolute
 		top: 0
@@ -39,4 +40,10 @@
 	&__filters
 		padding-top: 20px
 	&__body
+		height: 100%
+	&__container
+		position: relative
+		padding-top: 166px
+		margin: 0 auto
+		max-width: 800px
 		height: 100%

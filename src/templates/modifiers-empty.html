@@ -10,16 +10,7 @@ paneBodyWrapperClassList: 'menu-builder'
 		<div class="pane pane-left">
 			<div class="n-pane__inner">
 
-				<!-- begin n-search -->
-				<div class="n-search">
-					<div class="n-search__aside">
-						<a href="#" class="n-link n-search__link">New modifier</a>
-					</div>
-					<div class="n-search__field">
-						<input type="text" class="form-control input-lg" placeholder="Search Modifiers" />
-					</div>
-				</div>
-				<!-- end n-search -->
+				{% include 'partials/components/_n-search.html' %}
 
 				{% set list = [
 					{ title: 'Toppings', active: 'is-active' },

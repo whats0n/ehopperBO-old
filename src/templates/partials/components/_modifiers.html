@@ -1,0 +1,28 @@
+<div class="n-section n-section_step">
+	<div class="n-section__body">
+		<div class="n-section__container">
+			<div class="language-selector">
+				<a class="selected">English</a>
+				<a>Ukrainian</a>
+				<a>Russian</a>
+			</div>
+			<div class="n-form-group n-box">
+				<label class="n-label n-label_title">Modifier Group Name:</label>
+				<div class="n-form-group__field">
+					<input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name">
+				</div>
+				<p class="validationMessage">Error message</p>
+			</div>
+			{% set radiosClassList = 'n-section__radios' %}
+			{% set radiosName = 'modifiers' %}
+			{% include 'partials/components/_radios.html' %}
+			{% include 'partials/components/_n-table-wrapper.html' %}
+		</div>
+	</div>
+	<div class="n-section__footer">
+		<div class="form-buttons">
+			<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+			<input class="btn btn-lg btn-default" type="button" value="Cancel">
+		</div>
+	</div>
+</div>

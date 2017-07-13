@@ -10,16 +10,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 		<div class="pane pane-left">
 			<div class="n-pane__inner is-disabled">
 			
-				<!-- begin n-search -->
-				<div class="n-search">
-					<div class="n-search__aside">
-						<a href="#" class="n-link n-search__link">New modifier</a>
-					</div>
-					<div class="n-search__field">
-						<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
-					</div>
-				</div>
-				<!-- end n-search -->
+				{% include 'partials/components/_n-search.html' %}
 
 				{% set list = [
 					{ title: 'Toppings', active: 'is-active' },
@@ -47,108 +38,109 @@ paneBodyWrapperClassList: 'n-modifiers'
 		</div>
 		<div class="pane pane-right">
 			<div class="n-module n-module_filters is-open">
-				<div class="n-module__header">
-					<div class="n-module__title">Add "Toppings" modifier's selected options to products</div>
-					<div class="n-module__description"><strong>Note:</strong> If product already has selected options, their price will be overwritten</div>
-					<!-- begin n-search -->
-					<div class="n-search">
-						<div class="n-search__field">
-							<input type="text" class="form-control input-lg" placeholder="Search product by title of code" />
+				<div class="n-module__container">
+					<div class="n-module__header">
+						<div class="n-module__title">Add "Toppings" selected modifiers to products</div>
+						<!-- begin n-search -->
+						<div class="n-search">
+							<div class="n-search__field">
+								<input type="text" class="form-control input-lg" placeholder="Search product by title of code" />
+							</div>
 						</div>
-					</div>
-					<!-- end n-search -->
+						<!-- end n-search -->
 
-					<!-- begin n-filters -->
-					<div class="n-filters n-module__filters">
-						<div class="n-filters__row">
-							<div class="n-filters__col n-filters__col_sm">
-								<label class="n-filters__label">Department:</label>
-								<div class="n-filters__field">
-									<select>
-										<option value="">All</option>
-										<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-										<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-										<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-										<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-									</select>
-								</div>
-							</div>
-							<div class="n-filters__col n-filters__col_sm">
-								<label class="n-filters__label">Category:</label>
-								<div class="n-filters__field">
-									<select>
-										<option value="">All</option>
-										<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-										<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-										<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-										<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-									</select>
-								</div>
-							</div>
-							<div class="n-filters__col n-filters__col_sm">
-								<label class="n-filters__label">Inventory Type:</label>
-								<div class="n-filters__field">
-									<select id="ddlInventoryTypeFilter" data-bind="options: inventoryTypes, optionsText: 'name', optionsValue: 'id', multipleSelect: inventoryTypes, multipleSelectOptions: inventoryTypeFilterOptions, selectedElements: inventorySelected" style="display: none;"><option value="0">Inventory</option><option value="2">Non-Inventory</option><option value="1">Serialized</option><option value="3">Matrix</option></select><div class="ms-parent"><button type="button" class="select"><div class="fl"><span id="txtMs_undefined" class="placeholder sph tl"> Inventory Type</span><div><div></div></div></div></button><div class="ms-drop bottom" style="display: none;"><ul style="max-height: 250px;"><li><input type="checkbox" name="selectItem" value="0" id="InventoryddlInventoryTypeFilter"> <label for="InventoryddlInventoryTypeFilter">Inventory</label></li><li><input type="checkbox" name="selectItem" value="2" id="Non-InventoryddlInventoryTypeFilter"> <label for="Non-InventoryddlInventoryTypeFilter">Non-Inventory</label></li><li><input type="checkbox" name="selectItem" value="1" id="SerializedddlInventoryTypeFilter"> <label for="SerializedddlInventoryTypeFilter">Serialized</label></li><li><input type="checkbox" name="selectItem" value="3" id="MatrixddlInventoryTypeFilter"> <label for="MatrixddlInventoryTypeFilter">Matrix</label></li><li class="ms-no-results" style="display: none;">No matches found</li></ul></div></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- end n-filters -->
-				</div>
-				<div class="n-module__body">
-					{% set items = {
-						columns: [ 'default', 'default', 'default', 'default', 'default' ],
-						rows: [
-							{ title: 'Soup', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'vegetables, salt' },
-							{ title: 'Hamburger', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'burgers' },
-							{ title: 'Pizza', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'sizes' }
-						]
-					} %}
-					<div class="n-items">
-						<div class="n-items__head">
-							<div class="n-items__checkbox">
-								<div class="checkbox">
-									<input type="checkbox" id="all-ingredients">
-									<label for="all-ingredients"></label>
-								</div>
-							</div>
-							<div class="n-items__table">
-								<div class="n-items__tr">
-									<div class="n-items__col">Product Name</div>
-									{#<div class="n-items__col">Department</div>
-									<div class="n-items__col">Category</div>
-									<div class="n-items__col">Inventory type</div>#}
-									<div class="n-items__col">Group Names</div>
-								</div>
-							</div>
-						</div>
-						<div class="n-items__body">
-							{% for item in range(0,5) %}
-								{% set active = loop.index + '' %}
-								{% for item in items.rows %}
-									<div class="n-items__row">
-										<div class="n-items__checkbox">
-											<div class="checkbox">
-												<input type="checkbox" id="ingredient-{{active + loop.index}}">
-												<label for="ingredient-{{active + loop.index}}"></label>
-											</div>
-										</div>
-										<div class="n-items__table">
-											<div class="n-items__tr">
-												<div class="n-items__col">{{item.title}}</div>
-												{#<div class="n-items__col">{{item.department}}</div>
-												<div class="n-items__col">{{item.category}}</div>
-												<div class="n-items__col">{{item.type}}</div>#}
-												<div class="n-items__col">{{item.group | safe}}</div>
-											</div>
-										</div>
+						<!-- begin n-filters -->
+						<div class="n-filters n-module__filters">
+							<div class="n-filters__row">
+								<div class="n-filters__col n-filters__col_sm">
+									<label class="n-filters__label">Department:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
 									</div>
-								{% endfor %}
-							{% endfor %}
+								</div>
+								<div class="n-filters__col n-filters__col_sm">
+									<label class="n-filters__label">Category:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
+									</div>
+								</div>
+								<div class="n-filters__col n-filters__col_sm">
+									<label class="n-filters__label">Inventory Type:</label>
+									<div class="n-filters__field">
+										<select id="ddlInventoryTypeFilter" data-bind="options: inventoryTypes, optionsText: 'name', optionsValue: 'id', multipleSelect: inventoryTypes, multipleSelectOptions: inventoryTypeFilterOptions, selectedElements: inventorySelected" style="display: none;"><option value="0">Inventory</option><option value="2">Non-Inventory</option><option value="1">Serialized</option><option value="3">Matrix</option></select><div class="ms-parent"><button type="button" class="select"><div class="fl"><span id="txtMs_undefined" class="placeholder sph tl"> Inventory Type</span><div><div></div></div></div></button><div class="ms-drop bottom" style="display: none;"><ul style="max-height: 250px;"><li><input type="checkbox" name="selectItem" value="0" id="InventoryddlInventoryTypeFilter"> <label for="InventoryddlInventoryTypeFilter">Inventory</label></li><li><input type="checkbox" name="selectItem" value="2" id="Non-InventoryddlInventoryTypeFilter"> <label for="Non-InventoryddlInventoryTypeFilter">Non-Inventory</label></li><li><input type="checkbox" name="selectItem" value="1" id="SerializedddlInventoryTypeFilter"> <label for="SerializedddlInventoryTypeFilter">Serialized</label></li><li><input type="checkbox" name="selectItem" value="3" id="MatrixddlInventoryTypeFilter"> <label for="MatrixddlInventoryTypeFilter">Matrix</label></li><li class="ms-no-results" style="display: none;">No matches found</li></ul></div></div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="n-items__footer">
-							<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Copy">
-							<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+						<!-- end n-filters -->
+					</div>
+					<div class="n-module__body">
+						{% set items = {
+							columns: [ 'default', 'default', 'default', 'default', 'default' ],
+							rows: [
+								{ title: 'Soup', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'vegetables, salt' },
+								{ title: 'Hamburger', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'burgers' },
+								{ title: 'Pizza', department: 'ASDasd1!', category: '1122h!', type: 'Inventory', group: 'sizes' }
+							]
+						} %}
+						<div class="n-items">
+							<div class="n-items__head">
+								<div class="n-items__checkbox">
+									<div class="checkbox">
+										<input type="checkbox" id="all-ingredients">
+										<label for="all-ingredients"></label>
+									</div>
+								</div>
+								<div class="n-items__table">
+									<div class="n-items__tr">
+										<div class="n-items__col">Product Name</div>
+										{#<div class="n-items__col">Department</div>
+										<div class="n-items__col">Category</div>
+										<div class="n-items__col">Inventory type</div>#}
+										<div class="n-items__col">Modifier Group Names</div>
+									</div>
+								</div>
+							</div>
+							<div class="n-items__body">
+								{% for item in range(0,5) %}
+									{% set active = loop.index + '' %}
+									{% for item in items.rows %}
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-{{active + loop.index}}">
+													<label for="ingredient-{{active + loop.index}}"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">{{item.title}}</div>
+													{#<div class="n-items__col">{{item.department}}</div>
+													<div class="n-items__col">{{item.category}}</div>
+													<div class="n-items__col">{{item.type}}</div>#}
+													<div class="n-items__col">{{item.group | safe}}</div>
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								{% endfor %}
+							</div>
+							<div class="n-items__footer">
+								<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Copy">
+								<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+							</div>
 						</div>
 					</div>
 				</div>

@@ -14,7 +14,7 @@
 			padding-left: 50px
 			width: 320px
 		&[data-column="toggle"]
-			width: 180px
+			width: 195px
 		&[data-column="close"]
 			width: 25px
 			height: 73px
@@ -41,6 +41,14 @@
 			display: block
 	&__radios
 		padding: 10px 0 0
+	.n-table__head[data-row="option"] 
+	.n-table__row[data-row="option"]
+		.n-table
+			&__col
+				&[data-column="option-name"]
+					width: 53%
+				&[data-column="ingredients-name"]
+					width: 47%
 	.n-table__row
 		+hover
 			background: darken(#F3F9FD, 3%)

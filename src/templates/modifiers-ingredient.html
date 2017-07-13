@@ -2,6 +2,7 @@
 title: Modifiers Ingredient
 headerTitle: Modifiers
 paneBodyWrapperClassList: 'n-modifiers'
+modifiersIngredients: true
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -10,16 +11,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 		<div class="pane pane-left">
 			<div class="n-pane__inner is-disabled">
 			
-				<!-- begin n-search -->
-				<div class="n-search">
-					<div class="n-search__aside">
-						<a href="#" class="n-link n-search__link">New modifier</a>
-					</div>
-					<div class="n-search__field">
-						<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
-					</div>
-				</div>
-				<!-- end n-search -->
+				{% include 'partials/components/_n-search.html' %}
 
 				{% set list = [
 					{ title: 'Toppings', active: 'is-active' },
@@ -46,149 +38,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 			</div>
 		</div>
 		<div class="pane pane-right">
-			<div class="n-section n-section_step">
-				<div class="n-section__body">
-					<div class="n-section__container">
-						<div class="language-selector">
-							<a class="selected">English</a>
-							<a>Ukrainian</a>
-							<a>Russian</a>
-						</div>
-						<div class="n-form-group n-box" data-bind="validationOptions: { insertMessages: false }">
-							<label class="n-label n-label_title">Group Name:</label>
-							<div class="n-form-group__field">
-								<input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name">
-							</div>
-							<p class="validationMessage">Error message</p>
-						</div>
-						<div class="n-container n-section__radios">
-							<div class="n-row">
-								<div class="n-col">
-									<label class="n-label n-label_title">Select option type:</label>
-								</div>
-								
-								{% set choice = [
-									{ title: 'one option', description: 'eg: small, medium, large', attrs: 'checked' },
-									{ title: 'multiple options', description: 'eg: cheese, sousage' },
-									{ title: 'NO options', description: 'eg: No salt, No sugar' }
-								] %}
-
-								{% for item in choice %}
-									<div class="n-col n-col_sm n-radio-container">
-										<label class="n-fake-radio n-fake-radio_block">
-											<input type="radio" value="{{loop.index}}" id="default_0_{{loop.index}}" name="ko_unique_1" {{item.attrs | safe}}>
-											<span class="n-fake-radio__content">{{item.title}}</span>
-										</label>
-										<label class="n-label" for="default_0_{{loop.index}}">{{item.description}}</label>
-									</div>
-								{% endfor %}
-							</div>
-						</div>
-						<div class="n-table-wrapper">
-							{% set table = {
-								columns: [ 'option-name', 'option-price', 'auto', 'close' ],
-								ingredientsColumns: [ 'ingredients-name', 'ingredients-qty', 'ingredients-uom' ]
-							} %}
-							<label class="n-label n-label_title n-table-wrapper__label">Add options:</label>
-							<div class="n-table">
-								<div class="n-table__head" data-row="option">
-									<div class="n-table__col" data-column="{{table.columns[0]}}">Option:</div>
-									<div class="n-table__col" data-column="{{table.columns[1]}}">Price:</div>
-								</div>
-								<div class="n-table__body">
-									{% for item in range(0,2) %}
-										<div class="n-table__row" data-row="option">
-											<div class="n-table__col" data-column="{{table.columns[0]}}">
-												<i class="n-table__i-draggble"></i>
-												<input class="form-control input-lg" 
-													type="text" 
-													maxlength="100" 
-													placeholder="Add option" 
-													{% if loop.index == 2 %}value="Hot pepper"{% endif %}
-													data-lang="EN">
-												<span class="fieldError" style="display: none;"></span>
-											</div>
-											<div class="n-table__col" data-column="{{table.columns[1]}}">
-												<input class="form-control input-lg" 
-													type="text" 
-													{% if loop.index == 2 %}
-													value="3"
-													{% else %}
-													value="0.00"
-													{% endif %}>
-												<span class="validationMessage" style="display: none;"></span>
-											</div>
-											<div class="n-table__col" data-column="{{table.columns[3]}}">
-												<input class="n-table__close delete-row-button" type="button">
-											</div>
-											<div class="n-table__inner">
-												{% if loop.index == 2 %}
-													<!-- begin ingredients table -->
-													<div class="n-table">
-														<div class="n-table__head" data-row="option">
-															<div class="n-table__col" data-column="{{table.ingredientsColumns[0]}}">Ingredient:</div>
-															<div class="n-table__col" data-column="{{table.ingredientsColumns[1]}}">Qty:</div>
-															<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">UOM:</div>
-														</div>
-														<div class="n-table__body">
-															{% for item in range(0,2) %}
-																<div class="n-table__row" data-row="option">
-																	<div class="n-table__col" data-column="{{table.ingredientsColumns[0]}}">
-																		<input class="form-control input-lg" 
-																			type="text" 
-																			maxlength="100" 
-																			placeholder="Add ingredient" 
-																			value="{% if loop.index == 1 %}Hot pepper{% else %}Hot souce{% endif %}"
-																			data-lang="EN">
-																		<span class="fieldError" style="display: none;"></span>
-																	</div>
-																	<div class="n-table__col" data-column="{{table.ingredientsColumns[1]}}">
-																		<input class="form-control input-lg" 
-																			type="text" 
-																			value="{% if loop.index == 1 %}1{% else %}0.05{% endif %}">
-																		<span class="validationMessage" style="display: none;"></span>
-																	</div>
-																	<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">
-																		<div class="n-table__unit"><span>{% if loop.index == 1 %}it{% else %}l{% endif %}</span></div>
-																	</div>
-																	<div class="n-table__col" data-column="{{table.columns[3]}}">
-																		<input class="n-table__close delete-row-button" type="button">
-																	</div>
-																</div>
-															{% endfor %}
-														</div>
-													</div>
-													<!-- end ingredients table -->
-													<div class="n-add n-table__add">
-														<a href="#" data-modal-target="add-ingredient"><i class="fa fa-plus"></i> Add an ingredient</a>
-													</div>
-												{% else %}
-													<div class="n-add n-table__add">
-														<a href="#" data-modal-target="add-ingredient"><i class="fa fa-plus"></i> Add an ingredient</a>
-													</div>
-												{% endif %}
-											</div>
-										</div>
-									{% endfor %}
-								</div>
-							</div>
-							<div class="n-add n-table-wrapper__add">
-								<a href="#"><i class="fa fa-plus"></i> Add an option</a>
-							</div>
-						</div>
-						<div class="checkbox">
-							<input type="checkbox" checked id="isActive_0">
-							<label for="isActive_0">Is Active</label>
-						</div>
-					</div>
-				</div>
-				<div class="n-section__footer">
-					<div class="form-buttons">
-						<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
-						<input class="btn btn-lg btn-default" type="button" value="Cancel">
-					</div>
-				</div>
-			</div>
+			{% include 'partials/components/_modifiers.html' %}
 			{% include 'partials/components/_add-ingredients.html' %}
 		</div>
 	</div>

@@ -10,16 +10,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 		<div class="pane pane-left">
 			<div class="n-pane__inner is-disabled">
 			
-				<!-- begin n-search -->
-				<div class="n-search">
-					<div class="n-search__aside">
-						<a href="#" class="n-link n-search__link">New modifier</a>
-					</div>
-					<div class="n-search__field">
-						<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
-					</div>
-				</div>
-				<!-- end n-search -->
+				{% include 'partials/components/_n-search.html' %}
 
 				{% set list = [
 					{ title: 'Toppings', active: 'is-active' },
@@ -47,62 +38,57 @@ paneBodyWrapperClassList: 'n-modifiers'
 		</div>
 		<div class="pane pane-right">
 			<div class="n-module n-module_simple is-open">
-				<div class="n-module__header">
-					<div class="n-module__title">Choose "Modifier name" options for adding to products</div>
-					<!-- begin n-search -->
-					<div class="n-search">
-						<div class="n-search__field">
-							<input type="text" class="form-control input-lg" placeholder="Search For Modifier" />
-						</div>
+				<div class="n-module__container">
+					<div class="n-module__header">
+						<div class="n-module__title">Select "Toppings" modifiers for adding to products</div>
 					</div>
-					<!-- end n-search -->
-				</div>
-				<div class="n-module__body">
-					{% set items = {
-						rows: [
-							{ title: 'Cheese' },
-							{ title: 'Salami' },
-							{ title: 'Chicken' },
-							{ title: 'Bacon' },
-							{ title: 'Pepper' },
-							{ title: 'Tomatoes' },
-							{ title: 'Corn' }
-						]
-					} %}
-					<div class="n-items">
-						<div class="n-items__head">
-							<div class="n-items__checkbox">
-								<div class="checkbox">
-									<input type="checkbox" id="all-ingredients">
-									<label for="all-ingredients"></label>
-								</div>
-							</div>
-							<div class="n-items__table">
-								<div class="n-items__tr">
-									<div class="n-items__col">Option Name</div>
-								</div>
-							</div>
-						</div>
-						<div class="n-items__body">
-							{% for item in items.rows %}
-								<div class="n-items__row">
-									<div class="n-items__checkbox">
-										<div class="checkbox">
-											<input type="checkbox" id="ingredient-{{active + loop.index}}">
-											<label for="ingredient-{{active + loop.index}}"></label>
-										</div>
-									</div>
-									<div class="n-items__table">
-										<div class="n-items__tr">
-											<div class="n-items__col">{{item.title}}</div>
-										</div>
+					<div class="n-module__body">
+						{% set items = {
+							rows: [
+								{ title: 'Cheese' },
+								{ title: 'Salami' },
+								{ title: 'Chicken' },
+								{ title: 'Bacon' },
+								{ title: 'Pepper' },
+								{ title: 'Tomatoes' },
+								{ title: 'Corn' }
+							]
+						} %}
+						<div class="n-items">
+							<div class="n-items__head">
+								<div class="n-items__checkbox">
+									<div class="checkbox">
+										<input type="checkbox" id="all-ingredients">
+										<label for="all-ingredients"></label>
 									</div>
 								</div>
-							{% endfor %}
-						</div>
-						<div class="n-items__footer">
-							<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Next">
-							<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+								<div class="n-items__table">
+									<div class="n-items__tr">
+										<div class="n-items__col">Modifier Name</div>
+									</div>
+								</div>
+							</div>
+							<div class="n-items__body">
+								{% for item in items.rows %}
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-{{active + loop.index}}">
+												<label for="ingredient-{{active + loop.index}}"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">{{item.title}}</div>
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="n-items__footer">
+								<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Next">
+								<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+							</div>
 						</div>
 					</div>
 				</div>

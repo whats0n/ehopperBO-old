@@ -1,0 +1,23 @@
+<div class="n-container {{radiosClassList}}">
+	<div class="n-row">
+		<div class="n-col">
+			<label class="n-label n-label_title">Select modifier type:</label>
+		</div>
+		
+		{% set choice = [
+			{ title: 'one modifier', description: 'eg: small, medium, large', attrs: 'checked' },
+			{ title: 'multiple modifiers', description: 'eg: cheese, sousage' },
+			{ title: 'NO modifiers', description: 'eg: No salt, No sugar' }
+		] %}
+
+		{% for item in choice %}
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
+					<input type="radio" value="{{loop.index}}" id="{{radiosName + '' + loop.index}}" name="{{radiosName}}" {{item.attrs | safe}}>
+					<span class="n-fake-radio__content">{{item.title}}</span>
+				</label>
+				<label class="n-label" for="{{radiosName + '' + loop.index}}">{{item.description}}</label>
+			</div>
+		{% endfor %}
+	</div>
+</div>

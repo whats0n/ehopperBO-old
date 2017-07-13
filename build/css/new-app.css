@@ -55,6 +55,7 @@
 }
 
 .n-search__btn, .n-search__link {
+  margin-right: 8px;
   height: 53px;
   line-height: 53px;
   font-size: 16px;
@@ -377,7 +378,7 @@
 }
 
 .n-modifiers-item__col[data-column="toggle"] {
-  width: 180px;
+  width: 195px;
 }
 
 .n-modifiers-item__col[data-column="close"] {
@@ -420,6 +421,14 @@
 
 .n-modifiers-item__radios {
   padding: 10px 0 0;
+}
+
+.n-modifiers-item .n-table__row[data-row="option"] .n-table__col[data-column="option-name"] {
+  width: 53%;
+}
+
+.n-modifiers-item .n-table__row[data-row="option"] .n-table__col[data-column="ingredients-name"] {
+  width: 47%;
 }
 
 .n-modifiers-item .n-table__row:hover {
@@ -560,7 +569,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding-top: 166px;
   height: 100%;
   background: #fff;
   transform: translate3d(-100%, 0, 0);
@@ -571,12 +579,12 @@
   transform: translate3d(0, 0, 0);
 }
 
-.n-module_filters {
-  padding-top: 284px;
+.n-module_filters .n-module__container {
+  padding-top: 244px;
 }
 
-.n-module_simple {
-  padding-top: 146px;
+.n-module_simple .n-module__container {
+  padding-top: 93px;
 }
 
 .n-module__header {
@@ -604,6 +612,14 @@
 }
 
 .n-module__body {
+  height: 100%;
+}
+
+.n-module__container {
+  position: relative;
+  padding-top: 166px;
+  margin: 0 auto;
+  max-width: 800px;
   height: 100%;
 }
 
@@ -720,7 +736,7 @@
   vertical-align: top;
   padding: 15px 15px 15px 15px;
   border: none;
-  width: 160px;
+  width: 175px;
   color: #337ab7;
   background: none;
   font-size: 16px;
@@ -894,6 +910,11 @@
 
 .n-modifiers-section__btn {
   padding-right: 20px;
+}
+
+.n-modifiers-section__slash {
+  padding-right: 20px;
+  line-height: 53px;
 }
 
 .n-modifiers-block__title {
