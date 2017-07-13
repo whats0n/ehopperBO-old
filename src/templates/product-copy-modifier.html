@@ -1,0 +1,78 @@
+---
+title: Modifiers Add Ingredient
+headerTitle: Modifiers
+createModifier: 'is-open'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-module is-open" data-modal-container="copy-modifier">
+		<div class="n-module__container">
+			<div class="n-module__header">
+				<div class="n-module__title">Copy Existing Modifiers</div>
+
+				<!-- begin n-search -->
+				<div class="n-search n-module__search">
+					<div class="n-search__field">
+						<input type="text" class="form-control input-lg" placeholder="Search For Modifiers" />
+					</div>
+				</div>
+				<!-- end n-search -->
+			</div>
+			<div class="n-module__body">
+				{% set items = {
+					columns: [ 'half', 'half' ],
+					rows: [
+						{ title: 'Small', modifier: 'Small Pie' },
+						{ title: 'Mid', modifier: 'Mid Size Pie' },
+						{ title: 'Cheese', modifier: 'Cheese' },
+						{ title: 'Tomato', modifier: 'T1' },
+						{ title: 'car', modifier: 'car charger' },
+						{ title: 'ear', modifier: 'ear pcs' }
+					]
+				} %}
+				<div class="n-items">
+					<div class="n-items__head">
+						<div class="n-items__checkbox">
+							<div class="checkbox">
+								<input type="checkbox" id="all-ingredients">
+								<label for="all-ingredients"></label>
+							</div>
+						</div>
+						<div class="n-items__table">
+							<div class="n-items__tr">
+								<div class="n-items__col">Modifier Group Name</div>
+								<div class="n-items__col">Modifier</div>
+							</div>
+						</div>
+					</div>
+					<div class="n-items__body">
+						{% for row in range(0,5) %}
+							{% set active = loop.index + '' %}
+							{% for item in items.rows %}
+								<div class="n-items__row">
+									<div class="n-items__checkbox">
+										<div class="checkbox">
+											<input type="checkbox" id="ingredient-{{active + loop.index}}">
+											<label for="ingredient-{{active + loop.index}}"></label>
+										</div>
+									</div>
+									<div class="n-items__table">
+										<div class="n-items__tr">
+											<div class="n-items__col">{{item.title}}</div>
+											<div class="n-items__col">{{item.modifier}}</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						{% endfor %}
+					</div>
+					<div class="n-items__footer">
+						<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Add">
+						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="copy-modifier">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
