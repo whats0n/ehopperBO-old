@@ -14,25 +14,141 @@ headerTitle: Product Details
 					</div>
 					<div class="modifier-report__col modifier-report__col_sm">
 						<label>Modifier <br>group&nbsp;name:</label>
-						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
-							<option value="">All</option>
-							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
-						</select>
+						<div class="modifier-report__multi-select">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+								</div>
+								<div data-bind="css: contStyle" class="filter_control_cont">
+									<select class="form-control input-lg" style="display: none;">
+										<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+										<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+										<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+										<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+										<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+										<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+										<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+									<div class="ms-parent" style="width: 100px;">
+										<button type="button" class="select">
+											<div class="fl">
+												<div>
+													<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select Modifier(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+										<div class="ms-drop bottom" style="display: none;">
+											<ul style="max-height: 250px;">
+												<li>
+													<input id="allCheck" type="checkbox" name="selectAll">
+													<label for="allCheck">Select All</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined">
+													<label for="BESTsToreundefined">BESTsTore</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined">
+													<label for="New_CSP_Storeundefined">New CSP Store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined">
+													<label for="New_Storeundefined">New Store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined">
+													<label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined">
+													<label for="Vlad_storeundefined">Vlad store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined">
+													<label for="West_Street_Cafeundefined">West Street Cafe</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined">
+													<label for="WestGuestCafeundefined">WestGuestCafe</label>
+												</li>
+												<li class="ms-no-results" style="display: none;">No matches found</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="modifier-report__col modifier-report__col_sm">
 						<label>Product:</label>
-						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
-							<option value="">All</option>
-							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
-						</select>
+						<div class="modifier-report__multi-select">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+								</div>
+								<div data-bind="css: contStyle" class="filter_control_cont">
+									<select class="form-control input-lg" style="display: none;">
+										<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+										<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+										<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+										<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+										<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+										<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+										<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+									<div class="ms-parent" style="width: 100px;">
+										<button type="button" class="select">
+											<div class="fl">
+												<div>
+													<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select Product(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+										<div class="ms-drop bottom" style="display: none;">
+											<ul style="max-height: 250px;">
+												<li>
+													<input id="allCheck" type="checkbox" name="selectAll">
+													<label for="allCheck">Select All</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined">
+													<label for="BESTsToreundefined">BESTsTore</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined">
+													<label for="New_CSP_Storeundefined">New CSP Store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined">
+													<label for="New_Storeundefined">New Store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined">
+													<label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined">
+													<label for="Vlad_storeundefined">Vlad store</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined">
+													<label for="West_Street_Cafeundefined">West Street Cafe</label>
+												</li>
+												<li>
+													<input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined">
+													<label for="WestGuestCafeundefined">WestGuestCafe</label>
+												</li>
+												<li class="ms-no-results" style="display: none;">No matches found</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="modifier-report__actions">
 						<div class="modifier-report__action">
@@ -199,9 +315,9 @@ headerTitle: Product Details
 					<tfoot>
 						<tr>
 							<th class="text-right row-expandable" colspan="8" rowspan="1">Total:</th>
-							<th class="text-right numeric-data" rowspan="1" colspan="1">$101.70</th>
-							<th class="text-right numeric-data" rowspan="1" colspan="1">$101.70</th>
-							<th class="text-right numeric-data" rowspan="1" colspan="1">$9.10</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">55</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$143.25</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$143.25</th>
 						</tr>
 					</tfoot>
 					<tbody>
@@ -210,131 +326,131 @@ headerTitle: Product Details
 								modifier: 'Cheese',
 								group: 'Toppings',
 								product: 'Hamburger',
-								category: 'Burger NEW',
+								category: 'FastFood',
 								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'mrgoro admin',
-								register: 'Register 0',
+								employee: 'John Wick',
+								register: 'Register 1',
 								qty: '1',
-								gross: '$10.00',
-								net: '$0.00'
+								gross: '$13.50',
+								net: '$13.50'
 							},
 							{
 								modifier: 'Salami',
-								group: 'Sizes',
+								group: 'Toppings',
 								product: 'Pizza',
-								category: 'Food',
+								category: 'FastFood',
 								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '5',
-								gross: '$25.58',
-								net: '$00.58'
+								employee: 'John Wick',
+								register: 'Register 1',
+								qty: '2',
+								gross: '$26.00',
+								net: '$26.00'
 							},
 							{
 								modifier: 'Chicken',
-								group: 'Icecream Flavors',
-								product: 'cookie',
-								category: 'Sweets',
-								department: 'Sweets',
+								group: 'Toppings',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$5.55',
-								net: '$0.00'
+								employee: 'John Wick',
+								register: 'Register 1',
+								qty: '3',
+								gross: '$14.00',
+								net: '$14.00'
 							},
 							{
 								modifier: 'Bacon',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Toppings',
+								product: 'Hamburger',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								employee: 'John Wick',
+								register: 'Register 1',
+								qty: '6',
+								gross: '$16.00',
+								net: '$16.00'
 							},
 							{
 								modifier: 'Papper',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Toppings',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
+								employee: 'John Wick',
+								register: 'Register 1',
+								qty: '5',
 								gross: '$3.50',
 								net: '$3.50'
 							},
 							{
 								modifier: 'Tomatoes',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Toppings',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								qty: '4',
+								gross: '$4.00',
+								net: '$4.00'
 							},
 							{
 								modifier: 'Corn',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Toppings',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								qty: '10',
+								gross: '$4.00',
+								net: '$4.00'
 							},
 							{
 								modifier: 'L',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Sizes',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								qty: '9',
+								gross: '$28.50',
+								net: '$28.50'
 							},
 							{
 								modifier: 'M',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Sizes',
+								product: 'Pizza',
+								category: 'FastFood',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
-								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								qty: '8',
+								gross: '$26.50',
+								net: '$26.50'
 							},
 							{
 								modifier: 'Coockies',
-								group: 'Chocolate Cappuccino',
-								product: 'Drinks',
-								category: 'Coffee',
-								department: 'Drinks',
+								group: 'Icecream Flavors',
+								product: 'Icecream',
+								category: 'Sweets',
+								department: 'Food',
 								store: 'WestGuestCafe',
-								employee: 'Admin Admin',
-								register: 'Register 14',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
 								qty: '1',
-								gross: '$3.50',
-								net: '$3.50'
+								gross: '$7.25',
+								net: '$7.25'
 							}
 						] %}
 						{% for item in table %}

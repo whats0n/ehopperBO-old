@@ -39,22 +39,88 @@
                   <div class="modifier-report__container">
                     <div class="modifier-report__row">
                       <div class="modifier-report__search"> <input class="form-control input-lg" type="text" placeholder="Search by modifier"> </div>
-                      <div class="modifier-report__col modifier-report__col_sm"> <label>Modifier <br>group&nbsp;name:</label> <select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
-							<option value="">All</option>
-							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
-						</select> </div>
-                      <div class="modifier-report__col modifier-report__col_sm"> <label>Product:</label> <select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
-							<option value="">All</option>
-							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
-						</select> </div>
+                      <div class="modifier-report__col modifier-report__col_sm"> <label>Modifier <br>group&nbsp;name:</label>
+                        <div class="modifier-report__multi-select">
+                          <div data-bind="with: $data.storesFilter, css: self.divStyle">
+                            <div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible"> </div>
+                            <div data-bind="css: contStyle" class="filter_control_cont"> <select class="form-control input-lg" style="display: none;">
+										<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+										<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+										<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+										<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+										<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+										<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+										<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+                              <div class="ms-parent" style="width: 100px;"> <button type="button" class="select">
+											<div class="fl">
+												<div>
+													<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select Modifier(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+                                <div class="ms-drop bottom" style="display: none;">
+                                  <ul style="max-height: 250px;">
+                                    <li> <input id="allCheck" type="checkbox" name="selectAll"> <label for="allCheck">Select All</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined"> <label for="BESTsToreundefined">BESTsTore</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined"> <label for="New_CSP_Storeundefined">New CSP Store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined"> <label for="New_Storeundefined">New Store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined"> <label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined"> <label for="Vlad_storeundefined">Vlad store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined"> <label for="West_Street_Cafeundefined">West Street Cafe</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined"> <label for="WestGuestCafeundefined">WestGuestCafe</label> </li>
+                                    <li class="ms-no-results" style="display: none;">No matches found</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modifier-report__col modifier-report__col_sm"> <label>Product:</label>
+                        <div class="modifier-report__multi-select">
+                          <div data-bind="with: $data.storesFilter, css: self.divStyle">
+                            <div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible"> </div>
+                            <div data-bind="css: contStyle" class="filter_control_cont"> <select class="form-control input-lg" style="display: none;">
+										<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+										<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+										<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+										<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+										<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+										<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+										<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+                              <div class="ms-parent" style="width: 100px;"> <button type="button" class="select">
+											<div class="fl">
+												<div>
+													<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select Product(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+                                <div class="ms-drop bottom" style="display: none;">
+                                  <ul style="max-height: 250px;">
+                                    <li> <input id="allCheck" type="checkbox" name="selectAll"> <label for="allCheck">Select All</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined"> <label for="BESTsToreundefined">BESTsTore</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined"> <label for="New_CSP_Storeundefined">New CSP Store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined"> <label for="New_Storeundefined">New Store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined"> <label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined"> <label for="Vlad_storeundefined">Vlad store</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined"> <label for="West_Street_Cafeundefined">West Street Cafe</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined"> <label for="WestGuestCafeundefined">WestGuestCafe</label> </li>
+                                    <li class="ms-no-results" style="display: none;">No matches found</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="modifier-report__actions">
                         <div class="modifier-report__action">
                           <date-filter params="value: dateRange">
@@ -170,9 +236,9 @@
                       <tfoot>
                         <tr>
                           <th class="text-right row-expandable" colspan="8" rowspan="1">Total:</th>
-                          <th class="text-right numeric-data" rowspan="1" colspan="1">$101.70</th>
-                          <th class="text-right numeric-data" rowspan="1" colspan="1">$101.70</th>
-                          <th class="text-right numeric-data" rowspan="1" colspan="1">$9.10</th>
+                          <th class="text-right numeric-data" rowspan="1" colspan="1">55</th>
+                          <th class="text-right numeric-data" rowspan="1" colspan="1">$143.25</th>
+                          <th class="text-right numeric-data" rowspan="1" colspan="1">$143.25</th>
                         </tr>
                       </tfoot>
                       <tbody>
@@ -180,131 +246,131 @@
                           <td class=" row-expandable">Cheese</td>
                           <td class="sorting_1">Toppings</td>
                           <td>Hamburger</td>
-                          <td>Burger NEW</td>
+                          <td>FastFood</td>
                           <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>mrgoro admin</td>
-                          <td class=" numeric-data">Register 0</td>
+                          <td>John Wick</td>
+                          <td class=" numeric-data">Register 1</td>
                           <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$10.00</td>
-                          <td class=" numeric-data">$0.00</td>
+                          <td class=" numeric-data">$13.50</td>
+                          <td class=" numeric-data">$13.50</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Salami</td>
-                          <td class="sorting_1">Sizes</td>
+                          <td class="sorting_1">Toppings</td>
                           <td>Pizza</td>
-                          <td>Food</td>
+                          <td>FastFood</td>
                           <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">5</td>
-                          <td class=" numeric-data">$25.58</td>
-                          <td class=" numeric-data">$00.58</td>
+                          <td>John Wick</td>
+                          <td class=" numeric-data">Register 1</td>
+                          <td class=" numeric-data">2</td>
+                          <td class=" numeric-data">$26.00</td>
+                          <td class=" numeric-data">$26.00</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Chicken</td>
-                          <td class="sorting_1">Icecream Flavors</td>
-                          <td>cookie</td>
-                          <td>Sweets</td>
-                          <td>Sweets</td>
+                          <td class="sorting_1">Toppings</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$5.55</td>
-                          <td class=" numeric-data">$0.00</td>
+                          <td>John Wick</td>
+                          <td class=" numeric-data">Register 1</td>
+                          <td class=" numeric-data">3</td>
+                          <td class=" numeric-data">$14.00</td>
+                          <td class=" numeric-data">$14.00</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Bacon</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Toppings</td>
+                          <td>Hamburger</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td>John Wick</td>
+                          <td class=" numeric-data">Register 1</td>
+                          <td class=" numeric-data">6</td>
+                          <td class=" numeric-data">$16.00</td>
+                          <td class=" numeric-data">$16.00</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Papper</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Toppings</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
+                          <td>John Wick</td>
+                          <td class=" numeric-data">Register 1</td>
+                          <td class=" numeric-data">5</td>
                           <td class=" numeric-data">$3.50</td>
                           <td class=" numeric-data">$3.50</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Tomatoes</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Toppings</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td>Ben Stiller</td>
+                          <td class=" numeric-data">Register 2</td>
+                          <td class=" numeric-data">4</td>
+                          <td class=" numeric-data">$4.00</td>
+                          <td class=" numeric-data">$4.00</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Corn</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Toppings</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td>Ben Stiller</td>
+                          <td class=" numeric-data">Register 2</td>
+                          <td class=" numeric-data">10</td>
+                          <td class=" numeric-data">$4.00</td>
+                          <td class=" numeric-data">$4.00</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">L</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Sizes</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td>Ben Stiller</td>
+                          <td class=" numeric-data">Register 2</td>
+                          <td class=" numeric-data">9</td>
+                          <td class=" numeric-data">$28.50</td>
+                          <td class=" numeric-data">$28.50</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">M</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Sizes</td>
+                          <td>Pizza</td>
+                          <td>FastFood</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
-                          <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td>Ben Stiller</td>
+                          <td class=" numeric-data">Register 2</td>
+                          <td class=" numeric-data">8</td>
+                          <td class=" numeric-data">$26.50</td>
+                          <td class=" numeric-data">$26.50</td>
                         </tr>
                         <tr class="editable odd" role="row">
                           <td class=" row-expandable">Coockies</td>
-                          <td class="sorting_1">Chocolate Cappuccino</td>
-                          <td>Drinks</td>
-                          <td>Coffee</td>
-                          <td>Drinks</td>
+                          <td class="sorting_1">Icecream Flavors</td>
+                          <td>Icecream</td>
+                          <td>Sweets</td>
+                          <td>Food</td>
                           <td>WestGuestCafe</td>
-                          <td>Admin Admin</td>
-                          <td class=" numeric-data">Register 14</td>
+                          <td>Ben Stiller</td>
+                          <td class=" numeric-data">Register 2</td>
                           <td class=" numeric-data">1</td>
-                          <td class=" numeric-data">$3.50</td>
-                          <td class=" numeric-data">$3.50</td>
+                          <td class=" numeric-data">$7.25</td>
+                          <td class=" numeric-data">$7.25</td>
                         </tr>
                       </tbody>
                     </table>

@@ -675,7 +675,7 @@
 
 .modifier-report__filters {
   padding: 20px 20px 5px;
-  min-width: 1520px;
+  min-width: 1700px;
 }
 
 .modifier-report__container {
@@ -729,7 +729,7 @@
 .modifier-report select, .modifier-report .select, .modifier-report__multi-select {
   display: inline-block;
   vertical-align: middle;
-  width: 180px;
+  width: 210px;
 }
 
 .modifier-report__multi-select {
