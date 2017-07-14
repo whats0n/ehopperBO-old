@@ -1,0 +1,41 @@
+.modifier-report
+	&__filters
+		padding: 20px 20px 5px
+		min-width: 1520px
+	&__container
+		width: 100%
+	&__row
+		margin: 0 -10px 
+		+clr
+	&__col,
+	&__search,
+	&__actions
+		position: relative
+		float: left
+		padding: 0 10px 15px
+		label
+			display: inline-block
+			vertical-align: middle
+			padding-right: 10px
+			max-width: 100px
+	&__col
+		width: 100%
+		&_xs
+			width: 20%
+		&_sm
+			width: 25%
+	&__search,
+	&__actions
+		width: 25%
+	&__action
+		float: right
+	select, .select, &__multi-select
+		display: inline-block
+		vertical-align: middle
+		width: 180px
+	&__multi-select
+		+clr
+		.stores-filter-label-wrapper
+			display: none !important
+	&__table-wrapper
+		padding: 0 20px 40px

@@ -673,6 +673,83 @@
   height: auto;
 }
 
+.modifier-report__filters {
+  padding: 20px 20px 5px;
+  min-width: 1520px;
+}
+
+.modifier-report__container {
+  width: 100%;
+}
+
+.modifier-report__row {
+  margin: 0 -10px;
+  *zoom: 1;
+}
+
+.modifier-report__row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.modifier-report__col, .modifier-report__search, .modifier-report__actions {
+  position: relative;
+  float: left;
+  padding: 0 10px 15px;
+}
+
+.modifier-report__col label, .modifier-report__search label, .modifier-report__actions label {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 10px;
+  max-width: 100px;
+}
+
+.modifier-report__col {
+  width: 100%;
+}
+
+.modifier-report__col_xs {
+  width: 20%;
+}
+
+.modifier-report__col_sm {
+  width: 25%;
+}
+
+.modifier-report__search, .modifier-report__actions {
+  width: 25%;
+}
+
+.modifier-report__action {
+  float: right;
+}
+
+.modifier-report select, .modifier-report .select, .modifier-report__multi-select {
+  display: inline-block;
+  vertical-align: middle;
+  width: 180px;
+}
+
+.modifier-report__multi-select {
+  *zoom: 1;
+}
+
+.modifier-report__multi-select:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.modifier-report__multi-select .stores-filter-label-wrapper {
+  display: none !important;
+}
+
+.modifier-report__table-wrapper {
+  padding: 0 20px 40px;
+}
+
 .n-container {
   *zoom: 1;
 }
