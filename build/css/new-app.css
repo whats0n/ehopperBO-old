@@ -185,6 +185,7 @@
   margin: 0;
   min-width: 25px;
   min-height: 25px;
+  font-size: 0;
 }
 
 .new-checkbox input:checked ~ .new-checkbox__icon:before {
@@ -216,7 +217,11 @@
 }
 
 .new-checkbox__content {
-  padding-left: 6px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 3px 0 2px 31px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .i-fields {

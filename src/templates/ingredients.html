@@ -70,6 +70,15 @@ sidebarDisabled: 'is-disabled'
 							<div class="i-fields__col i-fields__col_sm">
 								<label class="n-label n-label_title">Stock Unit</label>
 								<input type="text" class="form-control input-lg" />
+								<label class="n-label">eg: pack, box</label>
+							</div>
+						</div>
+						<div class="i-fields">
+							<div class="i-fields__col">
+								{{form.checkbox.call({
+									attrs: 'checked',
+									text: 'is Active'
+								})}}
 							</div>
 						</div>
 					</div>
