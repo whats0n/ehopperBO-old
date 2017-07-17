@@ -1,0 +1,47 @@
+<div class="n-pane__inner {{sidebarDisabled}}">
+	{% set searchPlaceholder = 'Search ingredient by name' %}
+	{% set searchNew = 'New ingredient' %}
+	{% set searchExport = 'Export ingredients' %}
+	{% set searchImport = 'Import ingredients' %}
+	{% include 'partials/components/_n-search.html' %}
+	
+	{% if sidebarEmpty %}
+		<!-- begin n-empty -->
+		<div class="n-empty">
+			<div class="n-empty__title">There are no ingredients created. <a href="#" class="n-link">Add new</a>.</div>
+		</div>
+		<!-- end n-empty -->
+	{% else %}
+		{% set list = [
+			{ title: 'Toppings', price: '$5.00', active: 'is-active' },
+			{ title: 'Sizes', price: '$3.00' },
+			{ title: 'Icecream Flafors', price: '$17.00' }
+		] %}
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					{{form.checkbox.call()}}
+				</div>
+				<div class="i-items__price">Cost</div>
+				<div class="i-items__title">Ingredients</div>
+				<button class="n-close i-items__close"><i class="fa fa-close"></i></button>
+			</div>
+			<ul class="i-items__list">
+				{% for item in list %}
+					<li class="i-item i-items__row {{item.active}}">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action {{item.active}}">Edit</a>
+						</div>
+						<div class="i-item__checkbox">
+							{{form.checkbox.call()}}
+						</div>
+						<div class="i-item__price">{{item.price}}</div>
+						<div class="i-item__title">{{item.title}}</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<!-- end i-items -->
+	{% endif %}
+</div>

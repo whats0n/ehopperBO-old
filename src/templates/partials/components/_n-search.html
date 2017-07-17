@@ -4,12 +4,12 @@
 		<a href="#" class="n-link n-search__link">New modifier</a>
 	</div>#}
 	<div class="n-search__field">
-		<input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" />
+		<input type="text" class="form-control input-lg" placeholder="{{searchPlaceholder or 'Search For Modifier Group'}}" />
 	</div>
 	<div class="n-search__links">
-		<a href="#" class="n-link n-search__link">New modifier group</a>
-		<a href="#" class="n-link n-search__link">Export modifiers</a>
-		<a href="#" class="n-link n-search__link">Import modifiers</a>
+		<a href="#" class="n-link n-search__link">{{searchNew or 'New modifier group'}}</a>
+		<a href="#" class="n-link n-search__link">{{searchExport or 'Export modifiers'}}</a>
+		<a href="#" class="n-link n-search__link">{{searchImport or 'Import modifiers'}}</a>
 	</div>
 </div>
 <!-- end n-search -->

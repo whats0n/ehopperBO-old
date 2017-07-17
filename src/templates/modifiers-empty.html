@@ -1,7 +1,7 @@
 ---
 title: Modifiers Empty
 headerTitle: Modifiers
-paneBodyWrapperClassList: 'menu-builder'
+paneBodyWrapperClassList: 'n-modifiers'
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -9,21 +9,12 @@ paneBodyWrapperClassList: 'menu-builder'
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
 			<div class="n-pane__inner">
-
 				{% include 'partials/components/_n-search.html' %}
-
-				{% set list = [
-					{ title: 'Toppings', active: 'is-active' },
-					{ title: 'Sizes' },
-					{ title: 'Icecream Flafors' }
-				] %}
-
 				<!-- begin n-empty -->
 				<div class="n-empty">
 					<div class="n-empty__title">There are no modifiers created. <a href="#" class="n-link">Add new</a>.</div>
 				</div>
 				<!-- end n-empty -->
-				
 			</div>
 		</div>
 		<div class="pane pane-right"></div>

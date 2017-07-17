@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Ingredients</title>
+    <base />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="shortcut icon" href="content/favicon.ico">
+    <link rel="stylesheet" href="content/bootstrap.css" />
+    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+    <link rel="stylesheet" href="content/font-awesome.css" />
+    <link rel="stylesheet" href="content/durandal.css" />
+    <link rel="stylesheet" href="content/morrisJs/morris.css" />
+    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+    <link rel="stylesheet" href="content/slim/slim.min.css" />
+    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+    <link rel="stylesheet" href="content/app.css" />
+    <link rel="stylesheet" href="css/new-app.css" /> </head>
+
+  <body>
+    <div id="applicationHost">
+      <div class="main-container">
+        <section id="content" class="hide-content">
+          <div class="pane pane-right">
+            <div class="pane-header">
+              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b> </div>
+            <div class="pane-body-wrapper n-modifiers">
+              <div class="n-columns-layout">
+                <div class="pane pane-left">
+                  <div class="n-pane__inner is-disabled">
+                    <!-- begin n-search -->
+                    <div class="n-search">
+                      <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search ingredient by name" /> </div>
+                      <div class="n-search__links"> <a href="#" class="n-link n-search__link">New ingredient</a> <a href="#" class="n-link n-search__link">Export ingredients</a> <a href="#" class="n-link n-search__link">Import ingredients</a> </div>
+                    </div>
+                    <!-- end n-search -->
+                    <!-- begin i-items -->
+                    <div class="i-items">
+                      <div class="i-items__head">
+                        <div class="i-items__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                        <div class="i-items__price">Cost</div>
+                        <div class="i-items__title">Ingredients</div> <button class="n-close i-items__close"><i class="fa fa-close"></i></button> </div>
+                      <ul class="i-items__list">
+                        <li class="i-item i-items__row is-active">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action is-active">Edit</a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$5.00</div>
+                          <div class="i-item__title">Toppings</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action ">Edit</a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$3.00</div>
+                          <div class="i-item__title">Sizes</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action ">Edit</a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$17.00</div>
+                          <div class="i-item__title">Icecream Flafors</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- end i-items -->
+                  </div>
+                </div>
+                <div class="pane pane-right"> </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- END scripts -->
+  </body>
+
+</html>

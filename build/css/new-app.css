@@ -178,6 +178,47 @@
   user-select: none;
 }
 
+.new-checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.new-checkbox input:checked ~ .new-checkbox__icon:before {
+  opacity: 1;
+}
+
+.new-checkbox__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #bdc1cb;
+  border-radius: 2px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+}
+
+.new-checkbox__icon:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid #2E9ADB;
+  border-radius: 2px;
+  opacity: 0;
+  background: url(../content/images/dashboard/checkbox-checked.png) center center no-repeat #c1dff2;
+}
+
+.new-checkbox__content {
+  padding-left: 6px;
+}
+
 .n-item {
   position: relative;
   padding-right: 40px !important;
@@ -748,6 +789,118 @@
 
 .modifier-report__table-wrapper {
   padding: 0 20px 40px;
+}
+
+.i-items__head {
+  position: relative;
+  padding: 0 55px 0 45px;
+  font-size: 0;
+  *zoom: 1;
+}
+
+.i-items__head:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.i-items__checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  width: 45px;
+}
+
+.i-items__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+}
+
+.i-items__title, .i-items__price {
+  padding: 10px;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.i-items__price {
+  float: right;
+}
+
+.i-items__list {
+  padding: 0;
+  border: 1px solid #eaeaea;
+  background: #fff;
+}
+
+.i-items__row:not(:first-child) {
+  border-top: 1px solid #eaeaea;
+}
+
+.i-item {
+  list-style-type: none;
+  *zoom: 1;
+}
+
+.i-item:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.i-item.is-active {
+  background: #ecf7fd;
+}
+
+.i-item__checkbox {
+  float: left;
+  padding: 10px 20px 10px 10px;
+}
+
+.i-item__actions {
+  float: right;
+  padding: 10px 20px 10px;
+  white-space: nowrap;
+}
+
+.i-item__action {
+  display: inline-block;
+  vertical-align: top;
+  color: #337ab7;
+  font-size: 14px;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.i-item__action:not(:first-child) {
+  padding-left: 6px;
+  margin-left: 6px;
+  border-left: 2px solid #eaeaea;
+}
+
+.i-item__action.is-active {
+  text-decoration: underline;
+}
+
+.i-item__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.i-item__price {
+  float: right;
+  margin-left: 20px;
+}
+
+.i-item__title, .i-item__price {
+  padding: 13px 0 12px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .n-container {

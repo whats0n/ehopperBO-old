@@ -1,7 +1,8 @@
 ---
-title: Modifiers
-headerTitle: Modifiers
+title: Ingredients
+headerTitle: Ingredients
 paneBodyWrapperClassList: 'n-modifiers'
+modifiersIngredients: true
 sidebarDisabled: 'is-disabled'
 ---
 {% extends "layouts/_layout.html" %}
@@ -9,10 +10,9 @@ sidebarDisabled: 'is-disabled'
 {% block content %}
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
-			{% include 'partials/components/_sidebar-modifiers.html' %}
+			{% include 'partials/components/_sidebar-ingredients.html' %}
 		</div>
 		<div class="pane pane-right">
-			{% include 'partials/components/_modifiers.html' %}
 		</div>
 	</div>
 {% endblock %}
