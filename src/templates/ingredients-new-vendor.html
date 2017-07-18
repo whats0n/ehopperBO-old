@@ -1,0 +1,69 @@
+---
+title: Ingredients
+headerTitle: Ingredients
+paneBodyWrapperClassList: 'n-modifiers'
+sidebarDisabled: 'is-disabled'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			{% include 'partials/components/_sidebar-ingredients.html' %}
+		</div>
+		<div class="pane pane-right">
+			<div class="n-section n-section_step">
+				<div class="n-section__body">
+					<div class="n-section__container">
+						<div>
+
+							<div class="i-title">Create new vendor</div>
+
+							<div class="form-group">
+								<label>Vendor Name</label>
+								<input class="form-control input-lg" type="text" placeholder="Vendor Name" maxlength="100">
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+
+							<div class="form-group">
+								<label>Vendor Type</label>
+								<select class="input-lg">
+									<option value="">Choose Vendor Type...</option>
+									<option value="0">Manufacturer</option>
+									<option value="1">Master Dealer</option>
+									<option value="2">Shipper</option>
+									<option value="3">Vendor</option>
+								</select>
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+
+							<div class="form-group">
+								<label>Tax ID</label>
+								<input class="form-control input-lg" type="text" placeholder="Tax ID" maxlength="100">
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+
+							<div class="form-group">
+								<label>Notes</label>
+								<textarea class="form-control input-lg" placeholder="Notes"></textarea>
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+
+							<div class="checkbox">
+								<input type="checkbox" id="isVendorActive">
+								<label for="isVendorActive">Is Active</label>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="n-section__footer">
+					<div class="form-buttons"> 
+						<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+						<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -2,7 +2,6 @@
 title: Ingredients
 headerTitle: Ingredients
 paneBodyWrapperClassList: 'n-modifiers'
-modifiersIngredients: true
 sidebarDisabled: 'is-disabled'
 ---
 {% extends "layouts/_layout.html" %}
@@ -29,10 +28,6 @@ sidebarDisabled: 'is-disabled'
 							<span class="tab-title">Ordering</span>
 							<span class="tab-selected-arrow"></span>
 						</span>
-						<span class="tab" data-for="#quickbooks">
-							<span class="tab-title">QuickBooks</span>
-							<span class="tab-selected-arrow"></span>
-						</span>
 					</div>
 					<!-- end tabs buttons -->
 					<div class="n-section__container">
@@ -47,13 +42,13 @@ sidebarDisabled: 'is-disabled'
 								<input type="text" class="form-control input-lg" />
 							</div>
 							<div class="i-fields__col i-fields__col_sm">
-								<label class="n-label n-label_title">Barcode</label>
+								<label class="n-label n-label_title">UPC</label>
 								<input type="text" class="form-control input-lg" />
 							</div>
 						</div>
 						<div class="i-fields">
 							<div class="i-fields__col i-fields__col_sm">
-								<label class="n-label n-label_title">Unit <span class="color-red">*</span></label>
+								<label class="n-label n-label_title">UOM <span class="color-red">*</span></label>
 								<select>
 									<option value="">All</option>
 									<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>

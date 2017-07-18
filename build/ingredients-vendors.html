@@ -93,39 +93,73 @@
                   <div class="n-section n-section_step">
                     <div class="n-section__body">
                       <!-- begin tabs buttons -->
-                      <div class="tab-control n-section__tabs"> <span class="tab selected" data-for="#generalTab">
-							<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#vendors">
+                      <div class="tab-control n-section__tabs"> <span class="tab" data-for="#generalTab">
+							<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab selected" data-for="#vendors">
 							<span class="tab-title">Vendors</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#ordering">
 							<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span>
                       </div>
                       <!-- end tabs buttons -->
                       <div class="n-section__container">
-                        <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
-                        <div class="i-fields">
-                          <div class="i-fields__col i-fields__col_lg"> <label class="n-label n-label_title">Ingredient name <span class="color-red">*</span></label> <input type="text" class="form-control input-lg" /> </div>
-                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">UPC</label> <input type="text" class="form-control input-lg" /> </div>
-                        </div>
-                        <div class="i-fields">
-                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">UOM <span class="color-red">*</span></label> <select>
-									<option value="">All</option>
-									<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
-									<option value="6a897da2a2af4104935bee96446de938">1122h</option>
-									<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-									<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
-									<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
-								</select> </div>
-                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Convertion number</label> <input type="text" class="form-control input-lg" /> </div>
-                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Stock Unit</label> <input type="text" class="form-control input-lg" /> <label class="n-label">eg: pack, box</label> </div>
-                        </div>
-                        <div class="i-fields">
-                          <div class="i-fields__col"> <label class="new-checkbox">
-	<input type="checkbox" checked>
-	<i class="new-checkbox__icon"></i>
-	
-		<span class="new-checkbox__content">is Active</span>
-	
-</label> </div>
-                        </div>
+                        <div class="pane-body">
+                          <div>
+                            <div class="pull-left"> <select id="ddlVendors" style="display: none;">
+										<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
+										<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
+										<option value="37d62da2d81341c5bb531f31c5ba91b6">98</option>
+									</select>
+                              <div class="ms-parent" style="width: 300px;"> <button type="button" class="select">
+											<div class="fl">
+												<div>
+													<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="ddlVendors" placeholder="Search vendors" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+                                <div class="ms-drop bottom" style="display: none;">
+                                  <ul style="max-height: 250px;">
+                                    <li> <input type="checkbox" name="selectItem" value="144ad4039dd643e784fb1ceedaa8ca89" id="QAVENDORddlVendors"> <label for="QAVENDORddlVendors">QAVENDOR</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d" id="вввывыфвddlVendors"> <label for="вввывыфвddlVendors">вввывыфв</label> </li>
+                                    <li> <input type="checkbox" name="selectItem" value="37d62da2d81341c5bb531f31c5ba91b6" id="98ddlVendors"> <label for="98ddlVendors">98</label> </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pull-right"> <input class="btn btn-lg btn-primary" type="button" value="New Vendor"> </div>
+                          </div>
+                          <div class="vendor-separator">&nbsp;</div>
+                          <table class="vendor-edit">
+                            <thead>
+                              <tr>
+                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.vendor'">Vendor</th>
+                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.sku'">SKU</th>
+                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.cost'">Cost (box)</th>
+                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.primary'">Primary</th>
+                                <th>&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody data-bind="foreach: vendorItemsArray">
+                              <tr>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: vendor().name" type="text" readonly="readonly"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: sku" type="text" maxlength="256"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: cost" type="text"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top" data-bind="validationOptions: { insertMessages: false }">
+                                <input name="items" type="radio" data-bind="checked: $parent.primaryVendor, value: vendorId, attr: { id: 'vendor' + $index() }" value="144ad4039dd643e784fb1ceedaa8ca89" class="" id="vendor0"> <label data-bind="attr: { 'for': 'vendor' + $index() }"
+                                    for="vendor0"></label> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button" data-bind="click: $root.deleteSelected"> </td>
+                              </tr>
+                              <tr>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: vendor().name" type="text" readonly="readonly"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: sku" type="text" maxlength="256"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: cost" type="text"><span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top" data-bind="validationOptions: { insertMessages: false }">
+                                <input name="items" type="radio" data-bind="checked: $parent.primaryVendor, value: vendorId, attr: { id: 'vendor' + $index() }" value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d" class="" id="vendor1"> <label data-bind="attr: { 'for': 'vendor' + $index() }"
+                                    for="vendor1"></label> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button" data-bind="click: $root.deleteSelected"> </td>
+                              </tr>
+                            </tbody>
+                          </table> <span class="validationMessage" data-bind="text: $root.validationMessage"></span> </div>
                       </div>
                     </div>
                     <div class="n-section__footer">

@@ -7,6 +7,7 @@
 		&.is-disabled
 			opacity: 0.5
 			pointer-events: none
+			+nosel
 
 
 .n-columns-layout
@@ -17,6 +18,13 @@
 
 .color-red
 	color: #f00
+
+.i-title
+	padding: 9px 0 10px
+	margin-bottom: 20px
+	color: #999
+	font-size: 24px
+	text-align: center
 
 .n-link
 	display: inline-block
@@ -97,6 +105,8 @@
 		margin: 0 auto
 		// max-width: 800px
 		max-width: 600px
+		&_ordering
+			max-width: 720px
 	&__footer
 		position: absolute
 		bottom: 0
@@ -116,6 +126,8 @@
 		max-width: 600px
 		&.tab-control > .tab
 			margin: 0 2px 0 0
+	.tab-elemtn
+		width: 33.33%
 
 .n-box
 	padding-bottom: 20px
@@ -185,3 +197,9 @@
 
 #modifierReportTable
 	min-width: 1700px
+
+//ingredients ordering
+#taxTable input[type="text"], 
+#pricingTable input[type="text"], 
+#orderingTable input[type="text"]
+	width: 100%

@@ -25,13 +25,13 @@
 				</div>
 				<div class="i-items__price">Cost</div>
 				<div class="i-items__title">Ingredients</div>
-				<button class="n-close i-items__close"><i class="fa fa-close"></i></button>
+				<button class="i-items__close"><i class="fa fa-trash-o"></i></button>
 			</div>
 			<ul class="i-items__list">
 				{% for item in list %}
-					<li class="i-item i-items__row {{item.active}}">
+					<li class="i-item i-items__row {% if sidebarNoActive != true %}{{item.active}}{% endif %}">
 						<div class="i-item__actions">
-							<a href="#" class="i-item__action {{item.active}}">Edit</a>
+							<a href="#" class="i-item__action i-item__edit {% if sidebarNoActive != true %}{{item.active}}{% endif %}"><i class="fa fa-pencil-square-o"></i></a>
 						</div>
 						<div class="i-item__checkbox">
 							{{form.checkbox.call()}}

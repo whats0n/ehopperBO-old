@@ -1,0 +1,435 @@
+---
+title: Ingredients
+headerTitle: Ingredients
+paneBodyWrapperClassList: 'n-modifiers'
+sidebarDisabled: 'is-disabled'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			{% include 'partials/components/_sidebar-ingredients.html' %}
+		</div>
+		<div class="pane pane-right">
+			<div class="n-section n-section_step">
+				<div class="n-section__body">
+					<!-- begin tabs buttons -->
+					<div class="tab-control n-section__tabs">
+						<span class="tab" data-for="#generalTab">
+							<span class="tab-title">General</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+						<span class="tab" data-for="#vendors">
+							<span class="tab-title">Vendors</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+						<span class="tab selected" data-for="#ordering">
+							<span class="tab-title">Ordering</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+					</div>
+					<!-- end tabs buttons -->
+					<div class="n-section__container n-section__container_ordering">
+						<div class="form tab-element-padding">
+							<div class="tab-elemtn">
+								<label>Recommended Quantity</label>
+								 <input class="form-control input-lg" type="text" placeholder="Input Quantity">
+								<span class="fieldError" style="display: none;"></span>
+							</div> 
+							 <div class="tab-elemtn">
+								<label>Minimum Quantity</label>
+								<input class="form-control input-lg" type="text" placeholder="Input Quantity">
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+							<div class="tab-elemtn">
+								<label>Total Quantity</label>
+								<input readonly="readonly" class="form-control input-lg" type="text" placeholder="Input Quantity">
+							</div>
+
+							<div style="padding-top:80px;">
+								 <table class="datatable time-clock edit-product" id="orderingTable">
+									<thead>
+										<tr>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/pricing.store'">Store</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.recommended_quantity'">Recommended Quantity</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.minimum_quantity'">Minimum Quantity</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.quantity'">Quantity</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach: buItems">
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">BESTsTore</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New CSP Store</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New Store</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New Store СЫЗ2</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)" style="display: none;">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store"></label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">Vlad store</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">West Street Cafe</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">WestGuestCafe</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.recommendedQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.recommendedQuantity.isModified() &amp;&amp; !$data.recommendedQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.minimumQuantity.decimal, valueUpdate: 'input', css: { hasError: $data.minimumQuantity.isModified() &amp;&amp; !$data.minimumQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+										<td>
+											<input style="height: 43px;" class="form-control input-lg" type="text" data-bind="value: $data.onHandQuantity.decimal, attr: { readonly: $root.poReceivingEnabled() ? 'readonly' : null }, valueUpdate: 'input', css: { hasError: $data.onHandQuantity.isModified() &amp;&amp; !$data.onHandQuantity.isValid() }, local: 'inventory/inventory-manage-tabs/ordering.input_quantity', localAttr: 'placeholder'" readonly="readonly" placeholder="Input Quantity"> 
+											<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="n-section__footer">
+					<div class="form-buttons"> 
+						<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+						<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
