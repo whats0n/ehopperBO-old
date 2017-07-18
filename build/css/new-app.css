@@ -28,6 +28,7 @@
 
 .n-search {
   position: relative;
+  padding-bottom: 20px;
   *zoom: 1;
 }
 
@@ -46,15 +47,7 @@
   padding-left: 20px;
 }
 
-.n-search__btn {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0;
-  border-radius: 3px;
-  width: 160px;
-}
-
-.n-search__btn, .n-search__link {
+.n-search__link {
   margin-right: 8px;
   height: 53px;
   line-height: 53px;
@@ -63,12 +56,32 @@
   text-decoration: none;
 }
 
-.n-search__btn:hover, .n-search__link:hover {
+.n-search__link:hover {
   text-decoration: underline;
 }
 
-.n-search__btn.is-active, .n-search__link.is-active {
+.n-search__link.is-active {
   text-decoration: underline;
+}
+
+.n-search__links {
+  margin: 0 -10px;
+  font-size: 0;
+}
+
+.n-search__col {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 10px 20px;
+  width: 25%;
+}
+
+.n-search__btn {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  min-width: 100%;
+  font-size: 16px;
 }
 
 .n-form-group__field {
@@ -843,7 +856,7 @@
 
 .i-items__head {
   position: relative;
-  padding: 0 45px;
+  padding: 0 55px 0 45px;
   font-size: 0;
   *zoom: 1;
 }
@@ -926,7 +939,7 @@
 
 .i-item__actions {
   float: right;
-  padding-left: 10px;
+  padding-left: 20px;
   white-space: nowrap;
 }
 

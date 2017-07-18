@@ -1,18 +1,19 @@
 .n-search
 	position: relative
+	padding-bottom: 20px
 	+clr
 	&__field
 		overflow: hidden
 	&__aside
 		float: right
 		padding-left: 20px
-	&__btn
-		display: inline-block
-		vertical-align: top
-		padding: 0
-		border-radius: 3px
-		width: 160px
-	&__btn,
+	// &__btn
+	// 	display: inline-block
+	// 	vertical-align: top
+	// 	padding: 0
+	// 	border-radius: 3px
+	// 	width: 160px
+	// &__btn,
 	&__link
 		margin-right: 8px
 		height: 53px
@@ -24,4 +25,22 @@
 			text-decoration: underline
 		&.is-active
 			text-decoration: underline
-			
+	&__links
+		margin: 0 -10px
+		font-size: 0
+	&__col
+		display: inline-block
+		vertical-align: top
+		padding: 0 10px 20px
+		// width: 100%
+		width: 25%
+		// &_xs
+		// 	width: 25%
+		// &_sm
+		// 	width: 33.33%
+	&__btn
+		display: inline-block
+		vertical-align: top
+		width: 100%
+		min-width: 100%
+		font-size: 16px

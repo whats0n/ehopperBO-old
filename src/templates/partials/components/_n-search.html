@@ -3,13 +3,27 @@
 	{#<div class="n-search__aside">
 		<a href="#" class="n-link n-search__link">New modifier</a>
 	</div>#}
+	<div class="n-search__links">
+		{#<a href="#" class="n-link n-search__link">{{searchNew or 'New modifier group'}}</a>
+		<a href="#" class="n-link n-search__link">{{searchExport or 'Export modifiers'}}</a>
+		<a href="#" class="n-link n-search__link">{{searchImport or 'Import modifiers'}}</a>#}
+		<div class="n-search__col {% if ingredients %}n-search__col_xs{% else %}n-search__col_sm{% endif %}">
+			<a href="#" class="btn btn-primary n-search__btn">New</a>
+		</div>
+		<div class="n-search__col {% if ingredients %}n-search__col_xs{% else %}n-search__col_sm{% endif %}">
+			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+		</div>
+		<div class="n-search__col {% if ingredients %}n-search__col_xs{% else %}n-search__col_sm{% endif %}">
+			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+		</div>
+		{% if ingredients %}
+			<div class="n-search__col {% if ingredients %}n-search__col_xs{% else %}n-search__col_sm{% endif %}">
+				<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
+			</div>
+		{% endif %}
+	</div>
 	<div class="n-search__field">
 		<input type="text" class="form-control input-lg" placeholder="{{searchPlaceholder or 'Search For Modifier Group'}}" />
-	</div>
-	<div class="n-search__links">
-		<a href="#" class="n-link n-search__link">{{searchNew or 'New modifier group'}}</a>
-		<a href="#" class="n-link n-search__link">{{searchExport or 'Export modifiers'}}</a>
-		<a href="#" class="n-link n-search__link">{{searchImport or 'Import modifiers'}}</a>
 	</div>
 </div>
 <!-- end n-search -->

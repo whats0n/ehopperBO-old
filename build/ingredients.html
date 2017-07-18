@@ -39,8 +39,13 @@
                   <div class="n-pane__inner is-disabled">
                     <!-- begin n-search -->
                     <div class="n-search">
+                      <div class="n-search__links">
+                        <div class="n-search__col n-search__col_xs"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
+                        <div class="n-search__col n-search__col_xs"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
+                        <div class="n-search__col n-search__col_xs"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col n-search__col_xs"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
+                      </div>
                       <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search ingredient by name" /> </div>
-                      <div class="n-search__links"> <a href="#" class="n-link n-search__link">New ingredient</a> <a href="#" class="n-link n-search__link">Export ingredients</a> <a href="#" class="n-link n-search__link">Import ingredients</a> </div>
                     </div>
                     <!-- end n-search -->
                     <!-- begin i-items -->
@@ -52,7 +57,8 @@
 	
 </label> </div>
                         <div class="i-items__price">Cost</div>
-                        <div class="i-items__title">Ingredients</div> <button class="i-items__close"><i class="fa fa-trash-o"></i></button> </div>
+                        <div class="i-items__title">Ingredients</div>
+                      </div>
                       <ul class="i-items__list">
                         <li class="i-item i-items__row is-active">
                           <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit is-active"><i class="fa fa-pencil-square-o"></i></a> </div>
@@ -173,7 +179,7 @@
                         <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
                         <div class="i-fields">
                           <div class="i-fields__col i-fields__col_lg"> <label class="n-label n-label_title">Ingredient name <span class="color-red">*</span></label> <input type="text" class="form-control input-lg" /> </div>
-                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">UPC</label> <input type="text" class="form-control input-lg" /> </div>
+                          <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Barcode</label> <input type="text" class="form-control input-lg" /> </div>
                         </div>
                         <div class="i-fields">
                           <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">UOM <span class="color-red">*</span></label> <select>
