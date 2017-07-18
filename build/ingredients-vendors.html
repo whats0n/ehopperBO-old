@@ -62,7 +62,7 @@
 	
 </label> </div>
                           <div class="i-item__price">$5.00</div>
-                          <div class="i-item__title">Toppings</div>
+                          <div class="i-item__title">cheese slice</div>
                         </li>
                         <li class="i-item i-items__row ">
                           <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
@@ -72,7 +72,7 @@
 	
 </label> </div>
                           <div class="i-item__price">$3.00</div>
-                          <div class="i-item__title">Sizes</div>
+                          <div class="i-item__title">pepper</div>
                         </li>
                         <li class="i-item i-items__row ">
                           <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
@@ -81,8 +81,78 @@
 	<i class="new-checkbox__icon"></i>
 	
 </label> </div>
-                          <div class="i-item__price">$17.00</div>
-                          <div class="i-item__title">Icecream Flafors</div>
+                          <div class="i-item__price">$7.00</div>
+                          <div class="i-item__title">milk</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$4.00</div>
+                          <div class="i-item__title">potatoes</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$5.00</div>
+                          <div class="i-item__title">strawberry</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$6.00</div>
+                          <div class="i-item__title">tomatoes</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$1.50</div>
+                          <div class="i-item__title">cream</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$3.50</div>
+                          <div class="i-item__title">rice</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$12.00</div>
+                          <div class="i-item__title">pasta</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action i-item__edit "><i class="fa fa-pencil-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__price">$9.00</div>
+                          <div class="i-item__title">egg</div>
                         </li>
                       </ul>
                     </div>
@@ -132,31 +202,27 @@
                           <table class="vendor-edit">
                             <thead>
                               <tr>
-                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.vendor'">Vendor</th>
-                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.sku'">SKU</th>
-                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.cost'">Cost (box)</th>
-                                <th data-bind="local: 'inventory/inventory-manage-tabs/vendors.primary'">Primary</th>
+                                <th>Vendor</th>
+                                <th>SKU</th>
+                                <th>Cost (box)</th>
+                                <th>Primary</th>
                                 <th>&nbsp;</th>
                               </tr>
                             </thead>
-                            <tbody data-bind="foreach: vendorItemsArray">
+                            <tbody>
                               <tr>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: vendor().name" type="text" readonly="readonly"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: sku" type="text" maxlength="256"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: cost" type="text"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell td-padding-top" data-bind="validationOptions: { insertMessages: false }">
-                                <input name="items" type="radio" data-bind="checked: $parent.primaryVendor, value: vendorId, attr: { id: 'vendor' + $index() }" value="144ad4039dd643e784fb1ceedaa8ca89" class="" id="vendor0"> <label data-bind="attr: { 'for': 'vendor' + $index() }"
-                                    for="vendor0"></label> </td>
-                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button" data-bind="click: $root.deleteSelected"> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" value="Super burger" type="text" readonly="readonly"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" type="text" maxlength="256"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" value="0.00" type="text"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input name="items" type="radio" value="144ad4039dd643e784fb1ceedaa8ca89" class="" id="vendor0" checked> <label for="vendor0"></label> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button"> </td>
                               </tr>
                               <tr>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: vendor().name" type="text" readonly="readonly"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: sku" type="text" maxlength="256"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" data-bind="value: cost" type="text"><span class="fieldError" style="display: none;"></span> </td>
-                                <td valign="top" class="vendor-item-cell td-padding-top" data-bind="validationOptions: { insertMessages: false }">
-                                <input name="items" type="radio" data-bind="checked: $parent.primaryVendor, value: vendorId, attr: { id: 'vendor' + $index() }" value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d" class="" id="vendor1"> <label data-bind="attr: { 'for': 'vendor' + $index() }"
-                                    for="vendor1"></label> </td>
-                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button" data-bind="click: $root.deleteSelected"> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" value="Dummy vendor" type="text" readonly="readonly"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" type="text" maxlength="256"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell"> <input class="form-control input-lg" value="0.00" type="text"> <span class="fieldError" style="display: none;"></span> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input name="items" type="radio" value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d" class="" id="vendor1"> <label for="vendor1"></label> </td>
+                                <td valign="top" class="vendor-item-cell td-padding-top"> <input class="delete-row-button" type="button"> </td>
                               </tr>
                             </tbody>
                           </table> <span class="validationMessage" data-bind="text: $root.validationMessage"></span> </div>

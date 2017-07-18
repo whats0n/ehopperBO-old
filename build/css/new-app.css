@@ -261,7 +261,7 @@
   width: 75%;
 }
 
-.i-fields select {
+.i-fields select, .i-fields .select {
   width: 100%;
 }
 
