@@ -265,6 +265,10 @@
   width: 100%;
 }
 
+.i-fields .filter_control_cont {
+  width: 100%;
+}
+
 .n-item {
   position: relative;
   padding-right: 40px !important;
