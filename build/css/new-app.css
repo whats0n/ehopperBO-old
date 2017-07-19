@@ -539,10 +539,12 @@
   padding: 10px 0 0;
 }
 
+.n-modifiers-item .n-table__head[data-row="option"] .n-table__col[data-column="option-name"],
 .n-modifiers-item .n-table__row[data-row="option"] .n-table__col[data-column="option-name"] {
   width: 53%;
 }
 
+.n-modifiers-item .n-table__head[data-row="option"] .n-table__col[data-column="ingredients-name"],
 .n-modifiers-item .n-table__row[data-row="option"] .n-table__col[data-column="ingredients-name"] {
   width: 47%;
 }
@@ -553,6 +555,61 @@
 
 .n-modifiers-item .n-table__inner .n-table__row:hover {
   background: #d9ecf9;
+}
+
+.i-ingredients-item:hover .i-ingredients-item__row {
+  background: #F3F9FD;
+}
+
+.i-ingredients-item__row {
+  position: relative;
+  margin: 0 -10px;
+  font-size: 0;
+  *zoom: 1;
+}
+
+.i-ingredients-item__row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.i-ingredients-item__col {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 10px;
+  width: 100%;
+}
+
+.i-ingredients-item__col[data-column="name"] {
+  width: 43%;
+}
+
+.i-ingredients-item__col[data-column="qty"] {
+  width: 20%;
+}
+
+.i-ingredients-item__col[data-column="type"] {
+  width: 20%;
+}
+
+.i-ingredients-item__col[data-column="close"] {
+  padding: 20px 0;
+  width: 53px;
+  height: 93px;
+}
+
+.i-ingredients-item__label {
+  font-size: 14px;
+}
+
+.i-ingredients-item__field {
+  padding: 10px 0;
+}
+
+.i-ingredients-item__field input {
+  font-size: 16px;
 }
 
 .n-empty {
@@ -942,6 +999,7 @@
 
 .i-item__actions {
   float: right;
+  padding-left: 20px;
   white-space: nowrap;
 }
 

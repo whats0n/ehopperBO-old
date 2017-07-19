@@ -34,22 +34,28 @@
             <div class="pane-header">
               <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Product</span></b> </div>
             <div class="pane-body-wrapper ">
-              <div class="pane-body">
+              <div class="pane-body inventory-manage-body">
                 <div class="form inventory-item-form" id="inventoryManage" style="display: block;">
+                  <!-- begin tabs buttons -->
                   <div class="inventory-tabs serials-hidden tab-control"> <span class="tab selected" data-for="#generalTab">
 					<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#pricingTab">
 					<span class="tab-title">Pricing</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#modifiersTab">
-					<span class="tab-title">Modifiers</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#orderingTab">
+					<span class="tab-title">Modifiers</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#ingredientsTab">
+					<span class="tab-title">Ingredients</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#orderingTab">
 					<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#serialsTab">
 					<span class="tab-title">Serials</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#taxesTab">
-					<span class="tab-title">Taxes</span> <span class="tab-selected-arrow"></span> </span>
+					<span class="tab-title">Taxes</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#variantTab" style="display: none;">
+					<span class="tab-title">Inventory Matrix</span> <span class="tab-selected-arrow"></span> </span>
                   </div>
-                  <div class="errorSummary" id="inventoryManageErrorSummary" data-bind="text: errorSummary(), visible: errorSummary().length > 0" style="display: none;"></div>
+                  <!-- end tabs buttons -->
                   <div class="tab-content" id="generalTab" style="display: block;">
                     <div>
                       <div class="language-selector"> <a class="selected">English</a> <a>Custom</a> <a>Español</a> <a>Français</a> <a>Русский</a> </div>
                       <div id="saveMessages"></div>
-                      <div class="form-group radio-button-group" style="margin-left: 0"> <input type="radio" id="inventoryTypeStandard" name="inventoryType" value="0"> <label for="inventoryTypeStandard">Inventory</label> <input type="radio" id="inventoryTypeNonInventory" name="inventoryType" value="2"> <label for="inventoryTypeNonInventory">Non-Inventory</label>                        <input type="radio" id="inventoryTypeSerialized" name="inventoryType" value="1"> <label for="inventoryTypeSerialized">Serialized</label> </div>
+                      <div class="form-group radio-button-group" style="margin-left: 0"> <input type="radio" id="inventoryTypeStandard" name="inventoryType" value="0"> <label for="inventoryTypeStandard">Inventory</label> <input type="radio" id="inventoryTypeNonInventory" name="inventoryType" value="2"> <label for="inventoryTypeNonInventory">Non-Inventory</label>                        <input type="radio" id="inventoryTypeSerialized" name="inventoryType" value="1"> <label for="inventoryTypeSerialized">Serialized</label> <input type="radio" id="inventoryTypeWithRecipe" name="inventoryType" value="3" checked>
+                        <label
+                          for="inventoryTypeWithRecipe">With Recipe</label>
+                      </div>
                       <div class="form-group"> <label>Product Name</label> <input class="form-control input-lg" type="text" placeholder="Product Name" maxlength="100"> <span class="fieldError" style="display: none;"></span> </div>
                       <div class="row">
                         <div class="col-sm-7">
@@ -263,10 +269,10 @@
                       </div>
                     </div>
                   </div>
-                  <div id="inventoryManage2" style="display: block;">
-                    <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
-                  </div>
                 </div>
+              </div>
+              <div id="inventoryManage2" style="display: block;">
+                <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
               </div>
             </div>
           </div>

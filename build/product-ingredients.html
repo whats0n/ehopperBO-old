@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Product</title>
+    <base />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="shortcut icon" href="content/favicon.ico">
+    <link rel="stylesheet" href="content/bootstrap.css" />
+    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+    <link rel="stylesheet" href="content/font-awesome.css" />
+    <link rel="stylesheet" href="content/durandal.css" />
+    <link rel="stylesheet" href="content/morrisJs/morris.css" />
+    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+    <link rel="stylesheet" href="content/slim/slim.min.css" />
+    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+    <link rel="stylesheet" href="content/app.css" />
+    <link rel="stylesheet" href="css/new-app.css" /> </head>
+
+  <body>
+    <div id="applicationHost">
+      <div class="main-container">
+        <section id="content" class="hide-content">
+          <div class="pane pane-right">
+            <div class="pane-header">
+              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Product</span></b> </div>
+            <div class="pane-body-wrapper ">
+              <div class="pane-body inventory-manage-body">
+                <div class="form inventory-item-form" id="inventoryManage" style="display: block;">
+                  <!-- begin tabs buttons -->
+                  <div class="inventory-tabs serials-hidden tab-control"> <span class="tab" data-for="#generalTab">
+					<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#pricingTab">
+					<span class="tab-title">Pricing</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#modifiersTab">
+					<span class="tab-title">Modifiers</span> <span class="tab-selected-arrow"></span> </span> <span class="tab selected" data-for="#ingredientsTab">
+					<span class="tab-title">Ingredients</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#orderingTab">
+					<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#serialsTab">
+					<span class="tab-title">Serials</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#taxesTab">
+					<span class="tab-title">Taxes</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#variantTab" style="display: none;">
+					<span class="tab-title">Inventory Matrix</span> <span class="tab-selected-arrow"></span> </span>
+                  </div>
+                  <!-- end tabs buttons -->
+                  <div class="tab-content" id="ingredientsTab" style="display: block;">
+                    <div class="n-modifiers-container">
+                      <div class="n-modifiers-section n-modifiers-block">
+                        <div class="n-modifiers-block__title">Add ingredients</div>
+                        <div class="pull-left n-modifiers-section__btn"> <input class="btn btn-lg btn-primary" type="button" value="Add Existing"> </div>
+                        <div class="pull-left n-modifiers-section__slash">or</div>
+                        <div class="pull-left n-modifiers-section__btn"> <input class="btn btn-lg btn-primary" type="button" value="Create New"> </div>
+                      </div>
+                      <div class="n-modifiers-block">
+                        <div class="n-modifiers-block__title">Current Ingredients</div>
+                        <div class="n-modifiers-block__lang">
+                          <div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true"> <a class="selected">English</a> <a>Custom</a> <a>Español</a> <a>Français</a> <a>Русский</a> </div>
+                        </div>
+                        <div class="i-ingredients-items">
+                          <div class="i-ingredients-item">
+                            <div class="i-ingredients-item__row">
+                              <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
+                            </div>
+                          </div>
+                          <div class="i-ingredients-item">
+                            <div class="i-ingredients-item__row">
+                              <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="inventoryManage2" style="display: block;">
+                <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- END scripts -->
+  </body>
+
+</html>

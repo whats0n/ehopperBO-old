@@ -38,7 +38,7 @@
 				{% for item in list %}
 					<li class="i-item i-items__row {% if sidebarNoActive != true %}{{item.active}}{% endif %}">
 						<div class="i-item__actions">
-							<a href="#" class="i-item__action i-item__edit {% if sidebarNoActive != true %}{{item.active}}{% endif %}"><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action {% if sidebarNoActive != true %}{{item.active}}{% endif %}"><i class="fa fa-pencil-square-o"></i></a>
 						</div>
 						<div class="i-item__checkbox">
 							{{form.checkbox.call()}}
