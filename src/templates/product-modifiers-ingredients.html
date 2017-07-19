@@ -1,0 +1,136 @@
+---
+title: Product
+headerTitle: New Inventory Item
+modifiersIngredients: true
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory-manage-body">
+		<div class="form inventory-item-form" id="inventoryManage" style="display: block;">
+			<!-- begin tabs buttons -->
+			<div class="inventory-tabs serials-hidden tab-control">
+				<span class="tab" data-for="#generalTab">
+					<span class="tab-title">General</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#pricingTab">
+					<span class="tab-title">Pricing</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab selected" data-for="#modifiersTab">
+					<span class="tab-title">Modifiers</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#vendorsTab">
+					<span class="tab-title">Vendors</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#orderingTab">
+					<span class="tab-title">Ordering</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#serialsTab">
+					<span class="tab-title">Serials</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#taxesTab">
+					<span class="tab-title">Taxes</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#variantTab" style="display: none;">
+					<span class="tab-title">Inventory Matrix</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+			</div>
+			<!-- end tabs buttons -->
+
+			<div class="tab-content" id="modifiersTab">
+				<div class="n-modifiers-container">
+					{% set modifiers = {
+						columns: [ 'name', 'toggle', 'close' ],
+						items: [
+							{ name: 'Size' },
+							{ name: 'Toppings', open: 'is-open', active: 'is-active' }
+						]
+					} %}
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Select all or one store</div>
+						<div class="pull-left">
+							<select id="store_select">
+								<option value="All">All Stores</option>
+								<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+								<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">First Store</option>
+								<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+								<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+								<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+								<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+								<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+							</select>
+						</div>
+					</div>
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Add modifiers</div>
+						<div class="pull-left n-modifiers-section__btn">
+							<input class="btn btn-lg btn-primary" type="button" value="Copy Existing">
+						</div>
+						<div class="pull-left n-modifiers-section__slash">or</div>
+						<div class="pull-left n-modifiers-section__btn">
+							<input class="btn btn-lg btn-primary" type="button" value="Create New">
+						</div>
+					</div>
+					<div class="n-modifiers-block">
+						<div class="n-modifiers-block__title">Current Modifiers</div>
+						<div class="n-modifiers-block__lang">
+							<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true">
+								<a class="selected">English</a>
+								<a>Custom</a>
+								<a>Español</a>
+								<a>Français</a>
+								<a>Русский</a>
+							</div>
+						</div>
+						<div class="n-modifiers-items">
+							{% for item in modifiers.items %}
+								{% set index = loop.index + '' %}
+								<div class="n-modifiers-item js-toggle">
+									<label class="n-label n-modifiers-item__label" for="modifier-name-{{loop.index}}">Modifier Group Name:</label>
+									<div class="n-modifiers-item__row">
+										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[0]}}">
+											<i class="n-modifiers-item__i-draggble"></i>
+											<input class="form-control input-lg textbox" 
+												type="text" 
+												maxlength="100" 
+												placeholder="Enter Name" 
+												value="{{item.name}}"
+												data-lang="EN">
+										</div>
+										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[1]}}">
+											<button class="n-btn-toggle js-toggle-btn">
+												<span class="n-btn-toggle__show">Show Modifiers</span>
+												<span class="n-btn-toggle__hide">Hide Modifiers</span>
+												<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
+											</button>
+										</div>
+										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[2]}}">
+											<input class="n-modifiers-item__close delete-row-button" type="button">
+										</div>
+									</div>
+									<div class="n-modifiers-item__content js-toggle-container">
+										<div class="n-modifiers-item__options">
+											{% set radiosClassList = 'n-modifiers-item__radios' %}
+											{% set radiosName = 'product-modifiers' + index %}
+											{% include 'partials/components/_radios.html' %}
+											{% include 'partials/components/_n-table-wrapper.html' %}
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include 'partials/components/_product-buttons.html' %}
+{% endblock %}
