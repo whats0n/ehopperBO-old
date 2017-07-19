@@ -65,13 +65,13 @@
                           <div class="i-ingredients-item">
                             <div class="i-ingredients-item__row">
                               <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="cheese slice" readonly maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="1" maxlength="100" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="box" readonly maxlength="100" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
                             </div>
@@ -79,13 +79,41 @@
                           <div class="i-ingredients-item">
                             <div class="i-ingredients-item__row">
                               <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="milk" readonly maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="2" maxlength="100" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
-                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" maxlength="100" data-lang="EN"> </div>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="pack" readonly maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
+                            </div>
+                          </div>
+                          <div class="i-ingredients-item">
+                            <div class="i-ingredients-item__row">
+                              <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="egg" readonly maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="1" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="tray" readonly maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
+                            </div>
+                          </div>
+                          <div class="i-ingredients-item">
+                            <div class="i-ingredients-item__row">
+                              <div class="i-ingredients-item__col" data-column="name"> <label class="n-label i-ingredients-item__label">Ingredient:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="tomatoes" readonly maxlength="100" placeholder="Enter Name" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="qty"> <label class="n-label i-ingredients-item__label">Qty:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="3" maxlength="100" data-lang="EN"> </div>
+                              </div>
+                              <div class="i-ingredients-item__col" data-column="type"> <label class="n-label i-ingredients-item__label">UOM:</label>
+                                <div class="i-ingredients-item__field"> <input class="form-control input-lg textbox" type="text" value="case" readonly maxlength="100" data-lang="EN"> </div>
                               </div>
                               <div class="i-ingredients-item__col" data-column="close"> <input class="i-ingredients-item__close delete-row-button" type="button"> </div>
                             </div>
@@ -96,8 +124,8 @@
                   </div>
                 </div>
               </div>
-              <div id="inventoryManage2" style="display: block;">
-                <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
+              <div id="inventoryManage2" style="display: block;" class="">
+                <div class="form-buttons text-center n-modifiers-container"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
               </div>
             </div>
           </div>

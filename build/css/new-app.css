@@ -1154,6 +1154,15 @@
   color: #f00;
 }
 
+.buttons-center {
+  text-align: center;
+}
+
+.buttons-center .form-buttons > .btn,
+.buttons-center .form-buttons > .btn:last-child {
+  margin: 0 5px;
+}
+
 .i-title {
   padding: 9px 0 10px;
   margin-bottom: 20px;

@@ -131,10 +131,5 @@ headerTitle: New Inventory Item
 			</div>
 		</div>
 	</div>
-	<div id="inventoryManage2" style="display: block;">
-		<div class="form-buttons">
-			<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
-			<a class="btn btn-lg btn-default" href="#items">Cancel</a>
-		</div>
-	</div>
+	{% include 'partials/components/_product-buttons.html' %}
 {% endblock %}
