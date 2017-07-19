@@ -2,20 +2,14 @@
 title: Modifiers Empty
 headerTitle: Modifiers
 paneBodyWrapperClassList: 'n-modifiers'
+sidebarEmpty: true
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
-			<div class="n-pane__inner">
-				{% include 'partials/components/_n-search.html' %}
-				<!-- begin n-empty -->
-				<div class="n-empty">
-					<div class="n-empty__title">There are no modifiers created. <a href="#" class="n-link">Add new</a>.</div>
-				</div>
-				<!-- end n-empty -->
-			</div>
+			{% include 'partials/components/_sidebar-modifiers.html' %}
 		</div>
 		<div class="pane pane-right"></div>
 	</div>

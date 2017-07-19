@@ -2,39 +2,15 @@
 title: Modifiers Add To Products
 headerTitle: Modifiers
 paneBodyWrapperClassList: 'n-modifiers'
+sidebarDisabled: 'is-disabled'
+sidebarActionsActive: 3
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
-			<div class="n-pane__inner is-disabled">
-			
-				{% include 'partials/components/_n-search.html' %}
-
-				{% set list = [
-					{ title: 'Toppings', active: 'is-active' },
-					{ title: 'Sizes' },
-					{ title: 'Icecream Flafors' }
-				] %}
-
-				<!-- begin n-list -->
-				<ul class="list n-list">
-					{% for item in list %}
-						<li class="item n-item {{item.active}}">
-							<button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-							<ul class="n-item__actions">
-								<li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-								<li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-								<li class="n-item__action"><a href="#" class="n-item__link {{item.active}}">Add to products</a></li>
-							</ul>
-							<div class="n-item__title">{{item.title}}</div>
-						</li>
-					{% endfor %}
-				</ul>
-				<!-- end n-list -->
-
-			</div>
+			{% include 'partials/components/_sidebar-modifiers.html' %}
 		</div>
 		<div class="pane pane-right">
 			<div class="n-module n-module_simple is-open">

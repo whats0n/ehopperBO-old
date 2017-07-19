@@ -56,22 +56,34 @@
 		padding: 10px 20px 10px 10px
 	&__actions
 		float: right
-		padding-left: 20px
-		// padding: 10px 20px 10px
+		// padding-left: 20px
 		white-space: nowrap
 	&__action
+		position: relative
 		display: inline-block
 		vertical-align: top
+		min-width: 45px
+		height: 45px
 		color: $blue
 		font-size: 0
+		line-height: 45px
 		text-decoration: none
 		&:not(:first-child)
 			padding-left: 6px
-			margin-left: 6px
-			border-left: 2px solid #eaeaea 
+			&:before
+				content: ''
+				position: absolute
+				top: 10px
+				left: -1px
+				bottom: 10px
+				border-left: 2px solid #eaeaea 
 		&.is-active
 			color: #072948
-			text-decoration: underline
+			span 
+				text-decoration: underline
+		+hover
+			span
+				text-decoration: underline
 		i 
 			display: inline-block
 			vertical-align: middle
@@ -80,9 +92,11 @@
 			font-size: 20px
 			line-height: 45px
 			text-align: center
-	&__edit
-		width: 45px
-		height: 45px
+		span
+			display: inline-block
+			vertical-align: middle
+			padding: 0 20px 0 5px
+			font-size: 14px
 	&__title
 		+text-overflow
 	&__price

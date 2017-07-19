@@ -38,106 +38,122 @@
                 <div class="pane pane-left">
                   <div class="n-pane__inner is-disabled">
                     <!-- begin n-search -->
-                    <div class="n-search">
+                    <div class="n-search n-search_sidebar">
                       <div class="n-search__links">
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
                       </div>
                       <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" /> </div>
                     </div>
                     <!-- end n-search -->
-                    <!-- begin n-list -->
-                    <ul class="list n-list">
-                      <li class="item n-item is-active"> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link is-active">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Toppings</div>
-                      </li>
-                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link ">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Sizes</div>
-                      </li>
-                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link ">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Icecream Flafors</div>
-                      </li>
+                    <!-- begin i-items -->
+                    <div class="i-items">
+                      <div class="i-items__head">
+                        <div class="i-items__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                        <div class="i-items__title">Modifiers</div>
+                      </div>
+                      <ul class="i-items__list">
+                        <li class="i-item i-items__row is-active">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action is-active"><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__title">Toppings</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                          <div
+                            class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                    <div class="i-item__title">Sizes</div>
+                    </li>
+                    <li class="i-item i-items__row ">
+                      <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                      <div class="i-item__checkbox">
+                      <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                      <div class="i-item__title">Icecream Flafors</div>
+                    </li>
                     </ul>
-                    <!-- end n-list -->
                   </div>
+                  <!-- end i-items -->
                 </div>
-                <div class="pane pane-right">
-                  <div class="n-section n-section_step">
-                    <div class="n-section__body">
-                      <div class="n-section__container">
-                        <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
-                        <div class="n-form-group n-box"> <label class="n-label n-label_title">Modifier Group Name:</label>
-                          <div class="n-form-group__field"> <input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name"> </div>
-                          <p class="validationMessage">Error message</p>
-                        </div>
-                        <div class="n-container n-section__radios">
-                          <div class="n-row">
-                            <div class="n-col"> <label class="n-label n-label_title">Select modifier type:</label> </div>
-                            <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+              </div>
+              <div class="pane pane-right">
+                <div class="n-section n-section_step">
+                  <div class="n-section__body">
+                    <div class="n-section__container">
+                      <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
+                      <div class="n-form-group n-box"> <label class="n-label n-label_title">Modifier Group Name:</label>
+                        <div class="n-form-group__field"> <input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name"> </div>
+                        <p class="validationMessage">Error message</p>
+                      </div>
+                      <div class="n-container n-section__radios">
+                        <div class="n-row">
+                          <div class="n-col"> <label class="n-label n-label_title">Select modifier type:</label> </div>
+                          <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="1" id="modifiers1" name="modifiers" checked>
 					<span class="n-fake-radio__content">one modifier</span>
 				</label> <label class="n-label" for="modifiers1">eg: small, medium, large</label> </div>
-                            <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+                          <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="2" id="modifiers2" name="modifiers" >
 					<span class="n-fake-radio__content">multiple modifiers</span>
 				</label> <label class="n-label" for="modifiers2">eg: cheese, sousage</label> </div>
-                            <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+                          <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="3" id="modifiers3" name="modifiers" >
 					<span class="n-fake-radio__content">NO modifiers</span>
 				</label> <label class="n-label" for="modifiers3">eg: No salt, No sugar</label> </div>
-                          </div>
-                        </div>
-                        <div class="n-table-wrapper "> <label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
-                          <div class="n-table">
-                            <div class="n-table__head" data-row="option">
-                              <div class="n-table__col" data-column="option-name">Modifier:</div>
-                              <div class="n-table__col" data-column="option-price">Price:</div>
-                            </div>
-                            <div class="n-table__body">
-                              <div class="n-table__row" data-row="option">
-                                <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" data-lang="EN"> <span class="fieldError" style="display: none;"></span> </div>
-                                <div class="n-table__col"
-                                  data-column="option-price"> <input class="form-control input-lg" type="text" value="0.00"> <span class="validationMessage" style="display: none;"></span> </div>
-                                <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                              </div>
-                              <div class="n-table__row" data-row="option">
-                                <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" value="Hot pepper" data-lang="EN"> <span class="fieldError" style="display: none;"></span>                                  </div>
-                                <div class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="3"> <span class="validationMessage" style="display: none;"></span> </div>
-                                <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="n-add n-table-wrapper__add"> <a href="#"><i class="fa fa-plus"></i> Add a modifier</a> </div>
-                          <div class="checkbox"> <input type="checkbox" checked id="isActive_0"> <label for="isActive_0">Is Active</label> </div>
                         </div>
                       </div>
+                      <div class="n-table-wrapper "> <label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
+                        <div class="n-table">
+                          <div class="n-table__head" data-row="option">
+                            <div class="n-table__col" data-column="option-name">Modifier:</div>
+                            <div class="n-table__col" data-column="option-price">Price:</div>
+                          </div>
+                          <div class="n-table__body">
+                            <div class="n-table__row" data-row="option">
+                              <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" data-lang="EN"> <span class="fieldError" style="display: none;"></span> </div>
+                              <div class="n-table__col"
+                                data-column="option-price"> <input class="form-control input-lg" type="text" value="0.00"> <span class="validationMessage" style="display: none;"></span> </div>
+                              <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
+                            </div>
+                            <div class="n-table__row" data-row="option">
+                              <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" value="Hot pepper" data-lang="EN"> <span class="fieldError" style="display: none;"></span>                                </div>
+                              <div class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="3"> <span class="validationMessage" style="display: none;"></span> </div>
+                              <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="n-add n-table-wrapper__add"> <a href="#"><i class="fa fa-plus"></i> Add a modifier</a> </div>
+                        <div class="checkbox"> <input type="checkbox" checked id="isActive_0"> <label for="isActive_0">Is Active</label> </div>
+                      </div>
                     </div>
-                    <div class="n-section__footer">
-                      <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
-                    </div>
+                  </div>
+                  <div class="n-section__footer">
+                    <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
       </div>
+      </section>
+    </div>
     </div>
     <!-- BEGIN scripts -->
     <script type="text/javascript" src="js/app.js"></script>

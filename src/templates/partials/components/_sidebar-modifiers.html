@@ -5,19 +5,42 @@
 		{ title: 'Sizes' },
 		{ title: 'Icecream Flafors' }
 	] %}
-	<!-- begin n-list -->
-	<ul class="list n-list">
-		{% for item in list %}
-			<li class="item n-item {{item.active}}">
-				<button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-				<ul class="n-item__actions">
-					<li class="n-item__action"><a href="#" class="n-item__link {{item.active}}">Edit</a></li>
-					<li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-					<li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-				</ul>
-				<div class="n-item__title">{{item.title}}</div>
-			</li>
-		{% endfor %}
-	</ul>
-	<!-- end n-list -->
+	{% set sidebarActions = [
+		'<i class="fa fa-pencil-square-o"></i>',
+		'<i class="fa fa-clone"></i>',
+		'<span>Add to products</span>'
+	] %}
+	{% if sidebarEmpty %}
+		<!-- begin n-empty -->
+		<div class="n-empty">
+			<div class="n-empty__title">There are no modifiers created. <a href="#" class="n-link">Add new</a>.</div>
+		</div>
+		<!-- end n-empty -->
+	{% else %}
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					{{form.checkbox.call()}}
+				</div>
+				<div class="i-items__title">Modifiers</div>
+			</div>
+			<ul class="i-items__list">
+				{% for item in list %}
+					<li class="i-item i-items__row {% if sidebarNoActive != true %}{{item.active}}{% endif %}">
+						<div class="i-item__actions">
+							{% for link in sidebarActions %}
+								<a href="#" class="i-item__action {% if loop.index == sidebarActionsActive %}{{item.active}}{% endif %}">{{link | safe}}</a>
+							{% endfor %}
+						</div>
+						<div class="i-item__checkbox">
+							{{form.checkbox.call()}}
+						</div>
+						<div class="i-item__title">{{item.title}}</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<!-- end i-items -->
+	{% endif %}
 </div>

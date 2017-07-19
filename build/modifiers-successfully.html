@@ -36,57 +36,74 @@
             <div class="pane-body-wrapper n-modifiers">
               <div class="n-columns-layout">
                 <div class="pane pane-left">
-                  <div class="n-pane__inner">
+                  <div class="n-pane__inner ">
                     <!-- begin n-search -->
-                    <div class="n-search">
+                    <div class="n-search n-search_sidebar">
                       <div class="n-search__links">
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
-                        <div class="n-search__col n-search__col_sm"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
                       </div>
                       <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" /> </div>
                     </div>
                     <!-- end n-search -->
-                    <!-- begin n-list -->
-                    <ul class="list n-list">
-                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Toppings</div>
-                      </li>
-                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Sizes</div>
-                      </li>
-                      <li class="item n-item "> <button class="n-close n-item__close"><i class="fa fa-close"></i></button>
-                        <ul class="n-item__actions">
-                          <li class="n-item__action"><a href="#" class="n-item__link">Edit</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Copy</a></li>
-                          <li class="n-item__action"><a href="#" class="n-item__link">Add to products</a></li>
-                        </ul>
-                        <div class="n-item__title">Icecream Flafors</div>
-                      </li>
+                    <!-- begin i-items -->
+                    <div class="i-items">
+                      <div class="i-items__head">
+                        <div class="i-items__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                        <div class="i-items__title">Modifiers</div>
+                      </div>
+                      <ul class="i-items__list">
+                        <li class="i-item i-items__row is-active">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                          <div
+                            class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                    <div class="i-item__title">Toppings</div>
+                    </li>
+                    <li class="i-item i-items__row ">
+                      <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                      <div class="i-item__checkbox">
+                      <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                      <div class="i-item__title">Sizes</div>
+                    </li>
+                    <li class="i-item i-items__row ">
+                      <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><span>Add to products</span></a> </div>
+                      <div class="i-item__checkbox">
+                      <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                      <div class="i-item__title">Icecream Flafors</div>
+                    </li>
                     </ul>
-                    <!-- end n-list -->
                   </div>
+                  <!-- end i-items -->
                 </div>
-                <div class="pane pane-right">
-                  <div class="n-section">
-                    <div class="alert alert-dismissible fade in alert-success" role="alert"> <button class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <strong>Success!</strong> Modifiers group "Toppings" is successfully created. </div>
-                  </div>
+              </div>
+              <div class="pane pane-right">
+                <div class="n-section">
+                  <div class="alert alert-dismissible fade in alert-success" role="alert"> <button class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <strong>Success!</strong> Modifiers group "Toppings" is successfully created. </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
       </div>
+      </section>
+    </div>
     </div>
     <!-- BEGIN scripts -->
     <script type="text/javascript" src="js/app.js"></script>
