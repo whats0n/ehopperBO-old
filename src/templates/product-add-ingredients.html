@@ -1,19 +1,20 @@
 ---
-title: Modifiers Add Ingredient
-headerTitle: Modifiers
+title: Add Existing Ingredients
+headerTitle: Ingredients
+ingredientsCancelButtonAttrs: 'data-modal-close="add-ingredients"'
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
-	<div class="n-module is-open" data-modal-container="copy-modifier">
+	<div class="n-module is-open" data-modal-container="add-ingredients">
 		<div class="n-module__container">
 			<div class="n-module__header">
-				<div class="n-module__title">Copy Existing Modifier Groups</div>
+				<div class="n-module__title">Add existing ingredients</div>
 
 				<!-- begin n-search -->
 				<div class="n-search n-module__search">
 					<div class="n-search__field">
-						<input type="text" class="form-control input-lg" placeholder="Search For Modifiers" />
+						<input type="text" class="form-control input-lg" placeholder="Search For Ingredients" />
 					</div>
 				</div>
 				<!-- end n-search -->
@@ -22,12 +23,16 @@ headerTitle: Modifiers
 				{% set items = {
 					columns: [ 'half', 'half' ],
 					rows: [
-						{ title: 'Small', modifier: 'Small Pie' },
-						{ title: 'Mid', modifier: 'Mid Size Pie' },
-						{ title: 'Cheese', modifier: 'Cheese' },
-						{ title: 'Tomato', modifier: 'T1' },
-						{ title: 'car', modifier: 'car charger' },
-						{ title: 'ear', modifier: 'ear pcs' }
+						{ title: 'cheese slice', unit: 'box' },
+						{ title: 'pepper', unit: 'box' },
+						{ title: 'milk', unit: 'pack' },
+						{ title: 'potatoes', unit: 'bag' },
+						{ title: 'strawberry', unit: 'box' },
+						{ title: 'tomatoes', unit: 'case' },
+						{ title: 'cream', unit: 'box' },
+						{ title: 'rice', unit: 'pack' },
+						{ title: 'pasta', unit: 'pack' },
+						{ title: 'egg', unit: 'tray' }
 					]
 				} %}
 				<div class="n-items">
@@ -40,13 +45,13 @@ headerTitle: Modifiers
 						</div>
 						<div class="n-items__table">
 							<div class="n-items__tr">
-								<div class="n-items__col">Modifier Group Name</div>
-								<div class="n-items__col">Modifiers</div>
+								<div class="n-items__col">Ingredient name</div>
+								<div class="n-items__col">UOM</div>
 							</div>
 						</div>
 					</div>
 					<div class="n-items__body">
-						{% for row in range(0,5) %}
+						{% for row in range(0,2) %}
 							{% set active = loop.index + '' %}
 							{% for item in items.rows %}
 								<div class="n-items__row">
@@ -59,7 +64,7 @@ headerTitle: Modifiers
 									<div class="n-items__table">
 										<div class="n-items__tr">
 											<div class="n-items__col">{{item.title}}</div>
-											<div class="n-items__col">{{item.modifier}}</div>
+											<div class="n-items__col">{{item.unit}}</div>
 										</div>
 									</div>
 								</div>
@@ -67,8 +72,8 @@ headerTitle: Modifiers
 						{% endfor %}
 					</div>
 					<div class="n-items__footer">
-						<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Copy">
-						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="copy-modifier">
+						<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Add">
+						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="add-ingredients">
 					</div>
 				</div>
 			</div>
