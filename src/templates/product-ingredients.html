@@ -69,10 +69,10 @@ headerTitle: Product
 							</div>
 						</div>
 						{% set items = [
-							{ name: 'cheese slice', qty: '1', type: 'box' },
-							{ name: 'milk', qty: '2', type: 'pack' },
-							{ name: 'egg', qty: '1', type: 'tray' },
-							{ name: 'tomatoes', qty: '3', type: 'case' }
+							{ name: 'cheese slice', qty: '1', type: 'item' },
+							{ name: 'milk', qty: '2', type: 'l' },
+							{ name: 'egg', qty: '1', type: 'item' },
+							{ name: 'tomatoes', qty: '3', type: 'kg' }
 						] %}
 						<div class="i-ingredients-items">
 							{% for item in items %}
@@ -93,7 +93,7 @@ headerTitle: Product
 										<div class="i-ingredients-item__col" data-column="type">
 											<label class="n-label i-ingredients-item__label">UOM:</label>
 											<div class="i-ingredients-item__field">
-												<input class="form-control input-lg textbox" type="text" value="{{item.type}}" readonly maxlength="100" data-lang="EN">
+												<span class="i-ingredients-item__text">{{item.type}}</span>
 											</div>
 										</div>
 										<div class="i-ingredients-item__col" data-column="close">

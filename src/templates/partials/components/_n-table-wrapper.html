@@ -54,6 +54,7 @@
 													maxlength="100" 
 													placeholder="Add ingredient" 
 													value="{% if loop.index == 1 %}Hot pepper{% else %}Hot souce{% endif %}"
+													readonly
 													data-lang="EN">
 												<span class="fieldError" style="display: none;"></span>
 											</div>
@@ -64,7 +65,7 @@
 												<span class="validationMessage" style="display: none;"></span>
 											</div>
 											<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">
-												<div class="n-table__unit"><span>{% if loop.index == 1 %}it{% else %}l{% endif %}</span></div>
+												<div class="n-table__unit"><span>{% if loop.index == 1 %}item{% else %}l{% endif %}</span></div>
 											</div>
 											<div class="n-table__col" data-column="{{table.columns[3]}}">
 												<input class="n-table__close delete-row-button" type="button">
