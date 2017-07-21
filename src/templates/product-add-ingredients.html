@@ -1,7 +1,6 @@
 ---
 title: Add Existing Ingredients
 headerTitle: New Inventory Item
-ingredientsCancelButtonAttrs: 'data-modal-close="add-ingredients"'
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -9,6 +8,9 @@ ingredientsCancelButtonAttrs: 'data-modal-close="add-ingredients"'
 	<div class="n-module is-open" data-modal-container="add-ingredients">
 		<div class="n-module__container">
 			<div class="n-module__header">
+				<button class="btn btn-lg btn-primary n-module__create">
+					<span>Create New</span>
+				</button>
 				<div class="n-module__title">Add existing ingredients</div>
 
 				<!-- begin n-search -->
@@ -73,7 +75,7 @@ ingredientsCancelButtonAttrs: 'data-modal-close="add-ingredients"'
 					</div>
 					<div class="n-items__footer">
 						<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Add">
-						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="add-ingredients">
+						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
 					</div>
 				</div>
 			</div>

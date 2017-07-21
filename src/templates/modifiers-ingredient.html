@@ -5,6 +5,7 @@ paneBodyWrapperClassList: 'n-modifiers'
 modifiersIngredients: true
 sidebarDisabled: 'is-disabled'
 sidebarActionsActive: 1
+ingredientsCancelButtonAttrs: 'data-modal-close="create-ingredients"'
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -16,6 +17,7 @@ sidebarActionsActive: 1
 		<div class="pane pane-right">
 			{% include 'partials/components/_modifiers.html' %}
 			{% include 'partials/components/_add-ingredients.html' %}
+			{% include 'partials/components/_create-new-ingredient.html' %}
 		</div>
 	</div>
 {% endblock %}

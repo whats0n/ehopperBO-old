@@ -1,0 +1,30 @@
+---
+title: Add Existing Ingredients
+headerTitle: New Inventory Item
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-module is-open" data-modal-container="add-ingredients">
+		<div class="n-module__container">
+			<div class="n-module__header">
+				<button class="btn btn-lg btn-primary n-module__create">
+					<span>Create New</span>
+				</button>
+				<div class="n-module__title">Add existing ingredients</div>
+			</div>
+			<div class="n-module__body">
+				<div class="n-items">
+					<!-- begin n-empty -->
+					<div class="n-empty">
+						<div class="n-empty__title">There are no ingredients created. <a href="#" class="n-link" data-modal-target="create-ingredients">Add new</a>.</div>
+					</div>
+					<!-- end n-empty -->
+					<div class="n-items__footer">
+						<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
