@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Modifiers Add Ingredient</title>
+    <base />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="shortcut icon" href="content/favicon.ico">
+    <link rel="stylesheet" href="content/bootstrap.css" />
+    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+    <link rel="stylesheet" href="content/font-awesome.css" />
+    <link rel="stylesheet" href="content/durandal.css" />
+    <link rel="stylesheet" href="content/morrisJs/morris.css" />
+    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+    <link rel="stylesheet" href="content/slim/slim.min.css" />
+    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+    <link rel="stylesheet" href="content/app.css" />
+    <link rel="stylesheet" href="css/new-app.css" /> </head>
+
+  <body>
+    <div id="applicationHost">
+      <div class="main-container">
+        <section id="content" class="hide-content">
+          <div class="pane pane-right">
+            <div class="pane-header">
+              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b> </div>
+            <div class="pane-body-wrapper n-modifiers">
+              <div class="n-columns-layout">
+                <div class="pane pane-left">
+                  <div class="n-pane__inner is-disabled">
+                    <!-- begin n-search -->
+                    <div class="n-search n-search_sidebar">
+                      <div class="n-search__links">
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
+                        <div class="n-search__col"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
+                      </div>
+                      <div class="n-search__field"> <input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" /> </div>
+                    </div>
+                    <!-- end n-search -->
+                    <!-- begin i-items -->
+                    <div class="i-items">
+                      <div class="i-items__head">
+                        <div class="i-items__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                        <div class="i-items__title">Modifiers</div>
+                      </div>
+                      <ul class="i-items__list">
+                        <li class="i-item i-items__row is-active">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action is-active"><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>                            </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__title">Toppings</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__title">Sizes</div>
+                        </li>
+                        <li class="i-item i-items__row ">
+                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a> </div>
+                          <div class="i-item__checkbox"> <label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label> </div>
+                          <div class="i-item__title">Icecream Flafors</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- end i-items -->
+                  </div>
+                </div>
+                <div class="pane pane-right">
+                  <div class="n-module is-open" data-modal-container="add-ingredient">
+                    <div class="n-module__container">
+                      <div class="n-module__header"> <button class="btn btn-lg btn-primary n-module__create" data-modal-target="create-ingredients">
+				<span>Create New</span>
+			</button>
+                        <div class="n-module__title">Add ingredients to "Bun" modifier</div>
+                      </div>
+                      <div class="n-module__body">
+                        <div class="n-items">
+                          <!-- begin n-empty -->
+                          <div class="n-empty">
+                            <div class="n-empty__title">There are no ingredients created. <a href="#" class="n-link" data-modal-target="create-ingredients">Add new</a>.</div>
+                          </div>
+                          <!-- end n-empty -->
+                          <div class="n-items__footer"> <input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="add-ingredient"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- begin n-modal -->
+                  <div class="n-modal " data-modal-container="create-ingredients">
+                    <div class="n-modal__header">
+                      <div class="n-modal__title">Create new ingredient</div>
+                      <div class="n-section n-section_step">
+                        <div class="n-section__body">
+                          <!-- begin tabs buttons -->
+                          <div class="tab-control n-section__tabs"> <span class="tab selected" data-for="#generalTab">
+				<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#vendors">
+				<span class="tab-title">Vendors</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#ordering">
+				<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span>
+                          </div>
+                          <!-- end tabs buttons -->
+                          <div class="n-section__container">
+                            <div class="language-selector"> <a class="selected">English</a> <a>Ukrainian</a> <a>Russian</a> </div>
+                            <div class="i-fields">
+                              <div class="i-fields__col i-fields__col_lg"> <label class="n-label n-label_title">Ingredient name <span class="color-red">*</span></label> <input type="text" class="form-control input-lg" /> </div>
+                              <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Barcode</label> <input type="text" class="form-control input-lg" /> </div>
+                            </div>
+                            <div class="i-fields">
+                              <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">UOM <span class="color-red">*</span></label> <select>
+						<option value="">All</option>
+						<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+						<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+						<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+						<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+						<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+					</select> </div>
+                              <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Convertion number</label> <input type="text" class="form-control input-lg" /> </div>
+                              <div class="i-fields__col i-fields__col_sm"> <label class="n-label n-label_title">Stock Unit</label> <input type="text" class="form-control input-lg" /> <label class="n-label">eg: pack, box</label> </div>
+                            </div>
+                            <div class="i-fields">
+                              <div class="i-fields__col"> <label class="new-checkbox">
+	<input type="checkbox" checked>
+	<i class="new-checkbox__icon"></i>
+	
+		<span class="new-checkbox__content">is Active</span>
+	
+</label> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="n-section__footer">
+                          <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <input class="btn btn-lg btn-default" type="button" value="Cancel" data-modal-close="create-ingredients"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end n-modal -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- END scripts -->
+  </body>
+
+</html>

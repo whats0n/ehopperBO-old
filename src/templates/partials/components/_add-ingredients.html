@@ -1,19 +1,20 @@
 <div class="n-module {{addIngredients}}" data-modal-container="add-ingredient">
 	<div class="n-module__container">
 		<div class="n-module__header">
-			{#<button class="n-back btn btn-lg btn-primary n-module__back" data-modal-close="add-ingredient">
-				<i class="fa fa-arrow-left"></i>
-				<span>Back</span>
-			</button>#}
+			<button class="btn btn-lg btn-primary n-module__create" data-modal-target="create-ingredients">
+				<span>Create New</span>
+			</button>
 			<div class="n-module__title">Add ingredients to "Bun" modifier</div>
 
-			<!-- begin n-search -->
-			<div class="n-search n-module__search">
-				<div class="n-search__field">
-					<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
+			{% if addIngredientsEmpty != true %}
+				<!-- begin n-search -->
+				<div class="n-search n-module__search">
+					<div class="n-search__field">
+						<input type="text" class="form-control input-lg" placeholder="Search For Ingredient" />
+					</div>
 				</div>
-			</div>
-			<!-- end n-search -->
+				<!-- end n-search -->
+			{% endif %}
 		</div>
 		<div class="n-module__body">
 			{% set items = {
@@ -25,43 +26,54 @@
 				]
 			} %}
 			<div class="n-items">
-				<div class="n-items__head">
-					<div class="n-items__checkbox">
-						<div class="checkbox">
-							<input type="checkbox" id="all-ingredients">
-							<label for="all-ingredients"></label>
-						</div>
+				{% if addIngredientsEmpty %}
+					<!-- begin n-empty -->
+					<div class="n-empty">
+						<div class="n-empty__title">There are no ingredients created. <a href="#" class="n-link" data-modal-target="create-ingredients">Add new</a>.</div>
 					</div>
-					<div class="n-items__table">
-						<div class="n-items__tr">
-							<div class="n-items__col">Ingredient Name</div>
-							<div class="n-items__col">Unit of measurement</div>
-						</div>
-					</div>
-				</div>
-				<div class="n-items__body">
-					{% for row in range(0,5) %}
-						{% set active = loop.index + '' %}
-						{% for item in items.rows %}
-							<div class="n-items__row">
-								<div class="n-items__checkbox">
-									<div class="checkbox">
-										<input type="checkbox" id="ingredient-{{active + loop.index}}">
-										<label for="ingredient-{{active + loop.index}}"></label>
-									</div>
-								</div>
-								<div class="n-items__table">
-									<div class="n-items__tr">
-										<div class="n-items__col">{{item.title}}</div>
-										<div class="n-items__col">{{item.unit}}</div>
-									</div>
-								</div>
+					<!-- end n-empty -->
+				{% endif %}
+				{% if addIngredientsEmpty != true %}
+					<div class="n-items__head">
+						<div class="n-items__checkbox">
+							<div class="checkbox">
+								<input type="checkbox" id="all-ingredients">
+								<label for="all-ingredients"></label>
 							</div>
+						</div>
+						<div class="n-items__table">
+							<div class="n-items__tr">
+								<div class="n-items__col">Ingredient Name</div>
+								<div class="n-items__col">Unit of measurement</div>
+							</div>
+						</div>
+					</div>
+					<div class="n-items__body">
+						{% for row in range(0,5) %}
+							{% set active = loop.index + '' %}
+							{% for item in items.rows %}
+								<div class="n-items__row">
+									<div class="n-items__checkbox">
+										<div class="checkbox">
+											<input type="checkbox" id="ingredient-{{active + loop.index}}">
+											<label for="ingredient-{{active + loop.index}}"></label>
+										</div>
+									</div>
+									<div class="n-items__table">
+										<div class="n-items__tr">
+											<div class="n-items__col">{{item.title}}</div>
+											<div class="n-items__col">{{item.unit}}</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
 						{% endfor %}
-					{% endfor %}
-				</div>
+					</div>
+				{% endif %}
 				<div class="n-items__footer">
-					<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Add">
+					{% if addIngredientsEmpty != true %}
+						<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Add">
+					{% endif %}
 					<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel" data-modal-close="add-ingredient">
 				</div>
 			</div>

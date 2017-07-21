@@ -776,6 +776,7 @@
 }
 
 .n-module__title {
+  overflow: hidden;
   padding: 9px 0 10px;
   color: #999;
   font-size: 24px;
@@ -801,6 +802,10 @@
   margin: 0 auto;
   max-width: 800px;
   height: 100%;
+}
+
+.n-module__create {
+  float: right;
 }
 
 .n-modal {
