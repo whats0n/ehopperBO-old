@@ -849,6 +849,10 @@
   min-width: 1700px;
 }
 
+.modifier-report__filters_sm {
+  min-width: 1400px;
+}
+
 .modifier-report__container {
   width: 100%;
 }
@@ -864,13 +868,13 @@
   clear: both;
 }
 
-.modifier-report__col, .modifier-report__search, .modifier-report__actions {
+.modifier-report__col {
   position: relative;
   float: left;
   padding: 0 10px 15px;
 }
 
-.modifier-report__col label, .modifier-report__search label, .modifier-report__actions label {
+.modifier-report__col label {
   display: inline-block;
   vertical-align: middle;
   padding-right: 10px;
@@ -886,10 +890,6 @@
 }
 
 .modifier-report__col_sm {
-  width: 25%;
-}
-
-.modifier-report__search, .modifier-report__actions {
   width: 25%;
 }
 
@@ -1422,6 +1422,10 @@
 
 #modifierReportTable {
   min-width: 1700px;
+}
+
+#ingredientsReportTable {
+  min-width: 1300px;
 }
 
 #taxTable input[type="text"],

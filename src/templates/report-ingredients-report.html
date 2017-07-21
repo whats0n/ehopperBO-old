@@ -1,0 +1,235 @@
+---
+title: Ingredients report
+headerTitle: Ingredients report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body modifier-report">
+		<div class="modifier-report__filters modifier-report__filters_sm">
+			<div class="modifier-report__container">
+				<div class="modifier-report__row">
+					<div class="modifier-report__col modifier-report__col_sm">
+						<input class="form-control input-lg" type="text" placeholder="Search ingredient by name or id">
+					</div>
+					<div class="modifier-report__col modifier-report__col_sm pull-right">
+						<div class="modifier-report__action">
+							<date-filter params="value: dateRange">
+								<div class="pull-right">
+									<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+										<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+										&nbsp;
+										<span>Today</span> 
+										<b class="caret"></b>
+									</div>
+								</div>
+							</date-filter>
+						</div>
+						<div class="modifier-report__action">
+							<div class="report-export-wrapper">
+								<button class="btn-report-export">Export</button>
+								<i class="fa fa-file-excel-o" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modifier-report__container">
+				<div class="modifier-report__row">
+					<div class="modifier-report__col modifier-report__col_sm">
+						<label>Store:</label>
+						<select>
+							<option value="">All</option>
+							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+						</select>
+					</div>
+					<div class="modifier-report__col modifier-report__col_sm">
+						<label>Employee:</label>
+						<select>
+							<option value="">All</option>
+							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+						</select>
+					</div>
+					<div class="modifier-report__col modifier-report__col_sm">
+						<label>Register:</label>
+						<select>
+							<option value="">All</option>
+							<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+							<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+							<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+							<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modifier-report__table-wrapper">
+			<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+				<div id="productMixReportTable_filter" class="dataTables_filter">
+					<label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label>
+				</div>
+				<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+				<table class="datatable dataTable" id="ingredientsReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+					<thead>
+						<tr role="row">
+							<th class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
+							<th class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Ingredient: Activate to sort by descending columns" aria-sort="ascending">Ingredient</th>
+							<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+							<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+							<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
+							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>
+							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th>
+							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th class="text-right row-expandable" colspan="5" rowspan="1">Total:</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">10</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						{% set table = [
+							{
+								id: '1',
+								title: 'cheese slice',
+								store: 'WestGuestCafe',
+								employee: 'John Wick',
+								register: 'Register 1',
+								min: '1',
+								qty: '2',
+								sold: '2'
+							},
+							{
+								id: '2',
+								title: 'pepper',
+								store: 'WestGuestCafe',
+								employee: 'John Wick',
+								register: 'Register 1',
+								min: '1',
+								qty: '4',
+								sold: '4'
+							},
+							{
+								id: '3',
+								title: 'milk',
+								store: 'WestGuestCafe',
+								employee: 'John Wick',
+								register: 'Register 1',
+								min: '1',
+								qty: '2',
+								sold: '2'
+							},
+							{
+								id: '4',
+								title: 'potatoes',
+								store: 'WestGuestCafe',
+								employee: 'John Wick',
+								register: 'Register 1',
+								min: '1',
+								qty: '4',
+								sold: '4'
+							},
+							{
+								id: '5',
+								title: 'strawberry',
+								store: 'WestGuestCafe',
+								employee: 'John Wick',
+								register: 'Register 1',
+								min: '1',
+								qty: '3',
+								sold: '3'
+							},
+							{
+								id: '6',
+								title: 'tomatoes',
+								store: 'WestGuestCafe',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								min: '1',
+								qty: '3',
+								sold: '3'
+							},
+							{
+								id: '7',
+								title: 'cream',
+								store: 'WestGuestCafe',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								min: '1',
+								qty: '2',
+								sold: '2'
+							},
+							{
+								id: '8',
+								title: 'rice',
+								store: 'WestGuestCafe',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								min: '1',
+								qty: '1',
+								sold: '1'
+							},
+							{
+								id: '9',
+								title: 'pasta',
+								store: 'WestGuestCafe',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								min: '1',
+								qty: '3',
+								sold: '3'
+							},
+							{
+								id: '10',
+								title: 'egg',
+								store: 'WestGuestCafe',
+								employee: 'Ben Stiller',
+								register: 'Register 2',
+								min: '1',
+								qty: '4',
+								sold: '4'
+							}
+						] %}
+						{% for item in table %}
+							<tr class="editable odd" role="row">
+								<td class=" row-expandable">{{item.id}}</td>
+								<td class="sorting_1">{{item.title}}</td>
+								<td>{{item.store}}</td>
+								<td>{{item.employee}}</td>
+								<td>{{item.register}}</td>
+								<td class=" numeric-data">{{item.min}}</td>
+								<td class=" numeric-data">{{item.qty}}</td>
+								<td class=" numeric-data">{{item.sold}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+					<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+					<span>
+						<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+						<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+						<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+						<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+						<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
+						<span class="ellipsis">…</span>
+						<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">466</a>
+					</span>
+					<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
