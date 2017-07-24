@@ -1,0 +1,23 @@
+---
+title: Store transfer
+headerTitle: Store transfer
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body">
+		{% set tabs = [
+			{
+				active: 'is-active',
+				open: 'is-open',
+				btn: 'Products',
+				content: 'partials/store-transfer/_products.html'
+			},
+			{
+				btn: 'Ingredients',
+				content: 'partials/store-transfer/_ingredients.html'
+			}
+		] %}
+		{% include 'partials/components/_tabs.html' %}
+	</div>
+{% endblock %}

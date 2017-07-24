@@ -1,0 +1,20 @@
+<div class="s-tabs">
+	<div class="s-tabs__header">
+		<ul class="s-tabs__list">
+			{% for item in tabs %}
+				<li class="s-tabs__item">
+					<a href="" class="s-tabs__btn {{item.active}}">{{item.btn}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="s-tabs__body">
+		{% for item in tabs %}
+			{% if item.content %}
+				<div class="s-tabs__content {{item.open}}">
+					{% include item.content %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
