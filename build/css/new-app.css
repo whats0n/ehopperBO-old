@@ -42,7 +42,24 @@
 }
 
 .n-search__field {
+  position: relative;
   overflow: hidden;
+}
+
+.n-search__field input {
+  padding-left: 40px;
+}
+
+.n-search__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  color: #c8cbd4;
+  font-size: 20px;
+  line-height: 53px;
+  text-align: center;
 }
 
 .n-search__aside {
