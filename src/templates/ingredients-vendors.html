@@ -69,7 +69,7 @@ sidebarDisabled: 'is-disabled'
 									</div>
 								</div>
 								<div class="pull-right">
-									<input class="btn btn-lg btn-primary" type="button" value="New Vendor">
+									<input class="btn btn-lg btn-primary" type="button" value="New Vendor" data-modal-target="create-vendor">
 								</div>
 							</div>
 							<div class="vendor-separator">&nbsp;</div>
@@ -140,6 +140,7 @@ sidebarDisabled: 'is-disabled'
 					</div>
 				</div>
 			</div>
+			{% include 'partials/components/_create-new-vendor.html' %}
 		</div>
 	</div>
 {% endblock %}
