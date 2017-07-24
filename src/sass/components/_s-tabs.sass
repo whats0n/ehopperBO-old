@@ -1,24 +1,27 @@
 .s-tabs
 	position: relative
-	padding-top: 60px
+	// padding-top: 60px
+	padding: 80px 20px 20px
 	height: 100%
 	&__header
 		position: absolute
-		top: 0
-		left: 0
-		right: 0
+		// top: 0
+		// left: 0
+		// right: 0
+		top: 20px
+		left: 20px
+		right: 20px
 	&__list
 		padding: 0
 		margin: 0
 		font-size: 0
-		background: #eee
+		// background: #eee
 	&__item,
 	&__btn
 		display: inline-block
 		vertical-align: top
 	&__item
-		&:not(:last-child)
-			border-right: 2px solid rgba($black, 0.1)
+		margin-bottom: -2px
 	&__btn
 		min-width: 100px
 		padding: 20px 20px
@@ -31,10 +34,16 @@
 		+hover
 			text-decoration: none
 		&.is-active
+			border: 1px solid #e5e5e5
+			border-bottom: none
 			background: $white
 		&.is-disabled
 			color: rgba($black, 0.3)
 			pointer-events: none
+	&__body
+		overflow: auto
+		border: 1px solid #e5e5e5
+		height: 100%
 	&__content
 		display: none
 		padding: 25px 40px 40px

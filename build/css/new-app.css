@@ -1084,22 +1084,21 @@
 
 .s-tabs {
   position: relative;
-  padding-top: 60px;
+  padding: 80px 20px 20px;
   height: 100%;
 }
 
 .s-tabs__header {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 20px;
+  left: 20px;
+  right: 20px;
 }
 
 .s-tabs__list {
   padding: 0;
   margin: 0;
   font-size: 0;
-  background: #eee;
 }
 
 .s-tabs__item, .s-tabs__btn {
@@ -1107,8 +1106,8 @@
   vertical-align: top;
 }
 
-.s-tabs__item:not(:last-child) {
-  border-right: 2px solid rgba(0, 0, 0, 0.1);
+.s-tabs__item {
+  margin-bottom: -2px;
 }
 
 .s-tabs__btn {
@@ -1130,12 +1129,20 @@
 }
 
 .s-tabs__btn.is-active {
+  border: 1px solid #e5e5e5;
+  border-bottom: none;
   background: #fff;
 }
 
 .s-tabs__btn.is-disabled {
   color: rgba(0, 0, 0, 0.3);
   pointer-events: none;
+}
+
+.s-tabs__body {
+  overflow: auto;
+  border: 1px solid #e5e5e5;
+  height: 100%;
 }
 
 .s-tabs__content {
@@ -1502,6 +1509,10 @@
 #pricingTable input[type="text"],
 #orderingTable input[type="text"] {
   width: 100%;
+}
+
+.store-transfer {
+  height: 100%;
 }
 
 /*# sourceMappingURL=new-app.css.map */
