@@ -6,14 +6,17 @@ headerTitle: Store transfer
 
 {% block content %}
 	<div class="pane-body store-transfer">
+		{% set tabsCollection = 'store-transfer' %}
 		{% set tabs = [
 			{
 				active: 'is-active',
 				open: 'is-open',
+				name: 'store-transfer-products',
 				btn: 'Products',
 				content: 'partials/store-transfer/_products.html'
 			},
 			{
+				name: 'store-transfer-ingredients',
 				btn: 'Ingredients',
 				content: 'partials/store-transfer/_ingredients.html'
 			}

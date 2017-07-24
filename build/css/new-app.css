@@ -751,7 +751,7 @@
   bottom: 0;
   height: 100%;
   background: #fff;
-  transform: translate3d(-100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
   transition: transform 0.4s ease-in-out;
 }
 
@@ -817,7 +817,7 @@
   overflow: auto;
   height: 100%;
   background: #fff;
-  transform: translate3d(-100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
   transition: transform 0.4s ease-in-out;
 }
 
@@ -1111,32 +1111,43 @@
 }
 
 .s-tabs__btn {
+  position: relative;
   min-width: 100px;
   padding: 20px 20px;
   color: #333;
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.s-tabs__btn:hover {
-  text-decoration: none;
+.s-tabs__btn.is-active {
+  background: #fff;
 }
 
-.s-tabs__btn.is-active {
-  border: 1px solid #e5e5e5;
-  border-bottom: none;
-  background: #fff;
+.s-tabs__btn.is-active:before {
+  opacity: 1;
 }
 
 .s-tabs__btn.is-disabled {
   color: rgba(0, 0, 0, 0.3);
   pointer-events: none;
+}
+
+.s-tabs__btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  border: 1px solid #e5e5e5;
+  border-bottom-color: #fff;
+  opacity: 0;
 }
 
 .s-tabs__body {

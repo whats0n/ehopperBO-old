@@ -3,7 +3,7 @@
 		<ul class="s-tabs__list">
 			{% for item in tabs %}
 				<li class="s-tabs__item">
-					<a href="" class="s-tabs__btn {{item.active}}">{{item.btn}}</a>
+					<a href="" class="s-tabs__btn js-tabs-btn {{item.active}}" data-tabs-btn="{{item.name}}" data-tabs-collection="{{tabsCollection}}">{{item.btn}}</a>
 				</li>
 			{% endfor %}
 		</ul>
@@ -11,7 +11,7 @@
 	<div class="s-tabs__body">
 		{% for item in tabs %}
 			{% if item.content %}
-				<div class="s-tabs__content {{item.open}}">
+				<div class="s-tabs__content {{item.open}}" data-tabs-container="{{item.name}}" data-tabs-collection="{{tabsCollection}}">
 					{% include item.content %}
 				</div>
 			{% endif %}
