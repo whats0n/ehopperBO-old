@@ -943,6 +943,26 @@
   padding: 0 20px 40px;
 }
 
+.modifier-report__search-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  color: #c8cbd4;
+  font-size: 20px;
+  line-height: 53px;
+  text-align: center;
+}
+
+.modifier-report__search-input {
+  padding-left: 40px;
+}
+
+.modifier-report__search {
+  position: relative;
+}
+
 .i-items__head {
   position: relative;
   padding: 0 55px 0 45px;

@@ -1,0 +1,26 @@
+---
+title: PO Receiving
+headerTitle: PO Receiving
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body store-transfer">
+		{% set tabsCollection = 'po-receiving' %}
+		{% set tabs = [
+			{
+				active: 'is-active',
+				open: 'is-open',
+				name: 'po-receiving-products',
+				btn: 'Products',
+				content: 'partials/store-transfer/_products.html'
+			},
+			{
+				name: 'po-receiving-ingredients',
+				btn: 'Ingredients',
+				content: 'partials/store-transfer/_ingredients.html'
+			}
+		] %}
+		{% include 'partials/components/_tabs.html' %}
+	</div>
+{% endblock %}
