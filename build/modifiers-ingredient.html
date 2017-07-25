@@ -206,14 +206,18 @@
                       <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
                     </div>
                   </div>
-                  <div class="n-module " data-modal-container="add-ingredient">
+                  <div class="n-module n-module_simple" data-modal-container="add-ingredient">
                     <div class="n-module__container">
-                      <div class="n-module__header"> <button class="btn btn-lg btn-primary n-module__create" data-modal-target="create-ingredients">
+                      <div class="n-module__header">
+                        <!-- <button class="btn btn-lg btn-primary n-module__create" data-modal-target="create-ingredients">
 				<span>Create New</span>
-			</button>
-                        <div class="n-module__title">Add ingredients to "Bun" modifier</div>
-                        <!-- begin n-search -->
-                        <div class="n-search n-module__search">
+			</button> -->
+                        <!-- <div class="n-module__title">Add ingredients to "Bun" modifier</div> -->
+                        <!-- begin n-search n-module__search -->
+                        <div class="n-search">
+                          <div class="n-search__aside"> <button class="btn btn-lg btn-primary n-search__create" data-modal-target="create-ingredients">
+							<span>Create New</span>
+						</button> </div>
                           <div class="n-search__field"> <i class="fa fa-search n-search__icon"></i> <input type="text" class="form-control input-lg" placeholder="Search For Ingredient" /> </div>
                         </div>
                         <!-- end n-search -->
@@ -407,9 +411,6 @@
                   <div class="n-modal " data-modal-container="create-ingredients">
                     <div class="n-section n-section_step">
                       <div class="n-section__body">
-                        <div class="n-modal__header">
-                          <div class="n-modal__title">Create new ingredient</div>
-                        </div>
                         <!-- begin tabs buttons -->
                         <div class="tab-control n-section__tabs"> <span class="tab selected" data-for="#generalTab">
 				<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#vendors">
