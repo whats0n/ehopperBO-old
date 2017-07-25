@@ -1,0 +1,143 @@
+<div>
+	{% include 'partials/store-transfer/_filters.html' %}
+	<div id="storeTransferMessage"></div>
+	<div class="min-table-width-wrapper">
+		<table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
+			<thead>
+				<tr role="row">
+					<th class="product-id">ID</th>
+					<th class="product-name">Name</th>
+					<th>Barcode</th>
+					<th>SKU</th>
+					<th>UOM</th>
+					<th>Cost</th>
+					<th>Received Qty</th>
+				</tr>
+			</thead>
+			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
+				<tr>
+					<td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+				</tr>
+			</tbody>
+			{% set table = [
+				{
+					name: 'cheese slice',
+					sku: '',
+					uom: 'unit',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'pepper',
+					sku: '',
+					uom: 'unit',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'milk',
+					sku: '',
+					uom: 'l',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'potatoes',
+					sku: '',
+					uom: 'kg',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'strawberry',
+					sku: '',
+					uom: 'kg',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'tomatoes',
+					sku: '',
+					uom: 'case',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'cream',
+					sku: '',
+					uom: 'box',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'rice',
+					sku: '',
+					uom: 'pack',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'pasta',
+					sku: '',
+					uom: 'pack',
+					cost: '',
+					in: '',
+					qty: ''
+				},
+				{
+					name: 'egg',
+					sku: '',
+					uom: 'tray',
+					cost: '',
+					in: '',
+					qty: ''
+				}
+			] %}
+			<tbody>
+				{% for item in table %}
+					<tr>
+						<td class="product-id">
+							<span>{{loop.index}}</span>
+						</td>
+						<td class="product-name force-wrap">{{item.name}}</td>
+						<td>{{loop.index * loop.index + '00'}}</td>
+						<td>{{item.sku or loop.index * 2}}</td>
+						<td>{{item.uom}}</td>
+						<td>
+							<span>${{item.cost or loop.index * 2}}</span>
+						</td>
+						<td style="white-space: initial">
+							<input type="number" class="form-control input" value="0">
+							<span class="fieldError" style="display: none;"></span>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="dataTables_wrapper" data-bind="visible: fullList() &amp;&amp; pagination().length > 1" style="">
+			<div class="dataTables_paginate paging_simple_numbers">
+				<a class="paginate_button previous disabled" data-dir="previous" data-bind="css: { disabled: pagination()[0] &amp;&amp; pagination()[0].current }, click: $root.gotoPage, local: 'storeTransfer.previous'">Previous</a>
+				<span data-bind="foreach: pagination">
+					<a class="paginate_button current" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">1</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">2</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">3</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">4</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">5</a>
+					<span>…</span>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a>
+				</span>
+				<a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>
+			</div>
+		</div>
+	</div>
+	{% include 'partials/store-transfer/_buttons.html' %}
+</div>
