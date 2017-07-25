@@ -1,0 +1,47 @@
+.i-header
+	position: absolute
+	z-index: 50
+	top: 0
+	left: 0
+	right: 0
+	min-width: 1180px
+	height: 0
+	&__modal
+		float: right
+		width: 60%
+		height: 50px
+		border-bottom: 2px solid #2E9ADB
+		background: #2E9ADB
+		transform: translate3d(100%,0,0)
+		transition: transform 0.4s ease-in-out
+		&.is-open
+			+gpu
+	&__back
+		position: relative
+		z-index: 1
+		float: left
+		padding: 0 20px
+		border: none
+		height: 100%
+		color: $white
+		background: none
+		font-size: 16px
+		i, span
+			display: inline-block
+			vertical-align: top
+		i
+			margin-right: 4px
+			font-size: 28px
+			line-height: 46px
+		span
+			line-height: 48px
+	&__title
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		color: $white
+		font-size: 24px
+		font-weight: bold
+		line-height: 50px
+		text-align: center

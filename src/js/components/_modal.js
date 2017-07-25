@@ -4,21 +4,21 @@ export default (function() {
 
 	const modal = {
 		_getModal(target) {
-			return document.querySelector(`[data-modal-container="${target}"]`);
+			return [...document.querySelectorAll(`[data-modal-container="${target}"]`)];
 		},
 		show(e, btn) {
 			e.preventDefault();
 			const target = btn.getAttribute('data-modal-target');
-			const modal = this._getModal(target);
-			if (!modal) return;
-			modal.classList.add(OPEN);
+			const modals = this._getModal(target);
+			if (!modals.length) return;
+			modals.forEach(modal => modal.classList.add(OPEN));
 		},
 		hide(e, btn) {
 			e.preventDefault();
 			const target = btn.getAttribute('data-modal-close');
-			const modal = this._getModal(target);
-			if (!modal) return;
-			modal.classList.remove(OPEN);
+			const modals = this._getModal(target);
+			if (!modals.length) return;
+			modals.forEach(modal => modal.classList.remove(OPEN));
 		}
 	};
 	
