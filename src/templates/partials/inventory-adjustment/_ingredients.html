@@ -1,8 +1,8 @@
 <div>
-	{% include 'partials/store-transfer/_filters.html' %}
+	{#{% include 'partials/store-transfer/_filters.html' %}#}
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
-		<table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
+		<table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
 			<thead>
 				<tr role="row">
 					<th class="product-id">ID</th>
@@ -11,7 +11,10 @@
 					<th>SKU</th>
 					<th>UOM</th>
 					<th>Cost</th>
-					<th>Transfer Qty</th>
+					<th>Store in</th>
+					<th>Adjusted Qty</th>
+					<th style="width: 330px;">Reason</th>
+					<th style="width: 80px;"></th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
@@ -114,9 +117,27 @@
 						<td>
 							<span>${{item.cost or loop.index * 2}}</span>
 						</td>
+						<td>
+							<span>{{item.in or loop.index * 2}}</span>
+						</td>
+						<td>
+							<span>{{item.qty or loop.index * 2}}</span>
+						</td>
 						<td style="white-space: initial">
-							<input type="number" class="form-control input" value="0">
-							<span class="fieldError" style="display: none;"></span>
+							<select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
 						</td>
 					</tr>
 				{% endfor %}

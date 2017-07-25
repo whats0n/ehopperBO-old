@@ -580,7 +580,7 @@
                         </table>
                         <div id="storeTransferMessage"></div>
                         <div class="min-table-width-wrapper">
-                          <table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
+                          <table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
                             <thead>
                               <tr role="row">
                                 <th class="product-id">ID</th>
@@ -589,10 +589,7 @@
                                 <th>SKU</th>
                                 <th>UOM</th>
                                 <th>Cost</th>
-                                <th>Store in</th>
-                                <th>Adjusted Qty</th>
-                                <th style="width: 330px;">Reason</th>
-                                <th style="width: 80px;"></th>
+                                <th>Transfer Qty</th>
                               </tr>
                             </thead>
                             <tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
@@ -608,20 +605,7 @@
                                 <td>2</td>
                                 <td>unit</td>
                                 <td> <span>$2</span> </td>
-                                <td> <span>2</span> </td>
-                                <td> <span>2</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>2</span> </td>
@@ -630,20 +614,7 @@
                                 <td>4</td>
                                 <td>unit</td>
                                 <td> <span>$4</span> </td>
-                                <td> <span>4</span> </td>
-                                <td> <span>4</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>3</span> </td>
@@ -652,20 +623,7 @@
                                 <td>6</td>
                                 <td>l</td>
                                 <td> <span>$6</span> </td>
-                                <td> <span>6</span> </td>
-                                <td> <span>6</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>4</span> </td>
@@ -674,20 +632,7 @@
                                 <td>8</td>
                                 <td>kg</td>
                                 <td> <span>$8</span> </td>
-                                <td> <span>8</span> </td>
-                                <td> <span>8</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>5</span> </td>
@@ -696,20 +641,7 @@
                                 <td>10</td>
                                 <td>kg</td>
                                 <td> <span>$10</span> </td>
-                                <td> <span>10</span> </td>
-                                <td> <span>10</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>6</span> </td>
@@ -718,20 +650,7 @@
                                 <td>12</td>
                                 <td>case</td>
                                 <td> <span>$12</span> </td>
-                                <td> <span>12</span> </td>
-                                <td> <span>12</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>7</span> </td>
@@ -740,20 +659,7 @@
                                 <td>14</td>
                                 <td>box</td>
                                 <td> <span>$14</span> </td>
-                                <td> <span>14</span> </td>
-                                <td> <span>14</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>8</span> </td>
@@ -762,20 +668,7 @@
                                 <td>16</td>
                                 <td>pack</td>
                                 <td> <span>$16</span> </td>
-                                <td> <span>16</span> </td>
-                                <td> <span>16</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>9</span> </td>
@@ -784,20 +677,7 @@
                                 <td>18</td>
                                 <td>pack</td>
                                 <td> <span>$18</span> </td>
-                                <td> <span>18</span> </td>
-                                <td> <span>18</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                               <tr>
                                 <td class="product-id"> <span>10</span> </td>
@@ -806,20 +686,7 @@
                                 <td>20</td>
                                 <td>tray</td>
                                 <td> <span>$20</span> </td>
-                                <td> <span>20</span> </td>
-                                <td> <span>20</span> </td>
-                                <td style="white-space: initial"> <select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" value="0"> <span class="fieldError" style="display: none;"></span> </td>
                               </tr>
                             </tbody>
                           </table>
