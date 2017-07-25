@@ -1571,4 +1571,65 @@
   min-width: 1400px;
 }
 
+.pane-header__right {
+  display: none;
+}
+
+.pane-header .pane-header__left .toggle-options-panel-button {
+  margin-right: 30px;
+}
+
+.pane-header_double {
+  min-width: 1180px;
+  *zoom: 1;
+}
+
+.pane-header_double:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.pane-header_double .pane-header__left {
+  width: 40%;
+}
+
+.pane-header_double .pane-header__right {
+  display: block;
+  width: 60%;
+}
+
+.pane-header_double .pane-header__left,
+.pane-header_double .pane-header__right {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+
+.pane-header_double .pane-header__back {
+  position: relative;
+  z-index: 1;
+  float: left;
+  padding: 0 20px;
+  border: none;
+  height: 100%;
+  color: #fff;
+  background: none;
+  font-size: 16px;
+}
+
+.pane-header_double .pane-header__back i {
+  margin-right: 4px;
+  font-size: 18px;
+}
+
+.pane-header_double .pane-header__subtitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
 /*# sourceMappingURL=new-app.css.map */
