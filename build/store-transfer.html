@@ -50,25 +50,23 @@
                             <tr>
                               <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeOut'">Store Out</td>
                               <td> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId">
-						<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select> </td>
+					<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+					<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+					<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+					<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+					<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
+					<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+				</select> </td>
                               <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeIn'">Store In</td>
                               <td> <select data-bind="options: storesIn, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select> </td>
-                              <td class="inventory-transfer-options-label" data-bind="local: 'poReceiving.refNum'">Ref Num</td>
-                              <td> <input data-bind="value: refNum" maxlength="30" class="form-control input-lg store-transfer-refnum" type="text"> </td>
+					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+					<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+					<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+					<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+					<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
+					<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+				</select> </td>
                               <td class="inventory-transfer-search"> <input class="form-control input-lg datatable-search scannerInput" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'"
                                   placeholder="Search item by title or code">
                                 <div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
@@ -543,8 +541,7 @@
 					<span>…</span> <a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a> </span> <a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>                              </div>
                           </div>
                         </div>
-                        <div class="form-buttons text-center" data-bind="visible: !isLoading()"> <input data-bind="enable: inventoryTransferLines().length, click: transfer, local: 'storeTransfer.transfer'" class="btn btn-lg btn-primary" type="button" value="Transfer"> <input data-bind="click: activate, local: 'storeTransfer.cancel'"
-                            class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
+                        <div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()"> <input class="btn btn-lg btn-primary" type="button" value="Transfer"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
                       </div>
                     </div>
                     <div class="s-tabs__content " data-tabs-container="store-transfer-ingredients" data-tabs-collection="store-transfer">
@@ -554,25 +551,23 @@
                             <tr>
                               <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeOut'">Store Out</td>
                               <td> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId">
-						<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select> </td>
+					<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+					<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+					<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+					<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+					<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
+					<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+				</select> </td>
                               <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeIn'">Store In</td>
                               <td> <select data-bind="options: storesIn, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select> </td>
-                              <td class="inventory-transfer-options-label" data-bind="local: 'poReceiving.refNum'">Ref Num</td>
-                              <td> <input data-bind="value: refNum" maxlength="30" class="form-control input-lg store-transfer-refnum" type="text"> </td>
+					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+					<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+					<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+					<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+					<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
+					<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+				</select> </td>
                               <td class="inventory-transfer-search"> <input class="form-control input-lg datatable-search scannerInput" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'"
                                   placeholder="Search item by title or code">
                                 <div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
@@ -585,7 +580,7 @@
                         </table>
                         <div id="storeTransferMessage"></div>
                         <div class="min-table-width-wrapper">
-                          <table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
+                          <table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
                             <thead>
                               <tr role="row">
                                 <th class="product-id">ID</th>
@@ -596,8 +591,8 @@
                                 <th>Cost</th>
                                 <th>Store in</th>
                                 <th>Adjusted Qty</th>
-                                <th>Reason</th>
-                                <th style="width: 80px; display: none;"></th>
+                                <th style="width: 330px;">Reason</th>
+                                <th style="width: 80px;"></th>
                               </tr>
                             </thead>
                             <tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
@@ -605,7 +600,228 @@
                                 <td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
                               </tr>
                             </tbody>
-                            <tbody> </tbody>
+                            <tbody>
+                              <tr>
+                                <td class="product-id"> <span>1</span> </td>
+                                <td class="product-name force-wrap">cheese slice</td>
+                                <td>100</td>
+                                <td>2</td>
+                                <td>unit</td>
+                                <td> <span>$2</span> </td>
+                                <td> <span>2</span> </td>
+                                <td> <span>2</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>2</span> </td>
+                                <td class="product-name force-wrap">pepper</td>
+                                <td>400</td>
+                                <td>4</td>
+                                <td>unit</td>
+                                <td> <span>$4</span> </td>
+                                <td> <span>4</span> </td>
+                                <td> <span>4</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>3</span> </td>
+                                <td class="product-name force-wrap">milk</td>
+                                <td>900</td>
+                                <td>6</td>
+                                <td>l</td>
+                                <td> <span>$6</span> </td>
+                                <td> <span>6</span> </td>
+                                <td> <span>6</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>4</span> </td>
+                                <td class="product-name force-wrap">potatoes</td>
+                                <td>1600</td>
+                                <td>8</td>
+                                <td>kg</td>
+                                <td> <span>$8</span> </td>
+                                <td> <span>8</span> </td>
+                                <td> <span>8</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>5</span> </td>
+                                <td class="product-name force-wrap">strawberry</td>
+                                <td>2500</td>
+                                <td>10</td>
+                                <td>kg</td>
+                                <td> <span>$10</span> </td>
+                                <td> <span>10</span> </td>
+                                <td> <span>10</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>6</span> </td>
+                                <td class="product-name force-wrap">tomatoes</td>
+                                <td>3600</td>
+                                <td>12</td>
+                                <td>case</td>
+                                <td> <span>$12</span> </td>
+                                <td> <span>12</span> </td>
+                                <td> <span>12</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>7</span> </td>
+                                <td class="product-name force-wrap">cream</td>
+                                <td>4900</td>
+                                <td>14</td>
+                                <td>box</td>
+                                <td> <span>$14</span> </td>
+                                <td> <span>14</span> </td>
+                                <td> <span>14</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>8</span> </td>
+                                <td class="product-name force-wrap">rice</td>
+                                <td>6400</td>
+                                <td>16</td>
+                                <td>pack</td>
+                                <td> <span>$16</span> </td>
+                                <td> <span>16</span> </td>
+                                <td> <span>16</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>9</span> </td>
+                                <td class="product-name force-wrap">pasta</td>
+                                <td>8100</td>
+                                <td>18</td>
+                                <td>pack</td>
+                                <td> <span>$18</span> </td>
+                                <td> <span>18</span> </td>
+                                <td> <span>18</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                              <tr>
+                                <td class="product-id"> <span>10</span> </td>
+                                <td class="product-name force-wrap">egg</td>
+                                <td>10000</td>
+                                <td>20</td>
+                                <td>tray</td>
+                                <td> <span>$20</span> </td>
+                                <td> <span>20</span> </td>
+                                <td> <span>20</span> </td>
+                                <td style="white-space: initial"> <select>
+								<option value="N/A">N/A</option>
+								<option value="Found">Found</option>
+								<option value="Lost">Lost</option>
+								<option value="Stolen">Stolen</option>
+								<option value="Broken">Broken</option>
+								<option value="Gift">Gift</option>
+								<option value="Reason">Reason</option>
+								<option value="Reset">Reset</option>
+								<option value="Other">Other</option>
+							</select> </td>
+                                <td> <input type="button" class="delete-row-button"> </td>
+                              </tr>
+                            </tbody>
                           </table>
                           <div class="dataTables_wrapper" data-bind="visible: fullList() &amp;&amp; pagination().length > 1" style="">
                             <div class="dataTables_paginate paging_simple_numbers"> <a class="paginate_button previous disabled" data-dir="previous" data-bind="css: { disabled: pagination()[0] &amp;&amp; pagination()[0].current }, click: $root.gotoPage, local: 'storeTransfer.previous'">Previous</a> <span data-bind="foreach: pagination">
@@ -617,8 +833,7 @@
 					<span>…</span> <a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a> </span> <a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>                              </div>
                           </div>
                         </div>
-                        <div class="form-buttons text-center" data-bind="visible: !isLoading()"> <input data-bind="enable: inventoryTransferLines().length, click: transfer, local: 'storeTransfer.transfer'" class="btn btn-lg btn-primary" type="button" value="Transfer"> <input data-bind="click: activate, local: 'storeTransfer.cancel'"
-                            class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
+                        <div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()"> <input class="btn btn-lg btn-primary" type="button" value="Transfer"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
                       </div>
                     </div>
                   </div>

@@ -1,47 +1,5 @@
 <div>
-	<table class="inventory-transfer-options">
-		<tbody>
-			<tr>
-				<td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeOut'">Store Out</td>
-				<td>
-					<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId">
-						<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select>
-				</td>
-				<td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeIn'">Store In</td>
-				<td>
-					<select data-bind="options: storesIn, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
-						<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-						<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-						<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
-						<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-						<option value="028f25cf079a4019a12f67d575d11512">West Guest Cafe</option>
-						<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-					</select>
-				</td>
-				<td class="inventory-transfer-options-label" data-bind="local: 'poReceiving.refNum'">Ref Num</td>
-				<td>
-					<input data-bind="value: refNum" maxlength="30" class="form-control input-lg store-transfer-refnum" type="text">
-				</td>
-				<td class="inventory-transfer-search">
-					<input class="form-control input-lg datatable-search scannerInput" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
-					<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
-						<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
-					</div>
-				</td>
-				<td class="inventory-transfer-options-label">
-					<input type="checkbox" id="storeTransferFullList" data-bind="checked: fullList">
-					<label for="storeTransferFullList" data-bind="local: 'storeTransfer.showFullList'">Display list</label>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	{% include 'partials/store-transfer/_filters.html' %}
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
 		<table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
@@ -810,8 +768,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="form-buttons text-center" data-bind="visible: !isLoading()">
-		<input data-bind="enable: inventoryTransferLines().length, click: transfer, local: 'storeTransfer.transfer'" class="btn btn-lg btn-primary" type="button" value="Transfer">
-		<input data-bind="click: activate, local: 'storeTransfer.cancel'" class="btn btn-lg btn-default" type="button" value="Cancel">
-	</div>
+	{% include 'partials/store-transfer/_buttons.html' %}
 </div>
