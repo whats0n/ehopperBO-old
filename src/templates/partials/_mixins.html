@@ -1,3 +1,16 @@
 {% macro icon(i) %}
 <svg class="icon icon-{{i}}"><use xlink:href="img/sprite.svg#icon-{{i}}"></use></svg>
 {% endmacro %}
+
+{% macro empty(props) %}
+<!-- begin n-empty -->
+<div class="n-empty {{props.classList}}">
+	{% if props.icon %}
+		<div class="n-empty__icon">
+			<i class="fa fa-folder-open-o"></i>
+		</div>
+	{% endif %}
+	<div class="n-empty__title">{{props.text}}</div>
+</div>
+<!-- end n-empty -->
+{% endmacro %}

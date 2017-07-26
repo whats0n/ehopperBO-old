@@ -646,6 +646,16 @@
   text-align: center;
 }
 
+.n-empty__icon {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.n-empty__icon i {
+  color: #979797;
+  font-size: 48px;
+}
+
 .n-table-wrapper__add {
   padding: 10px 0;
 }
@@ -1501,6 +1511,15 @@
 
 .n-section .tab-elemtn {
   width: 33.33%;
+}
+
+.n-section__alert {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  font-size: 14px;
+  text-align: left;
 }
 
 .n-box {
