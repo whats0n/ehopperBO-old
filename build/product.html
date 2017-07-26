@@ -1,287 +1,231 @@
+
+
 <!doctype html>
 <html>
+	<head>
+		<title>Product</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-  <head>
-    <title>Product</title>
-    <base />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="content/favicon.ico">
-    <link rel="stylesheet" href="content/bootstrap.css" />
-    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
-    <link rel="stylesheet" href="content/font-awesome.css" />
-    <link rel="stylesheet" href="content/durandal.css" />
-    <link rel="stylesheet" href="content/morrisJs/morris.css" />
-    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
-    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
-    <link rel="stylesheet" href="content/slim/slim.min.css" />
-    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
-    <link rel="stylesheet" href="content/app.css" />
-    <link rel="stylesheet" href="css/new-app.css" /> </head>
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">New Inventory Item</span></b>
+</div>
+						
+						<div class="pane-body-wrapper ">
+							
+	<div class="pane-body inventory-manage-body">
+		<div class="form inventory-item-form" id="inventoryManage" style="display: block;">
+			<!-- begin tabs buttons -->
+			<div class="inventory-tabs serials-hidden tab-control">
+				<span class="tab selected" data-for="#generalTab">
+					<span class="tab-title">General</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#pricingTab">
+					<span class="tab-title">Pricing</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#modifiersTab">
+					<span class="tab-title">Modifiers</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#ingredientsTab">
+					<span class="tab-title">Ingredients</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#orderingTab">
+					<span class="tab-title">Ordering</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#serialsTab">
+					<span class="tab-title">Serials</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#taxesTab">
+					<span class="tab-title">Taxes</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#variantTab" style="display: none;">
+					<span class="tab-title">Inventory Matrix</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+			</div>
+			<!-- end tabs buttons -->
+			
+			<div class="tab-content" id="generalTab" style="display: block;">
+				<div>
+					<div class="language-selector">
+						<a class="selected">English</a>
+						<a>Custom</a>
+						<a>Español</a>
+						<a>Français</a>
+						<a>Русский</a>
+					</div>
+					<div id="saveMessages"></div>
+					<div class="form-group radio-button-group" style="margin-left: 0">
+						<input type="radio" id="inventoryTypeStandard" name="inventoryType" value="0">
+						<label for="inventoryTypeStandard">Inventory</label>
 
-  <body>
-    <div id="applicationHost">
-      <div class="main-container">
-        <section id="content" class="hide-content">
-          <div class="pane pane-right">
-            <div class="pane-header">
-              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">New Inventory Item</span></b> </div>
-            <div class="pane-body-wrapper ">
-              <div class="pane-body inventory-manage-body">
-                <div class="form inventory-item-form" id="inventoryManage" style="display: block;">
-                  <!-- begin tabs buttons -->
-                  <div class="inventory-tabs serials-hidden tab-control"> <span class="tab selected" data-for="#generalTab">
-					<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#pricingTab">
-					<span class="tab-title">Pricing</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#modifiersTab">
-					<span class="tab-title">Modifiers</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#ingredientsTab">
-					<span class="tab-title">Ingredients</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#orderingTab">
-					<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#serialsTab">
-					<span class="tab-title">Serials</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#taxesTab">
-					<span class="tab-title">Taxes</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#variantTab" style="display: none;">
-					<span class="tab-title">Inventory Matrix</span> <span class="tab-selected-arrow"></span> </span>
-                  </div>
-                  <!-- end tabs buttons -->
-                  <div class="tab-content" id="generalTab" style="display: block;">
-                    <div>
-                      <div class="language-selector"> <a class="selected">English</a> <a>Custom</a> <a>Español</a> <a>Français</a> <a>Русский</a> </div>
-                      <div id="saveMessages"></div>
-                      <div class="form-group radio-button-group" style="margin-left: 0"> <input type="radio" id="inventoryTypeStandard" name="inventoryType" value="0"> <label for="inventoryTypeStandard">Inventory</label> <input type="radio" id="inventoryTypeNonInventory" name="inventoryType" value="2"> <label for="inventoryTypeNonInventory">Non-Inventory</label>                        <input type="radio" id="inventoryTypeSerialized" name="inventoryType" value="1"> <label for="inventoryTypeSerialized">Serialized</label> <input type="radio" id="inventoryTypeWithRecipe" name="inventoryType" value="3" checked>
-                        <label
-                          for="inventoryTypeWithRecipe">With Recipe</label>
-                      </div>
-                      <div class="form-group"> <label>Product Name</label> <input class="form-control input-lg" type="text" placeholder="Product Name" maxlength="100"> <span class="fieldError" style="display: none;"></span> </div>
-                      <div class="row">
-                        <div class="col-sm-7">
-                          <div class="form-group"> <label data-bind="local: 'inventory/inventory-manage-tabs/general.product_short_name'">Product Short Name</label> <input style="width:100%; " class="form-control input-lg" type="text" placeholder="Product Short Name" maxlength="5">                            <span class="fieldError" style="display: none;"></span> </div>
-                        </div>
-                        <div class="col-xs-5">
-                          <div class="form-group color-sm"> <label for="color2">Product Display Color</label> <input class="select" readonly="readonly" style="color: rgb(0, 0, 0); background: rgb(255, 255, 255);" onkeydown="return false" type="text" id="color2" placeholder="Select Color">
-                            <div class="cp-container swatches-active">
-                              <ul class="cp-pills hidden">
-                                <li><a href="#" class="cp-pill-swatches active">Swatches</a></li>
-                              </ul>
-                              <div class="cp-sliders" style="color: rgb(0, 0, 0);"></div>
-                              <div class="cp-swatches clearfix"><button type="button" class="add btn btn-default" title="Add color to swatches" style="display: none;" disabled=""><span class="glyphicon glyphicon-floppy-save"></span></button><button type="button" class="remove btn btn-default"
-                                  title="Remove color from swatches" style="display: none;"><span class="glyphicon glyphicon-trash"></span></button><button type="button" class="reset btn btn-default" title="Select Color" style="display: none;"><span class="glyphicon glyphicon-repeat"></span></button>
-                                <ul>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(109, 46, 40);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(144, 54, 67);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 104, 70);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 123, 65);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(130, 129, 52);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(56, 115, 85);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(167, 59, 60);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(188, 69, 89);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 100, 79);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 150, 77);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(155, 161, 56);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(76, 171, 112);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(213, 83, 86);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 83, 108);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(241, 120, 94);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(245, 177, 95);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(191, 186, 66);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(129, 191, 125);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(240, 93, 109);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 139, 139);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(254, 150, 99);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(246, 204, 36);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(201, 209, 94);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(156, 203, 126);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(73, 73, 73);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(174, 105, 226);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(108, 118, 225);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(105, 143, 205);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 173, 190);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(127, 181, 178);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(183, 183, 183);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 108, 183);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(81, 90, 151);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(86, 117, 175);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(98, 146, 180);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 189, 173);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(224, 224, 224);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 72, 126);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 48, 121);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(96, 114, 163);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(83, 126, 150);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 142, 131);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch actual"><span style="background-color: rgb(255, 255, 255);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(67, 79, 117);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(75, 81, 109);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 87, 141);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(38, 89, 114);"></span></div>
-                                  </li>
-                                  <li>
-                                    <div class="btn btn-default cp-swatch"><span style="background-color: rgb(117, 151, 143);"></span></div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group"> <label data-bind="local: 'inventory/inventory-manage-tabs/general.product_description'">Product Description</label> <textarea class="form-control input-lg" placeholder="Product Description"></textarea> <span class="fieldError" style="display: none;"></span>                        </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group"> <label>Department</label> <select class="w100">
+						<input type="radio" id="inventoryTypeNonInventory" name="inventoryType" value="2">
+						<label for="inventoryTypeNonInventory">Non-Inventory</label>
+
+						<input type="radio" id="inventoryTypeSerialized" name="inventoryType" value="1">
+						<label for="inventoryTypeSerialized">Serialized</label>
+
+						<input type="radio" id="inventoryTypeWithRecipe" name="inventoryType" value="3" checked>
+						<label for="inventoryTypeWithRecipe">With Recipe</label>
+					</div>
+					
+					<div class="form-group">
+						<label>Product Name</label>
+						<input class="form-control input-lg" type="text" placeholder="Product Name" maxlength="100">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-7">
+							<div class="form-group">
+								<label data-bind="local: 'inventory/inventory-manage-tabs/general.product_short_name'">Product Short Name</label>
+								<input style="width:100%; " class="form-control input-lg" type="text" placeholder="Product Short Name" maxlength="5">
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<div class="form-group color-sm">
+								<label for="color2">Product Display Color</label>
+								<input class="select" readonly="readonly" style="color: rgb(0, 0, 0); background: rgb(255, 255, 255);" onkeydown="return false" type="text" id="color2" placeholder="Select Color">
+								<div class="cp-container swatches-active">
+									<ul class="cp-pills hidden"><li><a href="#" class="cp-pill-swatches active">Swatches</a></li></ul><div class="cp-sliders" style="color: rgb(0, 0, 0);"></div><div class="cp-swatches clearfix"><button type="button" class="add btn btn-default" title="Add color to swatches" style="display: none;" disabled=""><span class="glyphicon glyphicon-floppy-save"></span></button><button type="button" class="remove btn btn-default" title="Remove color from swatches" style="display: none;"><span class="glyphicon glyphicon-trash"></span></button><button type="button" class="reset btn btn-default" title="Select Color" style="display: none;"><span class="glyphicon glyphicon-repeat"></span></button><ul><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(109, 46, 40);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(144, 54, 67);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 104, 70);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 123, 65);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(130, 129, 52);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(56, 115, 85);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(167, 59, 60);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(188, 69, 89);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 100, 79);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 150, 77);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(155, 161, 56);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(76, 171, 112);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(213, 83, 86);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 83, 108);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(241, 120, 94);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(245, 177, 95);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(191, 186, 66);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(129, 191, 125);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(240, 93, 109);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 139, 139);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(254, 150, 99);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(246, 204, 36);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(201, 209, 94);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(156, 203, 126);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(73, 73, 73);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(174, 105, 226);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(108, 118, 225);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(105, 143, 205);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 173, 190);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(127, 181, 178);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(183, 183, 183);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 108, 183);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(81, 90, 151);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(86, 117, 175);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(98, 146, 180);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 189, 173);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(224, 224, 224);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 72, 126);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 48, 121);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(96, 114, 163);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(83, 126, 150);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 142, 131);"></span></div></li><li><div class="btn btn-default cp-swatch actual"><span style="background-color: rgb(255, 255, 255);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(67, 79, 117);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(75, 81, 109);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 87, 141);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(38, 89, 114);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(117, 151, 143);"></span></div></li></ul></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label data-bind="local: 'inventory/inventory-manage-tabs/general.product_description'">Product Description</label>
+						<textarea class="form-control input-lg" placeholder="Product Description"></textarea>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Department</label>
+								<select class="w100">
 									<option value="">Choose Department...</option>
 									<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
 									<option value="6a897da2a2af4104935bee96446de938">1122h</option>
 									<option value="a45986fc76e2430681e4c755b46a236a">123 (Inactive)</option>
 									<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
-								</select> <span class="fieldError" style="display: none;"></span> </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group"> <label>Category</label> <select class="w100">
+								</select>
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Category</label>
+								<select class="w100">
 									<option value="">Choose Category...</option>
-								</select> <span class="fieldError" style="display: none;"></span> </div>
-                        </div>
-                      </div>
-                      <div class="form-group"> <label>UPC</label> <input maxlength="20" class="form-control input-lg" type="text" placeholder="UPC"> <span class="fieldError" style="display: none;"></span> </div>
-                      <div class="checkbox"> <input type="checkbox" id="isActiveItem" checked> <label for="isActiveItem">Is Active</label> </div>
-                      <div class="form-group">
-                        <!-- ko if: chromeBrowserCheck() -->
-                        <div id="slim-image" class="slim" data-state="empty" data-ratio="1:0.6666666666666666">
-                          <!-- ko if: !!(picture() && picture().content && picture().content()) -->
-                          <!-- /ko --><input id="resultPicture" type="file" accept="image/jpeg,image/png,image/gif,image/bmp" style="margin-bottom: 66.6667%;"> <input type="hidden" name="slim[]">
-                          <div class="slim-file-hopper"></div>
-                          <div class="slim-area">
-                            <div class="slim-loader"> <svg>
+								</select>
+								<span class="fieldError" style="display: none;"></span>
+							</div>
+						</div>
+					</div>
+			
+					<div class="form-group">
+						<label>UPC</label>
+						<input maxlength="20" class="form-control input-lg" type="text" placeholder="UPC">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="checkbox">
+						<input type="checkbox" id="isActiveItem" checked>
+						<label for="isActiveItem">Is Active</label>
+					</div>
+					<div class="form-group">
+				
+						<!-- ko if: chromeBrowserCheck() -->
+						<div id="slim-image" class="slim" data-state="empty" data-ratio="1:0.6666666666666666">
+							<!-- ko if: !!(picture() && picture().content && picture().content()) --><!-- /ko -->
+							<input id="resultPicture" type="file" accept="image/jpeg,image/png,image/gif,image/bmp" style="margin-bottom: 66.6667%;">
+							<input type="hidden" name="slim[]">
+							<div class="slim-file-hopper"></div>
+							<div class="slim-area">
+								<div class="slim-loader">
+									<svg>
 										<path class="slim-loader-background" fill="none" stroke-width="3" d="M 11.494659292840298 3.000001677832694 A 8.5 8.5 0 1 0 11.5 3"></path>
 										<path class="slim-loader-foreground" fill="none" stroke-width="3" d="M 11.5 20 A 8.5 8.5 0 0 0 11.5 3"></path>
-									</svg> </div>
-                            <div class="slim-upload-status"></div>
-                            <div class="slim-drip"><span><span></span></span>
-                            </div>
-                            <div class="slim-status">
-                              <div class="slim-label">Browse images</div>
-                            </div>
-                            <div class="slim-result"> <img class="in" style="opacity:0"><img><img style="opacity:0"> </div>
-                          </div>
-                          <div class="slim-btn-group" style="display: none;"> <button class="slim-btn slim-btn-remove" title="Remove" type="button" data-action="remove">Remove</button> <button class="slim-btn slim-btn-edit" title="Edit" type="button" data-action="edit">Edit</button> </div>
-                        </div>
-                        <!-- /ko -->
-                        <!-- ko if: !chromeBrowserCheck() -->
-                        <!-- /ko -->
-                        <p class="validationMessage" style="display: none;">The image is too large. Max size of image is 24 KB.</p>
-                        <p class="validationMessage" style="display: none;"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="inventoryManage2" style="display: block;" class="">
-                <div class="form-buttons text-center n-modifiers-container"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-  </body>
+									</svg>
+								</div>
+								<div class="slim-upload-status"></div>
+								<div class="slim-drip"><span><span></span></span></div>
+								<div class="slim-status">
+									<div class="slim-label">Browse images</div>
+								</div>
+								<div class="slim-result">
+									<img class="in" style="opacity:0"><img><img style="opacity:0">
+								</div>
+							</div>
+							<div class="slim-btn-group" style="display: none;">
+								<button class="slim-btn slim-btn-remove" title="Remove" type="button" data-action="remove">Remove</button>
+								<button class="slim-btn slim-btn-edit" title="Edit" type="button" data-action="edit">Edit</button>
+							</div>
+						</div>
+						<!-- /ko -->
+				
+						<!-- ko if: !chromeBrowserCheck() --><!-- /ko -->
 
+						<p class="validationMessage" style="display: none;">The image is too large. Max size of image is 24 KB.</p>
+						<p class="validationMessage" style="display: none;"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="inventoryManage2" style="display: block;" class="">
+	<div class="form-buttons text-center n-modifiers-container">
+		<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+		<a class="btn btn-lg btn-default" href="#items">Cancel</a>
+	</div>
+</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
 </html>

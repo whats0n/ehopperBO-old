@@ -4,6 +4,12 @@ headerTitle: Modifiers
 paneBodyWrapperClassList: 'n-modifiers'
 sidebarDisabled: 'is-disabled'
 sidebarActionsActive: 3
+iHeader: [
+	{
+		title: 'Select modifiers to add to products',
+		classList: 'is-open'
+	}
+]
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -13,11 +19,8 @@ sidebarActionsActive: 3
 			{% include 'partials/components/_sidebar-modifiers.html' %}
 		</div>
 		<div class="pane pane-right">
-			<div class="n-module n-module_simple is-open">
+			<div class="n-module n-module_simplest is-open">
 				<div class="n-module__container">
-					<div class="n-module__header">
-						<div class="n-module__title">Select "Toppings" modifiers for adding to products</div>
-					</div>
 					<div class="n-module__body">
 						{% set items = {
 							rows: [

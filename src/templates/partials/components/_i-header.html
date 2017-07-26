@@ -1,9 +1,11 @@
 <div class="i-header">
-	<div class="i-header__modal" data-modal-container="{{iHeader.name}}">
-		<button class="i-header__back" data-modal-close="{{iHeader.name}}">
-			<i class="fa fa-angle-left"></i>
-			<span>{{iHeader.back}}</span>
-		</button>
+	<div class="i-header__modal {{iHeader.classList}}" {% if iHeader.name %}data-modal-container="{{iHeader.name}}{% endif %}">
+		{% if iHeader.back %}
+			<button class="i-header__back" data-modal-close="{{iHeader.name}}">
+				<i class="fa fa-angle-left"></i>
+				<span>{{iHeader.back}}</span>
+			</button>
+		{% endif %}
 		<div class="i-header__title">{{iHeader.title}}</div>
 	</div>
 </div>

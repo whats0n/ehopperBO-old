@@ -1,8 +1,9 @@
 <div class="n-module {{createNewVendor}}" data-modal-container="create-vendor">
 	<div class="n-section n-section_step">
 		<div class="n-section__body">
-
-			<div class="i-title">Create new vendor</div>
+			{% if createNewVendorNoTitle != true %}
+				<div class="i-title">Create new vendor</div>
+			{% endif %}
 					
 			<!-- begin tabs buttons -->
 			<div class="tab-control n-section__tabs">

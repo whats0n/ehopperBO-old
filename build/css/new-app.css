@@ -790,8 +790,16 @@
   padding-top: 244px;
 }
 
+.n-module_filters-only .n-module__container {
+  padding-top: 191px;
+}
+
 .n-module_simple .n-module__container {
   padding-top: 93px;
+}
+
+.n-module_simplest .n-module__container {
+  padding-top: 20px;
 }
 
 .n-module__header {

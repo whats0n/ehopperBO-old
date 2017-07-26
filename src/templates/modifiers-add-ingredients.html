@@ -2,10 +2,23 @@
 title: Modifiers Add Ingredient
 headerTitle: Modifiers
 paneBodyWrapperClassList: 'n-modifiers'
-addIngredients: 'is-open'
 sidebarDisabled: 'is-disabled'
 sidebarActionsActive: 1
 ingredientsCancelButtonAttrs: 'data-modal-close="create-ingredients"'
+addIngredients: 'is-open n-module_simple'
+iHeader: [
+	{
+		name: 'add-ingredient',
+		title: 'Add ingredients',
+		back: 'Edit modifier',
+		classList: 'is-open'
+	},
+	{
+		name: 'create-ingredients',
+		title: 'Create new ingredient',
+		back: 'Add ingredients'
+	}
+]
 ---
 {% extends "layouts/_layout.html" %}
 

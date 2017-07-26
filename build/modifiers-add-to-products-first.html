@@ -1,201 +1,313 @@
+
+
 <!doctype html>
 <html>
+	<head>
+		<title>Modifiers Add To Products</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-  <head>
-    <title>Modifiers Add To Products</title>
-    <base />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="content/favicon.ico">
-    <link rel="stylesheet" href="content/bootstrap.css" />
-    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
-    <link rel="stylesheet" href="content/font-awesome.css" />
-    <link rel="stylesheet" href="content/durandal.css" />
-    <link rel="stylesheet" href="content/morrisJs/morris.css" />
-    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
-    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
-    <link rel="stylesheet" href="content/slim/slim.min.css" />
-    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
-    <link rel="stylesheet" href="content/app.css" />
-    <link rel="stylesheet" href="css/new-app.css" /> </head>
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b>
+</div>
+						
+							
+								
+								<div class="i-header">
+	<div class="i-header__modal is-open" ">
+		
+		<div class="i-header__title">Select modifiers to add to products</div>
+	</div>
+</div>
+							
+						
+						<div class="pane-body-wrapper n-modifiers">
+							
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			<div class="n-pane__inner is-disabled">
+	<!-- begin n-search -->
+<div class="n-search n-search_sidebar">
+	<div class="n-search__links">
+		
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">New</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
+		</div>
+	</div>
+	<div class="n-search__field">
+		<i class="fa fa-search n-search__icon"></i>
+		<input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" />
+	</div>
+</div>
+<!-- end n-search -->
+	
+	
+	
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
 
-  <body>
-    <div id="applicationHost">
-      <div class="main-container">
-        <section id="content" class="hide-content">
-          <div class="pane pane-right">
-            <div class="pane-header">
-              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b> </div>
-            <div class="pane-body-wrapper n-modifiers">
-              <div class="n-columns-layout">
-                <div class="pane pane-left">
-                  <div class="n-pane__inner is-disabled">
-                    <!-- begin n-search -->
-                    <div class="n-search n-search_sidebar">
-                      <div class="n-search__links">
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
-                      </div>
-                      <div class="n-search__field"> <i class="fa fa-search n-search__icon"></i> <input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" /> </div>
-                    </div>
-                    <!-- end n-search -->
-                    <!-- begin i-items -->
-                    <div class="i-items">
-                      <div class="i-items__head">
-                        <div class="i-items__checkbox"> <label class="new-checkbox">
+				</div>
+				<div class="i-items__title">Modifier Groups</div>
+			</div>
+			<ul class="i-items__list">
+				
+					<li class="i-item i-items__row is-active">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action is-active"><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                        <div class="i-items__title">Modifiers</div>
-                      </div>
-                      <ul class="i-items__list">
-                        <li class="i-item i-items__row is-active">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action is-active"><i class="fa fa-plus-square-o"></i></a>                            </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
-	<input type="checkbox" >
-	<i class="new-checkbox__icon"></i>
-	
-</label> </div>
-                          <div class="i-item__title">Toppings</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
-	<input type="checkbox" >
-	<i class="new-checkbox__icon"></i>
-	
-</label> </div>
-                          <div class="i-item__title">Sizes</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> <a href="#" class="i-item__action "><i class="fa fa-clone"></i></a> <a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
-	<input type="checkbox" >
-	<i class="new-checkbox__icon"></i>
-	
-</label> </div>
-                          <div class="i-item__title">Icecream Flafors</div>
-                        </li>
-                      </ul>
-                    </div>
-                    <!-- end i-items -->
-                  </div>
-                </div>
-                <div class="pane pane-right">
-                  <div class="n-module n-module_simple is-open">
-                    <div class="n-module__container">
-                      <div class="n-module__header">
-                        <div class="n-module__title">Select "Toppings" modifiers for adding to products</div>
-                      </div>
-                      <div class="n-module__body">
-                        <div class="n-items">
-                          <div class="n-items__head">
-                            <div class="n-items__checkbox">
-                              <div class="checkbox"> <input type="checkbox" id="all-ingredients"> <label for="all-ingredients"></label> </div>
-                            </div>
-                            <div class="n-items__table">
-                              <div class="n-items__tr">
-                                <div class="n-items__col">Modifier Name</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="n-items__body">
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Cheese</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Salami</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Chicken</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Bacon</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Pepper</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Tomatoes</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="n-items__row">
-                              <div class="n-items__checkbox">
-                                <div class="checkbox"> <input type="checkbox" id="ingredient-NaN"> <label for="ingredient-NaN"></label> </div>
-                              </div>
-                              <div class="n-items__table">
-                                <div class="n-items__tr">
-                                  <div class="n-items__col">Corn</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="n-items__footer"> <input class="btn btn-lg btn-primary n-items__btn" type="button" value="Next"> <input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel"> </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-  </body>
+</label>
 
+						</div>
+						<div class="i-item__title">Toppings</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__title">Sizes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__title">Icecream Flafors</div>
+					</li>
+				
+			</ul>
+		</div>
+		<!-- end i-items -->
+	
+</div>
+		</div>
+		<div class="pane pane-right">
+			<div class="n-module n-module_simplest is-open">
+				<div class="n-module__container">
+					<div class="n-module__body">
+						
+						<div class="n-items">
+							<div class="n-items__head">
+								<div class="n-items__checkbox">
+									<div class="checkbox">
+										<input type="checkbox" id="all-ingredients">
+										<label for="all-ingredients"></label>
+									</div>
+								</div>
+								<div class="n-items__table">
+									<div class="n-items__tr">
+										<div class="n-items__col">Modifier Name</div>
+									</div>
+								</div>
+							</div>
+							<div class="n-items__body">
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Cheese</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Salami</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Chicken</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Bacon</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Pepper</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Tomatoes</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="n-items__row">
+										<div class="n-items__checkbox">
+											<div class="checkbox">
+												<input type="checkbox" id="ingredient-NaN">
+												<label for="ingredient-NaN"></label>
+											</div>
+										</div>
+										<div class="n-items__table">
+											<div class="n-items__tr">
+												<div class="n-items__col">Corn</div>
+											</div>
+										</div>
+									</div>
+								
+							</div>
+							<div class="n-items__footer">
+								<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Next">
+								<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
 </html>

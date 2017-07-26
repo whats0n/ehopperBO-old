@@ -1,58 +1,92 @@
+
+
 <!doctype html>
 <html>
+	<head>
+		<title>Product</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-  <head>
-    <title>Product</title>
-    <base />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="content/favicon.ico">
-    <link rel="stylesheet" href="content/bootstrap.css" />
-    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
-    <link rel="stylesheet" href="content/font-awesome.css" />
-    <link rel="stylesheet" href="content/durandal.css" />
-    <link rel="stylesheet" href="content/morrisJs/morris.css" />
-    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
-    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
-    <link rel="stylesheet" href="content/slim/slim.min.css" />
-    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
-    <link rel="stylesheet" href="content/app.css" />
-    <link rel="stylesheet" href="css/new-app.css" /> </head>
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">New Inventory Item</span></b>
+</div>
+						
+						<div class="pane-body-wrapper ">
+							
+	<div class="pane-body inventory-manage-body">
+		<div class="form inventory-item-form" id="inventoryManage" style="display: block;">
+			<!-- begin tabs buttons -->
+			<div class="inventory-tabs serials-hidden tab-control">
+				<span class="tab" data-for="#generalTab">
+					<span class="tab-title">General</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#pricingTab">
+					<span class="tab-title">Pricing</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab selected" data-for="#modifiersTab">
+					<span class="tab-title">Modifiers</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#vendorsTab">
+					<span class="tab-title">Vendors</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#orderingTab">
+					<span class="tab-title">Ordering</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#serialsTab">
+					<span class="tab-title">Serials</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#taxesTab">
+					<span class="tab-title">Taxes</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#variantTab" style="display: none;">
+					<span class="tab-title">Inventory Matrix</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+			</div>
+			<!-- end tabs buttons -->
 
-  <body>
-    <div id="applicationHost">
-      <div class="main-container">
-        <section id="content" class="hide-content">
-          <div class="pane pane-right">
-            <div class="pane-header">
-              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">New Inventory Item</span></b> </div>
-            <div class="pane-body-wrapper ">
-              <div class="pane-body inventory-manage-body">
-                <div class="form inventory-item-form" id="inventoryManage" style="display: block;">
-                  <!-- begin tabs buttons -->
-                  <div class="inventory-tabs serials-hidden tab-control"> <span class="tab" data-for="#generalTab">
-					<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#pricingTab">
-					<span class="tab-title">Pricing</span> <span class="tab-selected-arrow"></span> </span> <span class="tab selected" data-for="#modifiersTab">
-					<span class="tab-title">Modifiers</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#vendorsTab">
-					<span class="tab-title">Vendors</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#orderingTab">
-					<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#serialsTab">
-					<span class="tab-title">Serials</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#taxesTab">
-					<span class="tab-title">Taxes</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#variantTab" style="display: none;">
-					<span class="tab-title">Inventory Matrix</span> <span class="tab-selected-arrow"></span> </span>
-                  </div>
-                  <!-- end tabs buttons -->
-                  <div class="tab-content" id="modifiersTab">
-                    <div class="n-modifiers-container">
-                      <div class="n-modifiers-section n-modifiers-block">
-                        <div class="n-modifiers-block__title">Select all or one store</div>
-                        <div class="pull-left"> <select id="store_select">
+			<div class="tab-content" id="modifiersTab">
+				<div class="n-modifiers-container">
+					
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Select all or one store</div>
+						<div class="pull-left">
+							<select id="store_select">
 								<option value="All">All Stores</option>
 								<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 								<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">First Store</option>
@@ -61,147 +95,325 @@
 								<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
 								<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
 								<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
-							</select> </div>
-                      </div>
-                      <div class="n-modifiers-section n-modifiers-block">
-                        <div class="n-modifiers-block__title">Add modifiers</div>
-                        <div class="pull-left n-modifiers-section__btn"> <input class="btn btn-lg btn-primary" type="button" value="Copy Existing"> </div>
-                      </div>
-                      <div class="n-modifiers-block">
-                        <div class="n-modifiers-block__title">Current Modifiers</div>
-                        <div class="n-modifiers-block__lang">
-                          <div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true"> <a class="selected">English</a> <a>Custom</a> <a>Español</a> <a>Français</a> <a>Русский</a> </div>
-                        </div>
-                        <div class="n-modifiers-items">
-                          <div class="n-modifiers-item js-toggle"> <label class="n-label n-modifiers-item__label" for="modifier-name-1">Modifier Group Name:</label>
-                            <div class="n-modifiers-item__row">
-                              <div class="n-modifiers-item__col" data-column="name"> <i class="n-modifiers-item__i-draggble"></i> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" value="Size" data-lang="EN"> </div>
-                              <div class="n-modifiers-item__col" data-column="toggle">
-                              <button class="n-btn-toggle js-toggle-btn">
+							</select>
+						</div>
+					</div>
+					<div class="n-modifiers-section n-modifiers-block">
+						<div class="n-modifiers-block__title">Add modifiers</div>
+						<div class="pull-left n-modifiers-section__btn">
+							<input class="btn btn-lg btn-primary" type="button" value="Copy Existing">
+						</div>
+						
+					</div>
+					<div class="n-modifiers-block">
+						<div class="n-modifiers-block__title">Current Modifiers</div>
+						<div class="n-modifiers-block__lang">
+							<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true">
+								<a class="selected">English</a>
+								<a>Custom</a>
+								<a>Español</a>
+								<a>Français</a>
+								<a>Русский</a>
+							</div>
+						</div>
+						<div class="n-modifiers-items">
+							
+								
+								<div class="n-modifiers-item js-toggle">
+									<label class="n-label n-modifiers-item__label" for="modifier-name-1">Modifier Group Name:</label>
+									<div class="n-modifiers-item__row">
+										<div class="n-modifiers-item__col" data-column="name">
+											<i class="n-modifiers-item__i-draggble"></i>
+											<input class="form-control input-lg textbox" 
+												type="text" 
+												maxlength="100" 
+												placeholder="Enter Name" 
+												value="Size"
+												data-lang="EN">
+										</div>
+										<div class="n-modifiers-item__col" data-column="toggle">
+											<button class="n-btn-toggle js-toggle-btn">
 												<span class="n-btn-toggle__show">Show Modifiers</span>
 												<span class="n-btn-toggle__hide">Hide Modifiers</span>
 												<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
-											</button> </div>
-                              <div class="n-modifiers-item__col" data-column="close"> <input class="n-modifiers-item__close delete-row-button" type="button"> </div>
-                            </div>
-                            <div class="n-modifiers-item__content js-toggle-container">
-                              <div class="n-modifiers-item__options">
-                                <div class="n-container n-modifiers-item__radios">
-                                  <div class="n-row">
-                                    <div class="n-col"> <label class="n-label n-label_title">Select modifier type:</label> </div>
-                                    <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+											</button>
+										</div>
+										<div class="n-modifiers-item__col" data-column="close">
+											<input class="n-modifiers-item__close delete-row-button" type="button">
+										</div>
+									</div>
+									<div class="n-modifiers-item__content js-toggle-container">
+										<div class="n-modifiers-item__options">
+											
+											
+											<div class="n-container n-modifiers-item__radios">
+	<div class="n-row">
+		<div class="n-col">
+			<label class="n-label n-label_title">Select modifier type:</label>
+		</div>
+		
+		
+
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="1" id="product-modifiers11" name="product-modifiers1" checked>
 					<span class="n-fake-radio__content">one modifier</span>
-				</label> <label class="n-label" for="product-modifiers11">eg: small, medium, large</label> </div>
-                                    <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+				</label>
+				<label class="n-label" for="product-modifiers11">eg: small, medium, large</label>
+			</div>
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="2" id="product-modifiers12" name="product-modifiers1" >
 					<span class="n-fake-radio__content">multiple modifiers</span>
-				</label> <label class="n-label" for="product-modifiers12">eg: cheese, sousage</label> </div>
-                                    <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+				</label>
+				<label class="n-label" for="product-modifiers12">eg: cheese, sousage</label>
+			</div>
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="3" id="product-modifiers13" name="product-modifiers1" >
 					<span class="n-fake-radio__content">NO modifiers</span>
-				</label> <label class="n-label" for="product-modifiers13">eg: No salt, No sugar</label> </div>
-                                  </div>
-                                </div>
-                                <div class="n-table-wrapper "> <label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
-                                  <div class="n-table">
-                                    <div class="n-table__head" data-row="option">
-                                      <div class="n-table__col" data-column="option-name">Modifier:</div>
-                                      <div class="n-table__col" data-column="option-price">Price:</div>
-                                    </div>
-                                    <div class="n-table__body">
-                                      <div class="n-table__row" data-row="option">
-                                        <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" data-lang="EN"> <span class="fieldError" style="display: none;"></span> </div>
-                                        <div
-                                          class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="0.00"> <span class="validationMessage" style="display: none;"></span> </div>
-                                      <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                                    </div>
-                                    <div class="n-table__row" data-row="option">
-                                      <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" value="Hot pepper" data-lang="EN"> <span class="fieldError" style="display: none;"></span>                                        </div>
-                                      <div class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="3"> <span class="validationMessage" style="display: none;"></span> </div>
-                                      <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="n-add n-table-wrapper__add"> <a href="#"><i class="fa fa-plus"></i> Add a modifier</a> </div>
-                                <div class="checkbox"> <input type="checkbox" checked id="isActive_0"> <label for="isActive_0">Is Active</label> </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="n-modifiers-item js-toggle"> <label class="n-label n-modifiers-item__label" for="modifier-name-2">Modifier Group Name:</label>
-                          <div class="n-modifiers-item__row">
-                            <div class="n-modifiers-item__col" data-column="name"> <i class="n-modifiers-item__i-draggble"></i> <input class="form-control input-lg textbox" type="text" maxlength="100" placeholder="Enter Name" value="Toppings" data-lang="EN"> </div>
-                            <div class="n-modifiers-item__col" data-column="toggle">
-                            <button class="n-btn-toggle js-toggle-btn">
+				</label>
+				<label class="n-label" for="product-modifiers13">eg: No salt, No sugar</label>
+			</div>
+		
+	</div>
+</div>
+											<div class="n-table-wrapper ">
+	
+	<label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
+	<div class="n-table">
+		<div class="n-table__head" data-row="option">
+			<div class="n-table__col" data-column="option-name">Modifier:</div>
+			<div class="n-table__col" data-column="option-price">Price:</div>
+		</div>
+		<div class="n-table__body">
+			
+				<div class="n-table__row" data-row="option">
+					<div class="n-table__col" data-column="option-name">
+						<i class="n-table__i-draggble"></i>
+						<input class="form-control input-lg" 
+							type="text" 
+							maxlength="100" 
+							placeholder="Enter modifier" 
+							
+							data-lang="EN">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="option-price">
+						<input class="form-control input-lg" 
+							type="text" 
+							
+							value="0.00"
+							>
+						<span class="validationMessage" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="close">
+						<input class="n-table__close delete-row-button" type="button">
+					</div>
+					
+				</div>
+			
+				<div class="n-table__row" data-row="option">
+					<div class="n-table__col" data-column="option-name">
+						<i class="n-table__i-draggble"></i>
+						<input class="form-control input-lg" 
+							type="text" 
+							maxlength="100" 
+							placeholder="Enter modifier" 
+							value="Hot pepper"
+							data-lang="EN">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="option-price">
+						<input class="form-control input-lg" 
+							type="text" 
+							
+							value="3"
+							>
+						<span class="validationMessage" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="close">
+						<input class="n-table__close delete-row-button" type="button">
+					</div>
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="n-add n-table-wrapper__add">
+		<a href="#"><i class="fa fa-plus"></i> Add a modifier</a>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox" checked id="isActive_0">
+		<label for="isActive_0">Is Active</label>
+	</div>
+</div>
+										</div>
+									</div>
+								</div>
+							
+								
+								<div class="n-modifiers-item js-toggle">
+									<label class="n-label n-modifiers-item__label" for="modifier-name-2">Modifier Group Name:</label>
+									<div class="n-modifiers-item__row">
+										<div class="n-modifiers-item__col" data-column="name">
+											<i class="n-modifiers-item__i-draggble"></i>
+											<input class="form-control input-lg textbox" 
+												type="text" 
+												maxlength="100" 
+												placeholder="Enter Name" 
+												value="Toppings"
+												data-lang="EN">
+										</div>
+										<div class="n-modifiers-item__col" data-column="toggle">
+											<button class="n-btn-toggle js-toggle-btn">
 												<span class="n-btn-toggle__show">Show Modifiers</span>
 												<span class="n-btn-toggle__hide">Hide Modifiers</span>
 												<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
-											</button> </div>
-                            <div class="n-modifiers-item__col" data-column="close"> <input class="n-modifiers-item__close delete-row-button" type="button"> </div>
-                          </div>
-                          <div class="n-modifiers-item__content js-toggle-container">
-                            <div class="n-modifiers-item__options">
-                              <div class="n-container n-modifiers-item__radios">
-                                <div class="n-row">
-                                  <div class="n-col"> <label class="n-label n-label_title">Select modifier type:</label> </div>
-                                  <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+											</button>
+										</div>
+										<div class="n-modifiers-item__col" data-column="close">
+											<input class="n-modifiers-item__close delete-row-button" type="button">
+										</div>
+									</div>
+									<div class="n-modifiers-item__content js-toggle-container">
+										<div class="n-modifiers-item__options">
+											
+											
+											<div class="n-container n-modifiers-item__radios">
+	<div class="n-row">
+		<div class="n-col">
+			<label class="n-label n-label_title">Select modifier type:</label>
+		</div>
+		
+		
+
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="1" id="product-modifiers21" name="product-modifiers2" checked>
 					<span class="n-fake-radio__content">one modifier</span>
-				</label> <label class="n-label" for="product-modifiers21">eg: small, medium, large</label> </div>
-                                  <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+				</label>
+				<label class="n-label" for="product-modifiers21">eg: small, medium, large</label>
+			</div>
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="2" id="product-modifiers22" name="product-modifiers2" >
 					<span class="n-fake-radio__content">multiple modifiers</span>
-				</label> <label class="n-label" for="product-modifiers22">eg: cheese, sousage</label> </div>
-                                  <div class="n-col n-col_sm n-radio-container"> <label class="n-fake-radio n-fake-radio_block">
+				</label>
+				<label class="n-label" for="product-modifiers22">eg: cheese, sousage</label>
+			</div>
+		
+			<div class="n-col n-col_sm n-radio-container">
+				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="3" id="product-modifiers23" name="product-modifiers2" >
 					<span class="n-fake-radio__content">NO modifiers</span>
-				</label> <label class="n-label" for="product-modifiers23">eg: No salt, No sugar</label> </div>
-                                </div>
-                              </div>
-                              <div class="n-table-wrapper "> <label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
-                                <div class="n-table">
-                                  <div class="n-table__head" data-row="option">
-                                    <div class="n-table__col" data-column="option-name">Modifier:</div>
-                                    <div class="n-table__col" data-column="option-price">Price:</div>
-                                  </div>
-                                  <div class="n-table__body">
-                                    <div class="n-table__row" data-row="option">
-                                      <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" data-lang="EN"> <span class="fieldError" style="display: none;"></span> </div>
-                                      <div
-                                        class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="0.00"> <span class="validationMessage" style="display: none;"></span> </div>
-                                    <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                                  </div>
-                                  <div class="n-table__row" data-row="option">
-                                    <div class="n-table__col" data-column="option-name"> <i class="n-table__i-draggble"></i> <input class="form-control input-lg" type="text" maxlength="100" placeholder="Enter modifier" value="Hot pepper" data-lang="EN"> <span class="fieldError" style="display: none;"></span>                                      </div>
-                                    <div class="n-table__col" data-column="option-price"> <input class="form-control input-lg" type="text" value="3"> <span class="validationMessage" style="display: none;"></span> </div>
-                                    <div class="n-table__col" data-column="close"> <input class="n-table__close delete-row-button" type="button"> </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="n-add n-table-wrapper__add"> <a href="#"><i class="fa fa-plus"></i> Add a modifier</a> </div>
-                              <div class="checkbox"> <input type="checkbox" checked id="isActive_0"> <label for="isActive_0">Is Active</label> </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="inventoryManage2" style="display: block;" class="">
-            <div class="form-buttons text-center n-modifiers-container"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <a class="btn btn-lg btn-default" href="#items">Cancel</a> </div>
-          </div>
-      </div>
-    </div>
-    </section>
-    </div>
-    </div>
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-  </body>
+				</label>
+				<label class="n-label" for="product-modifiers23">eg: No salt, No sugar</label>
+			</div>
+		
+	</div>
+</div>
+											<div class="n-table-wrapper ">
+	
+	<label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
+	<div class="n-table">
+		<div class="n-table__head" data-row="option">
+			<div class="n-table__col" data-column="option-name">Modifier:</div>
+			<div class="n-table__col" data-column="option-price">Price:</div>
+		</div>
+		<div class="n-table__body">
+			
+				<div class="n-table__row" data-row="option">
+					<div class="n-table__col" data-column="option-name">
+						<i class="n-table__i-draggble"></i>
+						<input class="form-control input-lg" 
+							type="text" 
+							maxlength="100" 
+							placeholder="Enter modifier" 
+							
+							data-lang="EN">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="option-price">
+						<input class="form-control input-lg" 
+							type="text" 
+							
+							value="0.00"
+							>
+						<span class="validationMessage" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="close">
+						<input class="n-table__close delete-row-button" type="button">
+					</div>
+					
+				</div>
+			
+				<div class="n-table__row" data-row="option">
+					<div class="n-table__col" data-column="option-name">
+						<i class="n-table__i-draggble"></i>
+						<input class="form-control input-lg" 
+							type="text" 
+							maxlength="100" 
+							placeholder="Enter modifier" 
+							value="Hot pepper"
+							data-lang="EN">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="option-price">
+						<input class="form-control input-lg" 
+							type="text" 
+							
+							value="3"
+							>
+						<span class="validationMessage" style="display: none;"></span>
+					</div>
+					<div class="n-table__col" data-column="close">
+						<input class="n-table__close delete-row-button" type="button">
+					</div>
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="n-add n-table-wrapper__add">
+		<a href="#"><i class="fa fa-plus"></i> Add a modifier</a>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox" checked id="isActive_0">
+		<label for="isActive_0">Is Active</label>
+	</div>
+</div>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="inventoryManage2" style="display: block;" class="">
+	<div class="form-buttons text-center n-modifiers-container">
+		<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+		<a class="btn btn-lg btn-default" href="#items">Cancel</a>
+	</div>
+</div>
 
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
 </html>

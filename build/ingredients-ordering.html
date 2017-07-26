@@ -1,186 +1,310 @@
+
+
 <!doctype html>
 <html>
+	<head>
+		<title>Ingredients</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-  <head>
-    <title>Ingredients</title>
-    <base />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="content/favicon.ico">
-    <link rel="stylesheet" href="content/bootstrap.css" />
-    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
-    <link rel="stylesheet" href="content/font-awesome.css" />
-    <link rel="stylesheet" href="content/durandal.css" />
-    <link rel="stylesheet" href="content/morrisJs/morris.css" />
-    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
-    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
-    <link rel="stylesheet" href="content/slim/slim.min.css" />
-    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
-    <link rel="stylesheet" href="content/app.css" />
-    <link rel="stylesheet" href="css/new-app.css" /> </head>
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b>
+</div>
+						
+							
+								
+								<div class="i-header">
+	<div class="i-header__modal is-open" ">
+		
+		<div class="i-header__title">Edit ingredient</div>
+	</div>
+</div>
+							
+						
+						<div class="pane-body-wrapper n-modifiers">
+							
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			<div class="n-pane__inner is-disabled">
+	
+	
+	
+	
+	
+	<!-- begin n-search -->
+<div class="n-search n-search_sidebar">
+	<div class="n-search__links">
+		
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">New</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
+		</div>
+	</div>
+	<div class="n-search__field">
+		<i class="fa fa-search n-search__icon"></i>
+		<input type="text" class="form-control input-lg" placeholder="Search ingredient by name" />
+	</div>
+</div>
+<!-- end n-search -->
+	
+	
+		
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
 
-  <body>
-    <div id="applicationHost">
-      <div class="main-container">
-        <section id="content" class="hide-content">
-          <div class="pane pane-right">
-            <div class="pane-header">
-              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b> </div>
-            <div class="pane-body-wrapper n-modifiers">
-              <div class="n-columns-layout">
-                <div class="pane pane-left">
-                  <div class="n-pane__inner is-disabled">
-                    <!-- begin n-search -->
-                    <div class="n-search n-search_sidebar">
-                      <div class="n-search__links">
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">New</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Export</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-primary n-search__btn">Import</a> </div>
-                        <div class="n-search__col"> <a href="#" class="btn btn-red n-search__btn" disabled>Delete</a> </div>
-                      </div>
-                      <div class="n-search__field"> <i class="fa fa-search n-search__icon"></i> <input type="text" class="form-control input-lg" placeholder="Search ingredient by name" /> </div>
-                    </div>
-                    <!-- end n-search -->
-                    <!-- begin i-items -->
-                    <div class="i-items">
-                      <div class="i-items__head">
-                        <div class="i-items__checkbox"> <label class="new-checkbox">
+				</div>
+				<div class="i-items__price">Cost</div>
+				<div class="i-items__title">Ingredients</div>
+			</div>
+			<ul class="i-items__list">
+				
+					<li class="i-item i-items__row is-active">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action is-active"><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                        <div class="i-items__price">Cost</div>
-                        <div class="i-items__title">Ingredients</div>
-                      </div>
-                      <ul class="i-items__list">
-                        <li class="i-item i-items__row is-active">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action is-active"><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__title">cheese slice</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$5.00</div>
-                          <div class="i-item__title">cheese slice</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$3.00</div>
+						<div class="i-item__title">pepper</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$3.00</div>
-                          <div class="i-item__title">pepper</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$7.00</div>
+						<div class="i-item__title">milk</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$7.00</div>
-                          <div class="i-item__title">milk</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$4.00</div>
+						<div class="i-item__title">potatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$4.00</div>
-                          <div class="i-item__title">potatoes</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__title">strawberry</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$5.00</div>
-                          <div class="i-item__title">strawberry</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$6.00</div>
+						<div class="i-item__title">tomatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$6.00</div>
-                          <div class="i-item__title">tomatoes</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$1.50</div>
+						<div class="i-item__title">cream</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$1.50</div>
-                          <div class="i-item__title">cream</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$3.50</div>
+						<div class="i-item__title">rice</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$3.50</div>
-                          <div class="i-item__title">rice</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
+</label>
+
+						</div>
+						<div class="i-item__price">$12.00</div>
+						<div class="i-item__title">pasta</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
 	<input type="checkbox" >
 	<i class="new-checkbox__icon"></i>
 	
-</label> </div>
-                          <div class="i-item__price">$12.00</div>
-                          <div class="i-item__title">pasta</div>
-                        </li>
-                        <li class="i-item i-items__row ">
-                          <div class="i-item__actions"> <a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a> </div>
-                          <div class="i-item__checkbox"> <label class="new-checkbox">
-	<input type="checkbox" >
-	<i class="new-checkbox__icon"></i>
+</label>
+
+						</div>
+						<div class="i-item__price">$9.00</div>
+						<div class="i-item__title">egg</div>
+					</li>
+				
+			</ul>
+		</div>
+		<!-- end i-items -->
 	
-</label> </div>
-                          <div class="i-item__price">$9.00</div>
-                          <div class="i-item__title">egg</div>
-                        </li>
-                      </ul>
-                    </div>
-                    <!-- end i-items -->
-                  </div>
-                </div>
-                <div class="pane pane-right">
-                  <div class="n-section n-section_step">
-                    <div class="n-section__body">
-                      <!-- begin tabs buttons -->
-                      <div class="tab-control n-section__tabs"> <span class="tab" data-for="#generalTab">
-							<span class="tab-title">General</span> <span class="tab-selected-arrow"></span> </span> <span class="tab" data-for="#vendors">
-							<span class="tab-title">Vendors</span> <span class="tab-selected-arrow"></span> </span> <span class="tab selected" data-for="#ordering">
-							<span class="tab-title">Ordering</span> <span class="tab-selected-arrow"></span> </span>
-                      </div>
-                      <!-- end tabs buttons -->
-                      <div class="n-section__container n-section__container_ordering">
-                        <div class="form tab-element-padding">
-                          <div class="i-fields">
-                            <div class="i-fields__col i-fields__col_lg"> <label>Stores</label>
-                              <div data-bind="with: $data.storesFilter, css: self.divStyle">
-                                <div data-bind="css: contStyle" class="filter_control_cont"> <select class="form-control input-lg" style="display: none;">
+</div>
+		</div>
+		<div class="pane pane-right">
+			<div class="n-section n-section_step">
+				<div class="n-section__body">
+					<!-- begin tabs buttons -->
+					<div class="tab-control n-section__tabs">
+						<span class="tab" data-for="#generalTab">
+							<span class="tab-title">General</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+						<span class="tab" data-for="#vendors">
+							<span class="tab-title">Vendors</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+						<span class="tab selected" data-for="#ordering">
+							<span class="tab-title">Ordering</span>
+							<span class="tab-selected-arrow"></span>
+						</span>
+					</div>
+					<!-- end tabs buttons -->
+					<div class="n-section__container n-section__container_ordering">
+						<div class="form tab-element-padding">
+							<div class="i-fields">
+								<div class="i-fields__col i-fields__col_lg">
+									<label>Stores</label>
+									<div data-bind="with: $data.storesFilter, css: self.divStyle">
+										<div data-bind="css: contStyle" class="filter_control_cont">
+											<select class="form-control input-lg" style="display: none;">
 												<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 												<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
 												<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
@@ -189,7 +313,8 @@
 												<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
 												<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 											</select>
-                                  <div class="ms-parent" style="width: 100px;"> <button type="button" class="select">
+											<div class="ms-parent" style="width: 100px;">
+												<button type="button" class="select">
 													<div class="fl">
 														<div>
 															<input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
@@ -199,89 +324,173 @@
 														</div>
 													</div>
 												</button>
-                                    <div class="ms-drop bottom" style="display: none;">
-                                      <ul style="max-height: 250px;">
-                                        <li> <input id="allCheck" type="checkbox" name="selectAll"> <label for="allCheck">Select All</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined"> <label for="BESTsToreundefined">BESTsTore</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined"> <label for="New_CSP_Storeundefined">New CSP Store</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined"> <label for="New_Storeundefined">New Store</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined"> <label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined"> <label for="Vlad_storeundefined">Vlad store</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined"> <label for="West_Street_Cafeundefined">West Street Cafe</label> </li>
-                                        <li> <input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined"> <label for="WestGuestCafeundefined">WestGuestCafe</label> </li>
-                                        <li class="ms-no-results" style="display: none;">No matches found</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div> <span class="fieldError" style="display: none;"></span> </div>
-                          </div>
-                          <div class="i-fields">
-                            <div class="i-fields__col i-fields__col_sm"> <label>Recommended Quantity</label> <input class="form-control input-lg" type="text" value="15" placeholder="Input Quantity"> <span class="fieldError" style="display: none;"></span> </div>
-                            <div class="i-fields__col i-fields__col_sm">
-                            <label>Minimum Quantity</label> <input class="form-control input-lg" type="text" value="5" placeholder="Input Quantity"> <span class="fieldError" style="display: none;"></span> </div>
-                            <div class="i-fields__col i-fields__col_sm">
-                            <label>Total Quantity</label> <input readonly="readonly" class="form-control input-lg" type="text" value="10" placeholder="Input Quantity"> </div>
-                          </div>
-                          <div>
-                            <table class="datatable time-clock edit-product" id="orderingTable">
-                              <thead>
-                                <tr>
-                                  <th data-bind="local: 'inventory/inventory-manage-tabs/pricing.store'">Store</th>
-                                  <th data-bind="local: 'inventory/inventory-manage-tabs/ordering.recommended_quantity'">Recommended Quantity</th>
-                                  <th data-bind="local: 'inventory/inventory-manage-tabs/ordering.minimum_quantity'">Minimum Quantity</th>
-                                  <th data-bind="local: 'inventory/inventory-manage-tabs/ordering.quantity'">Quantity</th>
-                                </tr>
-                              </thead>
-                              <tbody data-bind="foreach: buItems">
-                                <tr data-bind="visible: $root.isStoreIncluded($data)">
-                                  <td> <label style="padding-top:15px;" data-bind="text: store">BESTsTore</label> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span> </td>
-                                  <td>
-                                  <input style="height: 43px;" class="form-control input-lg" type="text" value="5" readonly="readonly" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>                                    </td>
-                                </tr>
-                                <tr data-bind="visible: $root.isStoreIncluded($data)">
-                                  <td> <label style="padding-top:15px;" data-bind="text: store">New CSP Store</label> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span> </td>
-                                  <td>
-                                  <input style="height: 43px;" class="form-control input-lg" type="text" value="5" readonly="readonly" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>                                    </td>
-                                </tr>
-                                <tr data-bind="visible: $root.isStoreIncluded($data)">
-                                  <td> <label style="padding-top:15px;" data-bind="text: store">New Store</label> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span> </td>
-                                  <td>
-                                  <input style="height: 43px;" class="form-control input-lg" type="text" readonly="readonly"> <span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span> </td>
-                                </tr>
-                                <tr data-bind="visible: $root.isStoreIncluded($data)">
-                                  <td> <label style="padding-top:15px;" data-bind="text: store">New Store СЫЗ2</label> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span> </td>
-                                  <td> <input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity"> <span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span> </td>
-                                  <td>
-                                  <input style="height: 43px;" class="form-control input-lg" type="text" readonly="readonly"> <span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span> </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="n-section__footer">
-                      <div class="form-buttons"> <input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-  </body>
+												<div class="ms-drop bottom" style="display: none;">
+													<ul style="max-height: 250px;">
+														<li>
+															<input id="allCheck" type="checkbox" name="selectAll">
+															<label for="allCheck">Select All</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreundefined">
+															<label for="BESTsToreundefined">BESTsTore</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_Storeundefined">
+															<label for="New_CSP_Storeundefined">New CSP Store</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_Storeundefined">
+															<label for="New_Storeundefined">New Store</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2undefined">
+															<label for="New_Store_СЫЗ2undefined">New Store СЫЗ2</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeundefined">
+															<label for="Vlad_storeundefined">Vlad store</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_Cafeundefined">
+															<label for="West_Street_Cafeundefined">West Street Cafe</label>
+														</li>
+														<li>
+															<input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeundefined">
+															<label for="WestGuestCafeundefined">WestGuestCafe</label>
+														</li>
+														<li class="ms-no-results" style="display: none;">No matches found</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<span class="fieldError" style="display: none;"></span>
+								</div>
+							</div>
+							<div class="i-fields">
+								<div class="i-fields__col i-fields__col_sm">
+									<label>Recommended Quantity</label>
+									<input class="form-control input-lg" type="text" value="15" placeholder="Input Quantity">
+									<span class="fieldError" style="display: none;"></span>
+								</div>
+								<div class="i-fields__col i-fields__col_sm">
+									<label>Minimum Quantity</label>
+									<input class="form-control input-lg" type="text" value="5" placeholder="Input Quantity">
+									<span class="fieldError" style="display: none;"></span>
+								</div>
+								<div class="i-fields__col i-fields__col_sm">
+									<label>Total Quantity</label>
+									<input readonly="readonly" class="form-control input-lg" type="text"value="10"  placeholder="Input Quantity">
+								</div>
+							</div>
 
+							<div>
+								 <table class="datatable time-clock edit-product" id="orderingTable">
+									<thead>
+										<tr>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/pricing.store'">Store</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.recommended_quantity'">Recommended Quantity</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.minimum_quantity'">Minimum Quantity</th>
+											<th data-bind="local: 'inventory/inventory-manage-tabs/ordering.quantity'">Quantity</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach: buItems">
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">BESTsTore</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" value="5" readonly="readonly" placeholder="Input Quantity"> 
+												<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New CSP Store</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" value="5" readonly="readonly" placeholder="Input Quantity"> 
+												<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New Store</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" readonly="readonly"> 
+												<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									
+										<tr data-bind="visible: $root.isStoreIncluded($data)">
+											<td>
+												 <label style="padding-top:15px;" data-bind="text: store">New Store СЫЗ2</label>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.recommendedQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" placeholder="Input Quantity">
+												<span class="fieldError" data-bind="validationMessage: $data.minimumQuantity" style="display: none;"></span>
+											</td>
+											<td>
+												<input style="height: 43px;" class="form-control input-lg" type="text" readonly="readonly"> 
+												<span class="fieldError" data-bind="validationMessage: $data.onHandQuantity" style="display: none;"></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="n-section__footer">
+					<div class="form-buttons"> 
+						<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+						<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
 </html>

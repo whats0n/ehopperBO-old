@@ -1,54 +1,73 @@
+
+
 <!doctype html>
 <html>
+	<head>
+		<title>Inventory Adjustment</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 
-  <head>
-    <title>Inventory Adjustment</title>
-    <base />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="shortcut icon" href="content/favicon.ico">
-    <link rel="stylesheet" href="content/bootstrap.css" />
-    <link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
-    <link rel="stylesheet" href="content/font-awesome.css" />
-    <link rel="stylesheet" href="content/durandal.css" />
-    <link rel="stylesheet" href="content/morrisJs/morris.css" />
-    <link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
-    <link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
-    <link rel="stylesheet" href="content/slim/slim.min.css" />
-    <link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
-    <link rel="stylesheet" href="content/app.css" />
-    <link rel="stylesheet" href="css/new-app.css" /> </head>
-
-  <body>
-    <div id="applicationHost">
-      <div class="main-container">
-        <section id="content" class="hide-content">
-          <div class="pane pane-right">
-            <div class="pane-header">
-              <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div> <b><span data-part="navPath" data-bind="text: navigationPath">Inventory Adjustment</span></b> </div>
-            <div class="pane-body-wrapper ">
-              <div class="pane-body store-transfer">
-                <div class="s-tabs">
-                  <div class="s-tabs__header">
-                    <ul class="s-tabs__list">
-                      <li class="s-tabs__item"> <a href="" class="s-tabs__btn js-tabs-btn is-active" data-tabs-btn="inventory-adjustment-products" data-tabs-collection="inventory-adjustment">Products</a> </li>
-                      <li class="s-tabs__item"> <a href="" class="s-tabs__btn js-tabs-btn " data-tabs-btn="inventory-adjustment-ingredients" data-tabs-collection="inventory-adjustment">Ingredients</a> </li>
-                    </ul>
-                  </div>
-                  <div class="s-tabs__body">
-                    <div class="s-tabs__content is-open" data-tabs-container="inventory-adjustment-products" data-tabs-collection="inventory-adjustment">
-                      <div>
-                        <table class="inventory-transfer-options po-receiving-options">
-                          <tbody>
-                            <tr>
-                              <td> <label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label> <select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Inventory Adjustment</span></b>
+</div>
+						
+						<div class="pane-body-wrapper ">
+							
+	<div class="pane-body store-transfer">
+		
+		
+		<div class="s-tabs">
+	<div class="s-tabs__header">
+		<ul class="s-tabs__list">
+			
+				<li class="s-tabs__item">
+					<a href="" class="s-tabs__btn js-tabs-btn is-active" data-tabs-btn="inventory-adjustment-products" data-tabs-collection="inventory-adjustment">Products</a>
+				</li>
+			
+				<li class="s-tabs__item">
+					<a href="" class="s-tabs__btn js-tabs-btn " data-tabs-btn="inventory-adjustment-ingredients" data-tabs-collection="inventory-adjustment">Ingredients</a>
+				</li>
+			
+		</ul>
+	</div>
+	<div class="s-tabs__body">
+		
+			
+				<div class="s-tabs__content is-open" data-tabs-container="inventory-adjustment-products" data-tabs-collection="inventory-adjustment">
+					<div>
+	<table class="inventory-transfer-options po-receiving-options">
+	<tbody><tr>
+		<td>
+			<label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label>
+			<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
 				<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
 				<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
 				<option value="37d62da2d81341c5bb531f31c5ba91b6">98</option>
@@ -80,8 +99,11 @@
 				<option value="f86be27ed9d94c83bd9581ccd9019ae3">dasefd</option>
 				<option value="HTCe228da1a8e4847f89c09ccbf8ba40926">HTC</option>
 				<option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option>
-			</select> </td>
-                              <td> <label data-bind="local: 'storeTransfer.storeIn'">Store In</label> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
+			</select>
+		</td>
+		<td>
+			<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
+			<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
 				<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 				<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
 				<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
@@ -89,47 +111,49 @@
 				<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
 				<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
 				<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
-			</select> </td>
-                              <td style="position: relative"> <br> <input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
-                                <div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
-                                  <ul class="panel-body" data-bind="foreach: foundProducts"></ul>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div id="storeTransferMessage"></div>
-                        <div class="min-table-width-wrapper">
-                          <table class="datatable dataTable min-table-width" role="grid">
-                            <thead>
-                              <tr role="row">
-                                <th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
-                                <th data-bind="local: 'storeTransfer.name'">Name</th>
-                                <th style="width: 110px" data-bind="local: 'storeTransfer.upc'">UPC</th>
-                                <th style="width: 110px" data-bind="local: 'storeTransfer.sku'">SKU</th>
-                                <th style="width: 110px" data-bind="local: 'storeTransfer.cost'">Cost</th>
-                                <th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
-                                <th data-bind="local: 'inventoryAdjustment.adjustedQuantity'">Adjusted Qty</th>
-                                <th data-bind="local: 'inventoryAdjustment.reason'">Reason</th>
-                                <th style="width: 50px"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td data-bind="text: $data.productCode, visible:$data.variantKey == null">186</td>
-                                <td data-bind="visible:$data.variantKey != null" style="display: none;"></td>
-                                <td data-bind="text: $data.name">2myfon</td>
-                                <td data-bind="text: $data.upc">10000002</td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
-                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
-                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">0</td>
-                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }">
-                                  <span
-                                    class="fieldError" style="display: none;"></span>
-                                </td>
-                                <td> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+			</select>
+		</td>
+		<td style="position: relative">
+			<br>
+			<input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
+			<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
+				<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+	<div id="storeTransferMessage"></div>
+	<div class="min-table-width-wrapper">
+		<table class="datatable dataTable min-table-width" role="grid">
+			<thead>
+				<tr role="row">
+					<th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
+					<th data-bind="local: 'storeTransfer.name'">Name</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.upc'">UPC</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.sku'">SKU</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.cost'">Cost</th>
+					<th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.adjustedQuantity'">Adjusted Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.reason'">Reason</th>
+					<th style="width: 50px"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-bind="text: $data.productCode, visible:$data.variantKey == null">186</td>
+					<td data-bind="visible:$data.variantKey != null" style="display: none;"></td>
+					<td data-bind="text: $data.name">2myfon</td>
+					<td data-bind="text: $data.upc">10000002</td>
+					<td data-bind="text: $data.sku"></td>
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+					<td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">0</td>
+					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+					<td style="white-space: initial">
+						<input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }"><span class="fieldError" style="display: none;"></span>
+					</td>
+					<td>
+						<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 							<option value="0">N/A</option>
 							<option value="1">Found</option>
 							<option value="2">Lost</option>
@@ -139,29 +163,41 @@
 							<option value="6">Reason</option>
 							<option value="7">Reset</option>
 							<option value="8">Other</option>
-						</select> </td>
-                                <td> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible:$data.productType == 0"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: $data.inventoryType === 1" class="po-receiving-serial" style="display: none;">
-                              <tr>
-                                <td></td>
-                                <td colspan="4"> <input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'"
-                                    placeholder="Serial #"> <input class="modifier-add-button" type="button" data-bind="click: $root.addSerial"> </td>
-                                <td colspan="3"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()"> <input class="btn btn-lg btn-primary" type="button" value="Transfer"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
-                      </div>
-                    </div>
-                    <div class="s-tabs__content " data-tabs-container="inventory-adjustment-ingredients" data-tabs-collection="inventory-adjustment">
-                      <div>
-                        <table class="inventory-transfer-options po-receiving-options">
-                          <tbody>
-                            <tr>
-                              <td> <label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label> <select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
+						</select>
+					</td>
+					<td>
+						<input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible:$data.productType == 0">
+					</td>
+				</tr>
+			</tbody>
+			<tbody data-bind="visible: $data.inventoryType === 1" class="po-receiving-serial" style="display: none;">
+				<tr>
+					<td></td>
+					<td colspan="4">
+						<input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'" placeholder="Serial #">
+						<input class="modifier-add-button" type="button" data-bind="click: $root.addSerial">
+					</td>
+					<td colspan="3"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()">
+	<input class="btn btn-lg btn-primary" type="button" value="Transfer">
+	<input class="btn btn-lg btn-default" type="button" value="Cancel">
+</div>
+</div>
+				</div>
+			
+		
+			
+				<div class="s-tabs__content " data-tabs-container="inventory-adjustment-ingredients" data-tabs-collection="inventory-adjustment">
+					<div>
+	<table class="inventory-transfer-options po-receiving-options">
+	<tbody><tr>
+		<td>
+			<label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label>
+			<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
 				<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
 				<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
 				<option value="37d62da2d81341c5bb531f31c5ba91b6">98</option>
@@ -193,8 +229,11 @@
 				<option value="f86be27ed9d94c83bd9581ccd9019ae3">dasefd</option>
 				<option value="HTCe228da1a8e4847f89c09ccbf8ba40926">HTC</option>
 				<option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option>
-			</select> </td>
-                              <td> <label data-bind="local: 'storeTransfer.storeIn'">Store In</label> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
+			</select>
+		</td>
+		<td>
+			<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
+			<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
 				<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 				<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
 				<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
@@ -202,48 +241,61 @@
 				<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
 				<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
 				<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
-			</select> </td>
-                              <td style="position: relative"> <br> <input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
-                                <div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
-                                  <ul class="panel-body" data-bind="foreach: foundProducts"></ul>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div id="storeTransferMessage"></div>
-                        <div class="min-table-width-wrapper">
-                          <table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
-                            <thead>
-                              <tr role="row">
-                                <th class="product-id">ID</th>
-                                <th class="product-name">Name</th>
-                                <th>Barcode</th>
-                                <th>SKU</th>
-                                <th>UOM</th>
-                                <th>Cost</th>
-                                <th>Store in</th>
-                                <th>Adjusted Qty</th>
-                                <th style="width: 330px;">Reason</th>
-                                <th style="width: 80px;"></th>
-                              </tr>
-                            </thead>
-                            <tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
-                              <tr>
-                                <td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
-                              </tr>
-                            </tbody>
-                            <tbody>
-                              <tr>
-                                <td class="product-id"> <span>1</span> </td>
-                                <td class="product-name force-wrap">cheese slice</td>
-                                <td>100</td>
-                                <td>2</td>
-                                <td>unit</td>
-                                <td> <span>$2</span> </td>
-                                <td> <span>2</span> </td>
-                                <td> <span>2</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+			</select>
+		</td>
+		<td style="position: relative">
+			<br>
+			<input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
+			<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
+				<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+	<div id="storeTransferMessage"></div>
+	<div class="min-table-width-wrapper">
+		<table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
+			<thead>
+				<tr role="row">
+					<th class="product-id">ID</th>
+					<th class="product-name">Name</th>
+					<th>Barcode</th>
+					<th>SKU</th>
+					<th>UOM</th>
+					<th>Cost</th>
+					<th>Store in</th>
+					<th>Adjusted Qty</th>
+					<th style="width: 330px;">Reason</th>
+					<th style="width: 80px;"></th>
+				</tr>
+			</thead>
+			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
+				<tr>
+					<td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+				</tr>
+			</tbody>
+			
+			<tbody>
+				
+					<tr>
+						<td class="product-id">
+							<span>1</span>
+						</td>
+						<td class="product-name force-wrap">cheese slice</td>
+						<td>100</td>
+						<td>2</td>
+						<td>unit</td>
+						<td>
+							<span>$2</span>
+						</td>
+						<td>
+							<span>2</span>
+						</td>
+						<td>
+							<span>2</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -253,19 +305,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>2</span> </td>
-                                <td class="product-name force-wrap">pepper</td>
-                                <td>400</td>
-                                <td>4</td>
-                                <td>unit</td>
-                                <td> <span>$4</span> </td>
-                                <td> <span>4</span> </td>
-                                <td> <span>4</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>2</span>
+						</td>
+						<td class="product-name force-wrap">pepper</td>
+						<td>400</td>
+						<td>4</td>
+						<td>unit</td>
+						<td>
+							<span>$4</span>
+						</td>
+						<td>
+							<span>4</span>
+						</td>
+						<td>
+							<span>4</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -275,19 +340,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>3</span> </td>
-                                <td class="product-name force-wrap">milk</td>
-                                <td>900</td>
-                                <td>6</td>
-                                <td>l</td>
-                                <td> <span>$6</span> </td>
-                                <td> <span>6</span> </td>
-                                <td> <span>6</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>3</span>
+						</td>
+						<td class="product-name force-wrap">milk</td>
+						<td>900</td>
+						<td>6</td>
+						<td>l</td>
+						<td>
+							<span>$6</span>
+						</td>
+						<td>
+							<span>6</span>
+						</td>
+						<td>
+							<span>6</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -297,19 +375,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>4</span> </td>
-                                <td class="product-name force-wrap">potatoes</td>
-                                <td>1600</td>
-                                <td>8</td>
-                                <td>kg</td>
-                                <td> <span>$8</span> </td>
-                                <td> <span>8</span> </td>
-                                <td> <span>8</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>4</span>
+						</td>
+						<td class="product-name force-wrap">potatoes</td>
+						<td>1600</td>
+						<td>8</td>
+						<td>kg</td>
+						<td>
+							<span>$8</span>
+						</td>
+						<td>
+							<span>8</span>
+						</td>
+						<td>
+							<span>8</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -319,19 +410,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>5</span> </td>
-                                <td class="product-name force-wrap">strawberry</td>
-                                <td>2500</td>
-                                <td>10</td>
-                                <td>kg</td>
-                                <td> <span>$10</span> </td>
-                                <td> <span>10</span> </td>
-                                <td> <span>10</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>5</span>
+						</td>
+						<td class="product-name force-wrap">strawberry</td>
+						<td>2500</td>
+						<td>10</td>
+						<td>kg</td>
+						<td>
+							<span>$10</span>
+						</td>
+						<td>
+							<span>10</span>
+						</td>
+						<td>
+							<span>10</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -341,19 +445,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>6</span> </td>
-                                <td class="product-name force-wrap">tomatoes</td>
-                                <td>3600</td>
-                                <td>12</td>
-                                <td>case</td>
-                                <td> <span>$12</span> </td>
-                                <td> <span>12</span> </td>
-                                <td> <span>12</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>6</span>
+						</td>
+						<td class="product-name force-wrap">tomatoes</td>
+						<td>3600</td>
+						<td>12</td>
+						<td>case</td>
+						<td>
+							<span>$12</span>
+						</td>
+						<td>
+							<span>12</span>
+						</td>
+						<td>
+							<span>12</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -363,19 +480,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>7</span> </td>
-                                <td class="product-name force-wrap">cream</td>
-                                <td>4900</td>
-                                <td>14</td>
-                                <td>box</td>
-                                <td> <span>$14</span> </td>
-                                <td> <span>14</span> </td>
-                                <td> <span>14</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>7</span>
+						</td>
+						<td class="product-name force-wrap">cream</td>
+						<td>4900</td>
+						<td>14</td>
+						<td>box</td>
+						<td>
+							<span>$14</span>
+						</td>
+						<td>
+							<span>14</span>
+						</td>
+						<td>
+							<span>14</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -385,19 +515,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>8</span> </td>
-                                <td class="product-name force-wrap">rice</td>
-                                <td>6400</td>
-                                <td>16</td>
-                                <td>pack</td>
-                                <td> <span>$16</span> </td>
-                                <td> <span>16</span> </td>
-                                <td> <span>16</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>8</span>
+						</td>
+						<td class="product-name force-wrap">rice</td>
+						<td>6400</td>
+						<td>16</td>
+						<td>pack</td>
+						<td>
+							<span>$16</span>
+						</td>
+						<td>
+							<span>16</span>
+						</td>
+						<td>
+							<span>16</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -407,19 +550,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>9</span> </td>
-                                <td class="product-name force-wrap">pasta</td>
-                                <td>8100</td>
-                                <td>18</td>
-                                <td>pack</td>
-                                <td> <span>$18</span> </td>
-                                <td> <span>18</span> </td>
-                                <td> <span>18</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>9</span>
+						</td>
+						<td class="product-name force-wrap">pasta</td>
+						<td>8100</td>
+						<td>18</td>
+						<td>pack</td>
+						<td>
+							<span>$18</span>
+						</td>
+						<td>
+							<span>18</span>
+						</td>
+						<td>
+							<span>18</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -429,19 +585,32 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                              <tr>
-                                <td class="product-id"> <span>10</span> </td>
-                                <td class="product-name force-wrap">egg</td>
-                                <td>10000</td>
-                                <td>20</td>
-                                <td>tray</td>
-                                <td> <span>$20</span> </td>
-                                <td> <span>20</span> </td>
-                                <td> <span>20</span> </td>
-                                <td style="white-space: initial"> <select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="product-id">
+							<span>10</span>
+						</td>
+						<td class="product-name force-wrap">egg</td>
+						<td>10000</td>
+						<td>20</td>
+						<td>tray</td>
+						<td>
+							<span>$20</span>
+						</td>
+						<td>
+							<span>20</span>
+						</td>
+						<td>
+							<span>20</span>
+						</td>
+						<td style="white-space: initial">
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
 								<option value="0">N/A</option>
 								<option value="1">Found</option>
 								<option value="2">Lost</option>
@@ -451,35 +620,53 @@
 								<option value="6">Reason</option>
 								<option value="7">Reset</option>
 								<option value="8">Other</option>
-							</select> </td>
-                                <td> <input type="button" class="delete-row-button"> </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="dataTables_wrapper" data-bind="visible: fullList() &amp;&amp; pagination().length > 1" style="">
-                            <div class="dataTables_paginate paging_simple_numbers"> <a class="paginate_button previous disabled" data-dir="previous" data-bind="css: { disabled: pagination()[0] &amp;&amp; pagination()[0].current }, click: $root.gotoPage, local: 'storeTransfer.previous'">Previous</a> <span data-bind="foreach: pagination">
+							</select>
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				
+			</tbody>
+		</table>
+
+		<div class="dataTables_wrapper" data-bind="visible: fullList() &amp;&amp; pagination().length > 1" style="">
+			<div class="dataTables_paginate paging_simple_numbers">
+				<a class="paginate_button previous disabled" data-dir="previous" data-bind="css: { disabled: pagination()[0] &amp;&amp; pagination()[0].current }, click: $root.gotoPage, local: 'storeTransfer.previous'">Previous</a>
+				<span data-bind="foreach: pagination">
 					<a class="paginate_button current" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">1</a>
 					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">2</a>
 					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">3</a>
 					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">4</a>
 					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">5</a>
-					<span>…</span> <a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a> </span> <a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>                              </div>
-                          </div>
-                        </div>
-                        <div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()"> <input class="btn btn-lg btn-primary" type="button" value="Transfer"> <input class="btn btn-lg btn-default" type="button" value="Cancel"> </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- END scripts -->
-  </body>
+					<span>…</span>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a>
+				</span>
+				<a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>
+			</div>
+		</div>
+	</div>
+	<div class="form-buttons text-center store-transfer-buttons" data-bind="visible: !isLoading()">
+	<input class="btn btn-lg btn-primary" type="button" value="Transfer">
+	<input class="btn btn-lg btn-default" type="button" value="Cancel">
+</div>
+</div>
+				</div>
+			
+		
+	</div>
+</div>
+	</div>
 
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
 </html>
