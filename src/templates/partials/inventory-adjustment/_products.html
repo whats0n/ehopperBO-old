@@ -1,0 +1,64 @@
+<div>
+	{% include 'partials/inventory-adjustment/_filters.html' %}
+	<div id="storeTransferMessage"></div>
+	<div class="min-table-width-wrapper">
+		<table class="datatable dataTable min-table-width" role="grid">
+			<thead>
+				<tr role="row">
+					<th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
+					<th data-bind="local: 'storeTransfer.name'">Name</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.upc'">UPC</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.sku'">SKU</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.cost'">Cost</th>
+					<th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.adjustedQuantity'">Adjusted Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.reason'">Reason</th>
+					<th style="width: 50px"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-bind="text: $data.productCode, visible:$data.variantKey == null">186</td>
+					<td data-bind="visible:$data.variantKey != null" style="display: none;"></td>
+					<td data-bind="text: $data.name">2myfon</td>
+					<td data-bind="text: $data.upc">10000002</td>
+					<td data-bind="text: $data.sku"></td>
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+					<td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">0</td>
+					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+					<td style="white-space: initial">
+						<input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }"><span class="fieldError" style="display: none;"></span>
+					</td>
+					<td>
+						<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+							<option value="0">N/A</option>
+							<option value="1">Found</option>
+							<option value="2">Lost</option>
+							<option value="3">Stolen</option>
+							<option value="4">Broken</option>
+							<option value="5">Gift</option>
+							<option value="6">Reason</option>
+							<option value="7">Reset</option>
+							<option value="8">Other</option>
+						</select>
+					</td>
+					<td>
+						<input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible:$data.productType == 0">
+					</td>
+				</tr>
+			</tbody>
+			<tbody data-bind="visible: $data.inventoryType === 1" class="po-receiving-serial" style="display: none;">
+				<tr>
+					<td></td>
+					<td colspan="4">
+						<input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'" placeholder="Serial #">
+						<input class="modifier-add-button" type="button" data-bind="click: $root.addSerial">
+					</td>
+					<td colspan="3"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	{% include 'partials/inventory-adjustment/_buttons.html' %}
+</div>

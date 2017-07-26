@@ -1,0 +1,59 @@
+<table class="inventory-transfer-options po-receiving-options">
+	<tbody><tr>
+		<td>
+			<label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label>
+			<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
+				<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
+				<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
+				<option value="37d62da2d81341c5bb531f31c5ba91b6">98</option>
+				<option value="3cf37ae0f8ac4544bcc57faf7a550585">Vendor for Taras Testing</option>
+				<option value="42d1aa4c26d446e29c4e79422db82611">14651</option>
+				<option value="45f25ade92f241b8a4861300e5d9b138">sandora</option>
+				<option value="52c21a14ac1140129dbf33a4ecd2afe3">SuperBurger</option>
+				<option value="646de1591b594e74a659662a471d925b">asd</option>
+				<option value="666315eb6c4c4d78b30dc3bc4160040b">dawdawawd</option>
+				<option value="734a5a2b34b44677a54bf5c0086e329d">asddsa</option>
+				<option value="7c9ea3b33e324a1bb0ef75551c15b2ce">456</option>
+				<option value="7eb649b7183c45bd87b70fe58de1e241">qwerty!</option>
+				<option value="8e2be9ee3cfd476587053d43e28fb804">new vend</option>
+				<option value="91e2c37e3ed6494686ff156b6009b649">Microsoft</option>
+				<option value="9924c3f8576046a19f8762d25b6fe36c">New_Vendor11</option>
+				<option value="9bae05793be646faad0908eceb9e74f9">323232323</option>
+				<option value="a0e1819bbfc74746814b764fdaa236a6">New_Vendor2</option>
+				<option value="aa3616ea090d4f6a8deedd57dc2c742c">New_Vendor</option>
+				<option value="b476f2ed3a6b42ae8c5ce705d3d0268d">Burger</option>
+				<option value="b4d606753d954ef0b3f736ce49dabc33">Dummy Vendor</option>
+				<option value="bc1e48e46c5343c69bcbd66b82e470bb">QAVENDO</option>
+				<option value="cd7c98a3535342739eb55da5fbddac03">upc vendor</option>
+				<option value="d1963a28a4e84eb29eea2aff79328a5d">951</option>
+				<option value="d366d4640b444e5ca06681c07111b511">Test Vendor</option>
+				<option value="da9d37dd9033497097edf2a832d31263">testls</option>
+				<option value="dfd062a66ab94fb79a9e1df65a3e2f0d">New_Vendor1</option>
+				<option value="e48fd4bcdbb3403088a776bede99030f">12222222</option>
+				<option value="f05baf1b0b3c41b38f3c801ab0bb4ca6">rew</option>
+				<option value="f86be27ed9d94c83bd9581ccd9019ae3">dasefd</option>
+				<option value="HTCe228da1a8e4847f89c09ccbf8ba40926">HTC</option>
+				<option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option>
+			</select>
+		</td>
+		<td>
+			<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
+			<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
+				<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+				<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+				<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+				<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option>
+				<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+				<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+				<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+			</select>
+		</td>
+		<td style="position: relative">
+			<br>
+			<input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
+			<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
+				<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
+			</div>
+		</td>
+	</tr>
+</tbody></table>

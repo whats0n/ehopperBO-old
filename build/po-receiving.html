@@ -48,7 +48,7 @@
                         <table class="inventory-transfer-options">
                           <tbody>
                             <tr>
-                              <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeOut'">Store Out</td>
+                              <td class="inventory-transfer-options-label" data-bind="local: 'poReceiving.vendor'">Vendor</td>
                               <td> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId">
 					<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
@@ -79,7 +79,7 @@
                         </table>
                         <div id="storeTransferMessage"></div>
                         <div class="min-table-width-wrapper">
-                          <table class="datatable dataTable min-table-width inventory-transfer-list" role="grid">
+                          <table class="datatable dataTable min-table-width" role="grid">
                             <thead>
                               <tr role="row">
                                 <th data-bind="local: 'storeTransfer.id'" class="product-id">ID</th>
@@ -87,127 +87,146 @@
                                 <th data-bind="local: 'storeTransfer.upc'">UPC</th>
                                 <th data-bind="local: 'storeTransfer.sku'">SKU</th>
                                 <th data-bind="local: 'storeTransfer.cost'">Cost</th>
-                                <th data-bind="local: 'storeTransfer.storeOutQuantity'">Store Out Qty</th>
                                 <th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
-                                <th data-bind="local: 'storeTransfer.transferQuantity'">Transfer Qty</th>
+                                <th data-bind="local: 'poReceiving.receivedQuantity'">Received Qty</th>
                                 <th data-bind="visible: !$root.fullList()" style="width: 80px; display: none;"></th>
                               </tr>
                             </thead>
                             <tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
                               <tr>
-                                <td colspan="9" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+                                <td colspan="8" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+                              </tr>
+                            </tbody>
+                            <!-- ko foreach: inventoryTransferLines -->
+                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
+                              <tr data-bind="click: $root.expandLine, css: { open: $data.expanded() }" class="">
+                                <td class="product-id">
+                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() --><span class="expand-icon"></span>
+                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: $data.variantKey == null">5088</span> </td>
+                                <td data-bind="text: $data.name" class="product-name">10varykiihl</td>
+                                <td data-bind="text: $data.upc">11111111111111111</td>
+                                <td data-bind="text: $data.sku"></td>
+                                <td data-bind="currency: $data.cost, visible:$data.productType == 0" style="display: none;">$0.00</td>
+                                <td data-bind="visible:$data.productType != 0"></td>
+                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0" style="display: none;"></td>
+                                <td data-bind="visible:$data.productType != 0"></td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }"
+                                    style="display: none;"> </td>
+                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible: $data.productType === 0" style="display: none;"> </td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: $data.inventoryType === 1 &amp;&amp; (!$root.fullList() || ($data.expanded() &amp;&amp; $root.lineVisible($data)))" class="po-receiving-serial" style="display: none;">
+                              <!-- ko foreach: $data.serials -->
+                              <!-- /ko -->
+                              <tr>
+                                <td></td>
+                                <td colspan="4"> <input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'"
+                                    placeholder="Serial #"> <input class="modifier-add-button" type="button" data-bind="click: $root.addSerial"> </td>
+                                <td colspan="2"></td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))" style="display: none;">
+                              <tr data-bind="click: $root.expandLine, css: { open: $data.expanded() }" class="">
+                                <td class="product-id">
+                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
+                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: $data.variantKey == null" style="display: none;">0</span> </td>
+                                <td data-bind="text: $data.name" class="product-name">1 / 3 / 65</td>
+                                <td data-bind="text: $data.upc">4324</td>
+                                <td data-bind="text: $data.sku">234</td>
+                                <td data-bind="currency: $data.cost, visible:$data.productType == 0">$432.00</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">0</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }">
+                                  <span
+                                    class="fieldError" style="display: none;"></span>
+                                </td>
+                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible: $data.productType === 0"> </td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: $data.inventoryType === 1 &amp;&amp; (!$root.fullList() || ($data.expanded() &amp;&amp; $root.lineVisible($data)))" class="po-receiving-serial" style="display: none;">
+                              <!-- ko foreach: $data.serials -->
+                              <!-- /ko -->
+                              <tr>
+                                <td></td>
+                                <td colspan="4"> <input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'"
+                                    placeholder="Serial #"> <input class="modifier-add-button" type="button" data-bind="click: $root.addSerial"> </td>
+                                <td colspan="2"></td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))" style="display: none;">
+                              <tr data-bind="click: $root.expandLine, css: { open: $data.expanded() }" class="">
+                                <td class="product-id">
+                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
+                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: $data.variantKey == null" style="display: none;">0</span> </td>
+                                <td data-bind="text: $data.name" class="product-name">1 / 4 / 65</td>
+                                <td data-bind="text: $data.upc">324324</td>
+                                <td data-bind="text: $data.sku">1000000002</td>
+                                <td data-bind="currency: $data.cost, visible:$data.productType == 0">$432.00</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">0</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }">
+                                  <span
+                                    class="fieldError" style="display: none;"></span>
+                                </td>
+                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible: $data.productType === 0"> </td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: $data.inventoryType === 1 &amp;&amp; (!$root.fullList() || ($data.expanded() &amp;&amp; $root.lineVisible($data)))" class="po-receiving-serial" style="display: none;">
+                              <!-- ko foreach: $data.serials -->
+                              <!-- /ko -->
+                              <tr>
+                                <td></td>
+                                <td colspan="4"> <input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'"
+                                    placeholder="Serial #"> <input class="modifier-add-button" type="button" data-bind="click: $root.addSerial"> </td>
+                                <td colspan="2"></td>
                               </tr>
                             </tbody>
                             <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
+                              <tr data-bind="click: $root.expandLine, css: { open: $data.expanded() }" class="">
                                 <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">2748</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42022456</td>
+                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() --><span class="expand-icon"></span>
+                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: $data.variantKey == null">5511</span> </td>
+                                <td data-bind="text: $data.name" class="product-name">11_22_33</td>
+                                <td data-bind="text: $data.upc">2222222</td>
                                 <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">10</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
+                                <td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">1</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }"
+                                    readonly="true"> </td>
+                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible: $data.productType === 0"> </td>
+                              </tr>
+                            </tbody>
+                            <tbody data-bind="visible: $data.inventoryType === 1 &amp;&amp; (!$root.fullList() || ($data.expanded() &amp;&amp; $root.lineVisible($data)))" class="po-receiving-serial" style="display: none;">
+                              <!-- ko foreach: $data.serials -->
+                              <!-- /ko -->
+                              <tr>
+                                <td></td>
+                                <td colspan="4"> <input type="text" class="form-control input-lg" maxlength="50" data-bind="value: newSerialNo, event: { keypress: $root.onKeyPress }, local: 'inventory/inventory-manage-tabs/serials.serialNo', localAttr: 'placeholder'"
+                                    placeholder="Serial #"> <input class="modifier-add-button" type="button" data-bind="click: $root.addSerial"> </td>
+                                <td colspan="2"></td>
                               </tr>
                             </tbody>
                             <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
+                              <tr data-bind="click: $root.expandLine, css: { open: $data.expanded() }" class="">
                                 <td class="product-id">
                                   <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">2373</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42022081</td>
+                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: $data.variantKey == null">5479</span> </td>
+                                <td data-bind="text: $data.name" class="product-name">112233</td>
+                                <td data-bind="text: $data.upc">5454545454545</td>
                                 <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">1</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
-                                <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">2289</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42021997</td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">0</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
-                                <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">1075</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42020783</td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">0</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
-                                <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">5413</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc"></td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities "></span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
-                                <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">2126</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42021834</td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">9</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
-                              </tr>
-                            </tbody>
-                            <tbody data-bind="visible: !$root.fullList() || ($root.lineVisible($data) &amp;&amp; (!$data.parent || $data.parent.expanded()))">
-                              <tr data-bind="visible: visible, click: $root.expandLine, css: { open: $data.expanded() }" class="">
-                                <td class="product-id">
-                                  <!-- ko if: ($data.inventoryType === 1 || $data.child) && $root.fullList() -->
-                                  <!-- /ko --><span data-bind="text: $data.productCode, visible: showProductCode">719</span> </td>
-                                <td data-bind="text: $data.name" class="product-name force-wrap"></td>
-                                <td data-bind="text: $data.upc">42020427</td>
-                                <td data-bind="text: $data.sku"></td>
-                                <td> <span data-bind="currency: $data.cost, visible: showCost">$0.00</span> </td>
-                                <td> <span data-bind="text: $data.storeOutQuantity, visible: showQuantities ">0</span> </td>
-                                <td> <span data-bind="text: $data.storeInQuantity, visible: showQuantities ">0</span> </td>
-                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress },
-							   visible: showQuantity, enable: quantityEditable "><span class="fieldError" style="display: none;"></span> </td>
-                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow"> </td>
+                                <td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0"></td>
+                                <td data-bind="visible:$data.productType != 0" style="display: none;"></td>
+                                <td style="white-space: initial"> <input type="number" class="form-control input" data-bind="value: $data.transferQuantity, valueUpdate: 'input', event: { keypress: $root.qtyKeyPress }, visible:$data.productType === 0, attr: { readonly: $data.inventoryType === 1 }">
+                                  <span
+                                    class="fieldError" style="display: none;"></span>
+                                </td>
+                                <td data-bind="visible: !$root.fullList()" style="display: none;"> <input type="button" class="delete-row-button" data-bind="click: $root.deleteRow, visible: $data.productType === 0"> </td>
                               </tr>
                             </tbody>
                           </table>
@@ -229,7 +248,7 @@
                         <table class="inventory-transfer-options">
                           <tbody>
                             <tr>
-                              <td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeOut'">Store Out</td>
+                              <td class="inventory-transfer-options-label" data-bind="local: 'poReceiving.vendor'">Vendor</td>
                               <td> <select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId">
 					<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 					<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>

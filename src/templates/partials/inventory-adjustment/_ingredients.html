@@ -1,5 +1,5 @@
 <div>
-	{#{% include 'partials/store-transfer/_filters.html' %}#}
+	{% include 'partials/inventory-adjustment/_filters.html' %}
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
 		<table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
@@ -124,16 +124,16 @@
 							<span>{{item.qty or loop.index * 2}}</span>
 						</td>
 						<td style="white-space: initial">
-							<select>
-								<option value="N/A">N/A</option>
-								<option value="Found">Found</option>
-								<option value="Lost">Lost</option>
-								<option value="Stolen">Stolen</option>
-								<option value="Broken">Broken</option>
-								<option value="Gift">Gift</option>
-								<option value="Reason">Reason</option>
-								<option value="Reset">Reset</option>
-								<option value="Other">Other</option>
+							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
+								<option value="0">N/A</option>
+								<option value="1">Found</option>
+								<option value="2">Lost</option>
+								<option value="3">Stolen</option>
+								<option value="4">Broken</option>
+								<option value="5">Gift</option>
+								<option value="6">Reason</option>
+								<option value="7">Reset</option>
+								<option value="8">Other</option>
 							</select>
 						</td>
 						<td>
@@ -160,5 +160,5 @@
 			</div>
 		</div>
 	</div>
-	{% include 'partials/store-transfer/_buttons.html' %}
+	{% include 'partials/inventory-adjustment/_buttons.html' %}
 </div>
