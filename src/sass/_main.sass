@@ -5,9 +5,22 @@
 		overflow-y: auto
 		overflow-x: hidden
 		&.is-disabled
-			opacity: 0.5
+			// opacity: 0.5
 			pointer-events: none
 			+nosel
+			.n-pane__overlay
+				opacity: 0.8
+				visibility: visible
+	&__overlay
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		opacity: 0
+		visibility: hidden
+		background: #434c55
+		transition: opacity 0.15s, visibility 0.15s
 
 
 .n-columns-layout

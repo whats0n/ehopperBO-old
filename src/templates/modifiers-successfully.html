@@ -11,16 +11,11 @@ paneBodyWrapperClassList: 'n-modifiers'
 			{% include 'partials/components/_sidebar-modifiers.html' %}
 		</div>
 		<div class="pane pane-right">
-			<div class="n-section n-vertical-center">
-				<div class="alert alert-dismissible fade in alert-success n-section__alert" role="alert">
+			<div class="n-section">
+				<div class="alert alert-dismissible fade in alert-success" role="alert">
 					<button class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 					<strong>Success!</strong> Modifiers group "Toppings" is successfully created.
 				</div>
-				{{mixins.empty({
-					classList: 'n-vertical-center__content',
-					text: 'No modifier is selected',
-					icon: true
-				})}}
 			</div>
 		</div>
 	</div>
