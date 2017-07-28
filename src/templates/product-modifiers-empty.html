@@ -90,41 +90,6 @@ headerTitle: New Inventory Item
 							</div>
 						</div>
 						<div class="n-modifiers-items">
-							{% for item in modifiers.items %}
-								{% set index = loop.index + '' %}
-								<div class="n-modifiers-item js-toggle">
-									<label class="n-label n-modifiers-item__label" for="modifier-name-{{loop.index}}">Modifier Group Name:</label>
-									<div class="n-modifiers-item__row">
-										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[0]}}">
-											<i class="n-modifiers-item__i-draggble"></i>
-											<input class="form-control input-lg textbox" 
-												type="text" 
-												maxlength="100" 
-												placeholder="Enter Name" 
-												value="{{item.name}}"
-												data-lang="EN">
-										</div>
-										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[1]}}">
-											<button class="n-btn-toggle js-toggle-btn">
-												<span class="n-btn-toggle__show">Show Modifiers</span>
-												<span class="n-btn-toggle__hide">Hide Modifiers</span>
-												<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
-											</button>
-										</div>
-										<div class="n-modifiers-item__col" data-column="{{modifiers.columns[2]}}">
-											<input class="n-modifiers-item__close delete-row-button" type="button">
-										</div>
-									</div>
-									<div class="n-modifiers-item__content js-toggle-container">
-										<div class="n-modifiers-item__options">
-											{% set radiosClassList = 'n-modifiers-item__radios' %}
-											{% set radiosName = 'product-modifiers' + index %}
-											{% include 'partials/components/_radios.html' %}
-											{% include 'partials/components/_n-table-wrapper.html' %}
-										</div>
-									</div>
-								</div>
-							{% endfor %}
 							<div class="n-add">
 								<a href="#"><i class="fa fa-plus"></i> Add modifier group</a>
 							</div>
