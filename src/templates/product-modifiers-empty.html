@@ -89,9 +89,12 @@ headerTitle: New Inventory Item
 								<a>Русский</a>
 							</div>
 						</div>
-						<div class="n-modifiers-items">
-							<div class="n-add">
-								<a href="#"><i class="fa fa-plus"></i> Add modifier group</a>
+						<div class="n-modifiers-items js-add-group-parent">
+							<script type="modifier-group" id="modifier-group">
+								{% include 'partials/components/_modifier-group.html' %}
+							</script>
+							<div class="n-add js-add-group-before">
+								<a href="#" class="js-add-group"><i class="fa fa-plus"></i> Add modifier group</a>
 							</div>
 						</div>
 					</div>

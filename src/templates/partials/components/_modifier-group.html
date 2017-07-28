@@ -1,0 +1,125 @@
+<div class="n-modifiers-item js-toggle">
+	<label class="n-label n-modifiers-item__label">Modifier Group Name:</label>
+	<div class="n-modifiers-item__row">
+		<div class="n-modifiers-item__col" data-column="name">
+			<i class="n-modifiers-item__i-draggble"></i>
+			<input class="form-control input-lg textbox" 
+				type="text" 
+				maxlength="100" 
+				placeholder="Enter Name" 
+				value="{{item.name}}"
+				data-lang="EN">
+		</div>
+		<div class="n-modifiers-item__col" data-column="toggle">
+			<button class="n-btn-toggle js-toggle-btn is-active">
+				<span class="n-btn-toggle__show">Show Modifiers</span>
+				<span class="n-btn-toggle__hide">Hide Modifiers</span>
+				<i class="fa fa-angle-down n-btn-toggle__arrow"></i>
+			</button>
+		</div>
+		<div class="n-modifiers-item__col" data-column="close">
+			<input class="n-modifiers-item__close delete-row-button" type="button">
+		</div>
+	</div>
+	<div class="n-modifiers-item__content js-toggle-container is-open">
+		<div class="n-modifiers-item__options">
+			{% set radiosClassList = 'n-modifiers-item__radios' %}
+			{% set radiosName = 'product-modifiers' + index %}
+			{% include 'partials/components/_radios.html' %}
+			<div class="n-table-wrapper {{nTableWrapperClassList}}">
+				{% set table = {
+					columns: [ 'option-name', 'option-price', 'auto', 'close' ],
+					ingredientsColumns: [ 'ingredients-name', 'ingredients-qty', 'ingredients-uom' ]
+				} %}
+				<label class="n-label n-label_title n-table-wrapper__label">Add modifiers:</label>
+				<div class="n-table">
+					<div class="n-table__head" data-row="option">
+						<div class="n-table__col" data-column="{{table.columns[0]}}">Modifier:</div>
+						<div class="n-table__col" data-column="{{table.columns[1]}}">Price:</div>
+					</div>
+					<div class="n-table__body">
+						{% for item in range(0,1) %}
+							<div class="n-table__row" data-row="option">
+								<div class="n-table__col" data-column="{{table.columns[0]}}">
+									<i class="n-table__i-draggble"></i>
+									<input class="form-control input-lg" 
+										type="text" 
+										maxlength="100" 
+										placeholder="Enter modifier" 
+										data-lang="EN">
+									<span class="fieldError" style="display: none;"></span>
+								</div>
+								<div class="n-table__col" data-column="{{table.columns[1]}}">
+									<input class="form-control input-lg" 
+										type="text" 
+										value="0.00">
+									<span class="validationMessage" style="display: none;"></span>
+								</div>
+								{#<div class="n-table__col" data-column="{{table.columns[3]}}">
+									<input class="n-table__close delete-row-button" type="button">
+								</div>#}
+								{% if modifiersIngredients %}
+								<div class="n-table__inner">
+									{% if loop.index == 2 %}
+										<!-- begin ingredients table -->
+										<div class="n-table">
+											<div class="n-table__head" data-row="option">
+												<div class="n-table__col" data-column="{{table.ingredientsColumns[0]}}">Ingredient:</div>
+												<div class="n-table__col" data-column="{{table.ingredientsColumns[1]}}">Qty:</div>
+												<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">Unit:</div>
+											</div>
+											<div class="n-table__body">
+												{% for item in range(0,2) %}
+													<div class="n-table__row" data-row="option">
+														<div class="n-table__col" data-column="{{table.ingredientsColumns[0]}}">
+															<input class="form-control input-lg" 
+																type="text" 
+																maxlength="100" 
+																placeholder="Add ingredient" 
+																value="{% if loop.index == 1 %}Hot pepper{% else %}Hot souce{% endif %}"
+																readonly
+																data-lang="EN">
+															<span class="fieldError" style="display: none;"></span>
+														</div>
+														<div class="n-table__col" data-column="{{table.ingredientsColumns[1]}}">
+															<input class="form-control input-lg" 
+																type="text" 
+																value="{% if loop.index == 1 %}1{% else %}0.05{% endif %}">
+															<span class="validationMessage" style="display: none;"></span>
+														</div>
+														<div class="n-table__col" data-column="{{table.ingredientsColumns[2]}}">
+															<div class="n-table__unit"><span>{% if loop.index == 1 %}item{% else %}l{% endif %}</span></div>
+														</div>
+														<div class="n-table__col" data-column="{{table.columns[3]}}">
+															<input class="n-table__close delete-row-button" type="button">
+														</div>
+													</div>
+												{% endfor %}
+											</div>
+										</div>
+										<!-- end ingredients table -->
+										<div class="n-add n-table__add">
+											<a href="#" data-modal-target="add-ingredient"><i class="fa fa-plus"></i> Add an ingredient</a>
+										</div>
+									{% else %}
+										<div class="n-add n-table__add">
+											<a href="#" data-modal-target="add-ingredient"><i class="fa fa-plus"></i> Add an ingredient</a>
+										</div>
+									{% endif %}
+								</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="n-add n-table-wrapper__add">
+					<a href="#"><i class="fa fa-plus"></i> Add a modifier</a>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" checked id="isActive_0">
+					<label for="isActive_0">Is Active</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
