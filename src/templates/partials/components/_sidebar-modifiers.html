@@ -1,9 +1,9 @@
 <div class="n-pane__inner {{sidebarDisabled}}">
 	{% include 'partials/components/_n-search.html' %}
 	{% set list = [
-		{ title: 'Toppings', active: 'is-active' },
-		{ title: 'Sizes' },
-		{ title: 'Icecream Flafors' }
+		{ title: 'Toppings', active: 'is-active', activeClassList: 'check color-green' },
+		{ title: 'Sizes', activeClassList: 'check color-green' },
+		{ title: 'Icecream Flafors', activeClassList: 'times color-red' }
 	] %}
 	{% set sidebarActions = [
 		'<i class="fa fa-pencil-square-o"></i>',
@@ -28,6 +28,7 @@
 					<div class="i-items__action">Copy</div>
 					<div class="i-items__action">Assign</div>
 				</div>
+				<div class="i-items__active">Active</div>
 				<div class="i-items__title">Modifier Groups</div>
 			</div>
 			<ul class="i-items__list">
@@ -38,6 +39,7 @@
 								<a href="#" class="i-item__action {% if loop.index == sidebarActionsActive %}{{item.active}}{% endif %}">{{link | safe}}</a>
 							{% endfor %}
 						</div>
+						<div class="i-item__active"><i class="fa fa-{{item.activeClassList}}"></i></div>
 						<div class="i-item__checkbox">
 							{{form.checkbox.call()}}
 						</div>

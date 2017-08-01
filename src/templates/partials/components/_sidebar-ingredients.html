@@ -14,16 +14,16 @@
 		<!-- end n-empty -->
 	{% else %}
 		{% set list = [
-			{ title: 'cheese slice', price: '$5.00', active: 'is-active' },
-			{ title: 'pepper', price: '$3.00' },
-			{ title: 'milk', price: '$7.00' },
-			{ title: 'potatoes', price: '$4.00' },
-			{ title: 'strawberry', price: '$5.00' },
-			{ title: 'tomatoes', price: '$6.00' },
-			{ title: 'cream', price: '$1.50' },
-			{ title: 'rice', price: '$3.50' },
-			{ title: 'pasta', price: '$12.00' },
-			{ title: 'egg', price: '$9.00' }
+			{ title: 'cheese slice', price: '$5.00', active: 'is-active', activeClassList: 'check color-green' },
+			{ title: 'pepper', price: '$3.00', activeClassList: 'times color-red' },
+			{ title: 'milk', price: '$7.00', activeClassList: 'check color-green' },
+			{ title: 'potatoes', price: '$4.00', activeClassList: 'times color-red' },
+			{ title: 'strawberry', price: '$5.00', activeClassList: 'times color-red' },
+			{ title: 'tomatoes', price: '$6.00', activeClassList: 'times color-red' },
+			{ title: 'cream', price: '$1.50', activeClassList: 'check color-green' },
+			{ title: 'rice', price: '$3.50', activeClassList: 'check color-green' },
+			{ title: 'pasta', price: '$12.00', activeClassList: 'times color-red' },
+			{ title: 'egg', price: '$9.00', activeClassList: 'check color-green' }
 		] %}
 		<!-- begin i-items -->
 		<div class="i-items">
@@ -35,6 +35,7 @@
 					<div class="i-items__action">Edit</div>
 				</div>
 				<div class="i-items__price">Cost</div>
+				<div class="i-items__active">Active</div>
 				<div class="i-items__title">Ingredients</div>
 			</div>
 			<ul class="i-items__list">
@@ -47,6 +48,7 @@
 							{{form.checkbox.call()}}
 						</div>
 						<div class="i-item__price">{{item.price}}</div>
+						<div class="i-item__active"><i class="fa fa-{{item.activeClassList}}"></i></div>
 						<div class="i-item__title">{{item.title}}</div>
 					</li>
 				{% endfor %}
