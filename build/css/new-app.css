@@ -440,7 +440,19 @@
 }
 
 .n-items__col[data-column="ingredient-name"] {
-  width: 35%;
+  width: 38%;
+}
+
+.n-items__col[data-column="ingredient-cost"] {
+  width: 20%;
+}
+
+.n-items__col[data-column="ingredient-unit"] {
+  width: 16%;
+}
+
+.n-items__col[data-column="ingredient-qty"] {
+  width: 16%;
 }
 
 .n-items__col[data-column="action"] {

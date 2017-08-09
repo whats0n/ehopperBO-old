@@ -49,9 +49,9 @@ headerTitle: New Inventory Item
 						<div class="n-items__table">
 							<div class="n-items__tr">
 								<div class="n-items__col" data-column="ingredient-name">Ingredient name</div>
-								<div class="n-items__col">Cost</div>
-								<div class="n-items__col">UOM</div>
-								<div class="n-items__col">Qty</div>
+								<div class="n-items__col" data-column="ingredient-cost">Cost</div>
+								<div class="n-items__col" data-column="ingredient-unit">UOM</div>
+								<div class="n-items__col" data-column="ingredient-qty">Qty</div>
 								<div class="n-items__col" data-column="action">Edit</div>
 							</div>
 						</div>
@@ -70,9 +70,9 @@ headerTitle: New Inventory Item
 									<div class="n-items__table">
 										<div class="n-items__tr">
 											<div class="n-items__col" data-column="ingredient-name">{{item.title}}</div>
-											<div class="n-items__col">{{item.cost}}</div>
-											<div class="n-items__col">{{item.unit}}</div>
-											<div class="n-items__col">{{item.qty}}</div>
+											<div class="n-items__col" data-column="ingredient-cost">{{item.cost}}</div>
+											<div class="n-items__col" data-column="ingredient-unit">{{item.unit}}</div>
+											<div class="n-items__col" data-column="ingredient-qty">{{item.qty}}</div>
 											<div class="n-items__col" data-column="action">
 												<a href="#" class="n-items__action">
 													<i class="fa fa-pencil-square-o"></i>
