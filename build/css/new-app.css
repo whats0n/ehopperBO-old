@@ -439,6 +439,10 @@
   font-size: 16px;
 }
 
+.n-items__col[data-column="ingredient-name"] {
+  width: 35%;
+}
+
 .n-items__col[data-column="action"] {
   width: 60px;
   text-align: left;
