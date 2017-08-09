@@ -26,16 +26,16 @@ headerTitle: New Inventory Item
 				{% set items = {
 					columns: [ 'half', 'half' ],
 					rows: [
-						{ title: 'cheese slice', unit: 'unit' },
-						{ title: 'pepper', unit: 'unit' },
-						{ title: 'milk', unit: 'l' },
-						{ title: 'potatoes', unit: 'kg' },
-						{ title: 'strawberry', unit: 'kg' },
-						{ title: 'tomatoes', unit: 'kg' },
-						{ title: 'cream', unit: 'unit' },
-						{ title: 'rice', unit: 'kg' },
-						{ title: 'pasta', unit: 'kg' },
-						{ title: 'egg', unit: 'unit' }
+						{ title: 'cheese slice', unit: 'unit', cost: '$8.00', qty: '2' },
+						{ title: 'pepper', unit: 'unit', cost: '$4.00', qty: '1' },
+						{ title: 'milk', unit: 'l', cost: '$12.00', qty: '1' },
+						{ title: 'potatoes', unit: 'kg', cost: '$9.00', qty: '3' },
+						{ title: 'strawberry', unit: 'kg', cost: '$11.00', qty: '2' },
+						{ title: 'tomatoes', unit: 'kg', cost: '$6.00', qty: '2' },
+						{ title: 'cream', unit: 'unit', cost: '$13.00', qty: '2' },
+						{ title: 'rice', unit: 'kg', cost: '$4.00', qty: '1' },
+						{ title: 'pasta', unit: 'kg', cost: '$7.00', qty: '1' },
+						{ title: 'egg', unit: 'unit', cost: '$16.00', qty: '4' }
 					]
 				} %}
 				<div class="n-items">
@@ -49,7 +49,10 @@ headerTitle: New Inventory Item
 						<div class="n-items__table">
 							<div class="n-items__tr">
 								<div class="n-items__col">Ingredient name</div>
+								<div class="n-items__col">Cost</div>
 								<div class="n-items__col">UOM</div>
+								<div class="n-items__col">Qty</div>
+								<div class="n-items__col" data-column="action">Edit</div>
 							</div>
 						</div>
 					</div>
@@ -67,7 +70,14 @@ headerTitle: New Inventory Item
 									<div class="n-items__table">
 										<div class="n-items__tr">
 											<div class="n-items__col">{{item.title}}</div>
+											<div class="n-items__col">{{item.cost}}</div>
 											<div class="n-items__col">{{item.unit}}</div>
+											<div class="n-items__col">{{item.qty}}</div>
+											<div class="n-items__col" data-column="action">
+												<a href="#" class="n-items__action">
+													<i class="fa fa-pencil-square-o"></i>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
