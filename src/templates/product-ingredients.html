@@ -59,15 +59,6 @@ headerTitle: New Inventory Item
 					</div>
 					<div class="n-modifiers-block">
 						<div class="n-modifiers-block__title">Current Ingredients</div>
-						<div class="n-modifiers-block__lang">
-							<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" data-active-view="true">
-								<a class="selected">English</a>
-								<a>Custom</a>
-								<a>Español</a>
-								<a>Français</a>
-								<a>Русский</a>
-							</div>
-						</div>
 						{% set items = [
 							{ name: 'cheese slice', qty: '1', type: 'unit' },
 							{ name: 'milk', qty: '2', type: 'l' },
