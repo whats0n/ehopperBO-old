@@ -54,8 +54,31 @@
 		display: table-cell
 		padding: 12px 10px 11px
 		font-size: 16px
-		// &[data-column="half"]
-		// 	width: 50%
+		&[data-column="ingredient-name"]
+			width: 38%
+		&[data-column="ingredient-cost"]
+			width: 20%
+		&[data-column="ingredient-unit"]
+			width: 16%
+		&[data-column="ingredient-qty"]
+			width: 16%
+		&[data-column="action"]
+			width: 60px
+			text-align: left
+	&__action
+		position: relative
+		display: inline-block
+		vertical-align: top
+		width: 100%
+		color: $blue
+		font-size: 0
+		text-decoration: none
+		i 
+			display: inline-block
+			vertical-align: middle
+			width: 100%
+			font-size: 24px
+			text-align: center
 	&__table
 		display: table
 		table-layout: fixed

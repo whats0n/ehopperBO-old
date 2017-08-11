@@ -439,6 +439,45 @@
   font-size: 16px;
 }
 
+.n-items__col[data-column="ingredient-name"] {
+  width: 38%;
+}
+
+.n-items__col[data-column="ingredient-cost"] {
+  width: 20%;
+}
+
+.n-items__col[data-column="ingredient-unit"] {
+  width: 16%;
+}
+
+.n-items__col[data-column="ingredient-qty"] {
+  width: 16%;
+}
+
+.n-items__col[data-column="action"] {
+  width: 60px;
+  text-align: left;
+}
+
+.n-items__action {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  color: #337ab7;
+  font-size: 0;
+  text-decoration: none;
+}
+
+.n-items__action i {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+}
+
 .n-items__table {
   display: table;
   table-layout: fixed;
