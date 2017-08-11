@@ -14,16 +14,16 @@
 		<!-- end n-empty -->
 	{% else %}
 		{% set list = [
-			{ title: 'cheese slice', price: '$5.00', active: 'is-active', activeClassList: 'check color-green' },
-			{ title: 'pepper', price: '$3.00', activeClassList: 'times color-red' },
-			{ title: 'milk', price: '$7.00', activeClassList: 'check color-green' },
-			{ title: 'potatoes', price: '$4.00', activeClassList: 'times color-red' },
-			{ title: 'strawberry', price: '$5.00', activeClassList: 'times color-red' },
-			{ title: 'tomatoes', price: '$6.00', activeClassList: 'times color-red' },
-			{ title: 'cream', price: '$1.50', activeClassList: 'check color-green' },
-			{ title: 'rice', price: '$3.50', activeClassList: 'check color-green' },
-			{ title: 'pasta', price: '$12.00', activeClassList: 'times color-red' },
-			{ title: 'egg', price: '$9.00', activeClassList: 'check color-green' }
+			{ title: 'cheese slice', price: '$5.00', unit: 'unit', active: 'is-active', activeClassList: 'check color-green' },
+			{ title: 'pepper', price: '$3.00', unit: 'unit', activeClassList: 'times color-red' },
+			{ title: 'milk', price: '$7.00', unit: 'l', activeClassList: 'check color-green' },
+			{ title: 'potatoes', price: '$4.00', unit: 'kg', activeClassList: 'times color-red' },
+			{ title: 'strawberry', price: '$5.00', unit: 'kg', activeClassList: 'times color-red' },
+			{ title: 'tomatoes', price: '$6.00', unit: 'kg', activeClassList: 'times color-red' },
+			{ title: 'cream', price: '$1.50', unit: 'unit', activeClassList: 'check color-green' },
+			{ title: 'rice', price: '$3.50', unit: 'kg', activeClassList: 'check color-green' },
+			{ title: 'pasta', price: '$12.00', unit: 'kg', activeClassList: 'times color-red' },
+			{ title: 'egg', price: '$9.00', unit: 'unit', activeClassList: 'check color-green' }
 		] %}
 		<!-- begin i-items -->
 		<div class="i-items">
@@ -34,6 +34,7 @@
 				<div class="i-items__actions">
 					<div class="i-items__action">Edit</div>
 				</div>
+				<div class="i-items__price">UOM</div>
 				<div class="i-items__price">Cost</div>
 				<div class="i-items__active">Active</div>
 				<div class="i-items__title">Ingredients</div>
@@ -47,6 +48,7 @@
 						<div class="i-item__checkbox">
 							{{form.checkbox.call()}}
 						</div>
+						<div class="i-item__price">{{item.unit}}</div>
 						<div class="i-item__price">{{item.price}}</div>
 						<div class="i-item__active"><i class="fa fa-{{item.activeClassList}}"></i></div>
 						<div class="i-item__title">{{item.title}}</div>
