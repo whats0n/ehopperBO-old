@@ -82,7 +82,8 @@ sidebarAssign: true
 								<div class="n-items__table">
 									<div class="n-items__tr">
 										<div class="n-items__col">Product Name</div>
-										<div class="n-items__col">Ingredient's Qty (unit)</div>
+										<div class="n-items__col">Current Qty (item)</div>
+										<div class="n-items__col">New Qty (item)</div>
 									</div>
 								</div>
 							</div>
@@ -101,7 +102,10 @@ sidebarAssign: true
 												<div class="n-items__tr">
 													<div class="n-items__col">{{item.title}}</div>
 													<div class="n-items__col">
-														<input type="number" class="form-control input n-items__input" value="{{item.qty}}"/>
+														<input type="number" class="form-control input n-items__input" value="{{item.qty}}" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
 													</div>
 												</div>
 											</div>

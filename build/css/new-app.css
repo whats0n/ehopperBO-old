@@ -513,7 +513,7 @@
 }
 
 .n-items__input {
-  max-width: 200px;
+  max-width: 140px;
 }
 
 .n-items__more {
@@ -1442,8 +1442,17 @@
 }
 
 .n-pane__inner.is-disabled .n-pane__overlay {
-  opacity: 0.8;
+  opacity: 0.3;
   visibility: visible;
+}
+
+.n-pane__inner.is-disabled a.i-item__action {
+  color: #333;
+  opacity: 0.5;
+}
+
+.n-pane__inner.is-disabled .i-item__active i {
+  color: #333;
 }
 
 .n-pane__overlay {
