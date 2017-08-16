@@ -1,0 +1,674 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Ingredients</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b>
+</div>
+						
+							
+								
+								<div class="i-header">
+	<div class="i-header__modal is-open" ">
+		
+		<div class="i-header__title">Add ingredient to product</div>
+	</div>
+</div>
+							
+						
+						<div class="pane-body-wrapper n-modifiers">
+							
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			<div class="n-pane__inner is-disabled">
+	
+	
+	
+	
+	
+	<!-- begin n-search -->
+<div class="n-search n-search_sidebar">
+	<div class="n-search__links">
+		
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">New</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
+		</div>
+	</div>
+	<div class="n-search__field">
+		<i class="fa fa-search n-search__icon"></i>
+		<input type="text" class="form-control input-lg" placeholder="Search ingredient by name" />
+	</div>
+</div>
+<!-- end n-search -->
+	
+	
+		
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+				</div>
+				<div class="i-items__actions">
+					<div class="i-items__action">Edit</div>
+					<div class="i-items__action">Assign</div>
+				</div>
+				<div class="i-items__price">UOM</div>
+				<div class="i-items__price">Cost</div>
+				<div class="i-items__active">Active</div>
+				<div class="i-items__title">Ingredients</div>
+			</div>
+			<ul class="i-items__list">
+				
+					<li class="i-item i-items__row is-active">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action is-active"><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">unit</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">cheese slice</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">unit</div>
+						<div class="i-item__price">$3.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">pepper</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">l</div>
+						<div class="i-item__price">$7.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">milk</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$4.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">potatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">strawberry</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$6.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">tomatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">unit</div>
+						<div class="i-item__price">$1.50</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">cream</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$3.50</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">rice</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$12.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">pasta</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">unit</div>
+						<div class="i-item__price">$9.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">egg</div>
+					</li>
+				
+			</ul>
+		</div>
+		<!-- end i-items -->
+	
+	<div class="n-pane__overlay"></div>
+</div>
+		</div>
+		<div class="pane pane-right">
+			<div class="n-module n-module_filters-only is-open">
+				<div class="n-module__container">
+					<div class="n-module__header">
+						<!-- begin n-search -->
+						<div class="n-search">
+							<div class="n-search__field">
+								<i class="fa fa-search n-search__icon"></i>
+								<input type="text" class="form-control input-lg" placeholder="Search product by title of code" />
+							</div>
+						</div>
+						<!-- end n-search -->
+
+						<!-- begin n-filters -->
+						<div class="n-filters n-module__filters">
+							<div class="n-filters__row">
+								<div class="n-filters__col n-filters__col_md">
+									<label class="n-filters__label">Department:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
+									</div>
+								</div>
+								<div class="n-filters__col n-filters__col_md">
+									<label class="n-filters__label">Category:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end n-filters -->
+					</div>
+					<div class="n-module__body">
+						
+						<div class="n-items">
+							<div class="n-items__head">
+								<div class="n-items__checkbox">
+									<div class="checkbox">
+										<input type="checkbox" id="all-ingredients">
+										<label for="all-ingredients"></label>
+									</div>
+								</div>
+								<div class="n-items__table">
+									<div class="n-items__tr">
+										<div class="n-items__col">Product Name</div>
+										<div class="n-items__col">Ingredient's Qty (unit)</div>
+									</div>
+								</div>
+							</div>
+							<div class="n-items__body">
+								
+									
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-11">
+													<label for="ingredient-11"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Soup</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="0"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-12">
+													<label for="ingredient-12"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Hamburger</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="1"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-13">
+													<label for="ingredient-13"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Pizza</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="3"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								
+									
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-21">
+													<label for="ingredient-21"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Soup</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="0"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-22">
+													<label for="ingredient-22"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Hamburger</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="1"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-23">
+													<label for="ingredient-23"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Pizza</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="3"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								
+									
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-31">
+													<label for="ingredient-31"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Soup</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="0"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-32">
+													<label for="ingredient-32"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Hamburger</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="1"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-33">
+													<label for="ingredient-33"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Pizza</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="3"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								
+									
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-41">
+													<label for="ingredient-41"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Soup</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="0"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-42">
+													<label for="ingredient-42"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Hamburger</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="1"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-43">
+													<label for="ingredient-43"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Pizza</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="3"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								
+									
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-51">
+													<label for="ingredient-51"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Soup</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="0"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-52">
+													<label for="ingredient-52"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Hamburger</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="1"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-53">
+													<label for="ingredient-53"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">Pizza</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="3"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+								
+							</div>
+							<div class="n-items__footer">
+								<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Done">
+								<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

@@ -415,9 +415,10 @@
 
 .n-items__checkbox {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 10px;
   padding: 10px;
+  margin-top: -23px;
 }
 
 .n-items__row {
@@ -509,6 +510,10 @@
 .n-items input[type="checkbox"] + label:before, .n-items input[type="radio"] + label:before {
   top: 0;
   margin: 0;
+}
+
+.n-items__input {
+  max-width: 200px;
 }
 
 .n-items__more {
@@ -1074,6 +1079,7 @@
   font-size: 16px;
   line-height: 25px;
   font-weight: bold;
+  word-break: break-word;
 }
 
 .i-items__price, .i-items__actions, .i-items__active {
@@ -1087,7 +1093,7 @@
 
 .i-items__active {
   text-align: center;
-  width: 65px;
+  width: 70px;
 }
 
 .i-items__action {
@@ -1206,7 +1212,7 @@
 }
 
 .i-item__active {
-  width: 65px;
+  width: 70px;
   font-size: 20px;
   opacity: 0.5;
 }

@@ -1,0 +1,122 @@
+---
+title: Ingredients
+headerTitle: Ingredients
+paneBodyWrapperClassList: 'n-modifiers'
+sidebarDisabled: 'is-disabled'
+iHeader: [
+	{
+		title: 'Add ingredient to product',
+		classList: 'is-open'
+	}
+]
+sidebarAssign: true
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			{% include 'partials/components/_sidebar-ingredients.html' %}
+		</div>
+		<div class="pane pane-right">
+			<div class="n-module n-module_filters-only is-open">
+				<div class="n-module__container">
+					<div class="n-module__header">
+						<!-- begin n-search -->
+						<div class="n-search">
+							<div class="n-search__field">
+								<i class="fa fa-search n-search__icon"></i>
+								<input type="text" class="form-control input-lg" placeholder="Search product by title of code" />
+							</div>
+						</div>
+						<!-- end n-search -->
+
+						<!-- begin n-filters -->
+						<div class="n-filters n-module__filters">
+							<div class="n-filters__row">
+								<div class="n-filters__col n-filters__col_md">
+									<label class="n-filters__label">Department:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
+									</div>
+								</div>
+								<div class="n-filters__col n-filters__col_md">
+									<label class="n-filters__label">Category:</label>
+									<div class="n-filters__field">
+										<select>
+											<option value="">All</option>
+											<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+											<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end n-filters -->
+					</div>
+					<div class="n-module__body">
+						{% set items = {
+							columns: [ 'default', 'default', 'default', 'default', 'default' ],
+							rows: [
+								{ title: 'Soup', qty: '0' },
+								{ title: 'Hamburger', qty: '1' },
+								{ title: 'Pizza', qty: '3' }
+							]
+						} %}
+						<div class="n-items">
+							<div class="n-items__head">
+								<div class="n-items__checkbox">
+									<div class="checkbox">
+										<input type="checkbox" id="all-ingredients">
+										<label for="all-ingredients"></label>
+									</div>
+								</div>
+								<div class="n-items__table">
+									<div class="n-items__tr">
+										<div class="n-items__col">Product Name</div>
+										<div class="n-items__col">Ingredient's Qty (unit)</div>
+									</div>
+								</div>
+							</div>
+							<div class="n-items__body">
+								{% for item in range(0,5) %}
+									{% set active = loop.index + '' %}
+									{% for item in items.rows %}
+										<div class="n-items__row">
+											<div class="n-items__checkbox">
+												<div class="checkbox">
+													<input type="checkbox" id="ingredient-{{active + loop.index}}">
+													<label for="ingredient-{{active + loop.index}}"></label>
+												</div>
+											</div>
+											<div class="n-items__table">
+												<div class="n-items__tr">
+													<div class="n-items__col">{{item.title}}</div>
+													<div class="n-items__col">
+														<input type="text" class="form-control input-lg n-items__input" value="{{item.qty}}"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								{% endfor %}
+							</div>
+							<div class="n-items__footer">
+								<input class="btn btn-lg btn-primary n-items__btn" type="button" value="Done">
+								<input class="btn btn-lg btn-default n-items__btn" type="button" value="Cancel">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
