@@ -19,6 +19,11 @@
 					border-color: $white
 					&_full
 						background: $white
+				.n-fake-radio__plus,
+				.n-fake-radio__minus
+					&:before,
+					&:after
+						background: $white
 	&__content
 		display: inline-block
 		vertical-align: top
@@ -54,10 +59,21 @@
 			background: #2E9ADB
 	&__plus
 		position: absolute
-		top: -6px
+		top: -2px
 		left: 0
-		width: 12px
-		height: 12px
+		width: 10px
+		height: 10px
+		&:after
+			width: 2px
+			height: 10px
+			background: #2E9ADB
+	&__plus,
+	&__minus
+		position: absolute
+		top: -2px
+		left: 0
+		width: 10px
+		height: 10px
 		&:before,
 		&:after
 			content: ''
@@ -65,11 +81,8 @@
 			top: 50%
 			left: 50%
 			transform: translate3d(-50%,-50%,0)
+			transition: background 0.175s ease-in-out
 		&:before
-			width: 13px
-			height: 1px
-			background: #2E9ADB
-		&:after
-			width: 1px
-			height: 13px
+			width: 10px
+			height: 2px
 			background: #2E9ADB

@@ -1,17 +1,26 @@
 <!-- begin n-search -->
 <div class="n-search n-search_sidebar">
 	<div class="n-search__links">
-		{#<a href="#" class="n-link n-search__link">{{searchNew or 'New modifier group'}}</a>
-		<a href="#" class="n-link n-search__link">{{searchExport or 'Export modifiers'}}</a>
-		<a href="#" class="n-link n-search__link">{{searchImport or 'Import modifiers'}}</a>#}
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">New</a>
+			{% if sidebarDisabled %}
+				<a href="#" class="btn btn-primary n-search__btn" disabled>New</a>
+			{% else %}
+				<a href="#" class="btn btn-primary n-search__btn">New</a>
+			{% endif %}
 		</div>
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+			{% if sidebarDisabled %}
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Export</a>
+			{% else %}
+				<a href="#" class="btn btn-primary n-search__btn">Export</a>
+			{% endif %}
 		</div>
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+			{% if sidebarDisabled %}
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Import</a>
+			{% else %}
+				<a href="#" class="btn btn-primary n-search__btn">Import</a>
+			{% endif %}
 		</div>
 		<div class="n-search__col">
 			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
