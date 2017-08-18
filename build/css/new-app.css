@@ -193,6 +193,20 @@
   background: #2E9ADB;
 }
 
+.n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__circle {
+  border-color: #fff;
+}
+
+.n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__circle_full {
+  background: #fff;
+}
+
+.n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__plus:before, .n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__plus:after,
+.n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__minus:before,
+.n-fake-radio input:checked ~ .n-fake-radio__icon-group .n-fake-radio__minus:after {
+  background: #fff;
+}
+
 .n-fake-radio__content {
   display: inline-block;
   vertical-align: top;
@@ -209,6 +223,71 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.n-fake-radio__content_icons {
+  padding-left: 38px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.n-fake-radio__icon-group {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  padding: 0 10px;
+  margin-top: -20px;
+}
+
+.n-fake-radio__circle {
+  display: block;
+  margin: 4px 0;
+  border: 1px solid #2E9ADB;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  transition: background 0.175s ease-in-out, border-color 0.175s ease-in-out;
+}
+
+.n-fake-radio__circle_full {
+  background: #2E9ADB;
+}
+
+.n-fake-radio__plus {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+}
+
+.n-fake-radio__plus:after {
+  width: 2px;
+  height: 10px;
+  background: #2E9ADB;
+}
+
+.n-fake-radio__plus, .n-fake-radio__minus {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+}
+
+.n-fake-radio__plus:before, .n-fake-radio__plus:after, .n-fake-radio__minus:before, .n-fake-radio__minus:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transition: background 0.175s ease-in-out;
+}
+
+.n-fake-radio__plus:before, .n-fake-radio__minus:before {
+  width: 10px;
+  height: 2px;
+  background: #2E9ADB;
 }
 
 .new-checkbox {
