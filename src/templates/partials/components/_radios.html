@@ -5,51 +5,16 @@
 		</div>
 		
 		{% set choice = [
-			{ 
-				title: 'one modifier',
-				description: 'eg: small, medium, large',
-				attrs: 'checked',
-				iconClassList: [
-					'n-fake-radio__circle_full'
-				]
-			},
-			{ 
-				title: 'multiple modifiers',
-				description: 'eg: cheese, sousage',
-				iconPlus: true,
-				iconClassList: [
-					'n-fake-radio__circle_full',
-					'n-fake-radio__circle_full',
-					'n-fake-radio__circle_full'
-				]
-			},
-			{ 
-				title: 'NO modifiers',
-				description: 'eg: No salt, No sugar',
-				iconMinus: true,
-				iconClassList: [
-					'n-fake-radio__circle_full',
-					'n-fake-radio__circle_full',
-					'n-fake-radio__circle_full'
-				]
-			}
+			{ title: 'one modifier', description: 'eg: small, medium, large', attrs: 'checked' },
+			{ title: 'multiple modifiers', description: 'eg: cheese, sousage' },
+			{ title: 'NO modifiers', description: 'eg: No salt, No sugar' }
 		] %}
 
 		{% for item in choice %}
 			<div class="n-col n-col_sm n-radio-container">
 				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="{{loop.index}}" id="{{radiosName + '' + loop.index}}" name="{{radiosName}}" {{item.attrs | safe}}>
-					<span class="n-fake-radio__content n-fake-radio__content_icons">{{item.title}}</span>
-					<span class="n-fake-radio__icon-group">
-						{% if item.iconPlus %}
-							<i class="n-fake-radio__plus"></i>
-						{% elif item.iconMinus %}
-							<i class="n-fake-radio__minus"></i>
-						{% endif %}
-						<i class="n-fake-radio__circle {{item.iconClassList[0]}}"></i>
-						<i class="n-fake-radio__circle {{item.iconClassList[1]}}"></i>
-						<i class="n-fake-radio__circle {{item.iconClassList[2]}}"></i>
-					</span>
+					<span class="n-fake-radio__content">{{item.title}}</span>
 				</label>
 				<label class="n-label" for="{{radiosName + '' + loop.index}}">{{item.description}}</label>
 			</div>
