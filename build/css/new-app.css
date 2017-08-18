@@ -799,7 +799,7 @@
 }
 
 .n-table__head[data-row="option"] .n-table__col[data-column="option-name"], .n-table__row[data-row="option"] .n-table__col[data-column="option-name"] {
-  width: 44%;
+  width: 54%;
 }
 
 .n-table__head[data-row="option"] .n-table__col[data-column="option-price"], .n-table__row[data-row="option"] .n-table__col[data-column="option-price"] {
@@ -1045,7 +1045,7 @@
   display: inline-block;
   vertical-align: middle;
   padding-right: 10px;
-  max-width: 100px;
+  max-width: 120px;
 }
 
 .modifier-report__col {

@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Create New Modifier</title>
+		<title>Modifiers</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -36,17 +36,155 @@
 					<div class="pane pane-right">
 						<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">New Inventory Item</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b>
 </div>
 						
-						<div class="pane-body-wrapper ">
 							
-	<!-- begin n-modal -->
-<div class="n-modal is-open" data-modal-container="create-modifier">
-	<div class="n-modal__header">
-		<div class="n-modal__title">Create new modifier group</div>
+								
+								<div class="i-header">
+	<div class="i-header__modal is-open" ">
+		
+		<div class="i-header__title">Edit modifier</div>
 	</div>
-	<div class="n-section n-section_step">
+</div>
+							
+						
+						<div class="pane-body-wrapper n-modifiers">
+							
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			<div class="n-pane__inner is-disabled">
+	<!-- begin n-search -->
+<div class="n-search n-search_sidebar">
+	<div class="n-search__links">
+		<div class="n-search__col">
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>New</a>
+			
+		</div>
+		<div class="n-search__col">
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Export</a>
+			
+		</div>
+		<div class="n-search__col">
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Import</a>
+			
+		</div>
+		<div class="n-search__col">
+			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
+		</div>
+	</div>
+	<div class="n-search__field">
+		<i class="fa fa-search n-search__icon"></i>
+		<input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" />
+	</div>
+</div>
+<!-- end n-search -->
+	
+	
+	
+		<!-- begin i-items -->
+		<div class="i-items">
+			<div class="i-items__head">
+				<div class="i-items__checkbox">
+					
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+				</div>
+				<div class="i-items__actions">
+					<div class="i-items__action">Edit</div>
+					<div class="i-items__action">Copy</div>
+					<div class="i-items__action">Assign</div>
+				</div>
+				<div class="i-items__active">Active</div>
+				<div class="i-items__title">Modifier Groups</div>
+			</div>
+			<ul class="i-items__list">
+				
+					<li class="i-item i-items__row is-active">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action is-active"><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__title">Toppings</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__title">Sizes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							
+								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
+							
+								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+							
+						</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__title">Icecream Flafors</div>
+					</li>
+				
+			</ul>
+		</div>
+		<!-- end i-items -->
+	
+	<div class="n-pane__overlay"></div>
+</div>
+		</div>
+		<div class="pane pane-right">
+			<div class="n-section n-section_step">
 	<div class="n-section__body">
 		<div class="n-section__container">
 			<div class="language-selector">
@@ -134,13 +272,13 @@
 					<div class="n-table__col" data-column="option-name">
 						<i class="n-table__i-draggble"></i>
 						
-							<input class="form-control input-lg" 
+							<input class="form-control input-lg hasError" 
 								type="text" 
 								maxlength="100" 
 								placeholder="Enter modifier" 
 								
 								data-lang="EN">
-							<span class="fieldError" style="display: none;"></span>
+							<span class="fieldError">At least 1 modifier is required</span>
 						
 					</div>
 					<div class="n-table__col" data-column="option-price">
@@ -148,33 +286,6 @@
 							type="text" 
 							
 							value="0.00"
-							>
-						<span class="validationMessage" style="display: none;"></span>
-					</div>
-					<div class="n-table__col" data-column="close">
-						<input class="n-table__close delete-row-button" type="button">
-					</div>
-					
-				</div>
-			
-				<div class="n-table__row" data-row="option">
-					<div class="n-table__col" data-column="option-name">
-						<i class="n-table__i-draggble"></i>
-						
-							<input class="form-control input-lg" 
-								type="text" 
-								maxlength="100" 
-								placeholder="Enter modifier" 
-								value="Hot pepper"
-								data-lang="EN">
-							<span class="fieldError" style="display: none;"></span>
-						
-					</div>
-					<div class="n-table__col" data-column="option-price">
-						<input class="form-control input-lg" 
-							type="text" 
-							
-							value="3"
 							>
 						<span class="validationMessage" style="display: none;"></span>
 					</div>
@@ -203,8 +314,8 @@
 		</div>
 	</div>
 </div>
-</div>
-<!-- end n-modal -->
+		</div>
+	</div>
 
 						</div>
 					</div>

@@ -45,13 +45,13 @@
 		<div class="modifier-report__filters">
 			<div class="modifier-report__container">
 				<div class="modifier-report__row">
-					<div class="modifier-report__col modifier-report__col_sm">
+					<div class="modifier-report__col modifier-report__col_xs">
 						<div class="modifier-report__search">
 							<i class="fa fa-search modifier-report__search-icon"></i>
 							<input class="form-control input-lg modifier-report__search-input" type="text" placeholder="Search by modifier">
 						</div>
 					</div>
-					<div class="modifier-report__col modifier-report__col_sm">
+					<div class="modifier-report__col modifier-report__col_xs">
 						<label>Department:</label>
 						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
 							<option value="">All</option>
@@ -62,7 +62,7 @@
 							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
 						</select>
 					</div>
-					<div class="modifier-report__col modifier-report__col_sm">
+					<div class="modifier-report__col modifier-report__col_xs">
 						<label>Category:</label>
 						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
 							<option value="">All</option>
@@ -73,30 +73,6 @@
 							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
 						</select>
 					</div>
-					<div class="modifier-report__col modifier-report__col_sm pull-right">
-						<div class="modifier-report__action">
-							<date-filter params="value: dateRange">
-								<div class="pull-right">
-									<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-										<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-										&nbsp;
-										<span>Today</span> 
-										<b class="caret"></b>
-									</div>
-								</div>
-							</date-filter>
-						</div>
-						<div class="modifier-report__action">
-							<div class="report-export-wrapper">
-								<button class="btn-report-export">Export</button>
-								<i class="fa fa-file-excel-o" aria-hidden="true"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modifier-report__container">
-				<div class="modifier-report__row">
 					<div class="modifier-report__col modifier-report__col_xs">
 						<label>Product:</label>
 						<div class="modifier-report__multi-select">
@@ -166,8 +142,32 @@
 							</div>
 						</div>
 					</div>
-					<div class="modifier-report__col modifier-report__col_xs">
-						<label>Modifier <br>group&nbsp;name:</label>
+					<div class="modifier-report__col modifier-report__col_xs pull-right">
+						<div class="modifier-report__action">
+							<date-filter params="value: dateRange">
+								<div class="pull-right">
+									<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+										<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+										&nbsp;
+										<span>Today</span> 
+										<b class="caret"></b>
+									</div>
+								</div>
+							</date-filter>
+						</div>
+						<div class="modifier-report__action">
+							<div class="report-export-wrapper">
+								<button class="btn-report-export">Export</button>
+								<i class="fa fa-file-excel-o" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modifier-report__container">
+				<div class="modifier-report__row">
+					<div class="modifier-report__col modifier-report__col_sm">
+						<label>Modifier group:</label>
 						<div class="modifier-report__multi-select">
 							<div data-bind="with: $data.storesFilter, css: self.divStyle">
 								<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
@@ -235,7 +235,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="modifier-report__col modifier-report__col_xs">
+					<div class="modifier-report__col modifier-report__col_sm">
 						<label>Store:</label>
 						<div class="modifier-report__multi-select">
 							<div data-bind="with: $data.storesFilter, css: self.divStyle">
@@ -304,7 +304,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="modifier-report__col modifier-report__col_xs">
+					<div class="modifier-report__col modifier-report__col_sm">
 						<label>Register:</label>
 						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
 							<option value="">All</option>
@@ -315,7 +315,7 @@
 							<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
 						</select>
 					</div>
-					<div class="modifier-report__col modifier-report__col_xs">
+					<div class="modifier-report__col modifier-report__col_sm">
 						<label>Employee:</label>
 						<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
 							<option value="">All</option>
