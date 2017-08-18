@@ -226,22 +226,25 @@
 }
 
 .n-fake-radio__content_icons {
-  padding-left: 38px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   font-size: 14px;
   white-space: nowrap;
 }
 
 .n-fake-radio__icon-group {
   position: absolute;
-  top: 50%;
-  left: 10px;
+  top: 10px;
+  left: 50%;
   padding: 0 10px;
-  margin-top: -20px;
+  margin-left: -28px;
+  white-space: nowrap;
 }
 
 .n-fake-radio__circle {
-  display: block;
-  margin: 4px 0;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 2px;
   border: 1px solid #2E9ADB;
   border-radius: 50%;
   width: 8px;
@@ -270,7 +273,7 @@
 .n-fake-radio__plus, .n-fake-radio__minus {
   position: absolute;
   top: -2px;
-  left: 0;
+  left: -2px;
   width: 10px;
   height: 10px;
 }
