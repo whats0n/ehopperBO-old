@@ -10,17 +10,27 @@
 			<div class="n-table__col" data-column="{{table.columns[1]}}">Price:</div>
 		</div>
 		<div class="n-table__body">
-			{% for item in range(0,2) %}
+			{% for item in range(0, modifierItems or 2) %}
 				<div class="n-table__row" data-row="option">
 					<div class="n-table__col" data-column="{{table.columns[0]}}">
 						<i class="n-table__i-draggble"></i>
-						<input class="form-control input-lg" 
-							type="text" 
-							maxlength="100" 
-							placeholder="Enter modifier" 
-							{% if loop.index == 2 %}value="Hot pepper"{% endif %}
-							data-lang="EN">
-						<span class="fieldError" style="display: none;"></span>
+						{% if modifierItems %}
+							<input class="form-control input-lg hasError" 
+								type="text" 
+								maxlength="100" 
+								placeholder="Enter modifier" 
+								{% if loop.index == 2 %}value="Hot pepper"{% endif %}
+								data-lang="EN">
+							<span class="fieldError">At least 1 modifier is required</span>
+						{% else %}
+							<input class="form-control input-lg" 
+								type="text" 
+								maxlength="100" 
+								placeholder="Enter modifier" 
+								{% if loop.index == 2 %}value="Hot pepper"{% endif %}
+								data-lang="EN">
+							<span class="fieldError" style="display: none;"></span>
+						{% endif %}
 					</div>
 					<div class="n-table__col" data-column="{{table.columns[1]}}">
 						<input class="form-control input-lg" 

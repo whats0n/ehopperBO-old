@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Modifiers Add To Products</title>
+		<title>Ingredients</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -36,7 +36,7 @@
 					<div class="pane pane-right">
 						<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Modifiers</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b>
 </div>
 						
 							
@@ -44,12 +44,7 @@
 								<div class="i-header">
 	<div class="i-header__modal is-open" ">
 		
-			<button class="i-header__back" data-modal-close="">
-				<i class="fa fa-angle-left"></i>
-				<span>Select modifiers</span>
-			</button>
-		
-		<div class="i-header__title">Add modifiers to products</div>
+		<div class="i-header__title">Add ingredient to product</div>
 	</div>
 </div>
 							
@@ -59,6 +54,11 @@
 	<div class="n-columns-layout">
 		<div class="pane pane-left">
 			<div class="n-pane__inner is-disabled">
+	
+	
+	
+	
+	
 	<!-- begin n-search -->
 <div class="n-search n-search_sidebar">
 	<div class="n-search__links">
@@ -83,13 +83,13 @@
 	</div>
 	<div class="n-search__field">
 		<i class="fa fa-search n-search__icon"></i>
-		<input type="text" class="form-control input-lg" placeholder="Search For Modifier Group" />
+		<input type="text" class="form-control input-lg" placeholder="Search ingredient by name" />
 	</div>
 </div>
 <!-- end n-search -->
 	
 	
-	
+		
 		<!-- begin i-items -->
 		<div class="i-items">
 			<div class="i-items__head">
@@ -104,25 +104,20 @@
 				</div>
 				<div class="i-items__actions">
 					<div class="i-items__action">Edit</div>
-					<div class="i-items__action">Copy</div>
 					<div class="i-items__action">Assign</div>
 				</div>
+				<div class="i-items__price">UOM</div>
+				<div class="i-items__price">Cost</div>
 				<div class="i-items__active">Active</div>
-				<div class="i-items__title">Modifier Groups</div>
+				<div class="i-items__title">Ingredients</div>
 			</div>
 			<ul class="i-items__list">
 				
 					<li class="i-item i-items__row is-active">
 						<div class="i-item__actions">
-							
-								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
-							
-								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
-							
-								<a href="#" class="i-item__action is-active"><i class="fa fa-plus-square-o"></i></a>
-							
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action is-active"><i class="fa fa-plus-square-o"></i></a>
 						</div>
-						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
 						<div class="i-item__checkbox">
 							
 <label class="new-checkbox">
@@ -132,20 +127,17 @@
 </label>
 
 						</div>
-						<div class="i-item__title">Toppings</div>
+						<div class="i-item__price">item</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">cheese slice</div>
 					</li>
 				
 					<li class="i-item i-items__row ">
 						<div class="i-item__actions">
-							
-								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
-							
-								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
-							
-								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
-							
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
 						</div>
-						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
 						<div class="i-item__checkbox">
 							
 <label class="new-checkbox">
@@ -155,20 +147,17 @@
 </label>
 
 						</div>
-						<div class="i-item__title">Sizes</div>
-					</li>
-				
-					<li class="i-item i-items__row ">
-						<div class="i-item__actions">
-							
-								<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
-							
-								<a href="#" class="i-item__action "><i class="fa fa-clone"></i></a>
-							
-								<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
-							
-						</div>
+						<div class="i-item__price">item</div>
+						<div class="i-item__price">$3.00</div>
 						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">pepper</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
 						<div class="i-item__checkbox">
 							
 <label class="new-checkbox">
@@ -178,7 +167,150 @@
 </label>
 
 						</div>
-						<div class="i-item__title">Icecream Flafors</div>
+						<div class="i-item__price">l</div>
+						<div class="i-item__price">$7.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">milk</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$4.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">potatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$5.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">strawberry</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$6.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">tomatoes</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">item</div>
+						<div class="i-item__price">$1.50</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">cream</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$3.50</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">rice</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">kg</div>
+						<div class="i-item__price">$12.00</div>
+						<div class="i-item__active"><i class="fa fa-times color-red"></i></div>
+						<div class="i-item__title">pasta</div>
+					</li>
+				
+					<li class="i-item i-items__row ">
+						<div class="i-item__actions">
+							<a href="#" class="i-item__action "><i class="fa fa-pencil-square-o"></i></a>
+							<a href="#" class="i-item__action "><i class="fa fa-plus-square-o"></i></a>
+						</div>
+						<div class="i-item__checkbox">
+							
+<label class="new-checkbox">
+	<input type="checkbox" >
+	<i class="new-checkbox__icon"></i>
+	
+</label>
+
+						</div>
+						<div class="i-item__price">item</div>
+						<div class="i-item__price">$9.00</div>
+						<div class="i-item__active"><i class="fa fa-check color-green"></i></div>
+						<div class="i-item__title">egg</div>
 					</li>
 				
 			</ul>
@@ -204,7 +336,7 @@
 						<!-- begin n-filters -->
 						<div class="n-filters n-module__filters">
 							<div class="n-filters__row">
-								<div class="n-filters__col n-filters__col_sm">
+								<div class="n-filters__col n-filters__col_md">
 									<label class="n-filters__label">Department:</label>
 									<div class="n-filters__field">
 										<select>
@@ -216,7 +348,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="n-filters__col n-filters__col_sm">
+								<div class="n-filters__col n-filters__col_md">
 									<label class="n-filters__label">Category:</label>
 									<div class="n-filters__field">
 										<select>
@@ -226,12 +358,6 @@
 											<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
 											<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
 										</select>
-									</div>
-								</div>
-								<div class="n-filters__col n-filters__col_sm">
-									<label class="n-filters__label">Inventory Type:</label>
-									<div class="n-filters__field">
-										<select id="ddlInventoryTypeFilter" data-bind="options: inventoryTypes, optionsText: 'name', optionsValue: 'id', multipleSelect: inventoryTypes, multipleSelectOptions: inventoryTypeFilterOptions, selectedElements: inventorySelected" style="display: none;"><option value="0">Inventory</option><option value="2">Non-Inventory</option><option value="1">Serialized</option><option value="3">Matrix</option></select><div class="ms-parent"><button type="button" class="select"><div class="fl"><span id="txtMs_undefined" class="placeholder sph tl"> Inventory Type</span><div><div></div></div></div></button><div class="ms-drop bottom" style="display: none;"><ul style="max-height: 250px;"><li><input type="checkbox" name="selectItem" value="0" id="InventoryddlInventoryTypeFilter"> <label for="InventoryddlInventoryTypeFilter">Inventory</label></li><li><input type="checkbox" name="selectItem" value="2" id="Non-InventoryddlInventoryTypeFilter"> <label for="Non-InventoryddlInventoryTypeFilter">Non-Inventory</label></li><li><input type="checkbox" name="selectItem" value="1" id="SerializedddlInventoryTypeFilter"> <label for="SerializedddlInventoryTypeFilter">Serialized</label></li><li><input type="checkbox" name="selectItem" value="3" id="MatrixddlInventoryTypeFilter"> <label for="MatrixddlInventoryTypeFilter">Matrix</label></li><li class="ms-no-results" style="display: none;">No matches found</li></ul></div></div>
 									</div>
 								</div>
 							</div>
@@ -251,8 +377,8 @@
 								<div class="n-items__table">
 									<div class="n-items__tr">
 										<div class="n-items__col">Product Name</div>
-										
-										<div class="n-items__col">Modifier Group Names</div>
+										<div class="n-items__col">Current Qty (item)</div>
+										<div class="n-items__col">New Qty (item)</div>
 									</div>
 								</div>
 							</div>
@@ -270,8 +396,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Soup</div>
-													
-													<div class="n-items__col">vegetables, salt</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="0" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -286,8 +416,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Hamburger</div>
-													
-													<div class="n-items__col">burgers</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="1" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -302,8 +436,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Pizza</div>
-													
-													<div class="n-items__col">sizes</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="3" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -321,8 +459,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Soup</div>
-													
-													<div class="n-items__col">vegetables, salt</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="0" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -337,8 +479,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Hamburger</div>
-													
-													<div class="n-items__col">burgers</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="1" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -353,8 +499,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Pizza</div>
-													
-													<div class="n-items__col">sizes</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="3" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -372,8 +522,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Soup</div>
-													
-													<div class="n-items__col">vegetables, salt</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="0" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -388,8 +542,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Hamburger</div>
-													
-													<div class="n-items__col">burgers</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="1" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -404,8 +562,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Pizza</div>
-													
-													<div class="n-items__col">sizes</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="3" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -423,8 +585,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Soup</div>
-													
-													<div class="n-items__col">vegetables, salt</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="0" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -439,8 +605,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Hamburger</div>
-													
-													<div class="n-items__col">burgers</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="1" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -455,8 +625,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Pizza</div>
-													
-													<div class="n-items__col">sizes</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="3" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -474,8 +648,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Soup</div>
-													
-													<div class="n-items__col">vegetables, salt</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="0" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -490,8 +668,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Hamburger</div>
-													
-													<div class="n-items__col">burgers</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="1" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -506,8 +688,12 @@
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">Pizza</div>
-													
-													<div class="n-items__col">sizes</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input" value="3" disabled/>
+													</div>
+													<div class="n-items__col">
+														<input type="number" class="form-control input n-items__input"/>
+													</div>
 												</div>
 											</div>
 										</div>

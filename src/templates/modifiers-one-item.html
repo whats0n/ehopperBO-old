@@ -1,0 +1,26 @@
+---
+title: Modifiers
+headerTitle: Modifiers
+paneBodyWrapperClassList: 'n-modifiers'
+sidebarDisabled: 'is-disabled'
+sidebarActionsActive: 1
+iHeader: [
+	{
+		title: 'Edit modifier',
+		classList: 'is-open'
+	}
+]
+modifierItems: 1
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="n-columns-layout">
+		<div class="pane pane-left">
+			{% include 'partials/components/_sidebar-modifiers.html' %}
+		</div>
+		<div class="pane pane-right">
+			{% include 'partials/components/_modifiers.html' %}
+		</div>
+	</div>
+{% endblock %}

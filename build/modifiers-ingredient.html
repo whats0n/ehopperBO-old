@@ -83,15 +83,20 @@
 	<!-- begin n-search -->
 <div class="n-search n-search_sidebar">
 	<div class="n-search__links">
-		
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">New</a>
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>New</a>
+			
 		</div>
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">Export</a>
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Export</a>
+			
 		</div>
 		<div class="n-search__col">
-			<a href="#" class="btn btn-primary n-search__btn">Import</a>
+			
+				<a href="#" class="btn btn-primary n-search__btn" disabled>Import</a>
+			
 		</div>
 		<div class="n-search__col">
 			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
@@ -214,7 +219,7 @@
 				<a>Russian</a>
 			</div>
 			<div class="n-form-group n-box">
-				<label class="n-label n-label_title">Modifier Group Name:</label>
+				<label class="n-label n-label_title">Modifier Group:</label>
 				<div class="n-form-group__field">
 					<input class="form-control input-lg hasError" type="text" maxlength="100" placeholder="Enter Name">
 				</div>
@@ -234,7 +239,13 @@
 			<div class="n-col n-col_sm n-radio-container">
 				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="1" id="modifiers1" name="modifiers" checked>
-					<span class="n-fake-radio__content">one modifier</span>
+					<span class="n-fake-radio__content n-fake-radio__content_icons">One selection</span>
+					<span class="n-fake-radio__icon-group">
+						
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+						<i class="n-fake-radio__circle "></i>
+						<i class="n-fake-radio__circle "></i>
+					</span>
 				</label>
 				<label class="n-label" for="modifiers1">eg: small, medium, large</label>
 			</div>
@@ -242,7 +253,15 @@
 			<div class="n-col n-col_sm n-radio-container">
 				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="2" id="modifiers2" name="modifiers" >
-					<span class="n-fake-radio__content">multiple modifiers</span>
+					<span class="n-fake-radio__content n-fake-radio__content_icons">Multiple selections</span>
+					<span class="n-fake-radio__icon-group">
+						
+							<i class="n-fake-radio__plus"></i>
+						
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+					</span>
 				</label>
 				<label class="n-label" for="modifiers2">eg: cheese, sousage</label>
 			</div>
@@ -250,7 +269,15 @@
 			<div class="n-col n-col_sm n-radio-container">
 				<label class="n-fake-radio n-fake-radio_block">
 					<input type="radio" value="3" id="modifiers3" name="modifiers" >
-					<span class="n-fake-radio__content">NO modifiers</span>
+					<span class="n-fake-radio__content n-fake-radio__content_icons">Exceptions</span>
+					<span class="n-fake-radio__icon-group">
+						
+							<i class="n-fake-radio__minus"></i>
+						
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+						<i class="n-fake-radio__circle n-fake-radio__circle_full"></i>
+					</span>
 				</label>
 				<label class="n-label" for="modifiers3">eg: No salt, No sugar</label>
 			</div>
@@ -270,13 +297,15 @@
 				<div class="n-table__row" data-row="option">
 					<div class="n-table__col" data-column="option-name">
 						<i class="n-table__i-draggble"></i>
-						<input class="form-control input-lg" 
-							type="text" 
-							maxlength="100" 
-							placeholder="Enter modifier" 
-							
-							data-lang="EN">
-						<span class="fieldError" style="display: none;"></span>
+						
+							<input class="form-control input-lg" 
+								type="text" 
+								maxlength="100" 
+								placeholder="Enter modifier" 
+								
+								data-lang="EN">
+							<span class="fieldError" style="display: none;"></span>
+						
 					</div>
 					<div class="n-table__col" data-column="option-price">
 						<input class="form-control input-lg" 
@@ -303,13 +332,15 @@
 				<div class="n-table__row" data-row="option">
 					<div class="n-table__col" data-column="option-name">
 						<i class="n-table__i-draggble"></i>
-						<input class="form-control input-lg" 
-							type="text" 
-							maxlength="100" 
-							placeholder="Enter modifier" 
-							value="Hot pepper"
-							data-lang="EN">
-						<span class="fieldError" style="display: none;"></span>
+						
+							<input class="form-control input-lg" 
+								type="text" 
+								maxlength="100" 
+								placeholder="Enter modifier" 
+								value="Hot pepper"
+								data-lang="EN">
+							<span class="fieldError" style="display: none;"></span>
+						
 					</div>
 					<div class="n-table__col" data-column="option-price">
 						<input class="form-control input-lg" 
