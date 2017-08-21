@@ -241,11 +241,11 @@ headerTitle: Ingredients report
 								<td>{{item.register}}</td>
 								{#<td class=" numeric-data">{{item.min}}</td>#}
 								<td class=" numeric-data">{{item.uom}}</td>
-								<td class=" numeric-data">{{item.qty}} "{{item.uom}}"</td>
-								<td class=" numeric-data">{{item.sold}} "{{item.uom}}"</td>
+								<td class=" numeric-data">{{item.qty}} ({{item.uom}})</td>
+								<td class=" numeric-data">{{item.sold}} ({{item.uom}})</td>
 								<td class=" numeric-data">{{item.unit}}</td>
-								<td class=" numeric-data">{{item.qty}} "{{item.unit}}"</td>
-								<td class=" numeric-data">{{item.sold}} "{{item.unit}}"</td>
+								<td class=" numeric-data">{{item.qty}} ({{item.unit}})</td>
+								<td class=" numeric-data">{{item.sold}} ({{item.unit}})</td>
 							</tr>
 						{% endfor %}
 					</tbody>
