@@ -90,10 +90,8 @@ headerTitle: Ingredients report
 							<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
 							<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
 							{#<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>#}
-							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">UOM</th>
 							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity (UOM)</th>
 							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (UOM)</th>
-							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Stock unit</th>
 							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Quantity (Stock unit)</th>
 							<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (Stock unit)</th>
 						</tr>
@@ -101,10 +99,8 @@ headerTitle: Ingredients report
 					<tfoot>
 						<tr>
 							<th class="text-right row-expandable" colspan="5" rowspan="1">Total:</th>
-							<th class="text-right numeric-data" rowspan="1" colspan="1">&nbsp;</th>
 							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
 							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
-							<th class="text-right numeric-data" rowspan="1" colspan="1">&nbsp;</th>
 							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
 							<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
 						</tr>
@@ -240,10 +236,8 @@ headerTitle: Ingredients report
 								<td>{{item.employee}}</td>
 								<td>{{item.register}}</td>
 								{#<td class=" numeric-data">{{item.min}}</td>#}
-								<td class=" numeric-data">{{item.uom}}</td>
 								<td class=" numeric-data">{{item.qty}} ({{item.uom}})</td>
 								<td class=" numeric-data">{{item.sold}} ({{item.uom}})</td>
-								<td class=" numeric-data">{{item.unit}}</td>
 								<td class=" numeric-data">{{item.qty}} ({{item.unit}})</td>
 								<td class=" numeric-data">{{item.sold}} ({{item.unit}})</td>
 							</tr>
