@@ -72,13 +72,13 @@ sidebarAssign: true
 							]
 						} %}
 						<div class="n-items">
-							<div class="n-items__head">
-								<div class="n-items__checkbox">
+							<div class="n-items__head n-items__head_simple">
+								{#<div class="n-items__checkbox">
 									<div class="checkbox">
 										<input type="checkbox" id="all-ingredients">
 										<label for="all-ingredients"></label>
 									</div>
-								</div>
+								</div>#}
 								<div class="n-items__table">
 									<div class="n-items__tr">
 										<div class="n-items__col">Product Name</div>
@@ -91,13 +91,13 @@ sidebarAssign: true
 								{% for item in range(0,5) %}
 									{% set active = loop.index + '' %}
 									{% for item in items.rows %}
-										<div class="n-items__row">
-											<div class="n-items__checkbox">
+										<div class="n-items__row n-items__row_simple">
+											{#<div class="n-items__checkbox">
 												<div class="checkbox">
 													<input type="checkbox" id="ingredient-{{active + loop.index}}">
 													<label for="ingredient-{{active + loop.index}}"></label>
 												</div>
-											</div>
+											</div>#}
 											<div class="n-items__table">
 												<div class="n-items__tr">
 													<div class="n-items__col">{{item.title}}</div>
