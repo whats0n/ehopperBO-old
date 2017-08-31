@@ -484,6 +484,10 @@
   clear: both;
 }
 
+.n-items__head_simple {
+  padding-left: 10px;
+}
+
 .n-items__head .n-items__col {
   vertical-align: middle;
   height: 45px;
@@ -514,6 +518,10 @@
   content: " ";
   display: table;
   clear: both;
+}
+
+.n-items__row_simple {
+  padding-left: 10px;
 }
 
 .n-items__col {
@@ -1933,6 +1941,10 @@
   right: 0;
   bottom: 0;
   text-align: center;
+}
+
+.select-wide {
+  width: 100%;
 }
 
 @media only screen and (max-width: 1200px){
