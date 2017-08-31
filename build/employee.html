@@ -1,0 +1,223 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Employee</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				<section id="content" class="hide-content">
+					<div class="pane pane-right">
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">New Employee</span></b>
+</div>
+						
+						<div class="pane-body-wrapper ">
+							
+	<div class="pane-body item-list">
+		<div class="form employee-manage-form" id="employeeManage">
+			<div class="employees-tabs tab-control"><span class="tab selected" data-for="#generalTab"><span class="tab-title">General</span><span class="tab-selected-arrow"></span></span><span class="tab" data-for="#contactsTab"><span class="tab-title">Contact Info</span><span class="tab-selected-arrow"></span></span><span class="tab" data-for="#localizationTab"><span class="tab-title">Localization</span><span class="tab-selected-arrow"></span></span></div>
+			<div id="saveMessages"></div>
+
+			<div class="tab-content" id="generalTab" data-bind="compose: {
+					model: 'viewmodels/employees/manage-tabs/generalTab',
+					view: 'views/employees/manage-tabs/generalTab.html'
+				}" style="display: block;">
+				<div data-bind="with: model" data-view="views/employees/manage-tabs/generalTab" data-active-view="true" style="">
+					<div id="generalMessages"></div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.first_name'">First Name</label>
+						<input class="form-control input-lg" type="text" placeholder="First Name" maxlength="100" data-bind="value: firstName, local:'employees/manage-tabs/generalTab.first_name' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.last_name'">Last Name</label>
+						<input class="form-control input-lg" type="text" placeholder="Last Name" maxlength="100" data-bind="value: lastName, local:'employees/manage-tabs/generalTab.last_name' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.nickname'">Nickname</label>
+						<input class="form-control input-lg" type="text" maxlength="100" data-bind="value: nickname, local:'employees/manage-tabs/generalTab.nickname', localAttr: 'placeholder'" placeholder="Nickname">
+					</div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/contactTab.email'">Email</label>
+						<input class="form-control input-lg" type="text" placeholder="Email" data-bind="enable: adminPermissionGranted, value: email, local:'employees/manage-tabs/contactTab.email' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<!-- ko if: adminPermissionGranted  -->
+					<div class="form-group row">
+						<div class="col-sm-6 col-md-6 ">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.pin'">PIN</label>
+							<input class="form-control input-lg" type="password" placeholder="PIN" maxlength="6" data-bind="value: pin, digitFilter: true, local:'employees/manage-tabs/generalTab.pin' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-sm-6 col-md-6">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.confirm_pin'">Confirm PIN</label>
+							<input class="form-control input-lg" type="password" placeholder="Confirm PIN" maxlength="6" data-bind="value: confirmPin, digitFilter: true, local:'employees/manage-tabs/generalTab.confirm_pin' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>    
+
+					<div class="form-group row">
+						<div class="col-sm-6 col-md-6 ">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.password'">Password</label>
+							<input class="form-control input-lg" type="password" placeholder="Password" maxlength="100" data-bind="value: password, local:'employees/manage-tabs/generalTab.password' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-sm-6 col-md-6">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.confirm_password'">Confirm Password</label>
+							<input class="form-control input-lg" type="password" placeholder="Confirm Password" maxlength="100" data-bind="value: confirmPassword, local:'employees/manage-tabs/generalTab.confirm_password' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>    
+
+					<div class="form-group row">
+						<div class="col-sm-6 col-md-6 ">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.role'">Role</label>
+							<select data-bind="options: roles, optionsText: 'roleName', optionsValue: 'roleName', optionsCaption: ko.T('employees/manage-tabs/generalTab.select_role'), value: roleId" class="select-wide">
+								<option value="">Unassigned</option>
+								<option value="Administrator">Administrator</option>
+								<option value="Back Office Operator">Back Office Operator</option>
+								<option value="Sales Manager">Sales Manager</option>
+								<option value="Sales Person">Sales Person</option>
+							</select>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-sm-6 col-md-6 ">
+							<div style="padding-top: 36px;">
+								<input type="checkbox" id="AllowPriceEditingOnPOS">
+								<label for="AllowPriceEditingOnPOS">Allow price editing on POS</label>
+							</div>     
+						</div>
+					</div>
+
+					<div class="form-group employee-form" data-bind="visible: roleId() !== 'Administrator'">
+						<div style="float:left;"><label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label></div>
+						<div style="float:right;">
+							<input type="checkbox" id="chAssignOnly" data-bind="checked: $root.isAssignOnly, attr: { disabled: !isAssignShopEditeble() }" disabled="true">
+							<label for="chAssignOnly" data-bind="local: 'employees/manage-tabs/generalTab.assignedOnly'">Assigned Only</label>
+						</div>        
+						 <select class="form-control input-lg" id="ddlBU" data-bind="options: $root.bussinesUnitsToShow, optionsText: 'storeName', optionsValue: 'id',
+								multipleSelect: $root.bussinesUnitsToShow, selectedElements: businessUnitsSelected,
+								multipleSelectOptions: $root.setupMultiSelect()" style="display: none;"><option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option><option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store СЫЗ2</option><option value="6050df646589491b81a3dd087204c5d4">New Store234</option><option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="6298584313f54a40b31d6403e55614d5">Store 2</option><option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option><option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+						 </select><div class="ms-parent" style="width: 520px;"><button type="button" class="select"><div class="fl"><div><input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="ddlBU" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div><div><div></div></div></div></button><div class="ms-drop bottom"><ul style="max-height: 250px;"><li><input id="allCheck" type="checkbox" name="selectAll"> <label for="allCheck">Select All</label></li><li><input type="checkbox" name="selectItem" value="5a4b11ccd458452facd24376cc851f7b" id="28_aug_testddlBU"> <label for="28_aug_testddlBU">28 aug test</label></li><li><input type="checkbox" name="selectItem" value="ea56b32ca4064c43b2d943700b5a796c" id="28_august_storeddlBU"> <label for="28_august_storeddlBU">28 august store</label></li><li><input type="checkbox" name="selectItem" value="df17c52b068e428e94046bcacfd33adb" id="BESTsToreddlBU"> <label for="BESTsToreddlBU">BESTsTore</label></li><li><input type="checkbox" name="selectItem" value="9b95b38021254511970c394af32606e1" id="FAstSToreddlBU"> <label for="FAstSToreddlBU">FAstSTore</label></li><li><input type="checkbox" name="selectItem" value="dec86c0a82174c449744d003e8f3dceb" id="ivanstoreddlBU"> <label for="ivanstoreddlBU">ivanstore</label></li><li><input type="checkbox" name="selectItem" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="New_CSP_StoreddlBU"> <label for="New_CSP_StoreddlBU">New CSP Store</label></li><li><input type="checkbox" name="selectItem" value="8c69323a6b28488f9f5e688f592979cf" id="New_StoreddlBU"> <label for="New_StoreddlBU">New Store</label></li><li><input type="checkbox" name="selectItem" value="a3474647d20d40a1b267cdc7cd141428" id="New_Store_addlBU"> <label for="New_Store_addlBU">New Store a</label></li><li><input type="checkbox" name="selectItem" value="887cc460a3dd47a79a14203dc23dd111" id="New_Store_sddlBU"> <label for="New_Store_sddlBU">New Store s</label></li><li><input type="checkbox" name="selectItem" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="New_Store_s2ddlBU"> <label for="New_Store_s2ddlBU">New Store s2</label></li><li><input type="checkbox" name="selectItem" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="New_Store_X1ddlBU"> <label for="New_Store_X1ddlBU">New Store X1</label></li><li><input type="checkbox" name="selectItem" value="e359ba2d45c6467795cfe279152a7ccc" id="New_Store_X2ddlBU"> <label for="New_Store_X2ddlBU">New Store X2</label></li><li><input type="checkbox" name="selectItem" value="e926fc3cd7614d549d9ac824b3f92e23" id="New_Store_СЫЗ2ddlBU"> <label for="New_Store_СЫЗ2ddlBU">New Store СЫЗ2</label></li><li><input type="checkbox" name="selectItem" value="6050df646589491b81a3dd087204c5d4" id="New_Store234ddlBU"> <label for="New_Store234ddlBU">New Store234</label></li><li><input type="checkbox" name="selectItem" value="5d09b2d4754c498c8ec665b2ea4bf621" id="New_StoreqddlBU"> <label for="New_StoreqddlBU">New Storeq</label></li><li><input type="checkbox" name="selectItem" value="29e2ac6d8a094defa9369454323ba645" id="Olga_StoreddlBU"> <label for="Olga_StoreddlBU">Olga Store</label></li><li><input type="checkbox" name="selectItem" value="6298584313f54a40b31d6403e55614d5" id="Store_2ddlBU"> <label for="Store_2ddlBU">Store 2</label></li><li><input type="checkbox" name="selectItem" value="46116dbcea1c43fd8a91c797c668147c" id="Store_3ddlBU"> <label for="Store_3ddlBU">Store 3</label></li><li><input type="checkbox" name="selectItem" value="600172f4371c40aab4999b63a5775634" id="Store_ulevanddlBU"> <label for="Store_ulevanddlBU">Store ulevan</label></li><li><input type="checkbox" name="selectItem" value="eaa6a02e0a604f87a3450a897cd9649d" id="STORE!ddlBU"> <label for="STORE!ddlBU">STORE!</label></li><li><input type="checkbox" name="selectItem" value="46a47ec55ae34e5699a815196881f4bc" id="TestCreationddlBU"> <label for="TestCreationddlBU">TestCreation</label></li><li><input type="checkbox" name="selectItem" value="86240cf9e12e41e585183105da181f67" id="Vlad_storeddlBU"> <label for="Vlad_storeddlBU">Vlad store</label></li><li><input type="checkbox" name="selectItem" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="West_Street_CafeddlBU"> <label for="West_Street_CafeddlBU">West Street Cafe</label></li><li><input type="checkbox" name="selectItem" value="028f25cf079a4019a12f67d575d11512" id="WestGuestCafeddlBU"> <label for="WestGuestCafeddlBU">WestGuestCafe</label></li><li class="ms-no-results">No matches found</li></ul></div></div>
+					</div>   
+					<!-- /ko -->
+
+					<div class="checkbox">
+						<input type="checkbox" id="isActiveDepartment" data-bind="checked: isActive">
+						<label for="isActiveDepartment" data-bind="local: 'employees/manage-tabs/generalTab.is_active'">Is Active</label>
+					</div>
+
+					<span data-bind="text: $root.setUnmodified()"></span>
+				</div>
+			</div>
+
+			<div class="tab-content" id="contactsTab" data-bind="compose: {
+					model: 'viewmodels/employees/manage-tabs/contactTab',
+					view: 'views/employees/manage-tabs/contactTab.html'
+				}" style="display: none;">
+				<div data-bind="with: model" data-view="views/employees/manage-tabs/contactTab" data-active-view="true" style="">
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/contactTab.phone'">Phone</label>
+						<input class="form-control input-lg" type="text" placeholder="Phone" data-bind="value: phone.phone, valueUpdate: 'afterkeydown', phoneFilter: true, local:'employees/manage-tabs/contactTab.phone' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/contactTab.address'">Address</label>
+						<input class="form-control input-lg" type="text" placeholder="Address" maxlength="255" data-bind="value: address, local:'employees/manage-tabs/contactTab.address' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label data-bind="local: 'employees/manage-tabs/contactTab.country'">Country</label>
+							<select class="input-lg" data-bind="options: countries(), optionsText: 'name', optionsValue: 'id', optionsCaption: ko.local('employees/manage-tabs/contactTab.choose_country'), value: countryId, event: { change: countryChange }"><option value="">Choose 'Country'...</option><option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian O. Terr.</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="CV">Cape Verde</option><option value="KY">Cayman Islands</option><option value="CF">Central African Rep.</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo (Brazzaville)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="CD">Democratic Republic of Congo</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="XC">East Caribbean</option><option value="TP">East Timor</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="EU">European Union</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Terr.</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland (Denmark)</option><option value="GD">Grenada</option><option value="GP">Guadaloupe</option><option value="GU">Guam (US)</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea (Conakry)</option><option value="GW">Guinea Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard and McDonald Isl.</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="CI">Ivory Coast</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KR">Korea (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Reunion</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="SH">Saint Helena</option><option value="LC">Saint Lucia</option><option value="PM">Saint Pierre and Miquelon</option><option value="SM">San Marino</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten (Dutch part)</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="ST">St. Tome and Principe</option><option value="KN">St.Kitts Nevis Anguilla</option><option value="VC">St.Vincent and Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen Is</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UM">US Minor outlying Isl.</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City State</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="VI">Virgin Islands, U.S.</option><option value="WF">Wallis and Futuna Islands</option><option value="EH">Western Sahara</option><option value="WS">Western Samoa</option><option value="YE">Yemen</option><option value="YU">Yugoslavia</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select><span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6" data-bind="visible: stateVisible" style="display: none;">
+							<label data-bind="local: 'employees/manage-tabs/contactTab.state'">State</label>
+							<select class="input-lg" data-bind="options: states(), optionsText: 'name', optionsValue: 'id', optionsCaption: ko.local('employees/manage-tabs/contactTab.choose_state'), value: stateId"><option value="">Choose 'State'...</option></select><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label data-bind="local: 'employees/manage-tabs/contactTab.city'">City</label>
+							<input class="form-control input-lg" type="text" placeholder="City" maxlength="100" data-bind="value: city, local:'employees/manage-tabs/contactTab.city' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label data-bind="local: 'employees/manage-tabs/contactTab.zip'">Zip</label>
+							<input class="form-control input-lg" type="text" placeholder="Zip" maxlength="10" data-bind="value: zip, local:'employees/manage-tabs/contactTab.zip' , localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+
+					<span data-bind="text: $root.setUnmodified()"></span>
+				</div>
+			</div>
+
+			<div class="tab-content" id="localizationTab" data-bind="compose: {
+					model: 'viewmodels/employees/manage-tabs/localizationTab',
+					view: 'views/employees/manage-tabs/localizationTab.html'
+				}" style="display: none;">
+				<div data-bind="with: model" data-view="views/employees/manage-tabs/localizationTab" data-active-view="true" style="">
+					<div id="localizationMessages"></div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/localizationTab.pos_language'">POS Language</label>
+						<select data-bind="options: languagesWithoutCustom, optionsText: 'name', optionsValue: 'id', optionsCaption: ko.local('employees/manage-tabs/localizationTab.select_pos_language'),
+										   value: isoLanguageId, enable: adminPermissionGranted"><option value="">Select POS language...</option><option value="RU">Русский</option><option value="FR">Français</option><option value="EN">English</option><option value="ES">Español</option>
+						</select>
+						<span class="validationMessage" data-bind="validationMessage: isoLanguageId" style="display: none;"></span>
+					</div>
+
+					<div class="form-group">
+						<label data-bind="local: 'employees/manage-tabs/localizationTab.bo_language'">BO Language</label>
+						<input class="form-control input-lg bo-language-input" type="text" disabled="disabled" data-bind="value: boLanguage">
+					</div>
+
+				</div>
+			</div>
+				
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done" data-bind="click: save, local:'employees/employeeManage.done' ">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local:'employees/employeeManage.cancel' ">
+			</div>
+		</div>
+	</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

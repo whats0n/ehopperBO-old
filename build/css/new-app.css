@@ -1943,6 +1943,10 @@
   text-align: center;
 }
 
+.select-wide {
+  width: 100%;
+}
+
 @media only screen and (max-width: 1200px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active{
     font-size: 14px;
