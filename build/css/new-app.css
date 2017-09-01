@@ -1947,6 +1947,26 @@
   width: 100%;
 }
 
+.app-block__icon {
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+}
+
+.app-block__icon:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+
+.app-block__icon i {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 56px;
+}
+
 @media only screen and (max-width: 1200px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active{
     font-size: 14px;
