@@ -32,28 +32,37 @@
 			text-align: center
 	&__title,
 	&__price,
-	&__active
+	&__active,
+	&__unit
 		padding: 10px
 	&__title,
 	&__price,
 	&__action,
-	&__active
+	&__active,
+	&__unit
 		font-size: 16px
 		line-height: 25px
 		font-weight: bold
 		word-break: break-word
-		+lg
+		+xl
 			font-size: 14px
 	&__price,
 	&__actions,
-	&__active
+	&__active,
+	&__unit
 		float: right
+	&__unit,
 	&__price
 		width: 80px
 		text-align: center
+	&__price
+		+lg
+			display: none
 	&__active
-		text-align: center
 		width: 70px
+		text-align: center
+		+lg
+			display: none
 	&__action
 		float: left
 		padding: 10px 0
@@ -121,7 +130,8 @@
 	&__title
 		+text-overflow
 	&__price,
-	&__active
+	&__active,
+	&__unit
 		position: relative
 		float: right
 		padding: 13px 10px 12px
@@ -137,14 +147,22 @@
 		width: 70px
 		font-size: 20px
 		opacity: 0.5
+		+lg
+			display: none
+	&__unit,
 	&__price
 		width: 80px
+	&__price
+		+lg
+			display: none
 	&__title, 
 	&__price,
-	&__active
+	&__active,
+	&__unit
 		line-height: 20px
 	&__title, 
-	&__price
+	&__price,
+	&__unit
 		font-size: 14px
 	&__title
 		padding: 13px 0 12px

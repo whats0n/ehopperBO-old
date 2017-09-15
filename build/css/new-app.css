@@ -1161,29 +1161,29 @@
   text-align: center;
 }
 
-.i-items__title, .i-items__price, .i-items__active {
+.i-items__title, .i-items__price, .i-items__active, .i-items__unit {
   padding: 10px;
 }
 
-.i-items__title, .i-items__price, .i-items__action, .i-items__active {
+.i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit {
   font-size: 16px;
   line-height: 25px;
   font-weight: bold;
   word-break: break-word;
 }
 
-.i-items__price, .i-items__actions, .i-items__active {
+.i-items__price, .i-items__actions, .i-items__active, .i-items__unit {
   float: right;
 }
 
-.i-items__price {
+.i-items__unit, .i-items__price {
   width: 80px;
   text-align: center;
 }
 
 .i-items__active {
-  text-align: center;
   width: 70px;
+  text-align: center;
 }
 
 .i-items__action {
@@ -1285,14 +1285,14 @@
   white-space: nowrap;
 }
 
-.i-item__price, .i-item__active {
+.i-item__price, .i-item__active, .i-item__unit {
   position: relative;
   float: right;
   padding: 13px 10px 12px;
   text-align: center;
 }
 
-.i-item__price:before, .i-item__active:before {
+.i-item__price:before, .i-item__active:before, .i-item__unit:before {
   content: '';
   position: absolute;
   top: 10px;
@@ -1307,15 +1307,15 @@
   opacity: 0.5;
 }
 
-.i-item__price {
+.i-item__unit, .i-item__price {
   width: 80px;
 }
 
-.i-item__title, .i-item__price, .i-item__active {
+.i-item__title, .i-item__price, .i-item__active, .i-item__unit {
   line-height: 20px;
 }
 
-.i-item__title, .i-item__price {
+.i-item__title, .i-item__price, .i-item__unit {
   font-size: 14px;
 }
 
@@ -1559,7 +1559,7 @@
 
 .n-columns-layout {
   position: relative;
-  min-width: 1180px;
+  min-width: 1024px;
   height: 100%;
   *zoom: 1;
 }
@@ -1967,9 +1967,24 @@
   font-size: 56px;
 }
 
-@media only screen and (max-width: 1200px){
-  .i-items__title, .i-items__price, .i-items__action, .i-items__active{
+@media only screen and (max-width: 1366px){
+  .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit{
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .i-items__price{
+    display: none;
+  }
+  .i-items__active{
+    display: none;
+  }
+  .i-item__active{
+    display: none;
+  }
+  .i-item__price{
+    display: none;
   }
 }
 
