@@ -2115,19 +2115,19 @@
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit{
     font-size: 14px;
   }
-}
-
-@media only screen and (max-width: 1200px){
   .i-items__price{
     display: none;
   }
+  .i-item__price{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1200px){
   .i-items__active{
     display: none;
   }
   .i-item__active{
-    display: none;
-  }
-  .i-item__price{
     display: none;
   }
 }
