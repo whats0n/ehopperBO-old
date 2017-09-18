@@ -1,9 +1,9 @@
-{% import "partials/_mixins.html" as mixins %}
-{% import "partials/form/_form.html" as form %}
+
+
 <!doctype html>
 <html>
 	<head>
-		<title>{% if title %}{{ title }}{% else %}Template{% endif %}</title>
+		<title>Reports</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -32,7 +32,7 @@
 	
 		<div id="applicationHost">
 			<div class="main-container">
-				{% if nav %}
+				
 					<div data-bind="compose:'viewmodels/navigationpanel'">
 						<div class="navigation-panel" data-view="views/navigationpanel" data-active-view="true" style="display: block;">
 
@@ -262,22 +262,20 @@
 
 						</div>
 					</div>
-				{% endif %}
-				{% if nav %}
+				
+				
 				<section id="content" class="show-content">
-				{% else %}
-				<section id="content" class="hide-content">
-				{% endif %}
+				
 					<div class="pane pane-right">
-						{% include "partials/_header.html" %}
-						{% if iHeader %}
-							{% for item in iHeader %}
-								{% set iHeader = item %}
-								{% include 'partials/components/_i-header.html' %}
-							{% endfor %}
-						{% endif %}
-						<div class="pane-body-wrapper {{paneBodyWrapperClassList}}">
-							{% block content %}{% endblock %}
+						<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Reports</span></b>
+</div>
+						
+						<div class="pane-body-wrapper ">
+							
+	<iframe src="reports-iframe.html" frameborder="0" class="reports-iframe"></iframe>
+
 						</div>
 					</div>
 				</section>

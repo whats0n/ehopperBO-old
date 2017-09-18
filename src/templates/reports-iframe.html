@@ -79,7 +79,12 @@
 							<ul class="n-menu__submenu js-accordion-container">
 								{% for subitem in item.submenu %}
 									<li class="n-menu__item">
-										<a href="#" class="n-menu__link">{{subitem.title}}</a>
+										<a href="#" class="n-menu__link">
+											<div class="n-menu__report-icon">
+												<i class="fa fa-table"></i>
+											</div>
+											<div class="n-menu__subtitle">{{subitem.title}}</div>
+										</a>
 									</li>
 								{% endfor %}
 							</ul>

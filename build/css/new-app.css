@@ -1559,7 +1559,7 @@
 
 .n-menu__title {
   overflow: hidden;
-  overflow-color: inherit;
+  color: inherit;
   font-size: 16px;
   *zoom: 1;
 }
@@ -1600,7 +1600,11 @@
   line-height: 1;
 }
 
-.n-menu__folders {
+.n-menu__subtitle {
+  overflow: hidden;
+}
+
+.n-menu__folders, .n-menu__report-icon {
   float: left;
   width: 26px;
 }
@@ -1609,7 +1613,7 @@
   display: none;
 }
 
-.n-menu__folder, .n-menu__folder-open {
+.n-menu__folder, .n-menu__folder-open, .n-menu__report-icon {
   font-size: 16px;
 }
 
