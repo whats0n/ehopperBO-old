@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reports</title>
+	<link rel="stylesheet" href="content/bootstrap.css" />
+	<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+	<link rel="stylesheet" href="content/font-awesome.css" />
+	<link rel="stylesheet" href="content/durandal.css" />
+	<link rel="stylesheet" href="content/morrisJs/morris.css" />
+	<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+	<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+	<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+	<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+	<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+	<link rel="stylesheet" href="content/slim/slim.min.css" />
+	<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+	<link rel="stylesheet" href="content/app.css" />
+	<link rel="stylesheet" href="css/new-app.css" />
+</head>
+<body>
+	<div class="n-reports">
+		{% set menu = [
+			{
+				title: 'Dashboard'
+			},
+			{
+				title: 'Sales',
+				submenu: [
+					{ title: 'Product Mix Report' },
+					{ title: 'Tips Report' },
+					{ title: 'Z report' },
+					{ title: 'Modifiers Report' },
+					{ title: 'Ingredients Report' },
+					{ title: 'Tax Report' },
+					{ title: 'Transactions Report' }
+				]
+			},
+			{
+				title: 'Inventory',
+				submenu: [
+					{ title: 'Inventory Aging' },
+					{ title: 'Serial Item tracking Report' },
+					{ title: 'Store Transfer Report' },
+					{ title: 'PO Receiving Report' },
+					{ title: 'Adjustment Report' }
+				]
+			},
+			{
+				title: 'Employees',
+				submenu: [
+					{ title: 'Time-clock report' }
+				]
+			},
+			{
+				title: 'Activations/Apps',
+				submenu: [
+					{ title: 'Incomm' },
+					{ title: 'Metro PCS' },
+					{ title: 'Tracfone' }
+				]
+			}
+		] %}
+		<div class="n-menu js-menu">
+			<button class="n-menu__btn js-menu-btn">
+				<i class="fa fa-angle-right n-menu__icon"></i>
+			</button>
+			<ul class="n-menu__list">
+				{% for item in menu %}
+					{% if item.submenu %}
+						<li class="n-menu__item js-accordion">
+							<a href="#" class="n-menu__link js-accordion-btn">
+								<div class="n-menu__folders">
+									<i class="fa fa-folder n-menu__folder"></i>
+									<i class="fa fa-folder-open n-menu__folder-open"></i>
+								</div>
+								<div class="n-menu__title">{{item.title}}</div>
+							</a>
+							<ul class="n-menu__submenu js-accordion-container">
+								{% for subitem in item.submenu %}
+									<li class="n-menu__item">
+										<a href="#" class="n-menu__link">{{subitem.title}}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% else %}
+						<li class="n-menu__item">
+							<a href="#" class="n-menu__link">
+								<div class="n-menu__title">{{item.title}}</div>
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<!-- BEGIN scripts -->
+	<script type="text/javascript" src="js/app.js"></script>
+	<!-- END scripts -->
+</body>
+</html>
