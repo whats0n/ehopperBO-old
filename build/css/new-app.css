@@ -2127,10 +2127,10 @@
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit{
     font-size: 14px;
   }
-  .i-items__price{
+  .i-items__unit, .i-items__price{
     display: none;
   }
-  .i-item__price{
+  .i-item__unit, .i-item__price{
     display: none;
   }
 }
