@@ -932,14 +932,16 @@
 					<th class="product-name">Name</th>
 					<th>Barcode</th>
 					<th>SKU</th>
-					<th>UOM</th>
+					
 					<th>Cost</th>
+					<th>Store Out Qty</th>
+					<th>Store In Qty</th>
 					<th>Transfer Qty</th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
 				<tr>
-					<td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+					<td colspan="8" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
 				</tr>
 			</tbody>
 			
@@ -952,10 +954,10 @@
 						<td class="product-name force-wrap">cheese slice</td>
 						<td>100</td>
 						<td>2</td>
-						<td>unit</td>
-						<td>
-							<span>$2</span>
-						</td>
+						
+						<td>$2.00 (unit)</td>
+						<td>2 (unit)</td>
+						<td>2 (unit)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -969,10 +971,10 @@
 						<td class="product-name force-wrap">pepper</td>
 						<td>400</td>
 						<td>4</td>
-						<td>unit</td>
-						<td>
-							<span>$4</span>
-						</td>
+						
+						<td>$4.00 (unit)</td>
+						<td>4 (unit)</td>
+						<td>4 (unit)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -986,10 +988,10 @@
 						<td class="product-name force-wrap">milk</td>
 						<td>900</td>
 						<td>6</td>
-						<td>l</td>
-						<td>
-							<span>$6</span>
-						</td>
+						
+						<td>$6.00 (l)</td>
+						<td>6 (l)</td>
+						<td>6 (l)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1003,10 +1005,10 @@
 						<td class="product-name force-wrap">potatoes</td>
 						<td>1600</td>
 						<td>8</td>
-						<td>kg</td>
-						<td>
-							<span>$8</span>
-						</td>
+						
+						<td>$8.00 (kg)</td>
+						<td>8 (kg)</td>
+						<td>8 (kg)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1020,10 +1022,10 @@
 						<td class="product-name force-wrap">strawberry</td>
 						<td>2500</td>
 						<td>10</td>
-						<td>kg</td>
-						<td>
-							<span>$10</span>
-						</td>
+						
+						<td>$10.00 (kg)</td>
+						<td>10 (kg)</td>
+						<td>10 (kg)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1037,10 +1039,10 @@
 						<td class="product-name force-wrap">tomatoes</td>
 						<td>3600</td>
 						<td>12</td>
-						<td>case</td>
-						<td>
-							<span>$12</span>
-						</td>
+						
+						<td>$12.00 (case)</td>
+						<td>12 (case)</td>
+						<td>12 (case)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1054,10 +1056,10 @@
 						<td class="product-name force-wrap">cream</td>
 						<td>4900</td>
 						<td>14</td>
-						<td>box</td>
-						<td>
-							<span>$14</span>
-						</td>
+						
+						<td>$14.00 (box)</td>
+						<td>14 (box)</td>
+						<td>14 (box)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1071,10 +1073,10 @@
 						<td class="product-name force-wrap">rice</td>
 						<td>6400</td>
 						<td>16</td>
-						<td>pack</td>
-						<td>
-							<span>$16</span>
-						</td>
+						
+						<td>$16.00 (pack)</td>
+						<td>16 (pack)</td>
+						<td>16 (pack)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1088,10 +1090,10 @@
 						<td class="product-name force-wrap">pasta</td>
 						<td>8100</td>
 						<td>18</td>
-						<td>pack</td>
-						<td>
-							<span>$18</span>
-						</td>
+						
+						<td>$18.00 (pack)</td>
+						<td>18 (pack)</td>
+						<td>18 (pack)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
@@ -1105,10 +1107,10 @@
 						<td class="product-name force-wrap">egg</td>
 						<td>10000</td>
 						<td>20</td>
-						<td>tray</td>
-						<td>
-							<span>$20</span>
-						</td>
+						
+						<td>$20.00 (tray)</td>
+						<td>20 (tray)</td>
+						<td>20 (tray)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>

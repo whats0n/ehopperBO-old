@@ -9,14 +9,16 @@
 					<th class="product-name">Name</th>
 					<th>Barcode</th>
 					<th>SKU</th>
-					<th>UOM</th>
+					{# <th>UOM</th> #}
 					<th>Cost</th>
+					<th>Store Out Qty</th>
+					<th>Store In Qty</th>
 					<th>Transfer Qty</th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
 				<tr>
-					<td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+					<td colspan="8" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
 				</tr>
 			</tbody>
 			{% set table = [
@@ -110,10 +112,10 @@
 						<td class="product-name force-wrap">{{item.name}}</td>
 						<td>{{loop.index * loop.index + '00'}}</td>
 						<td>{{item.sku or loop.index * 2}}</td>
-						<td>{{item.uom}}</td>
-						<td>
-							<span>${{item.cost or loop.index * 2}}</span>
-						</td>
+						{# <td>{{item.uom}}</td> #}
+						<td>${{item.cost or loop.index * 2}}.00 ({{item.uom}})</td>
+						<td>{{item.storeOut or loop.index * 2}} ({{item.uom}})</td>
+						<td>{{item.storeIn or loop.index * 2}} ({{item.uom}})</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
 							<span class="fieldError" style="display: none;"></span>
