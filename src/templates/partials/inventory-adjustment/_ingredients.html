@@ -2,19 +2,18 @@
 	{% include 'partials/inventory-adjustment/_filters.html' %}
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
-		<table class="datatable dataTable i-ingredients-table inventory-transfer-list" role="grid">
+		<table class="datatable dataTable i-ingredients-table" role="grid">
 			<thead>
 				<tr role="row">
-					<th class="product-id">ID</th>
-					<th class="product-name">Name</th>
-					<th>Barcode</th>
-					<th>SKU</th>
-					{# <th>UOM</th> #}
-					<th>Cost</th>
-					<th>Store In Qty</th>
-					<th>Adjusted Qty</th>
-					<th>Reason</th>
-					<th style="width: 80px;"></th>
+					<th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
+					<th data-bind="local: 'storeTransfer.name'">Name</th>
+					<th style="width: 110px">Barcode</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.sku'">SKU</th>
+					<th style="width: 110px" data-bind="local: 'storeTransfer.cost'">Cost</th>
+					<th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.adjustedQuantity'">Adjusted Qty</th>
+					<th data-bind="local: 'inventoryAdjustment.reason'">Reason</th>
+					<th style="width: 50px"></th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">

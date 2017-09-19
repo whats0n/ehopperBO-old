@@ -2,3 +2,21 @@
 	position: relative
 	overflow: hidden
 	height: 100%
+	&__container
+		position: relative
+		overflow: auto
+		margin-left: 80px
+		height: 100%
+		transition: margin-left 0.4s ease-in-out
+		.is-open &
+			margin-left: 380px
+	&__content
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		transition: left 0.4s ease-in-out, right 0.4s ease-in-out
+		.is-open &
+			left: 0
+			right: -300px

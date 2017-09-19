@@ -1,0 +1,9 @@
+.r-filters
+	padding: 10px
+	&__col
+		padding: 10px
+		@for $i from 1 through 100
+			&_#{$i}
+				width: $i + %
+	.datatable-search
+		width: 100%

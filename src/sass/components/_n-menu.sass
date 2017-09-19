@@ -1,31 +1,31 @@
 .n-menu
 	position: absolute
+	z-index: 10
 	top: 0
 	left: 0
 	bottom: 0
-	border-top: 1px solid #B5B8C1
 	border-right: 1px solid #B5B8C1
 	width: 300px
 	background: #eef0f3
 	transform: translate3d(-100%,0,0)
 	transition: transform 0.4s ease-in-out
-	&.is-open
+	.is-open &
 		+gpu
 	&__btn
 		position: absolute
-		top: -1px
+		top: 0
 		left: 100%
 		bottom: 0
-		border: 1px solid #B5B8C1
-		border-left-color: transparent
+		border: none
+		border-left: 1px solid #B5B8C1
+		border-right: 1px solid #B5B8C1
 		width: 80px
 		background: #eef0f3
 		+vertical
-		transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out
+		transition: transform 0.4s ease-in-out
 		&:active
 			background: darken(#eef0f3, 5%)
 		&.is-active
-			border-color: #B5B8C1
 			.n-menu__icon
 				transform: rotateY(180deg)
 	&__icon

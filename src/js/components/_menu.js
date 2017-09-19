@@ -7,6 +7,10 @@ export default (function() {
 		const btn = target.closest('.js-menu-btn');
 		const menu = document.querySelector('.js-menu');
 
+		if (!btn) return;
+
+		e.preventDefault();
+		
 		btn.classList.toggle(ACTIVE);
 		menu.classList.toggle(OPEN);
 	};

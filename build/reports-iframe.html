@@ -19,9 +19,10 @@
 	<link rel="stylesheet" href="css/new-app.css" />
 </head>
 <body>
-	<div class="n-reports">
+	<div class="n-reports js-menu">
+		<!-- begin menu -->
 		
-		<div class="n-menu js-menu">
+		<div class="n-menu">
 			<button class="n-menu__btn js-menu-btn">
 				<i class="fa fa-angle-right n-menu__icon"></i>
 			</button>
@@ -241,6 +242,31 @@
 				
 			</ul>
 		</div>
+		<!-- end menu -->
+
+		<!-- begin main content -->
+		<div class="n-reports__container">
+			<div class="n-reports__content">
+				<div class="n-reports__filters r-filters">
+					<div class="r-filters__container">
+						<div class="r-filters__row">
+							<div class="r-filters__col r-filters__col_33">
+								<input class="form-control input-lg datatable-search" type="text" placeholder="Search item by title or code">
+							</div>
+							<div class="r-filters__col r-filters__col_33"></div>
+							<div class="r-filters__col r-filters__col_34"></div>
+						</div>
+						<div class="r-filters__row">
+							<div class="r-filters__col r-filters__col_25"></div>
+							<div class="r-filters__col r-filters__col_25"></div>
+							<div class="r-filters__col r-filters__col_25"></div>
+							<div class="r-filters__col r-filters__col_25"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end main content -->
 	</div>
 
 	<!-- BEGIN scripts -->

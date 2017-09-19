@@ -12,12 +12,11 @@
 					<th data-bind="local: 'storeTransfer.cost'">Cost</th>
 					<th data-bind="local: 'storeTransfer.storeInQuantity'">Store In Qty</th>
 					<th data-bind="local: 'poReceiving.receivedQuantity'">Received Qty</th>
-					<th data-bind="visible: !$root.fullList()" style="width: 80px; display: none;"></th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
 				<tr>
-					<td colspan="8" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+					<td colspan="7" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
 				</tr>
 			</tbody>
 			<!-- ko foreach: inventoryTransferLines -->
