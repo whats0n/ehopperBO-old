@@ -389,7 +389,15 @@
 }
 
 .r-filters__col {
+  float: left;
   padding: 10px;
+  *zoom: 1;
+}
+
+.r-filters__col:after {
+  content: " ";
+  display: table;
+  clear: both;
 }
 
 .r-filters__col_1 {
