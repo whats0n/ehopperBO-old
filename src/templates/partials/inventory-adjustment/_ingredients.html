@@ -9,17 +9,17 @@
 					<th class="product-name">Name</th>
 					<th>Barcode</th>
 					<th>SKU</th>
-					<th>UOM</th>
+					{# <th>UOM</th> #}
 					<th>Cost</th>
-					<th>Store in</th>
+					<th>Store In Qty</th>
 					<th>Adjusted Qty</th>
-					<th style="width: 330px;">Reason</th>
+					<th>Reason</th>
 					<th style="width: 80px;"></th>
 				</tr>
 			</thead>
 			<tbody data-bind="visible: !fullList() &amp;&amp; inventoryTransferLines().length === 0" style="display: none;">
 				<tr>
-					<td colspan="10" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
+					<td colspan="9" class="start-search-message" data-bind="local: 'storeTransfer.startSearch'">Search for individual products in search field or display the full list of products.</td>
 				</tr>
 			</tbody>
 			{% set table = [
@@ -113,15 +113,12 @@
 						<td class="product-name force-wrap">{{item.name}}</td>
 						<td>{{loop.index * loop.index + '00'}}</td>
 						<td>{{item.sku or loop.index * 2}}</td>
-						<td>{{item.uom}}</td>
-						<td>
-							<span>${{item.cost or loop.index * 2}}</span>
-						</td>
-						<td>
-							<span>{{item.in or loop.index * 2}}</span>
-						</td>
-						<td>
-							<span>{{item.qty or loop.index * 2}}</span>
+						{# <td>{{item.uom}}</td> #}
+						<td>${{item.cost or loop.index * 2}}.00 ({{item.uom}})</td>
+						<td>{{item.in or loop.index * 2}} ({{item.uom}})</td>
+						<td style="white-space: initial">
+							<input type="number" class="form-control input">
+							<span class="fieldError" style="display: none;"></span>
 						</td>
 						<td style="white-space: initial">
 							<select class="form-control input" data-bind="visible: $data.productType === 0, options: $root.anjasments(), optionsText: 'name', optionsValue: 'id', value: reasonId">
