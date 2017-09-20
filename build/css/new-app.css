@@ -389,7 +389,6 @@
 }
 
 .r-filters__col {
-  float: left;
   padding: 10px;
   *zoom: 1;
 }
@@ -2565,6 +2564,19 @@
   display: inline-block;
   vertical-align: middle;
   font-size: 56px;
+}
+
+.e-checkbox input[type="checkbox"] + label,
+.e-checkbox input[type="radio"] + label {
+  position: relative;
+  padding-left: 31px;
+}
+
+.e-checkbox input[type="checkbox"] + label:before,
+.e-checkbox input[type="radio"] + label:before {
+  position: absolute;
+  top: 7px;
+  left: 0;
 }
 
 @media only screen and (max-width: 1366px){
