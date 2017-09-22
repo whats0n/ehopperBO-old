@@ -997,18 +997,20 @@
   background: #337ab7;
 }
 
-.n-select__item .checkbox {
+.n-select__item .n-checkbox {
   display: block;
   padding: 5px 15px;
   margin: -5px -15px;
 }
 
-.n-select__item .checkbox__icon {
-  top: 5px;
+.n-select__item .n-checkbox__icon {
+  top: 8px;
   left: 15px;
 }
 
-.n-select__item .checkbox__content {
+.n-select__item .n-checkbox__content {
+  vertical-align: top;
+  margin-top: 6px;
   font-size: 18px;
 }
 
