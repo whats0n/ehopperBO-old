@@ -3,7 +3,16 @@
 <!-- begin multi-select -->
 <div class="select-box {{props.errorClass}}">
 	<div class="n-select js-multi-select {{props.classList}}" data-all-checked="{{props.allChecked or 'All'}}">
-		<div class="n-select__field js-multi-select-field">
+		{% if props.icon %}
+			<div class="n-select__field n-select__field_icon js-multi-select-field">
+		{% else %}
+			<div class="n-select__field js-multi-select-field">
+		{% endif %}
+			{% if props.icon %}
+				<div class="n-select__icon">
+					<i class="fa fa-filter"></i>
+				</div>
+			{% endif %}
 			{% if props.placeholder %}
 				<div class="n-select__placeholder">{{props.placeholder}}</div>
 			{% endif %}

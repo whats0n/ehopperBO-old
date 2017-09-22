@@ -843,37 +843,8 @@
   float: right;
 }
 
-.r-filters__col_columns {
-  position: relative;
-  padding-left: 60px;
-}
-
 .r-filters .datatable-search {
   width: 100%;
-}
-
-.r-filters__icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  text-align: center;
-  font-size: 0;
-}
-
-.r-filters__icon:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 0;
-  height: 100%;
-}
-
-.r-filters__icon i {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 28px;
 }
 
 .sorting_top, .sorting_bottom {
@@ -1031,6 +1002,14 @@
   cursor: pointer;
 }
 
+.n-select__field_icon {
+  padding-left: 60px;
+}
+
+.n-select__field_icon .n-select__placeholder {
+  left: 60px;
+}
+
 .n-select__placeholder {
   position: absolute;
   top: 0;
@@ -1164,6 +1143,30 @@
   visibility: hidden;
   transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
   box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.n-select__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  text-align: center;
+  font-size: 0;
+}
+
+.n-select__icon:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+
+.n-select__icon i {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28px;
 }
 
 .n-checkbox {
