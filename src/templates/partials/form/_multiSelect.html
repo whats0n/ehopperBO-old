@@ -1,0 +1,41 @@
+{% import 'partials/form/_checkbox-new.html' as checkbox %}
+{% macro call(props) %}
+<!-- begin multi-select -->
+<div class="select-box {{props.errorClass}}">
+	<div class="n-select js-multi-select {{props.classList}}" data-all-checked="{{props.allChecked or 'All'}}">
+		<div class="n-select__field js-multi-select-field">
+			{% if props.placeholder %}
+				<div class="n-select__placeholder">{{props.placeholder}}</div>
+			{% endif %}
+			<div class="n-select__value js-multi-select-value">{{props.value or props.options[props.selected - 1]}}</div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				{% if props.selectAll %}
+					<li class="n-select__item js-multi-select-all">
+						{{checkbox.call({
+							content: props.selectAll,
+							value: props.selectAll,
+							attrs: props.selectedAll
+						})}}
+					</li>
+				{% endif %}
+				{% for option in props.options %}
+					<li class="n-select__item js-multi-select-item">
+						{{checkbox.call({
+							content: option,
+							value: option,
+							attrs: props.selectedAll
+						})}}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	{% if props.errorMessage %}
+		<div class="error-message select-box__error-message">{{props.errorMessage}}</div>
+	{% endif %}
+</div>
+<!-- end multi-select -->
+{% endmacro %}

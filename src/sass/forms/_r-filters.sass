@@ -1,11 +1,24 @@
 .r-filters
+	margin: -20px -20px 0
 	padding: 10px
-	
+	width: 2000px
+	&__row
+		+clr
+		&_top
+			padding-left: 60px
+			transition: padding-left 0.4s ease-in-out
+			.is-open &
+				padding-left: 0
 	&__col
+		float: left
 		padding: 10px
 		+clr
 		@for $i from 1 through 100
 			&_#{$i}
 				width: $i + %
+		&_search
+			width: 300px
+		&_default
+			width: 250px
 	.datatable-search
 		width: 100%

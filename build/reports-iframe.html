@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,174 +249,629 @@
 		<!-- begin main content -->
 		<div class="n-reports__container">
 			<div class="n-reports__content">
-				
 				<div class="pane-body inventory" data-bind="with: filter">
-				            <input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by title or code">
-				            <div style="float:left;">
-				             <!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }--><div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true" style="">
-				    <div data-bind="with: $data.storesFilter, css: self.divStyle">
-				        <div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
-				            <label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
-				        </div>
-				        <div data-bind="css: contStyle" class="filter_control_cont">
-				            <select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
-				                multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="e9559bc7c6b04adc8e3c173248c1480d">oO'ROCKET-SHOP'Oo</option><option value="c07818ae238d4061933b9013193a744a">TestShop</option>
-				            </select><div class="ms-parent" style="width: 100px;"><button type="button" class="select"><div class="fl"><div><input id="txtMs_undefined" class="filter-text  " type="text" dataid="undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div><div><div></div></div></div></button><div class="ms-drop bottom" style="display: none;"><ul style="max-height: 250px;"><li><input id="allCheck" type="checkbox" name="selectAll"> <label for="allCheck">Select All</label></li><li><input type="checkbox" name="selectItem" value="e9559bc7c6b04adc8e3c173248c1480d" id="oO'ROCKET-SHOP'Ooundefined"> <label for="oO'ROCKET-SHOP'Ooundefined">oO'ROCKET-SHOP'Oo</label></li><li><input type="checkbox" name="selectItem" value="c07818ae238d4061933b9013193a744a" id="TestShopundefined"> <label for="TestShopundefined">TestShop</label></li><li class="ms-no-results" style="display: none;">No matches found</li></ul></div></div>
-				        </div>
-				    </div>
-				</div><!--/ko-->
-				            </div>
-				            <div class="pull-right tips-filter no-margin">
-				                <date-filter params="value: dateRange"><div class="pull-right">
-				    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-				        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-				        &nbsp;
-				        <span>Today</span> 
-				        <b class="caret"></b>
-				    </div>
-				</div></date-filter>
-				            </div>
-				            <div class="report-export-wrapper pull-right">
-				                <button class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</button>
-				                <i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
-				            </div>
-				        
-				            <div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
-				            <div class="row list-filters" data-bind="visible: !loading()" style="">
-				                <table>
-				                    <tbody>
-				                        <tr>
-				                            <td>
-				                                <label data-bind="local: 'reports/productMixReport.department_filter'">Department:</label>
-				                                <select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
-				                                    <option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
-				                                    <!-- ko foreach: departments -->
-				                                    <option data-bind="attr: { value: id }, text: name" value="c776d133a2ce4d60913b8270ee33fb96">Dep1</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="88cc7e864cdd4d0090c7642b9b27bcf0">New Depart</option>
-				                                    <!-- /ko -->
-				                                </select>
-				                            </td>
-				                            <td>
-				                                <label data-bind="local: 'reports/productMixReport.category_filter'">Category:</label>
-				                                <select data-bind="value: categoryId, event: { change: $root.filter.apply.bind($root) }">
-				                                    <option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
-				                                    <!-- ko foreach: categories -->
-				                                    <option data-bind="attr: { value: id }, text: name" value="7d42a9f5651845d5aee564184fca3b72">123456790</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="983a98c375e04e6f92d0ba0170b35c67">123456791</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="1d2486a91d03480aa28957f33540b3f5">123456792</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="b6c381dac2e949a7852ceeb00a74eff7">123456793</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="1b28608707af45d9a8ffe17c32929149">123456794</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="1fb5223e170a4c08a6448d442b2b0a69">123456795</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="e13639e6da82477196f68a215964e66c">123456796</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="4476598cc36f4a4d8fae0506a3c15ed9">123456797</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="e2487794bcad45479c9935b1021c98e9">123456798</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="12d6372e594e4b6a9527acdaec9ae4f6">123456799</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="5e9d0819818c49d185e4b5bc815e90a5">123456800</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="1522795598844412a9e7fb1b542da0ff">123456801</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="5d5e5077b42142eabad308580878702d">123456802</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="435792a6bf0645bd8e7e8e00dbc5d626">123456803</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="efc626d879f54a2ebe118713e066c35a">123456804</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="699130c39a5846b084aa4e14e08f8aa3">123456805</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="5676116cf97e49f5b9ba3869b926d15f">123456806</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="f186dc7266564febacbf66b02f9da9ef">123456807</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="7a7f16aaf0bd4080956488d0adc06be3">123456808</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="f35c455bcd1e4fa9a09f12ca11f6a5e0">123456809</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="7f9b226af66d45fd928ab31a3fab2e5a">123456810</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="cfccc253e3b342f5ba2ae697a729cc79">123456811</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="b8ac82d98e964c5bb8c29aeaa3ed449b">123456812</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="4ec769e33f4e4a0ea95e76bde4dd6ee9">123456813</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="26f3bc3b2f2445c3abffc0ca0d21a023">123456814</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="0429d0477b88406d86aa3686886bd242">123456815</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="ddcec095ca4f4b778b7d755c848028b6">123456816</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="ef58abc52cd14fe08c838829709e5b70">123456817</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="72424a5e54cb4035905adcc31cbb0f4b">123456818</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="d33fd382559c4def8fb643d76f106178">123456819</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="7b8269340329490594920f84ac721a4a">123456820</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="873481c904894fcb8d38fb827ddd8ed5">123456821</option>
-				                                    <!-- /ko -->
-				                                </select>
-				                            </td>
-				                            <td>
-				                                <label data-bind="local: 'reports/productMixReport.register_filter'">Register:</label>
-				                                <select data-bind="value: registerId, event: { change: $root.filter.apply.bind($root) }">
-				                                    <option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
-				                                    <!-- ko foreach: registers -->
-				                                    <option data-bind="attr: { value: id }, text: name" value="0e6fc4d1a7db4ca188bd73566bf6f5ad">Register 1</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="25311d4e9cc94f30af965fbf8e7196d8">TestShop 2</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="61c12e68d69c4be1b7fe7924b229ff15">iPad1</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="73a7797096bb4103b12f9681bc5cb675">Android2</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="b583194854094105ba44288184d995ef">PC register</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="ba274d8ddfbb40688548511f8bb06d86">Poynt</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="eec4a68684bc440784eea93ea34bfa55">Android Register1</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: name" value="f350dbd010064caba6a0e2bcacda5471">iPad2</option>
-				                                    <!-- /ko -->
-				                                </select>
-				                            </td>
-				                            <td>
-				                                <label data-bind="local: 'reports/productMixReport.employee_filter'">Employee:</label>
-				                                <select data-bind="value: employeeId, event: { change: $root.filter.apply.bind($root) }">
-				                                    <option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
-				                                    <!-- ko foreach: employees -->
-				                                    <option data-bind="attr: { value: id }, text: nameForShow" value="63a81c19fb78446dbb2ffa01ad69b551">Admin Man</option>
-				                                    
-				                                    <option data-bind="attr: { value: id }, text: nameForShow" value="e30b91368e83481b8f89fc5354c583cb">Sales Manager</option>
-				                                    <!-- /ko -->
-				                                </select>
-				                            </td>
-				                        </tr>
-				                    </tbody>
-				                </table>
-				            </div>
-				            <br class="clear">
+					<div class="n-reports__filters r-filters">
+						<div class="r-filters__container">
+							<div class="r-filters__row r-filters__row_top">
+								<div class="r-filters__col r-filters__col_search">
+									<input class="form-control input-lg datatable-search" type="text" placeholder="Search item by title or code">
+								</div>
+							</div>
+							<div class="r-filters__row">
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Select Store(s)</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
 
-				            <div id="productMixReportTable_wrapper" class="dataTables_wrapper"><div id="productMixReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label></div><div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div><table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
-				                <thead>
-				                    <tr role="row"><th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th><th data-bind="local: 'reports/productMixReport.item'" class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item: Activate to sort by descending columns">Item</th><th data-bind="local: 'reports/productMixReport.department'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns">Department</th><th data-bind="local: 'reports/productMixReport.category'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns">Category</th><th data-bind="local: 'reports/productMixReport.register'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th><th data-bind="local: 'reports/productMixReport.store'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th><th data-bind="local: 'reports/productMixReport.employee'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th><th data-bind="local: 'reports/productMixReport.min_qty'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th><th data-bind="local: 'reports/productMixReport.quantity'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th><th data-bind="local: 'reports/productMixReport.qty_sold'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th><th data-bind="local: 'reports/productMixReport.cogs'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="COGS: Activate to sort by ascending columns">COGS</th><th data-bind="local: 'reports/productMixReport.gross_sales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Sales: Activate to sort by ascending columns">Gross Sales</th><th data-bind="local: 'reports/productMixReport.netSales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Net Sales: Activate to sort by ascending columns">Net Sales</th><th data-bind="local: 'reports/productMixReport.grossProfit'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Profit: Activate to sort by ascending columns">Gross Profit</th><th data-bind="local: 'reports/productMixReport.taxAmount'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">Tax Amount</th></tr>
-				                </thead>
-				                <tfoot>
-				                    <tr><th class="text-right row-expandable" colspan="7" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th><th class="text-right numeric-data" rowspan="1" colspan="1">0</th><th class="text-right numeric-data" rowspan="1" colspan="1">4101</th><th class="text-right numeric-data" rowspan="1" colspan="1">46</th><th class="text-right numeric-data" rowspan="1" colspan="1">$174.00</th><th class="text-right numeric-data" rowspan="1" colspan="1">$465.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$453.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$15.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$26.15</th></tr>
-				                </tfoot>
-				            <tbody><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3003</td><td class="sorting_1">10000001</td><td>New Depart</td><td>123456790</td><td>Android Register1</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">195</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable"><span class="expand-icon"></span>3004</td><td class="sorting_1">10000002</td><td>New Depart</td><td>123456790</td><td></td><td></td><td></td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">8</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td><td class=" numeric-data">$0.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable"><span class="expand-icon"></span>3010</td><td class="sorting_1">10000008</td><td>New Depart</td><td>123456790</td><td></td><td></td><td></td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">4</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td><td class=" numeric-data">$0.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3014</td><td class="sorting_1">10000012</td><td>New Depart</td><td>123456790</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$1.20</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3090</td><td class="sorting_1">10000088</td><td>New Depart</td><td>123456791</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-2</td><td class=" numeric-data">1</td><td class=" numeric-data">$4.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$11.00</td><td class=" numeric-data">$1.50</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3090</td><td class="sorting_1">10000088</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">132</td><td class=" numeric-data">1</td><td class=" numeric-data">$4.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$11.00</td><td class=" numeric-data">$0.75</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3091</td><td class="sorting_1">10000089</td><td>New Depart</td><td>123456791</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$1.20</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3091</td><td class="sorting_1">10000089</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">192</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3094</td><td class="sorting_1">10000092</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">196</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3097</td><td class="sorting_1">10000095</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">198</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr></tbody></table><div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a></span><a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0" id="productMixReportTable_next">Next</a></div></div>
-				        </div>
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Department</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
+
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Category</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
+
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Register</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
+
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Register</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
+
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+								<div class="r-filters__col r-filters__col_default">
+									
+<!-- begin multi-select -->
+<div class="select-box ">
+	<div class="n-select js-multi-select is-active" data-all-checked="All">
+		<div class="n-select__field js-multi-select-field">
+			
+				<div class="n-select__placeholder">Employee</div>
+			
+			<div class="n-select__value js-multi-select-value"></div>
+			<i class="fa fa-angle-down n-select__arrow"></i>
+		</div>
+		<div class="n-select__body js-multi-select-dropdown">
+			<ul class="n-select__list" data-scrollbar="default">
+				
+					<li class="n-select__item js-multi-select-all">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Select All" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Select All</span>
+	
+</label>
+
+					</li>
+				
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 1" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 1</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 2" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 2</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 3" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 3</span>
+	
+</label>
+
+					</li>
+				
+					<li class="n-select__item js-multi-select-item">
+						
+<label class="n-checkbox ">
+	<input type="checkbox" data-value="Lorem ipsum. 4" checked>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	
+		<span class="n-checkbox__content">Lorem ipsum. 4</span>
+	
+</label>
+
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<!-- end multi-select -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+						<div id="productMixReportTable_filter" class="dataTables_filter">
+							<label>
+								Search:
+								<input type="search" class="" placeholder="" aria-controls="productMixReportTable">
+							</label>
+						</div>
+						<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+						<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+							<thead>
+								<tr role="row">
+									<th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
+									<th data-bind="local: 'reports/productMixReport.item'" class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item: Activate to sort by descending columns">Item</th>
+									<th data-bind="local: 'reports/productMixReport.department'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns">Department</th>
+									<th data-bind="local: 'reports/productMixReport.category'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns">Category</th>
+									<th data-bind="local: 'reports/productMixReport.register'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
+									<th data-bind="local: 'reports/productMixReport.store'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+									<th data-bind="local: 'reports/productMixReport.employee'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+									<th data-bind="local: 'reports/productMixReport.min_qty'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>
+									<th data-bind="local: 'reports/productMixReport.quantity'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th>
+									<th data-bind="local: 'reports/productMixReport.qty_sold'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
+									<th data-bind="local: 'reports/productMixReport.cogs'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="COGS: Activate to sort by ascending columns">COGS</th>
+									<th data-bind="local: 'reports/productMixReport.gross_sales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Sales: Activate to sort by ascending columns">Gross Sales</th>
+									<th data-bind="local: 'reports/productMixReport.netSales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Net Sales: Activate to sort by ascending columns">Net Sales</th>
+									<th data-bind="local: 'reports/productMixReport.grossProfit'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Profit: Activate to sort by ascending columns">Gross Profit</th>
+									<th data-bind="local: 'reports/productMixReport.taxAmount'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">Tax Amount</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr><th class="text-right row-expandable" colspan="7" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th><th class="text-right numeric-data" rowspan="1" colspan="1">0</th><th class="text-right numeric-data" rowspan="1" colspan="1">4101</th><th class="text-right numeric-data" rowspan="1" colspan="1">46</th><th class="text-right numeric-data" rowspan="1" colspan="1">$174.00</th><th class="text-right numeric-data" rowspan="1" colspan="1">$465.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$453.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$15.75</th><th class="text-right numeric-data" rowspan="1" colspan="1">$26.15</th></tr>
+							</tfoot>
+							<tbody>
+								<tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3003</td><td class="sorting_1">10000001</td><td>New Depart</td><td>123456790</td><td>Android Register1</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">195</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable"><span class="expand-icon"></span>3004</td><td class="sorting_1">10000002</td><td>New Depart</td><td>123456790</td><td></td><td></td><td></td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">8</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td><td class=" numeric-data">$0.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable"><span class="expand-icon"></span>3010</td><td class="sorting_1">10000008</td><td>New Depart</td><td>123456790</td><td></td><td></td><td></td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">4</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td><td class=" numeric-data">$0.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.00</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3014</td><td class="sorting_1">10000012</td><td>New Depart</td><td>123456790</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$1.20</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3090</td><td class="sorting_1">10000088</td><td>New Depart</td><td>123456791</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-2</td><td class=" numeric-data">1</td><td class=" numeric-data">$4.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$11.00</td><td class=" numeric-data">$1.50</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3090</td><td class="sorting_1">10000088</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">132</td><td class=" numeric-data">1</td><td class=" numeric-data">$4.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$15.00</td><td class=" numeric-data">$11.00</td><td class=" numeric-data">$0.75</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3091</td><td class="sorting_1">10000089</td><td>New Depart</td><td>123456791</td><td>Register 1</td><td>TestShop</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">-1</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$1.20</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3091</td><td class="sorting_1">10000089</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">192</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">3094</td><td class="sorting_1">10000092</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Admin Man</td><td class=" numeric-data">0</td><td class=" numeric-data">196</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">3097</td><td class="sorting_1">10000095</td><td>New Depart</td><td>123456791</td><td>PC register</td><td>oO'ROCKET-SHOP'Oo</td><td>Sales Manager</td><td class=" numeric-data">0</td><td class=" numeric-data">198</td><td class=" numeric-data">1</td><td class=" numeric-data"></td><td class=" numeric-data">$12.00</td><td class=" numeric-data">$12.00</td><td class=" numeric-data"></td><td class=" numeric-data">$0.60</td></tr>
+							</tbody>
+						</table>
+						<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+							<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+							<span>
+								<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+								<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+								<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+								<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+							</span>
+							<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0" id="productMixReportTable_next">Next</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- end main content -->

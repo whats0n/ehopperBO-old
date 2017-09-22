@@ -1,0 +1,11 @@
+{% macro call(props) %}
+<label class="n-checkbox {{props.classList}}">
+	<input type="checkbox" {% if props.value %}data-value="{{props.value}}"{% endif %} {{props.attrs | safe}}>
+	<span class="n-checkbox__icon">
+		<i class="fa fa-check"></i>
+	</span>
+	{% if props.content %}
+		<span class="n-checkbox__content">{{props.content}}</span>
+	{% endif %}
+</label>
+{% endmacro %}
