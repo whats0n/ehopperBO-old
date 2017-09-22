@@ -4,6 +4,7 @@
 	top: 0
 	left: 0
 	bottom: 0
+	padding-top: 79px
 	border-right: 1px solid #B5B8C1
 	width: 300px
 	background: #eef0f3
@@ -13,26 +14,31 @@
 		+gpu
 	&__btn
 		position: absolute
+		z-index: 2
 		top: 0
 		left: 100%
-		bottom: 0
+		padding: 0
 		border: none
-		border-left: 1px solid #B5B8C1
 		border-right: 1px solid #B5B8C1
-		width: 80px
+		border-bottom: 1px solid #B5B8C1
+		width: 380px
+		height: 80px
 		background: #eef0f3
 		+vertical
-		transition: transform 0.4s ease-in-out
-		&:active
-			background: darken(#eef0f3, 5%)
+		transform: translate3d(-300px,0,0)
+		transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out
 		&.is-active
+			transform: translate3d(-379px,0,0)
 			.n-menu__icon
 				transform: rotateY(180deg)
 	&__icon
-		display: inline-block
-		vertical-align: middle
+		position: absolute
+		top: 0
+		right: 0
+		width: 79px
+		height: 100%
 		font-size: 42px
-		line-height: 1
+		line-height: 80px
 		transition: transform 0.4s ease-in-out
 	&__list,
 	&__submenu
@@ -40,6 +46,7 @@
 		margin: 0
 	&__list
 		overflow: auto
+		border-top: 1px solid #B5B8C1
 		height: 100%
 	&__submenu
 		display: none
