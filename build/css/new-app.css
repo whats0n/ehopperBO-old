@@ -395,7 +395,7 @@
 .r-filters {
   margin: -20px -20px 0;
   padding: 10px;
-  width: 2000px;
+  width: 1600px;
 }
 
 .r-filters_auto-width {
@@ -843,13 +843,60 @@
   float: right;
 }
 
+.r-filters__col_columns {
+  position: relative;
+  padding-left: 60px;
+}
+
 .r-filters .datatable-search {
   width: 100%;
+}
+
+.r-filters__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  text-align: center;
+  font-size: 0;
+}
+
+.r-filters__icon:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+
+.r-filters__icon i {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28px;
 }
 
 .sorting_top, .sorting_bottom {
   position: relative;
   padding-right: 30px;
+}
+
+.datatable th {
+  position: relative;
+}
+
+.datatable th:nth-child(3), .datatable th:nth-child(4), .datatable th:nth-child(5), .datatable th:nth-child(6), .datatable th:nth-child(7), .datatable th:nth-child(8),
+.datatable td:nth-child(3),
+.datatable td:nth-child(4),
+.datatable td:nth-child(5),
+.datatable td:nth-child(6),
+.datatable td:nth-child(7),
+.datatable td:nth-child(8) {
+  display: none;
+}
+
+.r-table {
+  min-width: 1600px !important;
 }
 
 .sort-icon {
@@ -891,7 +938,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .select-box {
@@ -2337,6 +2384,10 @@
   user-select: none;
 }
 
+.n-input {
+  height: 60px !important;
+}
+
 .n-dropdown {
   position: relative;
   width: 150px;
@@ -2363,7 +2414,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
-  height: 53px;
+  height: 60px;
   background: #fff;
   transition: border-color 0.17s ease-in-out;
   cursor: pointer;

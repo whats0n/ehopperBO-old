@@ -23,11 +23,19 @@
 				{% endif %}
 				{% for option in props.options %}
 					<li class="n-select__item js-multi-select-item">
-						{{checkbox.call({
-							content: option,
-							value: option,
-							attrs: props.selectedAll
-						})}}
+						{% if loop.index >= props.from and loop.index <= props.to %}
+							{{checkbox.call({
+								content: option,
+								value: option,
+								attrs: props.selectedAll
+							})}}
+						{% else %}
+							{{checkbox.call({
+								content: option,
+								value: option,
+								attrs: 'checked'
+							})}}
+						{% endif %}
 					</li>
 				{% endfor %}
 			</ul>

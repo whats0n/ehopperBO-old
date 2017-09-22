@@ -112,7 +112,7 @@
 						<div class="r-filters__container">
 							<div class="r-filters__row r-filters__row_top">
 								<div class="r-filters__col r-filters__col_search">
-									<input class="form-control input-lg datatable-search" type="text" placeholder="Search item by title or code">
+									<input class="form-control input-lg datatable-search n-input" type="text" placeholder="Search item by title or code">
 								</div>
 								<div class="r-filters__col r-filters__col_right">
 									<div class="n-dropdown js-dropdown">
@@ -154,6 +154,35 @@
 											</a>
 										</div>
 									</div>
+								</div>
+								<div class="r-filters__col r-filters__col_default r-filters__col_right r-filters__col_columns">
+									<div class="r-filters__icon">
+										<i class="fa fa-filter"></i>
+									</div>
+									{{form.multiSelect.call({
+										classList: 'is-active',
+										placeholder: 'Columns',
+										selectAll: 'Select All',
+										from: 3,
+										to: 8,
+										options: [
+											'ID',
+											'Item',
+											'Department',
+											'Category',
+											'Register',
+											'Store',
+											'Employee',
+											'Min. Qty',
+											'Quantity',
+											'Qty Sold',
+											'COGS',
+											'Gross Sales',
+											'Net Sales',
+											'Gross Profit',
+											'Tax Amount'
+										]
+									})}}
 								</div>
 							</div>
 							<div class="r-filters__row">
@@ -238,7 +267,7 @@
 							</label>
 						</div>
 						<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
-						<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+						<table class="datatable dataTable r-table" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
 							<thead>
 								<tr role="row">
 									<th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">
