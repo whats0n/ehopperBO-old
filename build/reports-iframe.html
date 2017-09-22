@@ -246,6 +246,60 @@
 		</div>
 		<!-- end menu -->
 
+		<div class="n-reports__sm-filters">
+			<div class="r-filters r-filters_auto-width">
+				<div class="r-filters__container">
+					<div class="r-filters__row">
+						<div class="r-filters__col">
+							<div class="n-dropdown js-dropdown">
+								<div class="n-dropdown__open js-dropdown-open">
+									<div class="n-dropdown__icon">
+										<i class="fa fa-file-excel-o n-dropdown__icon-in" aria-hidden="true"></i>
+									</div>
+									<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
+									<div class="n-dropdown__content">Export</div>
+								</div>
+								<div class="n-dropdown__body">
+									<a href="#" class="n-dropdown__item">
+										<div class="n-dropdown__icon">
+											
+<i class="ic ic-csv"></i>
+
+										</div>
+										<div class="n-dropdown__content">CSV</div>
+									</a>
+									<a href="#" class="n-dropdown__item">
+										<div class="n-dropdown__icon">
+											
+<i class="ic ic-pdf"></i>
+
+										</div>
+										<div class="n-dropdown__content">PDF</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="r-filters__col">
+							<div class="n-dropdown js-dropdown">
+								<div class="n-dropdown__open js-dropdown-open">
+									<div class="n-dropdown__icon">
+										<i class="fa fa-calendar n-dropdown__icon-in" aria-hidden="true"></i>
+									</div>
+									<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
+									<div class="n-dropdown__content">Today</div>
+								</div>
+								<div class="n-dropdown__body">
+									<div class="n-dropdown__container">
+										here must be a calendar
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- begin main content -->
 		<div class="n-reports__container">
 			<div class="n-reports__content">
@@ -836,21 +890,96 @@
 						<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
 							<thead>
 								<tr role="row">
-									<th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
-									<th data-bind="local: 'reports/productMixReport.item'" class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item: Activate to sort by descending columns">Item</th>
-									<th data-bind="local: 'reports/productMixReport.department'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns">Department</th>
-									<th data-bind="local: 'reports/productMixReport.category'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns">Category</th>
-									<th data-bind="local: 'reports/productMixReport.register'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
-									<th data-bind="local: 'reports/productMixReport.store'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
-									<th data-bind="local: 'reports/productMixReport.employee'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
-									<th data-bind="local: 'reports/productMixReport.min_qty'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>
-									<th data-bind="local: 'reports/productMixReport.quantity'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th>
-									<th data-bind="local: 'reports/productMixReport.qty_sold'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
-									<th data-bind="local: 'reports/productMixReport.cogs'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="COGS: Activate to sort by ascending columns">COGS</th>
-									<th data-bind="local: 'reports/productMixReport.gross_sales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Sales: Activate to sort by ascending columns">Gross Sales</th>
-									<th data-bind="local: 'reports/productMixReport.netSales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Net Sales: Activate to sort by ascending columns">Net Sales</th>
-									<th data-bind="local: 'reports/productMixReport.grossProfit'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Profit: Activate to sort by ascending columns">Gross Profit</th>
-									<th data-bind="local: 'reports/productMixReport.taxAmount'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">Tax Amount</th>
+									<th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">
+										ID
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.item'" class="sorting_top" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item: Activate to sort by descending columns" style="width: 260px;">
+										Item
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.department'" class="sorting_bottom" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns" style="width: 140px;">
+										Department
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.category'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns">
+										Category
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.register'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">
+										Register
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.store'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">
+										Store
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.employee'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">
+										Employee
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.min_qty'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">
+										Min. Qty
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.quantity'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">
+										Quantity
+										<span class="sort-icon">
+											<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+										</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.qty_sold'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">
+										Qty Sold
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.cogs'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="COGS: Activate to sort by ascending columns">
+										COGS
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.gross_sales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Sales: Activate to sort by ascending columns">
+										Gross Sales
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.netSales'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Net Sales: Activate to sort by ascending columns">
+										Net Sales
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.grossProfit'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Profit: Activate to sort by ascending columns">
+										Gross Profit
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
+									<th data-bind="local: 'reports/productMixReport.taxAmount'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">
+										Tax Amount
+	<span class="sort-icon">
+		<i class="sort-icon__top"></i><i class="sort-icon__bottom"></i>
+	</span>
+									</th>
 								</tr>
 							</thead>
 							<tfoot>

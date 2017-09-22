@@ -2,6 +2,10 @@
 <svg class="icon icon-{{i}}"><use xlink:href="img/sprite.svg#icon-{{i}}"></use></svg>
 {% endmacro %}
 
+{% macro ic(i) %}
+<i class="ic ic-{{i}}"></i>
+{% endmacro %}
+
 {% macro empty(props) %}
 <!-- begin n-empty -->
 <div class="n-empty {{props.classList}}">

@@ -1,3 +1,6 @@
+$darkGray: #333
+$lightGray: #ccc
+
 .n-reports
 	position: relative
 	overflow: hidden
@@ -20,3 +23,111 @@
 		.is-open &
 			left: 0
 			right: -300px
+	&__sm-filters
+		position: fixed
+		z-index: 10
+		top: 4px
+		right: 0
+		width: auto
+
+.n-calendar
+	position: relative
+	padding: 0 30px 0 15px
+	border: 1px solid $lightGray
+	border-radius: 4px
+	width: 200px
+	height: 53px
+	color: $darkGray
+	background: $white
+	line-height: normal
+	font-size: 18px
+	transition: border-color 0.17s ease-in-out
+	cursor: pointer
+	+nosel
+
+
+//DROPDOWN
+.n-dropdown
+	position: relative
+	width: 150px
+	color: $darkGray
+	font-size: 18px
+	line-height: normal
+	+nosel
+	&.is-open
+		.n-dropdown
+			&__body
+				display: block
+			&__arrow
+				transform: translate3d(0,-50%,0) rotate(-180deg)
+	&__open
+		position: relative
+		padding: 0 30px 0 15px
+		border: 1px solid $lightGray
+		border-radius: 4px
+		width: 100%
+		height: 53px
+		background: $white
+		transition: border-color 0.17s ease-in-out
+		cursor: pointer
+		+vertical
+		text-align: left
+	&__icon,
+	&__content
+		display: inline-block
+		vertical-align: middle
+	&__icon
+		width: 35px
+	&__content
+		font-size: 18px
+	&__icon-in,
+	.ic
+		display: inline-block
+		vertical-align: middle
+		font-size: 26px
+	&__arrow
+		position: absolute
+		top: 50%
+		right: 15px
+		color: #519cd7
+		font-size: 18px
+		transform: translate3d(0,-50%,0)
+		transition: transform 0.15s ease-in-out
+	&__body
+		position: absolute
+		z-index: 100
+		top: 100%
+		left: 0
+		display: none
+		margin-top: 10px
+		border: 1px solid $lightGray
+		border-radius: 4px
+		min-width: 100%
+		background: $white
+		white-space: nowrap
+	&__item
+		display: block
+		padding: 10px 15px
+		color: inherit !important
+		text-decoration: none !important
+		&:hover
+			background: $lightGray
+	&__container
+		white-space: normal
+		padding: 20px
+
+$imgpath: '../content/images/'
+
+.ic
+	display: inline-block
+	vertical-align: top
+	width: 1em
+	height: 1em
+	background-size: contain
+	background-position: center center
+	background-repeat: no-repeat
+
+.ic-csv
+	background-image: url($imgpath + 'csv.svg')
+.ic-pdf
+	background-image: url($imgpath + 'pdf.svg')

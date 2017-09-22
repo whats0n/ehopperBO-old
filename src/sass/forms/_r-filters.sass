@@ -2,13 +2,15 @@
 	margin: -20px -20px 0
 	padding: 10px
 	width: 2000px
+	&_auto-width
+		margin: 0
+		width: auto
 	&__row
 		+clr
-		&_top
-			padding-left: 60px
-			transition: padding-left 0.4s ease-in-out
-			.is-open &
-				padding-left: 0
+		padding-left: 60px
+		transition: padding-left 0.4s ease-in-out
+		.is-open &
+			padding-left: 0
 	&__col
 		float: left
 		padding: 10px
@@ -17,8 +19,39 @@
 			&_#{$i}
 				width: $i + %
 		&_search
-			width: 300px
+			width: 330px
 		&_default
-			width: 250px
+			width: 100/6 + %
 	.datatable-search
 		width: 100%
+
+.sorting
+	&_top,
+	&_bottom
+		position: relative
+		padding-right: 30px
+
+
+.sort-icon
+	position: absolute
+	top: 50%
+	right: 10px
+	width: 16px
+	height: 22px
+	transform: translate3d(0,-50%,0)
+	&__top
+		top: 0
+		+arr(16, 10, #ccc, t)
+		.sorting_top &
+			opacity: 1
+	&__bottom
+		bottom: 0
+		+arr(16, 10, #ccc, b)
+		.sorting_bottom &
+			opacity: 1
+	&__top,
+	&__bottom
+		position: absolute
+		left: 0
+		right: 0
+		opacity: 0.5
