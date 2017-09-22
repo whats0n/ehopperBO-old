@@ -836,7 +836,11 @@
 }
 
 .r-filters__col_default {
-  width: 16.66667%;
+  width: 20%;
+}
+
+.r-filters__col_right {
+  float: right;
 }
 
 .r-filters .datatable-search {
@@ -848,17 +852,12 @@
   padding-right: 30px;
 }
 
-.sorting_top .sort-icon, .sorting_bottom .sort-icon {
-  opacity: 1;
-}
-
 .sort-icon {
   position: absolute;
   top: 50%;
   right: 10px;
   width: 16px;
   height: 22px;
-  opacity: 0;
   transform: translate3d(0, -50%, 0);
 }
 

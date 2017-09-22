@@ -108,47 +108,7 @@
 			<div class="r-filters r-filters_auto-width">
 				<div class="r-filters__container">
 					<div class="r-filters__row">
-						<div class="r-filters__col">
-							<div class="n-dropdown js-dropdown">
-								<div class="n-dropdown__open js-dropdown-open">
-									<div class="n-dropdown__icon">
-										<i class="fa fa-file-excel-o n-dropdown__icon-in" aria-hidden="true"></i>
-									</div>
-									<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
-									<div class="n-dropdown__content">Export</div>
-								</div>
-								<div class="n-dropdown__body">
-									<a href="#" class="n-dropdown__item">
-										<div class="n-dropdown__icon">
-											{{mixins.ic('csv')}}
-										</div>
-										<div class="n-dropdown__content">CSV</div>
-									</a>
-									<a href="#" class="n-dropdown__item">
-										<div class="n-dropdown__icon">
-											{{mixins.ic('pdf')}}
-										</div>
-										<div class="n-dropdown__content">PDF</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="r-filters__col">
-							<div class="n-dropdown js-dropdown">
-								<div class="n-dropdown__open js-dropdown-open">
-									<div class="n-dropdown__icon">
-										<i class="fa fa-calendar n-dropdown__icon-in" aria-hidden="true"></i>
-									</div>
-									<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
-									<div class="n-dropdown__content">Today</div>
-								</div>
-								<div class="n-dropdown__body">
-									<div class="n-dropdown__container">
-										here must be a calendar
-									</div>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -163,6 +123,47 @@
 							<div class="r-filters__row r-filters__row_top">
 								<div class="r-filters__col r-filters__col_search">
 									<input class="form-control input-lg datatable-search" type="text" placeholder="Search item by title or code">
+								</div>
+								<div class="r-filters__col r-filters__col_right">
+									<div class="n-dropdown js-dropdown">
+										<div class="n-dropdown__open js-dropdown-open">
+											<div class="n-dropdown__icon">
+												<i class="fa fa-file-excel-o n-dropdown__icon-in" aria-hidden="true"></i>
+											</div>
+											<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
+											<div class="n-dropdown__content">Export</div>
+										</div>
+										<div class="n-dropdown__body">
+											<a href="#" class="n-dropdown__item">
+												<div class="n-dropdown__icon">
+													{{mixins.ic('csv')}}
+												</div>
+												<div class="n-dropdown__content">CSV</div>
+											</a>
+											<a href="#" class="n-dropdown__item">
+												<div class="n-dropdown__icon">
+													{{mixins.ic('pdf')}}
+												</div>
+												<div class="n-dropdown__content">PDF</div>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="r-filters__col r-filters__col_right">
+									<div class="n-dropdown js-dropdown">
+										<div class="n-dropdown__open js-dropdown-open">
+											<div class="n-dropdown__icon">
+												<i class="fa fa-calendar n-dropdown__icon-in" aria-hidden="true"></i>
+											</div>
+											<i class="fa fa-angle-down n-dropdown__arrow" aria-hidden="true"></i>
+											<div class="n-dropdown__content">Today</div>
+										</div>
+										<div class="n-dropdown__body">
+											<div class="n-dropdown__container">
+												here must be a calendar
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="r-filters__row">
@@ -198,20 +199,6 @@
 									{{form.multiSelect.call({
 										classList: 'is-active',
 										placeholder: 'Category',
-										selectedAll: 'checked',
-										selectAll: 'Select All',
-										options: [
-											'Lorem ipsum. 1',
-											'Lorem ipsum. 2',
-											'Lorem ipsum. 3',
-											'Lorem ipsum. 4'
-										]
-									})}}
-								</div>
-								<div class="r-filters__col r-filters__col_default">
-									{{form.multiSelect.call({
-										classList: 'is-active',
-										placeholder: 'Register',
 										selectedAll: 'checked',
 										selectAll: 'Select All',
 										options: [
