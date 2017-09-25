@@ -2663,6 +2663,18 @@
   font-size: 16px;
 }
 
+.n-menu__main {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 80px;
+}
+
+.n-menu__main .n-menu__link {
+  line-height: 49px;
+}
+
 .n-container {
   *zoom: 1;
 }
