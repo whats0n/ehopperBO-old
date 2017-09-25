@@ -19,27 +19,30 @@
 		left: 100%
 		padding: 0
 		border: none
-		border-right: 1px solid #B5B8C1
-		border-bottom: 1px solid #B5B8C1
+		// border-right: 1px solid #B5B8C1
+		// border-bottom: 1px solid #B5B8C1
 		width: 380px
 		height: 80px
-		background: #eef0f3
+		// background: #eef0f3
+		background: none
 		+vertical
 		transform: translate3d(-300px,0,0)
 		transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out
 		&.is-active
 			transform: translate3d(-379px,0,0)
 			.n-menu__icon
-				transform: rotateY(180deg)
+				color: $darkGray
+				transform: rotate(180deg)
 	&__icon
 		position: absolute
 		top: 0
 		right: 0
 		width: 79px
 		height: 100%
+		color: $blue
 		font-size: 42px
 		line-height: 80px
-		transition: transform 0.4s ease-in-out
+		transition: transform 0.4s ease-in-out, color 0.4s ease-in-out
 	&__list,
 	&__submenu
 		padding: 0
