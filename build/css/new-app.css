@@ -405,18 +405,12 @@
 
 .r-filters__row {
   *zoom: 1;
-  padding-left: 60px;
-  transition: padding-left 0.4s ease-in-out;
 }
 
 .r-filters__row:after {
   content: " ";
   display: table;
   clear: both;
-}
-
-.is-open .r-filters__row {
-  padding-left: 0;
 }
 
 .r-filters__col {
@@ -2338,6 +2332,7 @@
 .n-reports__container {
   position: relative;
   overflow: auto;
+  margin-left: 30px;
   height: 100%;
   transition: margin-left 0.4s ease-in-out;
 }
@@ -2518,11 +2513,10 @@
   top: 0;
   left: 0;
   bottom: 0;
-  padding-top: 79px;
   border-right: 1px solid #B5B8C1;
   width: 300px;
   background: #eef0f3;
-  transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-270px, 0, 0);
   transition: transform 0.4s ease-in-out;
 }
 
@@ -2534,46 +2528,38 @@
   position: absolute;
   z-index: 2;
   top: 0;
+  bottom: 0;
   left: 100%;
   padding: 0;
   border: none;
-  width: 380px;
-  height: 80px;
+  width: 40px;
   background: none;
-  text-align: center;
-  font-size: 0;
-  transform: translate3d(-300px, 0, 0);
+  transform: translate3d(-50%, 0, 0);
   transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
-.n-menu__btn:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 0;
-  height: 100%;
-}
-
-.n-menu__btn.is-active {
-  transform: translate3d(-379px, 0, 0);
-}
-
 .n-menu__btn.is-active .n-menu__icon {
-  color: #333;
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  background: #333;
+  transform: rotate(180deg) translate3d(50%, 50%, 0);
 }
 
 .n-menu__icon {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 79px;
-  height: 100%;
-  color: #2E9ADB;
-  font-size: 42px;
-  line-height: 80px;
-  transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  background: #2E9ADB;
+  transform: translate3d(-50%, -50%, 0);
+  transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
+}
+
+.n-menu__icon i {
+  padding: 5px 0 0 1px;
+  vertical-align: top;
+  font-size: 28px;
 }
 
 .n-menu__list, .n-menu__submenu {

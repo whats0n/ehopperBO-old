@@ -4,11 +4,11 @@
 	top: 0
 	left: 0
 	bottom: 0
-	padding-top: 79px
+	// padding-top: 79px
 	border-right: 1px solid #B5B8C1
 	width: 300px
 	background: #eef0f3
-	transform: translate3d(-100%,0,0)
+	transform: translate3d(-270px,0,0)
 	transition: transform 0.4s ease-in-out
 	.is-open &
 		+gpu
@@ -16,33 +16,37 @@
 		position: absolute
 		z-index: 2
 		top: 0
+		bottom: 0
 		left: 100%
 		padding: 0
 		border: none
-		// border-right: 1px solid #B5B8C1
-		// border-bottom: 1px solid #B5B8C1
-		width: 380px
-		height: 80px
-		// background: #eef0f3
+		width: 40px
+		// width: 380px
+		// height: 80px
 		background: none
-		+vertical
-		transform: translate3d(-300px,0,0)
+		// background: #eef0f3
+		transform: translate3d(-50%,0,0)
 		transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out
 		&.is-active
-			transform: translate3d(-379px,0,0)
+			// transform: translate3d(-379px,0,0)
 			.n-menu__icon
-				color: $darkGray
-				transform: rotate(180deg)
+				background: $darkGray
+				transform: rotate(180deg) translate3d(50%,50%,0)
 	&__icon
 		position: absolute
-		top: 0
-		right: 0
-		width: 79px
-		height: 100%
-		color: $blue
-		font-size: 42px
-		line-height: 80px
-		transition: transform 0.4s ease-in-out, color 0.4s ease-in-out
+		top: 50%
+		left: 50%
+		border-radius: 50%
+		width: 100%
+		height: 40px
+		color: $white
+		background: $blue
+		transform: translate3d(-50%,-50%,0)
+		transition: transform 0.4s ease-in-out, background 0.4s ease-in-out
+		i
+			padding: 5px 0 0 1px
+			vertical-align: top
+			font-size: 28px
 	&__list,
 	&__submenu
 		padding: 0
