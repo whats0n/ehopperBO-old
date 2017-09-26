@@ -263,23 +263,29 @@
 						</div>
 					</div>
 				{% endif %}
+
 				{% if nav %}
 				<section id="content" class="show-content">
 				{% else %}
 				<section id="content" class="hide-content">
 				{% endif %}
-					<div class="pane pane-right">
-						{% include "partials/_header.html" %}
-						{% if iHeader %}
-							{% for item in iHeader %}
-								{% set iHeader = item %}
-								{% include 'partials/components/_i-header.html' %}
-							{% endfor %}
-						{% endif %}
-						<div class="pane-body-wrapper {{paneBodyWrapperClassList}}">
-							{% block content %}{% endblock %}
+
+					{% if singleLayout %}
+						{% block contentSingle %}{% endblock %}
+					{% else %}
+						<div class="pane pane-right">
+							{% include "partials/_header.html" %}
+							{% if iHeader %}
+								{% for item in iHeader %}
+									{% set iHeader = item %}
+									{% include 'partials/components/_i-header.html' %}
+								{% endfor %}
+							{% endif %}
+							<div class="pane-body-wrapper {{paneBodyWrapperClassList}}">
+								{% block content %}{% endblock %}
+							</div>
 						</div>
-					</div>
+					{% endif %}
 				</section>
 			</div>
 		</div>
