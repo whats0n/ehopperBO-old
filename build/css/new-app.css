@@ -3233,12 +3233,10 @@
 
 .n-app__filter label,
 .n-app__filter select,
-.n-app__filter .select {
+.n-app__filter .select,
+.n-app__filter .btn {
   display: inline-block;
   vertical-align: middle;
-}
-
-.n-app__filter label {
   margin: 0 15px 0 0;
 }
 

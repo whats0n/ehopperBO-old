@@ -1,0 +1,34 @@
+<div id="app-settings" class="app-settings" data-bind="with: model">
+	<div class="n-app">
+		<div class="n-app__box">
+			<div class="n-app__title">General settings</div>
+			<div class="n-app__container">
+				<div class="n-app__row">
+					<div class="n-app__col">
+						<div class="n-app__filter">
+							<label>Category:</label>
+							<select>
+								{% for item in category %}
+								    <option value="{{item}}">{{item}}</option>
+								{% endfor %}
+							</select>
+							<input class="btn btn-lg btn-primary" type="button" value="New Category">
+						</div>
+					</div>
+				</div>
+				<div class="n-app__footer">
+					<div class="form-buttons"> 
+						<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+						<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="n-app__box">
+			<div class="n-app__title">Other settings</div>
+			<div class="n-app__container n-app__iframe">
+				<iframe data-bind="attr: { src: settingsUrl }" style="width: 100%; height: 100%;" frameborder="0" onload="$('#spinnerIframe').hide();" src="https://support-metropcs-phone-activation-app.b2bsoft.com/metro/settings?access_token=c31069a40c95c1c77e80ce86877fdde3"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
