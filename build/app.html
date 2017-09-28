@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Ingredients Empty</title>
+		<title>App</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -42,72 +42,47 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Ingredients</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">MetroPCS EDGE Phone Activation</span></b>
 </div>
 							
-							<div class="pane-body-wrapper n-modifiers">
+							<div class="pane-body-wrapper ">
 								
-	<div class="n-columns-layout">
-		<div class="pane pane-left">
-			<div class="n-pane__inner ">
-	
-	
-	
-	
-	
-	<!-- begin n-search -->
-<div class="n-search n-search_sidebar">
-	<div class="n-search__links">
-		<div class="n-search__col">
-			
-				<a href="#" class="btn btn-primary n-search__btn">New</a>
-			
-		</div>
-		<div class="n-search__col">
-			
-				<a href="#" class="btn btn-primary n-search__btn">Export</a>
-			
-		</div>
-		<div class="n-search__col">
-			
-				<a href="#" class="btn btn-primary n-search__btn">Import</a>
-			
-		</div>
-		<div class="n-search__col">
-			<a href="#" class="btn btn-red n-search__btn" disabled>Delete</a>
-		</div>
-	</div>
-	<div class="n-search__field">
-		<i class="fa fa-search n-search__icon"></i>
-		<input type="text" class="form-control input-lg" placeholder="Search ingredient by name" />
-	</div>
-</div>
-<!-- end n-search -->
-	
-	
-		<!-- begin n-empty -->
-		<div class="n-empty">
-			<div class="n-empty__title">There are no ingredients created. <a href="#" class="n-link">Add new</a>.</div>
-		</div>
-		<!-- end n-empty -->
-	
-	<div class="n-pane__overlay"></div>
-</div>
-		</div>
-		<div class="pane pane-right">
-			<div class="n-vertical-center">
-				
-<!-- begin n-empty -->
-<div class="n-empty n-vertical-center__content">
-	
-		<div class="n-empty__icon">
-			<i class="fa fa-folder-open-o"></i>
-		</div>
-	
-	<div class="n-empty__title">No ingredient is selected</div>
-</div>
-<!-- end n-empty -->
-
+	<div id="app-settings" class="app-settings" data-bind="with: model">
+		<div class="n-app">
+			<div class="n-app__box">
+				<div class="n-app__title">General settings</div>
+				<div class="n-app__container">
+					<div class="n-app__row">
+						<div class="n-app__col n-app__col_50">
+							<div class="n-app__filter">
+								<label>Category:</label>
+								<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
+									<option value="">All</option>
+									<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+									<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+									<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+									<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+									<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+								</select>
+							</div>
+						</div>
+						<div class="n-app__col n-app__col_50">
+							<input class="btn btn-lg btn-primary pull-right" type="button" value="New Vendor" data-modal-target="create-vendor">
+						</div>
+					</div>
+					<div class="n-app__footer">
+						<div class="form-buttons text-center"> 
+							<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+							<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="n-app__box">
+				<div class="n-app__title">Other settings</div>
+				<div class="n-app__container n-app__iframe">
+					<iframe data-bind="attr: { src: settingsUrl }" style="width: 100%; height: 100%;" frameborder="0" onload="$('#spinnerIframe').hide();" src="https://support-metropcs-phone-activation-app.b2bsoft.com/metro/settings?access_token=c31069a40c95c1c77e80ce86877fdde3"></iframe>
+				</div>
 			</div>
 		</div>
 	</div>

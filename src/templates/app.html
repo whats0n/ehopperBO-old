@@ -1,0 +1,47 @@
+---
+title: App
+headerTitle: MetroPCS EDGE Phone Activation
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div id="app-settings" class="app-settings" data-bind="with: model">
+		<div class="n-app">
+			<div class="n-app__box">
+				<div class="n-app__title">General settings</div>
+				<div class="n-app__container">
+					<div class="n-app__row">
+						<div class="n-app__col n-app__col_50">
+							<div class="n-app__filter">
+								<label>Category:</label>
+								<select data-bind="value: departmentId, event: { change: $root.departmentChanged.bind($root) }">
+									<option value="">All</option>
+									<option value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+									<option value="6a897da2a2af4104935bee96446de938">1122h</option>
+									<option value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+									<option value="4067850f2c43408eab83091fb5df0f13">ads</option>
+									<option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+								</select>
+							</div>
+						</div>
+						<div class="n-app__col n-app__col_50">
+							<input class="btn btn-lg btn-primary pull-right" type="button" value="New Vendor" data-modal-target="create-vendor">
+						</div>
+					</div>
+					<div class="n-app__footer">
+						<div class="form-buttons text-center"> 
+							<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+							<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="n-app__box">
+				<div class="n-app__title">Other settings</div>
+				<div class="n-app__container n-app__iframe">
+					<iframe data-bind="attr: { src: settingsUrl }" style="width: 100%; height: 100%;" frameborder="0" onload="$('#spinnerIframe').hide();" src="https://support-metropcs-phone-activation-app.b2bsoft.com/metro/settings?access_token=c31069a40c95c1c77e80ce86877fdde3"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
