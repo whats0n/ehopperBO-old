@@ -3199,6 +3199,10 @@
   height: 270px;
 }
 
+.n-app__header .n-app__container {
+  padding: 0 20px;
+}
+
 .n-app__body {
   position: relative;
   padding: 71px 0 20px;
