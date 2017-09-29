@@ -333,10 +333,25 @@
 	overflow: hidden
 
 .n-app
-	overflow: auto
-	max-height: 100%
-	&__box
+	position: relative
+	padding-top: 270px
+	height: 100%
+	&__header
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
 		padding: 20px 0
+		height: 270px
+	&__body
+		position: relative
+		padding: 71px 0 20px
+		height: 100%
+		.n-app__title
+			position: absolute
+			top: 20px
+			left: 0
+			right: 0
 	&__title
 		padding: 0 20px 20px
 		font-family: "Open Sans", Helvetica, Arial, sans-serif
@@ -348,7 +363,7 @@
 		border: 1px solid #e5e5e5
 		min-height: 100px
 	&__iframe
-		height: 600px
+		height: 100%
 	&__row
 		+clr
 	&__col

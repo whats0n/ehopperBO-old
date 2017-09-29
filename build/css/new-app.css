@@ -3185,12 +3185,31 @@
 }
 
 .n-app {
-  overflow: auto;
-  max-height: 100%;
+  position: relative;
+  padding-top: 270px;
+  height: 100%;
 }
 
-.n-app__box {
+.n-app__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 20px 0;
+  height: 270px;
+}
+
+.n-app__body {
+  position: relative;
+  padding: 71px 0 20px;
+  height: 100%;
+}
+
+.n-app__body .n-app__title {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
 }
 
 .n-app__title {
@@ -3208,7 +3227,7 @@
 }
 
 .n-app__iframe {
-  height: 600px;
+  height: 100%;
 }
 
 .n-app__row {
