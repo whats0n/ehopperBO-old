@@ -1,4 +1,5 @@
 import { OPEN, $DOCUMENT } from '../_constants';
+import inputmask from '../lib/jquery.inputmask';
 
 export default (function() {
 
@@ -31,7 +32,14 @@ export default (function() {
 				$this.removeClass(OPEN);
 				if (!val.length) $text.text('0.00');
 			})
-			.on('input', () => $text.text($input.val()));
+			.on('input', () => $text.text($input.val()))
+			.inputmask("numeric", {
+				radixPoint: ".",
+				digits: 2,
+				digitsOptional: false,
+				placeholder: '0',
+				rightAlign: false
+			});
 	});
 
 	$DOCUMENT.on('keyup', e => {
