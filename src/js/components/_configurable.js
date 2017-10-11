@@ -29,7 +29,7 @@ export default (function() {
 			.blur(() => {
 				const val = $input.val();
 				$this.removeClass(OPEN);
-				if (val.toString() === '0' || !val.length) $text.text('0.00');
+				if (!val.length) $text.text('0.00');
 			})
 			.on('input', () => $text.text($input.val()));
 	});
