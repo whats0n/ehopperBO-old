@@ -3326,6 +3326,10 @@
   padding: 0 20px 20px;
 }
 
+.color-red {
+  color: #e24e34 !important;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit{
     font-size: 14px;
