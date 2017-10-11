@@ -16,10 +16,9 @@ export default (function() {
 		
 		const $this = $(this);
 		const $input = $this.find('.js-configurable-input');
-		const $btn = $this.find('.js-configurable-btn');
 		const $text = $this.find('.js-configurable-text');
 
-		$btn.click(() => {
+		$this.click(() => {
 			$this.addClass(OPEN);
 			$input.focus();
 
@@ -27,7 +26,11 @@ export default (function() {
 			activated = true;
 		});
 		$input
-			.blur(() => $this.removeClass(OPEN))
+			.blur(() => {
+				const val = $input.val();
+				$this.removeClass(OPEN);
+				if (val.toString() === '0' || !val.length) $text.text('0.00');
+			})
 			.on('input', () => $text.text($input.val()));
 	});
 
