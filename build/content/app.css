@@ -2995,12 +2995,22 @@ td.padding-top-corrections {
     position: relative;
 }
 .btn-report-export {
-    min-height: 37px;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    display: inline-block;
+    overflow: visible;
+    height: 37px !important;
+    min-height: 37px !important;
     padding: 0 15px 0 35px;
-    font-size: 18px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    color: inherit !important;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 35px;
+    text-transform: none;
+    text-decoration: none !important;
+    cursor: pointer;
+    -webkit-appearance: none !important;
 }
 .btn-report-export.dropdown-toggle {
     padding-left: 15px;

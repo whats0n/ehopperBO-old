@@ -14,3 +14,4 @@ import menu from './components/_menu';
 import select from './components/_select';
 import multiSelect from './components/_multiSelect';
 import dropdown from './components/_dropdown';
+import configurable from './components/_configurable';

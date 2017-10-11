@@ -1,0 +1,557 @@
+---
+title: Products
+headerTitle: Products
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory">
+		<input class="form-control input-lg pull-left datatable-search" 
+			type="text" 
+			data-bind="local: 'inventory/inventoryList.search_item_by_title_or_code', localAttr: 'placeholder'" 
+			placeholder="Search item by title or code">
+				
+			<div class="btn-toolbar pull-right">
+				<div class="btn-group">
+					<button class="btn btn-lg btn-red" 
+						type="button" 
+						data-bind="click: deleteSelected, enable: hasSelected, local: 'common.delete_selected'" 
+						disabled>Delete</button>
+				</div>
+
+				<div class="btn-group btn-group-lg">
+					<a class="btn btn-primary" data-bind="local: 'inventory/inventoryList.new_item', click: navToProduct">New Item</a>
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+						<span class="caret"></span>
+						<span class="sr-only" data-bind="local: 'inventory/inventoryList.toggle_dropdown'">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#category" data-bind="local: 'inventory/inventoryList.new_category'">New Category</a></li>
+						<li><a href="#department" data-bind="local: 'inventory/inventoryList.new_department'">New Department</a></li>
+						<li><a href="#importInventory" data-bind="local: 'inventory/inventoryList.import_inventory'">Import Inventory</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="report-export-wrapper pull-right">
+				<a href="api/Products/ExportProductList" target="_blank" class="btn-report-export" data-bind="click: exportProducts, local: 'shell.exportReport'">Export</a>
+				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportProducts"></i>
+			</div>
+
+			<div class="row list-filters" data-bind="with: productFilter">
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<label data-bind="local: 'inventory/inventoryList.department_filter'">Department:</label>
+								<select data-bind="value: departmentId, event: { change: $root.depChanged.bind($root) }">
+									<option value="" data-bind="local: 'inventory/inventoryList.all'">All</option>
+									<!-- ko foreach: departments -->
+									<option data-bind="attr: { value: id }, text: name" value="cd29975bc97d42ac86e33497f596699f">!AutomationDepartment</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6a897da2a2af4104935bee96446de938">1122h</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="0e3da3ac80b249749cd9a6f821c48948">Active</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="4067850f2c43408eab83091fb5df0f13">ads</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f3592ca28e5940d9b6b8ec39c4f81213">Appetizers</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f301a1412ef44805b1356093e3debc9c">Appetizers_</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="df5f02290de84970822efd965cea3c1e">AutoJap</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="57357552b7d84060a3668936e293df28">Beverages</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7fdcd216933e43dab5d18d134ac7d118">Beverages123</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a55be0032f3842f3a81264b1fd5505c4">Cloth</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="2fb3a7b3144e4826a608614e1d85f8c7">DASD_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="fcbff060ce2a4c0d99569af516ebc7bb">Department nam2e</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="8ac77cb02c424fa29a0e18edee534ded">Department name</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e461730e7b224ee6a542db9f7d618219">Department_with_Serials</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="01fcd933705c400ca1895ef2e4c303b6">Drinks</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="fe95baa255054a3d854cd92d90445629">Drinks and Dessert</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="549fa0623e9c48d9ad3ee4a0a10384b8">Drugs</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f6e152eaa1dc4ea080ca7d43ebd71f6c">dvsvdsvsdvdsv</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="1b7fa4f92a0b4c51bcb2612ac97d06de">Empty</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="226be647a582434a9a71b9a765c76b53">Food</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="59906b51dcfa4aaabc4e00e9b72559d2">Food11</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="03b51f7bfd8c4d719e89055dffef4b92">Food12</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="50484b40733446d8902c5960063398ee">Food13</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="119be24e75c8427d97b2c3d2f087c279">Food14</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="dcab1f371f0445788a7eb98bade6709a">Food15</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="853009c7263f41bd9f95e8462e1bdd53">Food16</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7d8d9bc6457d4606893c8c529a0016c4">Food17</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="bcc5efd9f405427aad46069c90574690">Food18</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="faece383a2ae4a19b7cdd76672d2a6c5">Food19</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="dfcf49949b03475fb51f61ad83e1050b">fr</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="16062602bbbe42bbb5b4b3b058f26350">gdffd</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c206e44961a349b68d75f0b63af400ce">gfr</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="321d42b9ebbb457a86296443db2e86d5">gre</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="52f64833e8e842b3ba5446cae49c7f23">Homemade Pastry</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="4e6efdc5ce9542e7bf1d29e9a59b7c81">Import_Department</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="392ac229f77647db91b1cde765c1a258">import_test</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="dc7d573a41ce4137816b94a390e4b1eb">Inventory</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="19c8652ca18b4d9eafc9d02521a70087">juice</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="b434080bf1854750bfb206e4707f19ff">LOLOLA</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c48c50855404462c80eb41003da2f1bf">Main Courses</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="1ee726addb1d48d48f22e9718be2703d">Movie_Haw</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="301caad64b3548e1904b90a38f47d553">New Department Test</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="691d362af282485d955094c17e971753">November_Department</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="5832206b17434dd9b7eff6f55490852d">Soups</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="0e136952f4d54e2cba05cf1e26f749ea">T</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e22df9deac3d45ea811466b52f18380a">TarasForTesting</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f48ea3723c0e4293bc27dc2caa14ba56">Test Department</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f7a76a3757fa45a2b4abf97f05887b97">test for freez</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c1162812c06f4df5b3a241f0b76ec602">Test_Department</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="b02e23ca4261492b80e0f2a5a86609bf">TestDep</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f03fa634b3fa470b8c149b6e3bb616a1">TESTTEST</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="3445c42b111b4a42bcdc335394171c4e">tratata</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ad0f3b200c7e4a08bf599e6fe6112c8e">upc department</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="004554e412b643609488ffe652de0fc9">Variant</option>
+									<!-- /ko -->
+								</select>
+							</td>
+							<td>
+								<label data-bind="local: 'inventory/inventoryList.category_filter'">Category:</label>
+								<select data-bind="value: categoryId, event: { change: $root.applyFilters.bind($root) }">
+									<option value="" data-bind="local: 'inventory/inventoryList.all'">All</option>
+									<!-- ko foreach: categories -->
+									<option data-bind="attr: { value: id }, text: name" value="5329c76ccf084734ace5bd518f40ca3d"> Appetizers2</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="61846f73e3fd4b16b0c4c1f67a0b7416">!AutomationCategory</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7e22335652a946f8b0b3c790bf532a1e">1n</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="91bd8b4e18e6475995d7205793407ef3">active!!!</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e8c487f5749d448aa9485c445065ca1c">ads_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="98d57a148c6546d2a6e6809d124dd03c">Appetizers286</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="fe44191615e24838bf7c4b21a363d64e">asdsd</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="8e0a9d6447f04fbb8bd81e4cbfd30ab5">asdsdsa</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e78d153f813f4e07aa75f2f90d890edd">Brandy_Haw</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f9057afe13074746a2f76cb404359913">Burger</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="079cf26d2e094a73953326aee4dd544f">Burger NEW</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ba59a65424b04562829da183df6ad5a9">Burger NEW</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7be2028bad504777b6e48e627798f444">Ca2tegory name</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ce8577744dbc4ce5a86f5a964eb18a36">Cat for test MenuBuilder</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a892ede61bdb432198090c4f5daad47b">Category name</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="48128cbbc98643c0995f91f1f3512f7c">category with variants</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="21e81d7d24504483a12977dd0ac94361">Category_with_Serials</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="cd22471b5dcc4c07a2307ce112901ac4">cdscvzx</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="4ebba8f17dd44d4195d590f754252bbc">cdwffev</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="438d0b605aab4a4da6b67ffa01bf5e7c">Coffee</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="48b149e40bd249c8ad230bfe6e5abd48">Cognac</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="b8640901acc143efa1aa773282972775">Critical_CAT</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f7a03e8552974d3cb59ef7f3d3b9d2fc">cxxcxc</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="b52b1de40a0640a18d7c52525502f502">DASD_renamed2</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="01b611fea8624e7aafe3b7bc0b43e2e4">Dessert</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="66841c06549b466daaf75b8c5d0fa81e">Dresses</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="dc29cfd63b084dd39aaa98297108823c">Drinks and Dessert_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="3c15f48b8ac54828b31d4493db47811d">dvsvdsvsdvdsv_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="4f89168a1c8340b4b128816213331bf3">Empty_Category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6bac2698624b42c49f076c4308773d10">eqw</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="fed23bd24a4c47d9b0ef07b9f5db487e">ewq</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="bfc2abd3c9094bc4bde9562f866e16fe">Fruits</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c0b5b02a14e04b40b6d03199a083d2af">gvgvg</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c013ce125531453588a9a4b68fbe36cb">Homemade Pastry_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="29e7c87c84a946e1ad333be3f869c6bb">Import_Category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="747008831b854dd1aeb6f371e6788acd">import_test_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="39f2b8cca9f841bc8e049d849d263b1e">Inventory_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="8c8d8c9df7a740a0a83fd50ae5fe4bdd">Juice</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="9a40ac2683c242bf8acbbc1702d59dbc">Just Category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6bda521f40ca4c0895e8744da3fde3ad">Just Category </option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ed44a5474be54d31817a60c8c3cbe661">Main Courses_reNamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="d3f7a8e8944445b5bef0c2b17ebfb0d9">Men's Cloth</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ef3a71ba24fe4eaebc04903a01319c27">nd</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="b2bb75948e244a0080cbccb7ae7f58e7">new category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="4075c06840464f1daabb76e31009d087">new category test</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f3a3b0460fcb480cbbbea1371eb760ba">New modif</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="8f5e8fbc93fb40d1907a8c6ae7426d8f">New NewN ewNe w NewNe   wNew New NewN ewNe w NewNe  22</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c9c7663e0ce84ca5a9ac9a312445df35">NewModifierTestCategory</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="54a50f2a558c490694eb4110fd21deca">Nissan</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="83d6f6b986a04567a17923bc50456528">November_Category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="70db1fdfcd934bd4ba0f9380d2785346">Pasta</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="802c49bd6b2f4f03aa504698d35e29e7">Pizza</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e0b8da9465f640518e95115ca0bcacf2">Rolls</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6c79bb63d73b40a599e4b464d5ccc256">Rum</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="15f599ad6e754dc3a4329fac202240ce">Salad</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="23b40aaca5114264a205cd11956eb16b">Sandwiches</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="d4fcf6e2860a486e9a70e5c988a681fd">Scary_Haw</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="22a965b855f24341a6f10b868540c619">Snacks</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e4ceb5c6c5a7498fba08912ceeebb5dc">Soft Drinks</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="72fe68e767004fe99a6c182c497c1592">SOFT DRINKS</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="3be0bc8149304c2eb9b22ed8dc5f6cc1">Soft Drinks123</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="57eefc4cc00943ddb715a83e192e6587">Soft Drinks123</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ea0675c8242543e4b5930b3ab8591e81">SomeFood</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f54e3a0dea894a219a4a909aa90b4a69">sort name</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="04e7637611e34762ab4ae85aa931acf1">Soup</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="3ee9a48929174ef7a24fdc60ce9baabe">Soups_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="5f6c984fa4f8445b9390df7218e8fe5c">Specials</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7617ed79aafe44638cf17d6b9c65bf12">T</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a24fb26b37a6413dbb44c4c5e8f3f977">TarasTestDelete2</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6a5c19e073ec4791827f0487531c5881">TarasTestingCategory</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="54d1d2967ddf40c995ceb5519a50c57d">TarasTestingDelete</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="c941b0fd82564df286d5943f55987c26">TEST 912-1</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="88d3dab6f32941c18ecd9708173ba8c6">test category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="fe47683ec6764ac6b7d0f9ec0b82d54f">Test Export cat</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="2142d9fd39424722973da95e6e6f4605">TEST QA 912</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a14bd474893c48839f2ea9c875e23680">Test_Department_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="41580d39113b4f5aa15f1168e1d2e9cf">TEST_TEST</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="641d1781323a4b3b9f93990a47b5a031">TestCat</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="71e988bb06514ff89d4744e1cd138dbd">TestCategory</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="71ed6613077348549238b015f4ff3bb6">TESTTEST_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a2d0f3ec317f42a5ab2ca99080dfd883">Thai</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="d961317c75284172972222845fdd88c7">Thai11</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="ffa63e6379044e97bcd25d7c0bd4ca2e">Thai12</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7e9350f72ea146bb9a2434a9d23010b5">Thai13</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6f6d8bd1cd234386adb806d3d4b96b2a">Thai14</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="aacb0d3e984b405990418a93dbe53cc1">Thai16</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f9fd08d26eeb4f059f5fcbb11c1fdfd5">Thai17</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="32ec35cda3aa440a92dea0adeb9e6958">Thai18</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="9c2b0ce95a6e4be38d2c6920a71afbb7">Thai19</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="8dc6ae58d9db436190e328adaccc9b6d">upc category</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="5fd89e68d47f46eebbd8f7e1df8ca8e3">v</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a9cf9636c64343c8b87eb8347ab7e211">Variant</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="a25847ea3aff44ae8c486b34c31de0c1">Vitamins_renamed</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="437c8b83075c46b2806360248920d0ce">Vodka Vo dka Vodk a Vodka Vodka Vod Vod</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="7b1779d871b04fdca6ae445c6f256400">vvv123dd</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="6d7ade86e30f436b88ad92a18f3e76f4">Whisky_Haw</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="26fb2a9a65124c69b04ff8928f078c74">WHITE_CATEGORY</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="cf9ec52e33f94d92b7dcd46cb65879c3">WithLongName</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="36dd6ddf67234ca1a7682d542cb64e7f">WithManualPrice</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="e8e63ad4880945f7924ba4b9cdca07db">WithModifier</option>
+									
+									<option data-bind="attr: { value: id }, text: name" value="f7aa597ab5bd4defa51cef324c1be8cb">WithoutColor</option>
+									<!-- /ko -->
+								</select>
+							</td>
+							<td>
+								<label data-bind="local: 'inventory/inventoryList.inventoryTypeFilter'">Inventory Type:</label>
+								<select id="ddlInventoryTypeFilter" 
+									data-bind="options: inventoryTypes, optionsText: 'name', optionsValue: 'id', multipleSelect: inventoryTypes, multipleSelectOptions: inventoryTypeFilterOptions, selectedElements: inventorySelected" 
+									style="display: none;">
+									<option value="0">Inventory</option>
+									<option value="2">Non-Inventory</option>
+									<option value="1">Serialized</option>
+									<option value="3">Matrix</option>
+								</select>
+								<div class="ms-parent" style="width: 200px;">
+									<button type="button" class="select">
+										<div class="fl">
+											<span id="txtMs_data_ddlInventoryTypeFilter" class="placeholder sph tl"> Inventory Type</span>
+											<div>
+												<div></div>
+											</div>
+										</div>
+									</button>
+									<div class="ms-drop bottom" style="display: none;">
+										<ul style="max-height: 250px;">
+											<li>
+												<input type="checkbox" name="selectItem" value="0" id="id_0"> 
+												<label for="id_0">Inventory</label>
+											</li>
+											<li>
+												<input type="checkbox" name="selectItem" value="2" id="id_2"> 
+												<label for="id_2">Non-Inventory</label>
+											</li>
+											<li>
+												<input type="checkbox" name="selectItem" value="1" id="id_1"> 
+												<label for="id_1">Serialized</label>
+											</li>
+											<li>
+												<input type="checkbox" name="selectItem" value="3" id="id_3"> 
+												<label for="id_3">Matrix</label>
+											</li>
+											<li class="ms-no-results" style="display: none;">No matches found</li>
+										</ul>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br class="clear">
+
+			<div id="inventoryTable_wrapper" class="dataTables_wrapper no-footer">
+				<div id="inventoryTable_filter" class="dataTables_filter">
+					<label>Search:
+						<input type="search" class="" placeholder="" aria-controls="inventoryTable">
+					</label>
+				</div>
+				<div id="inventoryTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+				<table class="datatable selectablelist dataTable no-footer" id="inventoryTable" role="grid">
+					<thead>
+						<tr role="row">
+							<th class="sorting_disabled" 
+								rowspan="1" 
+								colspan="1" 
+								aria-label="">
+								<div class="checkbox">
+									<input type="checkbox" id="itemsSelectAll" data-bind="checked: selectAll">
+									<label for="itemsSelectAll"></label>
+								</div>
+							</th>
+							<th data-bind="local: 'inventory/inventoryList.id'" 
+								class="sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 60px;" 
+								aria-label="ID: Activate to sort by ascending columns">ID</th>
+							<th data-bind="local: 'inventory/inventoryList.item'" 
+								class="force-wrap sorting_asc" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 140px;" 
+								aria-label="Item: Activate to sort by descending columns" 
+								aria-sort="ascending">Item</th>
+							<th data-bind="local: 'inventory/inventoryList.category'" 
+								class="sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 105px;" 
+								aria-label="Category: Activate to sort by ascending columns">Category</th>
+							<th data-bind="local: 'inventory/inventoryList.department'" 
+								class="sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 130px;" 
+								aria-label="Department: Activate to sort by ascending columns">Department</th>
+							<th data-bind="local: 'inventory/inventoryList.cost'" 
+								class="numeric-data sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 75px;" 
+								aria-label="Cost: Activate to sort by ascending columns">Cost</th>
+							<th data-bind="local: 'inventory/inventoryList.price'" 
+								class="numeric-data sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 95px;" 
+								aria-label="Price: Activate to sort by ascending columns">Price</th>
+							<th data-bind="local: 'inventory/inventoryList.margin'" 
+								class="numeric-data sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 90px;" 
+								aria-label="Margin: Activate to sort by ascending columns">Margin</th>
+							<th data-bind="local: 'inventory/inventoryList.quantity'" 
+								class="numeric-data sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 80px;" 
+								aria-label="Quantity: Activate to sort by ascending columns">Quantity</th>
+							<th data-bind="local: 'inventory/inventoryList.value'" 
+								class="numeric-data sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 95px;" 
+								aria-label="Value: Activate to sort by ascending columns">Value</th>
+							<th data-bind="local: 'inventory/inventoryList.status'" 
+								class="center sorting" 
+								tabindex="0" 
+								aria-controls="inventoryTable" 
+								rowspan="1" 
+								colspan="1" 
+								style="width: 70px;" 
+								aria-label="Status: Activate to sort by ascending columns">Status</th>
+						</tr>
+					</thead>
+				<tbody>
+					<tr id="1845a270d18046a2886fa85232704fa0" class="editable odd" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox">
+								<input type="checkbox" data-bind="checked: selected, attr: {id: product.id }" id="1845a270d18046a2886fa85232704fa0">
+								<label data-bind="attr: {for: product.id }, click: selectItem" for="1845a270d18046a2886fa85232704fa0"></label>
+							</div>
+						</td>
+						<td>5503</td>
+						<td class="force-wrap sorting_1">Only One</td>
+						<td>TarasTestingCategory</td>
+						<td>TarasForTesting</td>
+						<td class=" numeric-data">
+							<div class="sm-configurable js-configurable">
+								<input type="text" class="sm-configurable__input js-configurable-input">
+								<i class="fa fa-edit sm-configurable__btn js-configurable-btn"></i>
+								<span class="sm-configurable__text">$<span class="js-configurable-text">0</span></span>
+							</div>
+						</td>
+						<td class=" numeric-data">$10.50</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">44</td>
+						<td class=" numeric-data">$462.00</td>
+						<td class=" center">Active</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="inventoryTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="inventoryTable" data-dt-idx="0" tabindex="0" id="inventoryTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="inventoryTable" data-dt-idx="1" tabindex="0">1</a>
+				</span>
+				<a class="paginate_button next disabled" aria-controls="inventoryTable" data-dt-idx="2" tabindex="0" id="inventoryTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
