@@ -61,9 +61,12 @@
 						disabled>Delete</button>
 				</div>
 
-				<div class="btn-group btn-group-lg open">
+				<div class="btn-group btn-group-lg open js-dropdown">
 					<a class="btn btn-primary" data-bind="local: 'inventory/inventoryList.new_item', click: navToProduct">New Item</a>
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+					<button class="btn btn-primary dropdown-toggle js-dropdown-btn" 
+						type="button" 
+						data-toggle="dropdown" 
+						aria-expanded="true">
 						<span class="caret"></span>
 						<span class="sr-only" data-bind="local: 'inventory/inventoryList.toggle_dropdown'">Toggle Dropdown</span>
 					</button>
@@ -74,6 +77,27 @@
 						<li><a href="#" class="color-red">Delete all products</a></li>
 					</ul>
 				</div>
+				<script>
+					(() => {
+
+						const dropdowns = document.querySelectorAll('.js-dropdown');
+
+						Array
+							.from(dropdowns)
+							.forEach(dropdown => {
+								const btn = dropdown.querySelector('.js-dropdown-btn');
+
+								btn.addEventListener('click', e => {
+									e.preventDefault();
+									let prevState = btn.getAttribute('aria-expanded');
+
+									dropdown.classList.toggle('open');
+									btn.setAttribute('aria-expanded', !prevState);
+								}, false);
+							});
+
+					})();
+				</script>
 			</div>
 
 			<div class="report-export-wrapper pull-right">
