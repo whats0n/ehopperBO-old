@@ -55,8 +55,8 @@
 	&__price
 		width: 80px
 		text-align: center
-		+xl
-			display: none
+		// +xl
+		// 	display: none
 	&__active
 		width: 70px
 		text-align: center
@@ -67,6 +67,9 @@
 		padding: 10px 0
 		width: 60px
 		text-align: center
+		&:last-child
+			.i-items_ingredients &
+				display: none
 	&__list
 		padding: 0
 		border: 1px solid #eaeaea
@@ -97,6 +100,9 @@
 		font-size: 0
 		line-height: 45px
 		text-decoration: none
+		&:last-child
+			.i-items_ingredients &
+				display: none
 		&:not(:first-child)
 			// padding-left: 6px
 			&:before
@@ -151,8 +157,8 @@
 	&__unit,
 	&__price
 		width: 80px
-		+xl
-			display: none
+		// +xl
+		// 	display: none
 	&__title, 
 	&__price,
 	&__active,

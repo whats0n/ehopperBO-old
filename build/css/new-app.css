@@ -2041,6 +2041,10 @@
   text-align: center;
 }
 
+.i-items_ingredients .i-items__action:last-child {
+  display: none;
+}
+
 .i-items__list {
   padding: 0;
   border: 1px solid #eaeaea;
@@ -2087,6 +2091,10 @@
   font-size: 0;
   line-height: 45px;
   text-decoration: none;
+}
+
+.i-items_ingredients .i-item__action:last-child {
+  display: none;
 }
 
 .i-item__action:not(:first-child):before {
@@ -3333,12 +3341,6 @@
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit{
     font-size: 14px;
-  }
-  .i-items__unit, .i-items__price{
-    display: none;
-  }
-  .i-item__unit, .i-item__price{
-    display: none;
   }
 }
 

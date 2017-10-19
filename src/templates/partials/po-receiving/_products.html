@@ -31,8 +31,15 @@
 					<td data-bind="text: $data.name" class="product-name">10varykiihl</td>
 					<td data-bind="text: $data.upc">11111111111111111</td>
 					<td data-bind="text: $data.sku"></td>
-					<td data-bind="currency: $data.cost, visible:$data.productType == 0" style="display: none;">$0.00</td>
-					<td data-bind="visible:$data.productType != 0"></td>
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable js-configurable">
+						<div class="sm-configurable__inner">
+							<span class="sm-configurable__symbol">$</span>
+							<input type="text" class="sm-configurable__input js-configurable-input">
+							<i class="fa fa-edit sm-configurable__btn"></i>
+							<span class="sm-configurable__text">$<span class="js-configurable-text">0.00</span></span>
+						</div>
+					</td>
+					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
 					<td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0" style="display: none;"></td>
 					<td data-bind="visible:$data.productType != 0"></td>
 					<td style="white-space: initial">
@@ -132,7 +139,14 @@
 					<td data-bind="text: $data.name" class="product-name">11_22_33</td>
 					<td data-bind="text: $data.upc">2222222</td>
 					<td data-bind="text: $data.sku"></td>
-					<td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable js-configurable">
+						<div class="sm-configurable__inner">
+							<span class="sm-configurable__symbol">$</span>
+							<input type="text" class="sm-configurable__input js-configurable-input">
+							<i class="fa fa-edit sm-configurable__btn"></i>
+							<span class="sm-configurable__text">$<span class="js-configurable-text">0.00</span></span>
+						</div>
+					</td>
 					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
 					<td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0">1</td>
 					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
@@ -166,7 +180,14 @@
 					<td data-bind="text: $data.name" class="product-name">112233</td>
 					<td data-bind="text: $data.upc">5454545454545</td>
 					<td data-bind="text: $data.sku"></td>
-					<td data-bind="currency: $data.cost, visible:$data.productType == 0">$0.00</td>
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable js-configurable">
+						<div class="sm-configurable__inner">
+							<span class="sm-configurable__symbol">$</span>
+							<input type="text" class="sm-configurable__input js-configurable-input">
+							<i class="fa fa-edit sm-configurable__btn"></i>
+							<span class="sm-configurable__text">$<span class="js-configurable-text">0.00</span></span>
+						</div>
+					</td>
 					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
 					<td data-bind="text: $root.getStoreInQuantity($data.storeQuantities), visible:$data.productType == 0"></td>
 					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
