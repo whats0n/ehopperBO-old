@@ -14,16 +14,16 @@
 		<!-- end n-empty -->
 	{% else %}
 		{% set list = [
-			{ title: 'cheese slice', price: '$5.00', unit: 'item', active: 'is-active', activeClassList: 'check color-green' },
-			{ title: 'pepper', price: '$3.00', unit: 'item', activeClassList: 'times color-red' },
-			{ title: 'milk', price: '$7.00', unit: 'l', activeClassList: 'check color-green' },
-			{ title: 'potatoes', price: '$4.00', unit: 'kg', activeClassList: 'times color-red' },
+			{ title: 'cheese slice', price: '$5.00', unit: 'item', stock: 'box', stockQTY: '1', active: 'is-active', activeClassList: 'check color-green' },
+			{ title: 'pepper', price: '$3.00', unit: 'item', stock: 'box', stockQTY: '1', activeClassList: 'times color-red' },
+			{ title: 'milk', price: '$7.00', unit: 'l', stock: 'pack', stockQTY: '2.5', activeClassList: 'check color-green' },
+			{ title: 'potatoes', price: '$4.00', unit: 'kg', stock: 'bag', stockQTY: '1.33', activeClassList: 'times color-red' },
 			{ title: 'strawberry', price: '$5.00', unit: 'kg', activeClassList: 'times color-red' },
-			{ title: 'tomatoes', price: '$6.00', unit: 'kg', activeClassList: 'times color-red' },
-			{ title: 'cream', price: '$1.50', unit: 'item', activeClassList: 'check color-green' },
-			{ title: 'rice', price: '$3.50', unit: 'kg', activeClassList: 'check color-green' },
-			{ title: 'pasta', price: '$12.00', unit: 'kg', activeClassList: 'times color-red' },
-			{ title: 'egg', price: '$9.00', unit: 'item', activeClassList: 'check color-green' }
+			{ title: 'tomatoes', price: '$6.00', unit: 'kg', stock: 'case', stockQTY: '1', activeClassList: 'times color-red' },
+			{ title: 'cream', price: '$1.50', unit: 'item', stock: 'box', stockQTY: '7', activeClassList: 'check color-green' },
+			{ title: 'rice', price: '$3.50', unit: 'kg', stock: 'pack', stockQTY: '3.2', activeClassList: 'check color-green' },
+			{ title: 'pasta', price: '$12.00', unit: 'kg', stock: 'pack', stockQTY: '3.6', activeClassList: 'times color-red' },
+			{ title: 'egg', price: '$9.00', unit: 'item', stock: 'tray', stockQTY: '2.85', activeClassList: 'check color-green' }
 		] %}
 		<!-- begin i-items -->
 		<div class="i-items i-items_ingredients">
@@ -35,7 +35,9 @@
 					<div class="i-items__action">Edit</div>
 					<div class="i-items__action">Assign</div>
 				</div>
-				<div class="i-items__unit">UOM</div>
+				<!-- <div class="i-items__unit">UOM</div> -->
+				<div class="i-items__qty">QTY<small>(stock unit)</small></div>
+				<div class="i-items__qty">QTY<small>(unit)</small></div>
 				<div class="i-items__price">Cost</div>
 				<div class="i-items__active">Active</div>
 				<div class="i-items__title">Ingredients</div>
@@ -50,8 +52,17 @@
 						<div class="i-item__checkbox">
 							{{form.checkbox.call()}}
 						</div>
-						<div class="i-item__unit">{{item.unit}}</div>
-						<div class="i-item__price">{{item.price}}</div>
+						<!-- <div class="i-item__unit">{{item.unit}}</div> -->
+						<div class="i-item__qty">
+							{% if item.stock %}
+								{{item.stockQTY}}
+								<small>({{item.stock}})</small>
+							{% else %}
+								&mdash;
+							{% endif %}
+						</div>
+						<div class="i-item__qty">{{loop.index*2}} <small>({{item.unit}})</small></div>
+						<div class="i-item__price">{{item.price}} <small>({{item.unit}})</small></div>
 						<div class="i-item__active"><i class="fa fa-{{item.activeClassList}}"></i></div>
 						<div class="i-item__title">{{item.title}}</div>
 					</li>
