@@ -33,7 +33,7 @@ export default (function() {
 				if (!val.length) $text.text('0.00');
 			})
 			.on('input', () => $text.text($input.val()))
-			.inputmask("numeric", {
+			.inputmask("currency", {
 				radixPoint: ".",
 				digits: 2,
 				digitsOptional: false,

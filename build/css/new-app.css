@@ -2726,15 +2726,9 @@
 }
 
 .sm-configurable__input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   border: none;
   border-bottom: 1px solid #ccc;
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
   text-align: center;
 }
 
