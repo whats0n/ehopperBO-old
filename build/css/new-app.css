@@ -2729,7 +2729,12 @@
   border: none;
   border-bottom: 1px solid #ccc;
   width: 100%;
-  text-align: center;
+  text-align: right;
+  transition: border-color ease-in-out .15s;
+}
+
+.sm-configurable__input:focus {
+  border-color: #66afe9;
 }
 
 .sm-configurable__btn {
