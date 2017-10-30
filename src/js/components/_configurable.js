@@ -27,19 +27,24 @@ export default (function() {
 			activated = true;
 		});
 		$input
-			.blur(() => {
-				const val = $input.val();
-				$this.removeClass(OPEN);
-				if (!val.length) $text.text('0.00');
+			// .blur(() => {
+			// 	const val = $input.val();
+			// 	$this.removeClass(OPEN);
+			// 	if (!val.length) $text.text('0.00');
+			// })
+			// .on('input', () => $text.text($input.val()))
+			.on({
+				'focus': function(){ this.select() }
 			})
-			.on('input', () => $text.text($input.val()))
-			.inputmask("currency", {
+			.inputmask("numeric", {
 				radixPoint: ".",
 				digits: 2,
 				digitsOptional: false,
-				placeholder: '0',
-				rightAlign: false
+				rightAlign: false,
+				prefix: '$'
 			});
+
+		$input.on('input', () => {})
 	});
 
 	$DOCUMENT.on('keyup', e => {
@@ -48,6 +53,5 @@ export default (function() {
 		activated = false;
 		$activeInput.blur();
 	});
-
 
 })();
