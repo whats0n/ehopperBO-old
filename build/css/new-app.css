@@ -3370,6 +3370,18 @@
   color: #e24e34 !important;
 }
 
+.store-settings__taxes-table.is-hidden .store-settings__taxes-rate {
+  width: 426px !important;
+}
+
+.store-settings__taxes-table.is-hidden .store-settings__taxes-radio {
+  display: none;
+}
+
+.store-settings__taxes-table.is-hidden [data-row*="hidden"] {
+  display: none;
+}
+
 .store-settings__taxes-checkboxes {
   *zoom: 1;
 }
@@ -3395,10 +3407,6 @@
 
 .store-settings__taxes-delete {
   width: 20px !important;
-}
-
-.store-settings__taxes-full {
-  width: 100% !important;
 }
 
 @media only screen and (max-width: 1366px){

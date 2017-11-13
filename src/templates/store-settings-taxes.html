@@ -64,7 +64,7 @@ headerTitle: Store Settings
 						</div>
 						<!-- /ko -->
 						<div class="store-settings__taxes-checkbox">
-							<input type="checkbox" id="chkChangePriceBeforeTransaction" data-bind="checked: $data.includeTaxesToPrice" checked>
+							<input type="checkbox" id="chkChangePriceBeforeTransaction" data-bind="checked: $data.includeTaxesToPrice" checked onchange="showOnChecked(event)">
 							<label for="chkChangePriceBeforeTransaction" data-bind="local: 'storeSettings/store-settings-tabs/taxes.includeTaxesToPrice'">Allow to change price before the transaction</label>
 						</div>
 					</div>
@@ -72,7 +72,7 @@ headerTitle: Store Settings
 						<input type="checkbox" id="chkebtTaxExemption" data-bind="checked: $data.ebtTaxExemption">
 						<label for="chkebtTaxExemption" data-bind="local: 'storeSettings/store-settings-tabs/taxes.ebt_tax_exemption'">EBT tax exemption</label>
 					</div>
-					<table class="table taxes-table ">
+					<table class="table taxes-table store-settings__taxes-table js-store-settings-table">
 						<thead>
 							 <tr>
 								<th class="store-settings__taxes-name" data-bind="local: 'taxes/taxesList.name'" style="width:300px">Name</th>
@@ -84,7 +84,7 @@ headerTitle: Store Settings
 						<tbody data-bind="foreach: storeTaxes, sortable__List: storeTaxes">
 							{% for item in range(0,3) %}
 								<tr>
-									<td class="store-settings__taxes-name" {% if loop.last %}colspan="4"{% endif %}>
+									<td class="store-settings__taxes-name " {% if loop.last %}colspan="4" data-row="hidden"{% endif %}>
 										<multi-selector params="options: $root.setupTaxesSelect($data)" {% if loop.last %}style="float: left; margin-right: 15px;"{% endif %}>
 											<div class="ms-parent" data-bind="style: { width : options.width }, click : onSelectorClick" style="width: 80%;">
 						 						<button type="button" class="select" data-bind="enable: enabled, click: selectControlClick, validationElement: validationElement">
@@ -1173,7 +1173,21 @@ headerTitle: Store Settings
 							{% endfor %}
 						</tbody>
 					</table>
+					<script>
+						function showOnChecked(e) {
+							var $hiddenElements = $('.js-hidden');
+							var $table = $('.js-store-settings-table');
+							var target = e.target;
 
+							if (target.checked) {
+								console.log('checked');
+								$table.removeClass('is-hidden');
+							} else {
+								console.log('unchecked');
+								$table.addClass('is-hidden');
+							}
+						}
+					</script>
 					<input class="tax-add-button" type="button" data-bind="click: $root.addTax, visible: storeTaxes().length < 1" style="display: none;">
 				</div>
 			</div>

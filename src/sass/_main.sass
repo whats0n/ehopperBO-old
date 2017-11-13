@@ -391,6 +391,16 @@
 //store settings
 .store-settings
 	&__taxes
+		&-table
+			&.is-hidden
+				.store-settings
+					&__taxes
+						&-rate
+							width: 426px !important
+						&-radio
+							display: none
+				[data-row*="hidden"]
+					display: none
 		&-checkboxes
 			+clr
 		&-checkbox
@@ -403,5 +413,3 @@
 			width: 213px !important
 		&-delete
 			width: 20px !important
-		&-full
-			width: 100% !important
