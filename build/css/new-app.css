@@ -3370,6 +3370,37 @@
   color: #e24e34 !important;
 }
 
+.store-settings__taxes-checkboxes {
+  *zoom: 1;
+}
+
+.store-settings__taxes-checkboxes:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.store-settings__taxes-checkbox {
+  float: left;
+  padding-right: 30px;
+}
+
+.store-settings__taxes-name {
+  width: 384px !important;
+}
+
+.store-settings__taxes-rate, .store-settings__taxes-radio {
+  width: 213px !important;
+}
+
+.store-settings__taxes-delete {
+  width: 20px !important;
+}
+
+.store-settings__taxes-full {
+  width: 100% !important;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;
