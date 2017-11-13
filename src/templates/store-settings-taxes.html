@@ -64,7 +64,7 @@ headerTitle: Store Settings
 						</div>
 						<!-- /ko -->
 						<div class="store-settings__taxes-checkbox">
-							<input type="checkbox" id="chkChangePriceBeforeTransaction" data-bind="checked: $data.includeTaxesToPrice">
+							<input type="checkbox" id="chkChangePriceBeforeTransaction" data-bind="checked: $data.includeTaxesToPrice" checked>
 							<label for="chkChangePriceBeforeTransaction" data-bind="local: 'storeSettings/store-settings-tabs/taxes.includeTaxesToPrice'">Allow to change price before the transaction</label>
 						</div>
 					</div>
@@ -1163,7 +1163,7 @@ headerTitle: Store Settings
 										<td class="valign-middle store-settings__taxes-rate"><span data-bind="text: taxRate">{{loop.index * 2}}</span> %</td>
 										<td class="valign-middle store-settings__taxes-radio">
 											<input type="radio" id="storeSettingsTaxes-{{loop.index}}" name="store-settings-taxes" value="{{loop.index}}" {% if loop.index0 == 0 %}checked{% endif %}>
-											<label for="storeSettingsTaxes-1">Default</label>
+											<label for="storeSettingsTaxes-{{loop.index}}">Default</label>
 										</td>
 										<td class="valign-middle store-settings__taxes-delete">
 											<input class="delete-row-button" type="button" data-bind="click: $root.removeTax">
