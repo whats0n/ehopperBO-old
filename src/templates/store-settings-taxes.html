@@ -82,7 +82,7 @@ headerTitle: Store Settings
 							 </tr>
 						</thead>
 						<tbody data-bind="foreach: storeTaxes, sortable__List: storeTaxes">
-							{% for item in range(0,3) %}
+							{% for item in range(0,2) %}
 								<tr>
 									<td class="store-settings__taxes-name " {% if loop.last %}colspan="4" data-row="hidden"{% endif %}>
 										<multi-selector params="options: $root.setupTaxesSelect($data)" {% if loop.last %}style="float: left; margin-right: 15px;"{% endif %}>
