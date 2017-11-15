@@ -2802,7 +2802,7 @@
   border-radius: 4px;
   height: 53px;
   color: #555;
-  transition: border-color 0.35s ease-in-out;
+  transition: border-color 0.45s;
 }
 
 .awesome-toggle__track {
@@ -2833,6 +2833,7 @@
   border-radius: 4px;
   width: 26px;
   background: #fff;
+  transition: background 0.110s, box-shadow 0.110s, border-color 0.110s;
 }
 
 .awesome-toggle__splitter:hover {
@@ -2857,6 +2858,7 @@
   padding-right: 13px;
   color: #fff;
   background: #428bca;
+  transition: background 0.110s, box-shadow 0.110s;
 }
 
 .awesome-toggle__active:hover {
@@ -2867,6 +2869,7 @@
   padding-left: 13px;
   background: #e6e6e6;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  transition: box-shadow 0.110s;
 }
 
 .n-container {
