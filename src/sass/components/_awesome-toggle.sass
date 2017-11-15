@@ -18,19 +18,19 @@
 	&:hover
 		.awesome-toggle
 			&__content
-				border-color: #adadad
+				border-color: #285e8e
 		input:checked +
 			.awesome-toggle__content
-				border-color: #285e8e
+				border-color: #adadad
 	input:checked +
 		.awesome-toggle__content
-			border-color: #428bca
+			border-color: #ccc
 			.awesome-toggle__track
 				+gpu
 	&__content
 		display: block
 		overflow: hidden
-		border: 1px solid #ccc
+		border: 1px solid #428bca
 		border-radius: 4px
 		height: 53px
 
@@ -70,13 +70,13 @@
 			box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
 	&__active
 		padding-right: 13px
+		background: #e6e6e6
+		box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+		transition: box-shadow 0.110s
+	&__default
+		padding-left: 13px
 		color: $white
 		background: #428bca
 		transition: background 0.110s, box-shadow 0.110s
 		&:hover
 			background: #3071a9
-	&__default
-		padding-left: 13px
-		background: #e6e6e6
-		box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
-		transition: box-shadow 0.110s

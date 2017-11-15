@@ -422,13 +422,23 @@
 	padding: 0 !important
 	min-width: unset !important
 
-.input-group-toggle
-	position: relative
-	z-index: 3
-	display: table-cell
-	vertical-align: top
-	width: 1%
-	.awesome-toggle__content
-		border-left: 0
-		border-top-left-radius: 0
-		border-bottom-left-radius: 0
+.field-group
+	display: table
+	width: 100%
+	&__input,
+	&__right
+		display: table-cell
+		vertical-align: top
+	&__input
+		width: 100%
+	&__right
+		position: relative
+		z-index: 3
+		display: table-cell
+		vertical-align: top
+		padding-left: 10px
+		width: 1%
+		.awesome-toggle__content
+			// border-left: 0
+			// border-top-left-radius: 0
+			// border-bottom-left-radius: 0
