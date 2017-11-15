@@ -3409,6 +3409,15 @@
   width: 20px !important;
 }
 
+.convenience-fee {
+  padding: 25px 40px 40px 40px;
+}
+
+.dataTables_wrapper_flexible {
+  padding: 0 !important;
+  min-width: unset !important;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;
