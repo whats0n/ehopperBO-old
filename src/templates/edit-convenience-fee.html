@@ -1,0 +1,71 @@
+---
+title: Convenience Fee
+headerTitle: Convenience Fee
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body convenience-fee">
+		<div class="form wide-form-simple">
+			<!--ko compose: { model: $root.langs }-->
+			<div class="language-selector">
+				<a class="selected">English</a>
+				<a class="">Français</a>
+				<a class="">Русский</a>
+			</div>
+			<!--/ko-->
+
+			<div id="taxSaveMessages"></div>
+		  
+			<div class="form-group no-overflow row">
+				<div class="col-xs-12 col-md-12">
+					<div class="form-group ">
+						<label>Convenience Fee Name</label>
+						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group no-overflow row">
+
+				<div class="col-xs-6 col-md-6">
+					<div class="form-group no-overflow position-relative">
+						<label>Convenience Fee Rate</label>
+						<div class="input-group">
+							<input class="form-control input-lg" type="text" placeholder="Convenience Fee Rate" maxlength="100">
+							<div class="input-group-toggle">
+								<label class="awesome-toggle">
+									<input type="checkbox">
+									<span class="awesome-toggle__content">
+										<span class="awesome-toggle__track">
+											<span class="awesome-toggle__splitter"></span>
+											<span class="awesome-toggle__active">$</span>
+											<span class="awesome-toggle__default">%</span>
+										</span>
+									</span>
+								</label>
+							</div>
+						</div>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-md-6">
+					<label>Min Value:</label>
+					<input class="form-control input-lg" type="text" placeholder="Min Value" maxlength="100">
+				</div>
+			</div>
+
+			<div class="checkbox" initializedcheckbox="true">
+				<input type="checkbox" id="isActiveTax" checked>
+				<label for="isActiveTax">Is Active</label>
+			</div>
+			<label></label>
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+		</div>
+	</div>
+{% endblock %}

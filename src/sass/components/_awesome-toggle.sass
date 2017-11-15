@@ -1,0 +1,79 @@
+.awesome-toggle
+	display: block
+	padding: 0
+	margin: 0
+	width: 60px
+
+	color: #555
+	background-color: #eee
+
+	font-size: 16px
+	font-weight: normal
+	line-height: 51px
+	text-align: center
+	white-space: nowrap
+
+	cursor: pointer
+	+nosel
+	&:hover
+		.awesome-toggle
+			&__content
+				border-color: #adadad
+		input:checked +
+			.awesome-toggle__content
+				border-color: #285e8e
+	input:checked +
+		.awesome-toggle__content
+			border-color: #428bca
+			.awesome-toggle__track
+				+gpu
+	&__content
+		display: block
+		overflow: hidden
+		border: 1px solid #ccc
+		border-radius: 4px
+		height: 53px
+
+		color: #555
+		transition: border-color 0.35s ease-in-out
+	&__track
+		position: relative
+		display: inline-block
+		vertical-align: top
+		width: 200%
+		+clr
+		transform: translate3d(-50%,0,0)
+		transition: transform 0.45s
+	&__splitter
+		position: absolute
+		top: 0
+		left: 50%
+		bottom: 0
+		margin-left: -13px
+		border-width: 0 1px
+		border-style: solid
+		border-color: #ccc
+		border-radius: 4px
+		width: 26px
+		background: $white
+		&:hover
+			border-color: #adadad
+			background: #e6e6e6
+		&:active
+			box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+	&__active,
+	&__default
+		float: left
+		width: 50%
+		&:active
+			box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+	&__active
+		padding-right: 13px
+		color: $white
+		background: #428bca
+		&:hover
+			background: #3071a9
+	&__default
+		padding-left: 13px
+		background: #e6e6e6
+		box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
