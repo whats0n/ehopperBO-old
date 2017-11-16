@@ -1,0 +1,162 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Convenience Fee Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Convenience Fee Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body convenience-fee">
+		<div style="float:left;margin-left: -40px;">
+			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+				<div data-bind="with: $data.storesFilter, css: self.divStyle">
+					<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+					</div>
+					<div data-bind="css: contStyle" class="filter_control_cont">
+						<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+						</select><div class="ms-parent" style="width: 100px;"><button type="button" class="select"><div class="fl"><div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div><div><div></div></div></div></button><div class="ms-drop bottom" data-name="multipleSelect2"><ul style="max-height: 250px;"><li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect2"> <label for="allCheck">Select All</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect2_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect2_9b95b38021254511970c394af32606e1">FAstSTore</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf">New Store</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect2_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect2_600172f4371c40aab4999b63a5775634">Store ulevan</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect2_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect2_86240cf9e12e41e585183105da181f67">Vlad store</label></li><li><input type="checkbox" name="selectItemmultipleSelect2" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect2_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect2_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li><li class="ms-no-results">No matches found</li></ul></div></div>
+					</div>
+				</div>
+			</div>
+			<!--/ko-->
+		</div>
+		<date-filter params="value: dateRange">
+			<div class="pull-right">
+				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					&nbsp;
+					<span>Today</span> 
+					<b class="caret"></b>
+				</div>
+			</div>
+		</date-filter>
+		<div class="report-export-wrapper pull-right">
+			<a href="api/Transaction/ExportTaxReport" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+			<a style="display: none" id="taxReportLink"></a>
+		</div>
+
+		<br class="clear">
+		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
+
+		<div data-bind="visible: !loading()" class="mt30" style="">
+			<table id="tax-report-table" class="datatable dataTable">
+				<thead>
+					<tr>
+						<th data-index="0" data-bind="click : sortClick" class="sorting_asc">Name</th>
+						<th data-index="1" data-bind="click : sortClick">Rate</th>
+						<th data-index="2" data-bind="click : sortClick">Convenienced Amount</th>
+						<th data-index="3" data-bind="click : sortClick">Convenience Fee Collected</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: lines">
+					<tr>
+						<td>Credit Card Fee<</td>
+						<td>
+							<span>11</span>
+							<span>%</span>
+						</td>
+						<td>$0.00</td>
+						<td>$0.00</td>
+					</tr>
+				
+					<tr>
+						<td>Visa Card Fee</td>
+						<td>
+							<span>3.1</span>
+							<span>%</span>
+						</td>
+						<td>$12.80</td>
+						<td>$0.39</td>
+					</tr>
+				
+					<tr>
+						<td>Master Card Fee</td>
+						<td>
+							<span>1.1</span>
+							<span>%</span>
+						</td>
+						<td>$12.80</td>
+						<td>$0.13</td>
+					</tr>
+				
+					<tr>
+						<td>Card Fee</td>
+						<td>
+							<span>2</span>
+							<span>%</span>
+						</td>
+						<td>$12.80</td>
+						<td>$0.26</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td>&nbsp;</td>
+						<td><span>Total</span>:</td>
+						<td>$39.40</td>
+						<td>$0.78</td>
+					</tr>
+                </tfoot>
+			</table>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

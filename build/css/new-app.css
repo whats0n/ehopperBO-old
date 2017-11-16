@@ -3523,6 +3523,7 @@
 
 .convenience-fee {
   padding: 25px 40px 40px 40px;
+  min-width: 1024px;
 }
 
 .dataTables_wrapper_flexible {
