@@ -427,19 +427,33 @@
 	display: table
 	width: 100%
 	&__input,
-	&__right
+	&__switcher,
+	&__type
 		display: table-cell
 		vertical-align: top
 	&__input
+		border-radius: 0
 		width: 100%
-	&__right
+		text-align: right
+	&__switcher,
+	&__type
 		position: relative
 		z-index: 3
-		display: table-cell
-		vertical-align: top
-		padding-left: 10px
+		border: 1px solid #ccc
 		width: 1%
-		.awesome-toggle__content
-			// border-left: 0
-			// border-top-left-radius: 0
-			// border-bottom-left-radius: 0
+
+		color: #555
+		background: #eee
+
+		font-size: 16px
+		font-weight: normal
+		line-height: 1
+		text-align: center
+	&__switcher
+		padding: 10px 12px 11px
+		border-right: none
+		border-radius: 4px 0 0 4px
+	&__type
+		padding: 17px 12px 18px
+		border-left: none
+		border-radius: 0 4px 4px 0
