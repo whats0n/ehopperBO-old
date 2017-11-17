@@ -29,7 +29,6 @@ headerTitle: Convenience Fee
 					<tr role="row">
 						<th class="sorting_asc" tabindex="0" aria-controls="taxesTable" aria-sort="ascending" aria-label="Name: Activate to sort by descending columns">Name</th>
 						<th class="sorting" tabindex="0" aria-controls="taxesTable" aria-label="Rate: Activate to sort by ascending columns">Rate</th>
-						<th class="sorting" tabindex="0" aria-controls="taxesTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
 						<th class="sorting" tabindex="0" aria-controls="taxesTable" aria-label="Is Active: Activate to sort by ascending columns" style="width: 150px;">Is Active</th>
 					</tr>
 				</thead>
@@ -38,20 +37,12 @@ headerTitle: Convenience Fee
 						<tr class="editable" role="row">
 							<td class="sorting_1">item-{{loop.index}}</td>
 							<td>
-								{{loop.index * 2}}
 								{% if loop.index % 2 == 0 %}
-									$
+									$ {{loop.index * 2}}.00
 								{% elif loop.index % 3 == 0 %}
-									KD
+									{{loop.index * 2}}.00 KD
 								{% else %}
-								    %
-								{% endif %}
-							</td>
-							<td>
-								{% if loop.index % 2 == 0 or loop.index % 3 == 0 %}
-									amount
-								{% else %}
-								    percent
+								    {{loop.index * 2}}.00 %
 								{% endif %}
 							</td>
 							<td>Active</td>
