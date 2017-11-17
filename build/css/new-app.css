@@ -3622,21 +3622,24 @@
   width: 100%;
 }
 
-.field-group__input, .field-group__switcher, .field-group__type {
+.field-group__input, .field-group__switcher {
   display: table-cell;
   vertical-align: top;
 }
 
 .field-group__input {
-  border-radius: 0;
+  border-radius: 0 4px 4px 0;
   width: 100%;
   text-align: right;
 }
 
-.field-group__switcher, .field-group__type {
+.field-group__switcher {
   position: relative;
   z-index: 3;
+  padding: 10px 12px 11px;
   border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
   width: 1%;
   color: #555;
   background: #eee;
@@ -3644,18 +3647,6 @@
   font-weight: normal;
   line-height: 1;
   text-align: center;
-}
-
-.field-group__switcher {
-  padding: 10px 12px 11px;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-}
-
-.field-group__type {
-  padding: 17px 12px 18px;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
 }
 
 @media only screen and (max-width: 1366px){
