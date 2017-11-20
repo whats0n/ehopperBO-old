@@ -35,7 +35,7 @@ headerTitle: Edit Convenience Fee
 						<div class="field-group">
 							<div class="field-group__switcher">
 								<label class="awesome-switcher">
-									<input type="checkbox" checked>
+									<input type="checkbox" checked onchange="convenienceSwitch(event)">
 									<span class="awesome-switcher__content">
 										<span class="awesome-switcher__left">$</span>
 										<span class="awesome-switcher__control"></span>
@@ -51,16 +51,35 @@ headerTitle: Edit Convenience Fee
 
 				<div class="col-xs-5 col-md-5">
 					<label>Min Value:</label>
-					<input class="form-control input-lg" type="text" placeholder="Min Value" maxlength="100">
+					<input class="form-control input-lg js-convenience-field" type="text" placeholder="Min Value" maxlength="100">
 				</div>
 
 				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
 					<div class="checkbox">
-						<input type="checkbox" id="inclide-taxes" checked>
+						<input type="checkbox" id="inclide-taxes" checked class="js-convenience-checkbox">
 						<label for="inclide-taxes">Include Taxes</label>
 					</div>
 				</div>
 			</div>
+
+			<script>
+				function convenienceSwitch(e) {
+					var $field = $('.js-convenience-field');
+					var $checkbox = $('.js-convenience-checkbox');
+					
+					if ($(e.target).prop('checked')) {
+						$field
+							.add($checkbox)
+							.attr('disabled', false);
+					} else {
+						$field
+							.val('')
+							.add($checkbox)
+							.attr('disabled', true);
+						$checkbox.prop('checked', false);
+					}
+				}
+			</script>
 
 			<div class="checkbox" initializedcheckbox="true">
 				<input type="checkbox" id="isActiveTax" checked>
