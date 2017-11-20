@@ -55,8 +55,8 @@ headerTitle: Edit Convenience Fee
 				</div>
 
 				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
-					<div class="checkbox">
-						<input type="checkbox" id="inclide-taxes" checked class="js-convenience-checkbox">
+					<div class="checkbox js-convenience-checkbox">
+						<input type="checkbox" id="inclide-taxes" checked>
 						<label for="inclide-taxes">Include Taxes</label>
 					</div>
 				</div>
@@ -71,12 +71,15 @@ headerTitle: Edit Convenience Fee
 						$field
 							.add($checkbox)
 							.attr('disabled', false);
+						$checkbox.show();
 					} else {
 						$field
 							.val('')
-							.add($checkbox)
 							.attr('disabled', true);
-						$checkbox.prop('checked', false);
+						$checkbox
+							.hide()
+							.find('input')
+							.prop('checked', false);
 					}
 				}
 			</script>
