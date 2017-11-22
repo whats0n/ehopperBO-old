@@ -50,11 +50,6 @@ headerTitle: Edit Convenience Fee
 					</div>
 				</div>
 
-				<div class="col-xs-5 col-md-5">
-					<label>Min Value:</label>
-					<input class="form-control input-lg js-convenience-field" type="text" placeholder="Min Value" maxlength="100">
-				</div>
-
 				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
 					<div class="checkbox js-convenience-checkbox">
 						<input type="checkbox" id="inclide-taxes" checked>
@@ -65,23 +60,13 @@ headerTitle: Edit Convenience Fee
 
 			<script>
 				function convenienceSwitch(e) {
-					var $field = $('.js-convenience-field');
 					var $checkbox = $('.js-convenience-checkbox');
 					
-					if ($(e.target).prop('checked')) {
-						$field
-							.add($checkbox)
-							.attr('disabled', false);
-						$checkbox.show();
-					} else {
-						$field
-							.val('')
-							.attr('disabled', true);
-						$checkbox
+					if ($(e.target).prop('checked')) $checkbox.show();
+					else $checkbox
 							.hide()
 							.find('input')
 							.prop('checked', false);
-					}
 				}
 			</script>
 

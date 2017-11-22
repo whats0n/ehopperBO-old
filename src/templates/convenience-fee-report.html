@@ -54,63 +54,56 @@ headerTitle: Convenience Fee Report
 						<th data-index="5" data-bind="click : sortClick">Total Amount</th>
 					</tr>
 				</thead>
+				{% set fee = [
+					{
+						name: 'SVC (NY)',
+						rate: '4%',
+						orderAmount: '$10.20$',
+						collectedAmount: '$0.41',
+						totalAmount: '$0.41'
+					},
+					{
+						name: 'SVC (AZ)',
+						rate: '3.1%',
+						orderAmount: '$12.80$',
+						collectedAmount: '$0.39',
+						totalAmount: '$0.39'
+					},
+					{
+						name: 'SVC (FL)',
+						rate: '1.1%',
+						orderAmount: '$12.80$',
+						collectedAmount: '$0.13',
+						discountAmount: '$0.13'
+					},
+					{
+						name: 'SVC (LA)',
+						rate: '$2.00',
+						orderAmount: '$12.80$',
+						collectedAmount: '$2.00',
+						totalAmount: '$2.00'
+					}
+				] %}
 				<tbody data-bind="foreach: lines">
-					<tr>
-						<td>SVC (NY)</td>
-						<td>
-							<span>11</span>
-							<span>%</span>
-						</td>
-						<td>$0.00</td>
-						<td>$0.00</td>
-						<td>$0.00</td>
-						<td>$0.00</td>
-					</tr>
-				
-					<tr>
-						<td>SVC (AZ)</td>
-						<td>
-							<span>3.1</span>
-							<span>%</span>
-						</td>
-						<td>$12.80</td>
-						<td>$0.39</td>
-						<td>$0.00</td>
-						<td>$0.39</td>
-					</tr>
-				
-					<tr>
-						<td>SVC (FL)</td>
-						<td>
-							<span>1.1</span>
-							<span>%</span>
-						</td>
-						<td>$12.80</td>
-						<td>$0.13</td>
-						<td>$0.13</td>
-						<td>$0.00</td>
-					</tr>
-				
-					<tr>
-						<td>SVC (LA)</td>
-						<td>
-							<span>2</span>
-							<span>%</span>
-						</td>
-						<td>$12.80</td>
-						<td>$0.26</td>
-						<td>$0.00</td>
-						<td>$0.26</td>
-					</tr>
+					{% for item in fee %}
+						<tr>
+							<td>{{item.name}}</td>
+							<td>{{item.rate}}</td>
+							<td>{{item.orderAmount or '$0.00'}}</td>
+							<td>{{item.collectedAmount or '$0.00'}}</td>
+							<td>{{item.discountAmount or '$0.00'}}</td>
+							<td>{{item.totalAmount or '$0.00'}}</td>
+						</tr>
+					{% endfor %}
 				</tbody>
 				<tfoot>
 					<tr class="report-total">
 						<td>&nbsp;</td>
 						<td><span>Total</span>:</td>
-						<td>$39.40</td>
-						<td>$0.78</td>
+						<td>$48.60</td>
+						<td>$2.93</td>
 						<td>$0.13</td>
-						<td>$0.65</td>
+						<td>$2.80</td>
 					</tr>
                 </tfoot>
 			</table>
