@@ -112,7 +112,12 @@
 						<td>{{loop.index * loop.index + '00'}}</td>
 						<td>{{item.sku or loop.index * 2}}</td>
 						{# <td>{{item.uom}}</td> #}
-						<td>${{item.cost or loop.index * 2}}.00 ({{item.uom}})</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">({{item.uom}})</div>
+							</div>
+						</td>
 						<td>{{item.storeIn or loop.index * 2}} ({{item.uom}})</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">

@@ -290,10 +290,7 @@
 					<td data-bind="text: $data.sku"></td>
 					<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable js-configurable">
 						<div class="sm-configurable__inner">
-							<!-- <span class="sm-configurable__symbol">$</span> -->
 							<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
-							<!-- <i class="fa fa-edit sm-configurable__btn"></i>
-							<span class="sm-configurable__text">$<span class="js-configurable-text">0.00</span></span> -->
 						</div>
 					</td>
 					<td data-bind="visible:$data.productType != 0" style="display: none;"></td>
@@ -405,7 +402,12 @@
 						<td>100</td>
 						<td>2</td>
 						
-						<td>$2.00 (unit)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(unit)</div>
+							</div>
+						</td>
 						<td>2 (unit)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -421,7 +423,12 @@
 						<td>400</td>
 						<td>4</td>
 						
-						<td>$4.00 (unit)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(unit)</div>
+							</div>
+						</td>
 						<td>4 (unit)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -437,7 +444,12 @@
 						<td>900</td>
 						<td>6</td>
 						
-						<td>$6.00 (l)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(l)</div>
+							</div>
+						</td>
 						<td>6 (l)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -453,7 +465,12 @@
 						<td>1600</td>
 						<td>8</td>
 						
-						<td>$8.00 (kg)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(kg)</div>
+							</div>
+						</td>
 						<td>8 (kg)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -469,7 +486,12 @@
 						<td>2500</td>
 						<td>10</td>
 						
-						<td>$10.00 (kg)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(kg)</div>
+							</div>
+						</td>
 						<td>10 (kg)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -485,7 +507,12 @@
 						<td>3600</td>
 						<td>12</td>
 						
-						<td>$12.00 (case)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(case)</div>
+							</div>
+						</td>
 						<td>12 (case)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -501,7 +528,12 @@
 						<td>4900</td>
 						<td>14</td>
 						
-						<td>$14.00 (box)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(box)</div>
+							</div>
+						</td>
 						<td>14 (box)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -517,7 +549,12 @@
 						<td>6400</td>
 						<td>16</td>
 						
-						<td>$16.00 (pack)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(pack)</div>
+							</div>
+						</td>
 						<td>16 (pack)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -533,7 +570,12 @@
 						<td>8100</td>
 						<td>18</td>
 						
-						<td>$18.00 (pack)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(pack)</div>
+							</div>
+						</td>
 						<td>18 (pack)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">
@@ -549,7 +591,12 @@
 						<td>10000</td>
 						<td>20</td>
 						
-						<td>$20.00 (tray)</td>
+						<td data-bind="currency: $data.cost, visible:$data.productType == 0" class="sm-configurable sm-configurable_update js-configurable">
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-configurable-input" value="$400.00">
+								<div class="sm-configurable__units">(tray)</div>
+							</div>
+						</td>
 						<td>20 (tray)</td>
 						<td style="white-space: initial">
 							<input type="number" class="form-control input" value="0">

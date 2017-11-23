@@ -2707,22 +2707,8 @@
   text-align: center;
 }
 
-.sm-configurable:hover .sm-configurable__btn {
-  display: block;
-}
-
-.sm-configurable.is-open .sm-configurable__input, .sm-configurable.is-open .sm-configurable__symbol {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sm-configurable.is-open .sm-configurable__text, .sm-configurable.is-open .sm-configurable__btn {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.sm-configurable__inner {
-  position: relative;
+.sm-configurable_update {
+  padding: 5px 15px 11px !important;
 }
 
 .sm-configurable__input {
@@ -2737,27 +2723,12 @@
   border-color: #66afe9;
 }
 
-.sm-configurable__btn {
-  float: right;
-  font-size: 24px;
-}
-
-.sm-configurable__text {
-  display: block;
-  overflow: hidden;
-  padding-right: 8px;
-  line-height: 24px;
-  word-break: break-word;
-  white-space: normal;
-}
-
-.sm-configurable__symbol {
+.sm-configurable__units {
   position: absolute;
-  z-index: 2;
-  top: 1px;
-  left: -10px;
-  opacity: 0;
-  visibility: hidden;
+  right: 15px;
+  bottom: 2px;
+  font-size: 12px;
+  line-height: 1;
 }
 
 .awesome-toggle {

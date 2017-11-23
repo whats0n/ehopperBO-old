@@ -1,51 +1,19 @@
 .sm-configurable
 	position: relative
 	text-align: center
-	+hover
-		.sm-configurable
-			&__btn
-				display: block
-	&.is-open
-		.sm-configurable
-			&__input,
-			&__symbol
-				opacity: 1
-				visibility: visible
-			&__text,
-			&__btn
-				opacity: 0
-				visibility: hidden
-	&__inner
-		position: relative
+	&_update
+		padding: 5px 15px 11px !important
 	&__input
-		// position: absolute
-		// top: 0
-		// left: 0
-		// right: 0
 		border: none
 		border-bottom: 1px solid #ccc
 		width: 100%
-		// opacity: 0
-		// visibility: hidden
-		// text-align: center
 		text-align: right
 		transition: border-color ease-in-out .15s
 		&:focus
 			border-color: #66afe9
-	&__btn
-		float: right
-		font-size: 24px
-	&__text
-		display: block
-		overflow: hidden
-		padding-right: 8px
-		line-height: 24px
-		word-break: break-word
-		white-space: normal
-	&__symbol
+	&__units
 		position: absolute
-		z-index: 2
-		top: 1px
-		left: -10px
-		opacity: 0
-		visibility: hidden
+		right: 15px
+		bottom: 2px
+		font-size: 12px
+		line-height: 1
