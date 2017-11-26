@@ -1,12 +1,54 @@
----
-title: Payment report
-headerTitle: Payment report
----
-{% extends "layouts/_layout.html" %}
 
-{% block content %}
+
+<!doctype html>
+<html>
+	<head>
+		<title>Acticvation report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Acticvation report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
 	<div class="pane-body inventory" data-bind="with: filter">
-		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by Tracking #">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Code, Mobile">
 		<div style="float:left;">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
@@ -303,39 +345,191 @@ headerTitle: Payment report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Created by:</label>
+							<label>Salesperson:</label>
 							<select>
 								<option>All</option>
-								{% for item in range(0,20) %}
-									<option value="Creator {{loop.index}}">Creator {{loop.index}}</option>
-								{% endfor %}
+								
+									<option value="Salesperson 1">Salesperson 1</option>
+								
+									<option value="Salesperson 2">Salesperson 2</option>
+								
+									<option value="Salesperson 3">Salesperson 3</option>
+								
+									<option value="Salesperson 4">Salesperson 4</option>
+								
+									<option value="Salesperson 5">Salesperson 5</option>
+								
+									<option value="Salesperson 6">Salesperson 6</option>
+								
+									<option value="Salesperson 7">Salesperson 7</option>
+								
+									<option value="Salesperson 8">Salesperson 8</option>
+								
+									<option value="Salesperson 9">Salesperson 9</option>
+								
+									<option value="Salesperson 10">Salesperson 10</option>
+								
+									<option value="Salesperson 11">Salesperson 11</option>
+								
+									<option value="Salesperson 12">Salesperson 12</option>
+								
+									<option value="Salesperson 13">Salesperson 13</option>
+								
+									<option value="Salesperson 14">Salesperson 14</option>
+								
+									<option value="Salesperson 15">Salesperson 15</option>
+								
+									<option value="Salesperson 16">Salesperson 16</option>
+								
+									<option value="Salesperson 17">Salesperson 17</option>
+								
+									<option value="Salesperson 18">Salesperson 18</option>
+								
+									<option value="Salesperson 19">Salesperson 19</option>
+								
+									<option value="Salesperson 20">Salesperson 20</option>
+								
 							</select>
 						</td>
 						<td class="payment-report-filter">
 							<label>Customer:</label>
 							<select>
 								<option>All</option>
-								{% for item in range(0,20) %}
-									<option value="Customer {{loop.index}}">Customer {{loop.index}}</option>
-								{% endfor %}
+								
+									<option value="Customer 1">Customer 1</option>
+								
+									<option value="Customer 2">Customer 2</option>
+								
+									<option value="Customer 3">Customer 3</option>
+								
+									<option value="Customer 4">Customer 4</option>
+								
+									<option value="Customer 5">Customer 5</option>
+								
+									<option value="Customer 6">Customer 6</option>
+								
+									<option value="Customer 7">Customer 7</option>
+								
+									<option value="Customer 8">Customer 8</option>
+								
+									<option value="Customer 9">Customer 9</option>
+								
+									<option value="Customer 10">Customer 10</option>
+								
+									<option value="Customer 11">Customer 11</option>
+								
+									<option value="Customer 12">Customer 12</option>
+								
+									<option value="Customer 13">Customer 13</option>
+								
+									<option value="Customer 14">Customer 14</option>
+								
+									<option value="Customer 15">Customer 15</option>
+								
+									<option value="Customer 16">Customer 16</option>
+								
+									<option value="Customer 17">Customer 17</option>
+								
+									<option value="Customer 18">Customer 18</option>
+								
+									<option value="Customer 19">Customer 19</option>
+								
+									<option value="Customer 20">Customer 20</option>
+								
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Tender Type:</label>
+							<label>Carrier:</label>
 							<select>
 								<option>All</option>
-								{% for item in range(0,20) %}
-									<option value="Tender Type {{loop.index}}">Tender Type {{loop.index}}</option>
-								{% endfor %}
+								
+									<option value="Carrier 1">Carrier 1</option>
+								
+									<option value="Carrier 2">Carrier 2</option>
+								
+									<option value="Carrier 3">Carrier 3</option>
+								
+									<option value="Carrier 4">Carrier 4</option>
+								
+									<option value="Carrier 5">Carrier 5</option>
+								
+									<option value="Carrier 6">Carrier 6</option>
+								
+									<option value="Carrier 7">Carrier 7</option>
+								
+									<option value="Carrier 8">Carrier 8</option>
+								
+									<option value="Carrier 9">Carrier 9</option>
+								
+									<option value="Carrier 10">Carrier 10</option>
+								
+									<option value="Carrier 11">Carrier 11</option>
+								
+									<option value="Carrier 12">Carrier 12</option>
+								
+									<option value="Carrier 13">Carrier 13</option>
+								
+									<option value="Carrier 14">Carrier 14</option>
+								
+									<option value="Carrier 15">Carrier 15</option>
+								
+									<option value="Carrier 16">Carrier 16</option>
+								
+									<option value="Carrier 17">Carrier 17</option>
+								
+									<option value="Carrier 18">Carrier 18</option>
+								
+									<option value="Carrier 19">Carrier 19</option>
+								
+									<option value="Carrier 20">Carrier 20</option>
+								
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Trans Type:</label>
+							<label>Contract Type:</label>
 							<select>
 								<option>All</option>
-								{% for item in range(0,20) %}
-									<option value="Trans Type {{loop.index}}">Trans Type {{loop.index}}</option>
-								{% endfor %}
+								
+									<option value="Contract Type 1">Contract Type 1</option>
+								
+									<option value="Contract Type 2">Contract Type 2</option>
+								
+									<option value="Contract Type 3">Contract Type 3</option>
+								
+									<option value="Contract Type 4">Contract Type 4</option>
+								
+									<option value="Contract Type 5">Contract Type 5</option>
+								
+									<option value="Contract Type 6">Contract Type 6</option>
+								
+									<option value="Contract Type 7">Contract Type 7</option>
+								
+									<option value="Contract Type 8">Contract Type 8</option>
+								
+									<option value="Contract Type 9">Contract Type 9</option>
+								
+									<option value="Contract Type 10">Contract Type 10</option>
+								
+									<option value="Contract Type 11">Contract Type 11</option>
+								
+									<option value="Contract Type 12">Contract Type 12</option>
+								
+									<option value="Contract Type 13">Contract Type 13</option>
+								
+									<option value="Contract Type 14">Contract Type 14</option>
+								
+									<option value="Contract Type 15">Contract Type 15</option>
+								
+									<option value="Contract Type 16">Contract Type 16</option>
+								
+									<option value="Contract Type 17">Contract Type 17</option>
+								
+									<option value="Contract Type 18">Contract Type 18</option>
+								
+									<option value="Contract Type 19">Contract Type 19</option>
+								
+									<option value="Contract Type 20">Contract Type 20</option>
+								
 							</select>
 						</td>
 					</tr>
@@ -358,72 +552,68 @@ headerTitle: Payment report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting_asc table-trans-date"
+						<th class="sorting_asc"
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by descending columns" 
-							aria-sort="ascending">Trans Date</th>
+							aria-label="Salesperson: Activate to sort by descending columns" 
+							aria-sort="ascending">Salesperson</th>
 						<th class="sorting table-trans-id" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
+							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th>
+						<th class="sorting table-trans-date" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Product Desc: Activate to sort by ascending columns">Product Desc</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
 					</tr>
 				</thead>
-				{% set payments = [
-					{
-						store: 'NM Missouri ',
-						transDate: '11/1/2017 12:00',
-						transID: '9662',
-						productDesc: 'Service Payment',
-						customer: 'DANIEL . JIMENEZ'
-					},
-					{
-						store: 'NM Madrid',
-						transDate: '11/1/2017 12:00',
-						transID: '9663',
-						productDesc: 'Service Payment',
-						customer: 'RENEE . PADILLA'
-					},
-					{
-						store: 'NM Madrid',
-						transDate: '11/1/2017 12:24',
-						transID: '9680',
-						productDesc: 'Feature Change',
-						customer: 'RUFINA MOLINA'
-					},
-					{
-						store: 'NM Missour',
-						transDate: '11/1/2017 12:34',
-						transID: '9685',
-						productDesc: 'Activation Payment',
-						customer: 'JOSE . CRUZ'
-					},
-					{
-						store: 'NM El Paseo',
-						transDate: '11/1/2017 12:56',
-						transID: '9695',
-						productDesc: 'Reactivation-$3',
-						customer: 'MARTIN ASTROGA'
-					}
-				] %}	
+					
 				<tbody>
-					{% for item in payments %}
+					
 						<tr>
-							<td>{{item.store}}</td>
-							<td class="table-trans-date">{{item.transDate}}</td>
-							<td class="table-trans-id">{{item.transID}}</td>
-							<td>{{item.productDesc}}</td>
-							<td>{{item.customer}}</td>
+							<td>6408 Pacific Ave</td>
+							<td>alfaro, Marylene</td>
+							<td class="table-trans-id">SP</td>
+							<td class="table-trans-date">11/1/2017</td>
+							<td>Customer Phone</td>
 						</tr>
-					{% endfor %}
+					
+						<tr>
+							<td>6408 Pacific Ave</td>
+							<td>Tello, Janettzy</td>
+							<td class="table-trans-id">SP</td>
+							<td class="table-trans-date">11/2/2017</td>
+							<td>Customer Phone</td>
+						</tr>
+					
+						<tr>
+							<td>6408 Pacific Ave</td>
+							<td>Tello, Janettzy</td>
+							<td class="table-trans-id">SP</td>
+							<td class="table-trans-date">11/3/2017</td>
+							<td>Tracfone LG Flip Phone</td>
+						</tr>
+					
+						<tr>
+							<td>6408 Pacific Ave</td>
+							<td>Benigno, Oscar</td>
+							<td class="table-trans-id">SP</td>
+							<td class="table-trans-date">11/7/2017</td>
+							<td>Customer Phone</td>
+						</tr>
+					
+						<tr>
+							<td>6408 Pacific Ave</td>
+							<td>alfaro, Marylene</td>
+							<td class="table-trans-id">SP</td>
+							<td class="table-trans-date">11/7/2017</td>
+							<td>Customer Phone</td>
+						</tr>
+					
 				</tbody>
 			</table>
 			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
@@ -441,4 +631,18 @@ headerTitle: Payment report
 			</div>
 		</div>
 	</div>
-{% endblock %}
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

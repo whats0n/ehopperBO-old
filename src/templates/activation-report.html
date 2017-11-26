@@ -1,12 +1,12 @@
 ---
-title: Payment report
-headerTitle: Payment report
+title: Acticvation report
+headerTitle: Acticvation report
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
 	<div class="pane-body inventory" data-bind="with: filter">
-		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by Tracking #">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Code, Mobile">
 		<div style="float:left;">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
@@ -303,11 +303,11 @@ headerTitle: Payment report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Created by:</label>
+							<label>Salesperson:</label>
 							<select>
 								<option>All</option>
 								{% for item in range(0,20) %}
-									<option value="Creator {{loop.index}}">Creator {{loop.index}}</option>
+									<option value="Salesperson {{loop.index}}">Salesperson {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
@@ -321,20 +321,20 @@ headerTitle: Payment report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Tender Type:</label>
+							<label>Carrier:</label>
 							<select>
 								<option>All</option>
 								{% for item in range(0,20) %}
-									<option value="Tender Type {{loop.index}}">Tender Type {{loop.index}}</option>
+									<option value="Carrier {{loop.index}}">Carrier {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Trans Type:</label>
+							<label>Contract Type:</label>
 							<select>
 								<option>All</option>
 								{% for item in range(0,20) %}
-									<option value="Trans Type {{loop.index}}">Trans Type {{loop.index}}</option>
+									<option value="Contract Type {{loop.index}}">Contract Type {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
@@ -358,70 +358,70 @@ headerTitle: Payment report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting_asc table-trans-date"
+						<th class="sorting_asc"
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by descending columns" 
-							aria-sort="ascending">Trans Date</th>
+							aria-label="Salesperson: Activate to sort by descending columns" 
+							aria-sort="ascending">Salesperson</th>
 						<th class="sorting table-trans-id" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
+							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th>
+						<th class="sorting table-trans-date" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Product Desc: Activate to sort by ascending columns">Product Desc</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
 					</tr>
 				</thead>
 				{% set payments = [
 					{
-						store: 'NM Missouri ',
-						transDate: '11/1/2017 12:00',
-						transID: '9662',
-						productDesc: 'Service Payment',
-						customer: 'DANIEL . JIMENEZ'
+						store: '6408 Pacific Ave',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						date: '11/1/2017',
+						productDesc: 'Customer Phone'
 					},
 					{
-						store: 'NM Madrid',
-						transDate: '11/1/2017 12:00',
-						transID: '9663',
-						productDesc: 'Service Payment',
-						customer: 'RENEE . PADILLA'
+						store: '6408 Pacific Ave',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						date: '11/2/2017',
+						productDesc: 'Customer Phone'
 					},
 					{
-						store: 'NM Madrid',
-						transDate: '11/1/2017 12:24',
-						transID: '9680',
-						productDesc: 'Feature Change',
-						customer: 'RUFINA MOLINA'
+						store: '6408 Pacific Ave',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						date: '11/3/2017',
+						productDesc: 'Tracfone LG Flip Phone'
 					},
 					{
-						store: 'NM Missour',
-						transDate: '11/1/2017 12:34',
-						transID: '9685',
-						productDesc: 'Activation Payment',
-						customer: 'JOSE . CRUZ'
+						store: '6408 Pacific Ave',
+						person: 'Benigno, Oscar',
+						commission: 'SP',
+						date: '11/7/2017',
+						productDesc: 'Customer Phone'
 					},
 					{
-						store: 'NM El Paseo',
-						transDate: '11/1/2017 12:56',
-						transID: '9695',
-						productDesc: 'Reactivation-$3',
-						customer: 'MARTIN ASTROGA'
+						store: '6408 Pacific Ave',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						date: '11/7/2017',
+						productDesc: 'Customer Phone'
 					}
 				] %}	
 				<tbody>
 					{% for item in payments %}
 						<tr>
 							<td>{{item.store}}</td>
-							<td class="table-trans-date">{{item.transDate}}</td>
-							<td class="table-trans-id">{{item.transID}}</td>
+							<td>{{item.person}}</td>
+							<td class="table-trans-id">{{item.commission}}</td>
+							<td class="table-trans-date">{{item.date}}</td>
 							<td>{{item.productDesc}}</td>
-							<td>{{item.customer}}</td>
 						</tr>
 					{% endfor %}
 				</tbody>

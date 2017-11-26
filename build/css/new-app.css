@@ -3620,6 +3620,34 @@
   text-align: center;
 }
 
+.payment-report-filters {
+  margin: 0 -10px;
+}
+
+.payment-report-filters__table {
+  table-layout: fixed;
+}
+
+.payment-report-filter {
+  padding: 0 10px;
+}
+
+.payment-report-filter label {
+  display: block;
+}
+
+.payment-report-filter select {
+  width: 100% !important;
+}
+
+.table-trans-date {
+  width: 15%;
+}
+
+.table-trans-id {
+  width: 20%;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;
