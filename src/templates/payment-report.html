@@ -123,7 +123,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						<td class="payment-report-filter">
 							<label>Register:</label>
 							<select>
-								<option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
+								<option>All</option>
 								{% for item in range(0,5) %}
 									<option value="Register {{loop.index}}">Register {{loop.index}}</option>
 								{% endfor %}
@@ -342,21 +342,21 @@ headerTitle: VIDA Pay (Tcetra) Report
 				<tbody>
 					{% for item in payments %}
 						<tr>
-							<td>{{item.store}}</td>
-							<td class="table-report-date">{{item.transDate}}</td>
-							<td class="table-report-id">{{item.transID}}</td>
-							<td>{{item.productDesc}}</td>
-							<td>{{item.customer}}</td>
-							<td>{{item.tracking}}</td>
-							<td>{{item.billPayID}}</td>
-							<td>{{item.carrierID}}</td>
-							<td>{{item.payment}}</td>
-							<td class="table-report-fee">{{item.fee}}</td>
-							<td>{{item.totalAmt}}</td>
-							<td>{{item.createdBy}}</td>
-							<td>{{item.tenderType}}</td>
-							<td>{{item.transType}}</td>
-							<td class="table-report-register">{{item.register}}</td>
+							<td class="break-word">{{item.store}}</td>
+							<td class="table-report-date break-word">{{item.transDate}}</td>
+							<td class="table-report-id break-word">{{item.transID}}</td>
+							<td class="break-word">{{item.productDesc}}</td>
+							<td class="break-word">{{item.customer}}</td>
+							<td class="break-word">{{item.tracking}}</td>
+							<td class="break-word">{{item.billPayID}}</td>
+							<td class="break-word">{{item.carrierID}}</td>
+							<td class="break-word">{{item.payment}}</td>
+							<td class="table-report-fee break-word">{{item.fee}}</td>
+							<td class="break-word">{{item.totalAmt}}</td>
+							<td class="break-word">{{item.createdBy}}</td>
+							<td class="break-word">{{item.tenderType}}</td>
+							<td class="break-word">{{item.transType}}</td>
+							<td class="table-report-register break-word">{{item.register}}</td>
 						</tr>
 					{% endfor %}
 				</tbody>
