@@ -1,6 +1,6 @@
 ---
 title: Acticvation report
-headerTitle: Acticvation report
+headerTitle: Tracfone (DAP) Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -19,7 +19,16 @@ headerTitle: Acticvation report
 							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 						</select>
 						<div class="ms-parent" style="width: 100px;">
-							<button type="button" class="select">
+							<script>
+								function openDropdown(e) {
+									e.preventDefault();
+									$(e.currentTarget)
+										.closest('.ms-parent')
+										.find('.ms-drop')
+										.toggle();
+								}
+							</script>
+							<button type="button" class="select" onclick="openDropdown(event)">
 								<div class="fl">
 									<div>
 										<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">

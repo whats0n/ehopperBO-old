@@ -42,7 +42,7 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Payment report</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">VIDA Pay (Tcetra) Report</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
@@ -61,7 +61,16 @@
 							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 						</select>
 						<div class="ms-parent" style="width: 100px;">
-							<button type="button" class="select">
+							<script>
+								function openDropdown(e) {
+									e.preventDefault();
+									$(e.currentTarget)
+										.closest('.ms-parent')
+										.find('.ms-drop')
+										.toggle();
+								}
+							</script>
+							<button type="button" class="select" onclick="openDropdown(event)">
 								<div class="fl">
 									<div>
 										<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
@@ -157,191 +166,17 @@
 							<label>Register:</label>
 							<select>
 								<option value="" data-bind="local: 'reports/productMixReport.all'">All</option>
-								<!-- ko foreach: registers -->
-								<option data-bind="attr: { value: id }, text: name" value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option>
+									<option value="Register 1">Register 1</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="086eba2fd48f42769dcbe0572468661f">BestRegister</option>
+									<option value="Register 2">Register 2</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="0d5cfe1469544ccaac88ee342b3b1918">Register 23</option>
+									<option value="Register 3">Register 3</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option>
+									<option value="Register 4">Register 4</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option>
+									<option value="Register 5">Register 5</option>
 								
-								<option data-bind="attr: { value: id }, text: name" value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="24649d7ca7d949df83604b88f63b95f4">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="32dd841316074f6d951d59796589f9d6">Register 4</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="379097eeea95461082c1841402e8030a">Register 35</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="4b0795c6abbc45059c24160fd5774c89">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="4bc8f4727dc44d6284275192864c0796">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="52e976234a594a6d909e66b21df87fa8">Register 34</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="55e51ce0376742108d6162dea4bc45a9">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5c494aa7523840ef92c3af57daab37f5">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="687c22e0523f4c3e8684d12826d50a01">Register 25</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="70e8af6258234907a4cea7ee2972bbba">Register 15</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="71584beb246e4c11a0e795eac9075a14">New Register2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="738da54718994c95a48b07a2c47b542b">Register 32</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="7719029c877c4f80b549ddbf84b2354f">Register 22</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="77851291483b41e3a7f69a2b051425c8">Register 48</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="7a8eea70f05140469d399ae5c75f472d">Register 4</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="7bfc860628744ec3a48067555adee08f">Register 373</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="7ceda4082230456b953fa1597bcb0d54">Register 45</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="80c333a78565473ea0018543a47cd49a">Register 3</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="8978fa57b78841a5be89451a86d0e93e">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="91498eecf1234acebc2236b574b20327">Register 0</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="a46892a1be6042258ff58e60a5f1582b">Register 2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="a914faab24d547d39d308a026c2eb55e">Register 5</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="af2622606349469584ac527a17f57eb2">Register a</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="ce7907f2c2f2486584520c68de478121">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="ced31ed315ee49128a42183bca6302ea">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="d976d5d3489145578e19624ae03b1f9b">Register 49</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="ddbe28aa7b414c20a93c827862bae5ba">Register 33</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="e2ddf75799df4d89818184196787fe14">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="e789e6518ae04360a8564863ff760f23">Register 1</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="e993ba8444b3484b85f24230945783ac">Register 20</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="eacf243055df4cc28de04e788b4c341d">BestRegister</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="f24e699965944981a3770e4eeafc60f9">Register 41</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="f2a3a22cb5624890bae5ee775a326553">Register 46</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="f546823618a449b3bcda2ca71a314703">Register 30</option>
-								
-								<option data-bind="attr: { value: id }, text: name" value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
-								<!-- /ko -->
 							</select>
 						</td>
 						<td class="payment-report-filter">
@@ -358,36 +193,6 @@
 									<option value="Creator 4">Creator 4</option>
 								
 									<option value="Creator 5">Creator 5</option>
-								
-									<option value="Creator 6">Creator 6</option>
-								
-									<option value="Creator 7">Creator 7</option>
-								
-									<option value="Creator 8">Creator 8</option>
-								
-									<option value="Creator 9">Creator 9</option>
-								
-									<option value="Creator 10">Creator 10</option>
-								
-									<option value="Creator 11">Creator 11</option>
-								
-									<option value="Creator 12">Creator 12</option>
-								
-									<option value="Creator 13">Creator 13</option>
-								
-									<option value="Creator 14">Creator 14</option>
-								
-									<option value="Creator 15">Creator 15</option>
-								
-									<option value="Creator 16">Creator 16</option>
-								
-									<option value="Creator 17">Creator 17</option>
-								
-									<option value="Creator 18">Creator 18</option>
-								
-									<option value="Creator 19">Creator 19</option>
-								
-									<option value="Creator 20">Creator 20</option>
 								
 							</select>
 						</td>
@@ -406,82 +211,25 @@
 								
 									<option value="Customer 5">Customer 5</option>
 								
-									<option value="Customer 6">Customer 6</option>
-								
-									<option value="Customer 7">Customer 7</option>
-								
-									<option value="Customer 8">Customer 8</option>
-								
-									<option value="Customer 9">Customer 9</option>
-								
-									<option value="Customer 10">Customer 10</option>
-								
-									<option value="Customer 11">Customer 11</option>
-								
-									<option value="Customer 12">Customer 12</option>
-								
-									<option value="Customer 13">Customer 13</option>
-								
-									<option value="Customer 14">Customer 14</option>
-								
-									<option value="Customer 15">Customer 15</option>
-								
-									<option value="Customer 16">Customer 16</option>
-								
-									<option value="Customer 17">Customer 17</option>
-								
-									<option value="Customer 18">Customer 18</option>
-								
-									<option value="Customer 19">Customer 19</option>
-								
-									<option value="Customer 20">Customer 20</option>
-								
 							</select>
 						</td>
 						<td class="payment-report-filter">
 							<label>Tender Type:</label>
+							
 							<select>
 								<option>All</option>
 								
-									<option value="Tender Type 1">Tender Type 1</option>
+									<option value="Cash">Cash</option>
 								
-									<option value="Tender Type 2">Tender Type 2</option>
+									<option value="Credit Card">Credit Card</option>
 								
-									<option value="Tender Type 3">Tender Type 3</option>
+									<option value="Debit Card">Debit Card</option>
 								
-									<option value="Tender Type 4">Tender Type 4</option>
+									<option value="External Payment">External Payment</option>
 								
-									<option value="Tender Type 5">Tender Type 5</option>
+									<option value="Split">Split</option>
 								
-									<option value="Tender Type 6">Tender Type 6</option>
-								
-									<option value="Tender Type 7">Tender Type 7</option>
-								
-									<option value="Tender Type 8">Tender Type 8</option>
-								
-									<option value="Tender Type 9">Tender Type 9</option>
-								
-									<option value="Tender Type 10">Tender Type 10</option>
-								
-									<option value="Tender Type 11">Tender Type 11</option>
-								
-									<option value="Tender Type 12">Tender Type 12</option>
-								
-									<option value="Tender Type 13">Tender Type 13</option>
-								
-									<option value="Tender Type 14">Tender Type 14</option>
-								
-									<option value="Tender Type 15">Tender Type 15</option>
-								
-									<option value="Tender Type 16">Tender Type 16</option>
-								
-									<option value="Tender Type 17">Tender Type 17</option>
-								
-									<option value="Tender Type 18">Tender Type 18</option>
-								
-									<option value="Tender Type 19">Tender Type 19</option>
-								
-									<option value="Tender Type 20">Tender Type 20</option>
+									<option value="EBT">EBT</option>
 								
 							</select>
 						</td>
@@ -500,36 +248,6 @@
 								
 									<option value="Trans Type 5">Trans Type 5</option>
 								
-									<option value="Trans Type 6">Trans Type 6</option>
-								
-									<option value="Trans Type 7">Trans Type 7</option>
-								
-									<option value="Trans Type 8">Trans Type 8</option>
-								
-									<option value="Trans Type 9">Trans Type 9</option>
-								
-									<option value="Trans Type 10">Trans Type 10</option>
-								
-									<option value="Trans Type 11">Trans Type 11</option>
-								
-									<option value="Trans Type 12">Trans Type 12</option>
-								
-									<option value="Trans Type 13">Trans Type 13</option>
-								
-									<option value="Trans Type 14">Trans Type 14</option>
-								
-									<option value="Trans Type 15">Trans Type 15</option>
-								
-									<option value="Trans Type 16">Trans Type 16</option>
-								
-									<option value="Trans Type 17">Trans Type 17</option>
-								
-									<option value="Trans Type 18">Trans Type 18</option>
-								
-									<option value="Trans Type 19">Trans Type 19</option>
-								
-									<option value="Trans Type 20">Trans Type 20</option>
-								
 							</select>
 						</td>
 					</tr>
@@ -545,7 +263,7 @@
 				</label>
 			</div>
 			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
-			<table class="datatable dataTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+			<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
 				<thead>
 					<tr role="row">
 						<th class="sorting" 
@@ -557,7 +275,7 @@
 							aria-controls="productMixReportTable" 
 							aria-label="Trans Date: Activate to sort by descending columns" 
 							aria-sort="ascending">Trans Date</th>
-						<th class="sorting table-trans-id" 
+						<th class="sorting table-report-id" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
@@ -569,6 +287,46 @@
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Tracking #: Activate to sort by ascending columns">Tracking #</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Bill Pay ID: Activate to sort by ascending columns">Bill Pay ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
+						<th class="sorting table-report-fee" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Fee: Activate to sort by ascending columns">Fee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Total Amt: Activate to sort by ascending columns">Total Amt</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Created By: Activate to sort by ascending columns">Created By</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Tender Type: Activate to sort by ascending columns">Tender Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Trans Type: Activate to sort by ascending columns">Trans Type</th>
+						<th class="sorting table-report-register" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
 					</tr>
 				</thead>
 					
@@ -576,42 +334,92 @@
 					
 						<tr>
 							<td>NM Missouri </td>
-							<td class="table-trans-date">11/1/2017 12:00</td>
-							<td class="table-trans-id">9662</td>
+							<td class="table-report-date">11/1/2017 12:00</td>
+							<td class="table-report-id">9662</td>
 							<td>Service Payment</td>
 							<td>DANIEL . JIMENEZ</td>
+							<td>5754491522</td>
+							<td>737167772</td>
+							<td>811225820</td>
+							<td>$60.00</td>
+							<td class="table-report-fee">$3.00</td>
+							<td>$63.00</td>
+							<td>ochoa, elizabeth</td>
+							<td>Cash</td>
+							<td>Sale</td>
+							<td class="table-report-register">1</td>
 						</tr>
 					
 						<tr>
 							<td>NM Madrid</td>
-							<td class="table-trans-date">11/1/2017 12:00</td>
-							<td class="table-trans-id">9663</td>
+							<td class="table-report-date">11/1/2017 12:00</td>
+							<td class="table-report-id">9663</td>
 							<td>Service Payment</td>
 							<td>RENEE . PADILLA</td>
+							<td>5758050516</td>
+							<td>737167826</td>
+							<td>811225908</td>
+							<td>$50.00</td>
+							<td class="table-report-fee">$3.00</td>
+							<td>$53.00</td>
+							<td>Ochoa, Lupe</td>
+							<td>Cash</td>
+							<td>Sale</td>
+							<td class="table-report-register">2</td>
 						</tr>
 					
 						<tr>
 							<td>NM Madrid</td>
-							<td class="table-trans-date">11/1/2017 12:24</td>
-							<td class="table-trans-id">9680</td>
+							<td class="table-report-date">11/1/2017 12:24</td>
+							<td class="table-report-id">9680</td>
 							<td>Feature Change</td>
 							<td>RUFINA MOLINA</td>
+							<td>5752887429</td>
+							<td>737182622</td>
+							<td>811248758</td>
+							<td>$5.00</td>
+							<td class="table-report-fee">$0.00</td>
+							<td>$5.00</td>
+							<td>Rivera, Perla</td>
+							<td>Debit Card</td>
+							<td>Sale</td>
+							<td class="table-report-register">3</td>
 						</tr>
 					
 						<tr>
 							<td>NM Missour</td>
-							<td class="table-trans-date">11/1/2017 12:34</td>
-							<td class="table-trans-id">9685</td>
+							<td class="table-report-date">11/1/2017 12:34</td>
+							<td class="table-report-id">9685</td>
 							<td>Activation Payment</td>
 							<td>JOSE . CRUZ</td>
+							<td>9153313591</td>
+							<td>737188284</td>
+							<td>811257514</td>
+							<td>$55.00</td>
+							<td class="table-report-fee">$0.00</td>
+							<td>$55.00</td>
+							<td>ochoa, elizabeth</td>
+							<td>Cash</td>
+							<td>Sale</td>
+							<td class="table-report-register">1</td>
 						</tr>
 					
 						<tr>
 							<td>NM El Paseo</td>
-							<td class="table-trans-date">11/1/2017 12:56</td>
-							<td class="table-trans-id">9695</td>
+							<td class="table-report-date">11/1/2017 12:56</td>
+							<td class="table-report-id">9695</td>
 							<td>Reactivation-$3</td>
 							<td>MARTIN ASTROGA</td>
+							<td>5755207160</td>
+							<td>737201054</td>
+							<td>811277297</td>
+							<td>$40.00</td>
+							<td class="table-report-fee">$3.00</td>
+							<td>$43.00</td>
+							<td>Lopez, Kathleen</td>
+							<td>Debit Card</td>
+							<td>Sale</td>
+							<td class="table-report-register">2</td>
 						</tr>
 					
 				</tbody>
