@@ -454,6 +454,8 @@
 //payment report
 #activationReportTable
 	min-width: 2500px
+#paymentReportTable
+	min-width: 1800px
 .payment-report-filters
 	margin: 0 -10px
 	&__table
@@ -464,14 +466,34 @@
 		display: block
 	select
 		width: 100% !important
-.table-report-register
+//table report columns
+=column($name)
+	[data-table-report="col-#{$name}"]
+		@content
++column('trans-date')
+	width: 140px
++column('trans-id')
 	width: 110px
-.table-report-id
++column('tracking')
+	width: 120px
++column('bill-pay-id')
+	width: 120px
++column('carrier-id')
+	width: 120px
++column('tender-type')
 	width: 110px
-.table-report-fee
++column('trans-type')
 	width: 100px
-.table-report-sppo-name
-	width: 350px
++column('register')
+	width: 110px
+// .table-report-register
+// 	width: 110px
+// .table-report-id
+// 	width: 110px
+// .table-report-fee
+// 	width: 100px
+// .table-report-sppo-name
+// 	width: 350px
 // .table-trans-date
 // 	width: 15%
 // .table-trans-id

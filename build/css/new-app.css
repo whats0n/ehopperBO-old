@@ -3624,6 +3624,10 @@
   min-width: 2500px;
 }
 
+#paymentReportTable {
+  min-width: 1800px;
+}
+
 .payment-report-filters {
   margin: 0 -10px;
 }
@@ -3644,20 +3648,36 @@
   width: 100% !important;
 }
 
-.table-report-register {
+[data-table-report="col-trans-date"] {
+  width: 140px;
+}
+
+[data-table-report="col-trans-id"] {
   width: 110px;
 }
 
-.table-report-id {
+[data-table-report="col-tracking"] {
+  width: 120px;
+}
+
+[data-table-report="col-bill-pay-id"] {
+  width: 120px;
+}
+
+[data-table-report="col-carrier-id"] {
+  width: 120px;
+}
+
+[data-table-report="col-tender-type"] {
   width: 110px;
 }
 
-.table-report-fee {
+[data-table-report="col-trans-type"] {
   width: 100px;
 }
 
-.table-report-sppo-name {
-  width: 350px;
+[data-table-report="col-register"] {
+  width: 110px;
 }
 
 .break-word {
