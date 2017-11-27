@@ -3680,6 +3680,22 @@
   width: 110px;
 }
 
+[data-table-report="col-service-date"] {
+  width: 100px;
+}
+
+[data-table-report="col-mobile"] {
+  width: 120px;
+}
+
+[data-table-report="col-contract-type"] {
+  width: 120px;
+}
+
+[data-table-report="col-sppo-name"] {
+  width: 350px;
+}
+
 .break-word {
   white-space: normal !important;
   word-break: break-word !important;
