@@ -93,20 +93,21 @@ headerTitle: Tracfone (DAP) Report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Salesperson:</label>
+							<label>Contract Type:</label>
+							{% set contractType = [
+								'Activation',
+								'Add A Line',
+								'First Add A Line',
+								'Headset Upgrade',
+								'Non-eligible Upgrade',
+								'Port In',
+								'Port-In Add-A-Line',
+								'Reactivation'
+							] %}
 							<select>
 								<option>All</option>
 								{% for item in range(0,5) %}
-									<option value="Salesperson {{loop.index}}">Employee {{loop.index}}</option>
-								{% endfor %}
-							</select>
-						</td>
-						<td class="payment-report-filter">
-							<label>Customer:</label>
-							<select>
-								<option>All</option>
-								{% for item in range(0,5) %}
-									<option value="Customer {{loop.index}}">Customer {{loop.index}}</option>
+									<option value="Contract Type {{loop.index}}">Contract Type {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
@@ -127,21 +128,20 @@ headerTitle: Tracfone (DAP) Report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Contract Type:</label>
-							{% set contractType = [
-								'Activation',
-								'Add A Line',
-								'First Add A Line',
-								'Headset Upgrade',
-								'Non-eligible Upgrade',
-								'Port In',
-								'Port-In Add-A-Line',
-								'Reactivation'
-							] %}
+							<label>Employee:</label>
 							<select>
 								<option>All</option>
 								{% for item in range(0,5) %}
-									<option value="Contract Type {{loop.index}}">Contract Type {{loop.index}}</option>
+									<option value="Salesperson {{loop.index}}">Employee {{loop.index}}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Customer:</label>
+							<select>
+								<option>All</option>
+								{% for item in range(0,5) %}
+									<option value="Customer {{loop.index}}">Customer {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
@@ -165,56 +165,48 @@ headerTitle: Tracfone (DAP) Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting_asc"
+						<th class="sorting" 
 							tabindex="0" 
+							data-table-report="col-register"
 							aria-controls="productMixReportTable" 
-							aria-label="Salesperson: Activate to sort by descending columns" 
-							aria-sort="ascending">Salesperson</th>
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-method"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-service-date"
 							aria-controls="productMixReportTable" 
-							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
+							aria-label="Product Description: Activate to sort by ascending columns">Product Description</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Product Desc: Activate to sort by ascending columns">Product Desc</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Serial#: Activate to sort by ascending columns">Serial#</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-type"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans Type: Activate to sort by ascending columns">Trans Type</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-id"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-date"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by ascending columns">Trans Date</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+							aria-label="Serial#: Activate to sort by ascending columns">Serial #</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-mobile"
 							aria-controls="productMixReportTable" 
-							aria-label="Mobile: Activate to sort by ascending columns">Mobile</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Carrier: Activate to sort by ascending columns">Carrier</th>
+							aria-label="Mobile Number: Activate to sort by ascending columns">Mobile Number</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-contract-type"
@@ -235,6 +227,29 @@ headerTitle: Tracfone (DAP) Report
 							aria-label="MRC: Activate to sort by ascending columns">MRC</th>
 						<th class="sorting" 
 							tabindex="0" 
+							data-table-report="col-service-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Date: Activate to sort by ascending columns">Transaction Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Carrier: Activate to sort by ascending columns">Carrier</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Employee: Activate to sort by descending columns" 
+							aria-sort="ascending">Employee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+						<th class="sorting" 
+							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="BAN: Activate to sort by ascending columns">BAN</th>
 						<th class="sorting" 
@@ -246,9 +261,10 @@ headerTitle: Tracfone (DAP) Report
 				{% set payments = [
 					{
 						store: '6408 Pacific Ave',
+						register: '1',
 						person: 'alfaro, Marylene',
 						commission: 'SP',
-						date: '11/1/2017',
+						serviceDate: '11/1/2017',
 						productDesc: 'Customer Phone',
 						serial: '&nbsp;',
 						transType: 'Sale',
@@ -262,13 +278,16 @@ headerTitle: Tracfone (DAP) Report
 						sppoCode: 'NTNS2U035ID',
 						mrc: '$35.00',
 						ban: '&nbsp;',
-						subscriberID: '&nbsp;'
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Cash',
+						paymentStatus: 'Completed'
 					},
 					{
 						store: '6408 Pacific Ave',
+						register: '1',
 						person: 'Tello, Janettzy',
 						commission: 'SP',
-						date: '11/2/2017',
+						serviceDate: '11/2/2017',
 						productDesc: 'Customer Phone',
 						serial: '&nbsp;',
 						transType: 'Sale',
@@ -282,13 +301,16 @@ headerTitle: Tracfone (DAP) Report
 						sppoCode: 'SMNS40050ILDID',
 						mrc: '$50.00',
 						ban: '&nbsp;',
-						subscriberID: '&nbsp;'
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Credit Card',
+						paymentStatus: 'Completed'
 					},
 					{
 						store: '6408 Pacific Ave',
+						register: '2',
 						person: 'Tello, Janettzy',
 						commission: 'SP',
-						date: '11/3/2017',
+						serviceDate: '11/3/2017',
 						productDesc: 'Tracfone LG Flip Phone',
 						serial: '014651007797347',
 						transType: 'Sale',
@@ -302,13 +324,16 @@ headerTitle: Tracfone (DAP) Report
 						sppoCode: 'TFRTR40060',
 						mrc: '$19.99',
 						ban: '&nbsp;',
-						subscriberID: '&nbsp;'
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Debit Card',
+						paymentStatus: 'Voided'
 					},
 					{
 						store: '6408 Pacific Ave',
+						register: '1',
 						person: 'Benigno, Oscar',
 						commission: 'SP',
-						date: '11/7/2017',
+						serviceDate: '11/7/2017',
 						productDesc: 'Customer Phone',
 						serial: '35278508016657',
 						transType: 'Sale',
@@ -322,13 +347,16 @@ headerTitle: Tracfone (DAP) Report
 						sppoCode: 'SMNS40040ILDID',
 						mrc: '$40.00',
 						ban: '&nbsp;',
-						subscriberID: '&nbsp;'
+						subscriberID: '&nbsp;',
+						paymentMethod: 'External Payment',
+						paymentStatus: 'All'
 					},
 					{
 						store: '6408 Pacific Ave',
+						register: '4',
 						person: 'alfaro, Marylene',
 						commission: 'SP',
-						date: '11/7/2017',
+						serviceDate: '11/7/2017',
 						productDesc: 'Customer Phone',
 						serial: '&nbsp;',
 						transType: 'Sale',
@@ -342,28 +370,33 @@ headerTitle: Tracfone (DAP) Report
 						sppoCode: '&nbsp;',
 						mrc: '$25.00',
 						ban: '&nbsp;',
-						subscriberID: '&nbsp;'
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Split',
+						paymentStatus: 'Voided'
 					}
 				] %}	
 				<tbody>
 					{% for item in payments %}
 						<tr>
 							<td class="break-word">{{item.store | safe}}</td>
-							<td class="break-word">{{item.person | safe}}</td>
-							<td class="table-report-id break-word">{{item.commission | safe}}</td>
-							<td class="table-report-date break-word">{{item.date | safe}}</td>
+							<td class="break-word" data-table-report="col-register">{{item.register}}</td>
+							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
+							<td class="break-word">{{item.commission | safe}}</td>
 							<td class="break-word">{{item.productDesc | safe}}</td>
 							<td class="break-word">{{item.serial | safe}}</td>
-							<td class="break-word">{{item.transType | safe}}</td>
-							<td class="break-word table-report-id">{{item.transID | safe}}</td>
-							<td class="break-word table-report-date">{{item.transDate | safe}}</td>
-							<td class="break-word">{{item.customer | safe}}</td>
-							<td class="break-word">{{item.mobile | safe}}</td>
-							<td class="break-word">{{item.carrier | safe}}</td>
-							<td class="break-word">{{item.contractType | safe}}</td>
-							<td class="break-word table-report-sppo-name">{{item.sppoName | safe}}</td>
+							<td class="break-word" data-table-report="col-mobile">{{item.mobile | safe}}</td>
+							<td class="break-word" data-table-report="col-contract-type">{{item.contractType | safe}}</td>
+							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
 							<td class="break-word">{{item.sppoCode}}</td>
 							<td class="break-word">{{item.mrc | safe}}</td>
+							<td class="break-word" data-table-report="col-service-date">{{item.serviceDate | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
+							<td class="break-word">{{item.carrier | safe}}</td>
+							<td class="break-word">{{item.person | safe}}</td>
+							<td class="break-word">{{item.customer | safe}}</td>
 							<td class="break-word">{{item.ban | safe}}</td>
 							<td class="break-word">{{item.subscriberID | safe}}</td>
 						</tr>

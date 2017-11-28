@@ -187,7 +187,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-tender-type"
+							data-table-report="col-payment-method"
 							aria-controls="productMixReportTable" 
 							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
 						<th class="sorting" 
@@ -246,7 +246,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						fee: '$3.00',
 						totalAmt: '$63.00',
 						createdBy: 'ochoa, elizabeth',
-						tenderType: 'Cash',
+						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '1',
 						paymentStatus: 'Completed'
@@ -264,7 +264,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						fee: '$3.00',
 						totalAmt: '$53.00',
 						createdBy: 'Ochoa, Lupe',
-						tenderType: 'Cash',
+						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '2',
 						paymentStatus: 'Voided'
@@ -282,7 +282,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						fee: '$0.00',
 						totalAmt: '$5.00',
 						createdBy: 'Rivera, Perla',
-						tenderType: 'Debit Card',
+						paymentMethod: 'Debit Card',
 						transType: 'Sale',
 						register: '3',
 						paymentStatus: 'Voided'
@@ -300,7 +300,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						fee: '$0.00',
 						totalAmt: '$55.00',
 						createdBy: 'ochoa, elizabeth',
-						tenderType: 'Cash',
+						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '1',
 						paymentStatus: 'All'
@@ -318,7 +318,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 						fee: '$3.00',
 						totalAmt: '$43.00',
 						createdBy: 'Lopez, Kathleen',
-						tenderType: 'Debit Card',
+						paymentMethod: 'Debit Card',
 						transType: 'Sale',
 						register: '2',
 						paymentStatus: 'Completed'
@@ -333,7 +333,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 							<td class="break-word" data-table-report="col-trans-id">{{item.transID}}</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID}}</td>
 							<td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td>
-							<td class="break-word" data-table-report="col-tender-type">{{item.tenderType}}</td>
+							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod}}</td>
 							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus}}</td>
 							<td class="break-word">{{item.productDesc}}</td>
 							<td class="break-word" data-table-report="col-tracking">{{item.tracking}}</td>

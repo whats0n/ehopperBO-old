@@ -143,7 +143,43 @@
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Salesperson:</label>
+							<label>Contract Type:</label>
+							
+							<select>
+								<option>All</option>
+								
+									<option value="Contract Type 1">Contract Type 1</option>
+								
+									<option value="Contract Type 2">Contract Type 2</option>
+								
+									<option value="Contract Type 3">Contract Type 3</option>
+								
+									<option value="Contract Type 4">Contract Type 4</option>
+								
+									<option value="Contract Type 5">Contract Type 5</option>
+								
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Carrier:</label>
+							
+							<select>
+								<option>All</option>
+								
+									<option value="GoSmart">GoSmart</option>
+								
+									<option value="Net 10">Net 10</option>
+								
+									<option value="Simple Mobile">Simple Mobile</option>
+								
+									<option value="Telcel">Telcel</option>
+								
+									<option value="TracFone">TracFone</option>
+								
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Employee:</label>
 							<select>
 								<option>All</option>
 								
@@ -176,42 +212,6 @@
 								
 							</select>
 						</td>
-						<td class="payment-report-filter">
-							<label>Carrier:</label>
-							
-							<select>
-								<option>All</option>
-								
-									<option value="GoSmart">GoSmart</option>
-								
-									<option value="Net 10">Net 10</option>
-								
-									<option value="Simple Mobile">Simple Mobile</option>
-								
-									<option value="Telcel">Telcel</option>
-								
-									<option value="TracFone">TracFone</option>
-								
-							</select>
-						</td>
-						<td class="payment-report-filter">
-							<label>Contract Type:</label>
-							
-							<select>
-								<option>All</option>
-								
-									<option value="Contract Type 1">Contract Type 1</option>
-								
-									<option value="Contract Type 2">Contract Type 2</option>
-								
-									<option value="Contract Type 3">Contract Type 3</option>
-								
-									<option value="Contract Type 4">Contract Type 4</option>
-								
-									<option value="Contract Type 5">Contract Type 5</option>
-								
-							</select>
-						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -232,56 +232,48 @@
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting_asc"
+						<th class="sorting" 
 							tabindex="0" 
+							data-table-report="col-register"
 							aria-controls="productMixReportTable" 
-							aria-label="Salesperson: Activate to sort by descending columns" 
-							aria-sort="ascending">Salesperson</th>
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-method"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-service-date"
 							aria-controls="productMixReportTable" 
-							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
+							aria-label="Product Description: Activate to sort by ascending columns">Product Description</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Product Desc: Activate to sort by ascending columns">Product Desc</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Serial#: Activate to sort by ascending columns">Serial#</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-type"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans Type: Activate to sort by ascending columns">Trans Type</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-id"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-date"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by ascending columns">Trans Date</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+							aria-label="Serial#: Activate to sort by ascending columns">Serial #</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-mobile"
 							aria-controls="productMixReportTable" 
-							aria-label="Mobile: Activate to sort by ascending columns">Mobile</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Carrier: Activate to sort by ascending columns">Carrier</th>
+							aria-label="Mobile Number: Activate to sort by ascending columns">Mobile Number</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-contract-type"
@@ -302,6 +294,29 @@
 							aria-label="MRC: Activate to sort by ascending columns">MRC</th>
 						<th class="sorting" 
 							tabindex="0" 
+							data-table-report="col-service-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Date: Activate to sort by ascending columns">Transaction Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Carrier: Activate to sort by ascending columns">Carrier</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Employee: Activate to sort by descending columns" 
+							aria-sort="ascending">Employee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+						<th class="sorting" 
+							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="BAN: Activate to sort by ascending columns">BAN</th>
 						<th class="sorting" 
@@ -315,105 +330,120 @@
 					
 						<tr>
 							<td class="break-word">6408 Pacific Ave</td>
-							<td class="break-word">alfaro, Marylene</td>
-							<td class="table-report-id break-word">SP</td>
-							<td class="table-report-date break-word">11/1/2017</td>
+							<td class="break-word" data-table-report="col-register">1</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">3210</td>
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">SP</td>
 							<td class="break-word">Customer Phone</td>
 							<td class="break-word">&nbsp;</td>
-							<td class="break-word">Sale</td>
-							<td class="break-word table-report-id">3210</td>
-							<td class="break-word table-report-date">11/1/17 16:27</td>
-							<td class="break-word">Roberto Flores</td>
-							<td class="break-word">3235780912</td>
-							<td class="break-word">Net 10</td>
-							<td class="break-word">Activation</td>
-							<td class="break-word table-report-sppo-name">Net10 $35 Unlimited / 30 Days</td>
+							<td class="break-word" data-table-report="col-mobile">3235780912</td>
+							<td class="break-word" data-table-report="col-contract-type">Activation</td>
+							<td class="break-word" data-table-report="col-sppo-name">Net10 $35 Unlimited / 30 Days</td>
 							<td class="break-word">NTNS2U035ID</td>
 							<td class="break-word">$35.00</td>
+							<td class="break-word" data-table-report="col-service-date">11/1/2017</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 16:27</td>
+							<td class="break-word">Net 10</td>
+							<td class="break-word">alfaro, Marylene</td>
+							<td class="break-word">Roberto Flores</td>
 							<td class="break-word">&nbsp;</td>
 							<td class="break-word">&nbsp;</td>
 						</tr>
 					
 						<tr>
 							<td class="break-word">6408 Pacific Ave</td>
-							<td class="break-word">Tello, Janettzy</td>
-							<td class="table-report-id break-word">SP</td>
-							<td class="table-report-date break-word">11/2/2017</td>
+							<td class="break-word" data-table-report="col-register">1</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">3213</td>
+							<td class="break-word" data-table-report="col-payment-method">Credit Card</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">SP</td>
 							<td class="break-word">Customer Phone</td>
 							<td class="break-word">&nbsp;</td>
-							<td class="break-word">Sale</td>
-							<td class="break-word table-report-id">3213</td>
-							<td class="break-word table-report-date">11/2/17 11:04</td>
-							<td class="break-word">Juan Castillo</td>
-							<td class="break-word">3233602247</td>
-							<td class="break-word">Simple Mobile</td>
-							<td class="break-word">Activation</td>
-							<td class="break-word table-report-sppo-name">Simple Mobile $50 Unlimited Talk, Text & Data (Truly Unlimited Data at 4G LTE speed)</td>
+							<td class="break-word" data-table-report="col-mobile">3233602247</td>
+							<td class="break-word" data-table-report="col-contract-type">Activation</td>
+							<td class="break-word" data-table-report="col-sppo-name">Simple Mobile $50 Unlimited Talk, Text & Data (Truly Unlimited Data at 4G LTE speed)</td>
 							<td class="break-word">SMNS40050ILDID</td>
 							<td class="break-word">$50.00</td>
+							<td class="break-word" data-table-report="col-service-date">11/2/2017</td>
+							<td class="break-word" data-table-report="col-trans-date">11/2/17 11:04</td>
+							<td class="break-word">Simple Mobile</td>
+							<td class="break-word">Tello, Janettzy</td>
+							<td class="break-word">Juan Castillo</td>
 							<td class="break-word">&nbsp;</td>
 							<td class="break-word">&nbsp;</td>
 						</tr>
 					
 						<tr>
 							<td class="break-word">6408 Pacific Ave</td>
-							<td class="break-word">Tello, Janettzy</td>
-							<td class="table-report-id break-word">SP</td>
-							<td class="table-report-date break-word">11/3/2017</td>
+							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">3227</td>
+							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
+							<td class="break-word">SP</td>
 							<td class="break-word">Tracfone LG Flip Phone</td>
 							<td class="break-word">014651007797347</td>
-							<td class="break-word">Sale</td>
-							<td class="break-word table-report-id">3227</td>
-							<td class="break-word table-report-date">11/3/17 11:15</td>
-							<td class="break-word">Sara Corronadl</td>
-							<td class="break-word">&nbsp;</td>
-							<td class="break-word">Tracfone</td>
-							<td class="break-word">Activation</td>
-							<td class="break-word table-report-sppo-name">Tracfone (Activation) - $19.99 (60min / 90day)</td>
+							<td class="break-word" data-table-report="col-mobile">&nbsp;</td>
+							<td class="break-word" data-table-report="col-contract-type">Activation</td>
+							<td class="break-word" data-table-report="col-sppo-name">Tracfone (Activation) - $19.99 (60min / 90day)</td>
 							<td class="break-word">TFRTR40060</td>
 							<td class="break-word">$19.99</td>
+							<td class="break-word" data-table-report="col-service-date">11/3/2017</td>
+							<td class="break-word" data-table-report="col-trans-date">11/3/17 11:15</td>
+							<td class="break-word">Tracfone</td>
+							<td class="break-word">Tello, Janettzy</td>
+							<td class="break-word">Sara Corronadl</td>
 							<td class="break-word">&nbsp;</td>
 							<td class="break-word">&nbsp;</td>
 						</tr>
 					
 						<tr>
 							<td class="break-word">6408 Pacific Ave</td>
-							<td class="break-word">Benigno, Oscar</td>
-							<td class="table-report-id break-word">SP</td>
-							<td class="table-report-date break-word">11/7/2017</td>
+							<td class="break-word" data-table-report="col-register">1</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">3260</td>
+							<td class="break-word" data-table-report="col-payment-method">External Payment</td>
+							<td class="break-word" data-table-report="col-payment-status">All</td>
+							<td class="break-word">SP</td>
 							<td class="break-word">Customer Phone</td>
 							<td class="break-word">35278508016657</td>
-							<td class="break-word">Sale</td>
-							<td class="break-word table-report-id">3260</td>
-							<td class="break-word table-report-date">11/7/17 12:06</td>
-							<td class="break-word">Francisco Sandoval</td>
-							<td class="break-word">4243499079</td>
-							<td class="break-word">Simple Mobile</td>
-							<td class="break-word">Activation</td>
-							<td class="break-word table-report-sppo-name">Simple Mobile $40 Unlimited talk and text & ILD / 4GB  / 30 Days</td>
+							<td class="break-word" data-table-report="col-mobile">4243499079</td>
+							<td class="break-word" data-table-report="col-contract-type">Activation</td>
+							<td class="break-word" data-table-report="col-sppo-name">Simple Mobile $40 Unlimited talk and text & ILD / 4GB  / 30 Days</td>
 							<td class="break-word">SMNS40040ILDID</td>
 							<td class="break-word">$40.00</td>
+							<td class="break-word" data-table-report="col-service-date">11/7/2017</td>
+							<td class="break-word" data-table-report="col-trans-date">11/7/17 12:06</td>
+							<td class="break-word">Simple Mobile</td>
+							<td class="break-word">Benigno, Oscar</td>
+							<td class="break-word">Francisco Sandoval</td>
 							<td class="break-word">&nbsp;</td>
 							<td class="break-word">&nbsp;</td>
 						</tr>
 					
 						<tr>
 							<td class="break-word">6408 Pacific Ave</td>
-							<td class="break-word">alfaro, Marylene</td>
-							<td class="table-report-id break-word">SP</td>
-							<td class="table-report-date break-word">11/7/2017</td>
+							<td class="break-word" data-table-report="col-register">4</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">3269</td>
+							<td class="break-word" data-table-report="col-payment-method">Split</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
+							<td class="break-word">SP</td>
 							<td class="break-word">Customer Phone</td>
 							<td class="break-word">&nbsp;</td>
-							<td class="break-word">Sale</td>
-							<td class="break-word table-report-id">3269</td>
-							<td class="break-word table-report-date">11/7/17 17:25</td>
-							<td class="break-word">Manuel Jimenez</td>
-							<td class="break-word">3237046430</td>
-							<td class="break-word">Simple Mobile</td>
-							<td class="break-word">Activation</td>
-							<td class="break-word table-report-sppo-name">SM (RTR) - $25 UNL TnT +ILD / 30day</td>
+							<td class="break-word" data-table-report="col-mobile">3237046430</td>
+							<td class="break-word" data-table-report="col-contract-type">Activation</td>
+							<td class="break-word" data-table-report="col-sppo-name">SM (RTR) - $25 UNL TnT +ILD / 30day</td>
 							<td class="break-word">&amp;nbsp;</td>
 							<td class="break-word">$25.00</td>
+							<td class="break-word" data-table-report="col-service-date">11/7/2017</td>
+							<td class="break-word" data-table-report="col-trans-date">11/7/17 17:25</td>
+							<td class="break-word">Simple Mobile</td>
+							<td class="break-word">alfaro, Marylene</td>
+							<td class="break-word">Manuel Jimenez</td>
 							<td class="break-word">&nbsp;</td>
 							<td class="break-word">&nbsp;</td>
 						</tr>

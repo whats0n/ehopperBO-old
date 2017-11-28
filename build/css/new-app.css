@@ -3621,7 +3621,7 @@
 }
 
 #activationReportTable {
-  min-width: 2500px;
+  min-width: 2700px;
 }
 
 #paymentReportTable {
@@ -3668,7 +3668,7 @@
   width: 120px;
 }
 
-[data-table-report="col-tender-type"] {
+[data-table-report="col-payment-method"] {
   width: 110px;
 }
 
