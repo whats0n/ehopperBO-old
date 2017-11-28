@@ -93,25 +93,20 @@ headerTitle: VIDA Pay (Tcetra) Report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Created by:</label>
+							<label>Transaction Type:</label>
+							{% set transType = [
+								'Sale',
+								'Refund'
+							] %}
 							<select>
 								<option>All</option>
-								{% for item in range(0,5) %}
-									<option value="Employee {{loop.index}}">Employee {{loop.index}}</option>
+								{% for item in transType %}
+									<option value="{{item}}">{{item}}</option>
 								{% endfor %}
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Customer:</label>
-							<select>
-								<option>All</option>
-								{% for item in range(0,5) %}
-									<option value="Customer {{loop.index}}">Customer {{loop.index}}</option>
-								{% endfor %}
-							</select>
-						</td>
-						<td class="payment-report-filter">
-							<label>Tender Type:</label>
+							<label>Payment Metod:</label>
 							{% set tenderType = [
 								'Cash',
 								'Credit Card',
@@ -128,15 +123,20 @@ headerTitle: VIDA Pay (Tcetra) Report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Trans Type:</label>
-							{% set transType = [
-								'Sale',
-								'Return'
-							] %}
+							<label>Employee:</label>
 							<select>
 								<option>All</option>
-								{% for item in transType %}
-									<option value="{{item}}">{{item}}</option>
+								{% for item in range(0,5) %}
+									<option value="Employee {{loop.index}}">Employee {{loop.index}}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Customer:</label>
+							<select>
+								<option>All</option>
+								{% for item in range(0,5) %}
+									<option value="Customer {{loop.index}}">Customer {{loop.index}}</option>
 								{% endfor %}
 							</select>
 						</td>
@@ -160,40 +160,50 @@ headerTitle: VIDA Pay (Tcetra) Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting_asc"
+						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-trans-date"
+							data-table-report="col-register"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by descending columns" 
-							aria-sort="ascending">Trans Date</th>
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Trans Type: Activate to sort by ascending columns">Transaction Type</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-trans-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Trans ID</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Product Desc: Activate to sort by ascending columns">Product Desc</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-tracking"
-							aria-controls="productMixReportTable" 
-							aria-label="Tracking #: Activate to sort by ascending columns">Tracking #</th>
+							aria-label="Trans ID: Activate to sort by ascending columns">Transaction ID</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-bill-pay-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Bill Pay ID: Activate to sort by ascending columns">Bill Pay ID</th>
+							aria-label="Bill Pay ID: Activate to sort by ascending columns">Bill Payment ID</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-carrier-id"
 							aria-controls="productMixReportTable" 
 							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-tender-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Product Description: Activate to sort by ascending columns">Product Description</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-tracking"
+							aria-controls="productMixReportTable" 
+							aria-label="Tracking #: Activate to sort by ascending columns">Tracking #</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -205,26 +215,21 @@ headerTitle: VIDA Pay (Tcetra) Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Total Amt: Activate to sort by ascending columns">Total Amt</th>
+							aria-label="Total Amount: Activate to sort by ascending columns">Total Amount</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Trans Date: Activate to sort by descending columns" 
+							aria-sort="ascending">Transaction Date</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Created By: Activate to sort by ascending columns">Created By</th>
+							aria-label="Created By: Activate to sort by ascending columns">Employee</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-tender-type"
 							aria-controls="productMixReportTable" 
-							aria-label="Tender Type: Activate to sort by ascending columns">Tender Type</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-trans-type"
-							aria-controls="productMixReportTable" 
-							aria-label="Trans Type: Activate to sort by ascending columns">Trans Type</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-register"
-							aria-controls="productMixReportTable" 
-							aria-label="Register: Activate to sort by ascending columns">Register</th>
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
 					</tr>
 				</thead>
 				{% set payments = [
@@ -243,7 +248,8 @@ headerTitle: VIDA Pay (Tcetra) Report
 						createdBy: 'ochoa, elizabeth',
 						tenderType: 'Cash',
 						transType: 'Sale',
-						register: '1'
+						register: '1',
+						paymentStatus: 'Completed'
 					},
 					{
 						store: 'NM Madrid',
@@ -260,7 +266,8 @@ headerTitle: VIDA Pay (Tcetra) Report
 						createdBy: 'Ochoa, Lupe',
 						tenderType: 'Cash',
 						transType: 'Sale',
-						register: '2'
+						register: '2',
+						paymentStatus: 'Voided'
 					},
 					{
 						store: 'NM Madrid',
@@ -277,7 +284,8 @@ headerTitle: VIDA Pay (Tcetra) Report
 						createdBy: 'Rivera, Perla',
 						tenderType: 'Debit Card',
 						transType: 'Sale',
-						register: '3'
+						register: '3',
+						paymentStatus: 'Voided'
 					},
 					{
 						store: 'NM Missouri',
@@ -294,7 +302,8 @@ headerTitle: VIDA Pay (Tcetra) Report
 						createdBy: 'ochoa, elizabeth',
 						tenderType: 'Cash',
 						transType: 'Sale',
-						register: '1'
+						register: '1',
+						paymentStatus: 'All'
 					},
 					{
 						store: 'NM El Paseo',
@@ -311,27 +320,29 @@ headerTitle: VIDA Pay (Tcetra) Report
 						createdBy: 'Lopez, Kathleen',
 						tenderType: 'Debit Card',
 						transType: 'Sale',
-						register: '2'
+						register: '2',
+						paymentStatus: 'Completed'
 					}
 				] %}	
 				<tbody>
 					{% for item in payments %}
 						<tr>
 							<td class="break-word">{{item.store}}</td>
-							<td class="break-word" data-table-report="col-trans-date">{{item.transDate}}</td>
+							<td class="break-word" data-table-report="col-register">{{item.register}}</td>
+							<td class="break-word" data-table-report="col-trans-type">{{item.transType}}</td>
 							<td class="break-word" data-table-report="col-trans-id">{{item.transID}}</td>
-							<td class="break-word">{{item.productDesc}}</td>
-							<td class="break-word">{{item.customer}}</td>
-							<td class="break-word" data-table-report="col-tracking">{{item.tracking}}</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID}}</td>
 							<td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td>
+							<td class="break-word" data-table-report="col-tender-type">{{item.tenderType}}</td>
+							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus}}</td>
+							<td class="break-word">{{item.productDesc}}</td>
+							<td class="break-word" data-table-report="col-tracking">{{item.tracking}}</td>
 							<td class="break-word">{{item.payment}}</td>
 							<td class="break-word">{{item.fee}}</td>
 							<td class="break-word">{{item.totalAmt}}</td>
+							<td class="break-word" data-table-report="col-trans-date">{{item.transDate}}</td>
 							<td class="break-word">{{item.createdBy}}</td>
-							<td class="break-word" data-table-report="col-tender-type">{{item.tenderType}}</td>
-							<td class="break-word" data-table-report="col-trans-type">{{item.transType}}</td>
-							<td class="break-word" data-table-report="col-register">{{item.register}}</td>
+							<td class="break-word">{{item.customer}}</td>
 						</tr>
 					{% endfor %}
 				</tbody>
