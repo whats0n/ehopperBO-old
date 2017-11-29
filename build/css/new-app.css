@@ -3701,6 +3701,24 @@
   word-break: break-word !important;
 }
 
+.tab-control_wide {
+  margin-left: -120px;
+  margin-right: -120px;
+  text-align: center;
+}
+
+.tab {
+  max-width: 130px;
+  font-size: 0 !important;
+}
+
+.tab-title {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;
