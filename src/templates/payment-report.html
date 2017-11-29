@@ -1,6 +1,6 @@
 ---
 title: Payment report
-headerTitle: VIDA Pay (Tcetra) Report
+headerTitle: VidaPay Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -106,7 +106,7 @@ headerTitle: VIDA Pay (Tcetra) Report
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Payment Metod:</label>
+							<label>Payment Method:</label>
 							{% set tenderType = [
 								'Cash',
 								'Credit Card',
@@ -169,27 +169,32 @@ headerTitle: VIDA Pay (Tcetra) Report
 							tabindex="0" 
 							data-table-report="col-trans-type"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Type: Activate to sort by ascending columns">Transaction Type</th>
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-trans-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Transaction ID</th>
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-bill-pay-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Bill Pay ID: Activate to sort by ascending columns">Bill Payment ID</th>
-						<th class="sorting" 
+							aria-label="Bill Payment ID: Activate to sort by ascending columns">Bill Payment ID</th>
+						{# <th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-carrier-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th>
+							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th> #}
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-payment-method"
 							aria-controls="productMixReportTable" 
-							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-payment-status"
@@ -208,6 +213,10 @@ headerTitle: VIDA Pay (Tcetra) Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Discount: Activate to sort by ascending columns">Discount</th>
 						<th class="sorting table-report-fee" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -216,6 +225,10 @@ headerTitle: VIDA Pay (Tcetra) Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Total Amount: Activate to sort by ascending columns">Total Amount</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Profit: Activate to sort by ascending columns">Profit</th>
 						<th class="sorting_asc"
 							tabindex="0" 
 							data-table-report="col-trans-date"
@@ -249,7 +262,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '1',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$2.00',
+						profit: '$58.00'
 					},
 					{
 						store: 'NM Madrid',
@@ -267,7 +282,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '2',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						discount: '$2.00',
+						profit: '$48.00'
 					},
 					{
 						store: 'NM Madrid',
@@ -285,7 +302,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Debit Card',
 						transType: 'Sale',
 						register: '3',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						discount: '$1.00',
+						profit: '$4.00'
 					},
 					{
 						store: 'NM Missouri',
@@ -303,7 +322,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '1',
-						paymentStatus: 'All'
+						paymentStatus: 'Voided',
+						discount: '$3.00',
+						profit: '$52.00'
 					},
 					{
 						store: 'NM El Paseo',
@@ -321,7 +342,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Debit Card',
 						transType: 'Sale',
 						register: '2',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$1.00',
+						profit: '$39.00'
 					},
 					{
 						store: 'NM Madrid',
@@ -339,7 +362,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '2',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$3.00',
+						profit: '$27.00'
 					},
 					{
 						store: 'NM Missouri',
@@ -357,7 +382,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '2',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$6.00',
+						profit: '$85.00'
 					},
 					{
 						store: 'NM Madrid',
@@ -375,7 +402,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '3',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$5.00',
+						profit: '$36.00'
 					},
 					{
 						store: 'NM El Paseo',
@@ -393,7 +422,9 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Credit Card',
 						transType: 'Sale',
 						register: '3',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$7.00',
+						profit: '$84.00'
 					},
 					{
 						store: 'NM Missouri',
@@ -411,31 +442,48 @@ headerTitle: VIDA Pay (Tcetra) Report
 						paymentMethod: 'Cash',
 						transType: 'Sale',
 						register: '2',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						discount: '$12.00',
+						profit: '$110.00'
 					}
 				] %}	
 				<tbody>
 					{% for item in payments %}
 						<tr>
 							<td class="break-word">{{item.store}}</td>
-							<td class="break-word" data-table-report="col-register">{{item.register}}</td>
-							<td class="break-word" data-table-report="col-trans-type">{{item.transType}}</td>
-							<td class="break-word" data-table-report="col-trans-id">{{item.transID}}</td>
-							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID}}</td>
-							<td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td>
-							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod}}</td>
-							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus}}</td>
-							<td class="break-word">{{item.productDesc}}</td>
-							<td class="break-word" data-table-report="col-tracking">{{item.tracking}}</td>
-							<td class="break-word">{{item.payment}}</td>
-							<td class="break-word">{{item.fee}}</td>
-							<td class="break-word">{{item.totalAmt}}</td>
-							<td class="break-word" data-table-report="col-trans-date">{{item.transDate}}</td>
-							<td class="break-word">{{item.createdBy}}</td>
-							<td class="break-word">{{item.customer}}</td>
+							<td class="break-word" data-table-report="col-register">Register {{item.register | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{loop.index | safe}}</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID | safe}}</td>
+							{# <td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td> #}
+							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
+							<td class="break-word">{{item.productDesc | safe}}</td>
+							<td class="break-word" data-table-report="col-tracking">{{item.tracking | safe}}</td>
+							<td class="break-word">{{item.payment | safe}}</td>
+							<td class="break-word">{{item.discount | safe}}</td>
+							<td class="break-word">{{item.fee | safe}}</td>
+							<td class="break-word">{{item.totalAmt | safe}}</td>
+							<td class="break-word">{{item.profit | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
+							<td class="break-word">{{item.createdBy | safe}}</td>
+							<td class="break-word">{{item.customer | safe}}</td>
 						</tr>
 					{% endfor %}
 				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="9">&nbsp;</td>
+						<td>Total</td>
+						<td>$585.00</td>
+						<td>$42.00</td>
+						<td>$24.00</td>
+						<td>$609.00</td>
+						<td>$543.00</td>
+						<td colspan="3">&nbsp;</td>
+					</tr>
+				</tfoot>
 			</table>
 			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
 				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>

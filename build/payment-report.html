@@ -42,7 +42,7 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">VIDA Pay (Tcetra) Report</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">VidaPay Report</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
@@ -165,7 +165,7 @@
 							</select>
 						</td>
 						<td class="payment-report-filter">
-							<label>Payment Metod:</label>
+							<label>Payment Method:</label>
 							
 							<select>
 								<option>All</option>
@@ -247,27 +247,28 @@
 							tabindex="0" 
 							data-table-report="col-trans-type"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Type: Activate to sort by ascending columns">Transaction Type</th>
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-trans-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans ID: Activate to sort by ascending columns">Transaction ID</th>
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-bill-pay-id"
 							aria-controls="productMixReportTable" 
-							aria-label="Bill Pay ID: Activate to sort by ascending columns">Bill Payment ID</th>
-						<th class="sorting" 
-							tabindex="0" 
-							data-table-report="col-carrier-id"
-							aria-controls="productMixReportTable" 
-							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th>
+							aria-label="Bill Payment ID: Activate to sort by ascending columns">Bill Payment ID</th>
+						
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-payment-method"
 							aria-controls="productMixReportTable" 
-							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-payment-status"
@@ -286,6 +287,10 @@
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Discount: Activate to sort by ascending columns">Discount</th>
 						<th class="sorting table-report-fee" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -294,6 +299,10 @@
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Total Amount: Activate to sort by ascending columns">Total Amount</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Profit: Activate to sort by ascending columns">Profit</th>
 						<th class="sorting_asc"
 							tabindex="0" 
 							data-table-report="col-trans-date"
@@ -315,18 +324,21 @@
 					
 						<tr>
 							<td class="break-word">NM Missouri </td>
-							<td class="break-word" data-table-report="col-register">1</td>
+							<td class="break-word" data-table-report="col-register">Register 1</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9662</td>
+							<td class="break-word" data-table-report="col-order-id">1</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737167772</td>
-							<td class="break-word" data-table-report="col-carrier-id">811225820</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5754491522</td>
 							<td class="break-word">$60.00</td>
+							<td class="break-word">$2.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$63.00</td>
+							<td class="break-word">$58.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
 							<td class="break-word">ochoa, elizabeth</td>
 							<td class="break-word">DANIEL . JIMENEZ</td>
@@ -334,18 +346,21 @@
 					
 						<tr>
 							<td class="break-word">NM Madrid</td>
-							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9663</td>
+							<td class="break-word" data-table-report="col-order-id">2</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737167826</td>
-							<td class="break-word" data-table-report="col-carrier-id">811225908</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5758050516</td>
 							<td class="break-word">$50.00</td>
+							<td class="break-word">$2.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$53.00</td>
+							<td class="break-word">$48.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
 							<td class="break-word">Ochoa, Lupe</td>
 							<td class="break-word">RENEE . PADILLA</td>
@@ -353,18 +368,21 @@
 					
 						<tr>
 							<td class="break-word">NM Madrid</td>
-							<td class="break-word" data-table-report="col-register">3</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9680</td>
+							<td class="break-word" data-table-report="col-order-id">3</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737182622</td>
-							<td class="break-word" data-table-report="col-carrier-id">811248758</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Feature Change</td>
 							<td class="break-word" data-table-report="col-tracking">5752887429</td>
 							<td class="break-word">$5.00</td>
+							<td class="break-word">$1.00</td>
 							<td class="break-word">$0.00</td>
 							<td class="break-word">$5.00</td>
+							<td class="break-word">$4.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:24</td>
 							<td class="break-word">Rivera, Perla</td>
 							<td class="break-word">RUFINA MOLINA</td>
@@ -372,18 +390,21 @@
 					
 						<tr>
 							<td class="break-word">NM Missouri</td>
-							<td class="break-word" data-table-report="col-register">1</td>
+							<td class="break-word" data-table-report="col-register">Register 1</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9685</td>
+							<td class="break-word" data-table-report="col-order-id">4</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737188284</td>
-							<td class="break-word" data-table-report="col-carrier-id">811257514</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
-							<td class="break-word" data-table-report="col-payment-status">All</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Activation Payment</td>
 							<td class="break-word" data-table-report="col-tracking">9153313591</td>
 							<td class="break-word">$55.00</td>
+							<td class="break-word">$3.00</td>
 							<td class="break-word">$0.00</td>
 							<td class="break-word">$55.00</td>
+							<td class="break-word">$52.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:34</td>
 							<td class="break-word">ochoa, elizabeth</td>
 							<td class="break-word">JOSE . CRUZ</td>
@@ -391,18 +412,21 @@
 					
 						<tr>
 							<td class="break-word">NM El Paseo</td>
-							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9695</td>
+							<td class="break-word" data-table-report="col-order-id">5</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737201054</td>
-							<td class="break-word" data-table-report="col-carrier-id">811277297</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Reactivation-$3</td>
 							<td class="break-word" data-table-report="col-tracking">5755207160</td>
 							<td class="break-word">$40.00</td>
+							<td class="break-word">$1.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$43.00</td>
+							<td class="break-word">$39.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:56</td>
 							<td class="break-word">Lopez, Kathleen</td>
 							<td class="break-word">MARTIN ASTROGA</td>
@@ -410,18 +434,21 @@
 					
 						<tr>
 							<td class="break-word">NM Madrid</td>
-							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9699</td>
+							<td class="break-word" data-table-report="col-order-id">6</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737202678</td>
-							<td class="break-word" data-table-report="col-carrier-id">811279730</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5753862085</td>
 							<td class="break-word">$30.00</td>
 							<td class="break-word">$3.00</td>
+							<td class="break-word">$3.00</td>
 							<td class="break-word">$33.00</td>
+							<td class="break-word">$27.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 12:58</td>
 							<td class="break-word">Ochoa, Lupe</td>
 							<td class="break-word">JENNIE . MEETZE</td>
@@ -429,18 +456,21 @@
 					
 						<tr>
 							<td class="break-word">NM Missouri</td>
-							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9700</td>
+							<td class="break-word" data-table-report="col-order-id">7</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737208142</td>
-							<td class="break-word" data-table-report="col-carrier-id">811287598</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5752226494</td>
 							<td class="break-word">$91.00</td>
+							<td class="break-word">$6.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$94.00</td>
+							<td class="break-word">$85.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:06</td>
 							<td class="break-word">ochoa, carmen</td>
 							<td class="break-word">EMILI VASQUEZ</td>
@@ -448,18 +478,21 @@
 					
 						<tr>
 							<td class="break-word">NM Madrid</td>
-							<td class="break-word" data-table-report="col-register">3</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9701</td>
+							<td class="break-word" data-table-report="col-order-id">8</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737209342</td>
-							<td class="break-word" data-table-report="col-carrier-id">811289297</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5752223551</td>
 							<td class="break-word">$41.00</td>
+							<td class="break-word">$5.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$44.00</td>
+							<td class="break-word">$36.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:08</td>
 							<td class="break-word">Rivera, Perla</td>
 							<td class="break-word">MICHELLE SALAS</td>
@@ -467,18 +500,21 @@
 					
 						<tr>
 							<td class="break-word">NM El Paseo</td>
-							<td class="break-word" data-table-report="col-register">3</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9709</td>
+							<td class="break-word" data-table-report="col-order-id">9</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737218418</td>
-							<td class="break-word" data-table-report="col-carrier-id">811302407</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Credit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5756357935</td>
 							<td class="break-word">$91.00</td>
+							<td class="break-word">$7.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$94.00</td>
+							<td class="break-word">$84.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:21</td>
 							<td class="break-word">veloz, jasmine</td>
 							<td class="break-word">ROBERTO . LAZO</td>
@@ -486,24 +522,39 @@
 					
 						<tr>
 							<td class="break-word">NM Missouri</td>
-							<td class="break-word" data-table-report="col-register">2</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
 							<td class="break-word" data-table-report="col-trans-type">Sale</td>
 							<td class="break-word" data-table-report="col-trans-id">9710</td>
+							<td class="break-word" data-table-report="col-order-id">10</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">737218744</td>
-							<td class="break-word" data-table-report="col-carrier-id">811302874</td>
+							
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">9153034848</td>
 							<td class="break-word">$122.00</td>
+							<td class="break-word">$12.00</td>
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$125.00</td>
+							<td class="break-word">$110.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:22</td>
 							<td class="break-word">ochoa, carmen</td>
 							<td class="break-word">ANTWIONETTE . SMITH</td>
 						</tr>
 					
 				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="9">&nbsp;</td>
+						<td>Total</td>
+						<td>$585.00</td>
+						<td>$42.00</td>
+						<td>$24.00</td>
+						<td>$609.00</td>
+						<td>$543.00</td>
+						<td colspan="3">&nbsp;</td>
+					</tr>
+				</tfoot>
 			</table>
 			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
 				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>

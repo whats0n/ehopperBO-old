@@ -3625,7 +3625,7 @@
 }
 
 #paymentReportTable {
-  min-width: 1800px;
+  min-width: 2200px;
 }
 
 .payment-report-filters {
@@ -3656,6 +3656,10 @@
   width: 110px;
 }
 
+[data-table-report="col-order-id"] {
+  width: 110px;
+}
+
 [data-table-report="col-tracking"] {
   width: 120px;
 }
@@ -3673,7 +3677,7 @@
 }
 
 [data-table-report="col-trans-type"] {
-  width: 100px;
+  width: 120px;
 }
 
 [data-table-report="col-register"] {

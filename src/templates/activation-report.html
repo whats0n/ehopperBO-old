@@ -1,6 +1,6 @@
 ---
 title: Acticvation report
-headerTitle: Tracfone (DAP) Report
+headerTitle: Tracfone Phone Activation Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -92,7 +92,7 @@ headerTitle: Tracfone (DAP) Report
 								{% endfor %}
 							</select>
 						</td>
-						<td class="payment-report-filter">
+						{# <td class="payment-report-filter">
 							<label>Contract Type:</label>
 							{% set contractType = [
 								'Activation',
@@ -123,6 +123,36 @@ headerTitle: Tracfone (DAP) Report
 							<select>
 								<option>All</option>
 								{% for item in carrier %}
+									<option value="{{item}}">{{item}}</option>
+								{% endfor %}
+							</select>
+						</td> #}
+						<td class="payment-report-filter">
+							<label>Transaction Type:</label>
+							{% set transType = [
+								'Sale',
+								'Refund'
+							] %}
+							<select>
+								<option>All</option>
+								{% for item in transType %}
+									<option value="{{item}}">{{item}}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Payment Method:</label>
+							{% set tenderType = [
+								'Cash',
+								'Credit Card',
+								'Debit Card',
+								'External Payment',
+								'Split',
+								'EBT'
+							] %}
+							<select>
+								<option>All</option>
+								{% for item in tenderType %}
 									<option value="{{item}}">{{item}}</option>
 								{% endfor %}
 							</select>
@@ -182,18 +212,23 @@ headerTitle: Tracfone (DAP) Report
 							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
 						<th class="sorting" 
 							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
+						<th class="sorting" 
+							tabindex="0" 
 							data-table-report="col-payment-method"
 							aria-controls="productMixReportTable" 
-							aria-label="Payment Metod: Activate to sort by ascending columns">Payment Metod</th>
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-payment-status"
 							aria-controls="productMixReportTable" 
 							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
-						<th class="sorting" 
+						{# <th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th>
+							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th> #}
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -216,11 +251,11 @@ headerTitle: Tracfone (DAP) Report
 							tabindex="0" 
 							data-table-report="col-sppo-name"
 							aria-controls="productMixReportTable" 
-							aria-label="SP/PO Name: Activate to sort by ascending columns">SP/PO Name</th>
+							aria-label="Service Plan Name: Activate to sort by ascending columns">Service Plan Name</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="SP/PO Code: Activate to sort by ascending columns">SP/PO Code</th>
+							aria-label="Service Plan Code: Activate to sort by ascending columns">Service Plan Code</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -248,14 +283,14 @@ headerTitle: Tracfone (DAP) Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
-						<th class="sorting" 
+						{# <th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="BAN: Activate to sort by ascending columns">BAN</th>
-						<th class="sorting" 
+							aria-label="BAN: Activate to sort by ascending columns">BAN</th> #}
+						{# <th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Subscriber ID: Activate to sort by ascending columns">Subscriber ID</th>
+							aria-label="Subscriber ID: Activate to sort by ascending columns">Subscriber ID</th> #}
 					</tr>
 				</thead>
 				{% set payments = [
@@ -494,29 +529,38 @@ headerTitle: Tracfone (DAP) Report
 					{% for item in payments %}
 						<tr>
 							<td class="break-word">{{item.store | safe}}</td>
-							<td class="break-word" data-table-report="col-register">{{item.register}}</td>
+							<td class="break-word" data-table-report="col-register">Register {{item.register}}</td>
 							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{loop.index}}</td>
 							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
 							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
-							<td class="break-word">{{item.commission | safe}}</td>
+							{#<td class="break-word">{{item.commission | safe}}</td>#}
 							<td class="break-word">{{item.productDesc | safe}}</td>
 							<td class="break-word">{{item.serial | safe}}</td>
 							<td class="break-word" data-table-report="col-mobile">{{item.mobile | safe}}</td>
 							<td class="break-word" data-table-report="col-contract-type">{{item.contractType | safe}}</td>
 							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
-							<td class="break-word">{{item.sppoCode}}</td>
+							<td class="break-word">{{item.sppoCode |safe }}</td>
 							<td class="break-word">{{item.mrc | safe}}</td>
 							<td class="break-word" data-table-report="col-service-date">{{item.serviceDate | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
 							<td class="break-word">{{item.carrier | safe}}</td>
 							<td class="break-word">{{item.person | safe}}</td>
 							<td class="break-word">{{item.customer | safe}}</td>
-							<td class="break-word">{{item.ban | safe}}</td>
-							<td class="break-word">{{item.subscriberID | safe}}</td>
+							{# <td class="break-word">{{item.ban | safe}}</td> #}
+							{# <td class="break-word">{{item.subscriberID | safe}}</td> #}
 						</tr>
 					{% endfor %}
 				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="12">&nbsp;</td>
+						<td>Total</td>
+						<td>$374.99</td>
+						<td colspan="5">&nbsp;</td>
+					</tr>
+				</tfoot>
 			</table>
 			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
 				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
