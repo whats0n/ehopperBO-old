@@ -1,0 +1,130 @@
+---
+title: Edit Convenience Fee
+headerTitle: Edit Convenience Fee
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<span class="help-popup-icon" data-bind="visible: showHelpPopupButton(), click: showHelpPopup"></span>
+	<div class="pane-body convenience-fee">
+		<div class="form wide-form-simple">
+			<!--ko compose: { model: $root.langs }-->
+			<div class="language-selector">
+				<a class="selected">English</a>
+				<a class="">Français</a>
+				<a class="">Русский</a>
+			</div>
+			<!--/ko-->
+
+			<div id="taxSaveMessages"></div>
+		  
+			<div class="form-group no-overflow row">
+				<div class="col-xs-12 col-md-12">
+					<div class="form-group ">
+						<label>Convenience Fee Name <span class="color-red">*</span></label>
+						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group no-overflow row">
+
+				<div class="col-xs-5 col-md-5">
+					<div class="form-group no-overflow position-relative">
+						<label>Convenience Fee Rate <span class="color-red">*</span></label>
+						<div class="field-group">
+							<div class="field-group__switcher">
+								<label class="awesome-switcher">
+									<input type="checkbox" checked>
+									<span class="awesome-switcher__content">
+										<span class="awesome-switcher__left">$</span>
+										<span class="awesome-switcher__control"></span>
+										<span class="awesome-switcher__right">%</span>
+									</span>
+								</label>
+							</div>
+							<input class="field-group__input form-control input-lg" type="text" value="0.00" maxlength="100">
+						</div>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+
+				<div class="col-xs-5 col-md-5">
+					<div class="form-group no-overflow position-relative">
+						<label>Order Type</label>
+						<div>
+							<select class="form-control input-lg" style="display: none;">
+								{% set orderType = [
+									'Quick Sale',
+									'Dine In',
+									'Take Out',
+									'Drive Thru',
+									'Delivery',
+									'Manual Sale'
+								] %}
+								<option value="All">All</option>
+								{% for item in orderType %}
+									<option value="{{item}}">{{item}}</option>
+								{% endfor %}
+							</select>
+							<div class="ms-parent">
+								<script>
+									function openDropdown(e) {
+										e.preventDefault();
+										$(e.currentTarget)
+											.closest('.ms-parent')
+											.find('.ms-drop')
+											.toggle();
+									}
+								</script>
+								<button type="button" class="select" onclick="openDropdown(event)" style="width: 100%;">
+									<div class="fl">
+										<div>
+											<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Order Type(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+										</div>
+										<div>
+											<div></div>
+										</div>
+									</div>
+								</button>
+								<div class="ms-drop bottom" data-name="multipleSelect1" style="width: 100%;">
+									<ul style="max-height: 250px;">
+										<li>
+											<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+											<label for="allCheck">Select All</label>
+										</li>
+										{% for item in orderType %}
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-{{loop.index}}" checked>
+												<label for="payment-store-{{loop.index}}">{{item}}</label>
+											</li>
+										{% endfor %}
+										<li class="ms-no-results">No matches found</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
+					<div class="checkbox js-convenience-checkbox">
+						<input type="checkbox" id="inclide-taxes">
+						<label for="inclide-taxes">Taxable</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="checkbox" initializedcheckbox="true">
+				<input type="checkbox" id="isActiveTax" checked>
+				<label for="isActiveTax">Is Active</label>
+			</div>
+			<label></label>
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+---
+title: Service Fee
+headerTitle: Service Fee
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<span class="help-popup-icon" data-bind="visible: showHelpPopupButton(), click: showHelpPopup"></span>
+	<div class="pane-body convenience-fee">
+
+		<div id="messages"></div>
+		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search by service fee name">
+		<div class="btn-group btn-group-lg pull-right">
+			<a class="btn btn-primary" href="#newTax" data-bind="local: 'taxes/taxesList.new_tax', click: newTax">New Service Fee</a>
+		</div>
+		<br class="clear">
+
+		<div id="taxesTable_wrapper" class="dataTables_wrapper dataTables_wrapper_flexible">
+
+			<div id="taxesTable_filter" class="dataTables_filter">
+				<label>Search:
+					<input type="search" class="" placeholder="" aria-controls="taxesTable">
+				</label>
+			</div>
+
+			<div id="taxesTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+
+			<table class="datatable dataTable no-footer" id="taxesTable" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting_asc" tabindex="0" aria-controls="taxesTable" aria-sort="ascending" aria-label="Name: Activate to sort by descending columns">Name</th>
+						<th class="sorting" tabindex="0" aria-controls="taxesTable" aria-label="Rate: Activate to sort by ascending columns">Rate</th>
+						<th class="sorting" tabindex="0" aria-controls="taxesTable" aria-label="Is Active: Activate to sort by ascending columns" style="width: 150px;">Is Active</th>
+					</tr>
+				</thead>
+				{% set fee = [
+					{
+						name: 'SVC (NY)',
+						rate: '4%'
+					},
+					{
+						name: 'SVC (AZ)',
+						rate: '3.1%'
+					},
+					{
+						name: 'SVC (FL)',
+						rate: '1.1%'
+					},
+					{
+						name: 'SVC (LA)',
+						rate: '$2.00'
+					}
+				] %}
+				<tbody>
+					{% for item in fee %}
+						<tr class="editable" role="row">
+							<td class="sorting_1">{{item.name}}</td>
+							<td>{{item.rate}}</td>
+							<td>Active</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			{# <div class="dataTables_paginate paging_simple_numbers" id="taxesTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="taxesTable" data-dt-idx="0" tabindex="0" id="taxesTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="taxesTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="taxesTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="taxesTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="taxesTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="taxesTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="taxesTable" data-dt-idx="6" tabindex="0">9</a>
+				</span>
+				<a class="paginate_button next" aria-controls="taxesTable" data-dt-idx="7" tabindex="0" id="taxesTable_next">Next</a>
+			</div> #}
+
+		</div>
+	</div>
+{% endblock %}
