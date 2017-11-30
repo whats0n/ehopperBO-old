@@ -232,7 +232,7 @@ headerTitle: Tracfone Phone Activation Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Product Description: Activate to sort by ascending columns">Product Description</th>
+							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -242,11 +242,11 @@ headerTitle: Tracfone Phone Activation Report
 							data-table-report="col-mobile"
 							aria-controls="productMixReportTable" 
 							aria-label="Mobile Number: Activate to sort by ascending columns">Mobile Number</th>
-						<th class="sorting" 
+						{# <th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-contract-type"
 							aria-controls="productMixReportTable" 
-							aria-label="Contract Type: Activate to sort by ascending columns">Contract Type</th>
+							aria-label="Contract Type: Activate to sort by ascending columns">Contract Type</th> #}
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-sppo-name"
@@ -384,7 +384,7 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'External Payment',
-						paymentStatus: 'All'
+						paymentStatus: 'Completed'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -457,8 +457,8 @@ headerTitle: Tracfone Phone Activation Report
 					},
 					{
 						store: '6408 Pacific Ave',
-						register: 'alfaro, Marylene',
-						person: '1',
+						register: '5',
+						person: 'alfaro, Marylene',
 						commission: 'SP',
 						serviceDate: '11/11/17',
 						productDesc: 'Simple Mobile Rose Gold iPhone SE',
@@ -499,7 +499,7 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Cash',
-						paymentStatus: 'All'
+						paymentStatus: 'Completed'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -539,7 +539,7 @@ headerTitle: Tracfone Phone Activation Report
 							<td class="break-word">{{item.productDesc | safe}}</td>
 							<td class="break-word">{{item.serial | safe}}</td>
 							<td class="break-word" data-table-report="col-mobile">{{item.mobile | safe}}</td>
-							<td class="break-word" data-table-report="col-contract-type">{{item.contractType | safe}}</td>
+							{# <td class="break-word" data-table-report="col-contract-type">{{item.contractType | safe}}</td> #}
 							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
 							<td class="break-word">{{item.sppoCode |safe }}</td>
 							<td class="break-word">{{item.mrc | safe}}</td>
@@ -555,7 +555,7 @@ headerTitle: Tracfone Phone Activation Report
 				</tbody>
 				<tfoot>
 					<tr class="report-total">
-						<td colspan="12">&nbsp;</td>
+						<td colspan="11">&nbsp;</td>
 						<td>Total</td>
 						<td>$374.99</td>
 						<td colspan="5">&nbsp;</td>
