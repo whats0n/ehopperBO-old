@@ -315,7 +315,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Cash',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '423332347052'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -338,7 +339,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Credit Card',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '423332352485'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -361,7 +363,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Debit Card',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						orderID: '493337111391'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -384,7 +387,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'External Payment',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '493337124808'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -407,7 +411,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Split',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						orderID: '413330895970'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -430,7 +435,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'EBT',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '413330908650'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -453,7 +459,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Debit Card',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '413330913706'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -476,7 +483,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Credit Card',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						orderID: '403332774711'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -499,7 +507,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'Cash',
-						paymentStatus: 'Completed'
+						paymentStatus: 'Completed',
+						orderID: '493337136294'
 					},
 					{
 						store: '6408 Pacific Ave',
@@ -522,7 +531,8 @@ headerTitle: Tracfone Phone Activation Report
 						ban: '&nbsp;',
 						subscriberID: '&nbsp;',
 						paymentMethod: 'External Payment',
-						paymentStatus: 'Voided'
+						paymentStatus: 'Voided',
+						orderID: '493337141142'
 					}
 				] %}	
 				<tbody>
@@ -532,7 +542,7 @@ headerTitle: Tracfone Phone Activation Report
 							<td class="break-word" data-table-report="col-register">Register {{item.register}}</td>
 							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
-							<td class="break-word" data-table-report="col-order-id">{{loop.index}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{item.orderID | safe}}</td>
 							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
 							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
 							{#<td class="break-word">{{item.commission | safe}}</td>#}
