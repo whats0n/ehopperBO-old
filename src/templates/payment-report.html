@@ -203,7 +203,7 @@ headerTitle: VidaPay Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Product Description: Activate to sort by ascending columns">Product Description</th>
+							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-tracking"
@@ -264,7 +264,8 @@ headerTitle: VidaPay Report
 						register: '1',
 						paymentStatus: 'Completed',
 						discount: '$2.00',
-						profit: '$58.00'
+						profit: '$58.00',
+						orderID: '423332347052'
 					},
 					{
 						store: 'NM Madrid',
@@ -284,7 +285,8 @@ headerTitle: VidaPay Report
 						register: '2',
 						paymentStatus: 'Voided',
 						discount: '$2.00',
-						profit: '$48.00'
+						profit: '$48.00',
+						orderID: '423332352485'
 					},
 					{
 						store: 'NM Madrid',
@@ -304,7 +306,8 @@ headerTitle: VidaPay Report
 						register: '3',
 						paymentStatus: 'Voided',
 						discount: '$1.00',
-						profit: '$4.00'
+						profit: '$4.00',
+						orderID: '493337111391'
 					},
 					{
 						store: 'NM Missouri',
@@ -324,7 +327,8 @@ headerTitle: VidaPay Report
 						register: '1',
 						paymentStatus: 'Voided',
 						discount: '$3.00',
-						profit: '$52.00'
+						profit: '$52.00',
+						orderID: '493337124808'
 					},
 					{
 						store: 'NM El Paseo',
@@ -344,7 +348,8 @@ headerTitle: VidaPay Report
 						register: '2',
 						paymentStatus: 'Completed',
 						discount: '$1.00',
-						profit: '$39.00'
+						profit: '$39.00',
+						orderID: '413330895970'
 					},
 					{
 						store: 'NM Madrid',
@@ -364,7 +369,8 @@ headerTitle: VidaPay Report
 						register: '2',
 						paymentStatus: 'Completed',
 						discount: '$3.00',
-						profit: '$27.00'
+						profit: '$27.00',
+						orderID: '413330908650'
 					},
 					{
 						store: 'NM Missouri',
@@ -384,7 +390,8 @@ headerTitle: VidaPay Report
 						register: '2',
 						paymentStatus: 'Completed',
 						discount: '$6.00',
-						profit: '$85.00'
+						profit: '$85.00',
+						orderID: '413330913706'
 					},
 					{
 						store: 'NM Madrid',
@@ -404,7 +411,8 @@ headerTitle: VidaPay Report
 						register: '3',
 						paymentStatus: 'Completed',
 						discount: '$5.00',
-						profit: '$36.00'
+						profit: '$36.00',
+						orderID: '403332774711'
 					},
 					{
 						store: 'NM El Paseo',
@@ -424,7 +432,8 @@ headerTitle: VidaPay Report
 						register: '3',
 						paymentStatus: 'Completed',
 						discount: '$7.00',
-						profit: '$84.00'
+						profit: '$84.00',
+						orderID: '493337136294'
 					},
 					{
 						store: 'NM Missouri',
@@ -444,7 +453,8 @@ headerTitle: VidaPay Report
 						register: '2',
 						paymentStatus: 'Completed',
 						discount: '$12.00',
-						profit: '$110.00'
+						profit: '$110.00',
+						orderID: '493337141142'
 					}
 				] %}	
 				<tbody>
@@ -454,7 +464,7 @@ headerTitle: VidaPay Report
 							<td class="break-word" data-table-report="col-register">Register {{item.register | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
-							<td class="break-word" data-table-report="col-order-id">{{loop.index | safe}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{item.orderID | safe}}</td>
 							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID | safe}}</td>
 							{# <td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td> #}
 							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
@@ -462,7 +472,7 @@ headerTitle: VidaPay Report
 							<td class="break-word">{{item.productDesc | safe}}</td>
 							<td class="break-word" data-table-report="col-tracking">{{item.tracking | safe}}</td>
 							<td class="break-word">{{item.payment | safe}}</td>
-							<td class="break-word">{{item.discount | safe}}</td>
+							<td class="break-word">({{item.discount | safe}})</td>
 							<td class="break-word">{{item.fee | safe}}</td>
 							<td class="break-word">{{item.totalAmt | safe}}</td>
 							<td class="break-word">{{item.profit | safe}}</td>
@@ -477,7 +487,7 @@ headerTitle: VidaPay Report
 						<td colspan="9">&nbsp;</td>
 						<td>Total</td>
 						<td>$585.00</td>
-						<td>$42.00</td>
+						<td>($42.00)</td>
 						<td>$24.00</td>
 						<td>$609.00</td>
 						<td>$543.00</td>
