@@ -1,6 +1,6 @@
 ---
-title: Convenience Fee Report
-headerTitle: Convenience Fee Report
+title: Service Fee Report
+headerTitle: Service Fee Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -49,39 +49,32 @@ headerTitle: Convenience Fee Report
 						<th data-index="0" data-bind="click : sortClick" class="sorting_asc">Name</th>
 						<th data-index="1" data-bind="click : sortClick">Rate</th>
 						<th data-index="2" data-bind="click : sortClick">Order Amount</th>
-						{# <th data-index="3" data-bind="click : sortClick">Collected Amount</th>
-						<th data-index="4" data-bind="click : sortClick">Discount Amount</th> #}
-						<th data-index="5" data-bind="click : sortClick">Collected Amount</th>
+						<th data-index="3" data-bind="click : sortClick">Collected Amount</th>
+						<th data-index="4" data-bind="click : sortClick">Discount Amount</th>
+						<th data-index="5" data-bind="click : sortClick">Total Amount</th>
 					</tr>
 				</thead>
 				{% set fee = [
 					{
-						name: 'SVC (NY)',
+						name: 'Packing Fee',
 						rate: '4%',
 						orderAmount: '$10.20',
 						collectedAmount: '$0.41',
 						totalAmount: '$0.41'
 					},
 					{
-						name: 'SVC (AZ)',
-						rate: '3.1%',
+						name: 'Take Out Fee',
+						rate: '$2.50',
 						orderAmount: '$12.80',
-						collectedAmount: '$0.39',
-						totalAmount: '$0.39'
+						collectedAmount: '$2.50',
+						totalAmount: '$2.50'
 					},
 					{
-						name: 'SVC (FL)',
-						rate: '1.1%',
+						name: 'Delivery Fee',
+						rate: '$5.00',
 						orderAmount: '$12.80',
-						collectedAmount: '$0.13',
-						discountAmount: '$0.13'
-					},
-					{
-						name: 'SVC (LA)',
-						rate: '$2.00',
-						orderAmount: '$12.80',
-						collectedAmount: '$2.00',
-						totalAmount: '$2.00'
+						collectedAmount: '$5.00',
+						discountAmount: '$5.00'
 					}
 				] %}
 				<tbody data-bind="foreach: lines">
@@ -90,8 +83,8 @@ headerTitle: Convenience Fee Report
 							<td>{{item.name}}</td>
 							<td>{{item.rate}}</td>
 							<td>{{item.orderAmount or '$0.00'}}</td>
-							{# <td>{{item.collectedAmount or '$0.00'}}</td>
-							<td>{{item.discountAmount or '$0.00'}}</td> #}
+							<td>{{item.collectedAmount or '$0.00'}}</td>
+							<td>{{item.discountAmount or '$0.00'}}</td>
 							<td>{{item.totalAmount or '$0.00'}}</td>
 						</tr>
 					{% endfor %}
@@ -101,9 +94,9 @@ headerTitle: Convenience Fee Report
 						<td>&nbsp;</td>
 						<td><span>Total</span>:</td>
 						<td>$48.60</td>
-						{# <td>$2.93</td>
-						<td>$0.13</td> #}
-						<td>$2.80</td>
+						<td>$7.91</td>
+						<td>$5.00</td>
+						<td>$2.91</td>
 					</tr>
                 </tfoot>
 			</table>
