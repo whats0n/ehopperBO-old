@@ -1,6 +1,6 @@
 ---
-title: Service Fee
-headerTitle: Service Fee
+title: Service Fee Manager
+headerTitle: Service Fee Manager
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -35,20 +35,16 @@ headerTitle: Service Fee
 				</thead>
 				{% set fee = [
 					{
-						name: 'SVC (NY)',
+						name: 'Packing Fee',
 						rate: '4%'
 					},
 					{
-						name: 'SVC (AZ)',
-						rate: '3.1%'
+						name: 'Take Out Fee',
+						rate: '$2.50'
 					},
 					{
-						name: 'SVC (FL)',
-						rate: '1.1%'
-					},
-					{
-						name: 'SVC (LA)',
-						rate: '$2.00'
+						name: 'Delivery Fee',
+						rate: '$5.00'
 					}
 				] %}
 				<tbody>
