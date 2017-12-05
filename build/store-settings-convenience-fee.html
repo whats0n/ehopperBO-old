@@ -105,7 +105,7 @@
 							 </tr>
 						</thead>
 						<tbody>
-							<tr class="js-toggle-container" style="display: none;">
+							<tr class="js-toggle-container">
 								<td class="store-settings__taxes-name ">
 									<multi-selector params="options: $root.setupTaxesSelect($data)">
 										<div class="ms-parent" data-bind="style: { width : options.width }, click : onSelectorClick" style="width: 80%;">
@@ -1186,7 +1186,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<input class="tax-add-button js-toggle-show" type="button" style="" onclick="show(event)">
+					<input class="tax-add-button js-toggle-show" type="button" style="display: none;" onclick="show(event)">
 					<script>
 						function show(e) {
 							var $show = $('.js-toggle-show');

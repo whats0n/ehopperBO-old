@@ -92,96 +92,18 @@
 					</div>
 				</div>
 
-				<div class="col-xs-5 col-md-5">
-					<div class="form-group no-overflow position-relative">
-						<label>Order Type</label>
-						<div>
-							<select class="form-control input-lg" style="display: none;">
-								
-								<option value="All">All</option>
-								
-									<option value="Quick Sale">Quick Sale</option>
-								
-									<option value="Dine In">Dine In</option>
-								
-									<option value="Take Out">Take Out</option>
-								
-									<option value="Drive Thru">Drive Thru</option>
-								
-									<option value="Delivery">Delivery</option>
-								
-									<option value="Manual Sale">Manual Sale</option>
-								
-							</select>
-							<div class="ms-parent">
-								<script>
-									function openDropdown(e) {
-										e.preventDefault();
-										$(e.currentTarget)
-											.closest('.ms-parent')
-											.find('.ms-drop')
-											.toggle();
-									}
-								</script>
-								<button type="button" class="select" onclick="openDropdown(event)" style="width: 100%;">
-									<div class="fl">
-										<div>
-											<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Order Type(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
-										</div>
-										<div>
-											<div></div>
-										</div>
-									</div>
-								</button>
-								<div class="ms-drop bottom" data-name="multipleSelect1" style="width: 100%;">
-									<ul style="max-height: 250px;">
-										<li>
-											<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
-											<label for="allCheck">Select All</label>
-										</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
-												<label for="payment-store-1">Quick Sale</label>
-											</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-2" checked>
-												<label for="payment-store-2">Dine In</label>
-											</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-3" checked>
-												<label for="payment-store-3">Take Out</label>
-											</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-4" checked>
-												<label for="payment-store-4">Drive Thru</label>
-											</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-5" checked>
-												<label for="payment-store-5">Delivery</label>
-											</li>
-										
-											<li>
-												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-6" checked>
-												<label for="payment-store-6">Manual Sale</label>
-											</li>
-										
-										<li class="ms-no-results">No matches found</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 
 				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
-					<div class="checkbox js-service-checkbox">
+					<div class="checkbox">
 						<input type="checkbox" id="inclide-taxes">
 						<label for="inclide-taxes">Taxable</label>
+					</div>
+				</div>
+				<div class="col-xs-2 col-md-2" style="padding-top: 26px;">
+					<div class="checkbox">
+						<input type="checkbox" id="AutoincludeOnPos">
+						<label for="AutoincludeOnPos">Autoinclude on POS</label>
 					</div>
 				</div>
 			</div>
