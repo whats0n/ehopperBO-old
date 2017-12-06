@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Payment report</title>
+		<title>Bill Payment Report</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -42,7 +42,7 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">VidaPay Report</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Bill Payment Report</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
@@ -287,10 +287,7 @@
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
-						<th class="sorting" 
-							tabindex="0" 
-							aria-controls="productMixReportTable" 
-							aria-label="Discount: Activate to sort by ascending columns">Discount</th>
+						
 						<th class="sorting table-report-fee" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -302,13 +299,19 @@
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Profit: Activate to sort by ascending columns">Profit</th>
+							aria-label="Dealer Compensation: Activate to sort by ascending columns">Dealer Compensation</th>
 						<th class="sorting_asc"
 							tabindex="0" 
 							data-table-report="col-trans-date"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by descending columns" 
+							aria-label="Transaction Date: Activate to sort by descending columns" 
 							aria-sort="ascending">Transaction Date</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-tsp"
+							aria-controls="productMixReportTable" 
+							aria-label="TSP: Activate to sort by descending columns" 
+							aria-sort="ascending">TSP</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -335,11 +338,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5754491522</td>
 							<td class="break-word">$60.00</td>
-							<td class="break-word">($2.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$63.00</td>
-							<td class="break-word">$58.00</td>
+							<td class="break-word">$2.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">ochoa, elizabeth</td>
 							<td class="break-word">DANIEL . JIMENEZ</td>
 						</tr>
@@ -357,11 +361,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5758050516</td>
 							<td class="break-word">$50.00</td>
-							<td class="break-word">($2.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$53.00</td>
-							<td class="break-word">$48.00</td>
+							<td class="break-word">$2.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">Ochoa, Lupe</td>
 							<td class="break-word">RENEE . PADILLA</td>
 						</tr>
@@ -379,11 +384,12 @@
 							<td class="break-word">Feature Change</td>
 							<td class="break-word" data-table-report="col-tracking">5752887429</td>
 							<td class="break-word">$5.00</td>
-							<td class="break-word">($1.00)</td>
+							
 							<td class="break-word">$0.00</td>
 							<td class="break-word">$5.00</td>
-							<td class="break-word">$4.00</td>
+							<td class="break-word">$1.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:24</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">Rivera, Perla</td>
 							<td class="break-word">RUFINA MOLINA</td>
 						</tr>
@@ -401,11 +407,12 @@
 							<td class="break-word">Activation Payment</td>
 							<td class="break-word" data-table-report="col-tracking">9153313591</td>
 							<td class="break-word">$55.00</td>
-							<td class="break-word">($3.00)</td>
+							
 							<td class="break-word">$0.00</td>
 							<td class="break-word">$55.00</td>
-							<td class="break-word">$52.00</td>
+							<td class="break-word">$3.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:34</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">ochoa, elizabeth</td>
 							<td class="break-word">JOSE . CRUZ</td>
 						</tr>
@@ -423,11 +430,12 @@
 							<td class="break-word">Reactivation-$3</td>
 							<td class="break-word" data-table-report="col-tracking">5755207160</td>
 							<td class="break-word">$40.00</td>
-							<td class="break-word">($1.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$43.00</td>
-							<td class="break-word">$39.00</td>
+							<td class="break-word">$1.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:56</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">Lopez, Kathleen</td>
 							<td class="break-word">MARTIN ASTROGA</td>
 						</tr>
@@ -445,11 +453,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5753862085</td>
 							<td class="break-word">$30.00</td>
-							<td class="break-word">($3.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$33.00</td>
-							<td class="break-word">$27.00</td>
+							<td class="break-word">$3.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 12:58</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">Ochoa, Lupe</td>
 							<td class="break-word">JENNIE . MEETZE</td>
 						</tr>
@@ -467,11 +476,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5752226494</td>
 							<td class="break-word">$91.00</td>
-							<td class="break-word">($6.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$94.00</td>
-							<td class="break-word">$85.00</td>
+							<td class="break-word">$6.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:06</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">ochoa, carmen</td>
 							<td class="break-word">EMILI VASQUEZ</td>
 						</tr>
@@ -489,11 +499,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5752223551</td>
 							<td class="break-word">$41.00</td>
-							<td class="break-word">($5.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$44.00</td>
-							<td class="break-word">$36.00</td>
+							<td class="break-word">$5.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:08</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">Rivera, Perla</td>
 							<td class="break-word">MICHELLE SALAS</td>
 						</tr>
@@ -511,11 +522,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">5756357935</td>
 							<td class="break-word">$91.00</td>
-							<td class="break-word">($7.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$94.00</td>
-							<td class="break-word">$84.00</td>
+							<td class="break-word">$7.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:21</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">veloz, jasmine</td>
 							<td class="break-word">ROBERTO . LAZO</td>
 						</tr>
@@ -533,11 +545,12 @@
 							<td class="break-word">Service Payment</td>
 							<td class="break-word" data-table-report="col-tracking">9153034848</td>
 							<td class="break-word">$122.00</td>
-							<td class="break-word">($12.00)</td>
+							
 							<td class="break-word">$3.00</td>
 							<td class="break-word">$125.00</td>
-							<td class="break-word">$110.00</td>
+							<td class="break-word">$12.00</td>
 							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:22</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">ochoa, carmen</td>
 							<td class="break-word">ANTWIONETTE . SMITH</td>
 						</tr>

@@ -1,6 +1,6 @@
 ---
-title: Acticvation report
-headerTitle: Tracfone Phone Activation Report
+title: Activation Report
+headerTitle: Activation Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -110,22 +110,6 @@ headerTitle: Tracfone Phone Activation Report
 									<option value="Contract Type {{loop.index}}">Contract Type {{loop.index}}</option>
 								{% endfor %}
 							</select>
-						</td>
-						<td class="payment-report-filter">
-							<label>Carrier:</label>
-							{% set carrier = [
-								'GoSmart',
-								'Net 10',
-								'Simple Mobile',
-								'Telcel',
-								'TracFone'
-							] %}
-							<select>
-								<option>All</option>
-								{% for item in carrier %}
-									<option value="{{item}}">{{item}}</option>
-								{% endfor %}
-							</select>
 						</td> #}
 						<td class="payment-report-filter">
 							<label>Transaction Type:</label>
@@ -153,6 +137,22 @@ headerTitle: Tracfone Phone Activation Report
 							<select>
 								<option>All</option>
 								{% for item in tenderType %}
+									<option value="{{item}}">{{item}}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td class="payment-report-filter">
+							<label>Carrier:</label>
+							{% set carrier = [
+								'GoSmart',
+								'Net 10',
+								'Simple Mobile',
+								'Telcel',
+								'TracFone'
+							] %}
+							<select>
+								<option>All</option>
+								{% for item in carrier %}
 									<option value="{{item}}">{{item}}</option>
 								{% endfor %}
 							</select>

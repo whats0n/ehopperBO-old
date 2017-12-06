@@ -1,6 +1,6 @@
 ---
-title: Payment report
-headerTitle: VidaPay Report
+title: Bill Payment Report
+headerTitle: Bill Payment Report
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -213,10 +213,10 @@ headerTitle: VidaPay Report
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
 							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
-						<th class="sorting" 
+						{# <th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Discount: Activate to sort by ascending columns">Discount</th>
+							aria-label="Discount: Activate to sort by ascending columns">Discount</th> #}
 						<th class="sorting table-report-fee" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -228,13 +228,19 @@ headerTitle: VidaPay Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Profit: Activate to sort by ascending columns">Profit</th>
+							aria-label="Dealer Compensation: Activate to sort by ascending columns">Dealer Compensation</th>
 						<th class="sorting_asc"
 							tabindex="0" 
 							data-table-report="col-trans-date"
 							aria-controls="productMixReportTable" 
-							aria-label="Trans Date: Activate to sort by descending columns" 
+							aria-label="Transaction Date: Activate to sort by descending columns" 
 							aria-sort="ascending">Transaction Date</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-tsp"
+							aria-controls="productMixReportTable" 
+							aria-label="TSP: Activate to sort by descending columns" 
+							aria-sort="ascending">TSP</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -472,11 +478,12 @@ headerTitle: VidaPay Report
 							<td class="break-word">{{item.productDesc | safe}}</td>
 							<td class="break-word" data-table-report="col-tracking">{{item.tracking | safe}}</td>
 							<td class="break-word">{{item.payment | safe}}</td>
-							<td class="break-word">({{item.discount | safe}})</td>
+							{# <td class="break-word">({{item.discount | safe}})</td> #}
 							<td class="break-word">{{item.fee | safe}}</td>
 							<td class="break-word">{{item.totalAmt | safe}}</td>
-							<td class="break-word">{{item.profit | safe}}</td>
+							<td class="break-word">{{item.discount | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
 							<td class="break-word">{{item.createdBy | safe}}</td>
 							<td class="break-word">{{item.customer | safe}}</td>
 						</tr>

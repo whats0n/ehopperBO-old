@@ -3621,11 +3621,11 @@
 }
 
 #activationReportTable {
-  min-width: 2600px;
+  min-width: 2700px;
 }
 
 #paymentReportTable {
-  min-width: 2200px;
+  min-width: 2300px;
 }
 
 .payment-report-filters {
@@ -3650,6 +3650,10 @@
 
 [data-table-report="col-trans-date"] {
   width: 140px;
+}
+
+[data-table-report="col-tsp"] {
+  width: 100px;
 }
 
 [data-table-report="col-trans-id"] {
