@@ -1,0 +1,60 @@
+---
+title: Edit Department
+headerTitle: Edit Department
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		<div class="form long" data-bind="with: department">
+			<!--ko compose: { model: $root.langs }-->
+			<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" style="" data-active-view="true">
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="selected">English</a>
+
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="">Custom</a>
+
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="">Русский</a>
+			</div>
+			<!--/ko-->
+			<div id="saveMessages"></div>
+			
+			<div class="form-group">
+				<p>Department Type: Apps</p>
+			</div>
+
+			<div class="form-group">
+				<label data-bind="local: $root.getKeyPrefix() + 'departments/departmentManage.department_name'">Department Name</label>
+				<!-- ko foreach: names -->
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" value="Apps" disabled data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_name', localAttr: 'placeholder'" style=""><span class="fieldError" style="display: none;"></span>
+				
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" value="Apps" disabled data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_name', localAttr: 'placeholder'" style="display: none;"><span class="fieldError" style="display: none;"></span>
+				
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" value="Apps" disabled data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_name', localAttr: 'placeholder'" style="display: none;"><span class="fieldError" style="display: none;"></span>
+				<!-- /ko -->
+			</div>
+			<div class="form-group">
+				<label data-bind="local: $root.getKeyPrefix() + 'departments/departmentManage.department_description'">Department Description</label>
+				<!-- ko foreach: names -->
+				<textarea class="form-control input-lg" placeholder="Input Description" disabled data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_description', localAttr: 'placeholder'" style=""></textarea><span class="fieldError" style="display: none;"></span>
+				
+				<textarea class="form-control input-lg" placeholder="Input Description" disabled data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_description', localAttr: 'placeholder'" style="display: none;"></textarea><span class="fieldError" style="display: none;"></span>
+				
+				<textarea class="form-control input-lg" placeholder="Input Description" disabled data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'departments/departmentManage.input_description', localAttr: 'placeholder'" style="display: none;"></textarea><span class="fieldError" style="display: none;"></span>
+				<!-- /ko -->
+			</div>
+
+			<div class="checkbox">
+				<input type="checkbox" id="isActiveDepartment" data-bind="checked: isActive" disabled checked>
+				<label for="isActiveDepartment" data-bind="local: $root.getKeyPrefix() + 'departments/departmentManage.is_active'">Is Active</label>
+			</div>
+
+			<br>
+			<!-- ko if: appsData['qb'] --><!-- /ko -->
+
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done" data-bind="click: $root.save, local: $root.getKeyPrefix() + 'departments/departmentManage.done' ">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: $root.cancel, local: $root.getKeyPrefix() + 'departments/departmentManage.cancel' ">
+			</div>
+		</div>
+	</div>
+{% endblock %}
