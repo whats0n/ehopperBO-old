@@ -1,0 +1,100 @@
+---
+title: Departments
+headerTitle: Departments
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body categories">
+		<div id="messages"></div>
+
+		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for category" data-bind="local: getKeyPrefix() + 'categories/categoriesList.search_for_category', localAttr: 'placeholder'">
+		<div class="btn-group btn-group-lg pull-right">
+			<a class="btn btn-primary" data-bind="attr: { href: '#' + getRoute('category') }, local: getKeyPrefix() + 'categories/categoriesList.new_category'" href="#category">New Category</a>
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only" data-bind="local: getKeyPrefix() + 'categories/categoriesList.toggle_dropdown'">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a data-bind="attr: { href: '#' + getRoute('department') }, local: getKeyPrefix() + 'categories/categoriesList.new_department'" href="#department">New Department</a></li>
+				<!-- ko if: !isAppMode() -->
+				<li><a href="#product" data-bind="local: 'categories/categoriesList.new_item'">New Item</a></li>
+				<!-- /ko -->
+			</ul>
+		</div>
+
+		<button class="btn btn-lg pull-right btn-red delete-button-mark" type="button" data-bind="click: deleteSelected , enable: hasSelected" disabled="">
+			<span class="" data-bind="local: 'common.delete_selected'">Delete</span>
+		</button>
+
+
+		<br class="clear">
+		<div class="dataTables_wrapper no-footer">
+			<div id="categoriesTable_wrapper" class="dataTables_wrapper no-footer"><div id="categoriesTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="categoriesTable"></label></div><table class="datatable selectablelist dataTable no-footer" id="categoriesTable" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting_disabled" rowspan="1" colspan="1" aria-label="">
+							<div class="checkbox">
+								<input type="checkbox" id="catsSelectAll" data-bind="checked: selectAll">
+								<label for="catsSelectAll"></label>
+							</div>
+						</th>
+						<th data-bind="local: getKeyPrefix() + 'categories/categoriesList.category_name'" class="sorting_asc" tabindex="0" aria-controls="categoriesTable" rowspan="1" colspan="1" aria-label="Category Name: Activate to sort by descending columns" aria-sort="ascending">Category Name</th>
+						<th data-bind="local: getKeyPrefix() + 'categories/categoriesList.department_name'" class="sorting" tabindex="0" aria-controls="categoriesTable" rowspan="1" colspan="1" aria-label="Department Name: Activate to sort by ascending columns">Department Name</th>
+						<th>Type</th>
+						<th data-bind="local: 'categories/categoriesList.status'" class="sorting" tabindex="0" aria-controls="categoriesTable" rowspan="1" colspan="1" style="width: 150px;" aria-label="Status: Activate to sort by ascending columns">Status</th>
+						<th class="center no-padding sorting_disabled" rowspan="1" colspan="1" style="width: 50px;" aria-label="">
+						</th>
+					</tr>
+				</thead>
+				<tbody id="dataTableRows" style="display: table-row-group;">
+					<tr class="editable odd" id="row5329c76ccf084734ace5bd518f40ca3d" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chk5329c76ccf084734ace5bd518f40ca3d" data-bind="checked: selected"><label for="chk5329c76ccf084734ace5bd518f40ca3d" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1"> Appetizers2</td>
+						<td>Appetizers_</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row61846f73e3fd4b16b0c4c1f67a0b7416" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chk61846f73e3fd4b16b0c4c1f67a0b7416" data-bind="checked: selected"><label for="chk61846f73e3fd4b16b0c4c1f67a0b7416" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">!AutomationCategory</td>
+						<td>!AutomationDepartment</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="row7e22335652a946f8b0b3c790bf532a1e" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chk7e22335652a946f8b0b3c790bf532a1e" data-bind="checked: selected"><label for="chk7e22335652a946f8b0b3c790bf532a1e" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">1n</td>
+						<td>Food12</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row91bd8b4e18e6475995d7205793407ef3" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chk91bd8b4e18e6475995d7205793407ef3" data-bind="checked: selected"><label for="chk91bd8b4e18e6475995d7205793407ef3" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">active!!!</td>
+						<td>Drinks</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="rowe8c487f5749d448aa9485c445065ca1c" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chke8c487f5749d448aa9485c445065ca1c" data-bind="checked: selected"><label for="chke8c487f5749d448aa9485c445065ca1c" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">ads_renamed</td>
+						<td>ads</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row98d57a148c6546d2a6e6809d124dd03c" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chk98d57a148c6546d2a6e6809d124dd03c" data-bind="checked: selected"><label for="chk98d57a148c6546d2a6e6809d124dd03c" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">Appetizers286</td>
+						<td>Alcohol</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="rowfe44191615e24838bf7c4b21a363d64e" data-bind="click: edit" role="row">
+						<td><div class="checkbox"><input type="checkbox" id="chkfe44191615e24838bf7c4b21a363d64e" data-bind="checked: selected"><label for="chkfe44191615e24838bf7c4b21a363d64e" data-bind="click: selectItem"></label></div></td>
+						<td class="sorting_1">asdsd</td><td>Food</td><td>Active</td><td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td></tr><tr class="editable even" id="row8e0a9d6447f04fbb8bd81e4cbfd30ab5" data-bind="click: edit" role="row"><td><div class="checkbox"><input type="checkbox" id="chk8e0a9d6447f04fbb8bd81e4cbfd30ab5" data-bind="checked: selected"><label for="chk8e0a9d6447f04fbb8bd81e4cbfd30ab5" data-bind="click: selectItem"></label></div></td><td class="sorting_1">asdsdsa</td><td>Drinks</td><td>Active</td><td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td></tr><tr class="editable odd" id="rowe78d153f813f4e07aa75f2f90d890edd" data-bind="click: edit" role="row"><td><div class="checkbox"><input type="checkbox" id="chke78d153f813f4e07aa75f2f90d890edd" data-bind="checked: selected"><label for="chke78d153f813f4e07aa75f2f90d890edd" data-bind="click: selectItem"></label></div></td><td class="sorting_1">Brandy_Haw</td><td>Alcohol</td><td>Active</td><td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td></tr><tr class="editable even" id="row3424ced716fe42338e1fba54f9aa7295" data-bind="click: edit" role="row"><td><div class="checkbox"><input type="checkbox" id="chk3424ced716fe42338e1fba54f9aa7295" data-bind="checked: selected"><label for="chk3424ced716fe42338e1fba54f9aa7295" data-bind="click: selectItem"></label></div></td><td class="sorting_1">BUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLOBUHLO</td><td>Alcohol</td><td>Inactive</td><td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td></tr></tbody>
+			</table><div class="dataTables_paginate paging_simple_numbers" id="categoriesTable_paginate"><a class="paginate_button previous disabled" aria-controls="categoriesTable" data-dt-idx="0" tabindex="0" id="categoriesTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="categoriesTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="categoriesTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="categoriesTable" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="categoriesTable" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="categoriesTable" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="categoriesTable" data-dt-idx="6" tabindex="0">12</a></span><a class="paginate_button next" aria-controls="categoriesTable" data-dt-idx="7" tabindex="0" id="categoriesTable_next">Next</a></div></div>
+			<div id="dataTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+		</div>
+	</div>
+{% endblock %}
