@@ -24,6 +24,9 @@ headerTitle: Edit Category
 					var $target = $(e.currentTarget);
 					var $multi = $('.js-departments-multi');
 					var $single = $('.js-departments-single');
+					$multi
+						.add($single)
+						.val('');
 					
 					if ($target.prop('checked') ) {
 						$multi.hide();
