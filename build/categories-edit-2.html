@@ -1,0 +1,145 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Edit Category</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Edit Category</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	
+	<div class="pane-body item-list">
+		<div class="form wide-form categories-form" data-bind="with: model">
+			<!--ko compose: { model: $root.langs }-->
+			<div class="language-selector" data-bind="foreach: $root.languages" data-view="views/languageSelector" style="" data-active-view="true">
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="selected">English</a>
+
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="">Custom</a>
+
+				<a data-bind="text: name, css: { selected: id === $root.selectedLanguage() }, click: $root.selectLanguage" class="">Русский</a>
+			</div>
+			<!--/ko-->
+			<div id="saveMessages"></div>
+
+			<div class="form-group">
+				<p>Category Type: Apps</p>
+			</div>
+
+			<div class="form-group">
+				<label data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.category_name'">Category Name</label>
+				<!-- ko foreach: names -->
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" value="Tracfone category" data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_name', localAttr: 'placeholder'" style=""><span class="fieldError" style="display: none;"></span>
+				
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_name', localAttr: 'placeholder'" style="display: none;"><span class="fieldError" style="display: none;"></span>
+				
+				<input class="form-control input-lg" type="text" placeholder="Input Name" maxlength="100" data-bind="value: $data.name, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_name', localAttr: 'placeholder'" style="display: none;"><span class="fieldError" style="display: none;"></span>
+				<!-- /ko -->
+			</div>
+
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="form-group">
+						<label data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.category_short_name'">Category Short Name</label>
+						<!-- ko foreach: names -->
+						<input class="form-control input-lg" style="width: 100%;" type="text" placeholder="Input Short Name" maxlength="5" data-bind="value: $data.shortName, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_short_name', localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						
+						<input class="form-control input-lg" style="width: 100%; display: none;" type="text" placeholder="Input Short Name" maxlength="5" data-bind="value: $data.shortName, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_short_name', localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						
+						<input class="form-control input-lg" style="width: 100%; display: none;" type="text" placeholder="Input Short Name" maxlength="5" data-bind="value: $data.shortName, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_short_name', localAttr: 'placeholder'"><span class="fieldError" style="display: none;"></span>
+						<!-- /ko -->
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group color-sm">
+						<label for="color1" data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.color'">Category Display Color</label>
+						<input class="select" readonly="readonly" onkeydown="return false" type="text" id="color1" placeholder="Select Color" style="background: rgb(255, 255, 255); color: rgb(0, 0, 0);"><div class="cp-container swatches-active"><ul class="cp-pills hidden"><li><a href="#" class="cp-pill-swatches active">Swatches</a></li></ul><div class="cp-sliders" style="color: rgb(0, 0, 0);"></div><div class="cp-swatches clearfix"><button type="button" class="add btn btn-default" title="Add color to swatches" style="display: none;" disabled=""><span class="glyphicon glyphicon-floppy-save"></span></button><button type="button" class="remove btn btn-default" title="Remove color from swatches" style="display: none;"><span class="glyphicon glyphicon-trash"></span></button><button type="button" class="reset btn btn-default" title="Select Color" style="display: none;"><span class="glyphicon glyphicon-repeat"></span></button><ul><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(109, 46, 40);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(144, 54, 67);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 104, 70);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(185, 123, 65);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(130, 129, 52);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(56, 115, 85);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(167, 59, 60);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(188, 69, 89);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 100, 79);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(218, 150, 77);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(155, 161, 56);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(76, 171, 112);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(213, 83, 86);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 83, 108);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(241, 120, 94);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(245, 177, 95);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(191, 186, 66);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(129, 191, 125);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(240, 93, 109);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(223, 139, 139);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(254, 150, 99);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(246, 204, 36);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(201, 209, 94);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(156, 203, 126);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(73, 73, 73);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(174, 105, 226);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(108, 118, 225);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(105, 143, 205);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 173, 190);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(127, 181, 178);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(183, 183, 183);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 108, 183);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(81, 90, 151);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(86, 117, 175);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(98, 146, 180);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(64, 189, 173);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(224, 224, 224);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 72, 126);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 48, 121);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(96, 114, 163);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(83, 126, 150);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(46, 142, 131);"></span></div></li><li><div class="btn btn-default cp-swatch actual"><span style="background-color: rgb(255, 255, 255);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(67, 79, 117);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(75, 81, 109);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(55, 87, 141);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(38, 89, 114);"></span></div></li><li><div class="btn btn-default cp-swatch"><span style="background-color: rgb(117, 151, 143);"></span></div></li></ul></div></div> 
+					</div>
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label style="padding-top:10px;" data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.category_description'">Category Description</label>
+				<!-- ko foreach: names -->
+				<textarea class="form-control input-lg" placeholder="Input Description" data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_description', localAttr: 'placeholder'" style=""></textarea><span class="fieldError" style="display: none;"></span>
+				
+				<textarea class="form-control input-lg" placeholder="Input Description" data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_description', localAttr: 'placeholder'" style="display: none;"></textarea><span class="fieldError" style="display: none;"></span>
+				
+				<textarea class="form-control input-lg" placeholder="Input Description" data-bind="value: $data.description, visible: $data.languageId === $root.langs.selectedLanguage(), local: $root.getKeyPrefix() + 'categories/categoryManage.input_description', localAttr: 'placeholder'" style="display: none;"></textarea><span class="fieldError" style="display: none;"></span>
+				<!-- /ko -->
+			</div>
+
+			<div class="form-group">		  
+				<label data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.department'">Department</label>
+				<select class="select" data-bind="options: lobs, optionsText: 'name', optionsValue: 'id', optionsCaption: ko.local($root.getKeyPrefix() + 'categories/categoryManage.select_department'), value: lobId, valueAllowUnset: true"><option value="">Select Department...</option><option value="Apps" selected>Apps</option><option value="6a897da2a2af4104935bee96446de938">1122h</option><option value="0e3da3ac80b249749cd9a6f821c48948">Active</option><option value="4067850f2c43408eab83091fb5df0f13">ads</option><option value="28d7949af98b4f9f9ad5216d4660bf4f">Alcohol</option><option value="f3592ca28e5940d9b6b8ec39c4f81213">Appetizers</option><option value="f301a1412ef44805b1356093e3debc9c">Appetizers_</option><option value="df5f02290de84970822efd965cea3c1e">AutoJap</option><option value="57357552b7d84060a3668936e293df28">Beverages</option><option value="7fdcd216933e43dab5d18d134ac7d118">Beverages123</option><option value="a55be0032f3842f3a81264b1fd5505c4">Cloth</option><option value="2fb3a7b3144e4826a608614e1d85f8c7">DASD_renamed</option><option value="4756f44916324bdd83ee539d51acab66">DelDep</option><option value="fcbff060ce2a4c0d99569af516ebc7bb">Department nam2e</option><option value="8ac77cb02c424fa29a0e18edee534ded">Department name</option><option value="e461730e7b224ee6a542db9f7d618219">Department_with_Serials</option><option value="01fcd933705c400ca1895ef2e4c303b6">Drinks</option><option value="fe95baa255054a3d854cd92d90445629">Drinks and Dessert</option><option value="549fa0623e9c48d9ad3ee4a0a10384b8">Drugs</option><option value="f6e152eaa1dc4ea080ca7d43ebd71f6c">dvsvdsvsdvdsv</option><option value="1b7fa4f92a0b4c51bcb2612ac97d06de">Empty</option><option value="226be647a582434a9a71b9a765c76b53">Food</option><option value="59906b51dcfa4aaabc4e00e9b72559d2">Food11</option><option value="03b51f7bfd8c4d719e89055dffef4b92">Food12</option><option value="50484b40733446d8902c5960063398ee">Food13</option><option value="119be24e75c8427d97b2c3d2f087c279">Food14</option><option value="dcab1f371f0445788a7eb98bade6709a">Food15</option><option value="853009c7263f41bd9f95e8462e1bdd53">Food16</option><option value="7d8d9bc6457d4606893c8c529a0016c4">Food17</option><option value="bcc5efd9f405427aad46069c90574690">Food18</option><option value="faece383a2ae4a19b7cdd76672d2a6c5">Food19</option><option value="dfcf49949b03475fb51f61ad83e1050b">fr</option><option value="16062602bbbe42bbb5b4b3b058f26350">gdffd</option><option value="c206e44961a349b68d75f0b63af400ce">gfr</option><option value="321d42b9ebbb457a86296443db2e86d5">gre</option><option value="52f64833e8e842b3ba5446cae49c7f23">Homemade Pastry</option><option value="4e6efdc5ce9542e7bf1d29e9a59b7c81">Import_Department</option><option value="392ac229f77647db91b1cde765c1a258">import_test</option><option value="dc7d573a41ce4137816b94a390e4b1eb">Inventory</option><option value="19c8652ca18b4d9eafc9d02521a70087">juice</option><option value="b434080bf1854750bfb206e4707f19ff">LOLOLA</option><option value="c48c50855404462c80eb41003da2f1bf">Main Courses</option><option value="1ee726addb1d48d48f22e9718be2703d">Movie_Haw</option><option value="301caad64b3548e1904b90a38f47d553">New Department Test</option><option value="691d362af282485d955094c17e971753">November_Department</option><option value="5832206b17434dd9b7eff6f55490852d">Soups</option><option value="0e136952f4d54e2cba05cf1e26f749ea">T</option><option value="247dc18d6aaf42529456fe4ac094ca54">T1</option><option value="e22df9deac3d45ea811466b52f18380a">TarasForTesting</option><option value="f48ea3723c0e4293bc27dc2caa14ba56">Test Department</option><option value="f7a76a3757fa45a2b4abf97f05887b97">test for freez</option><option value="c1162812c06f4df5b3a241f0b76ec602">Test_Department</option><option value="b02e23ca4261492b80e0f2a5a86609bf">TestDep</option><option value="f03fa634b3fa470b8c149b6e3bb616a1">TESTTEST</option><option value="3445c42b111b4a42bcdc335394171c4e">tratata</option><option value="ad0f3b200c7e4a08bf599e6fe6112c8e">upc department</option><option value="004554e412b643609488ffe652de0fc9">Variant</option></select><span class="fieldError" style="display: none;"></span>		   
+			</div>
+		
+			<div class="checkbox" initializedcheckbox="true">
+				<input type="checkbox" id="isActiveCategory" data-bind="checked: isActive" checked>
+				<label for="isActiveCategory" data-bind="local: $root.getKeyPrefix() + 'categories/categoryManage.is_active'">Is Active</label>
+			</div><label></label>
+	   
+			<br>
+			<!-- ko if: appsData['qb'] --><!-- /ko -->
+
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done" data-bind="click: $root.save, local: $root.getKeyPrefix() + 'categories/categoryManage.done' ">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: $root.cancel, local: $root.getKeyPrefix() + 'categories/categoryManage.cancel' ">
+			</div>
+		</div>
+	</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
