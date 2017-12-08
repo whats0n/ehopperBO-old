@@ -48,7 +48,7 @@
 							<div class="pane-body-wrapper ">
 								
 	<div class="pane-body inventory" data-bind="with: filter">
-		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by Tracking #">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Mobile number" style="width: 350px;">
 		<div style="float:left;">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
@@ -180,8 +180,6 @@
 								
 									<option value="Split">Split</option>
 								
-									<option value="EBT">EBT</option>
-								
 							</select>
 						</td>
 						<td class="payment-report-filter">
@@ -280,9 +278,9 @@
 							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-tracking"
+							data-table-report="col-mobile"
 							aria-controls="productMixReportTable" 
-							aria-label="Tracking #: Activate to sort by ascending columns">Tracking #</th>
+							aria-label="Mobile Number #: Activate to sort by ascending columns">Mobile Number</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -336,7 +334,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5754491522</td>
+							<td class="break-word" data-table-report="col-mobile">5754491522</td>
 							<td class="break-word">$60.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -359,7 +357,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5758050516</td>
+							<td class="break-word" data-table-report="col-mobile">5758050516</td>
 							<td class="break-word">$50.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -382,7 +380,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Feature Change</td>
-							<td class="break-word" data-table-report="col-tracking">5752887429</td>
+							<td class="break-word" data-table-report="col-mobile">5752887429</td>
 							<td class="break-word">$5.00</td>
 							
 							<td class="break-word">$0.00</td>
@@ -405,7 +403,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Voided</td>
 							<td class="break-word">Activation Payment</td>
-							<td class="break-word" data-table-report="col-tracking">9153313591</td>
+							<td class="break-word" data-table-report="col-mobile">9153313591</td>
 							<td class="break-word">$55.00</td>
 							
 							<td class="break-word">$0.00</td>
@@ -428,7 +426,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Reactivation-$3</td>
-							<td class="break-word" data-table-report="col-tracking">5755207160</td>
+							<td class="break-word" data-table-report="col-mobile">5755207160</td>
 							<td class="break-word">$40.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -451,7 +449,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5753862085</td>
+							<td class="break-word" data-table-report="col-mobile">5753862085</td>
 							<td class="break-word">$30.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -474,7 +472,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5752226494</td>
+							<td class="break-word" data-table-report="col-mobile">5752226494</td>
 							<td class="break-word">$91.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -497,7 +495,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5752223551</td>
+							<td class="break-word" data-table-report="col-mobile">5752223551</td>
 							<td class="break-word">$41.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -520,7 +518,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Credit Card</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">5756357935</td>
+							<td class="break-word" data-table-report="col-mobile">5756357935</td>
 							<td class="break-word">$91.00</td>
 							
 							<td class="break-word">$3.00</td>
@@ -543,7 +541,7 @@
 							<td class="break-word" data-table-report="col-payment-method">Cash</td>
 							<td class="break-word" data-table-report="col-payment-status">Completed</td>
 							<td class="break-word">Service Payment</td>
-							<td class="break-word" data-table-report="col-tracking">9153034848</td>
+							<td class="break-word" data-table-report="col-mobile">9153034848</td>
 							<td class="break-word">$122.00</td>
 							
 							<td class="break-word">$3.00</td>

@@ -6,7 +6,7 @@ headerTitle: Activation Report
 
 {% block content %}
 	<div class="pane-body inventory" data-bind="with: filter">
-		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Code, Mobile">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Mobile number" style="width: 350px;">
 		<div style="float:left;">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
@@ -131,8 +131,7 @@ headerTitle: Activation Report
 								'Credit Card',
 								'Debit Card',
 								'External Payment',
-								'Split',
-								'EBT'
+								'Split'
 							] %}
 							<select>
 								<option>All</option>
@@ -236,7 +235,7 @@ headerTitle: Activation Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="Serial#: Activate to sort by ascending columns">Serial #</th>
+							aria-label="Product Serial #: Activate to sort by ascending columns">Product Serial #</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-mobile"
@@ -259,7 +258,7 @@ headerTitle: Activation Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
-							aria-label="MRC: Activate to sort by ascending columns">MRC</th>
+							aria-label="Service Plan Price: Activate to sort by ascending columns">Service Plan Price</th>
 						<th class="sorting" 
 							tabindex="0" 
 							data-table-report="col-service-date"

@@ -6,7 +6,7 @@ headerTitle: Bill Payment Report
 
 {% block content %}
 	<div class="pane-body inventory" data-bind="with: filter">
-		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by Tracking #">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" placeholder="Search item by: Name, Mobile number" style="width: 350px;">
 		<div style="float:left;">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
@@ -112,8 +112,7 @@ headerTitle: Bill Payment Report
 								'Credit Card',
 								'Debit Card',
 								'External Payment',
-								'Split',
-								'EBT'
+								'Split'
 							] %}
 							<select>
 								<option>All</option>
@@ -206,9 +205,9 @@ headerTitle: Bill Payment Report
 							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
 						<th class="sorting" 
 							tabindex="0" 
-							data-table-report="col-tracking"
+							data-table-report="col-mobile"
 							aria-controls="productMixReportTable" 
-							aria-label="Tracking #: Activate to sort by ascending columns">Tracking #</th>
+							aria-label="Mobile Number #: Activate to sort by ascending columns">Mobile Number</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
@@ -476,7 +475,7 @@ headerTitle: Bill Payment Report
 							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
 							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
 							<td class="break-word">{{item.productDesc | safe}}</td>
-							<td class="break-word" data-table-report="col-tracking">{{item.tracking | safe}}</td>
+							<td class="break-word" data-table-report="col-mobile">{{item.tracking | safe}}</td>
 							<td class="break-word">{{item.payment | safe}}</td>
 							{# <td class="break-word">({{item.discount | safe}})</td> #}
 							<td class="break-word">{{item.fee | safe}}</td>
