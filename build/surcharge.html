@@ -1,0 +1,239 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Edit Convenience Fee</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Edit Convenience Fee</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<span class="help-popup-icon" data-bind="visible: showHelpPopupButton(), click: showHelpPopup"></span>
+	<div class="pane-body convenience-fee">
+		<div class="form wide-form-simple">
+			<!--ko compose: { model: $root.langs }-->
+			<div class="language-selector">
+				<a class="selected">English</a>
+				<a class="">Français</a>
+				<a class="">Русский</a>
+			</div>
+			<!--/ko-->
+
+			<div id="taxSaveMessages"></div>
+		  
+			<div class="form-group no-overflow row">
+				<div class="col-xs-9 col-md-9">
+					<div class="form-group ">
+						<label>Convenience Fee Name <span class="color-red">*</span></label>
+						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+				<div class="col-xs-3 col-md-3" style="padding-top: 26px;">
+					<div class="checkbox pull-left">
+						<input type="checkbox" id="Surcharge" onchange="toggleSurcharge(event)">
+						<label for="Surcharge">Surcharge</label>
+					</div>
+					<div class="i-tooltip">
+						<i class="fa fa-question-circle-o i"></i>
+						<div class="i-tooltip__box">
+							<p>Surcharges are limited by states. They are illegal in: California, Colorado, Connecticut, Florida, Kansas, Maine, Massachusetts, New York, Oklahoma and Texas, plus the U.S. territory of Puerto Rico.</p>
+							<p>Supported by Visa and Master</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group no-overflow row">
+
+				<div class="col-xs-5 col-md-5">
+					<div class="form-group no-overflow position-relative">
+						<label>Convenience Fee Rate <span class="color-red">*</span></label>
+						<div class="field-group">
+							<div class="field-group__switcher">
+								<label class="awesome-switcher">
+									<input type="checkbox" checked onchange="convenienceSwitch(event)">
+									<span class="awesome-switcher__content">
+										<span class="awesome-switcher__left">$</span>
+										<span class="awesome-switcher__control"></span>
+										<span class="awesome-switcher__right">%</span>
+									</span>
+								</label>
+							</div>
+							<input class="field-group__input form-control input-lg" type="text" value="0.00" maxlength="100">
+						</div>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+
+				<div class="col-xs-5 col-md-5 js-select" style="display: none;">
+					<div class="form-group no-overflow position-relative">
+						<label>Payment Card</label>
+						
+						<div class="multiselect">
+							<select class="form-control input-lg" style="display: none;">
+								
+									<option value="american-express">American Express</option>
+								
+									<option value="visa">Visa</option>
+								
+									<option value="mastercard">Mastercard</option>
+								
+									<option value="discover">Discover</option>
+								
+									<option value="other">Other</option>
+								
+							</select>
+							<div class="ms-parent">
+								<script>
+									function openDropdown(e) {
+										e.preventDefault();
+										$(e.currentTarget)
+											.closest('.ms-parent')
+											.find('.ms-drop')
+											.toggle();
+									}
+								</script>
+								<button type="button" class="select" onclick="openDropdown(event)" style="width: 100%;">
+									<div class="fl">
+										<div>
+											<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select Payment Card(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+										</div>
+										<div>
+											<div></div>
+										</div>
+									</div>
+								</button>
+								<div class="ms-drop bottom" data-name="multipleSelect1" style="width: 100%;">
+									<ul style="max-height: 250px;">
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-american-express" >
+												<label for="payment-card-american-express">American Express</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-visa" checked>
+												<label for="payment-card-visa">Visa</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-mastercard" checked>
+												<label for="payment-card-mastercard">Mastercard</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-discover" >
+												<label for="payment-card-discover">Discover</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-other" >
+												<label for="payment-card-other">Other</label>
+											</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-2 col-md-2 js-change" style="padding-top: 26px;">
+					<div class="checkbox js-convenience-checkbox">
+						<input type="checkbox" id="inclide-taxes" checked>
+						<label for="inclide-taxes">Charge from Taxes</label>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				function convenienceSwitch(e) {
+					var $checkbox = $('.js-convenience-checkbox');
+					
+					if ($(e.target).prop('checked')) $checkbox.show();
+					else $checkbox
+							.hide()
+							.find('input')
+							.prop('checked', false);
+				}
+
+				function toggleSurcharge(e) {
+					var $checkbox = $('.js-change');
+					var $select = $('.js-select');
+					
+					if ($(e.target).prop('checked')) {
+						$checkbox.hide();
+						$select.show();
+					} else {
+						$checkbox.show();
+						$select.hide();
+					}
+				}
+			</script>
+
+			<div class="checkbox" initializedcheckbox="true">
+				<input type="checkbox" id="isActiveTax" checked>
+				<label for="isActiveTax">Is Active</label>
+			</div>
+			<label></label>
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
