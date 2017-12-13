@@ -52,13 +52,16 @@ headerTitle: Store Settings
 			<div id="saveMessages"></div>
 			
 			<div class="tab-content" id="convenienceFeeTab" style="display: block;">
-				
+				<div class="checkbox" style="padding-bottom: 20px;">
+					<input type="checkbox" id="ManagerOverwrite">
+					<label for="ManagerOverwrite">Manager overwrite</label>
+				</div>
 				<div class="form-horizontal add-taxes-from">
 					<table class="table taxes-table store-settings__taxes-table">
 						<thead>
 							 <tr>
 								<th style="width: 320px;">Name</th>
-								<th class="width: 320px;">Restriction for Salesperson on POS</th>
+								{# <th class="width: 320px;">Restriction for Salesperson on POS</th> #}
 								<th>Rate</th>
 								<th></th>
 							 </tr>
@@ -1138,13 +1141,13 @@ headerTitle: Store Settings
 										</div>
 									</multi-selector>
 								</td>
-								<td>
+								{# <td>
 									<select>
 										{% for item in [ 'Allow to change', "Allow to change with Administrator's PIN", 'Prohibit to change' ] %}
 											<option value="{{item}}">{{item}}</option>
 										{% endfor %}
 									</select>
-								</td>
+								</td> #}
 								<td class="valign-middle">$<span>2.09</span></td>
 								<td class="valign-middle">
 									<input class="delete-row-button js-toggle-hide" type="button" onclick="hide(event)">

@@ -94,13 +94,16 @@
 			<div id="saveMessages"></div>
 			
 			<div class="tab-content" id="convenienceFeeTab" style="display: block;">
-				
+				<div class="checkbox" style="padding-bottom: 20px;">
+					<input type="checkbox" id="ManagerOverwrite">
+					<label for="ManagerOverwrite">Manager overwrite</label>
+				</div>
 				<div class="form-horizontal add-taxes-from">
 					<table class="table taxes-table store-settings__taxes-table">
 						<thead>
 							 <tr>
 								<th style="width: 320px;">Name</th>
-								<th class="width: 320px;">Restriction for Salesperson on POS</th>
+								
 								<th>Rate</th>
 								<th></th>
 							 </tr>
@@ -1180,17 +1183,7 @@
 										</div>
 									</multi-selector>
 								</td>
-								<td>
-									<select>
-										
-											<option value="Allow to change">Allow to change</option>
-										
-											<option value="Allow to change with Administrator&#39;s PIN">Allow to change with Administrator&#39;s PIN</option>
-										
-											<option value="Prohibit to change">Prohibit to change</option>
-										
-									</select>
-								</td>
+								
 								<td class="valign-middle">$<span>2.09</span></td>
 								<td class="valign-middle">
 									<input class="delete-row-button js-toggle-hide" type="button" onclick="hide(event)">

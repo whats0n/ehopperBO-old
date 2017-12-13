@@ -82,6 +82,13 @@ headerTitle: Surcharge Report
 						orderAmount: '$12.80',
 						collectedAmount: '$2.00',
 						totalAmount: '$2.00'
+					},
+					{
+						name: 'CC Surcharge',
+						rate: '$2.09',
+						orderAmount: '$43.00',
+						collectedAmount: '$2.09',
+						totalAmount: '$2.09'
 					}
 				] %}
 				<tbody data-bind="foreach: lines">
@@ -100,10 +107,10 @@ headerTitle: Surcharge Report
 					<tr class="report-total">
 						<td>&nbsp;</td>
 						<td><span>Total</span>:</td>
-						<td>$48.60</td>
+						<td>$91.60</td>
 						{# <td>$2.93</td>
 						<td>$0.13</td> #}
-						<td>$2.80</td>
+						<td>$4.89</td>
 					</tr>
                 </tfoot>
 			</table>
