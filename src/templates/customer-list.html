@@ -7,32 +7,35 @@ headerTitle: Customer List
 {% block content %}
 	<div class="pane-body employees">
 		<div id="messages"></div>
-		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for customer">
-		<div style="float:left; padding: 0 20px;">
-			<label style="margin-right: 10px;">Type:</label>
-			<select style="display: inline-block;">
-				<option value="All">All</option>
-				<option value="Personal">Personal</option>
-				<option value="Business">Business</option>
-			</select>
-		</div>
+		<div style="min-width: 1400px; padding-right: 50px;">
+			<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for customer">
+			<div style="float:left; padding: 0 20px;">
+				<label style="margin-right: 10px;">Type:</label>
+				<select style="display: inline-block;">
+					<option value="All">All</option>
+					<option value="Personal">Personal</option>
+					<option value="Business">Business</option>
+				</select>
+			</div>
 
-		<div class="btn-group btn-group-lg pull-right" data-bind="permission: 'ManageEmployeeLogin'">
-			
 			<div class="btn-toolbar pull-right">
+				<div class="report-export-wrapper pull-left">
+					<a href="api/Products/ExportProductList" target="_blank" class="btn-report-export" data-bind="click: exportProducts, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportProducts"></i>
+				</div>
 				<div class="btn-group">
 					<button class="btn btn-lg btn-red" type="button" disabled="">Delete</button>
 				</div>
 				<div class="btn-group btn-group-lg" style="margin-left: 5px;">
-					<input class="btn btn-lg btn-primary" type="button" value="Import"">
+					<input class="btn btn-lg btn-primary" type="button" value="Import">
 				</div>
 				<div class="btn-group btn-group-lg" style="margin-left: 5px;">
-					<input class="btn btn-lg btn-primary" type="button" value="New Customer"">
+					<input class="btn btn-lg btn-primary" type="button" value="New Customer">
 				</div>
 			</div>
-		</div>
 
-		<br class="clear">
+			<br class="clear">
+		</div>
 
 		<div id="employeesTable_wrapper" class="dataTables_wrapper no-footer">
 			<div id="employeesTable_filter" class="dataTables_filter">
