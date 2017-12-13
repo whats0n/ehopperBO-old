@@ -1,6 +1,6 @@
 ---
-title: Edit Convenience Fee
-headerTitle: Edit Convenience Fee
+title: Edit Surcharge
+headerTitle: Edit Surcharge
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -21,22 +21,22 @@ headerTitle: Edit Convenience Fee
 			<div class="form-group no-overflow row">
 				<div class="col-xs-9 col-md-9">
 					<div class="form-group ">
-						<label>Convenience Fee Name <span class="color-red">*</span></label>
-						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100">
+						<label>Surcharge Name <span class="color-red">*</span></label>
+						<input class="form-control input-lg tax-name" type="text" placeholder="Surcharge Name" maxlength="100">
 						<span class="fieldError" style="display: none;"></span>
 					</div>
 				</div>
 				<div class="col-xs-3 col-md-3" style="padding-top: 26px;">
 					<div class="checkbox pull-left">
-						<input type="checkbox" id="Surcharge" onchange="toggleSurcharge(event)">
-						<label for="Surcharge">Surcharge</label>
+						<input type="checkbox" id="ConvenienceFee" onchange="toggleSurcharge(event)">
+						<label for="ConvenienceFee">Convenience Fee</label>
 					</div>
 					<div class="i-tooltip">
 						<i class="fa fa-question-circle-o i"></i>
 						<div class="i-tooltip__box">
 							<div class="i-tooltip__content">
-								<p>Surcharges are limited by states. They are illegal in: California, Colorado, Connecticut, Florida, Kansas, Maine, Massachusetts, New York, Oklahoma and Texas, plus the U.S. territory of Puerto Rico.</p>
-								<p>Supported by Visa and Mastercard.</p>
+								<p>Convenience fee has no limits by states.</p>
+								<p>Support all types of payment cards.</p>
 							</div>
 							<div class="i-tooltip__arrow"></div>
 						</div>
@@ -48,7 +48,7 @@ headerTitle: Edit Convenience Fee
 
 				<div class="col-xs-5 col-md-5">
 					<div class="form-group no-overflow position-relative">
-						<label>Convenience Fee Rate <span class="color-red">*</span></label>
+						<label>Surcharge Rate <span class="color-red">*</span></label>
 						<div class="field-group">
 							<div class="field-group__switcher">
 								<label class="awesome-switcher">
@@ -66,13 +66,13 @@ headerTitle: Edit Convenience Fee
 					</div>
 				</div>
 
-				<div class="col-xs-5 col-md-5 js-select" style="display: none;">
+				<div class="col-xs-5 col-md-5 js-select">
 					<div class="form-group no-overflow position-relative">
 						<label>Payment Card</label>
 						{% set paymentCard = [
-							{ value: 'american-express', text: 'American Express' },
 							{ value: 'visa', text: 'Visa', attrs: 'checked' },
 							{ value: 'mastercard', text: 'Mastercard', attrs: 'checked' },
+							{ value: 'american-express', text: 'American Express' },
 							{ value: 'discover', text: 'Discover' },
 							{ value: 'other', text: 'Other' }
 						] %}
@@ -117,9 +117,9 @@ headerTitle: Edit Convenience Fee
 					</div>
 				</div>
 
-				<div class="col-xs-2 col-md-2 js-change" style="padding-top: 26px;">
+				<div class="col-xs-2 col-md-2 js-change" style="padding-top: 26px; display: none;">
 					<div class="checkbox js-convenience-checkbox">
-						<input type="checkbox" id="inclide-taxes" checked>
+						<input type="checkbox" id="inclide-taxes">
 						<label for="inclide-taxes">Charge from Taxes</label>
 					</div>
 				</div>
@@ -141,11 +141,11 @@ headerTitle: Edit Convenience Fee
 					var $select = $('.js-select');
 					
 					if ($(e.target).prop('checked')) {
-						$checkbox.hide();
-						$select.show();
-					} else {
 						$checkbox.show();
 						$select.hide();
+					} else {
+						$checkbox.hide();
+						$select.show();
 					}
 				}
 			</script>
