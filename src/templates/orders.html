@@ -1,0 +1,353 @@
+---
+title: Orders
+headerTitle: Orders
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		<div id="messages"></div>
+		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for order, serial #" data-bind="local: 'orders/ordersList.search_order', localAttr: 'placeholder'">
+		<div style="float:left;">
+			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+				<div data-bind="with: $data.storesFilter, css: self.divStyle">
+					<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+					</div>
+					<div data-bind="css: contStyle" class="filter_control_cont">
+						<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
+							<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+							<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+							<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+							<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+							<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+							<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+							<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+							<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+							<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+							<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+							<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+							<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+							<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+							<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+						</select>
+						<div class="ms-parent" style="width: 100px;">
+							<button type="button" class="select">
+								<div class="fl">
+									<div>
+										<input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+									</div>
+									<div><div></div></div>
+								</div>
+							</button>
+							<div class="ms-drop bottom" data-name="multipleSelect1">
+								<ul style="max-height: 250px;">
+									<li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect1"> <label for="allCheck">Select All</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect1_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect1_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect1_662fd10aa39844839b3b909d232547a3"> <label for="id_multipleSelect1_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect1_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect1_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect1_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect1_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect1_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect1_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
+									<li class="ms-no-results">No matches found</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ko-->
+		</div>
+		<div class="pull-right">
+			<date-filter params="value: dateRange">
+				<div class="pull-right">
+					<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+						<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+						&nbsp;
+						<span>Last 7 Days</span> 
+						<b class="caret"></b>
+					</div>
+				</div>
+			</date-filter>
+		</div>
+		<div class="report-export-wrapper pull-right">
+			<a href="api/Transaction/ExportOrders" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+		</div>
+
+		<br class="clear">
+
+		<div class="row list-filters" data-bind="with: ordersFilter">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<label data-bind="local: 'orders/ordersList.order_type'">Order Type:</label>
+							<select data-bind="value: orderType, event: { change: $root.applyFilters.bind($root) }">
+								<option value="0" data-bind="local: 'orders/ordersList.all'">All</option>
+								<!-- ko foreach: orderTypes -->
+								<option data-bind="attr: { value: code }, text: name" value="1">Quick Sale</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="2">Dine In</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="3">Take Out</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="4">Drive Thru</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="5">Delivery</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="7">Manual Sale</option>
+								<!-- /ko -->
+							</select>
+						</td>
+						<td>
+							<label data-bind="local: 'orders/ordersList.order_status'">Order Status:</label>
+							<select data-bind="value: paymentStatus, event: { change: $root.applyFilters.bind($root) }">
+								<option value="0" data-bind="local: 'orders/ordersList.all'">All</option>
+								<!-- ko foreach: paymentStatuses -->
+
+								<option data-bind="attr: { value: code }, text: name" value="1">Not Paid</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="2">Pending Payment</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="3">Partially Paid</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="4">Paid</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="5">Partially Refunded</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="6">Refunded</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="7">Voided</option>
+
+								<!-- /ko -->
+							</select>
+						</td>
+						<td>
+							<label data-bind="local: 'orders/ordersList.fulfillment'">Fulfillment:</label>
+							<select data-bind="value: fulfillment, event: { change: $root.applyFilters.bind($root) }">
+								<option value="0" data-bind="local: 'orders/ordersList.all'">All</option>
+								<!-- ko foreach: fulfillments -->
+
+								<option data-bind="attr: { value: code }, text: name" value="1">New</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="2">In Preparation</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="3">Prepared</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="4">In Fulfillment</option>
+
+								
+
+								<option data-bind="attr: { value: code }, text: name" value="5">Fulfilled</option>
+
+								<!-- /ko -->
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="transactionsTable_wrapper" class="dataTables_wrapper">
+			<div id="transactionsTable_filter" class="dataTables_filter">
+				<label>Search:<input type="search" class="" placeholder="" aria-controls="transactionsTable"></label>
+			</div>
+			<div id="transactionsTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="transactionsTable" role="grid" aria-describedby="transactionsTable_info">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'orders/ordersList.status'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Status: Activate to sort by ascending columns">Status</th>
+						<th data-bind="local: 'orders/ordersList.order_id'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 140px;" aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
+						<th data-bind="local: 'orders/ordersList.order_name'" class="tenderData sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Order Name: Activate to sort by ascending columns" style="white-space: normal;">Order Name</th>
+						<th data-bind="local: 'orders/ordersList.store'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th data-bind="local: 'orders/ordersList.type'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 100px;" aria-label="Type: Activate to sort by ascending columns">Type</th>
+						<th data-bind="local: 'orders/ordersList.fulfillmentColumn'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 150px;" aria-label="Fulfillment: Activate to sort by ascending columns">Fulfillment</th>
+						<th data-bind="local: 'orders/ordersList.total'" class="break-word sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Total: Activate to sort by ascending columns">Total</th>
+						<th data-bind="local: 'orders/ordersList.date'" class="sorting_desc" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns" aria-sort="descending">Date</th>
+						<th data-bind="local: 'orders/ordersList.employee'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th data-bind="local: 'orders/ordersList.customer'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+						<th data-bind="local: 'orders/ordersList.approvedby'" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Approved by">Approved by</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" id="6f26d32c46539facd9ccf8342060d623" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">273563194968</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$673.26</td>
+						<td class="sorting_1">22/12/2017 6:49:22 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable even" id="79b9900ae5a3253ca94ed0f880288012" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563722121</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$77.03</td>
+						<td class="sorting_1">22/12/2017 4:42:17 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable odd" id="631865c63d760816243bbc8eb3c894c8" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563711682</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$29.40</td>
+						<td class="sorting_1">22/12/2017 4:39:26 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable even" id="8d439a66195578d532bf4cb764c89a78" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563700992</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$20.00</td>
+						<td class="sorting_1">22/12/2017 4:31:59 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable odd" id="cb0ba07d080b3673a0cdd48f606fff70" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563694378</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$15.76</td>
+						<td class="sorting_1">22/12/2017 4:30:32 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable even" id="750f7862258e3a93e076fe1a4b5e60f2" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563689330</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$21.95</td>
+						<td class="sorting_1">22/12/2017 4:29:28 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable odd" id="7aec42c6c58b2014f95494c9b8b6b503" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563613656</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$20.00</td>
+						<td class="sorting_1">22/12/2017 4:14:01 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable even" id="30aced6068734c18a776cb0eb474b932" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-ban fa-lg status-voided"></i></td>
+						<td class=" center">253563604687</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$189,000.00</td>
+						<td class="sorting_1">22/12/2017 4:13:04 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable odd" id="e97d9ba2b80ad2aca13e847d1586a6a9" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563597530</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$8,193.15</td>
+						<td class="sorting_1">22/12/2017 4:11:44 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+					<tr class="editable even" id="936741f7849d5e0b51b7ef4e443c925c" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" center">253563586839</td>
+						<td class=" tenderData"></td>
+						<td>WestGuestCafe</td>
+						<td>Take Out</td>
+						<td class=" center"><i class="fa fa-plus-square-o fa-lg fulfilment-color"></i></td>
+						<td class=" break-word">$195.30</td>
+						<td class="sorting_1">22/12/2017 4:08:53 PM</td>
+						<td>Yuliia Koval</td>
+						<td>Walk-In</td>
+						<td></td>
+					</tr>
+				</tbody>
+				<tfoot class="tfooter-total">
+					<tr><th class="text-right center tenderData" colspan="5" data-bind="local: 'orders/ordersList.totalAmountFooter'" rowspan="1">Total amount:</th><th class="text-left break-word" rowspan="1" colspan="1">$237,068.73</th></tr>
+				</tfoot>
+			</table>
+			<div class="dataTables_info" id="transactionsTable_info" role="status" aria-live="polite">Showing 1 to 10 of 84 entriesInfoPostFix</div>
+			<div class="dataTables_paginate paging_simple_numbers" id="transactionsTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="transactionsTable" data-dt-idx="0" tabindex="0" id="transactionsTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="transactionsTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="6" tabindex="0">9</a>
+				</span>
+				<a class="paginate_button next" aria-controls="transactionsTable" data-dt-idx="7" tabindex="0" id="transactionsTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

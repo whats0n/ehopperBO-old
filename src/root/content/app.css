@@ -2552,7 +2552,6 @@ table.modifier-values-table td:last-child {
 }
 
 .tenderData {
-  width: 90%;                   
   max-width: 90%;
   white-space: nowrap;
   overflow: hidden;
