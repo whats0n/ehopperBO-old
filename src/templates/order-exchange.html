@@ -1,0 +1,203 @@
+---
+title: Order Details
+headerTitle: "Order Details - Register #1 - Order Status: Exchanged"
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		<div class="transaction-details-from">
+			<div data-bind="with: dataContext">
+				<div id="messages"></div>
+				<div class="row">
+					<div class="col-xs-6 col-md-5">
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.order_id'">Order ID:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: upc">013400220841</span>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.order_name'">Order Name:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<div class="tenderData" data-bind="text: name"></div>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.customer'">Customer:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: customerName">Walk-In</span>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.customer_phone'">Customer Phone:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: customerPhone.phone"></span>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.customer_email'">Customer Email:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: customerEmail"></span>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.employee'">Employee:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: employee">Alona Kompaniiets</span>
+							</div>
+						</div>
+
+						 <div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.store'">Store:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: store">AK Store</span>
+							</div>
+						</div>
+
+						<div class="row nopadding">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.order_date'">Order Date:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: date">12/06/2017 12:24:56 PM</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-md-5">
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.order_type'">Order Type:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+							   <span data-bind="text: typeText">Quick Sale</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.status'">Status:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: status">Exchanged</span>
+								<span data-bind="local: 'orders/orderDetails./'">/</span>
+								<span data-bind="text: localTranStatus, css: ('tran-' + (voided() ? 'Voided' : transactionStatus())) " class="tran-Completed">Completed</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.tender_type'">Tender Type:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: ko.T('payment/types.' + $root.getOrderTenderType($data))">Credit Card</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.fulfillment'">Fulfillment:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: fulfilmentText()">Fulfilled</span>
+							</div>
+						</div>
+					
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 nopadding" data-bind="local: 'orders/orderDetails.refnum'">RefNum:</div>
+							<div class="col-xs-9 col-sm-9 nopadding">
+								<span data-bind="text: refNums"></span>
+							</div>
+						</div>
+						<!-- ko if: $root.getOrderAuthCode($data).length > 0 --><!-- /ko -->
+					</div>
+					<div class="col-xs-6 col-md-2 pull-right">
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 nopadding" data-bind="local: 'orders/orderDetails.subtotal'">Subtotal:</div>
+							<div class="col-xs-6 col-sm-6 nopadding">
+								<span data-bind="currency: subtotal">-$1.60</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 nopadding" data-bind="local: 'orders/orderDetails.discount'">Discount:</div>
+							<div class="col-xs-6 col-sm-6 nopadding">
+								<span data-bind="currency: discountAmount">$0.00</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 nopadding" data-bind="local: 'orders/orderDetails.tax'">Tax:</div>
+							<div class="col-xs-6 col-sm-6 nopadding">
+								<span data-bind="currency: taxAmount">$0.00</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 nopadding" data-bind="local: 'orders/orderDetails.tips'">Tips:</div>
+							<div class="col-xs-6 col-sm-6 nopadding">
+								<span data-bind="currency: tipsAmount">$0.00</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 nopadding" data-bind="local: 'orders/orderDetails.total'">Total:</div>
+							<div class="col-xs-6 col-sm-6 nopadding">
+								<span data-bind="currency: totalAmount">-$1.60</span>
+							</div>
+						</div>
+						<!-- ko if: $root.isControlNumberEnabled --><!-- /ko -->
+					</div>
+				</div>
+				<br class="clear">
+				<!--ko compose: { model: 'viewmodels/orders/orderDetailsItems', activationData: { data: $data } }-->
+				<div data-view="views/orders/orderDetailsItems" style="" data-active-view="true">
+					<div id="transactionItemsTable_wrapper" class="dataTables_wrapper no-footer">
+						<div id="transactionItemsTable_filter" class="dataTables_filter">
+							<label>Search:<input type="search" class="" placeholder="" aria-controls="transactionItemsTable"></label>
+						</div>
+						<div id="transactionItemsTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+						<table class="datatable dataTable no-footer" id="transactionItemsTable" role="grid" aria-describedby="transactionItemsTable_info">
+							<thead>
+								<tr role="row">
+									<th style="width:20%;" data-bind="local: 'orders/orderDetailsItems.description'" class="sorting_asc" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Description: Activate to sort by descending columns" aria-sort="ascending">Description</th>
+									<th style="width:15%;" data-bind="local: 'orders/orderDetailsItems.approvedby'" class="sorting" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+									<th style="width:10%;" data-bind="local: 'orders/orderDetailsItems.quantity'" class="sorting" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th>
+									<th style="width:20%;" data-bind="local: 'orders/orderDetailsItems.item_price'" class="sorting" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Item Price: Activate to sort by ascending columns">Item Price</th>
+									<th style="width:15%;" data-bind="local: 'orders/orderDetailsItems.discount'" class="sorting" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Discount: Activate to sort by ascending columns">Discount</th>
+									<th style="width:10%;" data-bind="local: 'orders/orderDetailsItems.total_price'" class="sorting" tabindex="0" aria-controls="transactionItemsTable" rowspan="1" colspan="1" aria-label="Total Price: Activate to sort by ascending columns">Total Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="editable odd" id="f21160724b600b28fd4eeb3c30e4f06e" data-bind="click: edit, css:{checked: checked()}" role="row">
+									<td class="sorting_1">3 Stripe Chelsea Shorts Mens</td>
+									<td>Exchange</td>
+									<td>-1</td>
+									<td>$21.60</td>
+									<td>$0.00</td>
+									<td>-$21.60</td>
+								</tr>
+								<tr class="editable odd" id="f21160724b600b28fd4eeb3c30e4206e" data-bind="click: edit, css:{checked: checked()}" role="row">
+									<td class="sorting_1">Ignite Ultimate Mens Running Shoes</td>
+									<td>Sale</td>
+									<td>1</td>
+									<td>$20.00</td>
+									<td>$0.00</td>
+									<td>$20.00</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="dataTables_info" id="transactionItemsTable_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entriesInfoPostFix</div>
+						<div class="dataTables_paginate paging_simple_numbers" id="transactionItemsTable_paginate">
+							<a class="paginate_button previous disabled" aria-controls="transactionItemsTable" data-dt-idx="0" tabindex="0" id="transactionItemsTable_previous">Previous</a>
+							<span>
+								<a class="paginate_button current" aria-controls="transactionItemsTable" data-dt-idx="1" tabindex="0">1</a>
+							</span>
+							<a class="paginate_button next disabled" aria-controls="transactionItemsTable" data-dt-idx="2" tabindex="0" id="transactionItemsTable_next">Next</a>
+						</div>
+					</div>
+				</div>
+				<!--/ko-->
+			</div>
+			<div class="form-buttons center">
+				<input class="btn btn-lg btn-primary" type="button" value="Back" data-keypress="Back" data-bind="click: cancel, local:'orders/orderDetails.back' ">
+			</div>
+		</div>
+	</div>
+{% endblock %}
