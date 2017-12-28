@@ -1,0 +1,11 @@
+<div class="tab-control">
+	{% for item in [
+		{ title: 'Beacons', target: 'beaconsTab' },
+		{ title: 'Employee', target: 'employeeTab' }
+	] %}
+		<span class="tab {% if loop.index == activeTab %}selected{% endif %}" data-for="#{{item.target}}">
+			<span class="tab-title">{{item.title}}</span>
+			<span class="tab-selected-arrow"></span>
+		</span>
+	{% endfor %}
+</div>

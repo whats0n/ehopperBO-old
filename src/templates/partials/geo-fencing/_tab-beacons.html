@@ -1,0 +1,26 @@
+<div class="tab-content" {% if activeTab == 1 %}style="display:block;"{% else %}style="display:none;"{% endif %}>
+	{% if tabBeacons != 'empty' %}
+		<table class="datatable dataTable" role="grid">
+			<thead>
+				<tr role="row">
+					<th class="sorting" tabindex="0" aria-label="Beacon: Activate to sort by ascending columns">Beacon</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in [
+					{ name: 'Main Store B1', id: 'f7826da6-4fa2-4e98-8024-bc5b71e0893e-38190' },
+					{ name: 'Main Store B2', id: 'f7826da6-4fa2-4e98-8024-bc5b71e0893e-39733' },
+					{ name: 'Main Store B3', id: 'f7826da6-4fa2-4e98-8024-bc5b71e0893e-18029' }
+				] %}
+					<tr role="row" class="editable {% if loop.index0 % 2 == 0 %}odd{% else %}even{% endif %}">
+						<td>
+							<div>{{item.name}}</div>
+							<div>{{item.id}}</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+	{% endif %}
+</div>

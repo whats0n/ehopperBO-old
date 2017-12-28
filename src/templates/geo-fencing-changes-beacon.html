@@ -1,0 +1,19 @@
+---
+title: Geo-fencing
+headerTitle: Geo-fencing
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		{% include './partials/geo-fencing/_change-beacon-main.html' %}
+		<br>
+		<br>
+		{% set activeTab = 1 %}
+		{% include './partials/geo-fencing/_tab-control.html' %}
+		{% include './partials/geo-fencing/_tab-beacons.html' %}
+		<br>
+		<br>
+		{% include './partials/geo-fencing/_buttons.html' %}
+	</div>
+{% endblock %}

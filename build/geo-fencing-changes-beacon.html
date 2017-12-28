@@ -1,0 +1,169 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Geo-fencing</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Geo-fencing</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body item-list">
+		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for Store">
+<div style="float:left; padding: 0 20px;">
+	<label style="margin-right: 10px;">Geo-fencing Mode:</label>
+	<select style="display: inline-block;">
+		<option value="Mobile devices: Apps">Mobile devices: Apps</option>
+		<option value="Mobile devices: Apps 1">Mobile devices: Apps 1</option>
+		<option value="Mobile devices: Apps 2">Mobile devices: Apps 2</option>
+	</select>
+</div>
+<br class="clear">
+<table class="datatable dataTable" role="grid">
+	<thead>
+		<tr role="row">
+			<th class="sorting" tabindex="0" aria-label="Store Name: Activate to sort by ascending columns">Store Name</th>
+			<th class="sorting" tabindex="0" aria-label="Status: Activate to sort by ascending columns" style="width: 300px;">Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<tr role="row" class="editable odd">
+				<td>
+					<div>Main Store</div>
+					<div>Employees: Jane</div>
+				</td>
+				<td>Active</td>
+			</tr>
+		
+			<tr role="row" class="editable even">
+				<td>
+					<div>TracFone Desktop Store</div>
+					<div>Employees: Jane</div>
+				</td>
+				<td>Active</td>
+			</tr>
+		
+			<tr role="row" class="editable odd">
+				<td>
+					<div>TracFone Stage Store</div>
+					<div>Employees: Alex</div>
+				</td>
+				<td>Active</td>
+			</tr>
+		
+	</tbody>
+</table>
+
+		<br>
+		<br>
+		
+		<div class="tab-control">
+	
+		<span class="tab selected" data-for="#beaconsTab">
+			<span class="tab-title">Beacons</span>
+			<span class="tab-selected-arrow"></span>
+		</span>
+	
+		<span class="tab " data-for="#employeeTab">
+			<span class="tab-title">Employee</span>
+			<span class="tab-selected-arrow"></span>
+		</span>
+	
+</div>
+		<div class="tab-content" style="display:block;">
+	
+		<table class="datatable dataTable" role="grid">
+			<thead>
+				<tr role="row">
+					<th class="sorting" tabindex="0" aria-label="Beacon: Activate to sort by ascending columns">Beacon</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr role="row" class="editable odd">
+						<td>
+							<div>Main Store B1</div>
+							<div>f7826da6-4fa2-4e98-8024-bc5b71e0893e-38190</div>
+						</td>
+					</tr>
+				
+					<tr role="row" class="editable even">
+						<td>
+							<div>Main Store B2</div>
+							<div>f7826da6-4fa2-4e98-8024-bc5b71e0893e-39733</div>
+						</td>
+					</tr>
+				
+					<tr role="row" class="editable odd">
+						<td>
+							<div>Main Store B3</div>
+							<div>f7826da6-4fa2-4e98-8024-bc5b71e0893e-18029</div>
+						</td>
+					</tr>
+				
+			</tbody>
+		</table>
+	
+</div>
+		<br>
+		<br>
+		<div class="form-buttons">
+	<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary uppercase" type="button" value="Done" data-bind="click: save, local:'storeSettings/storeSettings.done' ">
+	<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local: 'storeSettings/storeSettings.cancel' ">
+</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

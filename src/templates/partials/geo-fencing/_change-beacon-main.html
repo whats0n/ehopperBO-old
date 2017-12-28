@@ -1,0 +1,33 @@
+<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search for Store">
+<div style="float:left; padding: 0 20px;">
+	<label style="margin-right: 10px;">Geo-fencing Mode:</label>
+	<select style="display: inline-block;">
+		<option value="Mobile devices: Apps">Mobile devices: Apps</option>
+		<option value="Mobile devices: Apps 1">Mobile devices: Apps 1</option>
+		<option value="Mobile devices: Apps 2">Mobile devices: Apps 2</option>
+	</select>
+</div>
+<br class="clear">
+<table class="datatable dataTable" role="grid">
+	<thead>
+		<tr role="row">
+			<th class="sorting" tabindex="0" aria-label="Store Name: Activate to sort by ascending columns">Store Name</th>
+			<th class="sorting" tabindex="0" aria-label="Status: Activate to sort by ascending columns" style="width: 300px;">Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in [
+			{ name: 'Main Store', employees: 'Jane' },
+			{ name: 'TracFone Desktop Store', employees: 'Jane' },
+			{ name: 'TracFone Stage Store', employees: 'Alex' }
+		] %}
+			<tr role="row" class="editable {% if loop.index0 % 2 == 0 %}odd{% else %}even{% endif %}">
+				<td>
+					<div>{{item.name}}</div>
+					<div>Employees: {{item.employees}}</div>
+				</td>
+				<td>{{item.status or 'Active'}}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
