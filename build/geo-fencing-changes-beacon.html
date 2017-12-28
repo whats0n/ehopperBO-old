@@ -99,18 +99,31 @@
 		
 		<div class="tab-control">
 	
-		<span class="tab selected" data-for="#beaconsTab">
+		<span class="tab selected" data-for="#beaconsTab" onclick="showTab(event)">
 			<span class="tab-title">Beacons</span>
 			<span class="tab-selected-arrow"></span>
 		</span>
 	
-		<span class="tab " data-for="#employeeTab">
+		<span class="tab " data-for="#employeeTab" onclick="showTab(event)">
 			<span class="tab-title">Employee</span>
 			<span class="tab-selected-arrow"></span>
 		</span>
 	
 </div>
-		<div class="tab-content" style="display:block;">
+
+<script>
+	function showTab(e) {
+		var $target = $(e.currentTarget);
+		var $links = $('.tab');
+		var $containers = $('.tab-content');
+		var $container = $($target.data('for'));
+		$links.removeClass('selected');
+		$target.addClass('selected');
+		$containers.hide();
+		$container.show();
+	}
+</script>
+		<div class="tab-content" id="beaconsTab" style="display:block;">
 	
 		<table class="datatable dataTable" role="grid">
 			<thead>
@@ -145,6 +158,40 @@
 		</table>
 	
 </div>
+		<div class="tab-content" id="employeeTab" style="display:none;">
+	<table class="datatable dataTable" role="grid">
+		<thead>
+			<tr role="row">
+				<th class="sorting" tabindex="0" aria-label="Name: Activate to sort by ascending columns">Name</th>
+				<th class="sorting" tabindex="0" aria-label="Role: Activate to sort by ascending columns">Role</th>
+				<th class="sorting" tabindex="0" aria-label="Phone: Activate to sort by ascending columns">Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+				
+					<tr role="row" class="editable odd">
+						<td>Jane Johnson</td>
+						<td>Administrator</td>
+						<td>+38 (066) 123-4567</td>
+					</tr>
+				
+			
+		</tbody>
+	</table>
+	<div style="padding-top: 30px;">
+		<select style="display: inline-block; vertical-align: middle;">
+			
+				
+			
+			
+				<option value="David Mayers">David Mayers</option>
+			
+		</select>
+		<input class="tax-add-button js-toggle-show" type="button" style="display: inline-block; vertical-align: middle; margin: 0 0 0 10px;">
+	</div>
+</div>
+
 		<br>
 		<br>
 		<div class="form-buttons">

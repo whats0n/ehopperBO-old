@@ -3,9 +3,22 @@
 		{ title: 'Beacons', target: 'beaconsTab' },
 		{ title: 'Employee', target: 'employeeTab' }
 	] %}
-		<span class="tab {% if loop.index == activeTab %}selected{% endif %}" data-for="#{{item.target}}">
+		<span class="tab {% if loop.index == activeTab %}selected{% endif %}" data-for="#{{item.target}}" onclick="showTab(event)">
 			<span class="tab-title">{{item.title}}</span>
 			<span class="tab-selected-arrow"></span>
 		</span>
 	{% endfor %}
 </div>
+
+<script>
+	function showTab(e) {
+		var $target = $(e.currentTarget);
+		var $links = $('.tab');
+		var $containers = $('.tab-content');
+		var $container = $($target.data('for'));
+		$links.removeClass('selected');
+		$target.addClass('selected');
+		$containers.hide();
+		$container.show();
+	}
+</script>

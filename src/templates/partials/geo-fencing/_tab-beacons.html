@@ -1,5 +1,5 @@
-<div class="tab-content" {% if activeTab == 1 %}style="display:block;"{% else %}style="display:none;"{% endif %}>
-	{% if tabBeacons != 'empty' %}
+<div class="tab-content" id="beaconsTab" {% if activeTab == 1 %}style="display:block;"{% else %}style="display:none;"{% endif %}>
+	{% if not empty %}
 		<table class="datatable dataTable" role="grid">
 			<thead>
 				<tr role="row">

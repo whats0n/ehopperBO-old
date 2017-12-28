@@ -1,0 +1,37 @@
+<div class="tab-content" id="employeeTab" {% if activeTab == 2 %}style="display:block;"{% else %}style="display:none;"{% endif %}>
+	<table class="datatable dataTable" role="grid">
+		<thead>
+			<tr role="row">
+				<th class="sorting" tabindex="0" aria-label="Name: Activate to sort by ascending columns">Name</th>
+				<th class="sorting" tabindex="0" aria-label="Role: Activate to sort by ascending columns">Role</th>
+				<th class="sorting" tabindex="0" aria-label="Phone: Activate to sort by ascending columns">Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if not empty %}
+				{% for item in [
+					{ name: 'Jane Johnson', role: 'Administrator', phone: '+38 (066) 123-4567' }
+				] %}
+					<tr role="row" class="editable {% if loop.index0 % 2 == 0 %}odd{% else %}even{% endif %}">
+						<td>{{item.name}}</td>
+						<td>{{item.role}}</td>
+						<td>{{item.phone}}</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+	<div style="padding-top: 30px;">
+		<select style="display: inline-block; vertical-align: middle;">
+			{% if not empty %}
+				{% set employees = [ 'David Mayers' ] %}
+			{% else %}
+				{% set employees = [ 'Jane Johnson', 'David Mayers' ] %}
+			{% endif %}
+			{% for item in employees %}
+				<option value="{{item}}">{{item}}</option>
+			{% endfor %}
+		</select>
+		<input class="tax-add-button js-toggle-show" type="button" style="display: inline-block; vertical-align: middle; margin: 0 0 0 10px;">
+	</div>
+</div>
