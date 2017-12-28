@@ -3006,6 +3006,20 @@
   margin-top: 10px;
 }
 
+.empty-block {
+  color: #000;
+  opacity: 0.4;
+  text-align: center;
+}
+
+.empty-block__icon {
+  font-size: 48px;
+}
+
+.empty-block__title {
+  font-size: 16px;
+}
+
 .n-container {
   *zoom: 1;
 }
