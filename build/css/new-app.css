@@ -1622,6 +1622,10 @@
   padding: 40px 0;
 }
 
+.n-empty_simple {
+  padding: 0;
+}
+
 .n-empty__title {
   color: #979797;
   font-size: 18px;
@@ -3004,20 +3008,6 @@
 
 .i-tooltip__content p + p {
   margin-top: 10px;
-}
-
-.empty-block {
-  color: #000;
-  opacity: 0.4;
-  text-align: center;
-}
-
-.empty-block__icon {
-  font-size: 48px;
-}
-
-.empty-block__title {
-  font-size: 16px;
 }
 
 .n-container {
