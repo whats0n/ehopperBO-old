@@ -19,14 +19,14 @@ headerTitle: Edit Surcharge
 			<div id="taxSaveMessages"></div>
 		  
 			<div class="form-group no-overflow row">
-				<div class="col-xs-9 col-md-9">
+				<div class="col-xs-12 col-md-12">
 					<div class="form-group ">
 						<label>Surcharge Name <span class="color-red">*</span></label>
 						<input class="form-control input-lg tax-name" type="text" placeholder="Surcharge Name" maxlength="100">
 						<span class="fieldError" style="display: none;"></span>
 					</div>
 				</div>
-				<div class="col-xs-3 col-md-3" style="padding-top: 26px;">
+				{# <div class="col-xs-3 col-md-3" style="padding-top: 26px;">
 					<div class="checkbox pull-left">
 						<input type="checkbox" id="ConvenienceFee" onchange="toggleSurcharge(event)">
 						<label for="ConvenienceFee">Convenience Fee</label>
@@ -41,7 +41,7 @@ headerTitle: Edit Surcharge
 							<div class="i-tooltip__arrow"></div>
 						</div>
 					</div>
-				</div>
+				</div> #}
 			</div>
 
 			<div class="form-group no-overflow row">
@@ -52,7 +52,8 @@ headerTitle: Edit Surcharge
 						<div class="field-group">
 							<div class="field-group__switcher">
 								<label class="awesome-switcher">
-									<input type="checkbox" checked onchange="convenienceSwitch(event)">
+									{# <input type="checkbox" checked onchange="convenienceSwitch(event)"> #}
+									<input type="checkbox" checked>
 									<span class="awesome-switcher__content">
 										<span class="awesome-switcher__left">$</span>
 										<span class="awesome-switcher__control"></span>
@@ -67,7 +68,7 @@ headerTitle: Edit Surcharge
 				</div>
 
 				<div class="col-xs-5 col-md-5 js-select">
-					<div class="form-group no-overflow position-relative">
+					{# <div class="form-group no-overflow position-relative">
 						<label>Payment Card</label>
 						{% set paymentCard = [
 							{ value: 'visa', text: 'Visa', attrs: 'checked' },
@@ -114,18 +115,32 @@ headerTitle: Edit Surcharge
 								</div>
 							</div>
 						</div>
+					</div> #}
+					<div class="form-group no-overflow position-relative">
+						<label>Payment Method</label>
+						<select style="display: block;">
+							{% for item in [
+								'Cash',
+								'Credit Card',
+								'Debit Card',
+								'External Payment',
+								'EBT'
+							] %}
+								<option value="{{item}}" {% if item == 'Credit Card' %}selected{% endif %}>{{item}}</option>
+							{% endfor %}
+						</select>
 					</div>
 				</div>
 
-				<div class="col-xs-2 col-md-2 js-change" style="padding-top: 26px; display: none;">
+				{# <div class="col-xs-2 col-md-2 js-change" style="padding-top: 26px; display: none;">
 					<div class="checkbox js-convenience-checkbox">
 						<input type="checkbox" id="inclide-taxes">
 						<label for="inclide-taxes">Charge from Taxes</label>
 					</div>
-				</div>
+				</div> #}
 			</div>
 
-			<script>
+			{# <script>
 				function convenienceSwitch(e) {
 					var $checkbox = $('.js-convenience-checkbox');
 					
@@ -148,7 +163,7 @@ headerTitle: Edit Surcharge
 						$select.show();
 					}
 				}
-			</script>
+			</script> #}
 
 			<div class="checkbox" initializedcheckbox="true">
 				<input type="checkbox" id="isActiveTax" checked>
