@@ -1,6 +1,6 @@
 ---
-title: Surcharges Manager
-headerTitle: Surcharges Manager
+title: Surcharge and Convenience Fee Manager
+headerTitle: Surcharge and Convenience Fee Manager
 ---
 {% extends "layouts/_layout.html" %}
 
@@ -9,9 +9,23 @@ headerTitle: Surcharges Manager
 	<div class="pane-body convenience-fee">
 
 		<div id="messages"></div>
-		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search by surcharge name">
+		<input class="form-control input-lg pull-left datatable-search" type="text" placeholder="Search by name">
 		<div class="btn-group btn-group-lg pull-right">
-			<a class="btn btn-primary" href="#newTax" data-bind="local: 'taxes/taxesList.new_tax', click: newTax">New Surcharge</a>
+			<script>
+				function toggleDD(e) {
+					var target = e.currentTarget;
+					var state = !JSON.parse(''+target.getAttribute('aria-expanded'))
+					target.setAttribute('aria-expanded', state);
+				}
+			</script>
+			<button class="btn btn-primary btn_dropdown" type="button" data-toggle="dropdown" aria-expanded="false" onclick="toggleDD(event)">
+				<span>New</span>
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">New Surcharge</a></li>
+				<li><a href="#">New Convenience Fee</a></li>
+			</ul>
 		</div>
 		<br class="clear">
 

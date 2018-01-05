@@ -534,3 +534,24 @@
 	input:disabled + label 
 		cursor: not-allowed
 
+//btn
+.btn
+	&_dropdown
+		position: relative
+		padding-right: 40px !important
+		border-radius: 4px !important
+		outline: none !important
+		&[aria-expanded="true"]
+			.caret
+				transform: translate3d(0,-50%,0) rotate(180deg)
+			~ .dropdown-menu
+				display: block !important
+		.caret
+			position: absolute
+			top: 50%
+			right: 10px
+			transform: translate3d(0,-50%,0)
+		~ .dropdown-menu
+			left: auto
+			right: 0
+			width: 200px
