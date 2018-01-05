@@ -3809,6 +3809,22 @@
   cursor: not-allowed;
 }
 
+.radio_solo,
+.checkbox_solo {
+  margin: 0;
+}
+
+.radio_solo label,
+.checkbox_solo label {
+  display: block;
+}
+
+.radio_solo label:before,
+.checkbox_solo label:before {
+  top: 0 !important;
+  display: block !important;
+}
+
 .btn_dropdown {
   position: relative;
   padding-right: 40px !important;
