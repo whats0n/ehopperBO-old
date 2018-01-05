@@ -98,19 +98,73 @@
 					
 					<div class="form-group no-overflow position-relative">
 						<label>Payment Method</label>
-						<select style="display: block;">
-							
-								<option value="Cash" >Cash</option>
-							
-								<option value="Credit Card" selected>Credit Card</option>
-							
-								<option value="Debit Card" >Debit Card</option>
-							
-								<option value="External Payment" >External Payment</option>
-							
-								<option value="EBT" >EBT</option>
-							
-						</select>
+						
+						<div class="multiselect">
+							<select class="form-control input-lg" style="display: none;">
+								
+									<option value="cash">Cash</option>
+								
+									<option value="credit-card">Credit Card</option>
+								
+									<option value="debit-card">Debit Card</option>
+								
+									<option value="external-payment">External Payment</option>
+								
+									<option value="ebt">EBT</option>
+								
+							</select>
+							<div class="ms-parent">
+								<script>
+									function openDropdown(e) {
+										e.preventDefault();
+										$(e.currentTarget)
+											.closest('.ms-parent')
+											.find('.ms-drop')
+											.toggle();
+									}
+								</script>
+								<button type="button" class="select" onclick="openDropdown(event)" style="width: 100%;">
+									<div class="fl" style="width: 100%;">
+										<div>
+											<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select Payment Method(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+										</div>
+										<div>
+											<div></div>
+										</div>
+									</div>
+								</button>
+								<div class="ms-drop bottom" data-name="multipleSelect1" style="width: 100%;">
+									<ul style="max-height: 250px;">
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-cash" >
+												<label for="payment-card-cash">Cash</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-credit-card" checked>
+												<label for="payment-card-credit-card">Credit Card</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-debit-card" >
+												<label for="payment-card-debit-card">Debit Card</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-external-payment" >
+												<label for="payment-card-external-payment">External Payment</label>
+											</li>
+										
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-ebt" >
+												<label for="payment-card-ebt">EBT</label>
+											</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 

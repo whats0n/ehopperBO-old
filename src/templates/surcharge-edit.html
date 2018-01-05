@@ -118,17 +118,51 @@ headerTitle: Edit Surcharge
 					</div> #}
 					<div class="form-group no-overflow position-relative">
 						<label>Payment Method</label>
-						<select style="display: block;">
-							{% for item in [
-								'Cash',
-								'Credit Card',
-								'Debit Card',
-								'External Payment',
-								'EBT'
-							] %}
-								<option value="{{item}}" {% if item == 'Credit Card' %}selected{% endif %}>{{item}}</option>
-							{% endfor %}
-						</select>
+						{% set paymentCard = [
+							{ value: 'cash', text: 'Cash' },
+							{ value: 'credit-card', text: 'Credit Card', attrs: 'checked' },
+							{ value: 'debit-card', text: 'Debit Card' },
+							{ value: 'external-payment', text: 'External Payment' },
+							{ value: 'ebt', text: 'EBT' }
+						] %}
+						<div class="multiselect">
+							<select class="form-control input-lg" style="display: none;">
+								{% for item in paymentCard %}
+									<option value="{{item.value}}">{{item.text}}</option>
+								{% endfor %}
+							</select>
+							<div class="ms-parent">
+								<script>
+									function openDropdown(e) {
+										e.preventDefault();
+										$(e.currentTarget)
+											.closest('.ms-parent')
+											.find('.ms-drop')
+											.toggle();
+									}
+								</script>
+								<button type="button" class="select" onclick="openDropdown(event)" style="width: 100%;">
+									<div class="fl" style="width: 100%;">
+										<div>
+											<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select Payment Method(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+										</div>
+										<div>
+											<div></div>
+										</div>
+									</div>
+								</button>
+								<div class="ms-drop bottom" data-name="multipleSelect1" style="width: 100%;">
+									<ul style="max-height: 250px;">
+										{% for item in paymentCard %}
+											<li>
+												<input type="checkbox" name="selectItemmultipleSelect1" id="payment-card-{{item.value}}" {{item.attrs | safe}}>
+												<label for="payment-card-{{item.value}}">{{item.text}}</label>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
