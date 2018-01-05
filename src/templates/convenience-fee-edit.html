@@ -17,12 +17,25 @@ headerTitle: Edit Convenience Fee
 			<!--/ko-->
 
 			<div id="taxSaveMessages"></div>
+
+			<script>
+				var changed = false;
+				function copyFrom(e) {
+					if (changed) return;
+					var target = $(e.currentTarget);
+					var copyTo = $('[data-copy-to="' + target.data('copy-from') + '"]');
+					copyTo.val(target.val() + ' Discount');
+				}
+				function copyTo(e) {
+					changed = true;
+				}
+			</script>
 		  
 			<div class="form-group no-overflow row">
 				<div class="col-xs-12 col-md-12">
 					<div class="form-group ">
 						<label>Convenience Fee Name <span class="color-red">*</span></label>
-						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100">
+						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Name" maxlength="100" oninput="copyFrom(event)" data-copy-from="convenience-fee">
 						<span class="fieldError" style="display: none;"></span>
 					</div>
 				</div>
@@ -32,7 +45,7 @@ headerTitle: Edit Convenience Fee
 				<div class="col-xs-12 col-md-12">
 					<div class="form-group ">
 						<label>Convenience Fee Discount <span class="color-red">*</span></label>
-						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Discount" maxlength="100">
+						<input class="form-control input-lg tax-name" type="text" placeholder="Convenience Fee Discount" maxlength="100" oninput="copyTo(event)" data-copy-to="convenience-fee">
 						<span class="fieldError" style="display: none;"></span>
 					</div>
 				</div>
