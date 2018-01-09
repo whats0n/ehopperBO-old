@@ -262,10 +262,12 @@ headerTitle: Activation Report
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
+							data-table-report="col-exp"
 							aria-label="Service Plan Exp Comm: Activate to sort by ascending columns">Service Plan Exp Comm</th>
 						<th class="sorting" 
 							tabindex="0" 
 							aria-controls="productMixReportTable" 
+							data-table-report="col-exp"
 							aria-label="Equipment Rebate Exp Comm: Activate to sort by ascending columns">Equipment Rebate Exp Comm</th>
 						<th class="sorting" 
 							tabindex="0" 
@@ -560,8 +562,8 @@ headerTitle: Activation Report
 							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
 							<td class="break-word">{{item.sppoCode |safe }}</td>
 							<td class="break-word">{{item.mrc | safe}}</td>
-							<td class="break-word">$2.00</td>
-							<td class="break-word">{% if item.serial != '&nbsp;' %}$3.00{% else %}$0.00{% endif %}</td>
+							<td class="break-word" data-table-report="col-exp">$2.00</td>
+							<td class="break-word" data-table-report="col-exp">{% if item.serial != '&nbsp;' %}$3.00{% else %}$0.00{% endif %}</td>
 							<td class="break-word" data-table-report="col-service-date">{{item.serviceDate | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
 							<td class="break-word">{{item.carrier | safe}}</td>

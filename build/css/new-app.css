@@ -3702,7 +3702,7 @@
 }
 
 #activationReportTable {
-  min-width: 2700px;
+  min-width: 3000px;
 }
 
 #paymentReportTable {
@@ -3779,6 +3779,10 @@
 
 [data-table-report="col-sppo-name"] {
   width: 350px;
+}
+
+[data-table-report="col-exp"] {
+  width: 180px;
 }
 
 .break-word {
