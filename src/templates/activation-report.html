@@ -261,6 +261,14 @@ headerTitle: Activation Report
 							aria-label="Service Plan Price: Activate to sort by ascending columns">Service Plan Price</th>
 						<th class="sorting" 
 							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Service Plan Exp Comm: Activate to sort by ascending columns">Service Plan Exp Comm</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Equipment Rebate Exp Comm: Activate to sort by ascending columns">Equipment Rebate Exp Comm</th>
+						<th class="sorting" 
+							tabindex="0" 
 							data-table-report="col-service-date"
 							aria-controls="productMixReportTable" 
 							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
@@ -552,6 +560,8 @@ headerTitle: Activation Report
 							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
 							<td class="break-word">{{item.sppoCode |safe }}</td>
 							<td class="break-word">{{item.mrc | safe}}</td>
+							<td class="break-word">$2.00</td>
+							<td class="break-word">{% if item.serial != '&nbsp;' %}$3.00{% else %}$0.00{% endif %}</td>
 							<td class="break-word" data-table-report="col-service-date">{{item.serviceDate | safe}}</td>
 							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
 							<td class="break-word">{{item.carrier | safe}}</td>
@@ -567,6 +577,8 @@ headerTitle: Activation Report
 						<td colspan="11">&nbsp;</td>
 						<td>Total</td>
 						<td>$374.99</td>
+						<td>$20.00</td>
+						<td>$15.00</td>
 						<td colspan="5">&nbsp;</td>
 					</tr>
 				</tfoot>
