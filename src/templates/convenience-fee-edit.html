@@ -7,7 +7,8 @@ headerTitle: Edit Convenience Fee
 {% block content %}
 	<span class="help-popup-icon" data-bind="visible: showHelpPopupButton(), click: showHelpPopup"></span>
 	<div class="pane-body convenience-fee">
-		<div class="form wide-form-simple">
+		<div class="form wide-form-simple" style="margin-top: 20px;">
+			{% include 'partials/components/_warning.html' %}
 			<!--ko compose: { model: $root.langs }-->
 			<div class="language-selector">
 				<a class="selected">English</a>
