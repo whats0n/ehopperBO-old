@@ -9,9 +9,10 @@
   font-style: normal;
 }
 
-$icon-csv: "\EA01";
-$icon-facebook: "\EA02";
-$icon-pdf: "\EA03";
+$icon-alert: "\EA01";
+$icon-csv: "\EA02";
+$icon-facebook: "\EA03";
+$icon-pdf: "\EA04";
 
 
 %icon {
@@ -30,6 +31,7 @@ $icon-pdf: "\EA03";
   display: inline-block;
 }
 
+.icon-alert:before { content: $icon-alert; }
 .icon-csv:before { content: $icon-csv; }
 .icon-facebook:before { content: $icon-facebook; }
 .icon-pdf:before { content: $icon-pdf; }

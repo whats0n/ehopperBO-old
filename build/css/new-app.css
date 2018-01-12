@@ -22,16 +22,20 @@
   display: inline-block;
 }
 
-.icon-csv:before {
+.icon-alert:before {
   content: "";
 }
 
-.icon-facebook:before {
+.icon-csv:before {
   content: "";
 }
 
-.icon-pdf:before {
+.icon-facebook:before {
   content: "";
+}
+
+.icon-pdf:before {
+  content: "";
 }
 
 .n-search {
@@ -3181,9 +3185,9 @@
   position: relative;
   padding: 15px 0;
   margin-bottom: 20px;
-  border: 1px solid #ec4a41;
+  border: 1px solid #ffeaae;
   border-radius: 4px;
-  background: rgba(236, 74, 65, 0.05);
+  background: #fffdf6;
 }
 
 .v-warning__inner {
@@ -3207,8 +3211,10 @@
   position: absolute;
   top: 12px;
   left: 15px;
-  color: #ec4a41;
+  color: #333;
   font-size: 24px;
+  width: 1.11375em;
+  height: 1em;
 }
 
 .n-container {
