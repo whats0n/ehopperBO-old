@@ -3191,7 +3191,7 @@
 }
 
 .v-warning__inner {
-  padding: 0 15px 0 50px;
+  padding: 0 15px;
   max-height: 100px;
   overflow: auto;
 }
@@ -3215,6 +3215,10 @@
   font-size: 24px;
   width: 1.11375em;
   height: 1em;
+}
+
+.v-warning__icon + .v-warning__inner {
+  padding-left: 50px;
 }
 
 .n-container {
