@@ -1,0 +1,251 @@
+<div class="v-popup__section js-section">
+	<div class="v-popup__header">
+		<div class="v-popup__title">Get Started with Ehopper POS</div>
+	</div>
+	<div class="v-popup__body">
+		<div class="v-pricing">
+			{% set pricing = {
+				header: [
+					'Essential Package',
+					'Freedom Package'
+				],
+				body: [
+					{
+						label: 'License fee',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Price',
+						essential: '<div class="v-pricing__price"><small>$</small><strong>0.00</strong></div>',
+						freedom: '<div class="v-pricing__price"><small>$</small><strong>39.99</strong><span>per month, per register</span></div>'
+					},
+					{
+						label: 'Limit',
+						essential: 'Limited to 1 Register',
+						freedom: 'Unlimited Registers ($39.99/mo per register)'
+					},
+					{
+						label: 'Works on Android tablets, iPad and Windows PC *',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Point of Sale',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Order Tracking',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Inventory Management',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Customer Management',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Tip Management',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Modifier Management',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Include/Exclude Taxes',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Assign Taxes to Products',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Include Tax in Product Price',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Full/Split Payment',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Print/Email Receipts',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Reporting',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Online Documentation',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: '<a href="https://ehopper.com/hardware/#device-requirements">Use your own hardware</a> or <a href="#">Purchase new hardware</a>',
+						state: true,
+						essential: 'check',
+						freedom: 'check'
+					},
+					{
+						label: 'Merchant services integration',
+						essential: '(Credit/Debit) with A1 Charge',
+						freedom: 'A1 Charge or your own'
+					},
+					{
+						label: 'EBT',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Use eHopper on <a href="https://ehopper.com/poynt-pos/">Poynt</a> Terminal',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Clock in/Clock Out',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Menu Builder',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Inventory Matrix',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Ingredients Management',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Inventory Adjustments',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Store Transfer',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Purchase Order Receiving',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Puerto Rico Control #',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'QuickBooks Integration',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Email support',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Implementation & training',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					},
+					{
+						label: 'Phone & chat support – 7 days a week',
+						state: true,
+						essential: 'close',
+						freedom: 'check'
+					}
+				]
+			} %}
+			<div class="v-pricing__table">
+				<div class="v-pricing__header">
+					<div class="v-pricing__row">
+						<div class="v-pricing__col v-pricing__label"></div>
+						{% for item in pricing.header %}
+							<div class="v-pricing__col v-pricing__item" data-variant="{{loop.index}}" onclick="chooseActive(event)">{{item | safe}}</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="v-pricing__body">
+					{% for item in pricing.body %}
+						<div class="v-pricing__row">
+							<div class="v-pricing__col v-pricing__label">{{item.label | safe}}</div>
+							<div class="v-pricing__col v-pricing__item" data-variant="1" onclick="chooseActive(event)">{% if item.state %}<i class="fa fa-{{item.essential}}"></i>{% else %}{{item.essential | safe}}{% endif %}</div>
+							<div class="v-pricing__col v-pricing__item" data-variant="2" onclick="chooseActive(event)">{% if item.state %}<i class="fa fa-{{item.freedom}}"></i>{% else %}{{item.freedom | safe}}{% endif %}</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-popup__submit">
+		<button class="v-popup__btn js-section-button" disabled onclick="goToNext(event)"><span>Start Demo</span><i class="fa fa-arrow-right"></i></button>
+	</div>
+	<script>
+		function chooseActive(e) {
+			target = $(e.currentTarget);
+			var id = target.data('variant');
+			var items = $('[data-variant]');
+			var ACTIVE = 'is-active';
+
+			items
+				.removeClass(ACTIVE)
+				.filter('[data-variant="' + id + '"]')
+				.addClass(ACTIVE);
+			target
+				.closest('.js-section')
+				.find('.js-section-button')
+				.prop('disabled', false);
+		}
+	</script>
+</div>
