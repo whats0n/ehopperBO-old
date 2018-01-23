@@ -3454,6 +3454,19 @@
   padding: 20px;
 }
 
+.v-popup__section {
+  display: none;
+}
+
+.v-popup__section.is-open {
+  display: block;
+}
+
+.v-popup__text {
+  color: #333;
+  text-align: left;
+}
+
 .n-container {
   *zoom: 1;
 }
