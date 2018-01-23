@@ -3342,11 +3342,13 @@
 }
 
 .v-popup__btn {
+  padding: 1px 0 2px;
   border: none;
   color: #333;
   background: none;
   text-align: center;
   font-size: 0;
+  transition: opacity 0.25s;
 }
 
 .v-popup__btn:before {
@@ -3361,8 +3363,29 @@
   transform: translate3d(5px, 0, 0);
 }
 
+.v-popup__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.v-popup__btn:disabled span + i {
+  transform: translate3d(0, 0, 0);
+}
+
 .v-popup__btn:not(:first-child) {
   margin-top: 20px;
+}
+
+.v-popup__btn_left, .v-popup__btn_right {
+  margin: 0 !important;
+}
+
+.v-popup__btn_left {
+  float: left;
+}
+
+.v-popup__btn_right {
+  float: right;
 }
 
 .v-popup__btn span,
@@ -3452,6 +3475,13 @@
 
 .v-popup__submit {
   padding: 20px;
+  *zoom: 1;
+}
+
+.v-popup__submit:after {
+  content: " ";
+  display: table;
+  clear: both;
 }
 
 .v-popup__section {
@@ -3465,6 +3495,91 @@
 .v-popup__text {
   color: #333;
   text-align: left;
+}
+
+.v-selection {
+  overflow: hidden;
+  padding: 20px 0;
+  margin: 0 -20px;
+  text-align: left;
+}
+
+.v-selection__items {
+  padding: 0;
+  margin: 0 -1px;
+}
+
+.v-selection__item {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  width: 25%;
+}
+
+.v-selection__item input {
+  display: none;
+}
+
+.v-selection__item input:checked ~ .v-selection__container {
+  opacity: 1;
+}
+
+.v-selection__label {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.v-selection__container {
+  position: relative;
+  display: block;
+  padding: 15px 20px 60px;
+  height: 230px;
+  color: #fff;
+  opacity: 0.5;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  font-weight: 700;
+  text-shadow: 1px 1px #333;
+  transition: opacity 0.25s;
+}
+
+.v-selection__title {
+  padding-bottom: 10px;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.v-selection__list {
+  padding: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.v-selection__list li:before {
+  content: '• ';
+}
+
+.v-selection__list,
+.v-selection__list li, .v-selection__items, .v-selection__item {
+  list-style-type: none;
+}
+
+.v-selection__meta {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
 }
 
 .n-container {

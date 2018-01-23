@@ -1,0 +1,95 @@
+<div class="v-popup__section js-section">
+	<div class="v-popup__header">
+		<div class="v-popup__title">Get Started with Ehopper POS</div>
+	</div>
+	<div class="v-popup__body">
+		<div class="v-popup__text">
+			<p><strong>Freedom Plan Demo</strong></p>
+			<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
+		</div>
+		<div class="v-selection">
+			<ul class="v-selection__items">
+				{% for item in [
+					{
+						id: 'food-drinks',
+						img: 'content/images/demo/qsr.png',
+						color: 'rgb(236, 165, 53)',
+						title: 'Food &amp; Drinks',
+						list: [
+							'Ingredients',
+							'Modifiers',
+							'Orders &amp; Tips',
+							'Delivery',
+							'Sales &amp; Kitchen Receipts'
+						]
+					},
+					{
+						id: 'retail-store',
+						img: 'content/images/demo/retail.png',
+						color: 'rgb(45, 167, 130)',
+						title: 'Retail Store',
+						list: [
+							'Inventory Matrix: ex vendor, style, color, size',
+							'Multi Store support',
+							'Vendor management',
+							'Retail Reports'
+						]
+					},
+					{
+						id: 'serialized-store',
+						img: 'content/images/demo/serialized.png',
+						color: 'rgb(139, 98, 175)',
+						title: 'Serialized Store',
+						list: [
+							'Full Inventory Management',
+							'Serialized Items Tracking',
+							'Aging Report'
+						]
+					},
+					{
+						id: 'grocery',
+						img: 'content/images/demo/grocery.png',
+						color: 'rgb(73, 161, 174)',
+						title: 'Grocery',
+						list: [
+							'Same as QSR',
+							'Full Inventory Control',
+							'Unit Priced Items: lb., oz.,  kg., etc.'
+						]
+					}
+				] %}
+					<li class="v-selection__item">
+						<label for="{{item.id}}" class="v-selection__label"></label>
+						<input type="radio" name="v-selection" id="{{item.id}}" onchange="enableButtons(event)">
+						<div class="v-selection__container" style="background-image: url({{item.img}}); background-color: {{item.color}};">
+							<div class="v-selection__title">{{item.title | safe}}</div>
+							<ul class="v-selection__list">
+								{% for item in item.list %}
+									<li>{{item | safe}}</li>
+								{% endfor %}
+							</ul>
+							<div class="v-selection__meta">Select</div>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="v-popup__text">
+			<p><strong>Fresh Start</strong></p>
+			<p>Use this option if you are ready to use the product right away and don’t want any demos or sample data.</p>
+		</div>
+	</div>
+	<div class="v-popup__submit">
+		<button class="v-popup__btn v-popup__btn_left js-section-button" disabled><span>Start Demo</span><i class="fa fa-arrow-right"></i></button>
+		<button class="v-popup__btn v-popup__btn_right js-section-button" disabled><span>Skip Demo</span><i class="fa fa-arrow-right"></i></button>
+	</div>
+	<script>
+		function enableButtons(e) {
+			var target = $(e.currentTarget);
+			var section = target.closest('.js-section');
+			var buttons = section.find('.js-section-button');
+
+			buttons.prop('disabled', false);
+		}
+	</script>
+</div>

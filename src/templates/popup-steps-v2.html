@@ -10,7 +10,7 @@ headerTitle: Empty
 
 	<div class="v-popup v-popup_md">
 		<div class="v-popup__container">
-			<div class="v-popup__section">
+			<div class="v-popup__section is-open js-section">
 				<div class="v-popup__header">
 					<div class="v-popup__title">Welcome to eHopper!</div>
 				</div>
@@ -32,96 +32,11 @@ headerTitle: Empty
 					</div>
 				</div>
 				<div class="v-popup__submit">
-					<button class="v-popup__btn"><span>Start setup</span><i class="fa fa-arrow-right"></i></button>
+					<button class="v-popup__btn" onclick="goToNext(event)"><span>Start setup</span><i class="fa fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="v-popup__section is-open">
-				<div class="v-popup__header">
-					<div class="v-popup__title">Get Started with Ehopper POS</div>
-				</div>
-				<div class="v-popup__body">
-					<div class="v-popup__text">
-						<p><strong>Freedom Plan Demo</strong></p>
-						<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
-					</div>
-					<ul class="v-selection">
-						{% for item in [
-						] %}
-							<li class="v-selection__item">
-								<a href="#" class="v-selection__link">
-									
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-					<ul data-bind="foreach: datasets">
-						<li>
-							<a data-bind="style: { backgroundColor: bgColor, backgroundImage: bgImage }, click: $parent.installDataset" style="background-color: rgb(236, 165, 53); background-image: url(&quot;content/images/demo/qsr.png&quot;);">
-								<div>
-									<span data-bind="text: name">Food &amp; Drinks</span>
-									<ul data-bind="foreach: features">
-										<li data-bind="text: $data">Modifiers</li>
-									
-										<li data-bind="text: $data">Orders &amp; Tips</li>
-									
-										<li data-bind="text: $data">Delivery</li>
-									
-										<li data-bind="text: $data">Sales &amp; Kitchen Receipts</li>
-									</ul>
-								</div>
-								<div data-bind="local: 'demo.select'">Select</div>
-							</a>
-						</li><li>
-							<a data-bind="style: { backgroundColor: bgColor, backgroundImage: bgImage }, click: $parent.installDataset" style="background-color: rgb(45, 167, 130); background-image: url(&quot;content/images/demo/retail.png&quot;);">
-								<div>
-									<span data-bind="text: name">Retail Store</span>
-									<ul data-bind="foreach: features">
-										<li data-bind="text: $data">Inventory Matrix: ex vendor, style, color, size</li>
-									
-										<li data-bind="text: $data">Multi Store support</li>
-									
-										<li data-bind="text: $data">Vendor management</li>
-									
-										<li data-bind="text: $data">Retail Reports</li>
-									</ul>
-								</div>
-								<div data-bind="local: 'demo.select'">Select</div>
-							</a>
-						</li><li>
-							<a data-bind="style: { backgroundColor: bgColor, backgroundImage: bgImage }, click: $parent.installDataset" style="background-color: rgb(139, 98, 175); background-image: url(&quot;content/images/demo/serialized.png&quot;);">
-								<div>
-									<span data-bind="text: name">Serialized Store</span>
-									<ul data-bind="foreach: features">
-										<li data-bind="text: $data">Full Inventory Management</li>
-									
-										<li data-bind="text: $data">Serialized Items Tracking</li>
-									
-										<li data-bind="text: $data">Aging Report</li>
-									</ul>
-								</div>
-								<div data-bind="local: 'demo.select'">Select</div>
-							</a>
-						</li><li>
-							<a data-bind="style: { backgroundColor: bgColor, backgroundImage: bgImage }, click: $parent.installDataset" style="background-color: rgb(73, 161, 174); background-image: url(&quot;content/images/demo/grocery.png&quot;);">
-								<div>
-									<span data-bind="text: name">Grocery</span>
-									<ul data-bind="foreach: features">
-										<li data-bind="text: $data">Same as QSR</li>
-									
-										<li data-bind="text: $data">Full Inventory Control</li>
-									
-										<li data-bind="text: $data">Unit Priced Items: lb., oz.,  kg., etc.</li>
-									</ul>
-								</div>
-								<div data-bind="local: 'demo.select'">Select</div>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="v-popup__submit">
-					<button class="v-popup__btn"><span>Skip Demo</span><i class="fa fa-arrow-right"></i></button>
-				</div>
-			</div>
+			{% include 'partials/welcome/_step-demo.html' %}
+			{% include 'partials/welcome/_go-to-next.html' %}
 		</div>
 	</div>
 {% endblock %}	
