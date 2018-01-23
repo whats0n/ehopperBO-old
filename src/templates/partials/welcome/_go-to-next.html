@@ -2,13 +2,16 @@
 	function goToNext(e) {
 		e.preventDefault();
 		var target = $(e.currentTarget);
-		var OPEN = 'is-open';
+		var ACTIVE = 'is-active';
+		var PREV = 'is-prev';
 		var currentStep = target.closest('.js-section');
 		var nextStep = currentStep.next();
 			
 		if (!nextStep.length) return;
 
-		currentStep.removeClass(OPEN);
-		nextStep.addClass(OPEN);
+		currentStep
+			.removeClass(ACTIVE)
+			.addClass(PREV);
+		nextStep.addClass(ACTIVE);
 	}
 </script>

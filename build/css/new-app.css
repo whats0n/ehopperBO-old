@@ -3255,6 +3255,7 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  overflow: hidden;
   width: 400px;
   background: #fff;
   box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.5);
@@ -3377,15 +3378,17 @@
 }
 
 .v-popup__btn_left, .v-popup__btn_right {
+  position: absolute;
+  top: 20px;
   margin: 0 !important;
 }
 
 .v-popup__btn_left {
-  float: left;
+  left: 20px;
 }
 
 .v-popup__btn_right {
-  float: right;
+  right: 20px;
 }
 
 .v-popup__btn span,
@@ -3474,6 +3477,7 @@
 }
 
 .v-popup__submit {
+  position: relative;
   padding: 20px;
   *zoom: 1;
 }
@@ -3484,12 +3488,29 @@
   clear: both;
 }
 
-.v-popup__section {
-  display: none;
+.v-popup__button {
+  margin: -5px 0;
 }
 
-.v-popup__section.is-open {
-  display: block;
+.v-popup__section {
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.5s linear;
+}
+
+.v-popup__section.is-active {
+  transform: translate3d(0, 0, 0);
+}
+
+.v-popup__section.is-prev {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.v-popup__section:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .v-popup__text {
@@ -3533,9 +3554,15 @@
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+.v-selection__label:hover ~ .v-selection__container {
+  opacity: 1;
 }
 
 .v-selection__container {
@@ -3577,9 +3604,20 @@
   position: absolute;
   right: 20px;
   bottom: 20px;
+  padding-right: 15px;
+  height: 20px;
   font-size: 14px;
   line-height: 20px;
   text-transform: uppercase;
+}
+
+.v-selection__meta:after {
+  content: '›';
+  position: absolute;
+  top: -4px;
+  right: 0;
+  font-size: 2.2em;
+  font-weight: normal;
 }
 
 .n-container {
