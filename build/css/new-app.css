@@ -3837,7 +3837,7 @@
   bottom: 0;
   padding-bottom: 100px;
   transform: translate3d(100%, 0, 0);
-  transition: transform 0.4s;
+  transition: transform 0.5s;
 }
 
 .v-guide-video {
@@ -3846,7 +3846,7 @@
   opacity: 0;
   text-align: center;
   font-size: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
 }
 
 .v-guide-video:before {
@@ -3891,7 +3891,7 @@
   color: #fff;
   opacity: 0;
   background: #2E9ADB;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
 }
 
 .v-guide-header__title {
