@@ -210,7 +210,6 @@
 			<div class="v-pricing__table">
 				<div class="v-pricing__header">
 					<div class="v-pricing__row">
-						<!-- <div class="v-pricing__col v-pricing__label"></div> -->
 						{% for item in pricing.header %}
 							<div class="v-pricing__col">{{item | safe}}</div>
 						{% endfor %}
@@ -244,8 +243,8 @@
 					{% endfor %}
 				</div>
 				<div class="v-pricing__footer">
-					<div class="v-pricing__col"><a href="#" class="v-pricing__btn">Get Started!</a></div>
-					<div class="v-pricing__col"><a href="#" class="v-pricing__btn">Get Started!</a></div>
+					<div class="v-pricing__col"><a href="#" class="v-pricing__btn" onclick="goToNext(event)">Get Started!</a></div>
+					<div class="v-pricing__col"><a href="#" class="v-pricing__btn" onclick="goToNext(event)">Get Started!</a></div>
 				</div>
 			</div>
 		</div>

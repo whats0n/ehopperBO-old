@@ -22,11 +22,12 @@
 		position: relative
 		display: inline-block
 		vertical-align: middle
-		overflow: hidden
 		width: 400px
 		background: $white
 		box-shadow: 0 2px 7px 1px rgba($black, 0.5)
 		text-align: center
+	&__slider
+		overflow: hidden
 	&__header
 		position: relative
 		padding: 13px 20px
@@ -36,24 +37,6 @@
 			margin: -50px auto 12px
 			+ .v-popup__title
 				padding-bottom: 12px
-	&__close
-		position: absolute
-		top: 0
-		right: 0
-		border: none
-		width: 50px
-		height: 50px
-		color: inherit
-		opacity: 0.5
-		background: none
-		+vertical
-		transition: opacity 0.25s
-		&:hover 
-			opacity: 1
-		i 
-			display: inline-block
-			vertical-align: middle
-			font-size: 24px
 	&__img
 		border-radius: 50%
 		width: 100px
@@ -66,6 +49,8 @@
 	&__body 
 		color: #aaa
 		+clr
+		&_simple
+			padding: 20px
 		p 
 			margin: 0
 			font-size: 16px
@@ -124,15 +109,6 @@
 	&__content
 		font-size: 0
 		+clr
-		// .v-popup
-		// 	&__img,
-		// 	&__description
-		// 		display: inline-block
-		// 		vertical-align: middle
-		// 	&__img 
-		// 		margin-right: -100px
-		// 	&__description
-		// 		padding-left: 120px
 		.v-popup__img
 			margin: 0 auto 20px
 	&__frame
@@ -290,7 +266,6 @@
 			font-weight: normal
 
 .v-pricing
-	border-bottom: 1px solid #ccc
 	height: 100%
 	font-size: 0
 	&__table 
@@ -306,22 +281,10 @@
 				border-left: 1px solid #c1cbd4
 	&__body
 		overflow: auto
-		height: calc(100% - 60px)
+		height: calc(100% - 120px)
 		.v-pricing__row
 			&:hover 
 				background: #f1f3f5
-	&__row
-		+clr
-	&__col 
-		position: relative
-		// float: left
-		display: inline-block
-		vertical-align: middle
-		padding: 13px 20px
-		width: 50%
-		color: $darkGray
-		font-size: 16px
-		text-align: center
 		a 
 			color: $blue 
 			transition: color 0.25s
@@ -333,6 +296,17 @@
 			color: $green 
 		.fa-close 
 			color: $red
+	&__row
+		+clr
+	&__col 
+		position: relative
+		display: inline-block
+		vertical-align: middle
+		padding: 13px 20px
+		width: 50%
+		color: $darkGray
+		font-size: 16px
+		text-align: center
 	&__label
 		width: 44%
 		text-align: left
@@ -349,8 +323,23 @@
 	&__disabled
 		color: #aaa
 		text-decoration: line-through
+	&__footer 
+		.v-pricing
+			&__col 
+				padding: 0
+				&:not(:first-child)
+					border-left: 1px solid #c1cbd4
 	&__btn 
-		padding: 13px 20px
-		color: $white
+		display: inline-block
+		vertical-align: top
+		padding: 17px 20px 18px
+		width: 100%
+		color: $white !important
 		background: $blue
 		font-size: 18px
+		line-height: 25px
+		&:hover 
+			background: #1B79B2
+		&:active 
+			background: #286090
+		text-decoration: none !important
