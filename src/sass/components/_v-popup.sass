@@ -14,7 +14,10 @@
 				width: 1024px
 			&__body 
 				overflow: auto
-				height: 401px
+				height: 516px - 50px
+				background: rgba($darkGray, 0.15)
+				&_white
+					background: $white
 	&__container
 		position: relative
 		display: inline-block
@@ -61,7 +64,6 @@
 		font-weight: bold
 		line-height: 1
 	&__body 
-		padding: 20px
 		color: #aaa
 		+clr
 		p 
@@ -140,7 +142,8 @@
 			width: 500px
 			height: 232px
 	&__row 
-		margin: 0 -10px 
+		padding: 0 10px 75px
+		margin-bottom: -65px
 		height: 100%
 	&__col
 		float: left
@@ -180,13 +183,51 @@
 			right: 0
 			bottom: 0
 	&__text 
+		padding: 20px
+		color: $darkGray
+		background: $white
+		text-align: left
+		p 
+			font-size: 17px
+	&__footer
+		padding: 15px 20px
 		color: $darkGray
 		text-align: left
+		+clr
+		&-btn 
+			float: right
+			padding: 13px 0 13px 20px
+		&-in 
+			overflow: hidden
+		p 
+			font-size: 18px
+	&__link
+		position: relative
+		display: inline-block
+		vertical-align: top
+		padding: 5px 0
+		margin: 0
+		border: none
+		color: $blue
+		background: none
+		font-size: 28px
+		font-weight: 700
+		&:hover 
+			&:before 
+				opacity: 0
+		&:before 
+			content: ''
+			position: absolute
+			z-index: -1
+			left: 0
+			right: 0
+			bottom: 7px
+			border-bottom: 2px solid $blue
+			transition: opacity 0.25s
 
 .v-selection
 	overflow: hidden
-	padding: 20px 0
-	margin: 0 -20px
+	border-bottom: 4px solid $red
 	text-align: left
 	&__items
 		padding: 0
@@ -198,36 +239,22 @@
 		border-right: 1px solid #fff
 		border-left: 1px solid #fff
 		width: 25%
-		input 
-			display: none
-			&:checked ~ .v-selection__container
-				opacity: 1
-	&__label
-		position: absolute
-		z-index: 2
-		top: 0
-		left: 0
-		right: 0
-		bottom: 0
-		margin: 0
-		padding: 0
-		width: 100%
-		height: 100%
-		cursor: pointer
-		&:hover ~ .v-selection__container 
-			opacity: 1
 	&__container
 		position: relative
 		display: block
 		padding: 15px 20px 60px
 		height: 230px
-		color: $white
-		opacity: 0.5
+		color: $white !important
+		opacity: 0.7
 		background-position: left bottom
 		background-repeat: no-repeat
 		font-weight: 700
 		text-shadow: 1px 1px #333
+		text-decoration: none !important
+		cursor: pointer
 		transition: opacity 0.25s
+		&:hover 
+			opacity: 1
 	&__title 
 		padding-bottom: 10px
 		font-size: 24px
@@ -247,53 +274,52 @@
 	&__meta
 		position: absolute
 		right: 20px
-		bottom: 20px
-		padding-right: 15px
-		height: 20px
+		bottom: 10px
+		padding: 13px 31px 13px 16px
+		border-radius: 3px
+		background: $blue
 		font-size: 14px
 		line-height: 20px
 		text-transform: uppercase
 		&:after
 			content: '›'
 			position: absolute
-			top: -4px
-			right: 0
+			top: 9px
+			right: 10px
 			font-size: 2.2em
 			font-weight: normal
 
 .v-pricing
-	margin: -20px
 	border-bottom: 1px solid #ccc
-	// height: calc(100% + 20px)
-	height: calc(100% + 40px)
+	height: 100%
 	font-size: 0
 	&__table 
-		overflow: auto
 		height: 100%
 	&__header
+		box-shadow: 0 15px 45px -5px rgba(39,55,74,.15), 0 15px 40px -20px rgba(39,55,74,.1)
 		text-align: right
 		.v-pricing__col 
-			border-bottom-width: 5px
 			color: $darkGray
 			font-size: 24px
 			font-weight: 700
-	&__header,
-	&__body 
-		display: table
-		table-layout: fixed
-		width: 100%
+			&:not(:first-child)
+				border-left: 1px solid #c1cbd4
 	&__body
-		.v-pricing__row:last-child
-			.v-pricing__col
-				border-bottom: none
+		overflow: auto
+		height: calc(100% - 60px)
+		.v-pricing__row
+			&:hover 
+				background: #f1f3f5
 	&__row
-		display: table-row
+		+clr
 	&__col 
 		position: relative
-		display: table-cell
+		// float: left
+		display: inline-block
 		vertical-align: middle
 		padding: 13px 20px
-		border-bottom: 1px solid #ccc
+		width: 50%
+		color: $darkGray
 		font-size: 16px
 		text-align: center
 		a 
@@ -301,44 +327,30 @@
 			transition: color 0.25s
 			&:hover
 				color: lighten($blue, 10%)
-	&__label
-		width: 44%
-		color: $darkGray
-		text-align: left
-	&__item 
-		border-left: 1px solid #ccc
-		width: 28%
-		&.is-active 
-			// border-left-color: $blue
-			// border-right-color: $blue
-			background: rgba($blue, 0.05)
 		.fa 
 			font-size: 22px
 		.fa-check 
 			color: $green 
 		.fa-close 
 			color: $red
+	&__label
+		width: 44%
+		text-align: left
 	&__price 
 		position: relative
-		// padding-bottom: 16px
-		padding: 13px 20px 29px
-		margin: -13px -20px 
-		color: $white
-		// background: $blue 
-		background: $green
 		line-height: 1
 		small 
 			font-size: 36px
 		strong
 			font-size: 48px
 		span 
-			position: absolute
-			// left: 0
-			// right: 0
-			// bottom: 0
-			left: 20px
-			right: 20px
-			bottom: 13px
+			display: block
 			font-size: 16px
-	[data-variant]
-		cursor: pointer
+	&__disabled
+		color: #aaa
+		text-decoration: line-through
+	&__btn 
+		padding: 13px 20px
+		color: $white
+		background: $blue
+		font-size: 18px

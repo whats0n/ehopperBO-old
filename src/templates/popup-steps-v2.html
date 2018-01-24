@@ -14,7 +14,7 @@ headerTitle: Empty
 				<div class="v-popup__header">
 					<div class="v-popup__title">Welcome to eHopper!</div>
 				</div>
-				<div class="v-popup__body">
+				<div class="v-popup__body v-popup__body_white">
 					<div class="v-popup__row">
 						<div class="v-popup__col">
 							<div class="v-popup__content">
@@ -30,9 +30,9 @@ headerTitle: Empty
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="v-popup__submit">
-					<button class="v-popup__btn" onclick="goToNext(event)"><span>Start setup</span><i class="fa fa-arrow-right"></i></button>
+					<div class="v-popup__submit">
+						<button class="v-popup__btn" onclick="goToNext(event)"><span>Start setup</span><i class="fa fa-arrow-right"></i></button>
+					</div>
 				</div>
 			</div>
 			{% include 'partials/welcome/_step-pricing.html' %}

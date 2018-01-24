@@ -2,7 +2,7 @@
 	<div class="v-popup__header">
 		<div class="v-popup__title">Get Started with Ehopper POS</div>
 	</div>
-	<div class="v-popup__body">
+	<div class="v-popup__body v-popup__body_white">
 		<div class="v-pricing">
 			{% set pricing = {
 				header: [
@@ -210,42 +210,44 @@
 			<div class="v-pricing__table">
 				<div class="v-pricing__header">
 					<div class="v-pricing__row">
-						<div class="v-pricing__col v-pricing__label"></div>
+						<!-- <div class="v-pricing__col v-pricing__label"></div> -->
 						{% for item in pricing.header %}
-							<div class="v-pricing__col v-pricing__item" data-variant="{{loop.index}}" onclick="chooseActive(event)">{{item | safe}}</div>
+							<div class="v-pricing__col">{{item | safe}}</div>
 						{% endfor %}
 					</div>
 				</div>
 				<div class="v-pricing__body">
 					{% for item in pricing.body %}
 						<div class="v-pricing__row">
-							<div class="v-pricing__col v-pricing__label">{{item.label | safe}}</div>
-							<div class="v-pricing__col v-pricing__item" data-variant="1" onclick="chooseActive(event)">{% if item.state %}<i class="fa fa-{{item.essential}}"></i>{% else %}{{item.essential | safe}}{% endif %}</div>
-							<div class="v-pricing__col v-pricing__item" data-variant="2" onclick="chooseActive(event)">{% if item.state %}<i class="fa fa-{{item.freedom}}"></i>{% else %}{{item.freedom | safe}}{% endif %}</div>
+							<!-- <div class="v-pricing__col v-pricing__label">{{item.label | safe}}</div> -->
+							<div class="v-pricing__col">
+								{#{% if item.state %}<i class="fa fa-{{item.essential}}"></i>{% else %}{{item.essential | safe}}{% endif %}#}
+								{% if not item.state %}
+									{{item.essential | safe}}
+								{% elif item.state and item.essential == 'check' %}
+									{{item.label | safe}}
+								{% elif item.state and item.essential == 'close' %}
+									<span class="v-pricing__disabled">{{item.label | safe}}</span>
+								{% endif %}
+							</div>
+							<div class="v-pricing__col">
+								{#{% if item.state %}<i class="fa fa-{{item.freedom}}"></i>{% else %}{{item.freedom | safe}}{% endif %}#}
+								{% if not item.state %}
+									{{item.freedom | safe}}
+								{% elif item.state and item.freedom == 'check' %}
+									{{item.label | safe}}
+								{% elif item.state and item.freedom == 'close' %}
+									<span class="v-pricing__disabled">{{item.label | safe}}</span>
+								{% endif %}
+							</div>
 						</div>
 					{% endfor %}
+				</div>
+				<div class="v-pricing__footer">
+					<div class="v-pricing__col"><a href="#" class="v-pricing__btn">Get Started!</a></div>
+					<div class="v-pricing__col"><a href="#" class="v-pricing__btn">Get Started!</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="v-popup__submit">
-		<button class="v-popup__btn js-section-button" disabled onclick="goToNext(event)"><span>Start Demo</span><i class="fa fa-arrow-right"></i></button>
-	</div>
-	<script>
-		function chooseActive(e) {
-			target = $(e.currentTarget);
-			var id = target.data('variant');
-			var items = $('[data-variant]');
-			var ACTIVE = 'is-active';
-
-			items
-				.removeClass(ACTIVE)
-				.filter('[data-variant="' + id + '"]')
-				.addClass(ACTIVE);
-			target
-				.closest('.js-section')
-				.find('.js-section-button')
-				.prop('disabled', false);
-		}
-	</script>
 </div>
