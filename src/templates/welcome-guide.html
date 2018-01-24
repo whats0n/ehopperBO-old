@@ -1,0 +1,120 @@
+---
+title: Empty 
+headerTitle: Empty 
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="app-block" data-bind="click: $root.appClick">
+		<div class="app-block_header">
+			<img src="img/convenience-fee-icon.png" alt="" class="app-block_header_logo">
+		</div>
+		<div class="app-block_content">
+			<div class="app-block_content_header" data-bind="text: $data.name">Surcharge and Convenience Fee</div>
+			<div class="block_content_producer" data-bind="text: $data.company">by eHopper</div>
+			<div class="app-block_content_package">
+				<div class="app-block_content_package_name" data-bind="text: $data.packageName">Freedom Package</div>
+				<div class="app-block_content_package_desc" data-bind="text: $data.packageDescription">Freedom Plan only</div>
+			</div>
+		</div>
+		<!--
+		<div class="app-modal" data-bind="template: { name: 'views/appstore/apps/' + $data.template } "></div>
+		-->
+	</div>
+
+	<!-- begin guide -->
+	<div class="v-guide">
+		<div class="v-guide__container">
+			{% for item in [
+				{
+					title: 'Welcome to eHopper!',
+					url: 'partials/guide/_first-step.html',
+					video: 'https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0',
+					next: true,
+					classList: 'is-active'
+				},
+				{
+					title: 'Select price in package',
+					url: 'partials/guide/_second-step.html',
+					video: 'https://www.youtube-nocookie.com/embed/3M_5oYU-IsU?showinfo=0',
+					next: true,
+					prev: true
+				},
+				{
+					title: 'Get Started with Ehopper POS',
+					url: 'partials/guide/_third-step.html',
+					video: 'https://www.youtube-nocookie.com/embed/98fxECDvZnY?showinfo=0',
+					next: true,
+					prev: true
+				}
+			] %}
+				<div class="v-guide__row js-section {{item.classList}}">
+					<div class="v-guide-header">
+						{% if item.prev %}
+							<button class="v-guide-header__back" onclick="goToPrev(event)">
+								<i class="fa fa-arrow-left"></i>
+								<span>Back</span>
+							</button>
+						{% endif %}
+						<h2 class="v-guide-header__title">{{item.title}}</h2>
+					</div>
+					<div class="v-guide__col">
+						<div class="v-guide__inner">
+							{% include item.url %}
+							<div class="v-guide-footer">
+								{% if item.next %}
+									<div class="v-guide-footer__col">
+										<button class="v-guide-btn v-guide-btn_wide" onclick="goToNext(event)">
+											<span>Next</span>
+											<i class="fa fa-arrow-right v-guide-btn__next"></i>
+										</button>
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="v-guide__col">
+						<div class="v-guide-video">
+							<div class="v-guide-video__container">
+								<iframe src="{{item.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<!-- end guide -->
+	<script>
+		var ACTIVE = 'is-active';
+		var PREV = 'is-prev';
+
+		function goToNext(e) {
+			e.preventDefault();
+			var target = $(e.currentTarget);
+			var currentStep = target.closest('.js-section');
+			var nextStep = currentStep.next();
+				
+			if (!nextStep.length) return;
+
+			currentStep
+				.removeClass(ACTIVE)
+				.addClass(PREV);
+			nextStep.addClass(ACTIVE);
+		}
+		function goToPrev(e) {
+			e.preventDefault();
+			var target = $(e.currentTarget);
+			var currentStep = target.closest('.js-section');
+			var prevStep = currentStep.prev();
+				
+			if (!prevStep.length) return;
+
+			currentStep.removeClass(ACTIVE);
+			prevStep
+				.removeClass(PREV)
+				.addClass(ACTIVE);
+		}
+	</script>
+	
+{% endblock %}
