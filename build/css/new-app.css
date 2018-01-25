@@ -4372,7 +4372,10 @@
   min-height: calc(600px - 135px);
 }
 
-.v-guide__item {
+.v-guide .slick-list,
+.v-guide .slick-track,
+.v-guide .slick-slide,
+.v-guide .slick-slide > div, .v-guide__item {
   height: 100%;
 }
 
