@@ -12,7 +12,12 @@
 	text-align: center
 	&:hover 
 		background: #1B79B2
+		.fa 
+			transform: translate3d(5px,0,0)
 	&:active
 		background: #286090
 	&_wide
 		width: 100%
+	.fa 
+		+gpu
+		transition: transform 0.25s

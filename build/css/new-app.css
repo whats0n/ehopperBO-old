@@ -3914,12 +3914,21 @@
   background: #1B79B2;
 }
 
+.v-guide-btn:hover .fa {
+  transform: translate3d(5px, 0, 0);
+}
+
 .v-guide-btn:active {
   background: #286090;
 }
 
 .v-guide-btn_wide {
   width: 100%;
+}
+
+.v-guide-btn .fa {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.25s;
 }
 
 .v-guide-content {
