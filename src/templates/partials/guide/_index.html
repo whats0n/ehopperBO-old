@@ -1,0 +1,86 @@
+<!-- begin guide -->
+{% set screens = [
+	{
+		label: 'Welcome',
+		title: 'Welcome to eHopper!',
+		url: 'partials/guide/_first-step.html',
+		video: 'https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0',
+		next: true,
+		classList: 'is-prev'
+	},
+	{
+		label: 'Upgrade to Freedom',
+		title: 'Select price in package',
+		url: 'partials/guide/_second-step.html',
+		video: 'https://www.youtube-nocookie.com/embed/_ueI01hQMZ0?showinfo=0',
+		next: true,
+		prev: true,
+		classList: 'is-active'
+	},
+	{
+		label: 'Get Started',
+		title: 'Get Started with Ehopper POS',
+		url: 'partials/guide/_third-step.html',
+		video: 'https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0',
+		next: true,
+		prev: true
+	}
+] %}
+<div class="v-guide">
+	<div class="v-guide-steps v-guide__steps">
+		<div class="v-guide-steps__inner">
+			<ul class="v-guide-steps__list">
+				{% for item in screens %}
+					<li class="v-guide-steps__item {{item.classList}}">
+						<div class="v-guide-steps__icon">
+							<i class="fa fa-cog"></i>
+						</div>
+						<div class="v-guide-steps__title">{{item.label}}</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="v-guide-steps__line">
+				<div class="v-guide-steps__line-in"></div>
+			</div>
+		</div>
+	</div>
+	<div class="v-guide__container">
+		{% for item in screens %}
+			<div class="v-guide__item">
+				{% include item.url %}
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<!-- end guide -->
+<script>
+	var ACTIVE = 'is-active';
+	var PREV = 'is-prev';
+
+	function goToNext(e) {
+		e.preventDefault();
+		var target = $(e.currentTarget);
+		var currentStep = target.closest('.js-section');
+		var nextStep = currentStep.next();
+			
+		if (!nextStep.length) return;
+
+		currentStep
+			.removeClass(ACTIVE)
+			.addClass(PREV);
+		nextStep.addClass(ACTIVE);
+	}
+	function goToPrev(e) {
+		e.preventDefault();
+		var target = $(e.currentTarget);
+		var currentStep = target.closest('.js-section');
+		var prevStep = currentStep.prev();
+			
+		if (!prevStep.length) return;
+
+		currentStep.removeClass(ACTIVE);
+		prevStep
+			.removeClass(PREV)
+			.addClass(ACTIVE);
+	}
+</script>

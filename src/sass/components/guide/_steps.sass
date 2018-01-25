@@ -1,0 +1,68 @@
+$stepWidth: 33.33%
+
+.v-guide-steps
+	position: relative
+	padding: 20px
+	margin: 0 auto
+	max-width: 980px
+	font-size: 0
+	text-align: center
+	&__inner 
+		position: relative
+	&__list,
+	&__item
+		list-style-type: none
+	&__list 
+		position: relative
+		z-index: 2
+		padding: 0
+		margin: 0
+	&__item
+		display: inline-block
+		vertical-align: top
+		width: $stepWidth
+		color: $gray
+		&.is-prev
+			color: $green
+			.v-guide-steps
+				&__icon 
+					border-color: $green
+					color: $white
+					background: $green
+		&.is-active
+			color: $blue
+			.v-guide-steps
+				&__icon 
+					border-color: $blue
+					color: $white
+					background: $blue
+	&__icon
+		margin: 0 auto 10px
+		border: 1px solid #c1cbd4
+		border-radius: 50%
+		width: 60px
+		height: 60px
+		color: #c1cbd4
+		background: $white
+		+vertical 
+		i 
+			display: inline-block
+			vertical-align: middle
+			font-size: 24px
+	&__title
+		font-size: 18px
+	&__line
+		position: absolute
+		z-index: 1
+		top: 30px
+		left: $stepWidth/2
+		right: $stepWidth/2
+		overflow: hidden
+		margin-top: -2px
+		height: 4px
+		background: #c1cbd4
+		&-in 
+			width: 100%
+			height: 100%
+			background: $blue
+			transform: translate3d(-50%,0,0)
