@@ -5,13 +5,15 @@ window.$ = jQuery;
 
 import sortable from './lib/jquery-ui.min';
 
-import modal from './components/_modal';
-import toggle from './components/_toggle';
-import tabs from './components/_tabs';
-import addGroup from './components/_add-group';
-import accordion from './components/_accordion';
-import menu from './components/_menu';
-import select from './components/_select';
-import multiSelect from './components/_multiSelect';
-import dropdown from './components/_dropdown';
-import configurable from './components/_configurable';
+import './components/_modal';
+import './components/_toggle';
+import './components/_tabs';
+import './components/_add-group';
+import './components/_accordion';
+import './components/_menu';
+import './components/_select';
+import './components/_multiSelect';
+import './components/_dropdown';
+import './components/_configurable';
+
+import './components/_guide';

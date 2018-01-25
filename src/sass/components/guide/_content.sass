@@ -1,8 +1,23 @@
-$contentBreakpoint: 760
 .v-guide-content
-	margin: 0 auto
-	max-width: 760px
+	position: relative
+	padding-bottom: 100px
 	height: 100%
+	&_simple 
+		padding-bottom: 0
+	&__inner
+		height: 100%
+		&_scrollable
+			overflow: auto
+	&__vertical
+		+vertical
+	&__center
+		display: inline-block
+		vertical-align: middle
+		width: 100%
+	//first step	
+	&__info
+		margin: 0 auto
+		max-width: 760px
 	&__description
 		padding: 40px 0
 		margin: 0 auto
@@ -10,7 +25,7 @@ $contentBreakpoint: 760
 		font-size: 20px
 		text-align: center
 		+rh($contentBreakpoint)
-			padding: 20px 0
+			padding: 10px 0 20px
 			max-width: 500px
 			font-size: 16px
 		p 
@@ -21,6 +36,7 @@ $contentBreakpoint: 760
 		width: 76vh
 		max-width: 100%
 		min-width: 400px
+	//common
 	&__submit
 		position: absolute
 		left: 0
@@ -28,5 +44,10 @@ $contentBreakpoint: 760
 		bottom: 0
 		padding: 20px
 		text-align: center
+	&__link
+		position: absolute
+		top: 50%
+		right: 40px
+		transform: translate3d(0,-50%,0)
 	&__btn
 		max-width: 400px

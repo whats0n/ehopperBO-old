@@ -1,82 +1,91 @@
 <!-- begin v-guide-content -->
-<div class="v-guide-content v-guide-content_simple v-guide-content_vertical">
-	<div class="v-guide-content__center">
-		<div class="v-guide-content__text">
-			<p><strong>Freedom Plan Demo</strong></p>
-			<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
-		</div>
-		<div class="v-guide-selection">
-			<ul class="v-guide-selection__items">
-				{% for item in [
-					{
-						id: 'food-drinks',
-						img: 'content/images/demo/qsr.png',
-						color: 'rgb(236, 165, 53)',
-						title: 'Food &amp; Drinks',
-						list: [
-							'Ingredients',
-							'Modifiers',
-							'Orders &amp; Tips',
-							'Delivery',
-							'Sales &amp; Kitchen Receipts'
-						]
-					},
-					{
-						id: 'retail-store',
-						img: 'content/images/demo/retail.png',
-						color: 'rgb(45, 167, 130)',
-						title: 'Retail Store',
-						list: [
-							'Inventory Matrix: ex vendor, style, color, size',
-							'Multi Store support',
-							'Vendor management',
-							'Retail Reports'
-						]
-					},
-					{
-						id: 'serialized-store',
-						img: 'content/images/demo/serialized.png',
-						color: 'rgb(139, 98, 175)',
-						title: 'Serialized Store',
-						list: [
-							'Full Inventory Management',
-							'Serialized Items Tracking',
-							'Aging Report'
-						]
-					},
-					{
-						id: 'grocery',
-						img: 'content/images/demo/grocery.png',
-						color: 'rgb(73, 161, 174)',
-						title: 'Grocery',
-						list: [
-							'Same as QSR',
-							'Full Inventory Control',
-							'Unit Priced Items: lb., oz.,  kg., etc.'
-						]
-					}
-				] %}
-					<li class="v-guide-selection__item">
-						<a href="#" class="v-guide-selection__container" style="background-image: url({{item.img}}); background-color: {{item.color}};">
-							<div class="v-guide-selection__title">{{item.title | safe}}</div>
-							<ul class="v-guide-selection__list">
-								{% for item in item.list %}
-									<li>{{item | safe}}</li>
-								{% endfor %}
-							</ul>
-							<div class="v-guide-selection__meta">Select</div>
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
-		<div class="v-guide-content__footer">
-			<div class="v-guide-content__footer-btn">
-				<button class="v-guide-content__link">Skip Demo <i class="fa fa-arrow-right"></i></button>
+<div class="v-guide-content v-guide-content_simple">
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-demo v-guide-content__center">
+			<div class="v-guide-demo__description">
+				<div class="v-guide-demo__title">Freedom Plan Demo</div>
+				<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
 			</div>
-			<div class="v-guide-content__footer-in">
-				<p><strong>Fresh Start</strong></p>
-				<p>Use this option if you are ready to use the product right away and don’t want any demos or sample data.</p>
+			<div class="v-guide-demo__container">
+				<div class="v-guide-demo__inner">
+					<div class="v-guide-selection v-guide-demo__selection">
+						<ul class="v-guide-selection__items">
+							{% for item in [
+								{
+									id: 'food-drinks',
+									img: 'content/images/demo/qsr.png',
+									color: 'rgb(236, 165, 53)',
+									title: 'Food &amp; Drinks',
+									list: [
+										'Ingredients',
+										'Modifiers',
+										'Orders &amp; Tips',
+										'Delivery',
+										'Sales &amp; Kitchen Receipts'
+									]
+								},
+								{
+									id: 'retail-store',
+									img: 'content/images/demo/retail.png',
+									color: 'rgb(45, 167, 130)',
+									title: 'Retail Store',
+									list: [
+										'Inventory Matrix: ex vendor, style, color, size',
+										'Multi Store support',
+										'Vendor management',
+										'Retail Reports'
+									]
+								},
+								{
+									id: 'serialized-store',
+									img: 'content/images/demo/serialized.png',
+									color: 'rgb(139, 98, 175)',
+									title: 'Serialized Store',
+									list: [
+										'Full Inventory Management',
+										'Serialized Items Tracking',
+										'Aging Report'
+									]
+								},
+								{
+									id: 'grocery',
+									img: 'content/images/demo/grocery.png',
+									color: 'rgb(73, 161, 174)',
+									title: 'Grocery',
+									list: [
+										'Same as QSR',
+										'Full Inventory Control',
+										'Unit Priced Items: lb., oz.,  kg., etc.'
+									]
+								}
+							] %}
+								<li class="v-guide-selection__item">
+									<a href="#" class="v-guide-selection__container" style="background-image: url({{item.img}}); background-color: {{item.color}};">
+										<div class="v-guide-selection__title">{{item.title | safe}}</div>
+										<ul class="v-guide-selection__list">
+											{% for item in item.list %}
+												<li>{{item | safe}}</li>
+											{% endfor %}
+										</ul>
+										<div class="v-guide-selection__meta">Select</div>
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="v-guide-video v-guide-demo__video">
+						<div class="v-guide-video__inner v-guide-demo__video-in">
+							<iframe src="{{item.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="v-guide-demo__footer">
+				<a href="#" class="v-guide-link v-guide-demo__link">Skip for now</a>
+				<div class="v-guide-demo__disclaimer">
+					<p><strong>Fresh Start</strong></p>
+					<p>Use this option if you are ready to use the product right away and don’t want any demos or sample data.</p>
+				</div>
 			</div>
 		</div>
 	</div>

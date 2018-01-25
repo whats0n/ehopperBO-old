@@ -227,26 +227,26 @@
 
 	<!-- begin guide -->
 
-<div class="v-guide">
+<div class="v-guide" data-guide>
 	<div class="v-guide-steps v-guide__steps">
 		<div class="v-guide-steps__inner">
 			<ul class="v-guide-steps__list">
 				
-					<li class="v-guide-steps__item is-prev">
+					<li class="v-guide-steps__item is-active" data-guide-step="0">
 						<div class="v-guide-steps__icon">
 							<i class="fa fa-cog"></i>
 						</div>
 						<div class="v-guide-steps__title">Welcome</div>
 					</li>
 				
-					<li class="v-guide-steps__item is-active">
+					<li class="v-guide-steps__item " data-guide-step="1">
 						<div class="v-guide-steps__icon">
 							<i class="fa fa-cog"></i>
 						</div>
 						<div class="v-guide-steps__title">Upgrade to Freedom</div>
 					</li>
 				
-					<li class="v-guide-steps__item ">
+					<li class="v-guide-steps__item " data-guide-step="2">
 						<div class="v-guide-steps__icon">
 							<i class="fa fa-cog"></i>
 						</div>
@@ -255,25 +255,70 @@
 				
 			</ul>
 			<div class="v-guide-steps__line">
-				<div class="v-guide-steps__line-in"></div>
+				<div class="v-guide-steps__line-in" data-guide-line></div>
 			</div>
 		</div>
 	</div>
-	<div class="v-guide__container">
+	<div class="v-guide__container" data-guide-container>
 		
 			<div class="v-guide__item">
 				<!-- begin v-guide-content -->
 <div class="v-guide-content">
-	<div class="v-guide-content__description">
-		<p>We are very excited to help you take the first steps in joining a community of the many other retailers and merchants who are choosing a smarter, easier, and better way of doing business!</p>
-	</div>
-	<div class="v-guide-video v-guide-content__video">
-		<div class="v-guide-video__inner">
-			<iframe src="https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<div class="v-guide-content__inner">
+		<div class="v-guide-content__info">
+			<div class="v-guide-content__description">
+				<p>We are very excited to help you take the first steps in joining a community of the many other retailers and merchants who are choosing a smarter, easier, and better way of doing business!</p>
+			</div>
+			<div class="v-guide-video v-guide-content__video">
+				<div class="v-guide-video__inner">
+					<iframe src="https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="v-guide-content__submit">
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn">Start Setup <i class="fa fa-angle-right"></i></button>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">Start Setup <i class="fa fa-angle-right"></i></button>
+	</div>
+</div>
+<!-- end v-guide-content -->
+			</div>
+		
+			<div class="v-guide__item">
+				<!-- begin v-guide-content -->
+<div class="v-guide-content">
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-pricing v-guide-content__center">
+			<div class="v-guide-pricing__title">Upgrade to Freedom</div>
+			<div class="v-guide-pricing__container">
+				<div class="v-guide-pricing__inner">
+					<div class="v-guide-pricing__content">
+						<div class="v-guide-pricing__box">
+							<div class="v-guide-pricing__subtitle">Freedom Package</div>
+							<div class="v-guide-pricing__info">
+								<div class="v-guide-pricing__price">
+									<small>$</small>
+									<strong>39.99</strong>
+									<span>per month, per register</span>
+								</div>
+								<div class="v-guide-pricing__item">Unlimited Features</div>
+								<div class="v-guide-pricing__item">Unlimited Registers ($39.99/mo per register)</div>
+							</div>
+						</div>
+					</div>
+					<div class="v-guide-pricing__video">
+						<div class="v-guide-video">
+							<div class="v-guide-video__inner">
+								<iframe src="https://www.youtube-nocookie.com/embed/_ueI01hQMZ0?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-guide-content__submit">
+		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">Upgrade</button>
 	</div>
 </div>
 <!-- end v-guide-content -->
@@ -282,551 +327,102 @@
 			<div class="v-guide__item">
 				<!-- begin v-guide-content -->
 <div class="v-guide-content v-guide-content_simple">
-	<div class="v-guide-pricing">
-		<div class="v-guide-pricing__header">
-			
-				<div class="v-guide-pricing__item">
-					<div class="v-guide-pricing__title">Essential Package</div>
-					<div class="v-guide-pricing__btn">
-						<button class="v-guide-btn v-guide-btn_wide"><span>Get Started!</span></button>
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__item">
-					<div class="v-guide-pricing__title">Freedom Package</div>
-					<div class="v-guide-pricing__btn">
-						<button class="v-guide-btn v-guide-btn_wide"><span>Get Started!</span></button>
-					</div>
-				</div>
-			
-		</div>
-		<div class="v-guide-pricing__body">
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<div class="v-guide-pricing__price"><small>$</small><strong>0.00</strong></div>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							<div class="v-guide-pricing__price"><small>$</small><strong>39.99</strong><span>per month, per register</span></div>
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							License fee
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							License fee
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Limited to 1 Register
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Unlimited Registers ($39.99/mo per register)
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Works on Android tablets, iPad and Windows PC *
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Works on Android tablets, iPad and Windows PC *
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Point of Sale
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Point of Sale
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Order Tracking
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Order Tracking
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Inventory Management
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Inventory Management
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Customer Management
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Customer Management
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Tip Management
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Tip Management
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Modifier Management
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Modifier Management
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Include/Exclude Taxes
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Include/Exclude Taxes
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Assign Taxes to Products
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Assign Taxes to Products
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Include Tax in Product Price
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Include Tax in Product Price
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Full/Split Payment
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Full/Split Payment
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Print/Email Receipts
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Print/Email Receipts
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Reporting
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Reporting
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							Online Documentation
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Online Documentation
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<a href="https://ehopper.com/hardware/#device-requirements">Use your own hardware</a> or <a href="#">Purchase new hardware</a>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							<a href="https://ehopper.com/hardware/#device-requirements">Use your own hardware</a> or <a href="#">Purchase new hardware</a>
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							(Credit/Debit) with A1 Charge
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							A1 Charge or your own
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">EBT</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							EBT
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Use eHopper on <a href="https://ehopper.com/poynt-pos/">Poynt</a> Terminal</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Use eHopper on <a href="https://ehopper.com/poynt-pos/">Poynt</a> Terminal
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Clock in/Clock Out</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Clock in/Clock Out
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Menu Builder</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Menu Builder
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Inventory Matrix</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Inventory Matrix
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Ingredients Management</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Ingredients Management
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Inventory Adjustments</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Inventory Adjustments
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Store Transfer</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Store Transfer
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Purchase Order Receiving</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Purchase Order Receiving
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Puerto Rico Control #</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Puerto Rico Control #
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">QuickBooks Integration</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							QuickBooks Integration
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Email support</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Email support
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Implementation & training</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Implementation & training
-						
-					</div>
-				</div>
-			
-				<div class="v-guide-pricing__row">
-					<div class="v-guide-pricing__item">
-						
-							<span class="v-guide-pricing__disabled">Phone & chat support – 7 days a week</span>
-						
-					</div>
-					<div class="v-guide-pricing__item">
-						
-							Phone & chat support – 7 days a week
-						
-					</div>
-				</div>
-			
-		</div>
-	</div>
-</div>
-<!-- end v-guide-content -->
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-demo v-guide-content__center">
+			<div class="v-guide-demo__description">
+				<div class="v-guide-demo__title">Freedom Plan Demo</div>
+				<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
 			</div>
-		
-			<div class="v-guide__item">
-				<!-- begin v-guide-content -->
-<div class="v-guide-content v-guide-content_simple v-guide-content_vertical">
-	<div class="v-guide-content__center">
-		<div class="v-guide-content__text">
-			<p><strong>Freedom Plan Demo</strong></p>
-			<p>New to eHopper POS? Select one of the demos below to test drive all features available on eHopper under the Freedom plan.</p>
-		</div>
-		<div class="v-guide-selection">
-			<ul class="v-guide-selection__items">
-				
-					<li class="v-guide-selection__item">
-						<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/qsr.png); background-color: rgb(236, 165, 53);">
-							<div class="v-guide-selection__title">Food &amp; Drinks</div>
-							<ul class="v-guide-selection__list">
-								
-									<li>Ingredients</li>
-								
-									<li>Modifiers</li>
-								
-									<li>Orders &amp; Tips</li>
-								
-									<li>Delivery</li>
-								
-									<li>Sales &amp; Kitchen Receipts</li>
-								
-							</ul>
-							<div class="v-guide-selection__meta">Select</div>
-						</a>
-					</li>
-				
-					<li class="v-guide-selection__item">
-						<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/retail.png); background-color: rgb(45, 167, 130);">
-							<div class="v-guide-selection__title">Retail Store</div>
-							<ul class="v-guide-selection__list">
-								
-									<li>Inventory Matrix: ex vendor, style, color, size</li>
-								
-									<li>Multi Store support</li>
-								
-									<li>Vendor management</li>
-								
-									<li>Retail Reports</li>
-								
-							</ul>
-							<div class="v-guide-selection__meta">Select</div>
-						</a>
-					</li>
-				
-					<li class="v-guide-selection__item">
-						<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/serialized.png); background-color: rgb(139, 98, 175);">
-							<div class="v-guide-selection__title">Serialized Store</div>
-							<ul class="v-guide-selection__list">
-								
-									<li>Full Inventory Management</li>
-								
-									<li>Serialized Items Tracking</li>
-								
-									<li>Aging Report</li>
-								
-							</ul>
-							<div class="v-guide-selection__meta">Select</div>
-						</a>
-					</li>
-				
-					<li class="v-guide-selection__item">
-						<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/grocery.png); background-color: rgb(73, 161, 174);">
-							<div class="v-guide-selection__title">Grocery</div>
-							<ul class="v-guide-selection__list">
-								
-									<li>Same as QSR</li>
-								
-									<li>Full Inventory Control</li>
-								
-									<li>Unit Priced Items: lb., oz.,  kg., etc.</li>
-								
-							</ul>
-							<div class="v-guide-selection__meta">Select</div>
-						</a>
-					</li>
-				
-			</ul>
-		</div>
-		<div class="v-guide-content__footer">
-			<div class="v-guide-content__footer-btn">
-				<button class="v-guide-content__link">Skip Demo <i class="fa fa-arrow-right"></i></button>
+			<div class="v-guide-demo__container">
+				<div class="v-guide-demo__inner">
+					<div class="v-guide-selection v-guide-demo__selection">
+						<ul class="v-guide-selection__items">
+							
+								<li class="v-guide-selection__item">
+									<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/qsr.png); background-color: rgb(236, 165, 53);">
+										<div class="v-guide-selection__title">Food &amp; Drinks</div>
+										<ul class="v-guide-selection__list">
+											
+												<li>Ingredients</li>
+											
+												<li>Modifiers</li>
+											
+												<li>Orders &amp; Tips</li>
+											
+												<li>Delivery</li>
+											
+												<li>Sales &amp; Kitchen Receipts</li>
+											
+										</ul>
+										<div class="v-guide-selection__meta">Select</div>
+									</a>
+								</li>
+							
+								<li class="v-guide-selection__item">
+									<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/retail.png); background-color: rgb(45, 167, 130);">
+										<div class="v-guide-selection__title">Retail Store</div>
+										<ul class="v-guide-selection__list">
+											
+												<li>Inventory Matrix: ex vendor, style, color, size</li>
+											
+												<li>Multi Store support</li>
+											
+												<li>Vendor management</li>
+											
+												<li>Retail Reports</li>
+											
+										</ul>
+										<div class="v-guide-selection__meta">Select</div>
+									</a>
+								</li>
+							
+								<li class="v-guide-selection__item">
+									<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/serialized.png); background-color: rgb(139, 98, 175);">
+										<div class="v-guide-selection__title">Serialized Store</div>
+										<ul class="v-guide-selection__list">
+											
+												<li>Full Inventory Management</li>
+											
+												<li>Serialized Items Tracking</li>
+											
+												<li>Aging Report</li>
+											
+										</ul>
+										<div class="v-guide-selection__meta">Select</div>
+									</a>
+								</li>
+							
+								<li class="v-guide-selection__item">
+									<a href="#" class="v-guide-selection__container" style="background-image: url(content/images/demo/grocery.png); background-color: rgb(73, 161, 174);">
+										<div class="v-guide-selection__title">Grocery</div>
+										<ul class="v-guide-selection__list">
+											
+												<li>Same as QSR</li>
+											
+												<li>Full Inventory Control</li>
+											
+												<li>Unit Priced Items: lb., oz.,  kg., etc.</li>
+											
+										</ul>
+										<div class="v-guide-selection__meta">Select</div>
+									</a>
+								</li>
+							
+						</ul>
+					</div>
+					<div class="v-guide-video v-guide-demo__video">
+						<div class="v-guide-video__inner v-guide-demo__video-in">
+							<iframe src="https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="v-guide-content__footer-in">
-				<p><strong>Fresh Start</strong></p>
-				<p>Use this option if you are ready to use the product right away and don’t want any demos or sample data.</p>
+			<div class="v-guide-demo__footer">
+				<a href="#" class="v-guide-link v-guide-demo__link">Skip for now</a>
+				<div class="v-guide-demo__disclaimer">
+					<p><strong>Fresh Start</strong></p>
+					<p>Use this option if you are ready to use the product right away and don’t want any demos or sample data.</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -837,37 +433,6 @@
 	</div>
 </div>
 <!-- end guide -->
-<script>
-	var ACTIVE = 'is-active';
-	var PREV = 'is-prev';
-
-	function goToNext(e) {
-		e.preventDefault();
-		var target = $(e.currentTarget);
-		var currentStep = target.closest('.js-section');
-		var nextStep = currentStep.next();
-			
-		if (!nextStep.length) return;
-
-		currentStep
-			.removeClass(ACTIVE)
-			.addClass(PREV);
-		nextStep.addClass(ACTIVE);
-	}
-	function goToPrev(e) {
-		e.preventDefault();
-		var target = $(e.currentTarget);
-		var currentStep = target.closest('.js-section');
-		var prevStep = currentStep.prev();
-			
-		if (!prevStep.length) return;
-
-		currentStep.removeClass(ACTIVE);
-		prevStep
-			.removeClass(PREV)
-			.addClass(ACTIVE);
-	}
-</script>
 	
 
 							</div>
