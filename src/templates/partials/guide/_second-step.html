@@ -1,35 +1,5 @@
-<!-- begin v-guide-content -->
+<!-- begin v-guide-content INFO -->
 <div class="v-guide-content">
-	{#<div class="v-guide-content__inner v-guide-content__vertical">
-		<div class="v-guide-pricing v-guide-content__center">
-			<div class="v-guide-pricing__title">Upgrade to Freedom</div>
-			<div class="v-guide-pricing__container">
-				<div class="v-guide-pricing__inner">
-					<div class="v-guide-pricing__content">
-						<div class="v-guide-pricing__box">
-							<div class="v-guide-pricing__subtitle">Freedom Package</div>
-							<div class="v-guide-pricing__info">
-								<div class="v-guide-pricing__price">
-									<small>$</small>
-									<strong>39.99</strong>
-									<span>per month, per register</span>
-								</div>
-								<div class="v-guide-pricing__item">Unlimited Features</div>
-								<div class="v-guide-pricing__item">Unlimited Registers ($39.99/mo per register)</div>
-							</div>
-						</div>
-					</div>
-					<div class="v-guide-pricing__video">
-						<div class="v-guide-video">
-							<div class="v-guide-video__inner">
-								<iframe src="{{item.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>#}
 	<div class="v-guide-content__inner">
 		<div class="v-guide-content__info">
 			<div class="v-guide-content__description">
@@ -51,7 +21,163 @@
 	</div>
 	<div class="v-guide-content__submit">
 		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">Upgrade <i class="fa fa-angle-up"></i></button>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-form-open="upgrade">Upgrade <i class="fa fa-angle-right"></i></button>
 	</div>
 </div>
-<!-- end v-guide-content -->
+<!-- end v-guide-content INFO -->
+
+<!-- begin v-guide-content FORM -->
+<div class="v-guide-content v-guide-content_form" data-guide-form="upgrade">
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-form v-guide-content__center">
+			<form action="/">
+				<div class="v-guide-form__container">
+					<div class="v-guide-form__row">
+						{% for item in [
+							{
+								title: 'Billing Address',
+								fields: [
+									[
+										{
+											label: 'Address line 1 <span>*</span>',
+											wide: true
+										},
+										{
+											label: 'Address line 2 <span>*</span>',
+											wide: true
+										}
+									],
+									[
+										{
+											label: 'Country',
+											wide: true,
+											select: {
+												options: [
+													'New York',
+													'New York 1',
+													'New York 2',
+													'New York 3',
+													'New York 4'
+												]
+											}
+										},
+										{
+											label: 'State',
+											wide: true,
+											select: {
+												options: [
+													'New York',
+													'New York 1',
+													'New York 2',
+													'New York 3',
+													'New York 4'
+												]
+											}
+										}
+									],
+									[
+										{
+											label: 'City <span>*</span>'
+										},
+										{
+											label: 'ZIP <span>*</span>'
+										}
+									]
+								]
+							},
+							{
+								title: 'Payment Method',
+								fields: [
+									[
+										{
+											label: 'First Name <span>*</span>',
+											wide: true
+										},
+										{
+											label: 'Last Name <span>*</span>',
+											wide: true
+										}
+									],
+									[
+										{
+											label: 'Card Number <span>*</span>',
+											wide: true
+										}
+									],
+									[
+										{
+											label: 'Expiration Date',
+											dates: [
+												{
+													options: [
+														'01',
+														'02',
+														'03',
+														'04'
+													]
+												},
+												{
+													options: [
+														'2018',
+														'2019',
+														'2020',
+														'2021'
+													]
+												}
+											]
+										},
+										{
+											label: 'Security Code',
+											wide: true
+										}
+									]
+								]
+							}
+						] %}
+							<div class="v-guide-form__col">
+								<div class="v-guide-form__title">{{item.title}}</div>
+								{% for item in item.fields %}
+									<div class="v-guide-form__fields">
+										{% set field = item %}
+										{% for item in item %}
+											<div class="v-guide-form__field {% if item.wide %}v-guide-form__field_wide{% endif %} {% if field.length > 1 %}v-guide-form__field_sm-small{% endif %}">
+												<div class="v-guide-form__label">{{item.label | safe}}</div>
+												{% if item.select %}
+													<select class="select">
+														{% for item in item.select.options %}
+															<option value="{{item}}">{{item}}</option>
+														{% endfor %}
+													</select>
+												{% elif item.dates %}
+													<div class="v-guide-form__fields">
+														{% for item in item.dates %}
+															<div class="v-guide-form__date">
+																<select class="select">
+																	{% for item in item.options %}
+																		<option value="{{item}}">{{item}}</option>
+																	{% endfor %}
+																</select>
+															</div>
+														{% endfor %}
+													</div>
+												{% else %}
+													<input type="text" class="form-control input-lg">
+												{% endif %}
+											</div>
+										{% endfor %}
+									</div>
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="v-guide-content__submit">
+		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
+		<a href="#" class="v-guide-link v-guide-content__back" data-guide-form-close="upgrade"><i class="fa fa-angle-left"></i>Back</a>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn">Complete</button>
+	</div>
+</div>
+<!-- end v-guide-content FORM -->

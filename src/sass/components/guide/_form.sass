@@ -1,0 +1,61 @@
+.v-guide-form
+	position: relative
+	padding: 30px
+	margin: 0 auto
+	max-width: 1024px
+	background: $white
+	box-shadow: 0 5px 25px -5px rgba(39,55,74,.15), 0 5px 20px -10px rgba(39,55,74,.1)
+	text-align: left
+	+rh($formBreakpointSM)
+		padding: 20px 30px
+	&:before 
+		content: ''
+		position: absolute
+		top: 0
+		left: 50%
+		bottom: 0
+		margin-left: -1px
+		border-left: 2px solid rgba(#c1cbd4, 0.3)
+	&__title
+		margin-bottom: 20px
+		font-size: 22px
+		font-weight: 700
+		line-height: 1.2
+		+rh($formBreakpointSM)
+			margin-bottom: 5px
+	&__label
+		padding-bottom: 5px
+		font-size: 16px
+		span 
+			color: $red
+	&__row,
+	&__fields
+		+clr
+	&__row
+		margin: 0 -20px
+	&__fields
+		margin: 0 -10px
+	&__col,
+	&__field
+		float: left
+		width: 50%
+	&__col 
+		padding: 0 20px
+	&__field
+		padding: 10px
+		+rh($formBreakpoint)
+			padding: 7px 10px
+		&_wide
+			width: 100%
+		&_sm-small
+			+rh($formBreakpoint)
+				width: 50%
+	&__date
+		float: left
+		padding: 0 10px
+		width: 50%
+	.select
+		width: 100%
+	.select,
+	input 
+		font-size: 18px

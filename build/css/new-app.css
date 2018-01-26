@@ -4039,71 +4039,8 @@
   color: #2E9ADB;
 }
 
-.v-guide-pricing {
-  padding-bottom: 30px;
-}
-
-.v-guide-pricing__title {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.v-guide-pricing__container {
-  margin: 0 auto;
-  max-width: 980px;
-}
-
-.v-guide-pricing__inner {
-  position: relative;
-  padding-right: 50%;
-}
-
-.v-guide-pricing__video {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-}
-
-.v-guide-pricing__content {
-  padding-right: 20px;
-}
-
-.v-guide-pricing__box {
-  padding: 20px;
-  border: 1px solid #c1cbd4;
-  height: 284px;
-  background: #fff;
-  box-shadow: 0 15px 45px -5px rgba(39, 55, 74, 0.15), 0 15px 40px -20px rgba(39, 55, 74, 0.1);
-  text-align: center;
-}
-
-.v-guide-pricing__subtitle {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.v-guide-pricing__price {
-  padding: 10px 0;
-}
-
-.v-guide-pricing__price small {
-  font-size: 36px;
-}
-
-.v-guide-pricing__price strong {
-  font-size: 48px;
-}
-
-.v-guide-pricing__price span {
-  display: block;
-}
-
-.v-guide-pricing__item {
-  font-size: 16px;
-  padding-top: 10px;
+.v-guide-link .fa-angle-left {
+  margin-right: 8px;
 }
 
 .v-guide-selection {
@@ -4302,6 +4239,92 @@
   font-weight: normal;
 }
 
+.v-guide-form {
+  position: relative;
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 1024px;
+  background: #fff;
+  box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1);
+  text-align: left;
+}
+
+.v-guide-form:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1px;
+  border-left: 2px solid rgba(193, 203, 212, 0.3);
+}
+
+.v-guide-form__title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.v-guide-form__label {
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
+.v-guide-form__label span {
+  color: #ec4a41;
+}
+
+.v-guide-form__row, .v-guide-form__fields {
+  *zoom: 1;
+}
+
+.v-guide-form__row:after, .v-guide-form__fields:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.v-guide-form__row {
+  margin: 0 -20px;
+}
+
+.v-guide-form__fields {
+  margin: 0 -10px;
+}
+
+.v-guide-form__col, .v-guide-form__field {
+  float: left;
+  width: 50%;
+}
+
+.v-guide-form__col {
+  padding: 0 20px;
+}
+
+.v-guide-form__field {
+  padding: 10px;
+}
+
+.v-guide-form__field_wide {
+  width: 100%;
+}
+
+.v-guide-form__date {
+  float: left;
+  padding: 0 10px;
+  width: 50%;
+}
+
+.v-guide-form .select {
+  width: 100%;
+}
+
+.v-guide-form .select,
+.v-guide-form input {
+  font-size: 18px;
+}
+
 .v-guide-content {
   position: relative;
   padding-bottom: 100px;
@@ -4312,7 +4335,28 @@
   padding-bottom: 0;
 }
 
+.v-guide-content_form {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  background: #f8f8f8;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.v-guide-content_form.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
 .v-guide-content__inner {
+  position: relative;
   height: 100%;
 }
 
@@ -4408,11 +4452,18 @@
   text-align: center;
 }
 
-.v-guide-content__link {
+.v-guide-content__link, .v-guide-content__back {
   position: absolute;
   top: 50%;
-  right: 40px;
   transform: translate3d(0, -50%, 0);
+}
+
+.v-guide-content__link {
+  right: 40px;
+}
+
+.v-guide-content__back {
+  left: 40px;
 }
 
 .v-guide-content__btn {
@@ -4439,6 +4490,7 @@
 .v-guide .slick-track,
 .v-guide .slick-slide,
 .v-guide .slick-slide > div, .v-guide__item {
+  position: relative;
   height: 100%;
 }
 
@@ -5289,7 +5341,22 @@
   width: 200px;
 }
 
+@media only screen and (max-height: 840px){
+  .v-guide-form__field{
+    padding: 7px 10px;
+  }
+  .v-guide-form__field_sm-small{
+    width: 50%;
+  }
+}
+
 @media only screen and (max-height: 760px){
+  .v-guide-form{
+    padding: 20px 30px;
+  }
+  .v-guide-form__title{
+    margin-bottom: 5px;
+  }
   .v-guide-content__description{
     padding: 10px 0 20px;
     max-width: 500px;

@@ -1,5 +1,5 @@
 import slick from 'slick-carousel';
-import {ACTIVE, PREV} from '../_constants';
+import {ACTIVE, PREV, OPEN} from '../_constants';
 
 ;(() => {
 
@@ -15,8 +15,32 @@ import {ACTIVE, PREV} from '../_constants';
 		const container = guide.find('[data-guide-container]');
 		//prgressbar
 		const line = guide.find('[data-guide-line]');
-
 		const offset = 100/(controls.length - 1);
+		//form
+		const forms = guide.find('[data-guide-form]');
+		const formOpen = guide.find('[data-guide-form-open]');
+		const formClose = guide.find('[data-guide-form-close]');
+
+		//functionality
+		formOpen.each((i, button) => {
+			button = $(button);
+			const form = forms.filter(`[data-guide-form="${button.data('guide-form-open')}"]`);
+
+			button.on('click', e => {
+				e.preventDefault();
+				form.addClass(OPEN);
+			});
+		});
+
+		formClose.each((i, button) => {
+			button = $(button);
+			const form = forms.filter(`[data-guide-form="${button.data('guide-form-close')}"]`);
+
+			button.on('click', e => {
+				e.preventDefault();
+				form.removeClass(OPEN);
+			});
+		});
 
 		container.slick({
 			infinite: false,
