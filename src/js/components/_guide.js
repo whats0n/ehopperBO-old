@@ -85,15 +85,15 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 			});
 		});
 
-		controls.each((i, control) => {
-			control = $(control);
-			const step = control.data('guide-step');
+		// controls.each((i, control) => {
+		// 	control = $(control);
+		// 	const step = control.data('guide-step');
 
-			control.on('click', e => {
-				e.preventDefault();
-				container.slick('slickGoTo', step);
-			});
-		});
+		// 	control.on('click', e => {
+		// 		e.preventDefault();
+		// 		container.slick('slickGoTo', step);
+		// 	});
+		// });
 	});
 
 })();

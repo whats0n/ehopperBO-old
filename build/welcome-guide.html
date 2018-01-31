@@ -294,18 +294,12 @@
 				</div>
 			</div>
 			<div class="v-guide-content__description">
-				<p>Get unlimited features with <strong>Freedom package</strong> for only</p>
-				<div class="v-guide-content__price">
-					<div class="v-guide-content__price-main">
-						<small>$</small>
-						<strong>39.99</strong>
-					</div>
-					<div class="v-guide-content__price-label">mo per register</div>
-				</div>
+				<iframe src="welcome-guide-second-step-iframe.html" frameborder="0" class="v-guide-content__iframe"></iframe>
 			</div>
 		</div>
 	</div>
 	<div class="v-guide-content__submit">
+		<a href="#" class="v-guide-link v-guide-content__back" data-guide-direction="prev"><i class="fa fa-angle-left"></i>Previous</a>
 		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
 		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-form-open="upgrade">Upgrade <i class="fa fa-angle-right"></i></button>
 	</div>
@@ -320,174 +314,192 @@
 				<div class="v-guide-form__container">
 					<div class="v-guide-form__row">
 						
-							<div class="v-guide-form__col">
-								<div class="v-guide-form__title">Billing Address</div>
+							<div class="v-guide-form__col v-guide-form__vertical">
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Address line 1 <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Address line 2 <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-									</div>
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Country</div>
-												
-													<select class="select">
-														
-															<option value="New York">New York</option>
-														
-															<option value="New York 1">New York 1</option>
-														
-															<option value="New York 2">New York 2</option>
-														
-															<option value="New York 3">New York 3</option>
-														
-															<option value="New York 4">New York 4</option>
-														
-													</select>
-												
-											</div>
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">State</div>
-												
-													<select class="select">
-														
-															<option value="New York">New York</option>
-														
-															<option value="New York 1">New York 1</option>
-														
-															<option value="New York 2">New York 2</option>
-														
-															<option value="New York 3">New York 3</option>
-														
-															<option value="New York 4">New York 4</option>
-														
-													</select>
-												
-											</div>
-										
-									</div>
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field  v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">City <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
+									<div class="v-guide-info v-guide-form__center">
+										<div class="v-guide-info__price">
+											<!-- <div class="v-guide-info__price-label">
+												<small>$</small>
+												<strong>39.99</strong>
+											</div> -->
+											<div class="v-guide-info__price-label"><small>$</small>
+												<strong>39.99</strong> mo per register</div>
+										</div>
+										<div class="v-guide-info__spinner">
+											<div class="v-spinner" data-spinner>
+												<button class="v-spinner__minus" type="button" onclick="spinnerControl(event, 'down')"></button>
+												<button class="v-spinner__plus" type="button" onclick="spinnerControl(event, 'up')"></button>
+												<input 
+													type="text" 
+													value="1" 
+													data-spinner-input 
+													data-min="1"
+													data-max="100"
+													oninput="spinnerInput(event)"
+													class="form-control input-lg v-spinner__input">
 											</div>
-										
-											<div class="v-guide-form__field  v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">ZIP <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
+											<script>
+												var UP = 'up';
+												var DOWN = 'down';
+												var numberPattern = /\d+/g;
+
+												function getValues(input) {
+													return {
+														val: input.val(),
+														min: +input.data('min'),
+														max: +input.data('max')
+													};
+												};
+
+												function spinnerControl(e, direction) {
+													e.preventDefault();
+													var target = $(e.currentTarget);
+													var spinner = target.closest('[data-spinner]');
+													var input = spinner.find('[data-spinner-input]');
+													
+
+													var values = getValues(input);
+
+													var min = values.min;
+													var max = values.max;
+													var newVal = +values.val;
+
+													switch (direction) {
+														case UP: 
+															newVal++;
+															if (newVal >= max) newVal = max;
+															break;
+														case DOWN:
+															newVal--;
+															if (newVal <= min) newVal = min;
+															break;
+													}
+
+													input.val(newVal);
+												}
+
+												function spinnerInput(e) {
+													var input = $(e.currentTarget);
+													var values = getValues(input);
+													
+													var min = values.min;
+													var max = values.max;
+													
+													newVal = +(values.val.match( numberPattern ).join(''))
+
+													if (newVal >= max) newVal = max;
+													if (newVal <= min) newVal = min;
+
+													input.val(newVal);
+												}
+											</script>
+										</div>
+										<div class="v-guide-info__price">
+											<div class="v-guide-info__price-label">Total:</div>
+											<div class="v-guide-info__price-main">
+												<small>$</small>
+												<strong>39.99</strong>
 											</div>
-										
+										</div>
 									</div>
 								
 							</div>
 						
-							<div class="v-guide-form__col">
-								<div class="v-guide-form__title">Payment Method</div>
+							<div class="v-guide-form__col v-guide-form__values">
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">First Name <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Last Name <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-									</div>
+									<div class="v-guide-form__title">Payment Method</div>
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field v-guide-form__field_wide ">
-												<div class="v-guide-form__label">Card Number <span>*</span></div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-									</div>
 								
-									<div class="v-guide-form__fields">
-										
-										
-											<div class="v-guide-form__field  v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Expiration Date</div>
-												
-													<div class="v-guide-form__fields">
+									
+										<div class="v-guide-form__fields">
+											
+											
+												<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+													<div class="v-guide-form__label">First Name <span>*</span></div>
+													
+														<input type="text" class="form-control input-lg ">
 														
-															<div class="v-guide-form__date">
-																<select class="select">
-																	
-																		<option value="01">01</option>
-																	
-																		<option value="02">02</option>
-																	
-																		<option value="03">03</option>
-																	
-																		<option value="04">04</option>
-																	
-																</select>
-															</div>
+													
+												</div>
+											
+												<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+													<div class="v-guide-form__label">Last Name <span>*</span></div>
+													
+														<input type="text" class="form-control input-lg ">
 														
-															<div class="v-guide-form__date">
-																<select class="select">
-																	
-																		<option value="2018">2018</option>
-																	
-																		<option value="2019">2019</option>
-																	
-																		<option value="2020">2020</option>
-																	
-																		<option value="2021">2021</option>
-																	
-																</select>
-															</div>
+													
+												</div>
+											
+										</div>
+									
+										<div class="v-guide-form__fields">
+											
+											
+												<div class="v-guide-form__field v-guide-form__field_wide ">
+													<div class="v-guide-form__label">Card Number <span>*</span></div>
+													
+														<input type="text" class="form-control input-lg hasError">
 														
-													</div>
-												
-											</div>
-										
-											<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
-												<div class="v-guide-form__label">Security Code</div>
-												
-													<input type="text" class="form-control input-lg">
-												
-											</div>
-										
-									</div>
+															<span class="fieldError v-guide-form__error">Invalid or unsupported card number</span>
+														
+													
+												</div>
+											
+										</div>
+									
+										<div class="v-guide-form__fields">
+											
+											
+												<div class="v-guide-form__field  v-guide-form__field_sm-small">
+													<div class="v-guide-form__label">Expiration Date</div>
+													
+														<div class="v-guide-form__fields">
+															
+																<div class="v-guide-form__date">
+																	<select class="select">
+																		
+																			<option value="01">01</option>
+																		
+																			<option value="02">02</option>
+																		
+																			<option value="03">03</option>
+																		
+																			<option value="04">04</option>
+																		
+																	</select>
+																</div>
+															
+																<div class="v-guide-form__date">
+																	<select class="select">
+																		
+																			<option value="2018">2018</option>
+																		
+																			<option value="2019">2019</option>
+																		
+																			<option value="2020">2020</option>
+																		
+																			<option value="2021">2021</option>
+																		
+																	</select>
+																</div>
+															
+														</div>
+													
+												</div>
+											
+												<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+													<div class="v-guide-form__label">Security Code</div>
+													
+														<input type="text" class="form-control input-lg ">
+														
+													
+												</div>
+											
+										</div>
+									
+								
 								
 							</div>
 						
@@ -610,7 +622,7 @@
 									
 										<li class="v-guide-selection__item v-guide-selection__item_special">
 											<a href="#" class="v-guide-selection__container" >
-												<div class="v-guide-selection__title">Fresh Start</div>
+												<div class="v-guide-selection__title">Skip Demo</div>
 												
 												
 													<div class="v-guide-selection__text">
@@ -618,14 +630,13 @@
 													</div>
 												
 											</a>
-											<div class="v-guide-selection__meta">Skip Demo</div>
+											<div class="v-guide-selection__meta">Select</div>
 										</li>
 									
 								</ul>
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>

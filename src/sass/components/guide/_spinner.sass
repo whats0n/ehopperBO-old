@@ -1,0 +1,50 @@
+.v-spinner
+	position: relative
+	display: inline-block
+	vertical-align: top
+	padding: 0 53px
+	width: 180px
+	&__minus,
+	&__plus
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: 0
+		border: none 
+		width: 53px
+		color: $white
+		background: $blue
+		&:hover 
+			background: #1B79B2
+		&:active
+			background: #286090
+		&:before,
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			border-radius: 1px 
+			background: $white
+		&:before
+			margin: -1px 0 0 -10px
+			width: 20px
+			height: 2px
+	&__minus
+		left: 0
+		border-radius: 3px 0 0 3px
+		&:after
+			display: none
+	&__plus
+		right: 0
+		border-radius: 0 3px 3px 0
+		&:after
+			margin: -10px 0 0 -1px
+			width: 2px
+			height: 20px
+	&__input
+		border-radius: 0
+		border-left: none
+		border-right: none
+		text-align: center
+	

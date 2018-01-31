@@ -32,16 +32,30 @@
 	&__fields
 		+clr
 	&__row
+		position: relative
 		margin: 0 -20px
 	&__fields
 		margin: 0 -10px
 	&__col,
 	&__field
-		float: left
+		position: relative
 		width: 50%
 	&__col 
 		padding: 0 20px
+	&__values
+		float: right
+	&__vertical
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		+vertical 
+	&__center
+		display: inline-block
+		vertical-align: middle
+		width: 100%
 	&__field
+		float: left
 		padding: 10px
 		+rh($formBreakpoint)
 			padding: 7px 10px
@@ -59,3 +73,12 @@
 	.select,
 	input 
 		font-size: 18px
+	&__error
+		position: absolute
+		top: 100%
+		left: 0
+		right: 0
+		padding: 0 10px
+		margin-top: -5px
+		font-size: 12px
+		line-height: 1
