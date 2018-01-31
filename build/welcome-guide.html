@@ -558,26 +558,34 @@
 	<div class="v-guide-content__submit">
 		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
 		<a href="#" class="v-guide-link v-guide-content__back" data-guide-form-close="upgrade"><i class="fa fa-angle-left"></i>Previous</a>
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" onclick="submitForm(event)">Get Started</button>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-submit>Get Started</button>
 	</div>
 </div>
 <!-- end v-guide-content FORM -->
-<script>
-	var duration = 300;
-	var delay = 2000;
 
-	function submitForm(e) {
-		e.preventDefault();
-		var target = $(e.currentTarget);
-		var loader = $('[data-loader]');
-
-		loader.fadeIn(duration);
-
-		setTimeout(function() {
-			loader.fadeOut(duration);
-		}, delay);
-	}
-</script>
+<!-- begin v-guide-content SUCCESS PAYMENT -->
+<div class="v-guide-content v-guide-content_success v-box" data-success>
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-content__center">
+			<div class="v-box__container">
+				<div class="v-box__icon" data-animation="icon"> <i class="fa fa-check " aria-hidden="true"></i> </div>
+				<h3 class="v-box__title" data-animation="title">Thank you for your payment</h3>
+				<div class="v-box__description" data-animation="text">
+					<p>Your account has been upgraded to Freedom.</p>
+				</div>
+				<div class="v-box__form" data-animation="form">
+					<div class="v-box__submit"> 
+						<button class="v-guide-btn" data-guide-direction="next">Get Started <i class="fa fa-angle-right"></i></button>
+					</div>
+				</div>
+				<div class="v-box__footnote" data-animation="footnote">
+					<p>For any questions, call <a href="tel:2126518911">212-651-8911</a> or email <a href="mailto:support@ehopper.com">support@ehopper.com</a> for assistance.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end v-guide-content SUCCESS PAYMENT -->
 			</div>
 		
 			<div class="v-guide__item">

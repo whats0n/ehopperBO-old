@@ -4,6 +4,7 @@
 	height: 100%
 	&_simple 
 		padding-bottom: 0
+	&_success,
 	&_form
 		position: absolute
 		z-index: 20
@@ -11,15 +12,19 @@
 		left: 0
 		right: 0
 		bottom: 0
+		background: #f8f8f8
+	&_form
 		padding-left: 20px
 		padding-right: 20px
 		opacity: 0
 		visibility: hidden
-		background: #f8f8f8
 		transition: opacity 0.3s, visibility 0.3s
 		&.is-open
 			opacity: 1
 			visibility: visible
+	&_success
+		padding: 20px
+		display: none
 	//containers
 	&__inner
 		position: relative

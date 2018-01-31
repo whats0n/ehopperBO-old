@@ -4509,6 +4509,119 @@
   white-space: nowrap;
 }
 
+.v-box {
+  transform: translate3d(0, 0, 0);
+}
+
+.v-box.is-open [data-animation="icon"] {
+  animation: fade-top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.225s forwards;
+}
+
+.v-box.is-open [data-animation="title"] {
+  animation: fade-top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+}
+
+.v-box.is-open [data-animation="text"] {
+  animation: fade-top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.15s forwards;
+}
+
+.v-box.is-open [data-animation="form"] {
+  animation: fade 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+}
+
+.v-box.is-open [data-animation="footnote"] {
+  animation: fade-bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+}
+
+.v-box__container {
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.v-box__icon {
+  margin-bottom: 20px;
+  font-size: 0;
+}
+
+.v-box__icon .fa {
+  color: #22B745;
+  font-size: 70px;
+}
+
+.v-box__title {
+  color: #222;
+  font-size: 20px;
+}
+
+.v-box__description {
+  margin-top: 5px;
+}
+
+.v-box__description p {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+.v-box__description p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.v-box__form {
+  padding: 30px 0;
+  text-align: left;
+}
+
+.v-box__field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.v-box__label {
+  margin-bottom: 10px;
+}
+
+.v-box__submit {
+  text-align: center;
+}
+
+.v-box [data-animation] {
+  opacity: 0;
+}
+
+@keyframes fade-top {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-bottom {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .v-guide-content {
   position: relative;
   padding-bottom: 100px;
@@ -4519,24 +4632,32 @@
   padding-bottom: 0;
 }
 
-.v-guide-content_form {
+.v-guide-content_success, .v-guide-content_form {
   position: absolute;
   z-index: 20;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: #f8f8f8;
+}
+
+.v-guide-content_form {
   padding-left: 20px;
   padding-right: 20px;
   opacity: 0;
   visibility: hidden;
-  background: #f8f8f8;
   transition: opacity 0.3s, visibility 0.3s;
 }
 
 .v-guide-content_form.is-open {
   opacity: 1;
   visibility: visible;
+}
+
+.v-guide-content_success {
+  padding: 20px;
+  display: none;
 }
 
 .v-guide-content__inner {
