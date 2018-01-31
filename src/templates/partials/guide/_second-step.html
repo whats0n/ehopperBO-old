@@ -24,204 +24,223 @@
 <div class="v-guide-content v-guide-content_form" data-guide-form="upgrade">
 	<div class="v-guide-content__inner v-guide-content__vertical">
 		<div class="v-guide-form v-guide-content__center">
-			<form action="/">
-				<div class="v-guide-form__container">
-					<div class="v-guide-form__row">
-						{% for item in [
-							{
-								info: true,
-								classModificator: 'vertical'
-							},
-							{
-								title: 'Payment Method',
-								classModificator: 'values',
-								fields: [
-									[
-										{
-											label: 'First Name <span>*</span>',
-											wide: true
-										},
-										{
-											label: 'Last Name <span>*</span>',
-											wide: true
-										}
-									],
-									[
-										{
-											label: 'Card Number <span>*</span>',
-											error: 'Invalid or unsupported card number',
-											wide: true
-										}
-									],
-									[
-										{
-											label: 'Expiration Date',
-											dates: [
-												{
-													options: [
-														'01',
-														'02',
-														'03',
-														'04'
-													]
-												},
-												{
-													options: [
-														'2018',
-														'2019',
-														'2020',
-														'2021'
-													]
-												}
-											]
-										},
-										{
-											label: 'Security Code',
-											wide: true
-										}
-									]
+			<div class="v-guide-form__container">
+				<div class="v-guide-form__row">
+					{% for item in [
+						{
+							info: true,
+							classModificator: 'vertical'
+						},
+						{
+							title: 'Payment Method',
+							classModificator: 'values',
+							fields: [
+								[
+									{
+										label: 'First Name <span>*</span>',
+										wide: true
+									},
+									{
+										label: 'Last Name <span>*</span>',
+										wide: true
+									}
+								],
+								[
+									{
+										label: 'Card Number <span>*</span>',
+										error: 'Invalid or unsupported card number',
+										wide: true
+									}
+								],
+								[
+									{
+										label: 'Expiration Date',
+										dates: [
+											{
+												options: [
+													'01',
+													'02',
+													'03',
+													'04'
+												]
+											},
+											{
+												options: [
+													'2018',
+													'2019',
+													'2020',
+													'2021'
+												]
+											}
+										]
+									},
+									{
+										label: 'Security Code',
+										wide: true
+									}
 								]
-							}
-						] %}
-							<div class="v-guide-form__col v-guide-form__{{item.classModificator}}">
-								{% if item.title %}
-									<div class="v-guide-form__title">{{item.title}}</div>
-								{% endif %}
-								{% if item.fields %}
-									{% for item in item.fields %}
-										<div class="v-guide-form__fields">
-											{% set field = item %}
-											{% for item in item %}
-												<div class="v-guide-form__field {% if item.wide %}v-guide-form__field_wide{% endif %} {% if field.length > 1 %}v-guide-form__field_sm-small{% endif %}">
-													<div class="v-guide-form__label">{{item.label | safe}}</div>
-													{% if item.select %}
-														<select class="select">
-															{% for item in item.select.options %}
-																<option value="{{item}}">{{item}}</option>
-															{% endfor %}
-														</select>
-													{% elif item.dates %}
-														<div class="v-guide-form__fields">
-															{% for item in item.dates %}
-																<div class="v-guide-form__date">
-																	<select class="select">
-																		{% for item in item.options %}
-																			<option value="{{item}}">{{item}}</option>
-																		{% endfor %}
-																	</select>
-																</div>
-															{% endfor %}
-														</div>
-													{% else %}
-														<input type="text" class="form-control input-lg {% if item.error %}hasError{% endif %}">
-														{% if item.error %}
-															<span class="fieldError v-guide-form__error">{{item.error}}</span>
-														{% endif %}
+							]
+						}
+					] %}
+						<div class="v-guide-form__col v-guide-form__{{item.classModificator}}">
+							{% if item.title %}
+								<div class="v-guide-form__title">{{item.title}}</div>
+							{% endif %}
+							{% if item.fields %}
+								{% for item in item.fields %}
+									<div class="v-guide-form__fields">
+										{% set field = item %}
+										{% for item in item %}
+											<div class="v-guide-form__field {% if item.wide %}v-guide-form__field_wide{% endif %} {% if field.length > 1 %}v-guide-form__field_sm-small{% endif %}">
+												<div class="v-guide-form__label">{{item.label | safe}}</div>
+												{% if item.select %}
+													<select class="select">
+														{% for item in item.select.options %}
+															<option value="{{item}}">{{item}}</option>
+														{% endfor %}
+													</select>
+												{% elif item.dates %}
+													<div class="v-guide-form__fields">
+														{% for item in item.dates %}
+															<div class="v-guide-form__date">
+																<select class="select">
+																	{% for item in item.options %}
+																		<option value="{{item}}">{{item}}</option>
+																	{% endfor %}
+																</select>
+															</div>
+														{% endfor %}
+													</div>
+												{% else %}
+													<input type="text" class="form-control input-lg {% if item.error %}hasError{% endif %}">
+													{% if item.error %}
+														<span class="fieldError v-guide-form__error">{{item.error}}</span>
 													{% endif %}
-												</div>
-											{% endfor %}
-										</div>
-									{% endfor %}
-								{% endif %}
-								{% if item.info %}
-									<div class="v-guide-info v-guide-form__center">
-										<div class="v-guide-info__price">
-											<!-- <div class="v-guide-info__price-label">
-												<small>$</small>
-												<strong>39.99</strong>
-											</div> -->
-											<div class="v-guide-info__price-label"><small>$</small>
-												<strong>39.99</strong> mo per register</div>
-										</div>
-										<div class="v-guide-info__spinner">
-											<div class="v-spinner" data-spinner>
-												<button class="v-spinner__minus" type="button" onclick="spinnerControl(event, 'down')"></button>
-												<button class="v-spinner__plus" type="button" onclick="spinnerControl(event, 'up')"></button>
-												<input 
-													type="text" 
-													value="1" 
-													data-spinner-input 
-													data-min="1"
-													data-max="100"
-													oninput="spinnerInput(event)"
-													class="form-control input-lg v-spinner__input">
+												{% endif %}
 											</div>
-											<script>
-												var UP = 'up';
-												var DOWN = 'down';
-												var numberPattern = /\d+/g;
+										{% endfor %}
+									</div>
+								{% endfor %}
+							{% endif %}
+							{% if item.info %}
+								<div class="v-guide-info v-guide-form__center">
+									<div class="v-guide-info__price">
+										<!-- <div class="v-guide-info__price-label">
+											<small>$</small>
+											<strong>39.99</strong>
+										</div> -->
+										<div class="v-guide-info__price-label"><small>$</small>
+											<strong>39.99</strong> mo per register</div>
+									</div>
+									<div class="v-guide-info__spinner">
+										<div class="v-spinner" data-spinner>
+											<button class="v-spinner__minus" type="button" onclick="spinnerControl(event, 'down')"></button>
+											<button class="v-spinner__plus" type="button" onclick="spinnerControl(event, 'up')"></button>
+											<input 
+												type="text" 
+												value="1" 
+												data-spinner-input 
+												data-min="1"
+												data-max="100"
+												oninput="spinnerInput(event)"
+												class="form-control input-lg v-spinner__input">
+										</div>
+										<script>
+											var UP = 'up';
+											var DOWN = 'down';
+											var numberPattern = /\d+/g;
 
-												function getValues(input) {
-													return {
-														val: input.val(),
-														min: +input.data('min'),
-														max: +input.data('max')
-													};
+											function getValues(input) {
+												return {
+													val: input.val(),
+													min: +input.data('min'),
+													max: +input.data('max')
 												};
+											};
 
-												function spinnerControl(e, direction) {
-													e.preventDefault();
-													var target = $(e.currentTarget);
-													var spinner = target.closest('[data-spinner]');
-													var input = spinner.find('[data-spinner-input]');
-													
+											function spinnerControl(e, direction) {
+												e.preventDefault();
+												var target = $(e.currentTarget);
+												var spinner = target.closest('[data-spinner]');
+												var input = spinner.find('[data-spinner-input]');
+												
 
-													var values = getValues(input);
+												var values = getValues(input);
 
-													var min = values.min;
-													var max = values.max;
-													var newVal = +values.val;
+												var min = values.min;
+												var max = values.max;
+												var newVal = +values.val;
 
-													switch (direction) {
-														case UP: 
-															newVal++;
-															if (newVal >= max) newVal = max;
-															break;
-														case DOWN:
-															newVal--;
-															if (newVal <= min) newVal = min;
-															break;
-													}
-
-													input.val(newVal);
+												switch (direction) {
+													case UP: 
+														newVal++;
+														if (newVal >= max) newVal = max;
+														break;
+													case DOWN:
+														newVal--;
+														if (newVal <= min) newVal = min;
+														break;
 												}
 
-												function spinnerInput(e) {
-													var input = $(e.currentTarget);
-													var values = getValues(input);
-													
-													var min = values.min;
-													var max = values.max;
-													
-													newVal = +(values.val.match( numberPattern ).join(''))
+												input.val(newVal);
+											}
 
-													if (newVal >= max) newVal = max;
-													if (newVal <= min) newVal = min;
+											function spinnerInput(e) {
+												var input = $(e.currentTarget);
+												var values = getValues(input);
+												
+												var min = values.min;
+												var max = values.max;
+												var val = values.val;
 
-													input.val(newVal);
-												}
-											</script>
-										</div>
-										<div class="v-guide-info__price">
-											<div class="v-guide-info__price-label">Total:</div>
-											<div class="v-guide-info__price-main">
-												<small>$</small>
-												<strong>39.99</strong>
-											</div>
+												if (!val) val = ''+min;
+
+												var filtered = val.match( numberPattern );
+												
+												newVal = (filtered && filtered.length) ? +(filtered.join('')) : min;
+
+												if (newVal >= max) newVal = max;
+												if (newVal <= min) newVal = min;
+
+												input.val(newVal);
+											}
+										</script>
+									</div>
+									<div class="v-guide-info__price">
+										<div class="v-guide-info__price-label">Total:</div>
+										<div class="v-guide-info__price-main">
+											<small>$</small>
+											<strong>39.99</strong>
 										</div>
 									</div>
-								{% endif %}
-							</div>
-						{% endfor %}
-					</div>
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 	<div class="v-guide-content__submit">
 		<a href="#" class="v-guide-link v-guide-content__link" data-guide-direction="next">Skip for now</a>
 		<a href="#" class="v-guide-link v-guide-content__back" data-guide-form-close="upgrade"><i class="fa fa-angle-left"></i>Previous</a>
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn">Get Started</button>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" onclick="submitForm(event)">Get Started</button>
 	</div>
 </div>
 <!-- end v-guide-content FORM -->
+<script>
+	var duration = 300;
+	var delay = 2000;
+
+	function submitForm(e) {
+		e.preventDefault();
+		var target = $(e.currentTarget);
+		var loader = $('[data-loader]');
+
+		loader.fadeIn(duration);
+
+		setTimeout(function() {
+			loader.fadeOut(duration);
+		}, delay);
+	}
+</script>
