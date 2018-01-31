@@ -4294,6 +4294,11 @@
   background: #286090;
 }
 
+.v-spinner__minus:disabled, .v-spinner__plus:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .v-spinner__minus:before, .v-spinner__minus:after, .v-spinner__plus:before, .v-spinner__plus:after {
   content: '';
   position: absolute;
@@ -4464,7 +4469,7 @@
 
 .v-guide-iframe {
   overflow: auto;
-  padding: 10px;
+  padding: 20px 10px;
   height: 100%;
   color: #979797;
   font-size: 14px;
@@ -4587,7 +4592,7 @@
 
 .v-guide-content__iframe {
   width: 100%;
-  height: 120px;
+  height: 140px;
   box-shadow: 0 15px 45px -5px rgba(39, 55, 74, 0.15), 0 15px 40px -20px rgba(39, 55, 74, 0.1);
 }
 

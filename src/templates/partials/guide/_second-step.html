@@ -129,13 +129,16 @@
 											<small>$</small>
 											<strong>39.99</strong>
 										</div> -->
-										<div class="v-guide-info__price-label"><small>$</small>
-											<strong>39.99</strong> mo per register</div>
+										<div class="v-guide-info__price-label">
+											<small>$</small>
+											<strong data-price="39.99">39.99</strong> 
+											mo per register
+										</div>
 									</div>
 									<div class="v-guide-info__spinner">
 										<div class="v-spinner" data-spinner>
-											<button class="v-spinner__minus" type="button" onclick="spinnerControl(event, 'down')"></button>
-											<button class="v-spinner__plus" type="button" onclick="spinnerControl(event, 'up')"></button>
+											<button class="v-spinner__minus" type="button" data-spinner-control="down" onclick="spinnerControl(event, 'down')" disabled></button>
+											<button class="v-spinner__plus" type="button" data-spinner-control="up" onclick="spinnerControl(event, 'up')"></button>
 											<input 
 												type="text" 
 												value="1" 
@@ -158,12 +161,35 @@
 												};
 											};
 
+											function enableControls(buttons) {
+												buttons.attr('disabled', false);
+											}
+
+											function disableControls(buttons, direction) {
+												switch (direction) {
+													case UP:
+														buttons.filter('[data-spinner-control="' + UP + '"]').attr('disabled', true);
+														return;
+													case DOWN:
+														buttons.filter('[data-spinner-control="' + DOWN + '"]').attr('disabled', true);
+														return;
+												}
+											}
+
+											function setTotal(quantity) {
+												var price = $('[data-price]').data('price');
+												var total = $('[data-total]');
+
+												total.text((price*quantity).toFixed(2));
+											}
+
 											function spinnerControl(e, direction) {
 												e.preventDefault();
 												var target = $(e.currentTarget);
 												var spinner = target.closest('[data-spinner]');
 												var input = spinner.find('[data-spinner-input]');
-												
+												var buttons = spinner.find('[data-spinner-control]');
+												if (target.attr('disabled')) return;
 
 												var values = getValues(input);
 
@@ -171,24 +197,34 @@
 												var max = values.max;
 												var newVal = +values.val;
 
+												enableControls(buttons);
 												switch (direction) {
 													case UP: 
 														newVal++;
-														if (newVal >= max) newVal = max;
+														if (newVal >= max) {
+															newVal = max;
+															disableControls(buttons, UP);
+														}
 														break;
 													case DOWN:
 														newVal--;
-														if (newVal <= min) newVal = min;
+														if (newVal <= min) {
+															newVal = min;
+															disableControls(buttons, DOWN);
+														}
 														break;
 												}
 
+												setTotal(newVal);
 												input.val(newVal);
 											}
 
 											function spinnerInput(e) {
 												var input = $(e.currentTarget);
+												var spinner = input.closest('[data-spinner]');
+												var buttons = spinner.find('[data-spinner-control]');
+
 												var values = getValues(input);
-												
 												var min = values.min;
 												var max = values.max;
 												var val = values.val;
@@ -198,10 +234,18 @@
 												var filtered = val.match( numberPattern );
 												
 												newVal = (filtered && filtered.length) ? +(filtered.join('')) : min;
+												enableControls(buttons);
 
-												if (newVal >= max) newVal = max;
-												if (newVal <= min) newVal = min;
+												if (newVal >= max) {
+													newVal = max;
+													disableControls(buttons, UP);
+												}
+												if (newVal <= min) {
+													newVal = min;
+													disableControls(buttons, DOWN);
+												}
 
+												setTotal(newVal);
 												input.val(newVal);
 											}
 										</script>
@@ -210,7 +254,7 @@
 										<div class="v-guide-info__price-label">Total:</div>
 										<div class="v-guide-info__price-main">
 											<small>$</small>
-											<strong>39.99</strong>
+											<strong data-total>39.99</strong>
 										</div>
 									</div>
 								</div>
