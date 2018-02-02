@@ -25,6 +25,9 @@
 	&_success
 		padding: 20px 20px 100px
 		display: none
+	&_payment
+		position: fixed
+		z-index: 500
 	//containers
 	&__inner
 		position: relative
@@ -116,3 +119,25 @@
 		left: 40px
 	&__btn
 		max-width: 400px
+	&__close
+		position: absolute
+		z-index: 20
+		top: 0
+		right: 0
+		padding: 20px
+		border: none
+		color: $darkGray
+		opacity: 0.7
+		background: none
+		font-size: 0
+		transition: opacity 0.25s
+		+hover
+			opacity: 1
+		i
+			font-size: 32px
+	&__title
+		padding: 30px 0
+		margin: 0
+		font-size: 30px
+		font-weight: 700
+		line-height: 1.3

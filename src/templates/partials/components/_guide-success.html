@@ -1,0 +1,18 @@
+<!-- begin v-guide-content SUCCESS PAYMENT -->
+<div class="v-guide-content v-guide-content_success v-box v-guide-content_payment" data-success>
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-content__center">
+			<div class="v-box__container">
+				<div class="v-box__icon" data-animation="icon"> <i class="fa fa-check " aria-hidden="true"></i> </div>
+				<h3 class="v-box__title" data-animation="title">{{success.title or 'Thank you for your payment'}}</h3>
+				<div class="v-box__description" data-animation="text">
+					<p>{{success.text or 'Your account has been upgraded to Freedom.'}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-guide-content__submit" data-animation="form">
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">{{success.btn or 'Get Started'}} <i class="fa fa-angle-right"></i></button>
+	</div>
+</div>
+<!-- end v-guide-content SUCCESS PAYMENT -->

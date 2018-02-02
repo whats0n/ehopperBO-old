@@ -1,0 +1,709 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Empty</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+				<div class="v-toolbar">
+					<button class="btn btn-upgrade v-toolbar__btn" data-modal-target="payment">Upgrade</button>
+					<div class="v-toolbar__content">
+						<p>You a currently working in Demo Mode. You free trial ends in 197 transactions. <a href="#">Go Essential</a>.</p>
+					</div>
+				</div>
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Empty</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body dashboard">
+		<a href="https://ehopper.com/freedom/?id=bo" target="_blank" class="btn btn-upgrade" data-bind="visible: isEssentialPlan(), click: goFreedom" style="display: none;">Upgrade</a>
+		<div class="dashboard-promo package-2" data-bind="css:getPackage().class">
+			<iframe data-bind="attr: {src: getPackage().url}" scrolling="no" src="https://ehopper.com/wp-content/uploads/bo-marketing-package-2.html"></iframe>
+		</div>
+
+		<div class="dashboard-date-filter" style="float:right;">
+			<date-filter params="value: dateRange">
+				<div class="pull-right">
+					<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+						<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+						&nbsp;
+						<span>Today</span> 
+						<b class="caret"></b>
+					</div>
+				</div>
+			</date-filter>
+		</div>
+		<div class="stores-filter-wrapper">
+			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true" style="">
+				<div data-bind="with: $data.storesFilter, css: self.divStyle">
+					<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+					</div>
+					<div data-bind="css: contStyle" class="filter_control_cont">
+						<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
+							<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
+							<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
+							<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+							<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+							<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
+							<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+							<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+							<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+							<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+							<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+							<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+							<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+							<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
+							<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+							<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
+							<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
+							<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
+							<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
+							<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
+							<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
+							<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
+							<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+							<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
+							<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
+							<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+							<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+							<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+						</select>
+						<div class="ms-parent" style="width: 151px;">
+							<button type="button" class="select">
+								<div class="fl">
+									<div>
+										<input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+									</div>
+									<div>
+										<div></div>
+									</div>
+								</div>
+							</button>
+							<div class="ms-drop bottom" data-name="multipleSelect1">
+								<ul style="max-height: 250px;">
+									<li>
+										<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1"> 
+										<label for="allCheck">Select All</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="5a4b11ccd458452facd24376cc851f7b" id="id_multipleSelect1_5a4b11ccd458452facd24376cc851f7b"> 
+										<label for="id_multipleSelect1_5a4b11ccd458452facd24376cc851f7b">28 aug test</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="ea56b32ca4064c43b2d943700b5a796c" id="id_multipleSelect1_ea56b32ca4064c43b2d943700b5a796c"> 
+										<label for="id_multipleSelect1_ea56b32ca4064c43b2d943700b5a796c">28 august store</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb"> 
+										<label for="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb">BESTsTore</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect1_9b95b38021254511970c394af32606e1"> 
+										<label for="id_multipleSelect1_9b95b38021254511970c394af32606e1">FAstSTore</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="dec86c0a82174c449744d003e8f3dceb" id="id_multipleSelect1_dec86c0a82174c449744d003e8f3dceb"> 
+										<label for="id_multipleSelect1_dec86c0a82174c449744d003e8f3dceb">ivanstore</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef"> 
+										<label for="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf"> 
+										<label for="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf">New Store</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect1_662fd10aa39844839b3b909d232547a3"> 
+										<label for="id_multipleSelect1_662fd10aa39844839b3b909d232547a3">New Store  8931b</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23"> 
+										<label for="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400"> 
+										<label for="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428"> 
+										<label for="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428">New Store a</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111"> 
+										<label for="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111">New Store s</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_multipleSelect1_b6f3d5c57a84498db16a3f5d4b22dfe6"> 
+										<label for="id_multipleSelect1_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f"> 
+										<label for="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="e359ba2d45c6467795cfe279152a7ccc" id="id_multipleSelect1_e359ba2d45c6467795cfe279152a7ccc"> 
+										<label for="id_multipleSelect1_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="6050df646589491b81a3dd087204c5d4" id="id_multipleSelect1_6050df646589491b81a3dd087204c5d4"> 
+										<label for="id_multipleSelect1_6050df646589491b81a3dd087204c5d4">New Store234</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_multipleSelect1_5d09b2d4754c498c8ec665b2ea4bf621"> 
+										<label for="id_multipleSelect1_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="29e2ac6d8a094defa9369454323ba645" id="id_multipleSelect1_29e2ac6d8a094defa9369454323ba645"> 
+										<label for="id_multipleSelect1_29e2ac6d8a094defa9369454323ba645">Olga Store</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="6298584313f54a40b31d6403e55614d5" id="id_multipleSelect1_6298584313f54a40b31d6403e55614d5"> 
+										<label for="id_multipleSelect1_6298584313f54a40b31d6403e55614d5">Store 2</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_multipleSelect1_688cd61f63b24a5dadc4c526c0b2a7a2"> 
+										<label for="id_multipleSelect1_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="46116dbcea1c43fd8a91c797c668147c" id="id_multipleSelect1_46116dbcea1c43fd8a91c797c668147c"> 
+										<label for="id_multipleSelect1_46116dbcea1c43fd8a91c797c668147c">Store 3</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect1_600172f4371c40aab4999b63a5775634"> 
+										<label for="id_multipleSelect1_600172f4371c40aab4999b63a5775634">Store ulevan</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_multipleSelect1_eaa6a02e0a604f87a3450a897cd9649d"> 
+										<label for="id_multipleSelect1_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="46a47ec55ae34e5699a815196881f4bc" id="id_multipleSelect1_46a47ec55ae34e5699a815196881f4bc"> 
+										<label for="id_multipleSelect1_46a47ec55ae34e5699a815196881f4bc">TestCreation</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect1_86240cf9e12e41e585183105da181f67"> 
+										<label for="id_multipleSelect1_86240cf9e12e41e585183105da181f67">Vlad store</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac"> 
+										<label for="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label>
+									</li>
+									<li>
+										<input type="checkbox" name="selectItemmultipleSelect1" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect1_028f25cf079a4019a12f67d575d11512"> 
+										<label for="id_multipleSelect1_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label>
+									</li>
+									<li class="ms-no-results">No matches found</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ko-->
+		</div>
+		<br class="clear">
+
+		<!--ko compose: { model: 'viewmodels/dashboard/widgets/stats', view: 'views/dashboard/widgets/stats.html' }-->
+		<div class="stats ui-sortable" data-bind="css : { 'loading1' : loading }" data-view="views/dashboard/widgets/stats" style="" data-active-view="true">
+			<span class="stat" id="totalSales" data-bind="css : { 'loading' : loading }">
+				<span class="image total-sales"></span>
+				<span class="value">
+					<span class="name" data-bind="local: 'dashboard/widgets/stats.total_sales'">Total Sales</span>
+					<span class="count" data-bind="currency: stats.totalSales">$251.03</span>
+				</span>
+			</span><span class="stat" id="refunds" data-bind="css : { 'loading' : loading }">
+				<span class="image refunds"></span>
+				<span class="value">
+					<span class="name" data-bind="local: 'dashboard/widgets/stats.refunds'">Refunds</span>
+					<span class="count" data-bind="currency: stats.refunds">$23.53</span>
+				</span>
+			</span><span class="stat" id="totalTransactions" data-bind="css : { 'loading' : loading }">
+				<span class="image total-transaction"></span>
+				<span class="value">
+					<span class="name" data-bind="local: 'dashboard/widgets/stats.total_transactions'">Total Transactions</span>
+					<span class="count" data-bind="formatNumber: stats.totalTransactions">11</span>
+				</span>
+			</span><span class="stat" id="repeatCustomers" data-bind="css : { 'loading' : loading }">
+				<span class="image repeat-customers"></span>
+				<span class="value">
+					<span class="name" data-bind="local: 'dashboard/widgets/stats.repeat_customers'">Repeat Customers</span>
+					<span class="count" data-bind="formatNumber: stats.repeatCustomers">1</span>
+				</span>
+			</span><span class="stat" id="newCustomers" data-bind="css : { 'loading' : loading }">
+				<span class="image new-customers"></span>
+				<span class="value">
+					<span class="name" data-bind="local: 'dashboard/widgets/stats.new_customers'">New Customers</span>
+					<span class="count" data-bind="formatNumber: stats.newCustomers">0</span>
+				</span>
+			</span>
+		</div>
+		<!--/ko-->
+
+		<div class="dashboard-bottom-part">
+			<div class="dashboard-bottom-part-left">
+				<!--ko compose: { model: 'viewmodels/dashboard/widgets/support', view: 'views/dashboard/widgets/support.html' }-->
+				<div class="support bo-widget" data-view="views/dashboard/widgets/support" data-active-view="true" style="">
+					<div class="support-header">
+						<span class="support-header-title" data-bind="local: 'dashboard/widgets/support.support_team'">Support</span>
+					</div>
+					<div class="support-body">
+						<p><strong data-bind="local: 'dashboard/widgets/support.accountId'">Account ID:</strong> <span data-bind="text: enterpriseCode">0</span></p>
+						<p><strong data-bind="local: 'dashboard/widgets/support.webPosUrl'">Web POS URL:</strong> <a href="https://pos.ehopper.com/" target="_blank">https://pos.ehopper.com/</a></p>
+						<p>
+							<strong data-bind="local: 'dashboard/widgets/support.onlineHelp'">Online Help:</strong>
+							<a href="Zendesk/Login?goto=1" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.knowledgeBase'">Knowledge Base</a>
+						</p>
+						<p>
+							<strong data-bind="local: 'dashboard/widgets/support.communityLabel'">Community:</strong>
+							<a href="Zendesk/Login" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.community'">Community</a>
+						</p>
+					</div>
+					<div class="support-separator"></div>
+					<div class="support-notes">
+						<p>
+							<span class="green" data-bind="local: 'dashboard/widgets/support.note'">Note:</span>
+							<span data-bind="text: noteMessage">Use the chat below to learn how to upgrade to the Freedom Package with eHopper.</span>
+						</p>
+					</div>
+				</div>
+				<!--/ko-->
+			</div>
+			<div class="dashboard-bottom-part-right">
+				<!--ko compose: { model: 'viewmodels/dashboard/widgets/tasks', view: 'views/dashboard/widgets/tasks.html' }-->
+				<div class="tasks bo-widget" data-bind="with: model, css: { 'loading' : loading }" data-view="views/dashboard/widgets/tasks" data-active-view="true" style="">
+					<div class="tasks-header">
+						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/tasks.getting_started'">Getting Started</span>
+						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText">Hide</div>
+					</div>
+					<div class="tasks-body" data-bind="visible: !collapsedWidget()">
+						<table class="tasks-table">
+							<tbody data-bind="foreach: tasks">
+								<tr>
+									<td class="tasks-column-checkbox" data-bind="click: doneTask">
+										<input class="checkbox" type="checkbox" data-bind="checked: isDone()"><label></label>
+									</td>
+									<td class="task-title checked" data-bind="text: name, click: itemClick, visible: !isEdit(), css : { checked: isDone() }">Set up your store</td>
+									<td class="task-title" data-bind="visible: isEdit()" style="display: none;">
+										<input class="textbox task-edit" type="text" data-bind="value: name, hasFocus: isEdit, local:'dashboard/widgets/tasks.my_custom_task' , localAttr: 'placeholder'" placeholder="My Custom Task"><span class="fieldError" style="display: none;"></span>
+									</td>
+									<td class="tasks-column-nav" data-bind="visible: isDefault, click: itemClick"></td>
+									<td class="tasks-column-remove" data-bind="visible: !isDefault()" style="display: none;">
+										<input class="delete-button" type="button" data-bind="click: deleteSelected">
+									</td>
+								</tr>
+							
+								<tr>
+									<td class="tasks-column-checkbox" data-bind="click: doneTask">
+										<input class="checkbox" type="checkbox" data-bind="checked: isDone()"><label></label>
+									</td>
+									<td class="task-title checked" data-bind="text: name, click: itemClick, visible: !isEdit(), css : { checked: isDone() }">Add items to inventory</td>
+									<td class="task-title" data-bind="visible: isEdit()" style="display: none;">
+										<input class="textbox task-edit" type="text" data-bind="value: name, hasFocus: isEdit, local:'dashboard/widgets/tasks.my_custom_task' , localAttr: 'placeholder'" placeholder="My Custom Task"><span class="fieldError" style="display: none;"></span>
+									</td>
+									<td class="tasks-column-nav" data-bind="visible: isDefault, click: itemClick"></td>
+									<td class="tasks-column-remove" data-bind="visible: !isDefault()" style="display: none;">
+										<input class="delete-button" type="button" data-bind="click: deleteSelected">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tasks-footer">
+						<div class="nav-buttons">
+							<input class="nav-button nav-button-add" type="button" data-bind="click: createNew">
+						</div>
+						<div class="nav-buttons nav-task" style="float:right;">
+							<input class="nav-button nav-button-previous" type="button" id="prevTasks">
+							<input class="nav-button nav-button-next" type="button" id="nextTasks">
+						</div>
+					</div>
+				</div>
+				<!--/ko-->
+			</div>
+		</div>
+
+		<!--ko compose: { model: 'viewmodels/dashboard/widgets/salesTransactions', view: 'views/dashboard/widgets/salesTransactions.html' }-->
+		<div class="salesBreakdown" data-bind="css : { 'loading' : loading }" data-view="views/dashboard/widgets/salesTransactions" data-active-view="true" style="">
+			<h2 data-bind="local: 'dashboard/widgets/salesTransactions.total_sales_by_category'">Gross Sales By Category</h2>
+
+			<span id="salesBreakdownChart" data-bind="visible: model().transactions().length != 0" style="">
+				<svg height="350" version="1.1" width="540" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+					<desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc>
+					<defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+					<path fill="none" stroke="#2da782" d="M270,289.1666666666667A111.66666666666667,111.66666666666667,0,0,0,351.3510576648649,101.00522984378432" stroke-width="3" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+					<path fill="#2da782" stroke="#ffffff" d="M270,292.1666666666667A114.66666666666667,114.66666666666667,0,0,0,353.5366084678016,98.95014646645315L388.3840018257363,66.18298372789509A162.5,162.5,0,0,1,270,340Z" stroke-width="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+					<path fill="none" stroke="#eca535" d="M351.3510576648649,101.00522984378432A111.66666666666667,111.66666666666667,0,1,0,269.96491888261187,289.1666611561376" stroke-width="3" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+					<path fill="#eca535" stroke="#ffffff" d="M353.5366084678016,98.95014646645315A114.66666666666667,114.66666666666667,0,1,0,269.9639764048313,292.1666610080935L269.9489491202188,339.9999919809465A162.5,162.5,0,1,1,388.3840018257363,66.18298372789509Z" stroke-width="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+					<text x="270" y="167.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-stretch: normal; font-size: 15px; line-height: normal; font-family: Arial;" font-size="15px" font-weight="800" transform="matrix(2.3178,0,0,2.3178,-355.8162,-231.61)" stroke-width="0.4314365671641791">
+						<tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.25">Gross Sales</tspan>
+					</text>
+					<text x="270" y="187.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; line-height: normal; font-family: Arial;" font-size="14px" transform="matrix(2.4014,0,0,2.4014,-378.3652,-251.9077)" stroke-width="0.4164179104477612">
+						<tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4.75">$161.93</tspan>
+					</text>
+				</svg>
+			</span>
+			<span class="legend" data-bind="foreach: model().transactions">
+				<div class="legend-element">
+					<div class="legend-element-title" data-bind="text: categoryName">Tea</div>
+					<div class="legend-element-value" data-bind="text: chartText">(36.82% - $59.63)</div>
+					<div class="progressbar">
+						<div data-bind="style: {background: color, width : width}" style="background: rgb(45, 167, 130); width: 36.82%;"></div>
+					</div>
+				</div>
+			
+				<div class="legend-element">
+					<div class="legend-element-title" data-bind="text: categoryName">Pens</div>
+					<div class="legend-element-value" data-bind="text: chartText">(63.18% - $102.30)</div>
+					<div class="progressbar">
+						<div data-bind="style: {background: color, width : width}" style="background: rgb(236, 165, 53); width: 63.18%;"></div>
+					</div>
+				</div>
+			</span>
+			  <!-- ko if:  model().transactions().length == 0 --><!--/ko-->
+		</div>
+		<!--/ko-->
+	</div>
+
+	<div data-guide>
+	<!-- begin v-guide-content FORM -->
+<div class="v-guide-content v-guide-content_form v-guide-content_payment" data-modal-container="payment">
+	<button class="v-guide-content__close" data-modal-close="payment">
+		<i class="fa fa-close"></i>
+	</button>
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-content__center">
+			<h2 class="v-guide-content__title">Upgrade to Freedom</h2>
+			<div class="v-guide-form">
+	<div class="v-guide-form__container">
+		<div class="v-guide-form__row">
+			
+				<div class="v-guide-form__col v-guide-form__vertical">
+					
+					
+					
+						<div class="v-guide-info v-guide-form__center">
+							<div class="v-guide-info__price">
+								<!-- <div class="v-guide-info__price-label">
+									<small>$</small>
+									<strong>39.99</strong>
+								</div> -->
+								<div class="v-guide-info__price-label">
+									<small>$</small>
+									<strong data-price="39.99">39.99</strong> 
+									mo per register
+								</div>
+							</div>
+							<div class="v-guide-info__spinner">
+								<div class="v-spinner" data-spinner>
+									<button class="v-spinner__minus" type="button" data-spinner-control="down" onclick="spinnerControl(event, 'down')" disabled></button>
+									<button class="v-spinner__plus" type="button" data-spinner-control="up" onclick="spinnerControl(event, 'up')"></button>
+									<input 
+										type="text" 
+										value="1" 
+										data-spinner-input 
+										data-min="1"
+										data-max="100"
+										oninput="spinnerInput(event)"
+										class="form-control input-lg v-spinner__input">
+								</div>
+								<script>
+									var UP = 'up';
+									var DOWN = 'down';
+									var numberPattern = /\d+/g;
+
+									function getValues(input) {
+										return {
+											val: input.val(),
+											min: +input.data('min'),
+											max: +input.data('max')
+										};
+									};
+
+									function enableControls(buttons) {
+										buttons.attr('disabled', false);
+									}
+
+									function disableControls(buttons, direction) {
+										switch (direction) {
+											case UP:
+												buttons.filter('[data-spinner-control="' + UP + '"]').attr('disabled', true);
+												return;
+											case DOWN:
+												buttons.filter('[data-spinner-control="' + DOWN + '"]').attr('disabled', true);
+												return;
+										}
+									}
+
+									function setTotal(quantity) {
+										var price = $('[data-price]').data('price');
+										var total = $('[data-total]');
+
+										total.text((price*quantity).toFixed(2));
+									}
+
+									function spinnerControl(e, direction) {
+										e.preventDefault();
+										var target = $(e.currentTarget);
+										var spinner = target.closest('[data-spinner]');
+										var input = spinner.find('[data-spinner-input]');
+										var buttons = spinner.find('[data-spinner-control]');
+										if (target.attr('disabled')) return;
+
+										var values = getValues(input);
+
+										var min = values.min;
+										var max = values.max;
+										var newVal = +values.val;
+
+										enableControls(buttons);
+										switch (direction) {
+											case UP: 
+												newVal++;
+												if (newVal >= max) {
+													newVal = max;
+													disableControls(buttons, UP);
+												}
+												break;
+											case DOWN:
+												newVal--;
+												if (newVal <= min) {
+													newVal = min;
+													disableControls(buttons, DOWN);
+												}
+												break;
+										}
+
+										setTotal(newVal);
+										input.val(newVal);
+									}
+
+									function spinnerInput(e) {
+										var input = $(e.currentTarget);
+										var spinner = input.closest('[data-spinner]');
+										var buttons = spinner.find('[data-spinner-control]');
+
+										var values = getValues(input);
+										var min = values.min;
+										var max = values.max;
+										var val = values.val;
+
+										if (!val) val = ''+min;
+
+										var filtered = val.match( numberPattern );
+										
+										var newVal = (filtered && filtered.length) ? +(filtered.join('')) : min;
+										enableControls(buttons);
+
+										if (newVal >= max) {
+											newVal = max;
+											disableControls(buttons, UP);
+										}
+										if (newVal <= min) {
+											newVal = min;
+											disableControls(buttons, DOWN);
+										}
+
+										setTotal(newVal);
+										input.val(newVal);
+									}
+								</script>
+							</div>
+							<div class="v-guide-info__price">
+								<div class="v-guide-info__price-label">Total:</div>
+								<div class="v-guide-info__price-main">
+									<small>$</small>
+									<strong data-total>39.99</strong>
+								</div>
+							</div>
+						</div>
+					
+				</div>
+			
+				<div class="v-guide-form__col v-guide-form__values">
+					
+						<div class="v-guide-form__title">Payment Method</div>
+					
+					
+						
+							<div class="v-guide-form__fields">
+								
+								
+									<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+										<div class="v-guide-form__label">First Name <span>*</span></div>
+										
+											<input type="text" class="form-control input-lg ">
+											
+										
+									</div>
+								
+									<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+										<div class="v-guide-form__label">Last Name <span>*</span></div>
+										
+											<input type="text" class="form-control input-lg ">
+											
+										
+									</div>
+								
+							</div>
+						
+							<div class="v-guide-form__fields">
+								
+								
+									<div class="v-guide-form__field v-guide-form__field_wide ">
+										<div class="v-guide-form__label">Card Number <span>*</span></div>
+										
+											<input type="text" class="form-control input-lg hasError">
+											
+												<span class="fieldError v-guide-form__error">Invalid or unsupported card number</span>
+											
+										
+									</div>
+								
+							</div>
+						
+							<div class="v-guide-form__fields">
+								
+								
+									<div class="v-guide-form__field  v-guide-form__field_sm-small">
+										<div class="v-guide-form__label">Expiration Date</div>
+										
+											<div class="v-guide-form__fields">
+												
+													<div class="v-guide-form__date">
+														<select class="select">
+															
+																<option value="01">01</option>
+															
+																<option value="02">02</option>
+															
+																<option value="03">03</option>
+															
+																<option value="04">04</option>
+															
+														</select>
+													</div>
+												
+													<div class="v-guide-form__date">
+														<select class="select">
+															
+																<option value="2018">2018</option>
+															
+																<option value="2019">2019</option>
+															
+																<option value="2020">2020</option>
+															
+																<option value="2021">2021</option>
+															
+														</select>
+													</div>
+												
+											</div>
+										
+									</div>
+								
+									<div class="v-guide-form__field v-guide-form__field_wide v-guide-form__field_sm-small">
+										<div class="v-guide-form__label">Security Code</div>
+										
+											<input type="text" class="form-control input-lg ">
+											
+										
+									</div>
+								
+							</div>
+						
+					
+					
+				</div>
+			
+		</div>
+	</div>
+</div>
+		</div>
+	</div>
+	<div class="v-guide-content__submit">
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-submit>Complete</button>
+	</div>
+</div>
+<!-- end v-guide-content FORM -->
+
+	<div class="loader-container v-guide-loader" style="display: none;" data-loader></div>
+	
+<!-- begin v-guide-content SUCCESS PAYMENT -->
+<div class="v-guide-content v-guide-content_success v-box v-guide-content_payment" data-success>
+	<div class="v-guide-content__inner v-guide-content__vertical">
+		<div class="v-guide-content__center">
+			<div class="v-box__container">
+				<div class="v-box__icon" data-animation="icon"> <i class="fa fa-check " aria-hidden="true"></i> </div>
+				<h3 class="v-box__title" data-animation="title">Thank you for your payment</h3>
+				<div class="v-box__description" data-animation="text">
+					<p>Your account has been upgraded to Freedom.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="v-guide-content__submit" data-animation="form">
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">Go To BackOffice <i class="fa fa-angle-right"></i></button>
+	</div>
+</div>
+<!-- end v-guide-content SUCCESS PAYMENT -->
+</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

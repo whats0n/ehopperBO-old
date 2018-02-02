@@ -31,6 +31,14 @@
 	<body>
 	
 		<div id="applicationHost">
+			{% if toolbar %}
+				<div class="v-toolbar">
+					<button class="btn btn-upgrade v-toolbar__btn" data-modal-target="payment">Upgrade</button>
+					<div class="v-toolbar__content">
+						<p>You a currently working in Demo Mode. You free trial ends in 197 transactions. <a href="#">Go Essential</a>.</p>
+					</div>
+				</div>
+			{% endif %}
 			<div class="main-container">
 				{% if nav %}
 					<div data-bind="compose:'viewmodels/navigationpanel'">
