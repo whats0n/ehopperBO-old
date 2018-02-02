@@ -12,7 +12,7 @@
 		</div>
 	</div>
 	<div class="v-guide-content__submit" data-animation="form">
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next">{{success.btn or 'Get Started'}} <i class="fa fa-angle-right"></i></button>
+		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next" {{success.btnAttrs | safe}}>{{success.btn or 'Get Started'}} <i class="fa fa-angle-right"></i></button>
 	</div>
 </div>
 <!-- end v-guide-content SUCCESS PAYMENT -->

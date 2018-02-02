@@ -15,6 +15,7 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 		const controls = guide.find('[data-guide-step]');
 		const buttons = guide.find('[data-guide-direction]');
 		const submit = $('[data-guide-submit]');
+		const successClose = $('[data-success-close]');
 		//items
 		const container = guide.find('[data-guide-container]');
 		const success = $('[data-success]');
@@ -100,10 +101,13 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 
 			setTimeout(function() {
 				loader.fadeOut(duration);
-				success.fadeIn(duration, function() {
-					success.addClass(OPEN);
-				});
+				success.fadeIn(duration, () => success.addClass(OPEN));
 			}, delay);
+		});
+
+		successClose.on('click', e => {
+			e.preventDefault();
+			success.fadeOut(duration, () => success.removeClass(OPEN));
 		});
 
 		// controls.each((i, control) => {
