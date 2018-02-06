@@ -1,17 +1,28 @@
-.v-guide-iframe
+.g-box-iframe
 	overflow: auto
-	padding: 20px 10px
+	padding: 20px
 	height: 100%
 	color: $gray
-	font-size: 14px
-	text-align: center
-	&_left
+	+vertical
+	&__center
+		display: inline-block
+		vertical-align: middle
+		width: 100%
+		font-size: 18px
 		text-align: left
+	&__title
+		margin: 0
+		color: $darkGray
+		font-weight: 700
+		&:not(:last-child)
+			margin-bottom: 20px
+	p 
+		padding: 0
+		margin: 0
 	&__price
 		position: relative
-		display: inline-block
-		vertical-align: top
 		line-height: 1
+		text-align: center
 		&-main 
 			color: $darkGray
 			small,
@@ -24,11 +35,6 @@
 				font-size: 48px
 				line-height: 44px
 		&-label 
-			// position: absolute
-			// top: 100%
-			// left: 0
-			// right: 0
 			display: block
 			padding: 4px 0
-			text-align: center
 			white-space: nowrap

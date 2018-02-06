@@ -1,0 +1,56 @@
+<!-- begin guide -->
+{% set screens = [
+	{
+		label: 'Welcome',
+		title: 'Welcome to eHopper!',
+		url: './_welcome.html',
+		video: 'https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0',
+		next: true,
+		classList: 'is-active'
+	},
+	{
+		label: 'Select a plan',
+		title: 'Select price in package',
+		url: './_upgrade.html',
+		video: 'https://www.youtube-nocookie.com/embed/_ueI01hQMZ0?showinfo=0',
+		next: true,
+		prev: true,
+		classList: ''
+	},
+	{
+		label: 'Get Started',
+		title: 'Get Started with Ehopper POS',
+		url: 'partials/guide/_third-step.html',
+		video: 'https://www.youtube-nocookie.com/embed/ufOwq90P8og?showinfo=0',
+		next: true,
+		prev: true
+	}
+] %}
+<div class="v-guide" data-guide>
+	<div class="v-guide-steps v-guide-steps_lg v-guide__steps">
+		<div class="v-guide-steps__inner">
+			<ul class="v-guide-steps__list">
+				{% for item in screens %}
+					<li class="v-guide-steps__item {{item.classList}}" data-guide-step="{{loop.index0}}">
+						<div class="v-guide-steps__icon">
+							<i class="fa fa-cog"></i>
+						</div>
+						<div class="v-guide-steps__title">{{item.label}}</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="v-guide-steps__line">
+				<div class="v-guide-steps__line-in" data-guide-line></div>
+			</div>
+		</div>
+	</div>
+	<div class="v-guide__container" data-guide-container>
+		{% for item in screens %}
+			<div class="v-guide__item">
+				{% include item.url %}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="loader-container" style="display: none;" data-loader></div>
+</div>
+<!-- end guide -->

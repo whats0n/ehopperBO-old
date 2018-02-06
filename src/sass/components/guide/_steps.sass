@@ -5,6 +5,14 @@
 	max-width: 980px
 	font-size: 0
 	text-align: center
+	&_lg
+		max-width: 1400px
+		+md 
+			max-width: 640px
+		.v-guide-steps
+			&__title
+				+sm
+					font-size: 14px
 	&__inner 
 		position: relative
 	&__list,
