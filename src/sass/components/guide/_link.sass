@@ -5,9 +5,19 @@
 	color: $darkGray
 	background: none
 	font-size: 22px
+	line-height: 31px
 	text-decoration: underline
 	transition: color 0.25s
+	+sm 
+		width: 53px
+		height: 53px
+		font-size: 0
+		line-height: 53px
 	&:hover 
 		color: $blue
 	.fa-angle-left 
 		margin-right: 8px
+		+sm 
+			display: inline-block
+			vertical-align: middle
+			font-size: 28px

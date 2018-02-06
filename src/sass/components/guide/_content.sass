@@ -11,20 +11,51 @@
 		top: 0
 		left: 0
 		right: 0
-		bottom: 0
+		// bottom: 0
+		max-height: 100%
 		background: #f8f8f8
 	&_form
+		display: none
 		padding-left: 20px
 		padding-right: 20px
-		opacity: 0
-		visibility: hidden
-		transition: opacity 0.3s, visibility 0.3s
-		&.is-open
-			opacity: 1
-			visibility: visible
+		// opacity: 0
+		// visibility: hidden
+		// transition: opacity 0.3s, visibility 0.3s
+		+sm 
+			padding-left: 0
+			padding-right: 0
+		&.is-active
+			position: relative
+			display: block
+			// opacity: 1
+			// visibility: visible
+			+sm 
+				display: flex
+				flex-direction: column
+			.v-guide-content
+				&__inner
+					+sm 
+						order: 1
+				&__submit
+					+sm 
+						position: relative
+						order: 2
 	&_success
-		padding: 20px 20px 100px
+		// padding: 20px 20px 100px
+		padding: 0
 		display: none
+		&.is-active
+			+md 
+				display: flex !important
+				flex-direction: column
+		.g-box
+			&__inner
+				+md 
+					height: auto
+			&__footer
+				+md 
+					// position: absolute
+
 	&_payment
 		position: fixed
 		z-index: 500
@@ -32,6 +63,8 @@
 	&__inner
 		position: relative
 		height: 100%
+		+sm 
+			height: auto
 		&_scrollable
 			overflow: auto
 	&__vertical
@@ -117,6 +150,34 @@
 		right: 40px
 	&__back
 		left: 40px
+		+md 
+			left: 20px
+		+sm 
+			bottom: 20px
+		+ .v-guide-content__btn
+			+md 
+				float: right
+				width: 50%
+		+ .g-box__footer-row
+			+lg 
+				// padding-left: 100px
+				margin: -10px auto
+				max-width: 1044px
+				text-align: right
+			+md 
+				// padding-left: 100px
+			+sm 
+				max-width: 520px
+				padding-left: 53px
+			+r(500)
+				margin: -10px -5px
+			.g-box__footer-col
+				+sm
+					padding: 10px 5px
+					width: 50%
+				.v-guide-btn
+					+sm 
+						font-size: 12px
 	&__btn
 		max-width: 400px
 	&__close

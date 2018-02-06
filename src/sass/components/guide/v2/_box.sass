@@ -2,17 +2,39 @@
 	position: relative
 	height: 100%
 	//footer elements
+	+sm 
+		display: flex
+		flex-direction: column
+		height: auto
 	&__footer
 		position: absolute
 		left: 0
 		right: 0
 		bottom: 0
 		padding: 20px
+		font-size: 0
 		text-align: center
+		+sm 
+			position: relative
+			order: 2
 		+ .g-box__inner 
 			padding-bottom: 100px
+			+sm 
+				padding-bottom: 0
+		&-row
+			margin: -10px 
+		&-col 
+			display: inline-block
+			vertical-align: top
+			padding: 10px
+			+sm 
+				width: 100%
 	&__btn
-		max-width: 400px
+		width: 400px
+		+md 
+			width: 260px
+		+sm 
+			max-width: 100%
 	//centering
 	&__vertical
 		+vertical
@@ -26,45 +48,35 @@
 		padding-left: 20px
 		padding-right: 20px
 		height: 100%
-		+md 
+		+sm 
+			order: 1
+			overflow: visible
 			padding-left: 0
 			padding-right: 0
 	&__container
 		position: relative
+		padding: 0 30px
 		margin: 0 auto
 		max-width: 1024px
+		background: $white
+		box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1)
 		text-align: left
-		+md
+		+sm
 			max-width: 500px
 	&__col
 		display: inline-block
-		vertical-align: top
-		width: 50%
-		+md
+		vertical-align: middle
+		+sm
 			display: block
 			width: 100%
 	&__video
-		padding-right: 30px
-		+md 
+		padding: 20px 30px 20px 0
+		width: 60%
+		+sm 
 			padding-right: 0
 		&-in
-			background: $white
-			box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1)
-		iframe
-			width: 100%
-			// height: 300px
-			height: $maxHeight*0.7
-			+rh($maxLG)
-				height: $minHeight*0.9
-	&__content
-		height: $maxHeight
-		background: $white
-		box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1)
-		+rh($maxLG)
-			height: $minHeight
-		&-in 
 			position: relative
-			height: 100%
+			padding-bottom: 56%
 		iframe
 			position: absolute
 			top: 0
@@ -73,3 +85,24 @@
 			bottom: 0
 			width: 100%
 			height: 100%
+			// height: 300px
+			// height: $maxHeight*0.5
+			// +rh($maxLG)
+				// height: $minHeight*0.9
+	&__content
+		width: 40%
+		// height: $maxHeight
+		// +rh($maxLG)
+			// height: $minHeight
+		&-in 
+			position: relative
+			// height: 100%
+		iframe
+			// position: absolute
+			// top: 0
+			// left: 0
+			// right: 0
+			// bottom: 0
+			width: 100%
+			// height: 100%
+			height: $minHeight

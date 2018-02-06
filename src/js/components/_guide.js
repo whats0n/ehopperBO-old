@@ -1,5 +1,5 @@
 import slick from 'slick-carousel';
-import {ACTIVE, PREV, OPEN} from '../_constants';
+import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 
 ;(() => {
 
@@ -27,6 +27,8 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 		const forms = guide.find('[data-guide-form]');
 		const formOpen = guide.find('[data-guide-form-open]');
 		const formClose = guide.find('[data-guide-form-close]');
+		//upgrade screen
+		const upgrade = guide.find('[data-guide-upgrade]');
 
 		//functionality
 		formOpen.each((i, button) => {
@@ -35,7 +37,8 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 
 			button.on('click', e => {
 				e.preventDefault();
-				form.addClass(OPEN);
+				form.addClass(ACTIVE);
+				upgrade.addClass(HIDDEN);
 			});
 		});
 
@@ -45,7 +48,8 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 
 			button.on('click', e => {
 				e.preventDefault();
-				form.removeClass(OPEN);
+				form.removeClass(ACTIVE);
+				upgrade.removeClass(HIDDEN);
 			});
 		});
 
@@ -101,13 +105,16 @@ import {ACTIVE, PREV, OPEN} from '../_constants';
 
 			setTimeout(function() {
 				loader.fadeOut(duration);
-				success.fadeIn(duration, () => success.addClass(OPEN));
+				success.fadeIn(duration, () => {
+					success.addClass(ACTIVE);
+					forms.removeClass(ACTIVE);
+				});
 			}, delay);
 		});
 
 		successClose.on('click', e => {
 			e.preventDefault();
-			success.fadeOut(duration, () => success.removeClass(OPEN));
+			success.fadeOut(duration, () => success.removeClass(ACTIVE));
 		});
 
 		// controls.each((i, control) => {
