@@ -8,13 +8,16 @@
 	&_form
 		position: absolute
 		z-index: 20
-		top: 0
+		top: 135px
 		left: 0
 		right: 0
-		// bottom: 0
-		max-height: 100%
+		bottom: 0
+		overflow: auto
+		height: auto
+		// max-height: 100%
 		background: #f8f8f8
 	&_form
+		position: fixed
 		display: none
 		padding-left: 20px
 		padding-right: 20px
@@ -24,9 +27,10 @@
 		+sm 
 			padding-left: 0
 			padding-right: 0
+			padding-bottom: 0
 		&.is-active,
 		&.is-open
-			position: relative
+			// position: relative
 			display: block
 			// opacity: 1
 			// visibility: visible

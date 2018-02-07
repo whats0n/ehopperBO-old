@@ -106,6 +106,7 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 			setTimeout(function() {
 				loader.fadeOut(duration);
 				success.fadeIn(duration, () => {
+					container.slick('slickNext');
 					success.addClass(ACTIVE);
 					forms.removeClass(ACTIVE);
 				});
