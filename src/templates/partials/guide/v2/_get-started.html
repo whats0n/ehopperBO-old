@@ -2,13 +2,13 @@
 <div class="g-box">
 	<!-- begin g-box__footer -->
 	<div class="g-box__footer">
-		<a href="#" class="v-guide-link v-guide-content__back" data-guide-form-close="upgrade"><i class="fa fa-angle-left"></i>Previous</a>
+		<a href="#" class="v-guide-link v-guide-content__back" data-guide-direction="prev"><i class="fa fa-angle-left"></i>Previous</a>
 		<div class="g-box__footer-row">
 			<div class="g-box__footer-col">
-				<button class="v-guide-btn v-guide-btn_gray v-guide-btn_wide g-box__btn" data-guide-direction="next">Skip Demo</button>
+				<button class="v-guide-btn v-guide-btn_wide g-box__btn">Skip Demo</button>
 			</div>
 			<div class="g-box__footer-col">
-				<button class="v-guide-btn v-guide-btn_wide g-box__btn" data-guide-form-open="upgrade">Skip Demo</button>
+				<button class="v-guide-btn v-guide-btn_gray v-guide-btn_wide g-box__btn">Skip Demo</button>
 			</div>
 		</div>
 	</div>
@@ -76,8 +76,8 @@
 								}
 							] %}
 								<li class="g-box-selection__item {{item.classList}}">
-									<label>
-										<input type="radio" name="get-started">
+									<input type="radio" name="get-started" id="{{item.id}}">
+									<label for="{{item.id}}">
 										<i class="fa fa-check"></i>
 									</label>
 									<a href="#" class="g-box-selection__container" {% if item.img and item.color %}style="background-image: url({{item.img}}); background-color: {{item.color}};"{% endif %}>

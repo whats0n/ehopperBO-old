@@ -34,14 +34,24 @@
 			cursor: pointer 
 			+rh($demoBreakpointSM)
 				padding-top: 10px
-			input
-				&:checked + .fa 
+			&:hover 
+				~ .g-box-selection__container
 					opacity: 1
+			&:before,
+			&:after
+				visibility: hidden
 			.fa 
 				color: $white
 				opacity: 0
 				font-size: 24px
 				transition: opacity 0.25s
+
+		input
+			&:checked 
+				~ label .fa 
+					opacity: 1
+				~ .g-box-selection__container
+					opacity: 1
 	&__container
 		position: relative
 		display: block

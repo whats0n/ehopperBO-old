@@ -5054,8 +5054,12 @@
   cursor: pointer;
 }
 
-.g-box-selection__item label input:checked + .fa {
+.g-box-selection__item label:hover ~ .g-box-selection__container {
   opacity: 1;
+}
+
+.g-box-selection__item label:before, .g-box-selection__item label:after {
+  visibility: hidden;
 }
 
 .g-box-selection__item label .fa {
@@ -5063,6 +5067,14 @@
   opacity: 0;
   font-size: 24px;
   transition: opacity 0.25s;
+}
+
+.g-box-selection__item input:checked ~ label .fa {
+  opacity: 1;
+}
+
+.g-box-selection__item input:checked ~ .g-box-selection__container {
+  opacity: 1;
 }
 
 .g-box-selection__container {
