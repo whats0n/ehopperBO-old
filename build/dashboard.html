@@ -312,14 +312,14 @@
 				</div>
 				<!--/ko-->
 			</div>
-			<div class="dashboard-bottom-part__col">
+			<div class="dashboard-bottom-part__col js-toggle">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/tasks', view: 'views/dashboard/widgets/tasks.html' }-->
 				<div class="tasks bo-widget" data-bind="with: model, css: { 'loading' : loading }" data-view="views/dashboard/widgets/tasks" data-active-view="true" style="">
 					<div class="tasks-header">
 						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/tasks.getting_started'">To Do List</span>
-						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText">Hide</div>
+						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText" onclick="toggleContent(event)">Hide</div>
 					</div>
-					<div class="tasks-body" data-bind="visible: !collapsedWidget()">
+					<div class="tasks-body js-toggle-content" data-bind="visible: !collapsedWidget()">
 						<table class="tasks-table">
 							<tbody data-bind="foreach: tasks">
 								
@@ -424,7 +424,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="tasks-footer">
+					<div class="tasks-footer js-toggle-content">
 						<div class="nav-buttons">
 							<input class="nav-button nav-button-add" type="button" data-bind="click: createNew">
 						</div>
@@ -433,19 +433,46 @@
 				</div>
 				<!--/ko-->
 			</div>
-			<div class="dashboard-bottom-part__col">
+			<div class="dashboard-bottom-part__col js-toggle">
 				<div class="tasks bo-widget">
 					<div class="tasks-header">
 						<span class="tasks-header-title">Getting Started</span>
-						<div class="header-collapse">Hide</div>
+						<div class="header-collapse" onclick="toggleContent(event)">Hide</div>
 					</div>
-					<div class="dashboard-bottom-part__video">
+					<div class="dashboard-bottom-part__video js-toggle-content">
 						<iframe src="https://www.youtube-nocookie.com/embed/_ueI01hQMZ0?showinfo=0" class="dashboard-bottom-part__video-iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 					</div>
 					
 				</div>
 			</div>
 		</div>
+
+		<script>
+			var SHOW = 'Show';
+			var HIDE = 'Hide';
+
+			function toggleContent(e) {
+				e.preventDefault();
+				var target = $(e.currentTarget);
+				switch (target.text()) {
+					case HIDE:
+						target.text(SHOW);
+						$(e.currentTarget)
+							.closest('.js-toggle')
+							.find('.js-toggle-content')
+							.css('visibility', 'hidden');
+						break;
+					case SHOW:
+						target.text(HIDE);
+						$(e.currentTarget)
+							.closest('.js-toggle')
+							.find('.js-toggle-content')
+							.css('visibility', 'inherit');
+						break;
+				}
+				
+			}
+		</script>
 
 		<!--ko compose: { model: 'viewmodels/dashboard/widgets/salesTransactions', view: 'views/dashboard/widgets/salesTransactions.html' }-->
 		<div class="salesBreakdown" data-bind="css : { 'loading' : loading }" data-view="views/dashboard/widgets/salesTransactions" data-active-view="true" style="">
