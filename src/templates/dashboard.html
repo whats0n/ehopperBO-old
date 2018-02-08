@@ -234,8 +234,8 @@ toolbar: true
 		</div>
 		<!--/ko-->
 
-		<div class="dashboard-bottom-part">
-			<div class="dashboard-bottom-part-left">
+		<div class="dashboard-bottom-part dashboard-bottom-part_triple">
+			<div class="dashboard-bottom-part__col">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/support', view: 'views/dashboard/widgets/support.html' }-->
 				<div class="support bo-widget" data-view="views/dashboard/widgets/support" data-active-view="true" style="">
 					<div class="support-header">
@@ -263,43 +263,53 @@ toolbar: true
 				</div>
 				<!--/ko-->
 			</div>
-			<div class="dashboard-bottom-part-right">
+			<div class="dashboard-bottom-part__col">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/tasks', view: 'views/dashboard/widgets/tasks.html' }-->
 				<div class="tasks bo-widget" data-bind="with: model, css: { 'loading' : loading }" data-view="views/dashboard/widgets/tasks" data-active-view="true" style="">
 					<div class="tasks-header">
-						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/tasks.getting_started'">Getting Started</span>
+						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/tasks.getting_started'">To Do List</span>
 						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText">Hide</div>
 					</div>
 					<div class="tasks-body" data-bind="visible: !collapsedWidget()">
 						<table class="tasks-table">
 							<tbody data-bind="foreach: tasks">
-								<tr>
-									<td class="tasks-column-checkbox" data-bind="click: doneTask">
-										<input class="checkbox" type="checkbox" data-bind="checked: isDone()"><label></label>
-									</td>
-									<td class="task-title checked" data-bind="text: name, click: itemClick, visible: !isEdit(), css : { checked: isDone() }">Set up your store</td>
-									<td class="task-title" data-bind="visible: isEdit()" style="display: none;">
-										<input class="textbox task-edit" type="text" data-bind="value: name, hasFocus: isEdit, local:'dashboard/widgets/tasks.my_custom_task' , localAttr: 'placeholder'" placeholder="My Custom Task"><span class="fieldError" style="display: none;"></span>
-									</td>
-									<td class="tasks-column-nav" data-bind="visible: isDefault, click: itemClick"></td>
-									<td class="tasks-column-remove" data-bind="visible: !isDefault()" style="display: none;">
-										<input class="delete-button" type="button" data-bind="click: deleteSelected">
-									</td>
-								</tr>
-							
-								<tr>
-									<td class="tasks-column-checkbox" data-bind="click: doneTask">
-										<input class="checkbox" type="checkbox" data-bind="checked: isDone()"><label></label>
-									</td>
-									<td class="task-title checked" data-bind="text: name, click: itemClick, visible: !isEdit(), css : { checked: isDone() }">Add items to inventory</td>
-									<td class="task-title" data-bind="visible: isEdit()" style="display: none;">
-										<input class="textbox task-edit" type="text" data-bind="value: name, hasFocus: isEdit, local:'dashboard/widgets/tasks.my_custom_task' , localAttr: 'placeholder'" placeholder="My Custom Task"><span class="fieldError" style="display: none;"></span>
-									</td>
-									<td class="tasks-column-nav" data-bind="visible: isDefault, click: itemClick"></td>
-									<td class="tasks-column-remove" data-bind="visible: !isDefault()" style="display: none;">
-										<input class="delete-button" type="button" data-bind="click: deleteSelected">
-									</td>
-								</tr>
+								{% for item in [
+									{
+										title: 'Set up Company'
+									},
+									{
+										title: 'Set up Store'
+									},
+									{
+										title: 'Set up Register'
+									},
+									{
+										title: 'Add Vendors'
+									},
+									{
+										title: 'Set up Inventory'
+									},
+									{
+										title: 'Add Employees'
+									},
+									{
+										title: 'Add Customers'
+									}
+								] %}
+									<tr>
+										<td class="tasks-column-checkbox" data-bind="click: doneTask">
+											<input class="checkbox" type="checkbox" data-bind="checked: isDone()" {{item.state | safe}}><label></label>
+										</td>
+										<td class="task-title {{item.state}}" data-bind="text: name, click: itemClick, visible: !isEdit(), css : { checked: isDone() }">{{item.title}}</td>
+										<td class="task-title" data-bind="visible: isEdit()" style="display: none;">
+											<input class="textbox task-edit" type="text" data-bind="value: name, hasFocus: isEdit, local:'dashboard/widgets/tasks.my_custom_task' , localAttr: 'placeholder'" placeholder="My Custom Task"><span class="fieldError" style="display: none;"></span>
+										</td>
+										<td class="tasks-column-nav" data-bind="visible: isDefault, click: itemClick"></td>
+										<td class="tasks-column-remove" data-bind="visible: !isDefault()" style="display: none;">
+											<input class="delete-button" type="button" data-bind="click: deleteSelected">
+										</td>
+									</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>
@@ -307,13 +317,33 @@ toolbar: true
 						<div class="nav-buttons">
 							<input class="nav-button nav-button-add" type="button" data-bind="click: createNew">
 						</div>
+						{#<div class="nav-buttons nav-task" style="float:right;">
+							<input class="nav-button nav-button-previous" type="button" id="prevTasks">
+							<input class="nav-button nav-button-next" type="button" id="nextTasks">
+						</div>#}
+					</div>
+				</div>
+				<!--/ko-->
+			</div>
+			<div class="dashboard-bottom-part__col">
+				<div class="tasks bo-widget">
+					<div class="tasks-header">
+						<span class="tasks-header-title">Getting Started</span>
+						<div class="header-collapse">Hide</div>
+					</div>
+					<div class="dashboard-bottom-part__video">
+						<iframe src="https://www.youtube-nocookie.com/embed/_ueI01hQMZ0?showinfo=0" class="dashboard-bottom-part__video-iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					</div>
+					{#<div class="tasks-footer">
+						<div class="nav-buttons">
+							<input class="nav-button nav-button-add" type="button" data-bind="click: createNew">
+						</div>
 						<div class="nav-buttons nav-task" style="float:right;">
 							<input class="nav-button nav-button-previous" type="button" id="prevTasks">
 							<input class="nav-button nav-button-next" type="button" id="nextTasks">
 						</div>
-					</div>
+					</div>#}
 				</div>
-				<!--/ko-->
 			</div>
 		</div>
 

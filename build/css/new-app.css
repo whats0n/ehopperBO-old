@@ -4826,7 +4826,8 @@
   z-index: 600;
 }
 
-.modal-upgrade .v-guide-content_form {
+.modal-upgrade .v-guide-content_form,
+.modal-upgrade .v-guide-content_success {
   position: fixed;
   top: 0;
   left: 0;
@@ -5184,6 +5185,31 @@
 .v-toolbar__content p {
   padding: 0;
   margin: 0;
+}
+
+.dashboard-bottom-part_triple {
+  margin: 0 -10px;
+}
+
+.dashboard-bottom-part__col {
+  float: left;
+  padding: 0 10px 10px;
+  width: 33.33333%;
+}
+
+.dashboard-bottom-part .dashboard-bottom-part__video {
+  padding: 20px;
+}
+
+.dashboard-bottom-part .dashboard-bottom-part__video-iframe {
+  width: 100%;
+  height: 253px;
+}
+
+.dashboard-bottom-part .tasks-body {
+  overflow: auto;
+  height: 233px;
+  max-height: none;
 }
 
 .n-container {
