@@ -13,6 +13,7 @@ $icon-alert: "\EA01";
 $icon-csv: "\EA02";
 $icon-facebook: "\EA03";
 $icon-pdf: "\EA04";
+$icon-upgrade: "\EA05";
 
 
 %icon {
@@ -35,3 +36,4 @@ $icon-pdf: "\EA04";
 .icon-csv:before { content: $icon-csv; }
 .icon-facebook:before { content: $icon-facebook; }
 .icon-pdf:before { content: $icon-pdf; }
+.icon-upgrade:before { content: $icon-upgrade; }

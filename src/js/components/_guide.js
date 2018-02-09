@@ -30,6 +30,12 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 		//upgrade screen
 		const upgrade = guide.find('[data-guide-upgrade]');
 
+		//demo
+		const demoSubmit = guide.find('.js-guide-demo-submit');
+		guide.find('.js-guide-demo-variant').on('change', e => {
+			demoSubmit.prop('disabled', false);
+		});
+
 		//functionality
 		formOpen.each((i, button) => {
 			button = $(button);
@@ -37,8 +43,7 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 
 			button.on('click', e => {
 				e.preventDefault();
-				form.addClass(ACTIVE);
-				upgrade.addClass(HIDDEN);
+				form.addClass(OPEN);
 			});
 		});
 
@@ -48,8 +53,7 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 
 			button.on('click', e => {
 				e.preventDefault();
-				form.removeClass(ACTIVE);
-				upgrade.removeClass(HIDDEN);
+				form.removeClass(OPEN);
 			});
 		});
 
@@ -77,9 +81,6 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 
 				const linePositionX = offset*next - 100;
 				line.css('transform', `translate3d(${linePositionX}%,0,0)`);
-			})
-			.on('afterChange', (e, slick, current) => {
-				success.hasClass(OPEN) && success.fadeOut(duration, () => success.removeClass(OPEN));
 			});
 
 		buttons.each((i, button) => {
@@ -105,28 +106,19 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 
 			setTimeout(function() {
 				loader.fadeOut(duration);
-				success.fadeIn(duration, () => {
+				success.addClass(OPEN);
+				forms.removeClass(OPEN);
+
+				setTimeout(() => {
 					container.slick('slickNext');
-					success.addClass(ACTIVE);
-					forms.removeClass(ACTIVE);
-				});
+				}, 200);
 			}, delay);
 		});
 
 		successClose.on('click', e => {
 			e.preventDefault();
-			success.fadeOut(duration, () => success.removeClass(ACTIVE));
+			success.removeClass(OPEN);
 		});
-
-		// controls.each((i, control) => {
-		// 	control = $(control);
-		// 	const step = control.data('guide-step');
-
-		// 	control.on('click', e => {
-		// 		e.preventDefault();
-		// 		container.slick('slickGoTo', step);
-		// 	});
-		// });
 	});
 
 

@@ -23,10 +23,36 @@ $stepWidth: 33.33%
 @import main
 
 .modal-upgrade
-	.v-guide-content_form, 
-	.v-guide-content_success
-		position: fixed
-		top: 0
-		left: 0
-		right: 0
-		bottom: 0
+	.g-box 
+		&_form,
+		&_success
+			position: fixed
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+		&_form
+			.g-box__close
+				+sm 
+					display: none
+		&_success
+			.g-box__center
+				overflow: visible
+				height: auto
+		&__container
+			overflow: visible
+			padding: 0
+			background: none
+			box-shadow: none
+			+sm 
+				overflow: auto
+				max-width: 100%
+				box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1)
+			.g-box__close
+				display: none
+				+sm 
+					display: block
+		.v-guide-form
+			padding-left: 20px
+			padding-right: 20px
+			box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1)

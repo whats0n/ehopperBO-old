@@ -518,14 +518,24 @@
 
 	
 	<div class="modal-upgrade" data-guide>
-	<!-- begin v-guide-content FORM -->
-<div class="v-guide-content v-guide-content_form v-guide-content_payment" data-modal-container="payment">
-	<button class="v-guide-content__close" data-modal-close="payment">
+	<!-- begin g-box PAYMENT FORM -->
+<div class="g-box g-box_form" data-guide-form="upgrade" data-modal-container="payment">
+	<button class="g-box__close" data-modal-close="payment">
 		<i class="fa fa-close"></i>
 	</button>
-	<div class="v-guide-content__inner v-guide-content__vertical">
-		<div class="v-guide-content__center">
-			<h2 class="v-guide-content__title">Upgrade to Freedom</h2>
+	<!-- begin g-box__footer -->
+	<div class="g-box__footer">
+		<button class="v-guide-btn v-guide-btn_wide g-box__btn" data-guide-submit>Complete</button>
+	</div>
+	<!-- end g-box__footer -->
+
+	<!-- begin g-box__inner -->
+	<div class="g-box__inner g-box__vertical">
+		<div class="g-box__container g-box__center">
+			<button class="g-box__close" data-modal-close="payment">
+				<i class="fa fa-close"></i>
+			</button>
+			<h2 class="g-box__title">Upgrade to&nbsp;Freedom</h2>
 			<div class="v-guide-form">
 	<div class="v-guide-form__container">
 		<div class="v-guide-form__row">
@@ -773,37 +783,32 @@
 </div>
 		</div>
 	</div>
-	<div class="v-guide-content__submit">
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-submit>Complete</button>
-	</div>
+	<!-- end g-box__inner -->
 </div>
-<!-- end v-guide-content FORM -->
-
+<!-- end g-box PAYMENT FORM -->
 	<div class="loader-container v-guide-loader" style="display: none;" data-loader></div>
 	
-<!-- begin v-guide-content SUCCESS PAYMENT -->
-<div class="v-guide-content v-guide-content_success v-box v-guide-content_payment" data-success>
+<!-- begin g-box SUCCESS PAYMENT -->
+<div class="g-box g-box_success v-box g-box_payment" data-success>
 	
-		<button class="v-guide-content__close" data-modal-close="payment" data-success-close>
+		<button class="g-box__close" data-modal-close="payment" data-success-close>
 			<i class="fa fa-close"></i>
 		</button>
 	
-	<div class="v-guide-content__inner v-guide-content__vertical">
-		<div class="v-guide-content__center">
-			<div class="v-box__container">
-				<div class="v-box__icon" data-animation="icon"> <i class="fa fa-check " aria-hidden="true"></i> </div>
-				<h3 class="v-box__title" data-animation="title">Thank you for your payment</h3>
-				<div class="v-box__description" data-animation="text">
-					<p>Your account has been upgraded to Freedom.</p>
-				</div>
+	<div class="g-box__footer" data-animation="form">
+		<button class="v-guide-btn v-guide-btn_wide g-box__btn" data-guide-direction="next" data-success-close data-modal-close="payment">Go To BackOffice <i class="fa fa-angle-right"></i></button>
+	</div>
+	<div class="g-box__inner g-box__vertical">
+		<div class="g-box__center">
+			<div class="v-box__icon" data-animation="icon"> <i class="fa fa-check " aria-hidden="true"></i> </div>
+			<h3 class="v-box__title" data-animation="title">Thank you for your payment</h3>
+			<div class="v-box__description" data-animation="text">
+				<p>Your account has been upgraded to Freedom.</p>
 			</div>
 		</div>
 	</div>
-	<div class="v-guide-content__submit" data-animation="form">
-		<button class="v-guide-btn v-guide-btn_wide v-guide-content__btn" data-guide-direction="next" data-success-close data-modal-close="payment">Go To BackOffice <i class="fa fa-angle-right"></i></button>
-	</div>
 </div>
-<!-- end v-guide-content SUCCESS PAYMENT -->
+<!-- end g-box SUCCESS PAYMENT -->
 </div>
 
 

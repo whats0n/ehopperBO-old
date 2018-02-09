@@ -1,0 +1,17 @@
+<div class="v-guide-steps v-guide-steps_lg v-guide__steps">
+	<div class="v-guide-steps__inner">
+		<ul class="v-guide-steps__list">
+			{% for item in screens %}
+				<li class="v-guide-steps__item {{item.classList}}" data-guide-step="{{loop.index0}}">
+					<div class="v-guide-steps__icon">
+						<i class="{{item.icon or 'fa fa-cog'}}"></i>
+					</div>
+					<div class="v-guide-steps__title">{{item.label}}</div>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="v-guide-steps__line">
+			<div class="v-guide-steps__line-in" data-guide-line></div>
+		</div>
+	</div>
+</div>
