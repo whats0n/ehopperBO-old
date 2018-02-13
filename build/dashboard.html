@@ -286,11 +286,12 @@
 		<div class="dashboard-bottom-part dashboard-bottom-part_triple">
 			<div class="dashboard-bottom-part__col">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/support', view: 'views/dashboard/widgets/support.html' }-->
-				<div class="support bo-widget" data-view="views/dashboard/widgets/support" data-active-view="true" style="">
-					<div class="support-header">
-						<span class="support-header-title" data-bind="local: 'dashboard/widgets/support.support_team'">Support</span>
+				<div class="tasks support bo-widget js-toggle" data-view="views/dashboard/widgets/support" data-active-view="true" style="">
+					<div class="tasks-header">
+						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/support.support_team'">Support</span>
+						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText" onclick="toggleContent(event)">Hide</div>
 					</div>
-					<div class="support-body">
+					<div class="support-body js-toggle-content" style="padding-top: 20px;">
 						<p><strong data-bind="local: 'dashboard/widgets/support.accountId'">Account ID:</strong> <span data-bind="text: enterpriseCode">0</span></p>
 						<p><strong data-bind="local: 'dashboard/widgets/support.webPosUrl'">Web POS URL:</strong> <a href="https://pos.ehopper.com/" target="_blank">https://pos.ehopper.com/</a></p>
 						<p>
@@ -302,8 +303,8 @@
 							<a href="Zendesk/Login" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.community'">Community</a>
 						</p>
 					</div>
-					<div class="support-separator"></div>
-					<div class="support-notes">
+					<div class="support-separator js-toggle-content"></div>
+					<div class="support-notes js-toggle-content">
 						<p>
 							<span class="green" data-bind="local: 'dashboard/widgets/support.note'">Note:</span>
 							<span data-bind="text: noteMessage">Use the chat below to learn how to upgrade to the Freedom Package with eHopper.</span>
@@ -460,14 +461,14 @@
 						$(e.currentTarget)
 							.closest('.js-toggle')
 							.find('.js-toggle-content')
-							.css('visibility', 'hidden');
+							.hide();
 						break;
 					case SHOW:
 						target.text(HIDE);
 						$(e.currentTarget)
 							.closest('.js-toggle')
 							.find('.js-toggle-content')
-							.css('visibility', 'inherit');
+							.show();
 						break;
 				}
 				
