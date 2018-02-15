@@ -12,24 +12,24 @@
 					fields: [
 						[
 							{
-								label: 'First Name <span>*</span>',
+								label: 'First Name',
 								wide: true
 							},
 							{
-								label: 'Last Name <span>*</span>',
+								label: 'Last Name',
 								wide: true
 							}
 						],
 						[
 							{
-								label: 'Card Number <span>*</span>',
+								label: 'Card Number',
 								error: 'Invalid or unsupported card number',
 								wide: true
 							}
 						],
 						[
 							{
-								label: 'Expiration Date <span>*</span>',
+								label: 'Expiration Date',
 								dates: [
 									{
 										options: [
@@ -50,7 +50,8 @@
 								]
 							},
 							{
-								label: 'Security Code <span>*</span>'
+								label: 'Security Code',
+								type: 'password'
 							}
 						]
 					]
@@ -86,7 +87,7 @@
 												{% endfor %}
 											</div>
 										{% else %}
-											<input type="text" class="form-control input-lg {% if item.error %}hasError{% endif %}">
+											<input type="{{item.type or 'text'}}" class="form-control input-lg {% if item.error %}hasError{% endif %}">
 											{% if item.error %}
 												<span class="fieldError v-guide-form__error">{{item.error}}</span>
 											{% endif %}
@@ -228,7 +229,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="v-guide-form__disclaimer">Do not include Poynt activations. <a href="#">Details</a></div>
+						<div class="v-guide-form__disclaimer">* Do not include Poynt activations. <a href="#">Details</a></div>
 					{% endif %}
 				</div>
 			{% endfor %}

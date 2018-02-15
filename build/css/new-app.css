@@ -4292,10 +4292,6 @@
   white-space: nowrap;
 }
 
-.v-guide-info__price-label span {
-  color: #ec4a41;
-}
-
 .v-spinner {
   position: relative;
   display: inline-block;
@@ -4492,8 +4488,10 @@
   left: 0;
   right: 0;
   bottom: 0;
+  padding: 0 20px;
   font-size: 14px;
   line-height: 16px;
+  text-align: left;
 }
 
 .v-guide-iframe {
@@ -6536,7 +6534,7 @@
 @media only screen and (max-width: 599px){
   .v-guide-form__disclaimer{
     position: relative;
-    padding-bottom: 20px;
+    padding: 0 0 20px;
   }
   .g-box__container{
     padding: 0 20px;
