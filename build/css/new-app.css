@@ -4292,6 +4292,10 @@
   white-space: nowrap;
 }
 
+.v-guide-info__price-label span {
+  color: #ec4a41;
+}
+
 .v-spinner {
   position: relative;
   display: inline-block;
@@ -4481,6 +4485,15 @@
   margin-top: -5px;
   font-size: 12px;
   line-height: 1;
+}
+
+.v-guide-form__disclaimer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .v-guide-iframe {
@@ -4883,6 +4896,7 @@
   right: 0;
   bottom: 0;
   height: auto;
+  min-height: 465px;
   opacity: 0;
   visibility: hidden;
   background: #f8f8f8;
@@ -5297,7 +5311,7 @@
 }
 
 .dashboard-bottom-part .dashboard-bottom-part__video {
-  padding: 20px;
+  padding: 21px 20px 20px;
 }
 
 .dashboard-bottom-part .dashboard-bottom-part__video-iframe {
@@ -5306,9 +5320,18 @@
 }
 
 .dashboard-bottom-part .tasks-body {
+  clear: both;
   overflow: auto;
   height: 233px;
   max-height: none;
+}
+
+.dashboard-bottom-part .tasks-header {
+  margin-bottom: -1px;
+}
+
+.dashboard-bottom-part .tasks {
+  min-height: 60px;
 }
 
 .n-container {
@@ -6511,6 +6534,10 @@
 }
 
 @media only screen and (max-width: 599px){
+  .v-guide-form__disclaimer{
+    position: relative;
+    padding-bottom: 20px;
+  }
   .g-box__container{
     padding: 0 20px;
   }

@@ -235,8 +235,8 @@ toolbar: true
 		<!--/ko-->
 
 		<div class="dashboard-bottom-part dashboard-bottom-part_triple">
-			<div class="dashboard-bottom-part__col js-toggle">
-				<div class="tasks bo-widget">
+			<div class="dashboard-bottom-part__col">
+				<div class="tasks bo-widget js-toggle">
 					<div class="tasks-header">
 						<span class="tasks-header-title">Getting Started</span>
 						<div class="header-collapse" onclick="toggleContent(event)">Hide</div>
@@ -255,9 +255,9 @@ toolbar: true
 					</div>#}
 				</div>
 			</div>
-			<div class="dashboard-bottom-part__col js-toggle">
+			<div class="dashboard-bottom-part__col">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/tasks', view: 'views/dashboard/widgets/tasks.html' }-->
-				<div class="tasks bo-widget" data-bind="with: model, css: { 'loading' : loading }" data-view="views/dashboard/widgets/tasks" data-active-view="true" style="">
+				<div class="tasks bo-widget js-toggle" data-bind="with: model, css: { 'loading' : loading }" data-view="views/dashboard/widgets/tasks" data-active-view="true" style="">
 					<div class="tasks-header">
 						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/tasks.getting_started'">To Do List</span>
 						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText" onclick="toggleContent(event)">Hide</div>
@@ -319,29 +319,31 @@ toolbar: true
 			</div>
 			<div class="dashboard-bottom-part__col">
 				<!--ko compose: { model: 'viewmodels/dashboard/widgets/support', view: 'views/dashboard/widgets/support.html' }-->
-				<div class="tasks support bo-widget js-toggle" data-view="views/dashboard/widgets/support" data-active-view="true" style="">
+				<div class="tasks support bo-widget js-toggle" data-view="views/dashboard/widgets/support" data-active-view="true" style="padding-bottom: 0;">
 					<div class="tasks-header">
 						<span class="tasks-header-title" data-bind="local: 'dashboard/widgets/support.support_team'">Support</span>
 						<div class="header-collapse" data-bind="click: triggerCollapse, text: collapseText" onclick="toggleContent(event)">Hide</div>
 					</div>
-					<div class="support-body js-toggle-content" style="padding-top: 20px;">
-						<p><strong data-bind="local: 'dashboard/widgets/support.accountId'">Account ID:</strong> <span data-bind="text: enterpriseCode">0</span></p>
-						<p><strong data-bind="local: 'dashboard/widgets/support.webPosUrl'">Web POS URL:</strong> <a href="https://pos.ehopper.com/" target="_blank">https://pos.ehopper.com/</a></p>
-						<p>
-							<strong data-bind="local: 'dashboard/widgets/support.onlineHelp'">Online Help:</strong>
-							<a href="Zendesk/Login?goto=1" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.knowledgeBase'">Knowledge Base</a>
-						</p>
-						<p>
-							<strong data-bind="local: 'dashboard/widgets/support.communityLabel'">Community:</strong>
-							<a href="Zendesk/Login" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.community'">Community</a>
-						</p>
-					</div>
-					<div class="support-separator js-toggle-content"></div>
-					<div class="support-notes js-toggle-content" style="height: 99px;">
-						<p>
-							<span class="green" data-bind="local: 'dashboard/widgets/support.note'">Note:</span>
-							<span data-bind="text: noteMessage">Use the chat below to learn how to upgrade to the Freedom Package with eHopper.</span>
-						</p>
+					<div class="js-toggle-content">
+						<div class="support-body" style="padding: 20px 20px 0;">
+							<p><strong data-bind="local: 'dashboard/widgets/support.accountId'">Account ID:</strong> <span data-bind="text: enterpriseCode">0</span></p>
+							<p><strong data-bind="local: 'dashboard/widgets/support.webPosUrl'">Web POS URL:</strong> <a href="https://pos.ehopper.com/" target="_blank">https://pos.ehopper.com/</a></p>
+							<p>
+								<strong data-bind="local: 'dashboard/widgets/support.onlineHelp'">Online Help:</strong>
+								<a href="Zendesk/Login?goto=1" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.knowledgeBase'">Knowledge Base</a>
+							</p>
+							<p>
+								<strong data-bind="local: 'dashboard/widgets/support.communityLabel'">Community:</strong>
+								<a href="Zendesk/Login" target="_blank" data-bind="click: checkNickname, local: 'dashboard/widgets/support.community'">Community</a>
+							</p>
+						</div>
+						<div class="support-separator"></div>
+						<div class="support-notes" style="height: 118px;">
+							<p>
+								<span class="green" data-bind="local: 'dashboard/widgets/support.note'">Note:</span>
+								<span data-bind="text: noteMessage">Use the chat below to learn how to upgrade to the Freedom Package with eHopper.</span>
+							</p>
+						</div>
 					</div>
 				</div>
 				<!--/ko-->
