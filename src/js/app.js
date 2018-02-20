@@ -17,3 +17,4 @@ import './components/_dropdown';
 import './components/_configurable';
 
 import './components/_guide';
+import './components/_videos';
