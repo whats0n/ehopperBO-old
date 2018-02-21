@@ -1,0 +1,130 @@
+---
+title: Product Mix Report
+headerTitle: Product Mix Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body v-report">
+		<div class="v-report__top-line">
+			<div class="v-search v-report__search">
+				<div class="v-search__label">Search by:</div>
+				<div class="v-search__row">
+					<div class="v-search__select">
+						<select>
+							{% for item in [
+								'ID',
+								'Item',
+								'Department',
+								'Category',
+								'Register'
+							] %}
+								<option value="{{item}}">{{item}}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="v-search__field">
+						<input class="form-control input-lg datatable-search" type="text">
+					</div>
+					<div class="v-search__btn">
+						<button type="button" class="btn btn-lg btn-primary">Search</button>
+					</div>
+				</div>
+			</div>
+			<div class="v-report__controls">
+				<div class="tips-filter no-margin pull-right">
+					<date-filter params="value: dateRange">
+						<div class="pull-right">
+							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								&nbsp;
+								<span>Today</span> 
+								<b class="caret"></b>
+							</div>
+						</div>
+					</date-filter>
+				</div>
+				<div class="report-export-wrapper pull-right">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
+			</div>
+		</div>
+		<div class="v-report__middle-line">
+			<div class="v-filters">
+				<div class="v-filters__row">
+					{% for item in [
+						{
+							label: 'Stores:',
+							select: {
+								multiple: true
+							}
+						},
+						{
+							label: 'Department:',
+							select: {
+								options: [ 'Department 1', 'Department 2', 'Department 3', 'Department 4', 'Department 5' ]
+							}
+						},
+						{
+							label: 'Category:',
+							select: {
+								options: [ 'Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5' ]
+							}
+						},
+						{
+							label: 'Register:',
+							select: {
+								options: [ 'Register 1', 'Register 2', 'Register 3', 'Register 4', 'Register 5' ]
+							}
+						},
+						{
+							label: 'Employee:',
+							select: {
+								options: [ 'Employee 1', 'Employee 2', 'Employee 3', 'Employee 4', 'Employee 5' ]
+							}
+						}
+					] %}
+						<div class="v-filters__col">
+							<div class="v-filters__label">{{item.label}}</div>
+							{% if item.select.multiple %}
+								{% include 'partials/_multiselect.html' %}
+							{% endif %}
+							{% if item.select and not item.select.multiple %}
+								<select>
+									{% for item in item.select.options %}
+										<option value="{{item}}">{{item}}</option>
+									{% endfor %}
+								</select>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="v-report__main">
+			<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+				<div id="productMixReportTable_filter" class="dataTables_filter">
+					<label>
+						Search:
+						<input type="search" class="" placeholder="" aria-controls="productMixReportTable">
+					</label>
+				</div>
+				<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+				<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+					<thead>
+						<tr role="row"><th data-bind="local: 'reports/productMixReport.id'" class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th><th data-bind="local: 'reports/productMixReport.item'" class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Item: Activate to sort by descending columns" aria-sort="ascending">Item</th><th data-bind="local: 'reports/productMixReport.department'" style="width: 140px;" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns">Department</th><th data-bind="local: 'reports/productMixReport.category'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns">Category</th><th data-bind="local: 'reports/productMixReport.register'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th><th data-bind="local: 'reports/productMixReport.store'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th><th data-bind="local: 'reports/productMixReport.employee'" class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th><th data-bind="local: 'reports/productMixReport.min_qty'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th><th data-bind="local: 'reports/productMixReport.quantity'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity</th><th data-bind="local: 'reports/productMixReport.qty_sold'" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th><th data-bind="local: 'reports/productMixReport.cogs'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="COGS: Activate to sort by ascending columns">COGS</th><th data-bind="local: 'reports/productMixReport.gross_sales'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Sales: Activate to sort by ascending columns">Gross Sales</th><th data-bind="local: 'reports/productMixReport.discounts'" style="width: 120px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Discounts: Activate to sort by ascending columns">Discounts</th><th data-bind="local: 'reports/productMixReport.refunds'" style="width: 110px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Refunds: Activate to sort by ascending columns">Refunds</th><th data-bind="local: 'reports/productMixReport.netSales'" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Net Sales: Activate to sort by ascending columns">Net Sales</th><th data-bind="local: 'reports/productMixReport.grossProfit'" style="width: 90px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Profit: Activate to sort by ascending columns">Gross Profit</th><th data-bind="local: 'reports/productMixReport.grossMargin'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Gross Margin: Activate to sort by ascending columns">Gross Margin</th><th data-bind="local: 'reports/productMixReport.taxAmount'" style="width: 110px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">Tax Amount</th></tr>
+							</thead>
+							<tfoot>
+								<tr>
+								<th class="row-expandable" colspan="6" data-bind="local: 'reports/productMixReport.total'" rowspan="1">
+									<button type="button" class="btn btn-lg btn-primary btn_loader is-loading">Generate Total</button>
+								</th>
+								<th class="text-right row-expandable" colspan="1" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th><th class="numeric-data" rowspan="1" colspan="1">35</th><th class="numeric-data" rowspan="1" colspan="1">69</th><th class="numeric-data" rowspan="1" colspan="1">36</th><th class="numeric-data break-word" rowspan="1" colspan="1">$110.56</th><th class="numeric-data break-word" rowspan="1" colspan="1">$510.12</th><th class="numeric-data break-word" rowspan="1" colspan="1">$0.00</th><th class="numeric-data break-word" rowspan="1" colspan="1">$293.50</th><th class="numeric-data break-word" rowspan="1" colspan="1">$216.62</th><th class="numeric-data break-word" rowspan="1" colspan="1">$106.06</th><th class="numeric-data break-word" rowspan="1" colspan="1">48.96%</th><th class="numeric-data break-word" rowspan="1" colspan="1">$10.85</th></tr>
+							</tfoot>
+						<tbody><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">6542</td><td class="sorting_1">Cake</td><td>Hot Drinks1</td><td>bgfb</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">15</td><td class=" numeric-data">-36</td><td class=" numeric-data">1</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$2.50</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$2.50</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word"></td><td class=" numeric-data break-word">$0.00</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">6494</td><td class="sorting_1">Chocolate </td><td>Hot Drinks</td><td>Tea</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data"></td><td class=" numeric-data">3</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$1.62</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$1.62</td><td class=" numeric-data break-word">$1.62</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$0.09</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">6496</td><td class="sorting_1">Cocktail</td><td>Hot Drinks</td><td>Tea</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data"></td><td class=" numeric-data">2</td><td class=" numeric-data  break-word">$13.06</td><td class=" numeric-data break-word">$24.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$24.00</td><td class=" numeric-data break-word">$10.94</td><td class=" numeric-data break-word">45.58%</td><td class=" numeric-data break-word">$1.20</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">6488</td><td class="sorting_1">Mango</td><td>Hot Drinks</td><td>Tea</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">105</td><td class=" numeric-data">2</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$5.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$5.00</td><td class=" numeric-data break-word">$5.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$0.26</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">6651</td><td class="sorting_1">marker</td><td>Stationery</td><td>Pens</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">-18</td><td class=" numeric-data">2</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$24.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$12.00</td><td class=" numeric-data break-word">$12.00</td><td class=" numeric-data break-word">$12.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$0.60</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">6652</td><td class="sorting_1">marker2</td><td>Stationery</td><td>Pens</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">-11</td><td class=" numeric-data">4</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$68.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$17.00</td><td class=" numeric-data break-word">$51.00</td><td class=" numeric-data break-word">$51.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$2.55</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">6492</td><td class="sorting_1">Mint</td><td>Hot Drinks</td><td>Tea</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">105</td><td class=" numeric-data">1</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$1.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$1.00</td><td class=" numeric-data break-word">$1.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$0.05</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">6503</td><td class="sorting_1">Pasta</td><td>Hot Drinks</td><td>Tea</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data"></td><td class=" numeric-data">3</td><td class=" numeric-data  break-word">$13.50</td><td class=" numeric-data break-word">$45.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$30.00</td><td class=" numeric-data break-word">$15.00</td><td class=" numeric-data break-word">$1.50</td><td class=" numeric-data break-word">10%</td><td class=" numeric-data break-word">$0.75</td></tr><tr class="editable odd" data-bind="click: selectItem" role="row"><td class=" row-expandable">6506</td><td class="sorting_1">Pen1</td><td>Stationery</td><td>Pens</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">-28</td><td class=" numeric-data">2</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$22.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$22.00</td><td class=" numeric-data break-word">$22.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$1.10</td></tr><tr class="editable even" data-bind="click: selectItem" role="row"><td class=" row-expandable">6507</td><td class="sorting_1">Pen2</td><td>Stationery</td><td>Pens</td><td>regNamebcav2231</td><td>WestGuestCafe</td><td>Admin Admin</td><td class=" numeric-data">0</td><td class=" numeric-data">-25</td><td class=" numeric-data">1</td><td class=" numeric-data  break-word">$0.00</td><td class=" numeric-data break-word">$4.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$0.00</td><td class=" numeric-data break-word">$4.00</td><td class=" numeric-data break-word">$4.00</td><td class=" numeric-data break-word">100%</td><td class=" numeric-data break-word">$0.20</td></tr></tbody></table>
+
+						<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0" id="productMixReportTable_next">Next</a></div></div>
+		</div>
+	</div>
+{% endblock %}
