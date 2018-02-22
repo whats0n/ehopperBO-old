@@ -14,10 +14,7 @@ headerTitle: Product Mix Report
 						<select>
 							{% for item in [
 								'ID',
-								'Item',
-								'Department',
-								'Category',
-								'Register'
+								'Item'
 							] %}
 								<option value="{{item}}">{{item}}</option>
 							{% endfor %}
@@ -141,24 +138,19 @@ headerTitle: Product Mix Report
 					</thead>
 					<tfoot>
 						<tr>
-							<th class="row-expandable" colspan="8" data-bind="local: 'reports/productMixReport.total'" rowspan="1">
-								<button type="button" class="btn btn-lg btn-primary btn_loader">Generate Total</button>
-							</th>
-							{#
-							<th class="text-right row-expandable" colspan="1" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th>
-							<th class="numeric-data" rowspan="1" colspan="1">35</th>
-							<th class="numeric-data" rowspan="1" colspan="1">69</th>
-							<th class="numeric-data" rowspan="1" colspan="1">36</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$110.56</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$510.12</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$0.00</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$293.50</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$216.62</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$106.06</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">48.96%</th>
-							<th class="numeric-data break-word" rowspan="1" colspan="1">$10.85</th>
+							<th class="text-right row-expandable" colspan="2" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th>
+							<th class="numeric-data text-right" rowspan="1" colspan="1">15</th>
+							<th class="numeric-data text-right" rowspan="1" colspan="1">92</th>
+							<th class="numeric-data text-right" rowspan="1" colspan="1">21</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$110.56</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$510.12</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$0.00</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$293.50</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$216.62</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$106.06</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">48.96%</th>
+							<th class="numeric-data break-word text-right" rowspan="1" colspan="1">$10.85</th>
 						</tr>
-						#}
 					</tfoot>
 					<tbody>
 						<tr class="editable odd" data-bind="click: selectItem" role="row">
