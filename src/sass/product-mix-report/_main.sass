@@ -36,3 +36,26 @@
 		opacity: 0
 		background: url(../img/loader.gif) no-repeat center center rgba($white, 0.9)
 		transition: opacity 0.175s
+
+table.datatable > thead > tr > th
+	&.is-sorting
+		position: relative
+		cursor: pointer
+		&:before,
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			right: 10px
+		&:before
+			margin-top: -9px
+			+arr(12, 8, #b5b8c1, t)
+		&:after
+			margin-top: 1px
+			+arr(12, 8, #b5b8c1, b)
+	&.is-sorting_up
+		&:before
+			border-bottom-color: $blue
+	&.is-sorting_down
+		&:after
+			border-top-color: $blue
