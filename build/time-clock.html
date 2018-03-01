@@ -1,0 +1,692 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Time Clock</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Time Clock</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body item-list">
+		<div class="row list-filters" data-bind="with: filter">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<div>
+								<label data-bind="local: 'reports/productMixReport.register_filter'">Register:</label>
+							</div>
+							<div>
+								<select data-bind="value: registerId, event: { change: $root.filter.apply.bind($root) }" style="max-width: 100%;">
+									<option data-bind="attr: { value: '' },local: 'reports/productMixReport.all'" value="">All</option>
+									<!-- ko foreach: registers -->
+									<option data-bind="attr: { value: id }, text: name" value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option>
+									<option data-bind="attr: { value: id }, text: name" value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option>
+									<option data-bind="attr: { value: id }, text: name" value="086eba2fd48f42769dcbe0572468661f">BestRegister</option>
+									<option data-bind="attr: { value: id }, text: name" value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option>
+									<option data-bind="attr: { value: id }, text: name" value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option>
+									<option data-bind="attr: { value: id }, text: name" value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option>
+									<option data-bind="attr: { value: id }, text: name" value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option>
+									<option data-bind="attr: { value: id }, text: name" value="24649d7ca7d949df83604b88f63b95f4">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option>
+									<option data-bind="attr: { value: id }, text: name" value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option>
+									<option data-bind="attr: { value: id }, text: name" value="32dd841316074f6d951d59796589f9d6">Register 4</option>
+									<option data-bind="attr: { value: id }, text: name" value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option>
+									<option data-bind="attr: { value: id }, text: name" value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option>
+									<option data-bind="attr: { value: id }, text: name" value="379097eeea95461082c1841402e8030a">Register 35</option>
+									<option data-bind="attr: { value: id }, text: name" value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option>
+									<option data-bind="attr: { value: id }, text: name" value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option>
+									<option data-bind="attr: { value: id }, text: name" value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option>
+									<option data-bind="attr: { value: id }, text: name" value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option>
+									<option data-bind="attr: { value: id }, text: name" value="4b0795c6abbc45059c24160fd5774c89">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="4bc8f4727dc44d6284275192864c0796">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option>
+									<option data-bind="attr: { value: id }, text: name" value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option>
+									<option data-bind="attr: { value: id }, text: name" value="52e976234a594a6d909e66b21df87fa8">Register 34</option>
+									<option data-bind="attr: { value: id }, text: name" value="55e51ce0376742108d6162dea4bc45a9">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option>
+									<option data-bind="attr: { value: id }, text: name" value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option>
+									<option data-bind="attr: { value: id }, text: name" value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option>
+									<option data-bind="attr: { value: id }, text: name" value="5c494aa7523840ef92c3af57daab37f5">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option>
+									<option data-bind="attr: { value: id }, text: name" value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option>
+									<option data-bind="attr: { value: id }, text: name" value="687c22e0523f4c3e8684d12826d50a01">Register 25</option>
+									<option data-bind="attr: { value: id }, text: name" value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option>
+									<option data-bind="attr: { value: id }, text: name" value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="70e8af6258234907a4cea7ee2972bbba">Register 15</option>
+									<option data-bind="attr: { value: id }, text: name" value="71584beb246e4c11a0e795eac9075a14">New Register2</option>
+									<option data-bind="attr: { value: id }, text: name" value="738da54718994c95a48b07a2c47b542b">Register 32</option>
+									<option data-bind="attr: { value: id }, text: name" value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option>
+									<option data-bind="attr: { value: id }, text: name" value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="7719029c877c4f80b549ddbf84b2354f">Register 22</option>
+									<option data-bind="attr: { value: id }, text: name" value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option>
+									<option data-bind="attr: { value: id }, text: name" value="77851291483b41e3a7f69a2b051425c8">Register 48</option>
+									<option data-bind="attr: { value: id }, text: name" value="7a8eea70f05140469d399ae5c75f472d">Register 4</option>
+									<option data-bind="attr: { value: id }, text: name" value="7bfc860628744ec3a48067555adee08f">Register 373</option>
+									<option data-bind="attr: { value: id }, text: name" value="7ceda4082230456b953fa1597bcb0d54">Register 45</option>
+									<option data-bind="attr: { value: id }, text: name" value="80c333a78565473ea0018543a47cd49a">Register 3</option>
+									<option data-bind="attr: { value: id }, text: name" value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option>
+									<option data-bind="attr: { value: id }, text: name" value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option>
+									<option data-bind="attr: { value: id }, text: name" value="8978fa57b78841a5be89451a86d0e93e">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="91498eecf1234acebc2236b574b20327">Register 0</option>
+									<option data-bind="attr: { value: id }, text: name" value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option>
+									<option data-bind="attr: { value: id }, text: name" value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option>
+									<option data-bind="attr: { value: id }, text: name" value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option>
+									<option data-bind="attr: { value: id }, text: name" value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option>
+									<option data-bind="attr: { value: id }, text: name" value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option>
+									<option data-bind="attr: { value: id }, text: name" value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option>
+									<option data-bind="attr: { value: id }, text: name" value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="a46892a1be6042258ff58e60a5f1582b">Register 2</option>
+									<option data-bind="attr: { value: id }, text: name" value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option>
+									<option data-bind="attr: { value: id }, text: name" value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option>
+									<option data-bind="attr: { value: id }, text: name" value="a914faab24d547d39d308a026c2eb55e">Register 5</option>
+									<option data-bind="attr: { value: id }, text: name" value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="af2622606349469584ac527a17f57eb2">Register a</option>
+									<option data-bind="attr: { value: id }, text: name" value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option>
+									<option data-bind="attr: { value: id }, text: name" value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option>
+									<option data-bind="attr: { value: id }, text: name" value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option>
+									<option data-bind="attr: { value: id }, text: name" value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option>
+									<option data-bind="attr: { value: id }, text: name" value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option>
+									<option data-bind="attr: { value: id }, text: name" value="ce7907f2c2f2486584520c68de478121">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="ced31ed315ee49128a42183bca6302ea">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option>
+									<option data-bind="attr: { value: id }, text: name" value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option>
+									<option data-bind="attr: { value: id }, text: name" value="d976d5d3489145578e19624ae03b1f9b">Register 49</option>
+									<option data-bind="attr: { value: id }, text: name" value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option>
+									<option data-bind="attr: { value: id }, text: name" value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option>
+									<option data-bind="attr: { value: id }, text: name" value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option>
+									<option data-bind="attr: { value: id }, text: name" value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option>
+									<option data-bind="attr: { value: id }, text: name" value="e2ddf75799df4d89818184196787fe14">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="e789e6518ae04360a8564863ff760f23">Register 1</option>
+									<option data-bind="attr: { value: id }, text: name" value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option>
+									<option data-bind="attr: { value: id }, text: name" value="e993ba8444b3484b85f24230945783ac">Register 20</option>
+									<option data-bind="attr: { value: id }, text: name" value="eacf243055df4cc28de04e788b4c341d">BestRegister</option>
+									<option data-bind="attr: { value: id }, text: name" value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option>
+									<option data-bind="attr: { value: id }, text: name" value="f24e699965944981a3770e4eeafc60f9">Register 41</option>
+									<option data-bind="attr: { value: id }, text: name" value="f2a3a22cb5624890bae5ee775a326553">Register 46</option>
+									<option data-bind="attr: { value: id }, text: name" value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option>
+									<option data-bind="attr: { value: id }, text: name" value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option>
+									<option data-bind="attr: { value: id }, text: name" value="f546823618a449b3bcda2ca71a314703">Register 30</option>
+									<option data-bind="attr: { value: id }, text: name" value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+									<!-- /ko -->
+								</select>
+							</div>
+						</td>
+						<td>
+							<div>
+								<label data-bind="local: 'reports/productMixReport.employee_filter'">Employee:</label>
+							</div>
+							<div>
+								<select data-bind="value: employeeId, event: { change: $root.filter.apply.bind($root) }" style="max-width: 100%;">
+									<option data-bind="attr: { value: '' }, local: 'reports/productMixReport.all'" value="">All</option>
+									<!-- ko foreach: employees -->
+									<option data-bind="attr: { value: id }, text: nameForShow" value="0064ccd67f2d485e99a787c015e9bdc5">Password  W...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="008102a9a7994c30be368f93339a35e6">Mustapha Ib...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="00da0fbdbac6487bb163ac438b192321">аууцауц аац...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpso...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="055aeb74235442628743d35b8bdb706b">Monica Levo...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="068d977fcfa6482082d9fb63f0b43927">111 222</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="07cf5af030bd4b8f80ad3e2213152dc2">Anna A</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="098538221fd34627ad05a51bf1b8354c">Sarah Berna...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Ni...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="0a3e89b89c2a4a3c9236095fd432267f">stop fsfds</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="0af0a01631114ccfa3d18a21220b17a2">mrgoroRU ad...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="0b42a829bde74d85bd39c1c474227026">new_Admin n...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="0ebe4042c2384684b6dbc992f4ff9980">Test 930-1 ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="1131cc032fa649e7b26180d630490947">aaa aaaa</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="12b10ed4c762451590027498e4bb7ed1">Victoria Fo...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="132657e0ea6349b7bb9c37f8b9fc5d0e">DENIS_boo2 ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="144248d117da4a8ca2cea36bd470a9db">qqqq wwww</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="19a6850d680a4836870741211f5c09e8">T  employee</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperat...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="1f1a6f6f382843168693af6291b154c0">Assigned to...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2116d128f1ad422cac6345e1f53e0b88">First Last</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="26404ef28b894cef91cf0287b290a679">Fritz Schne...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  tes...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2992b3f39cad41819a8107433978a496">Namegbvs750...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2c038f37426f46babe0fedf1160fa5bc">www eee</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2c7c33e89874465ab74785ee0d2de982">mrgoro admi...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2d942f8ee18c42578c6f8c70aa738385">test 4.0.1 ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2e4914367e454bef9a8cb85101eca175">DENIS_foo N...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2f0d416bd0f941adb827a962ce85fa85">fsdrgf gdrg</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="2fdf21bf70fb4e4cb86325c49a7d803f">ManSale Man...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="30d72b420bf7438fa022c15c013ff5b7">mrgoroRU ad...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="3615390c21f842d8af56a84e81fd17c8">David Crunc...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="371ac292ea6944bebbadc98372c25d27">Amber  Quee...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="392244955e7e415dbca72b3f1e48a9d0">qwert1 qwer...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manag...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="400ae077420448afbcf3716cd98bd458">Vasyan Muda...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="41cdd8e7e2bd48128b9c4ff333ede1a4">BO Operator</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="41edfc5425f445cb88ecd8b282b7e121">Philip Phil...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="41fdf8859ee54da9955476cb678b6bbe">1234 1234</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4486076bf69946b3aa3153fc307ce7d0">John Johnso...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="452c000dadf84502835e0ac29104f16b">Test switch...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4552516b1ca04d5b94c3e602eece9f5b">wd dwd</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4cf964c0da074b5e98685185f930c684">SSD SSD</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4fd883f92cf34d76ab95bb5114907c61">yandex yand...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="4ffa2646f7cf48178f982f042a0d17e9">B2B NY</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5336868d3d5b47698924b253452f449c">Sales11111 ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="535242c20ce0488fb2367de9269fb292">Ralph  Laur...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="541507509ef646fabcf5e8dfedd5273d">agan test 9...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="545fd95f6c5e46cea071c70a8e08d62f">BO operator...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="54cee707365a4b468a635048b84b8303">asd asd</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5541219a5f784d6291574cbab683475d">12345 12345</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="57621a13a205476696b84672e037ebbf">prem123 pre...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5a5bfe8b2f44459baf6f2641df1ec82b">5 5</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5bffa659e83049ffa4ee0064de5aeda8">qqq www</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5f066f3f622648b7aa684ea13451391e">mrgoro BOO</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="5fa57628723946068287f918ff46c08c">Veniamin Zo...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="611d770d605c4f7a93f4f969fe48320d">Ralphe Laur...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="61795d9fb4f04bc8a17cb6dae80310d1">Jim Beam</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="62a55ed55bce4ee2bef28c6f62dbb242">Namesupc718...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="686173151f5c4bf78a1c4f6d448f4fc2">dfsd ffds</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Marti...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="6f2699651f294de88e907b687fe4908f">Danny Nikif...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="706ebd30b00540ef91b5d581850660f9">LongTestNam...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="70d1613e0f1245999ad39b34721f3ae9">Spanish Lan...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7312b47aa37c402c9501e8b59e4d768e">qqqqqqqqq f...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="75599e38ddc245fdb98ab711c318c4da">New SAles P...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="75d2432f5dce49479dc5db2052d06386">Ope Rator</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="768f73d50d2942169f31992e09f8a164">qqq qqqw</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7893395e97c942678cd697b74ed75fdb">111 222</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7b5085958dbd4ac6be452cd19359b2b3">salesmanage...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7b7a229efbd04e3da177532734ce8f61">xs xsa</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7bb37e23793843259ed7fcd71c33326a">165 263</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="80787208f87848148b22f20c0ebd6d70">manager m1</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8193afcae06049849c8161fd173be4c0">TestFidd Te...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="82e68a05827641eb81d403bc020e754b">nota nota</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="85bb776f19474de888fbd06e737da56b">agan agan</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8602a23991aa4a88ae355f9d93073318">вм вм</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8a59e7f2b2594416ad0a7f53089047d4">qqq qqq</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8b4b7a4c46b7458da20b7851d10e68d7">mrgoroRU ad...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8cb547d0569d40de8b70554686872c9c">vf vf</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8d23fd1ee3d54920a979e99fef01fc8a">Sale Person...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8f2b3d176e394808b4d0a063bbb4c3c9">wd dwd</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="8f7ef56c16b343e98372b7e1a8344b60">David Crack</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="95357448820b420399b82a803d1166b5">Axe Effect</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="953b08e4918c4f79912b66169e484e6f">qwert qwert...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Admini...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a341c54d308f45468e992ad12439dc56">Test_SaleMa...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a41e326882594d30821117538cab2e71">rrrfew cdsa...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a47bcda9e73a4184ae9505d232ccb13a">www eee</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a860c3b9a0994964a0c40c46633e36d4">aaa aa</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a8f42703537745ce8a1bed5c7d5bfe8b">TestFidd3 T...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Kova...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="a9daa0c323bc46b4bcc81458cc203927">French Empl...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="abcc39a86ce54758a873b99882821f21">Sam Black</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="ae8363b1124646ca8036a1de68857276">Gomer Simps...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="b404a46870914ae5bc710a05b7148963">alex3 sales</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpso...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="b66f23b9ee984471a56474620bb57f87">Steve Worke...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="b88fc2f1a24c42c780dd1c2989be86d6">test emo te...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="b8f770a1477a43bc9ca8b32dec2c503c">Antonio Gan...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="bbd9c1ce17d949c8b55b24b53a3d016a">BO Operator</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="bc57763152404f7787e6ae9f7d1a7d51">qqq www</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="bc7f710af9f9421ea3e1edbf3b953500">Vasya Pupki...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="bc96a3b1ea3347df92a8fda75185e88a">Namehhvf668...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="bdfdafa31e0341e88b4270923045a344">sss 434</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c0367771dc8049d480ad46d32e14d49b">1 1</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c196810e43174c259b7f1e9a399396ff">Test_SalesP...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c300f769c1304e54af4a6c3af757bd72">Assigned to...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c417e197fa3845e8ad580908f98ddbd6">gdfg greger</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c4fcc103cd294acbaf3c633d212e744e">Spanish Lan...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="c91e6b1db7b24bea82926d716c488a28">tgf dfd</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="cd783ee6adf24ecca0bda9699458f68c">ssss ssssss...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="cfc391f0c9d84ae398aba094b91f54dc">TestFidd2 T...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d0481a952a5d430eb014782cd2029875">аууцауцк аа...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Ni...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d1f5f18a0c0e44138737d69c892a29cd">Anthony Oma...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d655162628924801a5891ec9ee8c35f3">WWE WWE</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d6b48501f1cb4370bfc7244ba19fa35d">Viktor Zhyb</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d7ae906a829340c8b6783119aee62821">Unique_Sale...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d8086dd0ced3490eb3c1d5b0a215a409">Stiopa Uncl...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="d9edd0479c7f48c89e23db6b4b7e1c45">new sales m...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="dd5902876eaf440cb1558f5ffee06538">Lessly Bour...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="de6f95ce256448c0975dc01a081a09b8">fes fse</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="df35e42ad13a4fb4afedbb0ba885d578">test 922 te...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e0ae6e0b253743af804930b068edbaca">9th Jenuary</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e19ac0161f954f17842ab629fcbd0d1a">sadas sadas</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e4e62e95de2445539d23e0b99484a206">Los  Angele...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e55813b3639645c084b0d4850941a29f">Test_BackOf...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e840db5f364944bcb5a8ed7fb1060f94">Roberto Sot...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e944368c9be04f58b60044dee804203e">Oleksii Tes...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e9518d202f6d48c89ad1057106263a95">Alex Tryhle...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="e9e669121e694ac49af11222d68396f2">Haim Levy</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="ed0a7df0ac79471fa03d5bd68885de6c">fistname_fi...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="ed9f8ae1c054447aad1580d0c735b1bd">Test Test</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zag...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employe...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f36a90a59fd0451dbe4c145e82a281e7">VitaliyNek ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f387e43ecf5a428598ff0496803dbac7">Inna Avr</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f3da1739550d464fa978b0d536f9acae">12344 12345</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f4c1b6913a3a4932a38a026421c579d6">mrgorotesta...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f5cbcce5366d4e1c84d46eb554bf0561">First Last</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="f96519e4198a413cb8a374cef3b04b16">FirstName L...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="fc22fc503ea0481fb995e842215504bb">admin test ...</option>
+									<option data-bind="attr: { value: id }, text: nameForShow" value="fcd2c7adaa9641e094526cb213561376">Person Pers...</option>
+									<!-- /ko -->
+								</select>
+							</div>
+						</td>
+						<td data-bind="if: storesFilter.storesArr().length > 1">
+							<div>
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores', visible: $data.storesFilter.storesArr().length > 1">Stores:</label>
+							</div>
+							<div style="float:left;">
+								<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+								<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+									<div data-bind="with: $data.storesFilter, css: self.divStyle">
+										<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible" style="display: none;">
+											<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+										</div>
+										<div data-bind="css: contStyle" class="filter_control_cont">
+											<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+												multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
+												<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
+												<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
+												<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+												<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+												<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
+												<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+												<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+												<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+												<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+												<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+												<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+												<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+												<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
+												<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+												<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
+												<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
+												<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
+												<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
+												<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
+												<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
+												<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
+												<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+												<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
+												<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
+												<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+												<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+												<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+											</select>
+											<div class="ms-parent" style="width: 200px;">
+												<button type="button" class="select">
+													<div class="fl">
+														<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
+														<div>
+															<div></div>
+														</div>
+													</div>
+												</button>
+												<div class="ms-drop bottom" data-name="multipleSelect2">
+													<ul style="max-height: 250px;">
+														<li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect2"> <label for="allCheck">Select All</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5a4b11ccd458452facd24376cc851f7b" id="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b"> <label for="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b">28 aug test</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="ea56b32ca4064c43b2d943700b5a796c" id="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c"> <label for="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c">28 august store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect2_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect2_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="dec86c0a82174c449744d003e8f3dceb" id="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb"> <label for="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb">ivanstore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect2_662fd10aa39844839b3b909d232547a3"> <label for="id_multipleSelect2_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6"> <label for="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e359ba2d45c6467795cfe279152a7ccc" id="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc"> <label for="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6050df646589491b81a3dd087204c5d4" id="id_multipleSelect2_6050df646589491b81a3dd087204c5d4"> <label for="id_multipleSelect2_6050df646589491b81a3dd087204c5d4">New Store234</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621"> <label for="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="29e2ac6d8a094defa9369454323ba645" id="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645"> <label for="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645">Olga Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6298584313f54a40b31d6403e55614d5" id="id_multipleSelect2_6298584313f54a40b31d6403e55614d5"> <label for="id_multipleSelect2_6298584313f54a40b31d6403e55614d5">Store 2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2"> <label for="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46116dbcea1c43fd8a91c797c668147c" id="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c"> <label for="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c">Store 3</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect2_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect2_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d"> <label for="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46a47ec55ae34e5699a815196881f4bc" id="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc"> <label for="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc">TestCreation</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect2_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect2_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect2_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect2_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
+														<li class="ms-no-results">No matches found</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--/ko-->
+							</div>
+						</td>
+						<td style="padding-top: 25px;">
+							<div>
+								<button type="button" class="btn btn-lg btn-primary">Filter</button>
+							</div>
+						</td>
+						<td class="padding-top-corrections">
+							<div class="pull-right tips-filter">
+								<date-filter params="value: dateRange">
+									<div class="pull-right">
+										<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+											<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+											&nbsp;
+											<span>All</span> 
+											<b class="caret"></b>
+										</div>
+									</div>
+								</date-filter>
+							</div>
+							<div class="report-export-wrapper pull-right">
+								<a href="api/ClockIn/ExportClockIn" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+								<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="dataTables_wrapper" style="padding-right: 0;">
+			<table class="datatable dataTable" style="width: 100%;" role="grid">
+				<thead>
+					<tr role="row">
+						<th tabindex="0" class="sorting_asc" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th tabindex="0" style="width: 190px;" class="sorting" aria-label="Clock In Time: Activate to sort by ascending columns">Clock In Time</th>
+						<th tabindex="0" style="width: 190px;" class="sorting" aria-label="Clock Out Time: Activate to sort by ascending columns">Clock Out Time</th>
+						<th tabindex="0" class="sorting" aria-label="Clock In Register: Activate to sort by ascending columns">Clock In Register</th>
+						<th tabindex="0" class="sorting" aria-label="Clock Out Register: Activate to sort by ascending columns">Clock Out Register</th>
+						<th tabindex="0" style="width: 110px;" class="sorting" aria-label="Hours: Activate to sort by ascending columns">Hours</th>
+						<th tabindex="0" style="width: 70px;" class="sorting" aria-label="Edit: Activate to sort by ascending columns">&nbsp;</th>
+						<th tabindex="0" style="width: 60px;" class="sorting" aria-label="Delete: Activate to sort by ascending columns">&nbsp;</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th><input class="modifier-add-button" type="button"></th>
+						<th class="text-right" colspan="4">Total:</th>
+						<th class="text-right">1000:24:06</th>
+						<th class="text-right" colspan="2">&nbsp;</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					
+						<tr data-parent>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.employees,
+	                                        optionsText: function (item) { return item.nameForShow; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: employee,
+	                                        valueAllowUnset: true"><option value="0064ccd67f2d485e99a787c015e9bdc5">Password  W...</option><option value="008102a9a7994c30be368f93339a35e6">Mustapha Ib...</option><option value="00da0fbdbac6487bb163ac438b192321">аууцауц аац...</option><option value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpso...</option><option value="055aeb74235442628743d35b8bdb706b">Monica Levo...</option><option value="068d977fcfa6482082d9fb63f0b43927">111 222</option><option value="07cf5af030bd4b8f80ad3e2213152dc2">Anna A</option><option value="098538221fd34627ad05a51bf1b8354c">Sarah Berna...</option><option value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Ni...</option><option value="0a3e89b89c2a4a3c9236095fd432267f">stop fsfds</option><option value="0af0a01631114ccfa3d18a21220b17a2">mrgoroRU ad...</option><option value="0b42a829bde74d85bd39c1c474227026">new_Admin n...</option><option value="0ebe4042c2384684b6dbc992f4ff9980">Test 930-1 ...</option><option value="1131cc032fa649e7b26180d630490947">aaa aaaa</option><option value="12b10ed4c762451590027498e4bb7ed1">Victoria Fo...</option><option value="132657e0ea6349b7bb9c37f8b9fc5d0e">DENIS_boo2 ...</option><option value="144248d117da4a8ca2cea36bd470a9db">qqqq wwww</option><option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator...</option><option value="19a6850d680a4836870741211f5c09e8">T  employee</option><option value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option><option value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperat...</option><option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option><option value="1f1a6f6f382843168693af6291b154c0">Assigned to...</option><option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option><option value="2116d128f1ad422cac6345e1f53e0b88">First Last</option><option value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option><option value="26404ef28b894cef91cf0287b290a679">Fritz Schne...</option><option value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option><option value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  tes...</option><option value="2992b3f39cad41819a8107433978a496">Namegbvs750...</option><option value="2c038f37426f46babe0fedf1160fa5bc">www eee</option><option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admi...</option><option value="2d942f8ee18c42578c6f8c70aa738385">test 4.0.1 ...</option><option value="2e4914367e454bef9a8cb85101eca175">DENIS_foo N...</option><option value="2f0d416bd0f941adb827a962ce85fa85">fsdrgf gdrg</option><option value="2fdf21bf70fb4e4cb86325c49a7d803f">ManSale Man...</option><option value="30d72b420bf7438fa022c15c013ff5b7">mrgoroRU ad...</option><option value="3615390c21f842d8af56a84e81fd17c8">David Crunc...</option><option value="371ac292ea6944bebbadc98372c25d27">Amber  Quee...</option><option value="392244955e7e415dbca72b3f1e48a9d0">qwert1 qwer...</option><option value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manag...</option><option value="400ae077420448afbcf3716cd98bd458">Vasyan Muda...</option><option value="41cdd8e7e2bd48128b9c4ff333ede1a4">BO Operator</option><option value="41edfc5425f445cb88ecd8b282b7e121">Philip Phil...</option><option value="41fdf8859ee54da9955476cb678b6bbe">1234 1234</option><option value="4486076bf69946b3aa3153fc307ce7d0">John Johnso...</option><option value="452c000dadf84502835e0ac29104f16b">Test switch...</option><option value="4552516b1ca04d5b94c3e602eece9f5b">wd dwd</option><option value="4cf964c0da074b5e98685185f930c684">SSD SSD</option><option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option><option value="4fd883f92cf34d76ab95bb5114907c61">yandex yand...</option><option value="4ffa2646f7cf48178f982f042a0d17e9">B2B NY</option><option value="5336868d3d5b47698924b253452f449c">Sales11111 ...</option><option value="535242c20ce0488fb2367de9269fb292">Ralph  Laur...</option><option value="541507509ef646fabcf5e8dfedd5273d">agan test 9...</option><option value="545fd95f6c5e46cea071c70a8e08d62f">BO operator...</option><option value="54cee707365a4b468a635048b84b8303">asd asd</option><option value="5541219a5f784d6291574cbab683475d">12345 12345</option><option value="57621a13a205476696b84672e037ebbf">prem123 pre...</option><option value="5a5bfe8b2f44459baf6f2641df1ec82b">5 5</option><option value="5bffa659e83049ffa4ee0064de5aeda8">qqq www</option><option value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option><option value="5f066f3f622648b7aa684ea13451391e">mrgoro BOO</option><option value="5fa57628723946068287f918ff46c08c">Veniamin Zo...</option><option value="611d770d605c4f7a93f4f969fe48320d">Ralphe Laur...</option><option value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option><option value="61795d9fb4f04bc8a17cb6dae80310d1">Jim Beam</option><option value="62a55ed55bce4ee2bef28c6f62dbb242">Namesupc718...</option><option value="686173151f5c4bf78a1c4f6d448f4fc2">dfsd ffds</option><option value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Marti...</option><option value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option><option value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option><option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option><option value="6f2699651f294de88e907b687fe4908f">Danny Nikif...</option><option value="706ebd30b00540ef91b5d581850660f9">LongTestNam...</option><option value="70d1613e0f1245999ad39b34721f3ae9">Spanish Lan...</option><option value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp...</option><option value="7312b47aa37c402c9501e8b59e4d768e">qqqqqqqqq f...</option><option value="75599e38ddc245fdb98ab711c318c4da">New SAles P...</option><option value="75d2432f5dce49479dc5db2052d06386">Ope Rator</option><option value="768f73d50d2942169f31992e09f8a164">qqq qqqw</option><option value="7893395e97c942678cd697b74ed75fdb">111 222</option><option value="7b5085958dbd4ac6be452cd19359b2b3">salesmanage...</option><option value="7b7a229efbd04e3da177532734ce8f61">xs xsa</option><option value="7bb37e23793843259ed7fcd71c33326a">165 263</option><option value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option><option value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option><option value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option><option value="80787208f87848148b22f20c0ebd6d70">manager m1</option><option value="8193afcae06049849c8161fd173be4c0">TestFidd Te...</option><option value="82e68a05827641eb81d403bc020e754b">nota nota</option><option value="85bb776f19474de888fbd06e737da56b">agan agan</option><option value="8602a23991aa4a88ae355f9d93073318">вм вм</option><option value="8a59e7f2b2594416ad0a7f53089047d4">qqq qqq</option><option value="8b4b7a4c46b7458da20b7851d10e68d7">mrgoroRU ad...</option><option value="8cb547d0569d40de8b70554686872c9c">vf vf</option><option value="8d23fd1ee3d54920a979e99fef01fc8a">Sale Person...</option><option value="8f2b3d176e394808b4d0a063bbb4c3c9">wd dwd</option><option value="8f7ef56c16b343e98372b7e1a8344b60">David Crack</option><option value="95357448820b420399b82a803d1166b5">Axe Effect</option><option value="953b08e4918c4f79912b66169e484e6f">qwert qwert...</option><option value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Admini...</option><option value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option><option value="a341c54d308f45468e992ad12439dc56">Test_SaleMa...</option><option value="a41e326882594d30821117538cab2e71">rrrfew cdsa...</option><option value="a47bcda9e73a4184ae9505d232ccb13a">www eee</option><option value="a860c3b9a0994964a0c40c46633e36d4">aaa aa</option><option value="a8f42703537745ce8a1bed5c7d5bfe8b">TestFidd3 T...</option><option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Kova...</option><option value="a9daa0c323bc46b4bcc81458cc203927">French Empl...</option><option value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option><option value="abcc39a86ce54758a873b99882821f21">Sam Black</option><option value="ae8363b1124646ca8036a1de68857276">Gomer Simps...</option><option value="b404a46870914ae5bc710a05b7148963">alex3 sales</option><option value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpso...</option><option value="b66f23b9ee984471a56474620bb57f87">Steve Worke...</option><option value="b88fc2f1a24c42c780dd1c2989be86d6">test emo te...</option><option value="b8f770a1477a43bc9ca8b32dec2c503c">Antonio Gan...</option><option value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option><option value="bbd9c1ce17d949c8b55b24b53a3d016a">BO Operator</option><option value="bc57763152404f7787e6ae9f7d1a7d51">qqq www</option><option value="bc7f710af9f9421ea3e1edbf3b953500">Vasya Pupki...</option><option value="bc96a3b1ea3347df92a8fda75185e88a">Namehhvf668...</option><option value="bdfdafa31e0341e88b4270923045a344">sss 434</option><option value="c0367771dc8049d480ad46d32e14d49b">1 1</option><option value="c196810e43174c259b7f1e9a399396ff">Test_SalesP...</option><option value="c300f769c1304e54af4a6c3af757bd72">Assigned to...</option><option value="c417e197fa3845e8ad580908f98ddbd6">gdfg greger</option><option value="c4fcc103cd294acbaf3c633d212e744e">Spanish Lan...</option><option value="c91e6b1db7b24bea82926d716c488a28">tgf dfd</option><option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option><option value="cd783ee6adf24ecca0bda9699458f68c">ssss ssssss...</option><option value="cfc391f0c9d84ae398aba094b91f54dc">TestFidd2 T...</option><option value="d0481a952a5d430eb014782cd2029875">аууцауцк аа...</option><option value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Ni...</option><option value="d1f5f18a0c0e44138737d69c892a29cd">Anthony Oma...</option><option value="d655162628924801a5891ec9ee8c35f3">WWE WWE</option><option value="d6b48501f1cb4370bfc7244ba19fa35d">Viktor Zhyb</option><option value="d7ae906a829340c8b6783119aee62821">Unique_Sale...</option><option value="d8086dd0ced3490eb3c1d5b0a215a409">Stiopa Uncl...</option><option value="d9edd0479c7f48c89e23db6b4b7e1c45">new sales m...</option><option value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option><option value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option><option value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option><option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bour...</option><option value="de6f95ce256448c0975dc01a081a09b8">fes fse</option><option value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option><option value="df35e42ad13a4fb4afedbb0ba885d578">test 922 te...</option><option value="e0ae6e0b253743af804930b068edbaca">9th Jenuary</option><option value="e19ac0161f954f17842ab629fcbd0d1a">sadas sadas</option><option value="e4e62e95de2445539d23e0b99484a206">Los  Angele...</option><option value="e55813b3639645c084b0d4850941a29f">Test_BackOf...</option><option value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option><option value="e840db5f364944bcb5a8ed7fb1060f94">Roberto Sot...</option><option value="e944368c9be04f58b60044dee804203e">Oleksii Tes...</option><option value="e9518d202f6d48c89ad1057106263a95">Alex Tryhle...</option><option value="e9e669121e694ac49af11222d68396f2">Haim Levy</option><option value="ed0a7df0ac79471fa03d5bd68885de6c">fistname_fi...</option><option value="ed9f8ae1c054447aad1580d0c735b1bd">Test Test</option><option value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option><option value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zag...</option><option value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employe...</option><option value="f36a90a59fd0451dbe4c145e82a281e7">VitaliyNek ...</option><option value="f387e43ecf5a428598ff0496803dbac7">Inna Avr</option><option value="f3da1739550d464fa978b0d536f9acae">12344 12345</option><option value="f4c1b6913a3a4932a38a026421c579d6">mrgorotesta...</option><option value="f5cbcce5366d4e1c84d46eb554bf0561">First Last</option><option value="f96519e4198a413cb8a374cef3b04b16">FirstName L...</option><option value="fc22fc503ea0481fb995e842215504bb">admin test ...</option><option value="fcd2c7adaa9641e094526cb213561376">Person Pers...</option>
+	                                </select>
+								</div>
+								<div data-show="default">bn 111</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">05/01/2017 12:00:00 AM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">05/01/2017 12:06:00 AM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockInRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">regNamelgde4221</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockOutRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">&nbsp;</div>
+							</td>
+							<td class="text-right">0:06</td>
+							<td class="text-center">
+								<a href="#" data-show="active" style="display: none;" onclick="toggleEditing(event, false)">Save</a>
+								<a href="#" data-show="default" onclick="toggleEditing(event, true)">Edit</a>
+							</td>
+							<td><input type="button" class="delete-row-button"></td>
+						</tr>
+					
+						<tr data-parent>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.employees,
+	                                        optionsText: function (item) { return item.nameForShow; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: employee,
+	                                        valueAllowUnset: true"><option value="0064ccd67f2d485e99a787c015e9bdc5">Password  W...</option><option value="008102a9a7994c30be368f93339a35e6">Mustapha Ib...</option><option value="00da0fbdbac6487bb163ac438b192321">аууцауц аац...</option><option value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpso...</option><option value="055aeb74235442628743d35b8bdb706b">Monica Levo...</option><option value="068d977fcfa6482082d9fb63f0b43927">111 222</option><option value="07cf5af030bd4b8f80ad3e2213152dc2">Anna A</option><option value="098538221fd34627ad05a51bf1b8354c">Sarah Berna...</option><option value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Ni...</option><option value="0a3e89b89c2a4a3c9236095fd432267f">stop fsfds</option><option value="0af0a01631114ccfa3d18a21220b17a2">mrgoroRU ad...</option><option value="0b42a829bde74d85bd39c1c474227026">new_Admin n...</option><option value="0ebe4042c2384684b6dbc992f4ff9980">Test 930-1 ...</option><option value="1131cc032fa649e7b26180d630490947">aaa aaaa</option><option value="12b10ed4c762451590027498e4bb7ed1">Victoria Fo...</option><option value="132657e0ea6349b7bb9c37f8b9fc5d0e">DENIS_boo2 ...</option><option value="144248d117da4a8ca2cea36bd470a9db">qqqq wwww</option><option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator...</option><option value="19a6850d680a4836870741211f5c09e8">T  employee</option><option value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option><option value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperat...</option><option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option><option value="1f1a6f6f382843168693af6291b154c0">Assigned to...</option><option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option><option value="2116d128f1ad422cac6345e1f53e0b88">First Last</option><option value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option><option value="26404ef28b894cef91cf0287b290a679">Fritz Schne...</option><option value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option><option value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  tes...</option><option value="2992b3f39cad41819a8107433978a496">Namegbvs750...</option><option value="2c038f37426f46babe0fedf1160fa5bc">www eee</option><option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admi...</option><option value="2d942f8ee18c42578c6f8c70aa738385">test 4.0.1 ...</option><option value="2e4914367e454bef9a8cb85101eca175">DENIS_foo N...</option><option value="2f0d416bd0f941adb827a962ce85fa85">fsdrgf gdrg</option><option value="2fdf21bf70fb4e4cb86325c49a7d803f">ManSale Man...</option><option value="30d72b420bf7438fa022c15c013ff5b7">mrgoroRU ad...</option><option value="3615390c21f842d8af56a84e81fd17c8">David Crunc...</option><option value="371ac292ea6944bebbadc98372c25d27">Amber  Quee...</option><option value="392244955e7e415dbca72b3f1e48a9d0">qwert1 qwer...</option><option value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manag...</option><option value="400ae077420448afbcf3716cd98bd458">Vasyan Muda...</option><option value="41cdd8e7e2bd48128b9c4ff333ede1a4">BO Operator</option><option value="41edfc5425f445cb88ecd8b282b7e121">Philip Phil...</option><option value="41fdf8859ee54da9955476cb678b6bbe">1234 1234</option><option value="4486076bf69946b3aa3153fc307ce7d0">John Johnso...</option><option value="452c000dadf84502835e0ac29104f16b">Test switch...</option><option value="4552516b1ca04d5b94c3e602eece9f5b">wd dwd</option><option value="4cf964c0da074b5e98685185f930c684">SSD SSD</option><option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option><option value="4fd883f92cf34d76ab95bb5114907c61">yandex yand...</option><option value="4ffa2646f7cf48178f982f042a0d17e9">B2B NY</option><option value="5336868d3d5b47698924b253452f449c">Sales11111 ...</option><option value="535242c20ce0488fb2367de9269fb292">Ralph  Laur...</option><option value="541507509ef646fabcf5e8dfedd5273d">agan test 9...</option><option value="545fd95f6c5e46cea071c70a8e08d62f">BO operator...</option><option value="54cee707365a4b468a635048b84b8303">asd asd</option><option value="5541219a5f784d6291574cbab683475d">12345 12345</option><option value="57621a13a205476696b84672e037ebbf">prem123 pre...</option><option value="5a5bfe8b2f44459baf6f2641df1ec82b">5 5</option><option value="5bffa659e83049ffa4ee0064de5aeda8">qqq www</option><option value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option><option value="5f066f3f622648b7aa684ea13451391e">mrgoro BOO</option><option value="5fa57628723946068287f918ff46c08c">Veniamin Zo...</option><option value="611d770d605c4f7a93f4f969fe48320d">Ralphe Laur...</option><option value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option><option value="61795d9fb4f04bc8a17cb6dae80310d1">Jim Beam</option><option value="62a55ed55bce4ee2bef28c6f62dbb242">Namesupc718...</option><option value="686173151f5c4bf78a1c4f6d448f4fc2">dfsd ffds</option><option value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Marti...</option><option value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option><option value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option><option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option><option value="6f2699651f294de88e907b687fe4908f">Danny Nikif...</option><option value="706ebd30b00540ef91b5d581850660f9">LongTestNam...</option><option value="70d1613e0f1245999ad39b34721f3ae9">Spanish Lan...</option><option value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp...</option><option value="7312b47aa37c402c9501e8b59e4d768e">qqqqqqqqq f...</option><option value="75599e38ddc245fdb98ab711c318c4da">New SAles P...</option><option value="75d2432f5dce49479dc5db2052d06386">Ope Rator</option><option value="768f73d50d2942169f31992e09f8a164">qqq qqqw</option><option value="7893395e97c942678cd697b74ed75fdb">111 222</option><option value="7b5085958dbd4ac6be452cd19359b2b3">salesmanage...</option><option value="7b7a229efbd04e3da177532734ce8f61">xs xsa</option><option value="7bb37e23793843259ed7fcd71c33326a">165 263</option><option value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option><option value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option><option value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option><option value="80787208f87848148b22f20c0ebd6d70">manager m1</option><option value="8193afcae06049849c8161fd173be4c0">TestFidd Te...</option><option value="82e68a05827641eb81d403bc020e754b">nota nota</option><option value="85bb776f19474de888fbd06e737da56b">agan agan</option><option value="8602a23991aa4a88ae355f9d93073318">вм вм</option><option value="8a59e7f2b2594416ad0a7f53089047d4">qqq qqq</option><option value="8b4b7a4c46b7458da20b7851d10e68d7">mrgoroRU ad...</option><option value="8cb547d0569d40de8b70554686872c9c">vf vf</option><option value="8d23fd1ee3d54920a979e99fef01fc8a">Sale Person...</option><option value="8f2b3d176e394808b4d0a063bbb4c3c9">wd dwd</option><option value="8f7ef56c16b343e98372b7e1a8344b60">David Crack</option><option value="95357448820b420399b82a803d1166b5">Axe Effect</option><option value="953b08e4918c4f79912b66169e484e6f">qwert qwert...</option><option value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Admini...</option><option value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option><option value="a341c54d308f45468e992ad12439dc56">Test_SaleMa...</option><option value="a41e326882594d30821117538cab2e71">rrrfew cdsa...</option><option value="a47bcda9e73a4184ae9505d232ccb13a">www eee</option><option value="a860c3b9a0994964a0c40c46633e36d4">aaa aa</option><option value="a8f42703537745ce8a1bed5c7d5bfe8b">TestFidd3 T...</option><option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Kova...</option><option value="a9daa0c323bc46b4bcc81458cc203927">French Empl...</option><option value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option><option value="abcc39a86ce54758a873b99882821f21">Sam Black</option><option value="ae8363b1124646ca8036a1de68857276">Gomer Simps...</option><option value="b404a46870914ae5bc710a05b7148963">alex3 sales</option><option value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpso...</option><option value="b66f23b9ee984471a56474620bb57f87">Steve Worke...</option><option value="b88fc2f1a24c42c780dd1c2989be86d6">test emo te...</option><option value="b8f770a1477a43bc9ca8b32dec2c503c">Antonio Gan...</option><option value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option><option value="bbd9c1ce17d949c8b55b24b53a3d016a">BO Operator</option><option value="bc57763152404f7787e6ae9f7d1a7d51">qqq www</option><option value="bc7f710af9f9421ea3e1edbf3b953500">Vasya Pupki...</option><option value="bc96a3b1ea3347df92a8fda75185e88a">Namehhvf668...</option><option value="bdfdafa31e0341e88b4270923045a344">sss 434</option><option value="c0367771dc8049d480ad46d32e14d49b">1 1</option><option value="c196810e43174c259b7f1e9a399396ff">Test_SalesP...</option><option value="c300f769c1304e54af4a6c3af757bd72">Assigned to...</option><option value="c417e197fa3845e8ad580908f98ddbd6">gdfg greger</option><option value="c4fcc103cd294acbaf3c633d212e744e">Spanish Lan...</option><option value="c91e6b1db7b24bea82926d716c488a28">tgf dfd</option><option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option><option value="cd783ee6adf24ecca0bda9699458f68c">ssss ssssss...</option><option value="cfc391f0c9d84ae398aba094b91f54dc">TestFidd2 T...</option><option value="d0481a952a5d430eb014782cd2029875">аууцауцк аа...</option><option value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Ni...</option><option value="d1f5f18a0c0e44138737d69c892a29cd">Anthony Oma...</option><option value="d655162628924801a5891ec9ee8c35f3">WWE WWE</option><option value="d6b48501f1cb4370bfc7244ba19fa35d">Viktor Zhyb</option><option value="d7ae906a829340c8b6783119aee62821">Unique_Sale...</option><option value="d8086dd0ced3490eb3c1d5b0a215a409">Stiopa Uncl...</option><option value="d9edd0479c7f48c89e23db6b4b7e1c45">new sales m...</option><option value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option><option value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option><option value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option><option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bour...</option><option value="de6f95ce256448c0975dc01a081a09b8">fes fse</option><option value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option><option value="df35e42ad13a4fb4afedbb0ba885d578">test 922 te...</option><option value="e0ae6e0b253743af804930b068edbaca">9th Jenuary</option><option value="e19ac0161f954f17842ab629fcbd0d1a">sadas sadas</option><option value="e4e62e95de2445539d23e0b99484a206">Los  Angele...</option><option value="e55813b3639645c084b0d4850941a29f">Test_BackOf...</option><option value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option><option value="e840db5f364944bcb5a8ed7fb1060f94">Roberto Sot...</option><option value="e944368c9be04f58b60044dee804203e">Oleksii Tes...</option><option value="e9518d202f6d48c89ad1057106263a95">Alex Tryhle...</option><option value="e9e669121e694ac49af11222d68396f2">Haim Levy</option><option value="ed0a7df0ac79471fa03d5bd68885de6c">fistname_fi...</option><option value="ed9f8ae1c054447aad1580d0c735b1bd">Test Test</option><option value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option><option value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zag...</option><option value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employe...</option><option value="f36a90a59fd0451dbe4c145e82a281e7">VitaliyNek ...</option><option value="f387e43ecf5a428598ff0496803dbac7">Inna Avr</option><option value="f3da1739550d464fa978b0d536f9acae">12344 12345</option><option value="f4c1b6913a3a4932a38a026421c579d6">mrgorotesta...</option><option value="f5cbcce5366d4e1c84d46eb554bf0561">First Last</option><option value="f96519e4198a413cb8a374cef3b04b16">FirstName L...</option><option value="fc22fc503ea0481fb995e842215504bb">admin test ...</option><option value="fcd2c7adaa9641e094526cb213561376">Person Pers...</option>
+	                                </select>
+								</div>
+								<div data-show="default">BO Operator...</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">04/08/2017 12:53:00 PM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">04/08/2017 12:53:36 PM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockInRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">Register 30</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockOutRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">Register 30</div>
+							</td>
+							<td class="text-right">0:00</td>
+							<td class="text-center">
+								<a href="#" data-show="active" style="display: none;" onclick="toggleEditing(event, false)">Save</a>
+								<a href="#" data-show="default" onclick="toggleEditing(event, true)">Edit</a>
+							</td>
+							<td><input type="button" class="delete-row-button"></td>
+						</tr>
+					
+						<tr data-parent>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.employees,
+	                                        optionsText: function (item) { return item.nameForShow; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: employee,
+	                                        valueAllowUnset: true"><option value="0064ccd67f2d485e99a787c015e9bdc5">Password  W...</option><option value="008102a9a7994c30be368f93339a35e6">Mustapha Ib...</option><option value="00da0fbdbac6487bb163ac438b192321">аууцауц аац...</option><option value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpso...</option><option value="055aeb74235442628743d35b8bdb706b">Monica Levo...</option><option value="068d977fcfa6482082d9fb63f0b43927">111 222</option><option value="07cf5af030bd4b8f80ad3e2213152dc2">Anna A</option><option value="098538221fd34627ad05a51bf1b8354c">Sarah Berna...</option><option value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Ni...</option><option value="0a3e89b89c2a4a3c9236095fd432267f">stop fsfds</option><option value="0af0a01631114ccfa3d18a21220b17a2">mrgoroRU ad...</option><option value="0b42a829bde74d85bd39c1c474227026">new_Admin n...</option><option value="0ebe4042c2384684b6dbc992f4ff9980">Test 930-1 ...</option><option value="1131cc032fa649e7b26180d630490947">aaa aaaa</option><option value="12b10ed4c762451590027498e4bb7ed1">Victoria Fo...</option><option value="132657e0ea6349b7bb9c37f8b9fc5d0e">DENIS_boo2 ...</option><option value="144248d117da4a8ca2cea36bd470a9db">qqqq wwww</option><option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator...</option><option value="19a6850d680a4836870741211f5c09e8">T  employee</option><option value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option><option value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperat...</option><option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option><option value="1f1a6f6f382843168693af6291b154c0">Assigned to...</option><option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option><option value="2116d128f1ad422cac6345e1f53e0b88">First Last</option><option value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option><option value="26404ef28b894cef91cf0287b290a679">Fritz Schne...</option><option value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option><option value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  tes...</option><option value="2992b3f39cad41819a8107433978a496">Namegbvs750...</option><option value="2c038f37426f46babe0fedf1160fa5bc">www eee</option><option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admi...</option><option value="2d942f8ee18c42578c6f8c70aa738385">test 4.0.1 ...</option><option value="2e4914367e454bef9a8cb85101eca175">DENIS_foo N...</option><option value="2f0d416bd0f941adb827a962ce85fa85">fsdrgf gdrg</option><option value="2fdf21bf70fb4e4cb86325c49a7d803f">ManSale Man...</option><option value="30d72b420bf7438fa022c15c013ff5b7">mrgoroRU ad...</option><option value="3615390c21f842d8af56a84e81fd17c8">David Crunc...</option><option value="371ac292ea6944bebbadc98372c25d27">Amber  Quee...</option><option value="392244955e7e415dbca72b3f1e48a9d0">qwert1 qwer...</option><option value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manag...</option><option value="400ae077420448afbcf3716cd98bd458">Vasyan Muda...</option><option value="41cdd8e7e2bd48128b9c4ff333ede1a4">BO Operator</option><option value="41edfc5425f445cb88ecd8b282b7e121">Philip Phil...</option><option value="41fdf8859ee54da9955476cb678b6bbe">1234 1234</option><option value="4486076bf69946b3aa3153fc307ce7d0">John Johnso...</option><option value="452c000dadf84502835e0ac29104f16b">Test switch...</option><option value="4552516b1ca04d5b94c3e602eece9f5b">wd dwd</option><option value="4cf964c0da074b5e98685185f930c684">SSD SSD</option><option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option><option value="4fd883f92cf34d76ab95bb5114907c61">yandex yand...</option><option value="4ffa2646f7cf48178f982f042a0d17e9">B2B NY</option><option value="5336868d3d5b47698924b253452f449c">Sales11111 ...</option><option value="535242c20ce0488fb2367de9269fb292">Ralph  Laur...</option><option value="541507509ef646fabcf5e8dfedd5273d">agan test 9...</option><option value="545fd95f6c5e46cea071c70a8e08d62f">BO operator...</option><option value="54cee707365a4b468a635048b84b8303">asd asd</option><option value="5541219a5f784d6291574cbab683475d">12345 12345</option><option value="57621a13a205476696b84672e037ebbf">prem123 pre...</option><option value="5a5bfe8b2f44459baf6f2641df1ec82b">5 5</option><option value="5bffa659e83049ffa4ee0064de5aeda8">qqq www</option><option value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option><option value="5f066f3f622648b7aa684ea13451391e">mrgoro BOO</option><option value="5fa57628723946068287f918ff46c08c">Veniamin Zo...</option><option value="611d770d605c4f7a93f4f969fe48320d">Ralphe Laur...</option><option value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option><option value="61795d9fb4f04bc8a17cb6dae80310d1">Jim Beam</option><option value="62a55ed55bce4ee2bef28c6f62dbb242">Namesupc718...</option><option value="686173151f5c4bf78a1c4f6d448f4fc2">dfsd ffds</option><option value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Marti...</option><option value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option><option value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option><option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option><option value="6f2699651f294de88e907b687fe4908f">Danny Nikif...</option><option value="706ebd30b00540ef91b5d581850660f9">LongTestNam...</option><option value="70d1613e0f1245999ad39b34721f3ae9">Spanish Lan...</option><option value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp...</option><option value="7312b47aa37c402c9501e8b59e4d768e">qqqqqqqqq f...</option><option value="75599e38ddc245fdb98ab711c318c4da">New SAles P...</option><option value="75d2432f5dce49479dc5db2052d06386">Ope Rator</option><option value="768f73d50d2942169f31992e09f8a164">qqq qqqw</option><option value="7893395e97c942678cd697b74ed75fdb">111 222</option><option value="7b5085958dbd4ac6be452cd19359b2b3">salesmanage...</option><option value="7b7a229efbd04e3da177532734ce8f61">xs xsa</option><option value="7bb37e23793843259ed7fcd71c33326a">165 263</option><option value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option><option value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option><option value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option><option value="80787208f87848148b22f20c0ebd6d70">manager m1</option><option value="8193afcae06049849c8161fd173be4c0">TestFidd Te...</option><option value="82e68a05827641eb81d403bc020e754b">nota nota</option><option value="85bb776f19474de888fbd06e737da56b">agan agan</option><option value="8602a23991aa4a88ae355f9d93073318">вм вм</option><option value="8a59e7f2b2594416ad0a7f53089047d4">qqq qqq</option><option value="8b4b7a4c46b7458da20b7851d10e68d7">mrgoroRU ad...</option><option value="8cb547d0569d40de8b70554686872c9c">vf vf</option><option value="8d23fd1ee3d54920a979e99fef01fc8a">Sale Person...</option><option value="8f2b3d176e394808b4d0a063bbb4c3c9">wd dwd</option><option value="8f7ef56c16b343e98372b7e1a8344b60">David Crack</option><option value="95357448820b420399b82a803d1166b5">Axe Effect</option><option value="953b08e4918c4f79912b66169e484e6f">qwert qwert...</option><option value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Admini...</option><option value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option><option value="a341c54d308f45468e992ad12439dc56">Test_SaleMa...</option><option value="a41e326882594d30821117538cab2e71">rrrfew cdsa...</option><option value="a47bcda9e73a4184ae9505d232ccb13a">www eee</option><option value="a860c3b9a0994964a0c40c46633e36d4">aaa aa</option><option value="a8f42703537745ce8a1bed5c7d5bfe8b">TestFidd3 T...</option><option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Kova...</option><option value="a9daa0c323bc46b4bcc81458cc203927">French Empl...</option><option value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option><option value="abcc39a86ce54758a873b99882821f21">Sam Black</option><option value="ae8363b1124646ca8036a1de68857276">Gomer Simps...</option><option value="b404a46870914ae5bc710a05b7148963">alex3 sales</option><option value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpso...</option><option value="b66f23b9ee984471a56474620bb57f87">Steve Worke...</option><option value="b88fc2f1a24c42c780dd1c2989be86d6">test emo te...</option><option value="b8f770a1477a43bc9ca8b32dec2c503c">Antonio Gan...</option><option value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option><option value="bbd9c1ce17d949c8b55b24b53a3d016a">BO Operator</option><option value="bc57763152404f7787e6ae9f7d1a7d51">qqq www</option><option value="bc7f710af9f9421ea3e1edbf3b953500">Vasya Pupki...</option><option value="bc96a3b1ea3347df92a8fda75185e88a">Namehhvf668...</option><option value="bdfdafa31e0341e88b4270923045a344">sss 434</option><option value="c0367771dc8049d480ad46d32e14d49b">1 1</option><option value="c196810e43174c259b7f1e9a399396ff">Test_SalesP...</option><option value="c300f769c1304e54af4a6c3af757bd72">Assigned to...</option><option value="c417e197fa3845e8ad580908f98ddbd6">gdfg greger</option><option value="c4fcc103cd294acbaf3c633d212e744e">Spanish Lan...</option><option value="c91e6b1db7b24bea82926d716c488a28">tgf dfd</option><option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option><option value="cd783ee6adf24ecca0bda9699458f68c">ssss ssssss...</option><option value="cfc391f0c9d84ae398aba094b91f54dc">TestFidd2 T...</option><option value="d0481a952a5d430eb014782cd2029875">аууцауцк аа...</option><option value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Ni...</option><option value="d1f5f18a0c0e44138737d69c892a29cd">Anthony Oma...</option><option value="d655162628924801a5891ec9ee8c35f3">WWE WWE</option><option value="d6b48501f1cb4370bfc7244ba19fa35d">Viktor Zhyb</option><option value="d7ae906a829340c8b6783119aee62821">Unique_Sale...</option><option value="d8086dd0ced3490eb3c1d5b0a215a409">Stiopa Uncl...</option><option value="d9edd0479c7f48c89e23db6b4b7e1c45">new sales m...</option><option value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option><option value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option><option value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option><option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bour...</option><option value="de6f95ce256448c0975dc01a081a09b8">fes fse</option><option value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option><option value="df35e42ad13a4fb4afedbb0ba885d578">test 922 te...</option><option value="e0ae6e0b253743af804930b068edbaca">9th Jenuary</option><option value="e19ac0161f954f17842ab629fcbd0d1a">sadas sadas</option><option value="e4e62e95de2445539d23e0b99484a206">Los  Angele...</option><option value="e55813b3639645c084b0d4850941a29f">Test_BackOf...</option><option value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option><option value="e840db5f364944bcb5a8ed7fb1060f94">Roberto Sot...</option><option value="e944368c9be04f58b60044dee804203e">Oleksii Tes...</option><option value="e9518d202f6d48c89ad1057106263a95">Alex Tryhle...</option><option value="e9e669121e694ac49af11222d68396f2">Haim Levy</option><option value="ed0a7df0ac79471fa03d5bd68885de6c">fistname_fi...</option><option value="ed9f8ae1c054447aad1580d0c735b1bd">Test Test</option><option value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option><option value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zag...</option><option value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employe...</option><option value="f36a90a59fd0451dbe4c145e82a281e7">VitaliyNek ...</option><option value="f387e43ecf5a428598ff0496803dbac7">Inna Avr</option><option value="f3da1739550d464fa978b0d536f9acae">12344 12345</option><option value="f4c1b6913a3a4932a38a026421c579d6">mrgorotesta...</option><option value="f5cbcce5366d4e1c84d46eb554bf0561">First Last</option><option value="f96519e4198a413cb8a374cef3b04b16">FirstName L...</option><option value="fc22fc503ea0481fb995e842215504bb">admin test ...</option><option value="fcd2c7adaa9641e094526cb213561376">Person Pers...</option>
+	                                </select>
+								</div>
+								<div data-show="default">111 222</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">08/08/2017 10:00:00 AM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<input class="form-control input-lg" style="width: 100%; height: 53px;">
+								</div>
+								<div data-show="default">09/08/2017 10:00:00 AM</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockInRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">&nbsp;</div>
+							</td>
+							<td>
+								<div data-show="active" style="display: none;">
+									<select style="width: 100%; height: 53px; padding-right: 40px;" data-bind="options: $root.filter.registers,
+	                                        optionsText: function (item) { return item.name; },
+	                                        optionsValue: function (item) { return item.id; },
+	                                        value: clockOutRegister,
+	                                        valueAllowUnset: true"><option value="05e0b558c54f41d89100c24447e3cbee">regNamelgde4221</option><option value="06414eeaad6a4704a9d5b4a5f7e31de4">Register 3</option><option value="086eba2fd48f42769dcbe0572468661f">BestRegister</option><option value="0d5cfe1469544ccaac88ee342b3b1918">Yurii 23</option><option value="14d2f758831b47b3a7d1bbf271350dd0">Venya POS</option><option value="1cb4cf6ff8154af08a99e5326afc7375">regNameegyk4313</option><option value="1e3e97b8ccc442118a631d072a0b2936">Register 28</option><option value="24649d7ca7d949df83604b88f63b95f4">Register 1</option><option value="2770a60fc6dc4c7d86f23831d540551f">Register 7</option><option value="27b8e20ebed441c79905d131d9c91deb">regNamekbwp0819</option><option value="32dd841316074f6d951d59796589f9d6">Register 4</option><option value="36bd2a2a1b5e45eab437b5e36d3a349a">Register 3</option><option value="3730e3a555a64dc59592aeb01dce5f2d">regNamesmax3924</option><option value="379097eeea95461082c1841402e8030a">Register 35</option><option value="3aa7ef13e5c54ec0b8a2db804ad93371">Register 5</option><option value="3ee116c1c37a42f0a5bab2d7b6b7a383">New Register 10</option><option value="42775de9838a46ffbb5ce47d89b23ba7">regNamebcav2231</option><option value="459dce0c55644a52a3faf11560744009">New Registerasdasdasd</option><option value="4b0795c6abbc45059c24160fd5774c89">Register 1</option><option value="4bc8f4727dc44d6284275192864c0796">Register 1</option><option value="4e2b2fc046ff4af5b4e781190274c8b6">Register 17</option><option value="4f2fcf8cd8644df382d295805079aeb5">Register 8</option><option value="52e976234a594a6d909e66b21df87fa8">Register 34</option><option value="55e51ce0376742108d6162dea4bc45a9">Register 1</option><option value="5a288fc511054c2ba1eb9349a509b553">New Register1213</option><option value="5ba4231b4f064c41b0c1083c31d286c2">Register 38</option><option value="5bb33cf5de5b478cbb821de2d6fbbf8f">Register 44</option><option value="5c494aa7523840ef92c3af57daab37f5">Register 1</option><option value="5da9797de0b848e8a1a07760ca21f66f">Register 26</option><option value="5e04a9cf99d1481da625b03e5dd7c3da">New Registercs32</option><option value="687c22e0523f4c3e8684d12826d50a01">Register 25</option><option value="6aa36b81ae024944a4df91dbf09f6ed0">New Register</option><option value="6ea82e72678a435b83a62d12a61d58cf">Register 1</option><option value="70e8af6258234907a4cea7ee2972bbba">Register 15</option><option value="71584beb246e4c11a0e795eac9075a14">New Register2</option><option value="738da54718994c95a48b07a2c47b542b">Register 32</option><option value="73c6d3b7d20247b38da18d5e46fced80">Register 16</option><option value="752b56c54ba745b9ac4a2f35caca2120">Register 1</option><option value="7719029c877c4f80b549ddbf84b2354f">Register 22</option><option value="7754e64ecaaf4775973ac3c79ce5f8b2">Register 40</option><option value="77851291483b41e3a7f69a2b051425c8">Register 48</option><option value="7a8eea70f05140469d399ae5c75f472d">Register 4</option><option value="7bfc860628744ec3a48067555adee08f">Register 373</option><option value="7ceda4082230456b953fa1597bcb0d54">Register 45</option><option value="80c333a78565473ea0018543a47cd49a">Register 3</option><option value="80dbd19fe96d4e38b7410ee44a661360">Register 1</option><option value="828c9683dbb24e36a3f33257b7d1f203">Register 1</option><option value="83274455f0b74b9eb45fed90e4941cf5">New RegisterTest</option><option value="8443b743918d46c4af9d27b91ffa7fad">Register 2</option><option value="8978fa57b78841a5be89451a86d0e93e">Register 1</option><option value="91498eecf1234acebc2236b574b20327">Register 0</option><option value="984fbc770dbe490c9d02a3e94b1c716e">Register 42</option><option value="9ac4a43446da431fa7f5a4d204500c3e">regNamefkhk7805</option><option value="9b06d7b170034ed78b66dbbd58cde272">Register 39</option><option value="9d38c1d4f505473a80b50ec1fd09a0fe">Register 29</option><option value="9f2c4f2e2287497a9d960d2bb30b7aee">Register 2</option><option value="9fc4ac8029f64548be8e8d8c99bc8659">Register 36</option><option value="a04bb1b735dd4872b062b8f0a1436221">Alena 1</option><option value="a46892a1be6042258ff58e60a5f1582b">Register 2</option><option value="a887c09de24e46a7b8ccee0a523df70e">Register 2</option><option value="a8a32c1ab2f6418586d39dbfc90e9fad">Register 2</option><option value="a914faab24d547d39d308a026c2eb55e">Register 5</option><option value="acb46842b3cb4ec983df23655b0a3bbc">Register 1</option><option value="af2622606349469584ac527a17f57eb2">Register a</option><option value="b1669bc23fb6452e9bdc4f2f8d18a62f">Register 13</option><option value="b1dbaf1dc6654caba6f16d774661a27f">Register 1</option><option value="b3b0e3dbe2424866b954e10943fe3f05">Register 1</option><option value="b529ff5161b34b3cb8e39a749e107b69">Register 19</option><option value="c169a3d35f0b4696a562e1368c08ecd3">Register 8</option><option value="c6e3c0c986df40e9942fb9c28cc8ae04">CASSA</option><option value="c9c21dee32614461adfc8028831eaa21">regNamebfse3477</option><option value="ce7907f2c2f2486584520c68de478121">Register 1</option><option value="ced31ed315ee49128a42183bca6302ea">Register 1</option><option value="d007a0cf1ea941c88fda80cedac4dcb1">Register 1</option><option value="d52d57f0a4484f1c82a6403c4cbe59f4">reg test</option><option value="d656a538f299497eaf12ee0bf22f30a4">Register 14</option><option value="d976d5d3489145578e19624ae03b1f9b">Register 49</option><option value="d9dceb9cb19b433a9c900ec709126c22">Android tablet1</option><option value="dba86662ca2147868cc51d75a73b4ba4">Register 24</option><option value="dc508c8068dc4da98c61cc1e2e233fe9">regName7138</option><option value="dd37478689d04eafa0eb4833de44dd9f">Register 1</option><option value="ddbe28aa7b414c20a93c827862bae5ba">Yurii 33</option><option value="e2ddf75799df4d89818184196787fe14">Register 1</option><option value="e789e6518ae04360a8564863ff760f23">Register 1</option><option value="e79f70224a2246d9a305ea41b5295539">New Register reg test2</option><option value="e993ba8444b3484b85f24230945783ac">Register 20</option><option value="eacf243055df4cc28de04e788b4c341d">BestRegister</option><option value="ec0d9bb281694f678cfce43e1dbacdd1">New Register</option><option value="f24e699965944981a3770e4eeafc60f9">Register 41</option><option value="f2a3a22cb5624890bae5ee775a326553">Register 46</option><option value="f4e24cda30e4496ea57ff1f148e77c8c">Register 4-sync test</option><option value="f514531ecf6c40b294be1ec3707bba3a">Vlad Register</option><option value="f546823618a449b3bcda2ca71a314703">Register 30</option><option value="fe9ddc788d2f4c93a44ad292c15d0976">Register 43</option>
+	                                </select>
+								</div>
+								<div data-show="default">&nbsp;</div>
+							</td>
+							<td class="text-right">24:00</td>
+							<td class="text-center">
+								<a href="#" data-show="active" style="display: none;" onclick="toggleEditing(event, false)">Save</a>
+								<a href="#" data-show="default" onclick="toggleEditing(event, true)">Edit</a>
+							</td>
+							<td><input type="button" class="delete-row-button"></td>
+						</tr>
+					
+				</tbody>
+			</table>
+			<script>
+				function toggleEditing(e, state) {
+					e.preventDefault();
+					var target = $(e.currentTarget);
+					var parent = target.closest('[data-parent]');
+					var activeContainers = parent.find('[data-show="active"]');
+					var defaultContainers = parent.find('[data-show="default"]');
+
+					if (state) {
+						activeContainers.show();
+						defaultContainers.hide();
+					} else {
+						activeContainers.hide();
+						defaultContainers.show();
+					}
+				}
+			</script>
+			<div class="dataTables_paginate paging_simple_numbers">
+				<a class="paginate_button previous disabled" data-dt-idx="0" tabindex="0">Previous</a>
+				<span>
+					<a class="paginate_button current" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " data-dt-idx="2" tabindex="0">2</a>
+				</span>
+				<a class="paginate_button next" data-dt-idx="3" tabindex="0">Next</a>
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
