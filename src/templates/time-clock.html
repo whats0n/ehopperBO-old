@@ -10,6 +10,97 @@ headerTitle: Time Clock
 			<table>
 				<tbody>
 					<tr>
+						<td data-bind="if: storesFilter.storesArr().length > 1">
+							<div>
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores', visible: $data.storesFilter.storesArr().length > 1">Stores:</label>
+							</div>
+							<div style="float:left;">
+								<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+								<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+									<div data-bind="with: $data.storesFilter, css: self.divStyle">
+										<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible" style="display: none;">
+											<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+										</div>
+										<div data-bind="css: contStyle" class="filter_control_cont">
+											<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+												multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
+												<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
+												<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
+												<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+												<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+												<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
+												<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+												<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+												<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+												<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+												<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+												<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+												<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+												<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
+												<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+												<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
+												<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
+												<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
+												<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
+												<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
+												<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
+												<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
+												<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+												<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
+												<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
+												<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+												<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+												<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+											</select>
+											<div class="ms-parent" style="width: 200px;">
+												<button type="button" class="select">
+													<div class="fl">
+														<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
+														<div>
+															<div></div>
+														</div>
+													</div>
+												</button>
+												<div class="ms-drop bottom" data-name="multipleSelect2">
+													<ul style="max-height: 250px;">
+														<li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect2"> <label for="allCheck">Select All</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5a4b11ccd458452facd24376cc851f7b" id="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b"> <label for="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b">28 aug test</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="ea56b32ca4064c43b2d943700b5a796c" id="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c"> <label for="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c">28 august store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect2_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect2_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="dec86c0a82174c449744d003e8f3dceb" id="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb"> <label for="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb">ivanstore</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect2_662fd10aa39844839b3b909d232547a3"> <label for="id_multipleSelect2_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6"> <label for="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e359ba2d45c6467795cfe279152a7ccc" id="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc"> <label for="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6050df646589491b81a3dd087204c5d4" id="id_multipleSelect2_6050df646589491b81a3dd087204c5d4"> <label for="id_multipleSelect2_6050df646589491b81a3dd087204c5d4">New Store234</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621"> <label for="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="29e2ac6d8a094defa9369454323ba645" id="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645"> <label for="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645">Olga Store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6298584313f54a40b31d6403e55614d5" id="id_multipleSelect2_6298584313f54a40b31d6403e55614d5"> <label for="id_multipleSelect2_6298584313f54a40b31d6403e55614d5">Store 2</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2"> <label for="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46116dbcea1c43fd8a91c797c668147c" id="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c"> <label for="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c">Store 3</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect2_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect2_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d"> <label for="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46a47ec55ae34e5699a815196881f4bc" id="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc"> <label for="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc">TestCreation</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect2_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect2_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
+														<li><input type="checkbox" name="selectItemmultipleSelect2" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect2_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect2_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
+														<li class="ms-no-results">No matches found</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--/ko-->
+							</div>
+						</td>
 						<td>
 							<div>
 								<label data-bind="local: 'reports/productMixReport.register_filter'">Register:</label>
@@ -298,97 +389,6 @@ headerTitle: Time Clock
 								</select>
 							</div>
 						</td>
-						<td data-bind="if: storesFilter.storesArr().length > 1">
-							<div>
-								<label data-bind="local: 'employees/manage-tabs/generalTab.stores', visible: $data.storesFilter.storesArr().length > 1">Stores:</label>
-							</div>
-							<div style="float:left;">
-								<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
-								<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
-									<div data-bind="with: $data.storesFilter, css: self.divStyle">
-										<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible" style="display: none;">
-											<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
-										</div>
-										<div data-bind="css: contStyle" class="filter_control_cont">
-											<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
-												multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
-												<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
-												<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
-												<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
-												<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
-												<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
-												<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
-												<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
-												<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
-												<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
-												<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
-												<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
-												<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
-												<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
-												<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
-												<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
-												<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
-												<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
-												<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
-												<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
-												<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
-												<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
-												<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
-												<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
-												<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
-												<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
-												<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
-												<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
-											</select>
-											<div class="ms-parent" style="width: 200px;">
-												<button type="button" class="select">
-													<div class="fl">
-														<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
-														<div>
-															<div></div>
-														</div>
-													</div>
-												</button>
-												<div class="ms-drop bottom" data-name="multipleSelect2">
-													<ul style="max-height: 250px;">
-														<li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect2"> <label for="allCheck">Select All</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5a4b11ccd458452facd24376cc851f7b" id="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b"> <label for="id_multipleSelect2_5a4b11ccd458452facd24376cc851f7b">28 aug test</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="ea56b32ca4064c43b2d943700b5a796c" id="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c"> <label for="id_multipleSelect2_ea56b32ca4064c43b2d943700b5a796c">28 august store</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect2_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect2_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect2_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="dec86c0a82174c449744d003e8f3dceb" id="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb"> <label for="id_multipleSelect2_dec86c0a82174c449744d003e8f3dceb">ivanstore</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect2_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect2_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect2_662fd10aa39844839b3b909d232547a3"> <label for="id_multipleSelect2_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect2_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_multipleSelect2_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect2_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect2_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6"> <label for="id_multipleSelect2_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect2_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="e359ba2d45c6467795cfe279152a7ccc" id="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc"> <label for="id_multipleSelect2_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6050df646589491b81a3dd087204c5d4" id="id_multipleSelect2_6050df646589491b81a3dd087204c5d4"> <label for="id_multipleSelect2_6050df646589491b81a3dd087204c5d4">New Store234</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621"> <label for="id_multipleSelect2_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="29e2ac6d8a094defa9369454323ba645" id="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645"> <label for="id_multipleSelect2_29e2ac6d8a094defa9369454323ba645">Olga Store</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="6298584313f54a40b31d6403e55614d5" id="id_multipleSelect2_6298584313f54a40b31d6403e55614d5"> <label for="id_multipleSelect2_6298584313f54a40b31d6403e55614d5">Store 2</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2"> <label for="id_multipleSelect2_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46116dbcea1c43fd8a91c797c668147c" id="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c"> <label for="id_multipleSelect2_46116dbcea1c43fd8a91c797c668147c">Store 3</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect2_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect2_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d"> <label for="id_multipleSelect2_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="46a47ec55ae34e5699a815196881f4bc" id="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc"> <label for="id_multipleSelect2_46a47ec55ae34e5699a815196881f4bc">TestCreation</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect2_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect2_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_multipleSelect2_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
-														<li><input type="checkbox" name="selectItemmultipleSelect2" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect2_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect2_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
-														<li class="ms-no-results">No matches found</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--/ko-->
-							</div>
-						</td>
 						<td style="padding-top: 25px;">
 							<div>
 								<button type="button" class="btn btn-lg btn-primary">Search</button>
@@ -504,7 +504,7 @@ headerTitle: Time Clock
 								<div data-show="default">{{item.hours or '&nbsp;' | safe}}</div>
 							</td>
 							<td class="text-center">
-								<a href="#" data-show="default" onclick="toggleEditing(event, true)">Edit</a>
+								<button data-show="default" onclick="toggleEditing(event, true)" class="btn btn-primary">Edit</button>
 								<button data-show="active" style="display: none;" onclick="toggleEditing(event, false)" class="btn btn-primary">Save</button>
 							</td>
 							<td>
@@ -575,7 +575,7 @@ headerTitle: Time Clock
 							<div data-show="default" style="display: none;"></div>
 						</td>
 						<td class="text-center">
-							<a href="#" data-show="default" style="display: none;" onclick="toggleEditing(event, true)">Edit</a>
+							<button data-show="default" onclick="toggleEditing(event, true)" class="btn btn-primary">Edit</button>
 							<button data-show="active" onclick="toggleEditing(event, false)" class="btn btn-primary">Save</button>
 						</td>
 						<td>
