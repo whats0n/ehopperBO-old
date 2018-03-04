@@ -5573,6 +5573,49 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   border-top-color: #2E9ADB;
 }
 
+.some-filters {
+  *zoom: 1;
+}
+
+.some-filters:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.some-filters__select {
+  float: left;
+  padding-right: 20px;
+}
+
+.some-filters__select_md {
+  max-width: 20%;
+}
+
+.some-filters__select_sm {
+  max-width: 16%;
+}
+
+.some-filters__select .filter_control_cont {
+  float: left;
+  width: 100%;
+}
+
+.some-filters__button {
+  float: left;
+  padding-top: 25px;
+}
+
+.some-filters__right {
+  float: right;
+  padding-top: 33px;
+}
+
+.some-filters select,
+.some-filters .select {
+  max-width: 100%;
+}
+
 .n-pane__inner {
   height: 100%;
   padding: 20px;
