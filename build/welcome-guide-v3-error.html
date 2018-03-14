@@ -51,19 +51,20 @@
 
 	<!-- begin guide -->
 
+
 <div class="v-guide v-guide_adaptive" data-guide>
 	<div class="v-guide-steps v-guide-steps_lg v-guide__steps">
 	<div class="v-guide-steps__inner">
 		<ul class="v-guide-steps__list">
 			
-				<li class="v-guide-steps__item is-active" data-guide-step="0">
+				<li class="v-guide-steps__item is-prev" data-guide-step="0">
 					<div class="v-guide-steps__icon">
 						<i class="fa fa-child"></i>
 					</div>
 					<div class="v-guide-steps__title">Welcome</div>
 				</li>
 			
-				<li class="v-guide-steps__item " data-guide-step="1">
+				<li class="v-guide-steps__item is-active" data-guide-step="1">
 					<div class="v-guide-steps__icon">
 						<i class="icon icon-upgrade"></i>
 					</div>
@@ -79,11 +80,11 @@
 			
 		</ul>
 		<div class="v-guide-steps__line">
-			<div class="v-guide-steps__line-in" data-guide-line ></div>
+			<div class="v-guide-steps__line-in" data-guide-line style="transform: translate3d(-50%,0,0);"></div>
 		</div>
 	</div>
 </div>
-	<div class="v-guide__container" data-guide-container>
+	<div class="v-guide__container" data-guide-container data-initial-slide="1">
 		
 			<div class="v-guide__item">
 				<!-- begin g-box -->
@@ -572,6 +573,29 @@
 				<div class="g-box__content-in">
 					<iframe src="https://ehopper.com/wp-content/uploads/success.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end g-box__inner -->
+</div>
+<!-- end g-box SUCCESS PAYMENT -->
+	<!-- begin g-box SUCCESS PAYMENT -->
+<div class="g-box g-box_success v-box is-open" data-success>
+	<!-- begin g-box__footer -->
+	<div class="g-box__footer">
+		<button class="v-guide-btn v-guide-btn_gray v-guide-btn_wide g-box__btn">Stay with Essential</button>
+	</div>
+	<!-- end g-box__footer -->
+
+	<!-- begin g-box__inner -->
+	<div class="g-box__inner g-box__vertical">
+		<div class="g-box__center g-box__center_noscroll">
+			<div class="v-box__icon" data-animation="icon">
+				<i class="fa fa-close is-red " aria-hidden="true"></i>
+			</div>
+			<h3 class="v-box__title" data-animation="title">There was an issue processing your payment.</h3>
+			<div class="v-box__description" data-animation="text">
+				<p>Please <a href="#">try again</a> or email at <a href="#">support@ehopper.com</a>.</p>
 			</div>
 		</div>
 	</div>

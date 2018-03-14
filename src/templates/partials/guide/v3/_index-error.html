@@ -1,0 +1,44 @@
+<!-- begin guide -->
+{% set screens = [
+	{
+		icon: 'fa fa-child',
+		label: 'Welcome',
+		title: 'Welcome to eHopper!',
+		url: './_welcome.html',
+		next: true,
+		classList: 'is-prev'
+	},
+	{
+		icon: 'icon icon-upgrade',
+		label: 'Select a plan',
+		title: 'Select price in package',
+		url: './_upgrade.html',
+		next: true,
+		prev: true,
+		classList: 'is-active'
+	},
+	{
+		icon: 'fa fa-rocket',
+		label: 'Get Started',
+		title: 'Get Started with Ehopper POS',
+		url: './_get-started.html',
+		next: true,
+		prev: true
+	}
+] %}
+{% set stepslineAttrs = 'style="transform: translate3d(-50%,0,0);"' %}
+<div class="v-guide v-guide_adaptive" data-guide>
+	{% include './_steps.html' %}
+	<div class="v-guide__container" data-guide-container data-initial-slide="1">
+		{% for item in screens %}
+			<div class="v-guide__item">
+				{% include item.url %}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="loader-container" style="display: none;" data-loader></div>
+	{% include './_form.html' %}
+	{% include './_success.html' %}
+	{% include './_error.html' %}
+</div>
+<!-- end guide -->

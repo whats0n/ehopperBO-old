@@ -57,10 +57,13 @@ import {ACTIVE, PREV, OPEN, HIDDEN} from '../_constants';
 			});
 		});
 
+		const initialSlide = container.data('initial-slide') || 0;
+
 		container.slick({
 			infinite: false,
 			arrows: false,
-			swipe: false
+			swipe: false,
+			initialSlide: initialSlide
 		});
 
 		container
