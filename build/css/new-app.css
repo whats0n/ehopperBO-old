@@ -6453,6 +6453,27 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   max-width: 400px;
 }
 
+.form__row {
+  margin: 0 -20px;
+  *zoom: 1;
+}
+
+.form__row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.form__col {
+  float: left;
+  padding: 0 20px;
+  width: 50%;
+}
+
+.form__section {
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;
