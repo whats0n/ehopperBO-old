@@ -17,10 +17,17 @@ headerTitle: New Store
 				{% include 'partials/components/_add-register.html' %}
 			</div>
 
-			<div class="form__item form__item_md js-item">
+			<div class="form__item form__item_md">
 				<div class="form-group">
 					<label for="new-store-name" data-bind="local: 'storeSettings/store-settings-tabs/contacts.store_name'">Store Name</label>
 					<input id="new-store-name" class="form-control input-lg" type="text" maxlength="100" data-bind="value: storeName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" placeholder="Input name"><span class="fieldError" style="display: none;"></span>
+				</div>
+			</div>
+			
+			<div class="form__item form__item_md js-item">
+				<div class="form-group">
+					<label data-bind="local: 'registerSettings/registerSettingsManage.register_name'">Register Name</label>
+					<input class="form-control input-lg" type="text" placeholder="Input name" data-bind="value: registerName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" maxlength="100"><span class="fieldError" style="display: none;"></span>
 				</div>
 			</div>
 
