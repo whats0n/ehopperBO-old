@@ -1,0 +1,47 @@
+---
+title: New Register
+headerTitle: New Register
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list" data-bind="css: { loading: isLoading() }">
+
+		<div class="form form_md" data-bind="visible: !isLoading()" style="">
+
+			
+			<div class="form__section form__description">
+				<p>To add a new register, please fill out the form and select the "Buy" button.</p>
+			</div>
+			<div class="form__section">
+				{% include 'partials/components/_add-register.html' %}
+			</div>
+
+			<div class="form__item js-item">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+						<div class="form-group">
+							<label data-bind="local: 'registerSettings/registerSettingsManage.register_name'">Register Name</label>
+							<input class="form-control input-lg" type="text" placeholder="Input name" data-bind="value: registerName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" maxlength="100"><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<div class="form-group">
+							<label for="new-register-store-name" data-bind="local: 'registerSettings/registerSettingsManage.store'">Store</label>
+							<select id="new-register-store-name" data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: businessUnitId" class="select-wide"><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option><option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option></select><span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-bind="text: errorMessage" class="fieldError"></div>
+			
+			<div class="buttons-center form__buttons">
+				<div class="form-buttons">
+					<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Buy" data-bind="click: done, local: 'registerSettings/registerSettingsManage.done'">
+					<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local: 'registerSettings/registerSettingsManage.cancel'">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

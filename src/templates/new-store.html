@@ -1,0 +1,37 @@
+---
+title: New Store
+headerTitle: New Store
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list" data-bind="css: { loading: isLoading() }">
+
+		<div class="form form_md" data-bind="visible: !isLoading()" style="">
+
+			
+			<div class="form__section form__description">
+				<p>To add a new register, please fill out the form and select the "Buy" button.</p>
+			</div>
+			<div class="form__section">
+				{% include 'partials/components/_add-register.html' %}
+			</div>
+
+			<div class="form__item form__item_md js-item">
+				<div class="form-group">
+					<label for="new-store-name" data-bind="local: 'storeSettings/store-settings-tabs/contacts.store_name'">Store Name</label>
+					<input id="new-store-name" class="form-control input-lg" type="text" maxlength="100" data-bind="value: storeName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" placeholder="Input name"><span class="fieldError" style="display: none;"></span>
+				</div>
+			</div>
+
+			<div data-bind="text: errorMessage" class="fieldError"></div>
+			
+			<div class="buttons-center form__buttons">
+				<div class="form-buttons">
+					<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Buy" data-bind="click: done, local: 'registerSettings/registerSettingsManage.done'">
+					<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local: 'registerSettings/registerSettingsManage.cancel'">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

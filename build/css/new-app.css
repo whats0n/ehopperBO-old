@@ -6425,6 +6425,34 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   width: 200px;
 }
 
+.form_md {
+  padding: 20px 0 !important;
+  margin: 0 auto !important;
+  max-width: 600px !important;
+  width: 100% !important;
+}
+
+.form__description {
+  margin: 0 auto;
+  max-width: 330px;
+  font-size: 18px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.form__description p {
+  margin: 0;
+}
+
+.form__buttons {
+  padding-top: 20px;
+}
+
+.form__item_md {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;

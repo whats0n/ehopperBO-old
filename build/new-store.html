@@ -1,0 +1,241 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>New Store</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">New Store</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body item-list" data-bind="css: { loading: isLoading() }">
+
+		<div class="form form_md" data-bind="visible: !isLoading()" style="">
+
+			
+			<div class="form__section form__description">
+				<p>To add a new register, please fill out the form and select the "Buy" button.</p>
+			</div>
+			<div class="form__section">
+				<div class="v-guide-info">
+	<div class="v-guide-info__price">
+		<div class="v-guide-info__price-label">
+			<small>$</small>
+			<strong data-price="39.99">39.99</strong> 
+			mo per register <span>*</span>
+		</div>
+	</div>
+	<div class="v-guide-info__spinner">
+		<div class="v-spinner" data-spinner>
+			<button class="v-spinner__minus" type="button" data-spinner-control="down" onclick="spinnerControl(event, 'down')" disabled></button>
+			<button class="v-spinner__plus" type="button" data-spinner-control="up" onclick="spinnerControl(event, 'up')"></button>
+			<input 
+				type="text" 
+				value="1" 
+				data-spinner-input 
+				data-min="1"
+				data-max="100"
+				oninput="spinnerInput(event)"
+				class="form-control input-lg v-spinner__input">
+		</div>
+		<script>
+			var UP = 'up';
+			var DOWN = 'down';
+			var numberPattern = /\d+/g;
+
+			function getValues(input) {
+				return {
+					val: input.val(),
+					min: +input.data('min'),
+					max: +input.data('max')
+				};
+			};
+
+			function enableControls(buttons) {
+				buttons.attr('disabled', false);
+			}
+
+			function disableControls(buttons, direction) {
+				switch (direction) {
+					case UP:
+						buttons.filter('[data-spinner-control="' + UP + '"]').attr('disabled', true);
+						return;
+					case DOWN:
+						buttons.filter('[data-spinner-control="' + DOWN + '"]').attr('disabled', true);
+						return;
+				}
+			}
+
+			function setTotal(quantity) {
+				var price = $('[data-price]').data('price');
+				var total = $('[data-total]');
+
+				total.text((price*quantity).toFixed(2));
+				
+				var item = $('.js-item');
+				var length = item.length;
+
+				if (!length) return;
+				if (length > quantity) {
+					for (var i = length; i > quantity; i--) {
+						item.eq(length - i).remove()
+					}
+				} else {
+					for (var i = length; i < quantity; i++) {
+						var first = item.first();
+						var last = item.last();
+						var clone = first.clone();
+						last.after(clone);
+					}
+				}
+			}
+
+			function spinnerControl(e, direction) {
+				e.preventDefault();
+				var target = $(e.currentTarget);
+				var spinner = target.closest('[data-spinner]');
+				var input = spinner.find('[data-spinner-input]');
+				var buttons = spinner.find('[data-spinner-control]');
+				if (target.attr('disabled')) return;
+
+				var values = getValues(input);
+
+				var min = values.min;
+				var max = values.max;
+				var newVal = +values.val;
+
+				enableControls(buttons);
+				switch (direction) {
+					case UP: 
+						newVal++;
+						if (newVal >= max) {
+							newVal = max;
+							disableControls(buttons, UP);
+						}
+						break;
+					case DOWN:
+						newVal--;
+						if (newVal <= min) {
+							newVal = min;
+							disableControls(buttons, DOWN);
+						}
+						break;
+				}
+
+				setTotal(newVal);
+				input.val(newVal);
+			}
+
+			function spinnerInput(e) {
+				var input = $(e.currentTarget);
+				var spinner = input.closest('[data-spinner]');
+				var buttons = spinner.find('[data-spinner-control]');
+
+				var values = getValues(input);
+				var min = values.min;
+				var max = values.max;
+				var val = values.val;
+
+				if (!val) val = ''+min;
+
+				var filtered = val.match( numberPattern );
+				
+				var newVal = (filtered && filtered.length) ? +(filtered.join('')) : min;
+				enableControls(buttons);
+
+				if (newVal >= max) {
+					newVal = max;
+					disableControls(buttons, UP);
+				}
+				if (newVal <= min) {
+					newVal = min;
+					disableControls(buttons, DOWN);
+				}
+
+				setTotal(newVal);
+				input.val(newVal);
+			}
+		</script>
+	</div>
+	<div class="v-guide-info__price">
+		<div class="v-guide-info__price-label">Total:</div>
+		<div class="v-guide-info__price-main">
+			<small>$</small>
+			<strong data-total>39.99</strong>
+		</div>
+	</div>
+</div>
+			</div>
+
+			<div class="form__item form__item_md js-item">
+				<div class="form-group">
+					<label for="new-store-name" data-bind="local: 'storeSettings/store-settings-tabs/contacts.store_name'">Store Name</label>
+					<input id="new-store-name" class="form-control input-lg" type="text" maxlength="100" data-bind="value: storeName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" placeholder="Input name"><span class="fieldError" style="display: none;"></span>
+				</div>
+			</div>
+
+			<div data-bind="text: errorMessage" class="fieldError"></div>
+			
+			<div class="buttons-center form__buttons">
+				<div class="form-buttons">
+					<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Buy" data-bind="click: done, local: 'registerSettings/registerSettingsManage.done'">
+					<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local: 'registerSettings/registerSettingsManage.cancel'">
+				</div>
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
