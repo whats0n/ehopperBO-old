@@ -207,7 +207,7 @@
 			<strong data-total>39.99</strong>
 		</div>
 	</div>
-	<div class="v-guide-info__disclaimer"><strong>NOTE:</strong> Excludes Poynt. For&nbsp;details&nbsp;visit our <a href="https://ehoppersupport.zendesk.com/hc/en-us/articles/360000788408">support page</a>.</div>
+	<div class="v-guide-info__disclaimer">NOTE: Excludes Poynt. For&nbsp;details&nbsp;visit our <a target="_blank" href="https://ehoppersupport.zendesk.com/hc/en-us/articles/360000788408">support page</a>.</div>
 </div>
 			</div>
 
@@ -220,10 +220,201 @@
 						</div>
 					</div>
 					<div class="form__col">
-						<div class="form-group">
-							<label for="new-register-store-name" data-bind="local: 'registerSettings/registerSettingsManage.store'">Select a Store</label>
-							<select id="new-register-store-name" data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: businessUnitId" class="select-wide">
-							<option></option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option><option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option></select><span class="fieldError" style="display: none;"></span>
+						<div class="form-group select-parent-wide multi-select-single">
+							<script>
+								function toggleDropdown(e) {
+									var target = $(e.target);
+									var select = target.closest('multi-selector');
+									var dropdown = select.find('.ms-drop');
+
+									dropdown.toggle();
+								}
+
+								document.querySelector('body').addEventListener('click', function(e) {
+									if (e.target.closest('.select')) return;
+									Array
+										.prototype
+										.forEach
+										.call(document.querySelectorAll('.ms-drop'), function(dropdown) {
+											dropdown.style.display = 'none';
+										});
+								}, false);
+							</script>
+							<label for="new-register-store-name" data-bind="local: 'registerSettings/registerSettingsManage.store'">Store</label>
+							<multi-selector params="options: $root.setupTaxAgencyMultiSelect($data)"><div class="ms-parent" data-bind="style: { width : options.width }, click : onSelectorClick" style="width: 100%;">
+							    <button type="button" class="select" data-bind="enable: enabled, click: selectControlClick, validationElement: validationElement" onclick="toggleDropdown(event)">
+							    <div class="fl">
+							        <div>
+							            <!-- ko if: options.filter -->
+							            <input class="filter-text" type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" data-bind="enable: enabled, attr : { id: options.filterId, dataid: options.dataid, placeholder:  options.filter_text}, 
+							                   textInput : selectorValueText " placeholder="Select a Store">
+							            <!-- /ko -->
+							            <!-- ko if: !options.filter --><!-- /ko -->
+							        </div>
+							        <div>
+							            <div>
+							            </div>
+							        </div>
+							    </div>
+							    </button>
+							    <input style="display:none" data-bind="value: validationElement" class=""><span class="fieldError" style="display: none;"></span>
+							    <div class="ms-drop bottom" data-bind="css: msDropStyle(), style : { display : isOpen() ? 'block' : 'none'} " style="display: none;">
+							    <ul data-bind="style:{ 'max-height' :  options.maxHeight } " style="max-height: 250px;">
+							        <!-- ko if: options.selectAll &&  !options.single && filteredData.length > 0 --><!-- /ko -->
+
+							        <!-- ko if: options.single -->
+							        <!-- ko foreach: filteredData -->
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_5c4803249782499491a8ef585a3a3608" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_5c4803249782499491a8ef585a3a3608" value="5c4803249782499491a8ef585a3a3608">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_5c4803249782499491a8ef585a3a3608">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">111</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_d5ce17aac0614b968a54ec5bb01a558e" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_d5ce17aac0614b968a54ec5bb01a558e" value="d5ce17aac0614b968a54ec5bb01a558e">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_d5ce17aac0614b968a54ec5bb01a558e">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">123</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_2217ba8718824f8aa4b2a83942cf96b8" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_2217ba8718824f8aa4b2a83942cf96b8" value="2217ba8718824f8aa4b2a83942cf96b8">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_2217ba8718824f8aa4b2a83942cf96b8">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">2</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_06ea970799574a07b82cca64347b647c" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_06ea970799574a07b82cca64347b647c" value="06ea970799574a07b82cca64347b647c">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_06ea970799574a07b82cca64347b647c">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">231</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_d58a1b048c2445f4b7d79094bc4a3ef3" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_d58a1b048c2445f4b7d79094bc4a3ef3" value="d58a1b048c2445f4b7d79094bc4a3ef3">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_d58a1b048c2445f4b7d79094bc4a3ef3">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">3</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_500e12811341484bb9bc5254e92e234b" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_500e12811341484bb9bc5254e92e234b" value="500e12811341484bb9bc5254e92e234b">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_500e12811341484bb9bc5254e92e234b">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">355</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_2f8b597b1ad74a478389cc0d4d271d69" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_2f8b597b1ad74a478389cc0d4d271d69" value="2f8b597b1ad74a478389cc0d4d271d69">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_2f8b597b1ad74a478389cc0d4d271d69">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">3565</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_07688e3043ee49248ebc49e39b24b97f" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_07688e3043ee49248ebc49e39b24b97f" value="07688e3043ee49248ebc49e39b24b97f">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_07688e3043ee49248ebc49e39b24b97f">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">654</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_9482b5f692dd40bbba01f3bf66124792" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_9482b5f692dd40bbba01f3bf66124792" value="9482b5f692dd40bbba01f3bf66124792">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_9482b5f692dd40bbba01f3bf66124792">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">abcd 12345</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_5ddef72ccc204185b7a154062cce91fd" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_5ddef72ccc204185b7a154062cce91fd" value="5ddef72ccc204185b7a154062cce91fd">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_5ddef72ccc204185b7a154062cce91fd">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">Default Agency</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        
+							        <li data-bind="click: $parent.selectItem.bind($parent)">
+							            <input type="radio" data-bind="checked: itemSelected, attr: { 
+							                   id: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId],
+							                   name: 'selectItem_' + $parent.filterId + '_' + $data[ $parent.options.optionId], 
+							                   value: $data[ $parent.options.optionId] } 
+							                    " id="selectItem_88bcb066f85ec10673a71dccdf89ffd8_c32781e1277d4bfc9985528d81d3d136" name="selectItem_88bcb066f85ec10673a71dccdf89ffd8_c32781e1277d4bfc9985528d81d3d136" value="c32781e1277d4bfc9985528d81d3d136">
+							            <label data-bind="attr: { for: $parent.filterId + '_' + $data[$parent.options.optionId] }" for="88bcb066f85ec10673a71dccdf89ffd8_c32781e1277d4bfc9985528d81d3d136">
+							                <span data-bind="text: $data[ $parent.options.optionDisplayText]">new taxxxx</span>
+							                <div class="ms-description" data-bind="text: $data.description, visible: $data.description" style="display: none;"></div>
+							            </label>
+							            
+							        </li>
+							        <!-- /ko -->
+							        <!-- /ko -->
+
+							        <!-- ko if: !options.single --><!-- /ko -->
+
+							         <li class="ms-no-results" data-bind="visible : filteredData.length === 0,  text: options.no_matches_text">No matches found</li>
+							        </ul>
+							    </div>
+							</div></multi-selector>
 						</div>
 					</div>
 				</div>

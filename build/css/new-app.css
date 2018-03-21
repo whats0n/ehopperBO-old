@@ -6083,8 +6083,18 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   text-align: center;
 }
 
+.select-parent-wide select,
+.select-parent-wide .select {
+  width: 100%;
+}
+
 .select-wide {
   width: 100%;
+}
+
+.multi-select-single input[type="checkbox"] + label:before,
+.multi-select-single input[type="radio"] + label:before {
+  display: none;
 }
 
 .app-block__icon {

@@ -297,8 +297,17 @@
 				text-align: center
 
 //common
+.select-parent-wide
+	select,
+	.select
+		width: 100%
 .select-wide
 	width: 100%
+.multi-select-single
+	input[type="checkbox"],
+	input[type="radio"] 
+		+ label:before
+			display: none
 
 //app
 .app-block
