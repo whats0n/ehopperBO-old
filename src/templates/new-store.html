@@ -10,24 +10,18 @@ headerTitle: New Store
 		<div class="form form_md" data-bind="visible: !isLoading()" style="">
 
 			
-			<div class="form__section form__description">
+			<div class="form__description">
 				<p>To add a new register, please fill out the form and select the "Buy" button.</p>
 			</div>
 			<div class="form__section">
+				{% set registerPrice = 'store with 1 register' %}
 				{% include 'partials/components/_add-register.html' %}
 			</div>
 
-			<div class="form__item form__item_md">
-				<div class="form-group">
-					<label for="new-store-name" data-bind="local: 'storeSettings/store-settings-tabs/contacts.store_name'">Store Name</label>
-					<input id="new-store-name" class="form-control input-lg" type="text" maxlength="100" data-bind="value: storeName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" placeholder="Input name"><span class="fieldError" style="display: none;"></span>
-				</div>
-			</div>
-			
 			<div class="form__item form__item_md js-item">
 				<div class="form-group">
-					<label data-bind="local: 'registerSettings/registerSettingsManage.register_name'">Register Name</label>
-					<input class="form-control input-lg" type="text" placeholder="Input name" data-bind="value: registerName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" maxlength="100"><span class="fieldError" style="display: none;"></span>
+					<label for="new-store-name" data-bind="local: 'storeSettings/store-settings-tabs/contacts.store_name'">Store Name</label>
+					<input id="new-store-name" class="form-control input-lg" type="text" maxlength="100" data-bind="value: storeName, local: 'registerSettings/registerSettingsManage.input_name', localAttr: 'placeholder'" placeholder="Enter Store Name" value="Store 2" data-value="Store"><span class="fieldError" style="display: none;"></span>
 				</div>
 			</div>
 

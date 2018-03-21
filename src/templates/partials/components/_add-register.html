@@ -3,7 +3,7 @@
 		<div class="v-guide-info__price-label">
 			<small>$</small>
 			<strong data-price="39.99">39.99</strong> 
-			mo per register <span>*</span>
+			mo per {{registerPrice or 'register'}}
 		</div>
 	</div>
 	<div class="v-guide-info__spinner">
@@ -59,7 +59,7 @@
 				if (!length) return;
 				if (length > quantity) {
 					for (var i = length; i > quantity; i--) {
-						item.eq(length - i).remove()
+						item.eq(i-1).remove();
 					}
 				} else {
 					for (var i = length; i < quantity; i++) {
@@ -67,6 +67,9 @@
 						var last = item.last();
 						var clone = first.clone();
 						last.after(clone);
+						$('.js-item [data-value]').each(function(i, el) {
+							$(this).val($(this).data('value') + ' ' + (i + 2))
+						});
 					}
 				}
 			}
@@ -145,4 +148,5 @@
 			<strong data-total>39.99</strong>
 		</div>
 	</div>
+	<div class="v-guide-info__disclaimer"><strong>NOTE:</strong> Excludes Poynt. For&nbsp;details&nbsp;visit our <a href="https://ehoppersupport.zendesk.com/hc/en-us/articles/360000788408">support page</a>.</div>
 </div>
