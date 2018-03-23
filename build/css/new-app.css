@@ -4425,6 +4425,10 @@
   width: 50%;
 }
 
+.v-guide-form__col_wide, .v-guide-form__field_wide {
+  width: 100%;
+}
+
 .v-guide-form__col {
   padding: 0 20px;
 }
@@ -4891,6 +4895,7 @@
 .modal-upgrade .g-box .v-guide-form {
   padding-left: 20px;
   padding-right: 20px;
+  min-height: 100%;
   box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1);
 }
 
@@ -5000,6 +5005,10 @@
   background: #fff;
   box-shadow: 0 5px 25px -5px rgba(39, 55, 74, 0.15), 0 5px 20px -10px rgba(39, 55, 74, 0.1);
   text-align: left;
+}
+
+.g-box__container_sm {
+  width: 512px;
 }
 
 .g-box__col {

@@ -1,0 +1,14 @@
+---
+title: Empty 
+headerTitle: Empty 
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	{% set guideFixed = true %}
+	{% set guideIsOpen = true %}
+	{% set noCalculator = true %}
+	{% include 'partials/upgrade/_index.html' %}
+
+{% endblock %}

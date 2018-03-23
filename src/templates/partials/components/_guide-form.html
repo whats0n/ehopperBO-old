@@ -1,7 +1,7 @@
 <div class="v-guide-form">
 	<div class="v-guide-form__container">
 		<div class="v-guide-form__row">
-			{% for item in [
+			{% set columns = [
 				{
 					info: true,
 					classModificator: 'vertical'
@@ -57,7 +57,11 @@
 					]
 				}
 			] %}
-				<div class="v-guide-form__col v-guide-form__{{item.classModificator}}">
+			{% if noCalculator %}
+				{% set columns = [ columns[1] ] %}
+			{% endif %}
+			{% for item in columns %}
+				<div class="v-guide-form__col v-guide-form__{{item.classModificator}} {% if noCalculator %}v-guide-form__col_wide{% endif %}">
 					{% if item.title %}
 						<div class="v-guide-form__title">{{item.title}}</div>
 					{% endif %}
