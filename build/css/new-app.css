@@ -5214,13 +5214,14 @@
 }
 
 .g-box-selection__item label .fa {
-  border: 1px solid #fff;
+  border: 2px solid #8c8c8c;
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  color: #fff;
+  color: #2E9ADB;
+  background: #fff;
   font-size: 0;
-  line-height: 22px;
+  line-height: 20px;
   text-align: center;
 }
 
