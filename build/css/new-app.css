@@ -428,6 +428,7 @@
   width: 25px;
   height: 25px;
   background: #fff;
+  cursor: pointer;
 }
 
 .new-checkbox__icon:before {
@@ -449,6 +450,7 @@
   padding: 3px 0 2px 31px;
   font-size: 14px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .i-fields {
@@ -5379,6 +5381,57 @@
 
 .dashboard-bottom-part .tasks {
   min-height: 60px;
+}
+
+.v-denomination {
+  padding: 20px;
+}
+
+.v-denomination__section:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.v-denomination__title {
+  padding: 0 0 20px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.v-denomination__container {
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.v-denomination__row {
+  font-size: 0;
+}
+
+.v-denomination__row:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.v-denomination__label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  max-width: 250px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.v-denomination__control {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  text-align: center;
+}
+
+.v-denomination__table {
+  margin: 0 !important;
+  max-width: 800px;
 }
 
 .n-container {
