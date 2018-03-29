@@ -5024,7 +5024,7 @@
 
 .g-box__video-in {
   position: relative;
-  padding-bottom: 56%;
+  padding-bottom: 56.1%;
 }
 
 .g-box__video iframe {
@@ -5324,6 +5324,10 @@
   height: 54px;
   color: #a94442;
   background-color: #f2dede;
+}
+
+.v-toolbar[style*="display: none;"] + .main-container, .v-toolbar[style*="display:none;"] + .main-container {
+  padding-top: 0;
 }
 
 .v-toolbar + .main-container {
