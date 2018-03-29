@@ -77,6 +77,7 @@ headerTitle: Denomination App Settings
 							<tr role="row">
 								<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
 								<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
+								<th class="v-denomination__close"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -96,6 +97,7 @@ headerTitle: Denomination App Settings
 								<tr>
 									<td>{{item.type}}</td>
 									<td>{{item.amount}}</td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
 								</tr>
 							{% endfor %}
 						</tbody>

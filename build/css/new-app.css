@@ -5452,6 +5452,21 @@
   margin-left: 20px;
 }
 
+.v-denomination__close {
+  padding: 0 !important;
+  width: 50px;
+}
+
+.v-denomination__close-btn {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background: url("../content/images/common-controls/delete-row-button.png") center center no-repeat;
+}
+
 .n-container {
   *zoom: 1;
 }
