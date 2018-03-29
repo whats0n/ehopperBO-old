@@ -21,7 +21,7 @@ headerTitle: Denomination App Settings
 							</label>
 						</div>
 					</div>
-					<div class="v-denomination__row">
+					{#<div class="v-denomination__row">
 						<div class="v-denomination__label">Required denomination</div>
 						<div class="v-denomination__control">
 							<label class="new-checkbox">
@@ -29,7 +29,7 @@ headerTitle: Denomination App Settings
 								<span class="new-checkbox__icon"></span>
 							</label>
 						</div>
-					</div>
+					</div>#}
 				</div>
 			</div>
 			<div class="v-denomination__section">
@@ -38,8 +38,14 @@ headerTitle: Denomination App Settings
 					<table class="datatable dataTable v-denomination__table" role="grid">
 						<thead>
 							<tr role="row">
+								<th class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" aria-label="Required denomination: Activate to sort by descending columns" aria-sort="ascending">
+									<label class="new-checkbox" style="display: inline-block; vertical-align: middle;">
+										<input type="checkbox">
+										<span class="new-checkbox__icon"></span>
+									</label>
+									<span style="display: inline-block; vertical-align: middle; padding-left: 10px;">Required denomination</span>
+								</th>
 								<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Store: Activate to sort by ascending columns">Store</th>
-								<th class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" aria-label="Required denomination: Activate to sort by descending columns" aria-sort="ascending">Required denomination</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -50,13 +56,13 @@ headerTitle: Denomination App Settings
 								{ checked: true }
 							] %}
 								<tr>
-									<td>Store {{loop.index}}</td>
 									<td>
 										<label class="new-checkbox">
 											<input type="checkbox" {% if item.checked %}checked{% endif %}>
 											<span class="new-checkbox__icon"></span>
 										</label>
 									</td>
+									<td>Store {{loop.index}}</td>
 								</tr>
 							{% endfor %}
 						</tbody>
@@ -75,13 +81,13 @@ headerTitle: Denomination App Settings
 						</thead>
 						<tbody>
 							{% for item in [
-								{ type: 'Note', amount: '100' },
-								{ type: 'Note', amount: '50' },
-								{ type: 'Note', amount: '20' },
-								{ type: 'Note', amount: '10' },
-								{ type: 'Note', amount: '5' },
-								{ type: 'Note', amount: '2' },
-								{ type: 'Note', amount: '1' },
+								{ type: 'Cash', amount: '100' },
+								{ type: 'Cash', amount: '50' },
+								{ type: 'Cash', amount: '20' },
+								{ type: 'Cash', amount: '10' },
+								{ type: 'Cash', amount: '5' },
+								{ type: 'Cash', amount: '2' },
+								{ type: 'Cash', amount: '1' },
 								{ type: 'Coin', amount: '0.50' },
 								{ type: 'Coin', amount: '0.25' },
 								{ type: 'Coin', amount: '0.10' },
@@ -94,6 +100,13 @@ headerTitle: Denomination App Settings
 							{% endfor %}
 						</tbody>
 					</table>
+					<div class="v-denomination__add">
+						<select class="select v-denomination__select">
+							<option value="Cash">Cash</option>
+							<option value="Coin">Coin</option>
+						</select>
+						<input class="tax-add-button v-denomination__add-btn" type="button" data-bind="click: $root.addTax">
+					</div>
 				</div>
 			</div>
 			<div class="v-denomination__footer">

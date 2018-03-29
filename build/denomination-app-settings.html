@@ -64,15 +64,7 @@
 							</label>
 						</div>
 					</div>
-					<div class="v-denomination__row">
-						<div class="v-denomination__label">Required denomination</div>
-						<div class="v-denomination__control">
-							<label class="new-checkbox">
-								<input type="checkbox" checked>
-								<span class="new-checkbox__icon"></span>
-							</label>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="v-denomination__section">
@@ -81,50 +73,56 @@
 					<table class="datatable dataTable v-denomination__table" role="grid">
 						<thead>
 							<tr role="row">
+								<th class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" aria-label="Required denomination: Activate to sort by descending columns" aria-sort="ascending">
+									<label class="new-checkbox" style="display: inline-block; vertical-align: middle;">
+										<input type="checkbox">
+										<span class="new-checkbox__icon"></span>
+									</label>
+									<span style="display: inline-block; vertical-align: middle; padding-left: 10px;">Required denomination</span>
+								</th>
 								<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Store: Activate to sort by ascending columns">Store</th>
-								<th class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" aria-label="Required denomination: Activate to sort by descending columns" aria-sort="ascending">Required denomination</th>
 							</tr>
 						</thead>
 						<tbody>
 							
 								<tr>
-									<td>Store 1</td>
 									<td>
 										<label class="new-checkbox">
 											<input type="checkbox" checked>
 											<span class="new-checkbox__icon"></span>
 										</label>
 									</td>
+									<td>Store 1</td>
 								</tr>
 							
 								<tr>
-									<td>Store 2</td>
 									<td>
 										<label class="new-checkbox">
 											<input type="checkbox" >
 											<span class="new-checkbox__icon"></span>
 										</label>
 									</td>
+									<td>Store 2</td>
 								</tr>
 							
 								<tr>
+									<td>
+										<label class="new-checkbox">
+											<input type="checkbox" checked>
+											<span class="new-checkbox__icon"></span>
+										</label>
+									</td>
 									<td>Store 3</td>
-									<td>
-										<label class="new-checkbox">
-											<input type="checkbox" checked>
-											<span class="new-checkbox__icon"></span>
-										</label>
-									</td>
 								</tr>
 							
 								<tr>
-									<td>Store 4</td>
 									<td>
 										<label class="new-checkbox">
 											<input type="checkbox" checked>
 											<span class="new-checkbox__icon"></span>
 										</label>
 									</td>
+									<td>Store 4</td>
 								</tr>
 							
 						</tbody>
@@ -144,37 +142,37 @@
 						<tbody>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>100</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>50</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>20</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>10</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>5</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>2</td>
 								</tr>
 							
 								<tr>
-									<td>Note</td>
+									<td>Cash</td>
 									<td>1</td>
 								</tr>
 							
@@ -200,6 +198,13 @@
 							
 						</tbody>
 					</table>
+					<div class="v-denomination__add">
+						<select class="select v-denomination__select">
+							<option value="Cash">Cash</option>
+							<option value="Coin">Coin</option>
+						</select>
+						<input class="tax-add-button v-denomination__add-btn" type="button" data-bind="click: $root.addTax">
+					</div>
 				</div>
 			</div>
 			<div class="v-denomination__footer">

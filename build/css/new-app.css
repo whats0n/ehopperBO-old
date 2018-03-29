@@ -5438,6 +5438,20 @@
   max-width: 800px;
 }
 
+.v-denomination__add {
+  padding-top: 20px;
+  font-size: 0;
+}
+
+.v-denomination__select, .v-denomination__add-btn {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.v-denomination__add-btn {
+  margin-left: 20px;
+}
+
 .n-container {
   *zoom: 1;
 }
