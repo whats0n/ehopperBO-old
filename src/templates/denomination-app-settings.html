@@ -80,7 +80,7 @@ headerTitle: Denomination App Settings
 								<th class="v-denomination__close"></th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="js-body">
 							{% for item in [
 								{ type: 'Cash', amount: '100' },
 								{ type: 'Cash', amount: '50' },
@@ -97,17 +97,41 @@ headerTitle: Denomination App Settings
 								<tr>
 									<td>{{item.type}}</td>
 									<td>{{item.amount}}</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							{% endfor %}
 						</tbody>
 					</table>
 					<div class="v-denomination__add">
-						<select class="select v-denomination__select">
+						{#<select class="select v-denomination__select js-type">
 							<option value="Cash">Cash</option>
 							<option value="Coin">Coin</option>
-						</select>
-						<input class="tax-add-button v-denomination__add-btn" type="button" data-bind="click: $root.addTax">
+						</select>#}
+						<input class="tax-add-button v-denomination__add-btn" type="button" onclick="addLine(event)">
+
+						<script>
+							function addLine(e) {
+								var template = `<tr>
+									<td>
+										<select class="select v-denomination__select">
+											<option value="Cash">Cash</option>
+											<option value="Coin">Coin</option>
+										</select>
+									</td>
+									<td><input type="text" class="form-control input-lg" /></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+								</tr>`;
+
+								$('.js-body').append(template);
+							}
+
+							function deleteRow(e) {
+								$(e.target)
+									.closest('tr')
+									.remove();
+							}
+						</script>
+
 					</div>
 				</div>
 			</div>

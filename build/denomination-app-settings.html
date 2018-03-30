@@ -140,82 +140,103 @@
 								<th class="v-denomination__close"></th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="js-body">
 							
 								<tr>
 									<td>Cash</td>
 									<td>100</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>50</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>20</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>10</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>5</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>2</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Cash</td>
 									<td>1</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Coin</td>
 									<td>0.50</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Coin</td>
 									<td>0.25</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Coin</td>
 									<td>0.10</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 								<tr>
 									<td>Coin</td>
 									<td>0.01</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn"></button></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 								</tr>
 							
 						</tbody>
 					</table>
 					<div class="v-denomination__add">
-						<select class="select v-denomination__select">
-							<option value="Cash">Cash</option>
-							<option value="Coin">Coin</option>
-						</select>
-						<input class="tax-add-button v-denomination__add-btn" type="button" data-bind="click: $root.addTax">
+						
+						<input class="tax-add-button v-denomination__add-btn" type="button" onclick="addLine(event)">
+
+						<script>
+							function addLine(e) {
+								var template = `<tr>
+									<td>
+										<select class="select v-denomination__select">
+											<option value="Cash">Cash</option>
+											<option value="Coin">Coin</option>
+										</select>
+									</td>
+									<td><input type="text" class="form-control input-lg" /></td>
+									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+								</tr>`;
+
+								$('.js-body').append(template);
+							}
+
+							function deleteRow(e) {
+								$(e.target)
+									.closest('tr')
+									.remove();
+							}
+						</script>
+
 					</div>
 				</div>
 			</div>
