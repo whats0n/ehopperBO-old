@@ -5604,7 +5604,7 @@
   background: #286090;
 }
 
-.sm-dropdown.is-open .sm-dropdown__control i {
+.sm-dropdown.is-open .sm-dropdown__control .fa-angle-down {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -5631,7 +5631,7 @@
   background: #286090;
 }
 
-.sm-export.is-open .sm-export__control i {
+.sm-export.is-open .sm-export__control .fa-angle-down {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
