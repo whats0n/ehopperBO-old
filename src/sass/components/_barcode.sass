@@ -1,0 +1,123 @@
+.barcode-filters
+	+clr
+	&__search
+		float: left		
+	&__input,
+	&__btn 
+		display: inline-block
+		vertical-align: top
+	&__btn 
+		margin-left: 15px
+	&__checkbox
+		float: right
+		padding: 12px 0
+	.form-control,
+	label
+		margin: 0
+
+.barcode-controls
+	position: absolute
+	z-index: 2
+	top: 30px
+	right: 20px
+	width: 400px
+	font-size: 0
+	text-align: right
+	&__dropdown,
+	&__export
+		display: inline-block
+		vertical-align: top
+		margin-left: 20px
+
+.sm-export,
+.sm-dropdown
+	position: relative
+	display: inline-block
+	vertical-align: top
+	&__control
+		display: block
+		padding: 7px 16px
+		border-radius: 3px
+		width: 100%
+		font-family: inherit
+		font-size: 0
+		span,
+		i 
+			display: inline-block
+			vertical-align: middle
+		span
+			font-size: 16px
+			line-height: 21px
+		.fa-angle-down
+			margin-left: 10px
+			font-size: 24px
+			line-height: 21px
+	&__body
+		position: absolute
+		z-index: 1000
+		top: 100%
+		right: 0
+		display: none
+		padding: 5px 0
+		border: 1px solid rgba($black, .15)
+		border-radius: 4px
+		background-color: $white
+		font-size: 14px
+		text-align: left
+		list-style: none
+	&__item
+		list-style: none
+	&__link
+		display: block
+		padding: 10px 20px
+		color: #2E9ADB
+		font-weight: normal
+		line-height: 1.428
+		text-decoration: none
+		white-space: nowrap
+		&:hover,
+		&:focus
+			color: #262626
+			background: #f5f5f5
+			text-decoration: none
+
+.sm-dropdown
+	width: 180px
+	&.is-open
+		.sm-dropdown
+			&__control
+				border-color: #204d74
+				color: $white
+				background: #286090
+				i 
+					transform: rotate(180deg)
+			&__body
+				display: block
+	&__control
+		border: 1px solid #2E9ADB
+		color: $white
+		background: #2E9ADB
+		&:hover
+			border-color: #1B79B2
+			color: $white
+			background: #1B79B2
+		&:active
+			border-color: #204d74
+			color: $white
+			background: #286090
+
+.sm-export
+	&.is-open
+		.sm-export
+			&__control
+				i 
+					transform: rotate(180deg)
+			&__body
+				display: block
+	&__control
+		border: 1px solid #ccc
+		color: #333
+		background: $white 
+		.ic-pdf
+			margin-right: 5px
+			font-size: 18px

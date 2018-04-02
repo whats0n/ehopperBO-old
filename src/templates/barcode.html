@@ -1,0 +1,61 @@
+---
+title: Barcode Labels
+headerTitle: Barcode Labels
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body store-transfer">
+		<!-- begin barcode-controls -->
+		<div class="barcode-controls">
+			<div class="barcode-controls__dropdown">
+				<div class="sm-dropdown js-dropdown">
+					<button class="sm-dropdown__control js-dropdown-open">
+						<span>Print on Demo</span>
+						<i class="fa fa-angle-down"></i>
+					</button>
+					<ul class="sm-dropdown__body">
+						{% for item in [ 'Square (1 x 1)',  'Rectangle (1 x 1.5)',  'Large Rectangle (1.25 x 2.25)',  'Butterfly' ] %}
+							<li class="sm-dropdown__item">
+								<a href="#" class="sm-dropdown__link">{{item}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="barcode-controls__export">
+				<div class="sm-export js-dropdown">
+					<button class="sm-export__control js-dropdown-open">
+						<i class="ic ic-pdf"></i>
+						<span>Export</span>
+						<i class="fa fa-angle-down"></i>
+					</button>
+					<ul class="sm-export__body">
+						{% for item in [ 'Avery 5160 compatible (2.625" x 1")',  'Avery 5167 compatible (1.75" x 0.5")' ] %}
+							<li class="sm-export__item">
+								<a href="#" class="sm-export__link">{{item}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end barcode-controls -->
+		{% set tabsCollection = 'barcode' %}
+		{% set tabs = [
+			{
+				active: 'is-active',
+				open: 'is-open',
+				name: 'barcode-products',
+				btn: 'Products',
+				content: 'partials/barcode/_products.html'
+			},
+			{
+				name: 'barcode-ingredients',
+				btn: 'Ingredients',
+				content: 'partials/barcode/_ingredients.html'
+			}
+		] %}
+		{% include 'partials/components/_tabs.html' %}
+	</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<div>
+	{% include 'partials/barcode/_filters.html' %}
+	<div class="min-table-width-wrapper">
+		<table class="datatable dataTable min-table-width" role="grid">
+			<thead>
+				<tr role="row">
+					<th>ID</th>
+					<th>Name</th>
+					<th>UPC</th>
+					<th>Price</th>
+					<th>Qty to print</th>
+					<th style="width: 80px;">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody style="display: none;">
+				<tr>
+					<td colspan="6" class="start-search-message">Search for individual products in search field or display the full list of products.</td>
+				</tr>
+			</tbody>
+			<tbody>
+				{% for item in [
+					{ id: '178', name: '"Borsch"', upc: '100000015', qty: '1' },
+					{ id: '129', name: 'Potato Au Gratin', upc: '4044572456123', qty: '3' }
+				] %}
+					<tr>
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.upc}}</td>
+						<td>
+							<label class="new-checkbox">
+								<input type="checkbox" checked>
+								<span class="new-checkbox__icon"></span>
+							</label>
+						</td>
+						<td>
+							<input type="number" class="form-control input" value="{{item.qty}}">
+						</td>
+						<td>
+							<input type="button" class="delete-row-button">
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="dataTables_wrapper" data-bind="visible: fullList() &amp;&amp; pagination().length > 1" style="">
+			<div class="dataTables_paginate paging_simple_numbers">
+				<a class="paginate_button previous disabled" data-dir="previous" data-bind="css: { disabled: pagination()[0] &amp;&amp; pagination()[0].current }, click: $root.gotoPage, local: 'storeTransfer.previous'">Previous</a>
+				<span data-bind="foreach: pagination">
+					<a class="paginate_button current" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">1</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">2</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">3</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">4</a>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">5</a>
+					<span>…</span>
+					<a class="paginate_button" data-bind="text: pageNo, css: { current: $data.current }, click: $root.gotoPage">24</a>
+				</span>
+				<a class="paginate_button next" data-dir="next" data-bind="css: { disabled: pagination().length &amp;&amp; pagination()[pagination().length - 1].current }, click: $root.gotoPage, local: 'storeTransfer.next'">Next</a>
+			</div>
+		</div>
+	</div>
+</div>
