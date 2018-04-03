@@ -11,9 +11,10 @@
 
 $icon-alert: "\EA01";
 $icon-csv: "\EA02";
-$icon-facebook: "\EA03";
-$icon-pdf: "\EA04";
-$icon-upgrade: "\EA05";
+$icon-external-link: "\EA03";
+$icon-facebook: "\EA04";
+$icon-pdf: "\EA05";
+$icon-upgrade: "\EA06";
 
 
 %icon {
@@ -34,6 +35,7 @@ $icon-upgrade: "\EA05";
 
 .icon-alert:before { content: $icon-alert; }
 .icon-csv:before { content: $icon-csv; }
+.icon-external-link:before { content: $icon-external-link; }
 .icon-facebook:before { content: $icon-facebook; }
 .icon-pdf:before { content: $icon-pdf; }
 .icon-upgrade:before { content: $icon-upgrade; }

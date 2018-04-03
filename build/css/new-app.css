@@ -30,16 +30,20 @@
   content: "";
 }
 
-.icon-facebook:before {
+.icon-external-link:before {
   content: "";
 }
 
-.icon-pdf:before {
+.icon-facebook:before {
   content: "";
 }
 
-.icon-upgrade:before {
+.icon-pdf:before {
   content: "";
+}
+
+.icon-upgrade:before {
+  content: "";
 }
 
 /* Slider */
@@ -5335,8 +5339,10 @@
 }
 
 .v-toolbar__btn {
-  float: right;
-  margin-left: 20px;
+  position: static !important;
+  display: inline-block;
+  vertical-align: top;
+  margin: -11px 10px;
   height: 40px;
   outline: none !important;
 }
@@ -5349,6 +5355,8 @@
 }
 
 .v-toolbar__content p {
+  display: inline-block;
+  vertical-align: top;
   padding: 0;
   margin: 0;
 }
@@ -6800,6 +6808,24 @@ table.datatable > thead > tr > th.is-sorting_down:after {
 
 .form__section {
   margin-bottom: 30px;
+}
+
+ul.main-menu li.open a.billing-icon {
+  background-image: url(../content/images/menu/invoice-white.svg);
+}
+
+ul.main-menu li a.billing-icon {
+  background: url(../content/images/menu/invoice.svg) 8px 8px no-repeat;
+  background-size: 30px auto;
+}
+
+ul.main-menu li a .icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -0.5em;
+  fill: currentColor;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 1366px){
