@@ -1,0 +1,113 @@
+---
+title: PO Receiving Details
+headerTitle: PO Receiving Details
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory">
+		<div class="report-export-wrapper pull-right">
+			<div class="sm-export js-dropdown">
+				<button class="sm-export__control js-dropdown-open">
+					<span>Export</span>
+					<i class="fa fa-angle-down"></i>
+				</button>
+				<ul class="sm-export__body">
+					{% for item in [ 
+						{ icon: 'fa fa-file-excel-o', title: 'CSV' },
+						{ icon: 'ic ic-pdf', title: 'PDF' }
+					] %}
+						<li class="sm-export__item">
+							<a href="#" class="sm-export__link"><i class="{{item.icon}}"></i>{{item.title}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<br class="clear"><br>
+		<div id="storeTransferDetailsMessage"></div>
+		<table class="store-transfer-attr">
+			<tbody><tr>
+				<td data-bind="visible: !model.vendor()" style="display: none;">
+					<span data-bind="local: 'storeTransfer.storeTransferId'">Store Transfer ID</span>
+					<span data-bind="text: model.code">1626</span>
+				</td>
+				<td data-bind="visible: model.vendor()" style="">
+					<span data-bind="local: 'poReceiving.poReceivingId'">PO Receiving ID</span>
+					<span data-bind="text: model.code">1626</span>
+				</td>
+				<td data-bind="visible: model.vendor()" style="">
+					<span data-bind="local: 'poReceiving.vendor'">Vendor</span>
+					<span data-bind="text: model.vendor">7</span>
+				</td>
+				<td data-bind="visible: model.storeOut()" style="display: none;">
+					<span data-bind="local: 'storeTransfer.storeOut'">Store Out</span>
+					<span data-bind="text: model.storeOut"></span>
+				</td>
+				<td>
+					<span data-bind="local: 'storeTransfer.storeIn'">Store In</span>
+					<span data-bind="text: model.storeIn">BESTsTore</span>
+				</td>
+				<td>
+					<span data-bind="local: 'storeTransfer.date'">Date</span>
+					<span data-bind="text: model.date">07/03/2018 3:56:26 PM</span>
+				</td>
+				<td>
+					<span data-bind="local: 'storeTransfer.employee'">Employee</span>
+					<span data-bind="text: model.employee">BO Operator 11111</span>
+				</td>
+			</tr>
+		</tbody></table>
+
+		<table class="datatable dataTable">
+			<thead>
+				<tr>
+					<th data-bind="local: 'storeTransfer.id'">ID</th>
+					<th data-bind="local: 'storeTransfer.name'">Name</th>
+					<th data-bind="html: $root.barCodeHeader">UPC</th>
+					<th data-bind="local: 'storeTransfer.sku'">SKU</th>
+					<th data-bind="local: 'ingredients.uom', visible:$root.isIngredientMode()" style="display: none;">UOM</th>
+					<th data-bind="local: 'storeTransfer.cost'">Cost</th>
+					<th>
+						<span data-bind="visible: !model.vendor(), local: 'storeTransfer.transferQuantity'" style="display: none;">Transfer Qty</span>
+						<span data-bind="visible: model.vendor(), local: 'poReceiving.receivedQuantity'" style="">Received Qty</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: model.inventoryTransferLines">
+				<tr>
+					<td>
+						<span data-bind="text: $data.productCode, visible: $data.parentLineId == null  ">256</span>
+					</td>
+					<td data-bind="text: $data.name">3Y1Thai Green Salad</td>
+					<td data-bind="text: $data.upc">11100000</td>
+					<td data-bind="text: $data.sku"></td>
+					<td data-bind="text: $data.uom, visible:$root.isIngredientMode()" style="display: none;">item</td>        
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">$0.00</td>
+					<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+					<td data-bind="text: $data.transferQuantity, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">100</td>
+					<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+				</tr>
+			
+				<tr>
+					<td>
+						<span data-bind="text: $data.productCode, visible: $data.parentLineId == null  ">4619</span>
+					</td>
+					<td data-bind="text: $data.name">242705638377</td>
+					<td data-bind="text: $data.upc"></td>
+					<td data-bind="text: $data.sku"></td>
+					<td data-bind="text: $data.uom, visible:$root.isIngredientMode()" style="display: none;">item</td>        
+					<td data-bind="currency: $data.cost, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">$0.00</td>
+					<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+					<td data-bind="text: $data.transferQuantity, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">100</td>
+					<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="form-buttons">
+			<input data-bind="click: model.back, local: 'storeTransfer.back'" class="btn btn-lg btn-primary" type="button" value="Back">
+		</div>
+
+	</div>
+{% endblock %}
