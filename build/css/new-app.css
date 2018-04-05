@@ -5475,6 +5475,58 @@
   background: url("../content/images/common-controls/delete-row-button.png") center center no-repeat;
 }
 
+.n-field {
+  padding: 0 0 30px;
+  margin: 0 auto;
+  max-width: 300px;
+  text-align: left;
+}
+
+.n-field__label {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.n-field__container {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.n-field__row {
+  display: table-row;
+}
+
+.n-field__input, .n-field__button {
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.n-field__button {
+  padding-left: 20px;
+  width: 120px;
+}
+
+.n-field__text {
+  display: block;
+  font-size: 14px;
+  line-height: 53px;
+  text-align: center;
+}
+
+.n-field__error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+  color: #ec4a41;
+  font-size: 13px;
+}
+
 .barcode-filters {
   *zoom: 1;
 }
@@ -6826,6 +6878,18 @@ ul.main-menu li a .icon {
   margin-top: -0.5em;
   fill: currentColor;
   font-size: 20px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.form-control.hasError ~ .n-error-message {
+  display: block;
+}
+
+.n-error-message {
+  display: none;
 }
 
 @media only screen and (max-width: 1366px){

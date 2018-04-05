@@ -112,18 +112,17 @@
 							</div>
 							<div class="v-guide-info__spinner">
 								<div class="v-spinner" data-spinner>
-									<button class="v-spinner__minus" type="button" data-spinner-control="down" onclick="spinnerControl(event, 'down')" disabled></button>
-									<button class="v-spinner__plus" type="button" data-spinner-control="up" onclick="spinnerControl(event, 'up')"></button>
+									<button class="v-spinner__minus" type="button" data-spinner-control="down" disabled></button>
+									<button class="v-spinner__plus" type="button" data-spinner-control="up"></button>
 									<input 
 										type="text" 
 										value="1" 
 										data-spinner-input 
 										data-min="1"
 										data-max="100"
-										oninput="spinnerInput(event)"
 										class="form-control input-lg v-spinner__input">
 								</div>
-								<script>
+								{#<script>
 									var UP = 'up';
 									var DOWN = 'down';
 									var numberPattern = /\d+/g;
@@ -223,13 +222,27 @@
 										setTotal(newVal);
 										input.val(newVal);
 									}
-								</script>
+								</script>#}
 							</div>
 							<div class="v-guide-info__price">
 								<div class="v-guide-info__price-label">Total:</div>
 								<div class="v-guide-info__price-main">
 									<small>$</small>
 									<strong data-total>39.99</strong>
+								</div>
+							</div>
+							<div class="n-field v-guide-info__field">
+								<div class="n-field__container">
+									<div class="n-field__row">
+										<div class="n-field__input">
+											<input type="text" id="CouponСode" class="form-control input-lg" data-coupon="input" placeholder="Enter Coupon">
+											<div class="n-field__error-message n-error-message">Coupon is invalid</div>
+										</div>
+										<div class="n-field__button">
+											<button class="v-guide-btn v-guide-btn_wide" data-coupon="button" type="button">Apply</button>
+											<a href="#" class="n-field__text" data-coupon="cancel" hidden>Cancel</a>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="v-guide-info__disclaimer">NOTE: If you are using Poynt terminal, <a target="_blank" href="https://ehoppersupport.zendesk.com/hc/en-us/articles/360000788408">click here</a></div>
