@@ -5723,12 +5723,6 @@
   font-size: 18px;
 }
 
-.new-notifications {
-  padding: 155px 40px 40px;
-  margin: 0 auto;
-  max-width: 890px;
-}
-
 .new-notifications__checkbox {
   margin-bottom: 20px;
 }
