@@ -5045,6 +5045,10 @@
   width: 40%;
 }
 
+.g-box__content_wide {
+  width: 100%;
+}
+
 .g-box__content-in {
   position: relative;
 }
