@@ -1,0 +1,23 @@
+---
+title: Notifications APP
+headerTitle: Notifications APP
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+<div class="app-block" data-bind="click: $root.appClick">
+	<div class="app-block_header">
+		<div class="app-block__icon app-block__icon_notifications">
+			<i class="fa fa-bell"></i>
+		</div>
+	</div>
+	<div class="app-block_content">
+		<div class="app-block_content_header" data-bind="text: $data.name">Notifications</div>
+		<div class="block_content_producer" data-bind="text: $data.company">by eHopper</div>
+		<div class="app-block_content_package">
+			<div class="app-block_content_package_name" data-bind="text: $data.packageName">Freedom Package</div>
+			<div class="app-block_content_package_desc" data-bind="text: $data.packageDescription">Freedom Plan only</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

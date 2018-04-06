@@ -1,0 +1,36 @@
+---
+title: Notifications 
+headerTitle: Notifications 
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body">
+		<div class="new-notifications">
+			<div class="new-notifications__body js-notifications">
+				<div class="new-notifications__checkbox">
+					<label class="new-checkbox">
+						<input type="checkbox" checked onchange="disableInput(event)">
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Minimum inventory alert</span>
+					</label>
+				</div>
+				<div class="new-notifications__field">
+					<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter email">
+				</div>
+			</div>
+			<script>
+				function disableInput(e) {
+					$(e.currentTarget)
+						.closest('.js-notifications')
+						.find('.js-notifications-input')
+						.attr('disabled', !$(e.currentTarget).prop('checked'));
+				}
+			</script>
+			<div class="form-buttons new-notifications__buttons">
+				<input class="btn btn-lg btn-primary" type="button" value="DONE">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+		</div>
+	</div>
+{% endblock %}

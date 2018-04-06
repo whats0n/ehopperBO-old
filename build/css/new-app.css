@@ -5723,6 +5723,22 @@
   font-size: 18px;
 }
 
+.new-notifications {
+  padding: 40px;
+}
+
+.new-notifications__body {
+  min-height: 250px;
+}
+
+.new-notifications__checkbox {
+  margin-bottom: 20px;
+}
+
+.new-notifications__field {
+  max-width: 300px;
+}
+
 .n-container {
   *zoom: 1;
 }
@@ -6466,6 +6482,22 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   display: inline-block;
   vertical-align: middle;
   font-size: 56px;
+}
+
+.app-block__icon_notifications i {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: #ffcc00;
+  background: #2E9ADB;
+  font-size: 0;
+  line-height: 56px;
+}
+
+.app-block__icon_notifications i:before {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 34px;
 }
 
 .e-checkbox input[type="checkbox"] + label,
