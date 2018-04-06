@@ -1,0 +1,42 @@
+---
+title: Grid
+headerTitle: Grid
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+<div class="v-grid">
+	<div class="v-grid__title">Minimum Quantity Alert for Friday, 03/23/18</div>
+	<div class="v-grid__body">
+		<table class="datatable dataTable v-grid__table">
+			<thead>
+				<tr role="row">
+					<th>Item</th>
+					<th>Stores</th>
+					<th>Minimum Quantity</th>
+					<th>Total Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set table = [
+					{ name: 'Book 60', stores: 'All', minQty: '10', totalQty: '8' },
+					{ name: 'Book 60', stores: 'Store 1', minQty: '10', totalQty: '8' },
+					{ name: 'Book 60', stores: 'Store 2', minQty: '10', totalQty: '8' },
+					{ name: 'Coffee', stores: 'Store 1', minQty: '25', totalQty: '25' }
+				] %}
+				{% for item in table %}
+					<tr class="editable odd" role="row">
+						<td>{{item.name}}</td>
+						<td>{{item.stores}}</td>
+						<td>{{item.minQty}}</td>
+						<td>{{item.totalQty}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="v-grid__footer">
+		<a href="#" class="btn btn-lg btn-primary">Manage Inventory</a>
+	</div>
+</div>
+{% endblock %}

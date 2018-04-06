@@ -5732,6 +5732,27 @@
   max-width: 300px;
 }
 
+.v-grid {
+  padding: 40px 0;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.v-grid__table {
+  width: 100%;
+}
+
+.v-grid__title {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.v-grid__footer {
+  padding-top: 30px;
+  text-align: center;
+}
+
 .n-container {
   *zoom: 1;
 }
