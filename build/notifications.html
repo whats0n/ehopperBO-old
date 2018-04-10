@@ -50,7 +50,7 @@
 								
 	<div class="pane-body item-list">
 		<div class="new-notifications form wide-form">
-			<div class="new-notifications__body js-notifications">
+			<div class="new-notifications__body js-notifications" data-boxes="1">
 				<div class="new-notifications__checkbox">
 					<label class="new-checkbox">
 						<input type="checkbox" checked onchange="disableInput(event)">
@@ -58,19 +58,53 @@
 						<span class="new-checkbox__content">Minimum inventory email alert every 24 hrs</span>
 					</label>
 				</div>
-				<div class="new-notifications__field">
-					<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter Email">
+				<div class="new-notifications__field js-mail-box">
+					<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter Email" maxlength="255">
+					<div class="new-notifications__delete">
+						<button class="delete-row-button" data-remove hidden onclick="removeMailBox(event)"></button>
+					</div>
 				</div>
 				<div class="n-add js-add-group-before">
-					<a href="#" class="js-add-group"><i class="fa fa-plus"></i> Add modifier group</a>
+					<a href="#" onclick="addMailBox(event)"><i class="fa fa-plus"></i> Add an email</a>
 				</div>
 			</div>
+			<script id="template" type="template">
+				<div class="new-notifications__field js-mail-box">
+					<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter Email" maxlength="255">
+					<div class="new-notifications__delete">
+						<button class="delete-row-button" data-remove hidden onclick="removeMailBox(event)"></button>
+					</div>
+				</div>
+			</script>
 			<script>
 				function disableInput(e) {
 					$(e.currentTarget)
 						.closest('.js-notifications')
 						.find('.js-notifications-input')
 						.attr('disabled', !$(e.currentTarget).prop('checked'));
+				}
+
+				function addMailBox(e) {
+					e.preventDefault();
+					var template = $('#template').text();
+					var boxes = $('.js-mail-box');
+					var last = boxes.last();
+					if (boxes.length >= 10) return;
+					$(template).insertAfter(last);
+					updateLength();
+				}
+				
+				function removeMailBox(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.js-mail-box')
+						.remove();
+					updateLength();
+				}
+
+				function updateLength(type) {
+					var state = $('.js-mail-box').length <= 1;
+					$('[data-remove]').attr('hidden', state);
 				}
 			</script>
 			<div class="form-buttons new-notifications__buttons">
