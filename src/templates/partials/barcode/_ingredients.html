@@ -1,11 +1,12 @@
 <div>
+	{% set searchPlaceholder = 'Search by: ID, Name, Barcode' %}
 	{% include 'partials/barcode/_filters.html' %}
 	<div class="min-table-width-wrapper">
 		<table class="datatable dataTable min-table-width" role="grid">
 			<thead>
 				<tr role="row">
 					<th style="width: 140px;">ID</th>
-					<th style="width: 160px;">Barcode</th>
+					<th style="width: 15%;">Barcode</th>
 					<th>Display Name</th>
 					<th style="width: 20%;">Display Price</th>
 					<th style="width: 20%;">Qty to print</th>
