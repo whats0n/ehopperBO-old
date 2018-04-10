@@ -19,3 +19,5 @@ import './components/_configurable';
 import './components/_guide';
 import './components/_videos';
 import './components/_spinner';
+
+import './components/_trigger';

@@ -2825,6 +2825,16 @@
   padding: 5px 15px 11px !important;
 }
 
+.sm-configurable__checkbox {
+  float: left;
+  margin-right: 15px;
+}
+
+.sm-configurable__checkbox + .sm-configurable__inner {
+  overflow: hidden;
+  margin-top: 1px;
+}
+
 .sm-configurable__input {
   border: none;
   border-bottom: 1px solid #ccc;
@@ -2835,6 +2845,15 @@
 
 .sm-configurable__input:focus {
   border-color: #66afe9;
+}
+
+.sm-configurable__input:disabled {
+  color: gray;
+  background: #eee;
+}
+
+.sm-configurable__input_left {
+  text-align: left;
 }
 
 .sm-configurable__units {

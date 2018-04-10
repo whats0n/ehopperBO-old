@@ -3,6 +3,12 @@
 	text-align: center
 	&_update
 		padding: 5px 15px 11px !important
+	&__checkbox
+		float: left
+		margin-right: 15px
+		+ .sm-configurable__inner
+			overflow: hidden
+			margin-top: 1px
 	&__input
 		border: none
 		border-bottom: 1px solid #ccc
@@ -11,6 +17,11 @@
 		transition: border-color ease-in-out .15s
 		&:focus
 			border-color: #66afe9
+		&:disabled
+			color: lighten($darkGray, 30%)
+			background: #eee
+		&_left
+			text-align: left
 	&__units
 		position: absolute
 		right: 15px

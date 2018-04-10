@@ -4,10 +4,10 @@
 		<table class="datatable dataTable min-table-width" role="grid">
 			<thead>
 				<tr role="row">
-					<th>ID</th>
-					<th>Name</th>
+					<th style="width: 140px;">ID</th>
 					<th>Barcode</th>
-					<th>Price</th>
+					<th>Display Name</th>
+					<th>Display Price</th>
 					<th>Qty to print</th>
 					<th style="width: 80px;">&nbsp;</th>
 				</tr>
@@ -24,13 +24,24 @@
 				] %}
 					<tr>
 						<td>{{item.id}}</td>
-						<td>{{item.name}}</td>
 						<td>{{item.upc}}</td>
-						<td>
-							<label class="new-checkbox">
-								<input type="checkbox" checked>
+						<td class="sm-configurable js-trigger">
+							<label class="new-checkbox sm-configurable__checkbox">
+								<input type="checkbox" checked class="js-trigger-checkbox">
 								<span class="new-checkbox__icon"></span>
 							</label>
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input sm-configurable__input_left js-trigger-input" value="{{item.name}}">
+							</div>
+						</td>
+						<td class="sm-configurable js-trigger">
+							<label class="new-checkbox sm-configurable__checkbox">
+								<input type="checkbox" checked class="js-trigger-checkbox">
+								<span class="new-checkbox__icon"></span>
+							</label>
+							<div class="sm-configurable__inner">
+								<input type="text" class="sm-configurable__input js-trigger-input" value="$400.00">
+							</div>
 						</td>
 						<td>
 							<input type="number" class="form-control input" value="{{item.qty}}">
