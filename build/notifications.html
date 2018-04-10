@@ -50,37 +50,32 @@
 								
 	<div class="pane-body item-list">
 		<div class="new-notifications form wide-form">
-			<div class="store-settings-tabs tab-control">
-				<span class="tab selected" data-for="#Emails">
-					<span class="tab-title">Emails</span>
-					<span class="tab-selected-arrow"></span>
-				</span>
+			<div class="new-notifications__body js-notifications">
+				<div class="new-notifications__checkbox">
+					<label class="new-checkbox">
+						<input type="checkbox" checked onchange="disableInput(event)">
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Minimum inventory email alert every 24 hrs</span>
+					</label>
+				</div>
+				<div class="new-notifications__field">
+					<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter Email">
+				</div>
+				<div class="n-add js-add-group-before">
+					<a href="#" class="js-add-group"><i class="fa fa-plus"></i> Add modifier group</a>
+				</div>
 			</div>
-			<div class="tab-content" id="Emails">
-				<div class="new-notifications__body js-notifications">
-					<div class="new-notifications__checkbox">
-						<label class="new-checkbox">
-							<input type="checkbox" checked onchange="disableInput(event)">
-							<span class="new-checkbox__icon"></span>
-							<span class="new-checkbox__content">Minimum inventory email alert</span>
-						</label>
-					</div>
-					<div class="new-notifications__field">
-						<input class="form-control input-lg js-notifications-input" type="text" placeholder="Enter Email(s)">
-					</div>
-				</div>
-				<script>
-					function disableInput(e) {
-						$(e.currentTarget)
-							.closest('.js-notifications')
-							.find('.js-notifications-input')
-							.attr('disabled', !$(e.currentTarget).prop('checked'));
-					}
-				</script>
-				<div class="form-buttons new-notifications__buttons">
-					<input class="btn btn-lg btn-primary" type="button" value="DONE">
-					<input class="btn btn-lg btn-default" type="button" value="Cancel">
-				</div>
+			<script>
+				function disableInput(e) {
+					$(e.currentTarget)
+						.closest('.js-notifications')
+						.find('.js-notifications-input')
+						.attr('disabled', !$(e.currentTarget).prop('checked'));
+				}
+			</script>
+			<div class="form-buttons new-notifications__buttons">
+				<input class="btn btn-lg btn-primary" type="button" value="DONE">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
 			</div>
 		</div>
 	</div>

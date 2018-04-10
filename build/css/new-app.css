@@ -5742,13 +5742,21 @@
   font-size: 18px;
 }
 
+.new-notifications {
+  padding-top: 40px;
+}
+
+.new-notifications__body {
+  margin-bottom: 20px;
+}
+
 .new-notifications__checkbox {
   margin-bottom: 20px;
 }
 
 .new-notifications__field {
-  margin-bottom: 30px;
-  max-width: 300px;
+  margin-bottom: 20px;
+  max-width: 400px;
 }
 
 .v-grid {
