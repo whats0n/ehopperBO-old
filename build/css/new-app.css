@@ -5498,6 +5498,27 @@
   background: url("../content/images/common-controls/delete-row-button.png") center center no-repeat;
 }
 
+.v-denomination__tables {
+  *zoom: 1;
+}
+
+.v-denomination__tables:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.v-denomination__tables-row {
+  margin: 0 -10px;
+}
+
+.v-denomination__tables-col {
+  float: left;
+  padding: 0 10px;
+  width: 50%;
+  max-width: 800px;
+}
+
 .n-field {
   padding: 0 0 30px;
   margin: 0 auto;

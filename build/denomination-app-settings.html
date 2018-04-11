@@ -132,112 +132,133 @@
 			<div class="v-denomination__section">
 				<div class="v-denomination__title">Cash declarations</div>
 				<div class="v-denomination__container">
-					<table class="datatable dataTable v-denomination__table" role="grid">
-						<thead>
-							<tr role="row">
-								<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
-								<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
-								<th class="v-denomination__close"></th>
-							</tr>
-						</thead>
-						<tbody class="js-body">
-							
-								<tr>
-									<td>Cash</td>
-									<td>100</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>50</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>20</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>10</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>5</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>2</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Cash</td>
-									<td>1</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Coin</td>
-									<td>0.50</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Coin</td>
-									<td>0.25</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Coin</td>
-									<td>0.10</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-								<tr>
-									<td>Coin</td>
-									<td>0.01</td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>
-							
-						</tbody>
-					</table>
-					<div class="v-denomination__add">
-						
-						<input class="tax-add-button v-denomination__add-btn" type="button" onclick="addLine(event)">
-
-						<script>
-							function addLine(e) {
-								var template = `<tr>
-									<td>
-										<select class="select v-denomination__select">
-											<option value="Cash">Cash</option>
-											<option value="Coin">Coin</option>
-										</select>
-									</td>
-									<td><input type="text" class="form-control input-lg" /></td>
-									<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
-								</tr>`;
-
-								$('.js-body').append(template);
-							}
-
-							function deleteRow(e) {
-								$(e.target)
-									.closest('tr')
-									.remove();
-							}
-						</script>
-
+					<div class="v-denomination__tables">
+						<div class="v-denomination__tables-row">
+							<div class="v-denomination__tables-col js-wrap">
+								<table class="datatable dataTable v-denomination__table" role="grid">
+									<thead>
+										<tr role="row">
+											<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
+											<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
+											<th class="v-denomination__close"></th>
+										</tr>
+									</thead>
+									<tbody class="js-body">
+										
+											<tr>
+												<td>Bill</td>
+												<td>100</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>50</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>20</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>10</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>5</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>2</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Bill</td>
+												<td>1</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+									</tbody>
+								</table>
+								<div class="v-denomination__add">
+									
+									<input class="tax-add-button v-denomination__add-btn" type="button" onclick="addLine(event, 'Bill')">
+								</div>
+							</div>
+							<div class="v-denomination__tables-col js-wrap">
+								<table class="datatable dataTable v-denomination__table" role="grid">
+									<thead>
+										<tr role="row">
+											<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
+											<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
+											<th class="v-denomination__close"></th>
+										</tr>
+									</thead>
+									<tbody class="js-body">
+										
+											<tr>
+												<td>Coin</td>
+												<td>0.50</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Coin</td>
+												<td>0.25</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Coin</td>
+												<td>0.10</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+											<tr>
+												<td>Coin</td>
+												<td>0.01</td>
+												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+											</tr>
+										
+									</tbody>
+								</table>
+								<div class="v-denomination__add">
+									
+									<input class="tax-add-button v-denomination__add-btn" type="button" onclick="addLine(event, 'Coin')">
+								</div>
+							</div>
+						</div>
 					</div>
+
+					<script>
+						function addLine(e, type) {
+							var template = `<tr>
+								<td>${type}</td>
+								<td><input type="text" class="form-control input-lg" /></td>
+								<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
+							</tr>`;
+
+							$(e.target)
+								.closest('.js-wrap')
+								.find('.js-body')
+								.append(template);
+						}
+
+						function deleteRow(e) {
+							$(e.target)
+								.closest('tr')
+								.remove();
+						}
+					</script>
 				</div>
 			</div>
 			<div class="v-denomination__footer">
