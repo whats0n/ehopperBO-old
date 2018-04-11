@@ -5742,6 +5742,17 @@
   font-size: 18px;
 }
 
+.datatable th .new-checkbox,
+.datatable th .new-checkbox ~ span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.datatable th .new-checkbox ~ span {
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
 .new-notifications {
   padding-top: 40px;
 }

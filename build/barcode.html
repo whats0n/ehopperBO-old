@@ -52,33 +52,7 @@
 	<div class="pane-body store-transfer">
 		<!-- begin barcode-controls -->
 		<div class="barcode-controls">
-			<div class="barcode-controls__dropdown">
-				<div class="sm-dropdown js-dropdown">
-					<button class="sm-dropdown__control js-dropdown-open">
-						<span>Print on Dymo</span>
-						<i class="fa fa-angle-down"></i>
-					</button>
-					<ul class="sm-dropdown__body">
-						
-							<li class="sm-dropdown__item">
-								<a href="#" class="sm-dropdown__link">Square (1 x 1)</a>
-							</li>
-						
-							<li class="sm-dropdown__item">
-								<a href="#" class="sm-dropdown__link">Rectangle (1 x 1.5)</a>
-							</li>
-						
-							<li class="sm-dropdown__item">
-								<a href="#" class="sm-dropdown__link">Large Rectangle (1.25 x 2.25)</a>
-							</li>
-						
-							<li class="sm-dropdown__item">
-								<a href="#" class="sm-dropdown__link">Butterfly</a>
-							</li>
-						
-					</ul>
-				</div>
-			</div>
+			
 			<div class="barcode-controls__export">
 				<div class="sm-export js-dropdown">
 					<button class="sm-export__control js-dropdown-open">
@@ -94,6 +68,10 @@
 						
 							<li class="sm-export__item">
 								<a href="#" class="sm-export__link">1.75&quot; x 0.5&quot; - 80 Labels Per Sheet</a>
+							</li>
+						
+							<li class="sm-export__item">
+								<a href="#" class="sm-export__link">4&quot; x 2&quot; - 10 Labels Per Sheet</a>
 							</li>
 						
 					</ul>
@@ -139,8 +117,20 @@
 				<tr role="row">
 					<th style="width: 140px;">ID</th>
 					<th style="width: 15%;">UPC</th>
-					<th>Display Name</th>
-					<th style="width: 20%;">Display Price</th>
+					<th>
+						<label class="new-checkbox">
+							<input type="checkbox" checked>
+							<span class="new-checkbox__icon"></span>
+						</label>
+						<span>Display Name</span>
+					</th>
+					<th style="width: 20%;"> 
+						<label class="new-checkbox">
+							<input type="checkbox" checked>
+							<span class="new-checkbox__icon"></span>
+						</label>
+						<span>Display Price</span>
+					</th>
 					<th style="width: 20%;">Qty to print</th>
 					<th style="width: 80px;">&nbsp;</th>
 				</tr>
@@ -252,7 +242,13 @@
 				<tr role="row">
 					<th style="width: 140px;">ID</th>
 					<th style="width: 15%;">Barcode</th>
-					<th>Display Name</th>
+					<th>
+						<label class="new-checkbox">
+							<input type="checkbox" checked>
+							<span class="new-checkbox__icon"></span>
+						</label>
+						<span>Display Name</span>
+					</th>
 					<th style="width: 20%;">Qty to print</th>
 					<th style="width: 80px;">&nbsp;</th>
 				</tr>

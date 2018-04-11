@@ -9,7 +9,7 @@ headerTitle: Barcode Labels
 	<div class="pane-body store-transfer">
 		<!-- begin barcode-controls -->
 		<div class="barcode-controls">
-			<div class="barcode-controls__dropdown">
+			{#<div class="barcode-controls__dropdown">
 				<div class="sm-dropdown js-dropdown">
 					<button class="sm-dropdown__control js-dropdown-open">
 						<span>Print on Dymo</span>
@@ -23,7 +23,7 @@ headerTitle: Barcode Labels
 						{% endfor %}
 					</ul>
 				</div>
-			</div>
+			</div>#}
 			<div class="barcode-controls__export">
 				<div class="sm-export js-dropdown">
 					<button class="sm-export__control js-dropdown-open">
@@ -32,7 +32,7 @@ headerTitle: Barcode Labels
 						<i class="fa fa-angle-down"></i>
 					</button>
 					<ul class="sm-export__body">
-						{% for item in [ '2.625" x 1" - 30 Labels Per Sheet',  '1.75" x 0.5" - 80 Labels Per Sheet' ] %}
+						{% for item in [ '2.625" x 1" - 30 Labels Per Sheet',  '1.75" x 0.5" - 80 Labels Per Sheet', '4" x 2" - 10 Labels Per Sheet' ] %}
 							<li class="sm-export__item">
 								<a href="#" class="sm-export__link">{{item}}</a>
 							</li>
