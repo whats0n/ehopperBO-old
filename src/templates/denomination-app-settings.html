@@ -20,7 +20,9 @@ headerTitle: Denomination App Settings
 							<label class="awesome-switcher">
 								<input type="checkbox" checked>
 								<span class="awesome-switcher__content">
+									<span class="awesome-switcher__left">Off</span>
 									<span class="awesome-switcher__control"></span>
+									<span class="awesome-switcher__right">On</span>
 								</span>
 							</label>
 						</div>
@@ -36,7 +38,7 @@ headerTitle: Denomination App Settings
 					</div>#}
 				</div>
 			</div>
-			<div class="v-denomination__section">
+			{#<div class="v-denomination__section">
 				<div class="v-denomination__title">Store settings</div>
 				<div class="v-denomination__container">
 					<table class="datatable dataTable v-denomination__table" role="grid">
@@ -72,17 +74,18 @@ headerTitle: Denomination App Settings
 						</tbody>
 					</table>
 				</div>
-			</div>
+			</div>#}
 			<div class="v-denomination__section">
 				<div class="v-denomination__title">Cash declarations</div>
 				<div class="v-denomination__container">
 					<div class="v-denomination__tables">
 						<div class="v-denomination__tables-row">
 							<div class="v-denomination__tables-col js-wrap">
+								<div class="v-denomination__subtitle">Bills</div>
 								<table class="datatable dataTable v-denomination__table" role="grid">
 									<thead>
 										<tr role="row">
-											<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
+											{#<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>#}
 											<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
 											<th class="v-denomination__close"></th>
 										</tr>
@@ -98,7 +101,7 @@ headerTitle: Denomination App Settings
 											{ type: 'Bill', amount: '1' }
 										] %}
 											<tr>
-												<td>{{item.type}}</td>
+												{#<td>{{item.type}}</td>#}
 												<td>{{item.amount}}</td>
 												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 											</tr>
@@ -114,10 +117,11 @@ headerTitle: Denomination App Settings
 								</div>
 							</div>
 							<div class="v-denomination__tables-col js-wrap">
+								<div class="v-denomination__subtitle">Coins</div>
 								<table class="datatable dataTable v-denomination__table" role="grid">
 									<thead>
 										<tr role="row">
-											<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>
+											{#<th class="sorting_desc" tabindex="0" aria-controls="productMixReportTable" aria-label="Type: Activate to sort by ascending columns">Type</th>#}
 											<th class="sorting" tabindex="0" aria-controls="productMixReportTable" aria-label="Amount: Activate to sort by descending columns" aria-sort="ascending">Amount</th>
 											<th class="v-denomination__close"></th>
 										</tr>
@@ -130,7 +134,7 @@ headerTitle: Denomination App Settings
 											{ type: 'Coin', amount: '0.01' }
 										] %}
 											<tr>
-												<td>{{item.type}}</td>
+												{#<td>{{item.type}}</td>#}
 												<td>{{item.amount}}</td>
 												<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 											</tr>
@@ -151,7 +155,6 @@ headerTitle: Denomination App Settings
 					<script>
 						function addLine(e, type) {
 							var template = `<tr>
-								<td>${type}</td>
 								<td><input type="text" class="form-control input-sm" /></td>
 								<td class="v-denomination__close"><button class="v-denomination__close-btn" onclick="deleteRow(event)"></button></td>
 							</tr>`;

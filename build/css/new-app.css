@@ -5516,7 +5516,13 @@
   float: left;
   padding: 0 10px;
   width: 50%;
-  max-width: 600px;
+  max-width: 400px;
+}
+
+.v-denomination__subtitle {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .n-field {
