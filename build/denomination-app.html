@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Notifications APP</title>
+		<title>Denomination APP</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -43,14 +43,18 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Notifications APP</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Denomination APP</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
 								
 <div class="app-block" data-bind="click: $root.appClick">
 	<div class="app-block_header">
-		<img src="img/bills_coins.png" alt="" class="app-block_header_logo">
+		<div class="app-block__icon">
+			<div class="app-block__icon-denomination">
+				<img src="img/bills_coins.png" alt="" class="app-block_header_logo">
+			</div>
+		</div>
 	</div>
 	<div class="app-block_content">
 		<div class="app-block_content_header" data-bind="text: $data.name">Denomination</div>

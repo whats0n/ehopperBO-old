@@ -6588,6 +6588,32 @@ table.datatable > thead > tr > th.is-sorting_down:after {
   font-size: 34px;
 }
 
+.app-block__icon-denomination {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background: #ffe786;
+  text-align: center;
+  font-size: 0;
+}
+
+.app-block__icon-denomination:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+
+.app-block__icon-denomination img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  height: 60%;
+}
+
 .e-checkbox input[type="checkbox"] + label,
 .e-checkbox input[type="radio"] + label {
   position: relative;

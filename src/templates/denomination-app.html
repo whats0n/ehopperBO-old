@@ -1,13 +1,17 @@
 ---
-title: Notifications APP
-headerTitle: Notifications APP
+title: Denomination APP
+headerTitle: Denomination APP
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
 <div class="app-block" data-bind="click: $root.appClick">
 	<div class="app-block_header">
-		<img src="img/bills_coins.png" alt="" class="app-block_header_logo">
+		<div class="app-block__icon">
+			<div class="app-block__icon-denomination">
+				<img src="img/bills_coins.png" alt="" class="app-block_header_logo">
+			</div>
+		</div>
 	</div>
 	<div class="app-block_content">
 		<div class="app-block_content_header" data-bind="text: $data.name">Denomination</div>
