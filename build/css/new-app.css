@@ -5048,6 +5048,7 @@
 .g-box__video-in {
   position: relative;
   padding-bottom: 56.2%;
+  border: 1px solid #000;
 }
 
 .g-box__video iframe {
