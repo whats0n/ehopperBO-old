@@ -2835,6 +2835,12 @@
   margin-top: 1px;
 }
 
+.sm-configurable__text {
+  display: block;
+  padding-top: 2px;
+  text-align: left;
+}
+
 .sm-configurable__input {
   border: none;
   border-bottom: 1px solid #ccc;
