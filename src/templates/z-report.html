@@ -1,0 +1,373 @@
+---
+title: Z Report
+headerTitle: Z Report Details
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list report-denomination">
+	    <div class="form shift-details-from">
+
+	        <div data-bind="with: shift">
+	            <div id="messages"></div>
+
+	            <div class="row shift-header">
+	                <div class="col-xs-2 col-md-2">
+	                    <span data-bind="local: 'shifts/shift.register'">Register:</span>
+
+	                    <span data-bind="text: register">193</span>
+	                </div>
+	                <div class="col-xs-2 col-md-2 center">
+	                    <span data-bind="local: 'shifts/shift.opened'">Opened:</span>
+
+	                    <span data-bind="text: $root.formatDate(opened)">04/06/2018 17:20:47</span>
+	                </div>
+	                <div class="col-xs-2 col-md-2 center">
+	                    <span data-bind="local: 'shifts/shift.opened_by'">Opened by:</span>
+
+	                    <span data-bind="text: openedBy">Ehopper User</span>
+	                </div>
+	                <div class="col-xs-2 col-md-2 center">
+	                    <span data-bind="local: 'shifts/shift.closed'">Closed:</span>
+
+	                    <span data-bind="text: $root.formatDate(closed)">04/10/2018 17:16:28</span>
+	                </div>
+	                <div class="col-xs-2 col-md-2 center">
+	                    <span data-bind="local: 'shifts/shift.closed_by'">Closed by:</span>
+
+	                    <span data-bind="text: closedBy">Eugene I</span>
+	                </div>
+	                <div class="col-xs-2 col-md-2 right">
+	                    <span data-bind="local: 'shifts/shift.transactions'">Transactions:</span>
+
+	                    <span data-bind="text: transactions">29</span>
+	                </div>
+	            </div>
+
+	            <div class="row">
+	                <div class="col-xs-4 col-md-4 shift-column">
+	                    <div>
+	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.cash'">Cash:</div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.opening_amount'">Opening Amount:</p>
+	                            <div data-bind="attr: { 'class': $root.openDenominationList().length > 0 ? 'report-denomination__with-arrow shift-item-value' : 'shift-item-value'}, currency: openingAmount, click: $root.showHideOpenDenominationList" class="report-denomination__with-arrow report-denomination__with-arrow_open shift-item-value">$0.01</div>
+	                        </div>
+	                        <!-- ko if: $root.openDenominationList().length > 0-->
+	                        <div class="shift-item-value report-denomination__table" data-bind="visible: $root.isShowOpenDenominationList">
+	                            <table width="300px">
+	                                <thead>
+	                                    <tr>
+	                                        <th data-bind="local: 'shifts/shift.denominationCashCoin'">Bills/Coins</th>
+	                                        <th data-bind="local: 'shifts/shift.denominationCount'">Count</th>
+	                                        <th data-bind="local: 'shifts/shift.denominationAmount'">Amount</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <!-- ko foreach: $root.openDenominationList -->
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$50.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$20.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$10.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$5.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$2.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$100.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$1.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.50</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.25</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.10</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.10</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.01</td>
+	                                        <td data-bind="text: value">1</td>
+	                                        <td data-bind="currency: total">$0.01</td>
+	                                    </tr>
+	                                    <!-- /ko -->
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                        <!-- /ko-->
+							<div class="report-denomination__box">
+								<div class="row nopadding">
+								    <p class="shift-item-text" data-bind="local: 'shifts/shift.cash_sales'">Cash Sales:</p>
+								    <div class="shift-item-value" data-bind="currency: cashSales">$37,599.40</div>
+								</div>
+
+								<div class="row nopadding">
+								    <p class="shift-item-text" data-bind="local: 'shifts/shift.cash_refunds'">Cash Refunds:</p>
+								    <div class="shift-item-value" data-bind="currency: cashRefunds">$65.23</div>
+								</div>
+
+								<div class="row nopadding">
+								    <p class="shift-item-text" data-bind="local: 'shifts/shift.payins'">Payins:</p>
+								    <div class="shift-item-value" data-bind="currency: payins">$0.00</div>
+								</div>
+
+								<div class="row nopadding">
+								    <p class="shift-item-text" data-bind="local: 'shifts/shift.payouts'">Payouts:</p>
+								    <div class="shift-item-value" data-bind="currency: payouts">$0.00</div>
+								</div>
+							</div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.closing_amount'">Closing Amount:</p>
+	                            <div data-bind="attr: { 'class': $root.openDenominationList().length > 0 ? 'report-denomination__with-arrow shift-item-value' : 'shift-item-value'}, currency: closingAmount, click: $root.showHideCloseDenominationList" class="report-denomination__with-arrow report-denomination__with-arrow_open shift-item-value">$0.05</div>
+	                        </div>
+	                        <!-- ko if: $root.closeDenominationList().length > 0-->
+	                        <div class="shift-item-value report-denomination__table" data-bind="visible: $root.isShowCloseDenominationList">
+	                            <table width="300px">
+	                                <thead>
+	                                    <tr>
+	                                        <th data-bind="local: 'shifts/shift.denominationCashCoin'">Bills/Coins</th>
+	                                        <th data-bind="local: 'shifts/shift.denominationCount'">Count</th>
+	                                        <th data-bind="local: 'shifts/shift.denominationAmount'">Amount</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <!-- ko foreach: $root.closeDenominationList -->
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$100.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$50.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$20.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$10.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$5.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$2.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$1.00</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.50</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.25</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.10</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.10</td>
+	                                        <td data-bind="text: value">0</td>
+	                                        <td data-bind="currency: total">$0.00</td>
+	                                    </tr>
+	                                    
+	                                    <tr>
+	                                        <td data-bind="currency: amount">$0.01</td>
+	                                        <td data-bind="text: value">5</td>
+	                                        <td data-bind="currency: total">$0.05</td>
+	                                    </tr>
+	                                    <!-- /ko -->
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                        <!-- /ko-->
+
+	                        <hr>
+
+	                        <div class="row nopadding bold">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.variance'">Variance:</p>
+	                            <div class="shift-item-value" data-bind="currency: variance">($37,534.13)</div>
+	                        </div>
+	                    </div>
+	                </div>
+
+
+	                <div class="col-xs-4 col-md-4 shift-column">
+	                    <div>
+	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.revenue'">Revenue</div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.sales'">Sales:</p>
+	                            <div class="shift-item-value" data-bind="currency: sales">$38,508.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.discounts'">Discounts:</p>
+	                            <div class="shift-item-value" data-bind="currency: discounts">$908.60</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.refunds'">Refunds:</p>
+	                            <div class="shift-item-value" data-bind="currency: refunds">$65.23</div>
+	                        </div>
+
+	                        <hr>
+
+	                        <div class="row nopadding bold">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.net_sales'">Net Sales:</p>
+	                            <div class="shift-item-value" data-bind="currency: netSales">$37,534.17</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.tips'">Tips:</p>
+	                            <div class="shift-item-value" data-bind="currency: tips">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.surcharge'">Surcharge</p>
+	                            <div class="shift-item-value" data-bind="currency: surcharge">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.convenienceFee'">Cash Discount Fee</p>
+	                            <div class="shift-item-value" data-bind="currency: convenienceFee">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.tax'">Tax:</p>
+	                            <div class="shift-item-value" data-bind="currency: tax">$0.00</div>
+	                        </div>
+
+	                        <hr>
+
+	                        <div class="row nopadding bold">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.total_tendered'">Total Tendered:</p>
+	                            <div class="shift-item-value" data-bind="currency: totalTendered">$37,534.17</div>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="col-xs-4 col-md-4 pull-right shift-column">
+	                    <div>
+	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.tender_breakdown'">Tender Breakdown</div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.cash'">Cash:</p>
+	                            <div class="shift-item-value" data-bind="currency: tenderBreakdownCash">$37,534.17</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.credit_card'">Credit Card:</p>
+	                            <div class="shift-item-value" data-bind="currency: tenderBreakdownCreditCard">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.debit_card'">Debit Card:</p>
+	                            <div class="shift-item-value" data-bind="currency: tenderBreakdownDebitCard">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.ebt_card'">EBT Cash Benefit:</p>
+	                            <div class="shift-item-value" data-bind="currency: tenderBreakdownEbtCard">$0.00</div>
+	                        </div>
+
+	                        <div class="row nopadding">
+	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.ebt_food'">EBT Food Stamp:</p>
+	                            <div class="shift-item-value" data-bind="currency: tenderBreakdownEbtCardFood">$0.00</div>
+	                        </div>
+
+	                        <div data-bind="if: externalPaymentVisible" class="row nopadding"></div>
+	                    </div>
+	                </div>
+	            </div>
+
+	            <br class="clear">
+	        </div>
+
+	        <div id="notesAccordion" data-bind="with: shift" class="row">
+	            <div role="tablist" aria-multiselectable="true">
+	                <div class="card" data-bind="if: payinNotes &amp;&amp; payinNotes.notes &amp;&amp; payinNotes.notes.length > 0"></div>
+	                <div class="card" data-bind="if: payoutNotes &amp;&amp; payoutNotes.notes &amp;&amp; payoutNotes.notes.length > 0"></div>
+	            </div>
+	        </div>
+
+	        <div class="form-buttons center">
+	            <input class="btn btn-lg btn-primary uppercase" type="button" value="Back" data-keypress="Backspace" data-bind="click: back, local: 'shifts/shift.back'">
+	        </div>
+	    </div>
+	</div>
+{% endblock %}

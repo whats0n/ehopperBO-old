@@ -5532,6 +5532,47 @@
   font-weight: 700;
 }
 
+.report-denomination > div.shift-details-from .shift-column .report-denomination__box div.row {
+  clear: both;
+}
+
+.report-denomination__box {
+  clear: both;
+  padding: 10px 0;
+}
+
+.report-denomination__with-arrow {
+  position: relative;
+  padding-right: 15px;
+}
+
+.report-denomination__with-arrow:before {
+  content: "\f053";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -0.5em;
+  color: #2E9ADB;
+  font-family: "FontAwesome";
+  line-height: 1;
+  transition: transform 0.25s;
+}
+
+.report-denomination__with-arrow_open:before {
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.report-denomination__table {
+  padding-left: 25px;
+}
+
+.report-denomination__table td,
+.report-denomination__table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .n-field {
   padding: 0 0 30px;
   margin: 0 auto;
