@@ -5544,6 +5544,7 @@
 .report-denomination__with-arrow {
   position: relative;
   padding-right: 15px;
+  cursor: pointer;
 }
 
 .report-denomination__with-arrow:before {
