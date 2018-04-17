@@ -5636,8 +5636,13 @@
   clear: both;
 }
 
-.barcode-filters__search {
+.barcode-filters__search, .barcode-filters__item {
   float: left;
+}
+
+.barcode-filters__item {
+  padding-right: 20px;
+  font-size: 0;
 }
 
 .barcode-filters__input, .barcode-filters__btn {
@@ -5657,6 +5662,16 @@
 .barcode-filters .form-control,
 .barcode-filters label {
   margin: 0;
+}
+
+.barcode-filters__label, .barcode-filters__select {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.barcode-filters__label {
+  padding-right: 15px;
+  font-size: 14px;
 }
 
 .barcode-controls {

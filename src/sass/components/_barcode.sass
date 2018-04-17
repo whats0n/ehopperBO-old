@@ -1,7 +1,11 @@
 .barcode-filters
 	+clr
-	&__search
-		float: left		
+	&__search,
+	&__item
+		float: left	
+	&__item
+		padding-right: 20px	
+		font-size: 0
 	&__input,
 	&__btn 
 		display: inline-block
@@ -14,6 +18,13 @@
 	.form-control,
 	label
 		margin: 0
+	&__label,
+	&__select
+		display: inline-block
+		vertical-align: middle
+	&__label
+		padding-right: 15px
+		font-size: 14px
 
 .barcode-controls
 	position: absolute
