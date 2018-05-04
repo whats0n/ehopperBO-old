@@ -7106,6 +7106,32 @@ ul.main-menu li a .icon {
   display: none;
 }
 
+.center-content {
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+}
+
+.center-content:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+}
+
+.center-content__container {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  font-size: 14px;
+}
+
+.btn__icon {
+  margin-right: 3%;
+  font-size: 120%;
+}
+
 @media only screen and (max-width: 1366px){
   .i-items__title, .i-items__price, .i-items__action, .i-items__active, .i-items__unit, .i-items__qty{
     font-size: 14px;

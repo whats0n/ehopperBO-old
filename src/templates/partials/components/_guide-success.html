@@ -14,6 +14,9 @@
 			<h3 class="v-box__title" data-animation="title">{{success.title or 'Thank you for your payment'}}</h3>
 			<div class="v-box__description" data-animation="text">
 				<p>{{success.text or 'Your account has been upgraded to Freedom.'}}</p>
+				{% if success.secondLine %}
+					<p>To proceed, select the 'Go To Dashboard' button below.</p>
+				{% endif %}
 			</div>
 		</div>
 	</div>
