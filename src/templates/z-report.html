@@ -46,16 +46,18 @@ headerTitle: Z Report Details
 
 	            <div class="row">
 	                <div class="col-xs-4 col-md-4 shift-column">
-	                    <div>
+	                    <div style="width: 260px;">
 	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.cash'">Cash:</div>
 
 	                        <div class="row nopadding">
-	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.opening_amount'">Opening Amount:</p>
-	                            <div data-bind="attr: { 'class': $root.openDenominationList().length > 0 ? 'report-denomination__with-arrow shift-item-value' : 'shift-item-value'}, currency: openingAmount, click: $root.showHideOpenDenominationList" class="report-denomination__with-arrow report-denomination__with-arrow_open shift-item-value js-report-denomintaion-control" data-target="1">$0.01</div>
+	                        	<div class=" js-report-denomintaion-control report-denomination__with-arrow report-denomination__with-arrow_open" data-target="1">
+	                        		<p class="shift-item-text" data-bind="local: 'shifts/shift.opening_amount'">Opening Amount:</p>
+	                        		<div class="shift-item-value">$0.01</div>
+	                        	</div>
 	                        </div>
 	                        <!-- ko if: $root.openDenominationList().length > 0-->
-	                        <div class="shift-item-value report-denomination__table js-report-denomintaion-table" data-bind="visible: $root.isShowOpenDenominationList" data-table="1">
-	                            <table width="300px">
+	                        <div class="report-denomination__table js-report-denomintaion-table" data-bind="visible: $root.isShowOpenDenominationList" data-table="1">
+	                            <table width="100%;">
 	                                <thead>
 	                                    <tr>
 	                                        <th data-bind="local: 'shifts/shift.denominationCashCoin'">Bills/Coins</th>
@@ -164,12 +166,14 @@ headerTitle: Z Report Details
 							</div>
 
 	                        <div class="row nopadding">
-	                            <p class="shift-item-text" data-bind="local: 'shifts/shift.closing_amount'">Closing Amount:</p>
-	                            <div data-bind="attr: { 'class': $root.openDenominationList().length > 0 ? 'report-denomination__with-arrow shift-item-value' : 'shift-item-value'}, currency: closingAmount, click: $root.showHideCloseDenominationList" class="report-denomination__with-arrow report-denomination__with-arrow_open shift-item-value js-report-denomintaion-control" data-target="2">$0.05</div>
+	                        	<div class=" js-report-denomintaion-control report-denomination__with-arrow report-denomination__with-arrow_open" data-target="2">
+	                        		<p class="shift-item-text" data-bind="local: 'shifts/shift.closing_amount'">Closing Amount:</p>
+	                        		<div class="shift-item-value">$0.05</div>
+	                        	</div>
 	                        </div>
 	                        <!-- ko if: $root.closeDenominationList().length > 0-->
-	                        <div class="shift-item-value report-denomination__table js-report-denomintaion-table" data-bind="visible: $root.isShowCloseDenominationList" data-table="2">
-	                            <table width="300px">
+	                        <div class="report-denomination__table js-report-denomintaion-table" data-bind="visible: $root.isShowCloseDenominationList" data-table="2">
+	                            <table width="100%;">
 	                                <thead>
 	                                    <tr>
 	                                        <th data-bind="local: 'shifts/shift.denominationCashCoin'">Bills/Coins</th>
@@ -267,7 +271,7 @@ headerTitle: Z Report Details
 
 
 	                <div class="col-xs-4 col-md-4 shift-column">
-	                    <div>
+	                    <div style="width: 260px;">
 	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.revenue'">Revenue</div>
 
 	                        <div class="row nopadding">
@@ -322,7 +326,7 @@ headerTitle: Z Report Details
 	                </div>
 
 	                <div class="col-xs-4 col-md-4 pull-right shift-column">
-	                    <div>
+	                    <div style="width: 260px;">
 	                        <div class="row nopadding title" data-bind="local: 'shifts/shift.tender_breakdown'">Tender Breakdown</div>
 
 	                        <div class="row nopadding">
@@ -381,6 +385,7 @@ headerTitle: Z Report Details
 				control.addEventListener('click', function(e) {
 					e.preventDefault();
 					control.classList.toggle('report-denomination__with-arrow_open');
+					console.log(target);
 					control
 						.classList
 						.contains('report-denomination__with-arrow_open')

@@ -5545,6 +5545,13 @@
   position: relative;
   padding-right: 15px;
   cursor: pointer;
+  *zoom: 1;
+}
+
+.report-denomination__with-arrow:after {
+  content: " ";
+  display: table;
+  clear: both;
 }
 
 .report-denomination__with-arrow:before {
@@ -5556,16 +5563,14 @@
   color: #2E9ADB;
   font-family: "FontAwesome";
   line-height: 1;
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
   transition: transform 0.25s;
 }
 
 .report-denomination__with-arrow_open:before {
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-.report-denomination__table {
-  padding-left: 25px;
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .report-denomination__table td,
