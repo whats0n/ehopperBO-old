@@ -78,10 +78,18 @@
 			</script>
 			<script>
 				function disableInput(e) {
+					// $(e.currentTarget)
+					// 	.closest('.js-notifications')
+					// 	.find('.js-notifications-input')
+					// 	.attr('disabled', !$(e.currentTarget).prop('checked'));
 					$(e.currentTarget)
 						.closest('.js-notifications')
-						.find('.js-notifications-input')
-						.attr('disabled', !$(e.currentTarget).prop('checked'));
+						.find('.js-mail-box')
+						.attr('hidden', !$(e.currentTarget).prop('checked'));
+					$(e.currentTarget)
+						.closest('.js-notifications')
+						.find('.js-add-group-before')
+						.attr('hidden', !$(e.currentTarget).prop('checked'));
 				}
 
 				function addMailBox(e) {
