@@ -1,0 +1,41 @@
+.v-settings
+	padding: 20px
+	font-family: "Open Sans", Helvetica, Arial, sans-serif
+	line-height: 1.3
+	&__section
+		&:not(:last-child)
+			margin-bottom: 30px
+	&__title
+		padding: 0 0 20px
+		font-size: 24px
+		font-weight: bold
+	&__subtitle
+		padding: 0 0 20px
+		font-size: 20px
+	&__container
+		padding: 20px
+		border: 1px solid #e5e5e5
+	&__item
+		+clr
+		&:not(:last-child)
+			margin-bottom: 20px
+	&__label
+		float: left
+		padding: 15px 0
+		width: 250px
+		font-size: 18px
+		&-in
+			position: relative
+			display: inline-block
+			vertical-align: top
+			padding-right: 50px
+	&__control
+		position: relative
+		// padding-right: 50px
+		margin-left: 250px
+		max-width: 350px
+	&__help
+		position: absolute
+		top: 50%
+		right: 0
+		transform: translate3d(0,-50%,0)

@@ -1,0 +1,57 @@
+---
+title: Rounding App Settings
+headerTitle: Rounding App Settings
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div id="app-settings">
+		<div class="v-settings">
+			<div class="v-settings__section">
+				<div class="v-settings__title">Company settings</div>
+				<div class="v-settings__container">
+					<div class="v-settings__subtitle">Define rules for rounding Cash payments:</div>
+					{% for item in [
+						{
+							label: 'Round to',
+							select: [ '0.05 cash denomination', '0.10 cash denomination', '0.15 cash denomination', '0.20 cash denomination' ],
+							description: 'Payments will be rounded to the denomination selected.'
+						},
+						{
+							label: 'Rounding rule',
+							select: [ 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)', 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)', 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)' ],
+							description: 'Tell us how you would like to handle rounding.'
+						}
+					] %}
+						<div class="v-settings__item">
+							<div class="v-settings__label">
+								<div class="v-settings__label-in">
+									{{item.label}}
+									<div class="dark-tooltip v-settings__help">
+										<div class="dark-tooltip__control">
+											<i class="fa fa-question-circle-o dark-tooltip__icon"></i>
+										</div>
+										<div class="dark-tooltip__box">{{item.description}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="v-settings__control">
+								<select>
+									{% for item in item.select %}
+										<option value="{{item}}">{{item}}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="v-settings__footer">
+				<div class="form-buttons"> 
+					<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done"> 
+					<input class="btn btn-lg btn-default" type="button" value="Cancel"> 
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
