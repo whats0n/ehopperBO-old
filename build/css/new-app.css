@@ -6017,7 +6017,11 @@
 .v-settings__control {
   position: relative;
   margin-left: 250px;
-  max-width: 350px;
+  max-width: 300px;
+}
+
+.v-settings__control_wide {
+  max-width: 600px;
 }
 
 .v-settings__help {
@@ -6025,6 +6029,10 @@
   top: 50%;
   right: 0;
   transform: translate3d(0, -50%, 0);
+}
+
+.v-settings__select {
+  width: 100%;
 }
 
 .n-container {

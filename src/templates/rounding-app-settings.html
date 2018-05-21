@@ -20,7 +20,8 @@ headerTitle: Rounding App Settings
 						{
 							label: 'Rounding rule',
 							select: [ 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)', 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)', 'Round midpoint up (e.g. 0.10 rounding, 1.05 will round to 1.10)' ],
-							description: 'Tell us how you would like to handle rounding.'
+							description: 'Tell us how you would like to handle rounding.',
+							controlClassList: 'v-settings__control_wide'
 						}
 					] %}
 						<div class="v-settings__item">
@@ -35,8 +36,8 @@ headerTitle: Rounding App Settings
 									</div>
 								</div>
 							</div>
-							<div class="v-settings__control">
-								<select>
+							<div class="v-settings__control {{item.controlClassList}}">
+								<select class="v-settings__select">
 									{% for item in item.select %}
 										<option value="{{item}}">{{item}}</option>
 									{% endfor %}
