@@ -92,6 +92,17 @@ headerTitle: Orders
 				<tbody>
 					<tr>
 						<td>
+							<label data-bind="local: 'orders/ordersList.order_type'">Order Source:</label>
+							<select data-bind="value: orderType, event: { change: $root.applyFilters.bind($root) }">
+								<option value="0" data-bind="local: 'orders/ordersList.all'">All</option>
+								<!-- ko foreach: orderTypes -->
+								<option data-bind="attr: { value: code }, text: name" value="1">eHopper</option>
+								
+								<option data-bind="attr: { value: code }, text: name" value="2">WooCommerce</option>
+								<!-- /ko -->
+							</select>
+						</td>
+						<td>
 							<label data-bind="local: 'orders/ordersList.order_type'">Order Type:</label>
 							<select data-bind="value: orderType, event: { change: $root.applyFilters.bind($root) }">
 								<option value="0" data-bind="local: 'orders/ordersList.all'">All</option>
@@ -172,6 +183,9 @@ headerTitle: Orders
 								<!-- /ko -->
 							</select>
 						</td>
+						<td data-bind="with: $root" class="text-right" style="vertical-align: bottom;">
+							<button class="btn btn-lg btn-primary" type="button" id="searchOrder" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -188,150 +202,167 @@ headerTitle: Orders
 						<th data-bind="local: 'orders/ordersList.status'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Status: Activate to sort by ascending columns">Status</th>
 						<th data-bind="local: 'orders/ordersList.order_id'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 140px;" aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
 						<th data-bind="local: 'orders/ordersList.order_name'" class="tenderData sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Order Name: Activate to sort by ascending columns" style="white-space: normal;">Order Name</th>
-						<th data-bind="local: 'orders/ordersList.store'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 100px;" aria-label="Order Source: Activate to sort by ascending columns">Order Source</th>
 						<th data-bind="local: 'orders/ordersList.type'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 100px;" aria-label="Type: Activate to sort by ascending columns">Type</th>
-						<th data-bind="local: 'orders/ordersList.fulfillmentColumn'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 150px;" aria-label="Fulfillment: Activate to sort by ascending columns">Fulfillment</th>
-						<th data-bind="local: 'orders/ordersList.total'" class="break-word sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Total: Activate to sort by ascending columns">Total</th>
+						<th data-bind="local: 'orders/ordersList.fulfillmentColumn'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" style="width: 130px;" aria-label="Fulfillment: Activate to sort by ascending columns">Fulfillment</th>
+						<th data-bind="local: 'orders/ordersList.total'" class="break-word sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Total: Activate to sort by ascending columns">Total Sales</th>
 						<th data-bind="local: 'orders/ordersList.date'" class="sorting_desc" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns" aria-sort="descending">Date</th>
 						<th data-bind="local: 'orders/ordersList.employee'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
 						<th data-bind="local: 'orders/ordersList.customer'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Customer: Activate to sort by ascending columns">Customer</th>
-						<th data-bind="local: 'orders/ordersList.approvedby'" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Approved by">Approved by</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="editable odd" id="6f26d32c46539facd9ccf8342060d623" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">273563194968</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$673.26</td>
-						<td class="sorting_1">22/12/2017 6:49:22 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable even" id="79b9900ae5a3253ca94ed0f880288012" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563722121</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$77.03</td>
-						<td class="sorting_1">22/12/2017 4:42:17 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable odd" id="631865c63d760816243bbc8eb3c894c8" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563711682</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$29.40</td>
-						<td class="sorting_1">22/12/2017 4:39:26 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable even" id="8d439a66195578d532bf4cb764c89a78" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563700992</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$20.00</td>
-						<td class="sorting_1">22/12/2017 4:31:59 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable odd" id="cb0ba07d080b3673a0cdd48f606fff70" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563694378</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$15.76</td>
-						<td class="sorting_1">22/12/2017 4:30:32 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable even" id="750f7862258e3a93e076fe1a4b5e60f2" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563689330</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$21.95</td>
-						<td class="sorting_1">22/12/2017 4:29:28 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable odd" id="7aec42c6c58b2014f95494c9b8b6b503" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563613656</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$20.00</td>
-						<td class="sorting_1">22/12/2017 4:14:01 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable even" id="30aced6068734c18a776cb0eb474b932" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-ban fa-lg status-voided"></i></td>
-						<td class=" center">253563604687</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$189,000.00</td>
-						<td class="sorting_1">22/12/2017 4:13:04 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable odd" id="e97d9ba2b80ad2aca13e847d1586a6a9" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563597530</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Quick Sale</td>
-						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$8,193.15</td>
-						<td class="sorting_1">22/12/2017 4:11:44 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
-					<tr class="editable even" id="936741f7849d5e0b51b7ef4e443c925c" data-bind="click: edit, css:{checked: checked()}" role="row">
-						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
-						<td class=" center">253563586839</td>
-						<td class=" tenderData"></td>
-						<td>WestGuestCafe</td>
-						<td>Take Out</td>
-						<td class=" center"><i class="fa fa-plus-square-o fa-lg fulfilment-color"></i></td>
-						<td class=" break-word">$195.30</td>
-						<td class="sorting_1">22/12/2017 4:08:53 PM</td>
-						<td>Yuliia Koval</td>
-						<td>Walk-In</td>
-						<td></td>
-					</tr>
+					{% for item in [
+						{
+							status: 'fa-check status-paid',
+							id: '273563194968',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$673.26',
+							date: '22/12/2017 6:49:22 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563722121',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$77.03',
+							date: '22/12/2017 4:42:17 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563711682',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$29.40',
+							date: '22/12/2017 4:39:26 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563700992',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$20.00',
+							date: '22/12/2017 4:31:59 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563694378',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$15.76',
+							date: '22/12/2017 4:30:32 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563689330',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$21.95',
+							date: '22/12/2017 4:29:28 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563613656',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$20.00',
+							date: '22/12/2017 4:14:01 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-ban status-voided',
+							id: '253563604687',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'eHopper',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$189,000.00',
+							date: '22/12/2017 4:13:04 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563597530',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$8,193.15',
+							date: '22/12/2017 4:11:44 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						},
+						{
+							status: 'fa-check status-paid',
+							id: '253563586839',
+							name: '&nbsp;',
+							store: 'WestGuestCafe',
+							source: 'WooCommerce',
+							type: 'Quick Sale',
+							fulfillment: 'fa-thumbs-up fulfilment-color',
+							total: '$195.30',
+							date: '22/12/2017 4:08:53 PM',
+							employee: 'Yuliia Koval',
+							customer: 'Walk-In'
+						}
+					] %}
+						<tr class="editable {% if loop.index % 2 == 0 %}odd{% else %}even{% endif %}" role="row">
+							<td class=" center"><i class="fa fa-lg {{item.status}}"></i></td>
+							<td class=" center">{{item.id | safe}}</td>
+							<td class=" tenderData">{{item.name | safe}}</td>
+							<td>{{item.source | safe}}</td>
+							<td>{{item.type | safe}}</td>
+							<td class=" center"><i class="fa fa-lg {{item.fulfillment}}"></i></td>
+							<td class=" break-word">{{item.total | safe}}</td>
+							<td class="sorting_1">{{item.date | safe}}</td>
+							<td>{{item.employee | safe}}</td>
+							<td>{{item.customer | safe}}</td>
+						</tr>
+					{% endfor %}
 				</tbody>
 				<tfoot class="tfooter-total">
-					<tr><th class="text-right center tenderData" colspan="5" data-bind="local: 'orders/ordersList.totalAmountFooter'" rowspan="1">Total amount:</th><th class="text-left break-word" rowspan="1" colspan="1">$237,068.73</th></tr>
+					<tr>
+						<th class="text-right center tenderData" colspan="6" data-bind="local: 'orders/ordersList.totalAmountFooter'" rowspan="1">Total amount:</th>
+						<th class="text-left break-word" rowspan="1" colspan="4">$237,068.73</th>
+					</tr>
 				</tfoot>
 			</table>
 			<div class="dataTables_info" id="transactionsTable_info" role="status" aria-live="polite">Showing 1 to 10 of 84 entriesInfoPostFix</div>
