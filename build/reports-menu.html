@@ -135,7 +135,7 @@
 											</li>
 											<!-- /ko -->
 											<!-- ko if: $data.parent === undefined  -->
-											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems">
+											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems ">
 												<a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; '_blank' }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="#" class="employees-icon">Employees</a>
 												<!-- ko if: $data.childRoutes !== undefined  -->
 												<ul data-bind="foreach: $data.childRoutes.routes">
@@ -145,6 +145,10 @@
 												
 													<li data-bind="visible: nav, permission: $data.permission">
 														<a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="#clockIn">Time Clock</a>
+													</li>
+												
+													<li>
+														<a class="active">Permissions</a>
 													</li>
 												</ul>
 												<!-- /ko -->

@@ -1,0 +1,59 @@
+---
+title: Permissions
+headerTitle: Permissions
+nav: true
+customerNoActive: true
+emplyeeListActive: true
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body item-list">
+		<div class="permissions form wide-form js-show">
+			<div class="permissions__form-group">
+				<label class="new-checkbox">
+					<input type="checkbox" onchange="show(event)">
+					<span class="new-checkbox__icon"></span>
+					<span class="new-checkbox__content">Salesperson inventory management</span>
+				</label>
+			</div>
+			<div class="permissions__box js-show-box" hidden>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow Store Transfer</span>
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow PO Receiving</span>
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow Inventory Adjustment</span>
+					</label>
+				</div>
+			</div>
+			<div class="permissions__buttons form-buttons">
+				<input class="btn btn-lg btn-primary" type="button" value="DONE">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+			<script>
+				function show(e) {
+					$(e.currentTarget)
+						.closest('.js-show')
+						.find('.js-show-box')
+						.attr('hidden', !$(e.currentTarget).prop('checked'));
+				}
+			</script>
+		</div>
+	</div>
+
+{% endblock %}

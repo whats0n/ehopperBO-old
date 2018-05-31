@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Export Customers</title>
+		<title>Permissions</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -108,7 +108,7 @@
 											</li>
 											<!-- /ko -->
 											<!-- ko if: $data.parent === undefined  -->
-											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems open">
+											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems ">
 												<a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; '_blank' }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="#" class="customers-icon">Customers</a>
 												<!-- ko if: $data.childRoutes !== undefined  -->
 												<ul data-bind="foreach: $data.childRoutes.routes">
@@ -135,7 +135,7 @@
 											</li>
 											<!-- /ko -->
 											<!-- ko if: $data.parent === undefined  -->
-											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems ">
+											<li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems open">
 												<a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; '_blank' }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="#" class="employees-icon">Employees</a>
 												<!-- ko if: $data.childRoutes !== undefined  -->
 												<ul data-bind="foreach: $data.childRoutes.routes">
@@ -283,18 +283,56 @@
 						<div class="pane pane-right">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Export Customers</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Permissions</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
 								
 
-	<div class="pane-body center-content">
-		<div class="center-content__container">
-			<button class="btn btn-lg btn-primary" type="button" data-fat="fat-global-done-button">
-				<i class="fa fa-file-excel-o btn__icon"></i>
-				Export
-			</button>
+	<div class="pane-body item-list">
+		<div class="permissions form wide-form js-show">
+			<div class="permissions__form-group">
+				<label class="new-checkbox">
+					<input type="checkbox" onchange="show(event)">
+					<span class="new-checkbox__icon"></span>
+					<span class="new-checkbox__content">Salesperson inventory management</span>
+				</label>
+			</div>
+			<div class="permissions__box js-show-box" hidden>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow Store Transfer</span>
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow PO Receiving</span>
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="new-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Allow Inventory Adjustment</span>
+					</label>
+				</div>
+			</div>
+			<div class="permissions__buttons form-buttons">
+				<input class="btn btn-lg btn-primary" type="button" value="DONE">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+			<script>
+				function show(e) {
+					$(e.currentTarget)
+						.closest('.js-show')
+						.find('.js-show-box')
+						.attr('hidden', !$(e.currentTarget).prop('checked'));
+				}
+			</script>
 		</div>
 	</div>
 
