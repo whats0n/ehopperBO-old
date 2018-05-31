@@ -6043,6 +6043,19 @@
   margin-top: 40px;
 }
 
+.products-sortable__placeholder {
+  position: relative;
+  float: left;
+  padding: 0;
+  margin: 0 1% 8px;
+  width: 23%;
+  min-height: 130px;
+  background: #f1f1f1;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  cursor: move;
+}
+
 .n-container {
   *zoom: 1;
 }

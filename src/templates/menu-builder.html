@@ -1,0 +1,394 @@
+---
+title: Menu Builder
+headerTitle: Menu Builder
+paneBodyWrapperClassList: 'menu-builder'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+			<div class="loader-container" data-bind="visible: isLoading" style="display: none;"></div>
+			<div data-bind="visible: !isLoading()" style="">
+			<div class="pane pane-left">
+				<div class="menu-builder-search">
+					<input type="search" class="form-control input-lg" plac_eholder="Find in CATEGORY" data-bind="textInput: searchString, attr: {placeholder: currentCategoryName}" placeholder="Search Craft beer">
+					<button class="btn btn-lg btn-sm btn-primary" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+				</div>
+				<ul class="list" data-bind="foreach: filteredProducts(), visible: !isDraggingProduct()" style="">
+					{% for item in [
+						{ price: '5.00', title: 'testbeer2' },
+						{ price: '11.00', title: 'cvbTest' },
+						{ price: '43.00', title: 'iProd4' },
+						{ price: '0.00', title: 'adasd' },
+						{ price: '9.50', title: 'Dark Beer' },
+						{ price: '2.32', title: 'Obolon Premium' },
+						{ price: '2.25', title: 'Slavutich' },
+						{ price: '4.50', title: 'Jiguli' },
+						{ price: '11.99', title: 'Black Market Embargo 22oz' }
+					] %}
+						<li class="item used" draggable="true">
+							<span data-bind="currency: price" class="item-price">${{item.price}}</span>
+							<span data-bind="text: name" class="item-title">{{item.title}}</span>
+						</li>
+					{% endfor %}
+				</ul>
+
+				<div class="remove-basket" data-bind="local: 'apps/menuBuilder.drop_to_remove', visible: isDraggingProduct, event: {dragover: $root.dragOver, dragleave: $root.dragLeave, drop: $root.removeProduct} " style="display: none;">Drop items here to remove</div>
+			</div>
+
+			<div class="pane pane-right">
+				<section class="categories">
+					<div id="menuBuilderMessage"></div>
+					{% set categories = [
+						{
+							short: 'APRD',
+							title: 'App products'
+						},
+						{
+							title: 'TarasTestDelete2'
+						},
+						{
+							short: 'APRD',
+							title: 'App products'
+						},
+						{
+							short: 'Qty',
+							title: 'Qty'
+						},
+						{
+							short: 'BEER',
+							title: 'Craft beer'
+						},
+						{
+							title: 'bgfb'
+						},
+						{
+							short: 'pens',
+							title: 'Pens'
+						},
+						{
+							short: 'Tea',
+							title: 'Tea'
+						},
+						{
+							short: 'SPCat',
+							title: 'ServiceProductCategory'
+						},
+						{
+							title: 'Fruits'
+						},
+						{
+							title: 'bt'
+						},
+						{
+							title: 'Ca2tegory name'
+						},
+						{
+							title: 'T1'
+						},
+						{
+							title: 'T ingredients'
+						},
+						{
+							title: 'sort name'
+						},
+						{
+							short: 'SNDWS',
+							title: 'Sandwiches'
+						},
+						{
+							short: 'SFTDR',
+							title: 'Soft Drinks'
+						},
+						{
+							short: 'SPCL',
+							title: 'Specials'
+						},
+						{
+							title: 'TarasTestDelete2'
+						},
+						{
+							short: 'APRD',
+							title: 'App products'
+						},
+						{
+							short: 'Qty',
+							title: 'Qty'
+						},
+						{
+							short: 'BEER',
+							title: 'Craft beer'
+						},
+						{
+							title: 'bgfb'
+						},
+						{
+							short: 'pens',
+							title: 'Pens'
+						},
+						{
+							short: 'Tea',
+							title: 'Tea'
+						},
+						{
+							short: 'SPCat',
+							title: 'ServiceProductCategory'
+						},
+						{
+							title: 'Fruits'
+						},
+						{
+							title: 'bt'
+						},
+						{
+							title: 'Ca2tegory name'
+						},
+						{
+							title: 'T1'
+						},
+						{
+							title: 'T ingredients'
+						},
+						{
+							title: 'sort name'
+						},
+						{
+							short: 'SNDWS',
+							title: 'Sandwiches'
+						},
+						{
+							short: 'SFTDR',
+							title: 'Soft Drinks'
+						},
+						{
+							short: 'SPCL',
+							title: 'Specials'
+						},
+						{
+							title: 'TarasTestDelete2'
+						},
+						{
+							short: 'APRD',
+							title: 'App products'
+						},
+						{
+							short: 'Qty',
+							title: 'Qty'
+						},
+						{
+							short: 'BEER',
+							title: 'Craft beer'
+						},
+						{
+							title: 'bgfb'
+						},
+						{
+							short: 'pens',
+							title: 'Pens'
+						},
+						{
+							short: 'Tea',
+							title: 'Tea'
+						},
+						{
+							short: 'SPCat',
+							title: 'ServiceProductCategory'
+						},
+						{
+							title: 'Fruits'
+						},
+						{
+							title: 'bt'
+						},
+						{
+							title: 'Ca2tegory name'
+						},
+						{
+							title: 'T1'
+						},
+						{
+							title: 'T ingredients'
+						},
+						{
+							title: 'sort name'
+						},
+						{
+							short: 'SNDWS',
+							title: 'Sandwiches'
+						},
+						{
+							short: 'SFTDR',
+							title: 'Soft Drinks'
+						},
+						{
+							short: 'SPCL',
+							title: 'Specials'
+						},
+						{
+							title: 'TarasTestDelete2'
+						},
+						{
+							short: 'APRD',
+							title: 'App products'
+						},
+						{
+							short: 'Qty',
+							title: 'Qty'
+						},
+						{
+							short: 'BEER',
+							title: 'Craft beer'
+						},
+						{
+							title: 'bgfb'
+						},
+						{
+							short: 'pens',
+							title: 'Pens'
+						},
+						{
+							short: 'Tea',
+							title: 'Tea'
+						},
+						{
+							short: 'SPCat',
+							title: 'ServiceProductCategory'
+						},
+						{
+							title: 'Fruits'
+						},
+						{
+							title: 'bt'
+						},
+						{
+							title: 'Ca2tegory name'
+						},
+						{
+							title: 'T1'
+						},
+						{
+							title: 'T ingredients'
+						},
+						{
+							title: 'sort name'
+						},
+						{
+							short: 'SNDWS',
+							title: 'Sandwiches'
+						},
+						{
+							short: 'SFTDR',
+							title: 'Soft Drinks'
+						},
+						{
+							short: 'SPCL',
+							title: 'Specials'
+						}
+					] %}
+					<div class="pos-categories">
+						<ul class="wrapper" data-bind="foreach: allCategories(), style: {top: $root.categoriesPager.displacement() }" style="top: 0px;">
+							{% for item in categories %}
+								<li class="item" draggable="true">
+									<div class="item-short">{{item.short or '&nbsp;' | safe}}</div>
+									<div class="item-title">{{item.title}}</div>
+								</li>
+							{% endfor %}
+						</ul>
+						<div class="pos-pager-prev" data-bind="visible: categoriesPager.hasPrev(), event: {click: categoriesPager.clickPrev, dragover: delayedClick, dragleave: cancelClick}" style="display: none;"></div>
+						<div class="pos-pager-next" data-bind="visible: categoriesPager.hasNext(), event: {click: categoriesPager.clickNext, dragover: delayedClick, dragleave: cancelClick}" style=""></div>
+					</div>
+					{% set pages = (categories.length / 8) | round %}
+					<ul class="pos-pager" data-bind="template: { name: 'paginationTemplate', foreach: categoriesPager.pages }">
+						{% for item in range(0,pages) %}
+							<li class="item {% if loop.first %}active{% endif %}"></li>
+						{% endfor %}
+					</ul>
+				</section>
+	 
+				<section class="products">
+					<div class="pos-products">
+						<ul class="wrapper products-sortable js-sortable" data-bind="style: {top: $root.productsPager.displacement() }" style="top: 0px;">
+							{% for item in [
+								{
+									price: '11.00',
+									title: 'cvbTest'
+								},
+								{
+									price: '43.00',
+									title: 'iProd4'
+								},
+								{
+									price: '0.00',
+									title: 'adasd'
+								},
+								{
+									price: '5.00',
+									title: 'testbeer2'
+								},
+								{
+									price: '9.50',
+									title: 'Dark Beer'
+								},
+								{
+									price: '2.32',
+									title: 'Obolon Premium'
+								},
+								{
+									price: '2.25',
+									title: 'Slavutich'
+								},
+								{
+									price: '4.50',
+									title: 'Jiguli'
+								},
+								{
+									price: '11.99',
+									title: 'Black Market Embargo 22oz'
+								}
+							] %}
+								<li class="item" draggable="true" style="background-color: rgba(174, 105, 226, 0.2);">
+									<div class="item-price" data-bind="currency: price">${{item.price}}</div>
+									<div class="item-short-name" style="display: none;"></div>
+									<div class="item-title" data-bind="text: name">{{item.title}}</div>
+								</li>
+							{% endfor %}
+							
+							<li class="item new js-sortable-disabled">
+								<i class="fa fa-arrow-down"></i>
+								<div data-bind="local: 'apps/menuBuilder.drop_item_here' ">Drop Item Here</div>
+							</li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+							<li class="item empty js-sortable-disabled"></li>
+						</ul>
+						<div class="pos-pager-prev" data-bind="visible: productsPager.hasPrev(), event: {click: productsPager.clickPrev, dragover: delayedClick, dragleave: cancelClick}" style="display: none;"></div>
+						<div class="pos-pager-next" data-bind="visible: productsPager.hasNext(), event: {click: productsPager.clickNext, dragover: delayedClick, dragleave: cancelClick}" style="display: none;"></div>
+
+					</div>
+					<ul class="pos-pager" data-bind="template: { name: 'paginationTemplate', foreach: productsPager.pages }"></ul>
+
+					<label class="sort-order form-inline">
+						<span data-bind="local: 'apps/menuBuilder.other'">Other</span>
+						<strong data-bind="text: otherItems">0</strong>
+						<span data-bind="local: 'apps/menuBuilder.labelArrange'">Items in this category will be arranged automatically by </span>
+						<select class="form-control" data-bind="options: productSortOrderOptions, optionsText: 'name', optionsValue: 'value', value: productSortOrder"><option value="0">Name: A-Z</option><option value="1">Name: Z-A</option><option value="2">Price: low to high</option><option value="3">Price: high to low</option><option value="4">Oldest first</option><option value="5">Latest first</option></select>
+					</label>
+
+					<div class="form-buttons" align="center">
+						<button class="btn btn-default btn-lg" type="reset" data-bind="local: 'apps/menuBuilder.btn_cancel', click: close">Close</button>
+						<button class="btn btn-primary btn-lg" type="submit" data-bind="local: 'apps/menuBuilder.btn_save', click: save">Save</button>
+					</div>
+				</section>
+
+			</div>
+			</div>
+
+{% endblock %}

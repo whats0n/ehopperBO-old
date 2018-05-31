@@ -21,3 +21,12 @@ import './components/_videos';
 import './components/_spinner';
 
 import './components/_trigger';
+
+console.log(sortable);
+
+$('.js-sortable').sortable({
+	placeholder: "products-sortable__placeholder",
+	items: '.item:not(.js-sortable-disabled)',
+	distance: 1
+});
+$('.js-sortable').disableSelection();
