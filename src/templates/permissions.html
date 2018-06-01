@@ -11,14 +11,14 @@ emplyeeListActive: true
 
 	<div class="pane-body item-list">
 		<div class="permissions form wide-form js-show">
-			<div class="permissions__form-group">
+			{#<div class="permissions__form-group">
 				<label class="new-checkbox">
 					<input type="checkbox" onchange="show(event)">
 					<span class="new-checkbox__icon"></span>
 					<span class="new-checkbox__content">Salesperson inventory management</span>
 				</label>
-			</div>
-			<div class="permissions__box js-show-box" hidden>
+			</div>#}
+			<div class="permissions__box">
 				<div class="form-group">
 					<label class="new-checkbox">
 						<input type="checkbox" checked>
@@ -45,14 +45,14 @@ emplyeeListActive: true
 				<input class="btn btn-lg btn-primary" type="button" value="DONE">
 				<input class="btn btn-lg btn-default" type="button" value="Cancel">
 			</div>
-			<script>
+			{#<script>
 				function show(e) {
 					$(e.currentTarget)
 						.closest('.js-show')
 						.find('.js-show-box')
 						.attr('hidden', !$(e.currentTarget).prop('checked'));
 				}
-			</script>
+			</script>#}
 		</div>
 	</div>
 
