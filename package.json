@@ -46,6 +46,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
     "slick-carousel": "^1.8.1",
+    "sortablejs": "^1.7.0",
     "webpack": "^1.12.12",
     "webpack-bundle-analyzer": "^1.5.3"
   }

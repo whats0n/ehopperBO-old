@@ -3,7 +3,7 @@ import jQuery from 'jquery';
 window.jQuery = jQuery;
 window.$ = jQuery;
 
-import sortable from './lib/jquery-ui.min';
+// import sortable from './lib/jquery-ui.min';
 
 import './components/_modal';
 import './components/_toggle';
@@ -22,11 +22,18 @@ import './components/_spinner';
 
 import './components/_trigger';
 
-console.log(sortable);
+import Sortable from 'sortablejs';
 
-$('.js-sortable').sortable({
-	placeholder: "products-sortable__placeholder",
-	items: '.item:not(.js-sortable-disabled)',
-	distance: 1
-});
-$('.js-sortable').disableSelection();
+console.log(Sortable);
+
+$('.js-sortable').each((i, container) => Sortable.create(container, {
+	animation: 300,
+	draggable: '.js-sortable-item'
+}));
+
+// $('.js-sortable').sortable({
+// 	placeholder: "products-sortable__placeholder",
+// 	items: '.item:not(.js-sortable-disabled)',
+// 	distance: 1
+// });
+// $('.js-sortable').disableSelection();
