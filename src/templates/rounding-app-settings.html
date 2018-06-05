@@ -37,11 +37,12 @@ headerTitle: Rounding App Settings
 								</div>
 							</div>
 							<div class="v-settings__control {{item.controlClassList}}">
-								<select class="v-settings__select">
+								<select class="v-settings__select hasError">
 									{% for item in item.select %}
 										<option value="{{item}}">{{item}}</option>
 									{% endfor %}
 								</select>
+								<span class="fieldError" style="">Lorem ipsum dolor sit amet.</span>
 							</div>
 						</div>
 					{% endfor %}
