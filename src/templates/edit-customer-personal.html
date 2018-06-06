@@ -1,0 +1,187 @@
+---
+title: Edit Customer
+headerTitle: Edit Customer
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body">
+		<script>
+			function showTab(e) {
+				e.preventDefault();
+
+				var tab = $(e.currentTarget);
+				var tabs = $('.tab');
+
+				tabs.removeClass('selected');
+				tab.addClass('selected');
+
+				$('.tab-content')
+					.hide()
+					.filter(tab.data('for'))
+					.show();
+			}
+		</script>
+		<div class="form employee-manage-form">
+			<div class="employees-tabs tab-control">
+				<span class="tab selected" data-for="#generalTab" onclick="showTab(event)">
+					<span class="tab-title">General</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#contactsTab" onclick="showTab(event)">
+					<span class="tab-title">Contact Info</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#advancedTab" onclick="showTab(event)">
+					<span class="tab-title">Advanced</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+			</div>
+			<div id="saveMessages"></div>
+
+			<div class="tab-content" id="generalTab" style="display: block;">
+				<div data-bind="with: model">
+					<div id="generalMessages"></div>
+
+					<div class="form-group">
+						<label>Customer Type</label>
+						<span>Personal</span>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label>First Name</label>
+							<input class="form-control input-lg" type="text" placeholder="First Name" maxlength="100" required>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label>Last Name</label>
+							<input class="form-control input-lg" type="text" placeholder="Last Name" maxlength="100" required>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Middle Name</label>
+						<input class="form-control input-lg" type="text" placeholder="Middle Name" maxlength="100">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group">
+						<label>Date of Birth</label>
+						<input class="form-control input-lg" type="text" placeholder="Date of Birth">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input class="form-control input-lg" type="text" placeholder="Email">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+
+					<div class="form-group">
+						<div class="checkbox">
+							<input type="checkbox" id="personalMarketing">
+							<label for="personalMarketing">Marketing</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab-content" id="contactsTab" style="display: none;">
+				<div data-bind="with: model">
+					<div id="generalMessages"></div>
+
+					<div class="form-group">
+						<label>Phone</label>
+						<input class="form-control input-lg" type="text" placeholder="Phone">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group">
+						<label>Mobile Phone</label>
+						<input class="form-control input-lg" type="text" placeholder="Mobile Phone">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label>Address Line 1</label>
+							<input class="form-control input-lg" type="text" placeholder="Address Line 1">
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label>Address Line 2</label>
+							<input class="form-control input-lg" type="text" placeholder="Address Line 2">
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label>Coutry</label>
+							<select class="input-lg"><option value="">Choose 'Country'...</option><option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian O. Terr.</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="CV">Cape Verde</option><option value="KY">Cayman Islands</option><option value="CF">Central African Rep.</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo (Brazzaville)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="CD">Democratic Republic of Congo</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="XC">East Caribbean</option><option value="TP">East Timor</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="EU">European Union</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Terr.</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland (Denmark)</option><option value="GD">Grenada</option><option value="GP">Guadaloupe</option><option value="GU">Guam (US)</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea (Conakry)</option><option value="GW">Guinea Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard and McDonald Isl.</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="CI">Ivory Coast</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KR">Korea (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Reunion</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="SH">Saint Helena</option><option value="LC">Saint Lucia</option><option value="PM">Saint Pierre and Miquelon</option><option value="SM">San Marino</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten (Dutch part)</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="ST">St. Tome and Principe</option><option value="KN">St.Kitts Nevis Anguilla</option><option value="VC">St.Vincent and Grenadines</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen Is</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UM">US Minor outlying Isl.</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City State</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="VI">Virgin Islands, U.S.</option><option value="WF">Wallis and Futuna Islands</option><option value="EH">Western Sahara</option><option value="WS">Western Samoa</option><option value="YE">Yemen</option><option value="YU">Yugoslavia</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label>State</label>
+							<input class="form-control input-lg" type="text" placeholder="State">
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label>City</label>
+							<input class="form-control input-lg" type="text" placeholder="City">
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label>Zip</label>
+							<input class="form-control input-lg" type="text" placeholder="Zip">
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab-content" id="advancedTab" style="display: none;">
+				<div data-bind="with: model">
+					<div id="generalMessages"></div>
+
+					<div class="form-group row">
+						<div class="col-xs-6">
+							<label>Store Name</label>
+							<select class="input-lg">
+								<option value="">Choose 'Store Name'...</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="6298584313f54a40b31d6403e55614d5">Store 2</option><option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option><option value="f596311134c747418136bd872557750c">Store 28</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+							</select>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+						<div class="col-xs-6">
+							<label>Sales Person</label>
+							<select class="input-lg">
+								<option value="">Choose 'Sales Person'...</option><option value="0064ccd67f2d485e99a787c015e9bdc5">Password  Wrong</option><option value="008102a9a7994c30be368f93339a35e6">Mustapha Ibrahim</option><option value="00da0fbdbac6487bb163ac438b192321">аууцауц аацуц</option><option value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpson</option><option value="055aeb74235442628743d35b8bdb706b">Monica Levonsky</option><option value="068d977fcfa6482082d9fb63f0b43927">111 222</option><option value="07cf5af030bd4b8f80ad3e2213152dc2">Anna A</option><option value="098538221fd34627ad05a51bf1b8354c">Sarah Bernart</option><option value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Nikiforov_sp</option><option value="0a3e89b89c2a4a3c9236095fd432267f">stop fsfds</option><option value="0af0a01631114ccfa3d18a21220b17a2">mrgoroRU admin</option><option value="0b42a829bde74d85bd39c1c474227026">new_Admin new_Admin</option><option value="0ebe4042c2384684b6dbc992f4ff9980">Test 930-1 Test 930-1</option><option value="1131cc032fa649e7b26180d630490947">aaa aaaa</option><option value="12b10ed4c762451590027498e4bb7ed1">Victoria Fockeu</option><option value="132657e0ea6349b7bb9c37f8b9fc5d0e">DENIS_boo2 Nikiforov_boo2</option><option value="144248d117da4a8ca2cea36bd470a9db">qqqq wwww</option><option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator 11111</option><option value="19a6850d680a4836870741211f5c09e8">T  employee</option><option value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option><option value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperator</option><option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option><option value="1f1a6f6f382843168693af6291b154c0">Assigned to Store 2 Ass1</option><option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option><option value="2116d128f1ad422cac6345e1f53e0b88">First Last</option><option value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option><option value="26404ef28b894cef91cf0287b290a679">Fritz Schneider</option><option value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option><option value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  test</option><option value="2992b3f39cad41819a8107433978a496">Namegbvs7500 Name83520</option><option value="2c038f37426f46babe0fedf1160fa5bc">www eee</option><option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admin</option><option value="2d942f8ee18c42578c6f8c70aa738385">test 4.0.1 test 4.0.1</option><option value="2e4914367e454bef9a8cb85101eca175">DENIS_foo Nikiforov_foo</option><option value="2f0d416bd0f941adb827a962ce85fa85">fsdrgf gdrg</option><option value="2fdf21bf70fb4e4cb86325c49a7d803f">ManSale ManSale</option><option value="30d72b420bf7438fa022c15c013ff5b7">mrgoroRU admin</option><option value="3615390c21f842d8af56a84e81fd17c8">David Crunch</option><option value="371ac292ea6944bebbadc98372c25d27">Amber  Queen</option><option value="392244955e7e415dbca72b3f1e48a9d0">qwert1 qwerty</option><option value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manager test 0.4.1 Manager test 0.4.1</option><option value="400ae077420448afbcf3716cd98bd458">Vasyan Mudanes</option><option value="41cdd8e7e2bd48128b9c4ff333ede1a4">BO Operator</option><option value="41edfc5425f445cb88ecd8b282b7e121">Philip Philipson</option><option value="41fdf8859ee54da9955476cb678b6bbe">1234 1234</option><option value="4486076bf69946b3aa3153fc307ce7d0">John Johnson</option><option value="452c000dadf84502835e0ac29104f16b">Test switch role Test switch role</option><option value="4552516b1ca04d5b94c3e602eece9f5b">wd dwd</option><option value="4cf964c0da074b5e98685185f930c684">SSD SSD</option><option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option><option value="4fd883f92cf34d76ab95bb5114907c61">yandex yandex2</option><option value="4ffa2646f7cf48178f982f042a0d17e9">B2B NY</option><option value="5336868d3d5b47698924b253452f449c">Sales11111 Person</option><option value="535242c20ce0488fb2367de9269fb292">Ralph  Lauren</option><option value="541507509ef646fabcf5e8dfedd5273d">agan test 930 agan test 930</option><option value="545fd95f6c5e46cea071c70a8e08d62f">BO operator BO operator</option><option value="54cee707365a4b468a635048b84b8303">asd asd</option><option value="5541219a5f784d6291574cbab683475d">12345 12345</option><option value="57621a13a205476696b84672e037ebbf">prem123 prem234</option><option value="5a5bfe8b2f44459baf6f2641df1ec82b">5 5</option><option value="5bffa659e83049ffa4ee0064de5aeda8">qqq www</option><option value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option><option value="5f066f3f622648b7aa684ea13451391e">mrgoro BOO</option><option value="5fa57628723946068287f918ff46c08c">Veniamin Zolotukhin</option><option value="611d770d605c4f7a93f4f969fe48320d">Ralphe Lauren</option><option value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option><option value="61795d9fb4f04bc8a17cb6dae80310d1">Jim Beam</option><option value="62a55ed55bce4ee2bef28c6f62dbb242">Namesupc7187 Name09862</option><option value="686173151f5c4bf78a1c4f6d448f4fc2">dfsd ffds</option><option value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Martin</option><option value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option><option value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option><option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option><option value="6f2699651f294de88e907b687fe4908f">Danny Nikiforoff</option><option value="706ebd30b00540ef91b5d581850660f9">LongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLong LongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLong</option><option value="70d1613e0f1245999ad39b34721f3ae9">Spanish LanguageTest</option><option value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp 8555555555</option><option value="7312b47aa37c402c9501e8b59e4d768e">qqqqqqqqq fds</option><option value="75599e38ddc245fdb98ab711c318c4da">New SAles Person</option><option value="75d2432f5dce49479dc5db2052d06386">Ope Rator</option><option value="768f73d50d2942169f31992e09f8a164">qqq qqqw</option><option value="7893395e97c942678cd697b74ed75fdb">111 222</option><option value="7b5085958dbd4ac6be452cd19359b2b3">salesmanager 123 123</option><option value="7b7a229efbd04e3da177532734ce8f61">xs xsa</option><option value="7bb37e23793843259ed7fcd71c33326a">165 263</option><option value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option><option value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option><option value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option><option value="80787208f87848148b22f20c0ebd6d70">manager m1</option><option value="8193afcae06049849c8161fd173be4c0">TestFidd TestFidd2</option><option value="82e68a05827641eb81d403bc020e754b">nota nota</option><option value="832308a79738480fa0cc811ab0a88b24">WooCommerce WooCommerce</option><option value="85bb776f19474de888fbd06e737da56b">aganUPD agan</option><option value="8602a23991aa4a88ae355f9d93073318">вм вм</option><option value="8a59e7f2b2594416ad0a7f53089047d4">qqq qqq</option><option value="8b4b7a4c46b7458da20b7851d10e68d7">mrgoroRU admin</option><option value="8cb547d0569d40de8b70554686872c9c">vf vf</option><option value="8d23fd1ee3d54920a979e99fef01fc8a">Sale Person test 0.4.1 Sale Person test 0.4.1</option><option value="8f2b3d176e394808b4d0a063bbb4c3c9">wd dwd</option><option value="8f7ef56c16b343e98372b7e1a8344b60">David Crack</option><option value="95357448820b420399b82a803d1166b5">Axe Effect</option><option value="953b08e4918c4f79912b66169e484e6f">qwert qwerty</option><option value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Administrator Test_Administrator</option><option value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option><option value="a341c54d308f45468e992ad12439dc56">Test_SaleManager Test_SaleManager</option><option value="a41e326882594d30821117538cab2e71">rrrfew cdsacds</option><option value="a47bcda9e73a4184ae9505d232ccb13a">www eee</option><option value="a860c3b9a0994964a0c40c46633e36d4">aaa aa</option><option value="a8f42703537745ce8a1bed5c7d5bfe8b">TestFidd3 TestFidd4</option><option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Koval</option><option value="a9daa0c323bc46b4bcc81458cc203927">French Employee Employee</option><option value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option><option value="abcc39a86ce54758a873b99882821f21">Sam Black</option><option value="ae8363b1124646ca8036a1de68857276">Gomer Simpson</option><option value="b404a46870914ae5bc710a05b7148963">alex3 sales</option><option value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpson</option><option value="b66f23b9ee984471a56474620bb57f87">Steve Workers</option><option value="b88fc2f1a24c42c780dd1c2989be86d6">test emo test emo</option><option value="b8f770a1477a43bc9ca8b32dec2c503c">Antonio Gandoni</option><option value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option><option value="bbd9c1ce17d949c8b55b24b53a3d016a">BO Operator</option><option value="bc57763152404f7787e6ae9f7d1a7d51">qqq www</option><option value="bc7f710af9f9421ea3e1edbf3b953500">Vasya Pupkin</option><option value="bc96a3b1ea3347df92a8fda75185e88a">Namehhvf6684 Name57763</option><option value="bdfdafa31e0341e88b4270923045a344">sss 434</option><option value="c0367771dc8049d480ad46d32e14d49b">1 1</option><option value="c196810e43174c259b7f1e9a399396ff">Test_SalesPerson Test_SalesPerson</option><option value="c300f769c1304e54af4a6c3af757bd72">Assigned to Best Store Ass2</option><option value="c417e197fa3845e8ad580908f98ddbd6">gdfg greger</option><option value="c4fcc103cd294acbaf3c633d212e744e">Spanish LanguageTest</option><option value="c91e6b1db7b24bea82926d716c488a28">tgf dfd</option><option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option><option value="cd783ee6adf24ecca0bda9699458f68c">ssss sssssss</option><option value="cfc391f0c9d84ae398aba094b91f54dc">TestFidd2 TestFidd3</option><option value="d0481a952a5d430eb014782cd2029875">аууцауцк аацуцк</option><option value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Nikiforov_sm</option><option value="d1f5f18a0c0e44138737d69c892a29cd">Anthony Omaha</option><option value="d655162628924801a5891ec9ee8c35f3">WWE WWE</option><option value="d6b48501f1cb4370bfc7244ba19fa35d">Viktor Zhyb</option><option value="d7ae906a829340c8b6783119aee62821">Unique_Sales pERSON</option><option value="d8086dd0ced3490eb3c1d5b0a215a409">Stiopa Uncle</option><option value="d9edd0479c7f48c89e23db6b4b7e1c45">new sales manager</option><option value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option><option value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option><option value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option><option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bourman</option><option value="de6f95ce256448c0975dc01a081a09b8">fes fse</option><option value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option><option value="df35e42ad13a4fb4afedbb0ba885d578">test 922 test 922-2</option><option value="e0ae6e0b253743af804930b068edbaca">9th Jenuary</option><option value="e19ac0161f954f17842ab629fcbd0d1a">sadas sadas</option><option value="e4e62e95de2445539d23e0b99484a206">Los  Angeles </option><option value="e55813b3639645c084b0d4850941a29f">Test_BackOfficeOperator Test_BackOfficeOperator</option><option value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option><option value="e840db5f364944bcb5a8ed7fb1060f94">Roberto Soto</option><option value="e944368c9be04f58b60044dee804203e">Oleksii Test</option><option value="e9518d202f6d48c89ad1057106263a95">Alex Tryhleb</option><option value="e9e669121e694ac49af11222d68396f2">Haim Levy</option><option value="ed0a7df0ac79471fa03d5bd68885de6c">fistname_fistname_fistname fistname_fistname_fistname</option><option value="ed9f8ae1c054447aad1580d0c735b1bd">Test Test</option><option value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option><option value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zagorodnii</option><option value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employee New_Employee</option><option value="f36a90a59fd0451dbe4c145e82a281e7">VitaliyNek VitaliyNek</option><option value="f387e43ecf5a428598ff0496803dbac7">Inna Avr</option><option value="f3da1739550d464fa978b0d536f9acae">12344 12345</option><option value="f4c1b6913a3a4932a38a026421c579d6">mrgorotestadmin mrgorotestadmin</option><option value="f5cbcce5366d4e1c84d46eb554bf0561">First Last</option><option value="f96519e4198a413cb8a374cef3b04b16">FirstName LastName</option><option value="fc22fc503ea0481fb995e842215504bb">admin test 4.0.1 admin test 4.0.1</option><option value="fcd2c7adaa9641e094526cb213561376">Person Person1</option>
+							</select>
+							<span class="fieldError" style="display: none;"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Driver License No</label>
+						<input class="form-control input-lg" type="text" placeholder="Driver License No">
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group">
+						<label>Driver License State</label>
+						<select class="input-lg">
+							<option value="">Choose 'Driver License State'...</option><option value="AL">AL (Alabama)</option><option value="AK">AK (Alaska)</option><option value="AS">AS (American Samoa)</option><option value="AZ">AZ (Arizona)</option><option value="AR">AR (Arkansas)</option><option value="CA">CA (California)</option><option value="CO">CO (Colorado)</option><option value="CT">CT (Connecticut)</option><option value="DE">DE (Delaware)</option><option value="DC">DC (District Of Columbia)</option><option value="FM">FM (Federated States Of Micronesia)</option><option value="FL">FL (Florida)</option><option value="GA">GA (Georgia)</option><option value="GU">GU (Guam)</option><option value="HI">HI (Hawaii)</option><option value="ID">ID (Idaho)</option><option value="IL">IL (Illinois)</option><option value="IN">IN (Indiana)</option><option value="IA">IA (Iowa)</option><option value="KS">KS (Kansas)</option><option value="KY">KY (Kentucky)</option><option value="LA">LA (Louisiana)</option><option value="ME">ME (Maine)</option><option value="MH">MH (Marshall Islands)</option><option value="MD">MD (Maryland)</option><option value="MA">MA (Massachusetts)</option><option value="MI">MI (Michigan)</option><option value="MN">MN (Minnesota)</option><option value="MS">MS (Mississippi)</option><option value="MO">MO (Missouri)</option><option value="MT">MT (Montana)</option><option value="NE">NE (Nebraska)</option><option value="NV">NV (Nevada)</option><option value="NH">NH (New Hampshire)</option><option value="NJ">NJ (New Jersey)</option><option value="NM">NM (New Mexico)</option><option value="NY">NY (New York)</option><option value="NC">NC (North Carolina)</option><option value="ND">ND (North Dakota)</option><option value="MP">MP (Northern Mariana Islands)</option><option value="OH">OH (Ohio)</option><option value="OK">OK (Oklahoma)</option><option value="OR">OR (Oregon)</option><option value="PW">PW (Palau)</option><option value="PA">PA (Pennsylvania)</option><option value="PR">PR (Puerto Rico)</option><option value="RI">RI (Rhode Island)</option><option value="SC">SC (South Carolina)</option><option value="SD">SD (South Dakota)</option><option value="TN">TN (Tennessee)</option><option value="TX">TX (Texas)</option><option value="UT">UT (Utah)</option><option value="VT">VT (Vermont)</option><option value="VI">VI (Virgin Islands)</option><option value="VA">VA (Virginia)</option><option value="WA">WA (Washington)</option><option value="WV">WV (West Virginia)</option><option value="WI">WI (Wisconsin)</option><option value="WY">WY (Wyoming)</option>
+						</select>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+					<div class="form-group">
+						<label>Notes</label>
+						<textarea class="form-control input-lg" placeholder="Notes"></textarea>
+						<span class="fieldError" style="display: none;"></span>
+					</div>
+				</div>
+			</div>
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary" type="button" value="Done">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel">
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

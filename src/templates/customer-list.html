@@ -30,7 +30,21 @@ headerTitle: Customer List
 					<input class="btn btn-lg btn-primary" type="button" value="Import">
 				</div>
 				<div class="btn-group btn-group-lg" style="margin-left: 5px;">
-					<input class="btn btn-lg btn-primary" type="button" value="New Customer">
+					<script>
+						function toggleDD(e) {
+							var target = e.currentTarget;
+							var state = !JSON.parse(''+target.getAttribute('aria-expanded'))
+							target.setAttribute('aria-expanded', state);
+						}
+					</script>
+					<button class="btn btn-primary btn_dropdown" type="button" data-toggle="dropdown" aria-expanded="false" onclick="toggleDD(event)">
+						<span>New Customer</span>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">New Personal</a></li>
+						<li><a href="#">New Businnes</a></li>
+					</ul>
 				</div>
 			</div>
 
