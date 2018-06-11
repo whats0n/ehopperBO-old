@@ -1,0 +1,79 @@
+---
+title: Adjustment Details
+headerTitle: Adjustment Details
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body item-list" id="adjustmentDetails">
+			<div class="report-export-wrapper pull-right drilldown">
+				<a style="display: none" id="adjustmentDetailsLink"></a>
+				<form id="adjustmentDrilldownForm" method="post" action="PdfExport/Html2Pdf" style="display: none">
+					<input type="hidden" name="html" id="adjustmentDrilldownFormHtml">
+					<input type="hidden" name="fileName" id="adjustmentDrilldownFormFileName">
+				</form>
+				<div class="btn-group">
+					<div class="dropdown">
+						<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span data-bind="local: 'shell.exportReport'">Export</span>
+							<b class="caret"></b>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" data-bind="click: exportData">
+								<i class="fa fa-file-excel-o"></i>
+								CSV
+							</a>
+							<a class="dropdown-item" data-bind="click: exportToPdf">
+								<i class="ic ic-pdf"></i>
+								PDF
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<table class="w100">
+				<tbody>
+					<tr>
+						<td>
+							<strong>Adjustment ID:</strong>
+							<span data-bind="text: model.code">1637</span>
+						</td>
+						<td>
+							<strong>Vendor:</strong>
+							<span data-bind="text: model.vendor">10</span>
+						</td>
+						<td>
+							<strong>Store:</strong>
+							<span data-bind="text: model.store">Store 2</span>
+						</td>
+						<td>
+							<strong>Employee:</strong>
+							<span data-bind="text: model.employee">Josh Huttel</span>
+						</td>
+						<td>
+							<strong>Date:</strong>
+							<span data-bind="text: model.date">04/06/2018 7:54:24 PM</span>
+						</td>
+						<td>
+							<strong>Ref Num:</strong>
+							<span>12345678</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="tbl_adjustment_drilldown_wrapper" class="dataTables_wrapper"><div id="tbl_adjustment_drilldown_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="tbl_adjustment_drilldown"></label></div><div id="tbl_adjustment_drilldown_processing" class="dataTables_processing" style="display: none;">Processing...</div><table class="datatable dataTable" id="tbl_adjustment_drilldown" role="grid">
+				<thead>
+					<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" style="width: 20em;" aria-sort="ascending" aria-label="ID: Activate to sort by descending columns">ID</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Name: Activate to sort by ascending columns">Name</th><th data-bind="html: barCodeHeader" class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="UPC: Activate to sort by ascending columns">UPC</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="SKU: Activate to sort by ascending columns">SKU</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Cost: Activate to sort by ascending columns">Cost</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Delta: Activate to sort by ascending columns">Delta</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Total Cost Adjusted: Activate to sort by ascending columns">Total Cost Adjusted</th><th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Reason: Activate to sort by ascending columns">Reason</th></tr>
+				</thead>
+				<tbody><tr role="row" class="odd"><td class="sorting_1">4361</td><td>banana juice1</td><td>11100010</td><td></td><td>$0.00</td><td>-32</td><td>$0.00</td><td>Found</td></tr></tbody>
+				<tfoot>
+					<tr><th colspan="4" rowspan="1"></th><th rowspan="1" colspan="1">Total</th><th data-bind="text: model.delta" rowspan="1" colspan="1">-32</th><th data-bind="currency: model.totalCostAdjusted" rowspan="1" colspan="1">$0.00</th><th rowspan="1" colspan="1"></th></tr>
+				</tfoot>
+			</table></div>
+			<div class="form-buttons center">
+				<input data-bind="click: back, local: 'storeTransfer.back'" class="btn btn-lg btn-primary" type="button" value="Back">
+			</div>
+		</div>
+
+{% endblock %}
