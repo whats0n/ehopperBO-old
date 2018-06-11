@@ -1,0 +1,176 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Store Transfer Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Store Transfer Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body inventory" id="storeTransferDetails">
+				<div class="report-export-wrapper pull-right drilldown">
+					<form id="drilldownForm" method="post" action="PdfExport/Html2Pdf" style="display: none">
+						<input type="hidden" name="html" id="drilldownFormHtml">
+						<input type="hidden" name="fileName" id="drilldownFormFileName">
+					</form>
+					<div class="btn-group">
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span data-bind="local: 'shell.exportReport'">Export</span>
+								<b class="caret"></b>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" data-bind="attr: { href: exportTableData }" href="api/Products/ExportPODrilldown?id=2ad21fd2-6a38-4389-9edb-1b5d18bc140c&amp;ingredientMode=false&amp;storetransfer=true&amp;tzoffset=-180">
+									<i class="fa fa-file-excel-o"></i>
+									CSV
+								</a>
+								<a class="dropdown-item" data-bind="click: exportToPdf">
+									<i class="ic ic-pdf"></i>
+									PDF
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br class="clear"><br>
+				<div id="storeTransferDetailsMessage"></div>
+				<table class="store-transfer-attr">
+					<tbody><tr>
+						<td data-bind="visible: !model.vendor()">
+							<span data-bind="local: 'storeTransfer.storeTransferId'">Store Transfer ID</span>
+							<span data-bind="text: model.code">1635</span>
+						</td>
+						<td data-bind="visible: model.vendor()" style="display: none;">
+							<span data-bind="local: 'poReceiving.poReceivingId'">PO Receiving ID</span>
+							<span data-bind="text: model.code">1635</span>
+						</td>
+						<td data-bind="visible: model.vendor()" style="display: none;">
+							<span data-bind="local: 'poReceiving.vendor'">Vendor</span>
+							<span data-bind="text: model.vendor"></span>
+						</td>
+						<td data-bind="visible: model.storeOut()" style="">
+							<span data-bind="local: 'storeTransfer.storeOut'">Store Out</span>
+							<span data-bind="text: model.storeOut">BESTsTore</span>
+						</td>
+						<td>
+							<span data-bind="local: 'storeTransfer.storeIn'">Store In</span>
+							<span data-bind="text: model.storeIn">Store 2</span>
+						</td>
+						<td>
+							<span data-bind="local: 'storeTransfer.date'">Date</span>
+							<span data-bind="text: model.date">04/06/2018 7:49:31 PM</span>
+						</td>
+						<td>
+							<span data-bind="local: 'storeTransfer.employee'">Employee</span>
+							<span data-bind="text: model.employee">Josh Huttel</span>
+						</td>
+					</tr>
+				</tbody></table>
+
+				<table class="datatable dataTable">
+					<thead>
+						<tr>
+							<th data-bind="local: 'storeTransfer.id'" style="width: 80px">ID</th>
+							<th data-bind="local: 'storeTransfer.name'">Name</th>
+							<th data-bind="html: $root.barCodeHeader">UPC</th>
+							<th data-bind="local: 'storeTransfer.sku'">SKU</th>
+							<th data-bind="local: 'ingredients.uom', visible:$root.isIngredientMode()" style="display: none;">UOM</th>
+							<th data-bind="local: 'storeTransfer.cost'">Cost</th>
+							<th>
+								<span data-bind="visible: !model.vendor(), local: 'storeTransfer.transferQuantity'">Transfer Qty</span>
+								<span data-bind="visible: model.vendor(), local: 'poReceiving.receivedQuantity'" style="display: none;">Received Qty</span>
+							</th>
+							<th>
+								<span data-bind="visible: !model.vendor(), local: 'storeTransfer.totalCostTransferred'">Total Cost Transferred</span>
+								<span data-bind="visible: model.vendor(), local: 'poReceiving.totalCostReceived'" style="display: none;">Total Cost Received</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: model.inventoryTransferLines">
+						<tr>
+							<td>
+								<span data-bind="text: $data.productCode, visible: $data.parentLineId == null  ">4361</span>
+							</td>
+							<td data-bind="text: $data.name">banana juice1</td>
+							<td data-bind="text: $data.upc">11100010</td>
+							<td data-bind="text: $data.sku"></td>
+							<td data-bind="text: $data.uom, visible:$root.isIngredientMode()" style="display: none;">item</td>
+							<td data-bind="currency: $data.cost, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">$0.00</td>
+							<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+							<td data-bind="text: $data.transferQuantity, visible:$data.productType == 0 || $data.productType == 2 || ($data.productType == 1 &amp;&amp; $data.jsonVariants)">5</td>
+							<td data-bind="visible:$data.productType != 0 &amp;&amp; $data.productType != 2 &amp;&amp; !($data.productType == 1 &amp;&amp; $data.jsonVariants)" style="display: none;"></td>
+							<td data-bind="currency: $data.totalCost">$0.00</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th data-bind="attr: { colspan: model.vendor() ? 4 : 5 }" colspan="4"></th>
+							<th data-bind="local: 'storeTransfer.total'">Total</th>
+							<th data-bind="text: model.transferredQuantity">5</th>
+							<th data-bind="currency: model.totalCostTransferred">$0.00</th>
+						</tr>
+					</tfoot>
+				</table>
+
+				<div class="form-buttons">
+					<input data-bind="click: model.back, local: 'storeTransfer.back'" class="btn btn-lg btn-primary" type="button" value="Back">
+				</div>
+
+			</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
