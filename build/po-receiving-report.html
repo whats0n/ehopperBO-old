@@ -1,0 +1,192 @@
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>PO Receiving Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">PO Receiving Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body inventory" id="storeTransfersReport" data-bind="css: { loading: isLoading() }">
+		<input class="form-control input-lg datatable-search pull-left" type="text" data-bind="value: searchString, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search by: ID, Name, UPC, SKU, Ref Num" style="width: 400px;">
+		<button class="btn btn-lg btn-primary" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+
+		<date-filter params="value: dateRange">
+			<div class="pull-right">
+				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					&nbsp;
+					<span>Last 30 Days</span> 
+					<b class="caret"></b>
+				</div>
+			</div>
+		</date-filter>
+
+		<div class="report-export-wrapper pull-right" data-bind="visible: reportMode() === 'POReceiving'">
+			<button class="btn-report-export" data-bind="click: exportTableData" style="padding: 0 15px">
+				<i class="fa fa-file-excel-o" aria-hidden="true"></i>
+				<span data-bind="local: 'shell.exportReport'">Export</span>
+			</button>
+			<a style="display: none" id="storeTransferReportLink"></a>
+		</div>
+
+		<div class="report-export-wrapper pull-right" data-bind="visible: reportMode() === 'StoreTransfer'" style="display: none;">
+			<div class="btn-group">
+				<div class="dropdown">
+					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-file-excel-o" aria-hidden="true"></i>
+						<span data-bind="local: 'shell.exportReport'">Export</span>
+						<b class="caret"></b>
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" data-bind="local: 'storeTransfer.exportList', click: exportTableData">Store Transfer Summary</a>
+						<a class="dropdown-item" data-details="true" data-bind="local: 'storeTransfer.exportListWithDetails', click: exportTableData">Store Transfer Details</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<br class="clear">
+
+		<div data-bind="visible: !isLoading()">
+			<table class="inventory-transfer-options po-receiving-options">
+				<tbody>
+					<tr>
+						<td data-bind="visible: reportMode() === 'POReceiving'">
+							<label data-bind="local: 'poReceiving.vendor'">Vendor</label>
+							<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId"><option value="">All</option><option value="24348aeb033a479082ba688fd70e6d38">10</option><option value="1b98ab7d2f8b42c9926573f1f4ce77d6">11</option><option value="d4b3a4d2b73945a3a7e3f88121cc0906">111</option><option value="5ee4bc2390664d11b6f1a49dc4305dc9">12</option><option value="b91f68d44e9143e593f4ae75e63d188e">121212</option><option value="7296587cb0b64bbf9c0fcdd1b93a162d">12121212  122</option><option value="74082247b5404158a3625aa4200598bb">1222</option><option value="e48fd4bcdbb3403088a776bede99030f">12222222</option><option value="a4974f7cf7284da4aef1b4e6f9c8b203">122558</option><option value="b25e47d013a84c4fbab163d61b9b6c87">123 vendor</option><option value="7ad2c0ef724d4fa187ddd3384f0814eb">12345</option><option value="a3608f2f15914c6b86f337994f8da7fe">123456789</option><option value="655fc9dadf4c4d028726f7488445a7d6">12345678911111rejmty</option><option value="8731242dc9664fda968b128ec1df4036">1236</option><option value="e780483c694941eda9967f4e219c3b5b">12361</option><option value="9a65d442094c42228680d26042c726f8">1243556</option><option value="42d1aa4c26d446e29c4e79422db82611">14651</option><option value="2f4401ffecc84dc685c8c811a712a05e">222</option><option value="cbd03a212eac4c55a41436298b6efa43">321</option><option value="9bae05793be646faad0908eceb9e74f9">323232323</option><option value="a34fe78dd71740678f8b75f04f10e98b">333</option><option value="bebc69d762d64933925b07043b3714b6">333333333</option><option value="1ea2e84aebe54cdbb390c29c214811be">3333333331</option><option value="1e06bea854c34c0695166b2d5d9e8ec0">414</option><option value="2b37c73ab3044d5f9090c9660cbd31f5">432</option><option value="7c9ea3b33e324a1bb0ef75551c15b2ce">456</option><option value="662e41cf37c7459196ab804089f61db7">45ui</option><option value="1e3d0634c1664b81a063050cec6c70c8">465578956887</option><option value="7f8ab7fd8f5645e6a2b42823f0f922ae">4655789568875t6t</option><option value="b461975aa9ad445e80016503c946aeb2">5</option><option value="0d9575fd2dd8468288ea1497b704c07e">555</option><option value="3527ffe393814904a65f717b07cb9239">564</option><option value="c79ba9f2aad042d79ba3e793cd2f0404">6</option><option value="17c5e4e304d8418b9c87a1c506441029">654</option><option value="0e7496e47c934f6d95e302230303b822">666</option><option value="06dd981d06a24801a4b4663a021c18e8">7</option><option value="af5e87d99cbd42fb8a2f0b4a79afe0a0">741</option><option value="c80122bab5744f7ba51dbc2592c22029">7413</option><option value="755201479da448b0a9e91481fc1726ed">777</option><option value="bbfb56a7128a47458c104ea7ecea2371">852</option><option value="fe51d2ed3bd1479cac956e9d19fcc767">9</option><option value="d1963a28a4e84eb29eea2aff79328a5d">951</option><option value="4c35e1f310204d6fa72024231f7aae36">9632</option><option value="4b9244cfdf1140aab910c99add1e8f1f">9658</option><option value="37d62da2d81341c5bb531f31c5ba91b6">98</option><option value="566f52e83297476885914a24d643a5a3">987</option><option value="33826efe88304df3a31d200d90e29272">999</option><option value="f814589faac64ceab26bb15df87c9dac">asasasa</option><option value="646de1591b594e74a659662a471d925b">asd</option><option value="734a5a2b34b44677a54bf5c0086e329d">asddsa</option><option value="dae1f70cc8a14266acb6d1395c0afca5">Boo</option><option value="b476f2ed3a6b42ae8c5ce705d3d0268d">Burger</option><option value="f86be27ed9d94c83bd9581ccd9019ae3">dasefd</option><option value="666315eb6c4c4d78b30dc3bc4160040b">dawdawawd</option><option value="ac06ff31c14149258e6a263c5438b883">Delivery </option><option value="b4d606753d954ef0b3f736ce49dabc33">Dummy Vendor</option><option value="44c2181418f64f5cb83b41dd2c9411e8">eyui</option><option value="HTCe228da1a8e4847f89c09ccbf8ba40926">HTC</option><option value="7bcf4c3f932c4768b3ca79c60276a102">Huendor</option><option value="dcee8a73e8584a179865af67eedd1c84">Lee Cooper</option><option value="c657063a72875cb58d656bc76d9767a3">Levis</option><option value="91e2c37e3ed6494686ff156b6009b649">Microsoft</option><option value="4e8a2bebba3e40e9947f8cf9d6f4d31e">MyVendor</option><option value="8e2be9ee3cfd476587053d43e28fb804">new vend</option><option value="aa3616ea090d4f6a8deedd57dc2c742c">New_Vendor</option><option value="dfd062a66ab94fb79a9e1df65a3e2f0d">New_Vendor1</option><option value="9924c3f8576046a19f8762d25b6fe36c">New_Vendor11</option><option value="a0e1819bbfc74746814b764fdaa236a6">New_Vendor2</option><option value="bc1e48e46c5343c69bcbd66b82e470bb">QAVENDO</option><option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option><option value="282040a6f58844f8bcb841dbd196c5d8">Queens</option><option value="7eb649b7183c45bd87b70fe58de1e241">qwerty!</option><option value="f05baf1b0b3c41b38f3c801ab0bb4ca6">rew</option><option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option><option value="45f25ade92f241b8a4861300e5d9b138">sandora</option><option value="862f8727af8447a3bcd76a31f3a1d844">Store Vendor</option><option value="52c21a14ac1140129dbf33a4ecd2afe3">SuperBurger</option><option value="2b6aae5a4ed04eb3ae8f371232fb6672">TarastTest1</option><option value="d366d4640b444e5ca06681c07111b511">Test Vendor</option><option value="da9d37dd9033497097edf2a832d31263">testls</option><option value="210482f8010b4a3a804cba0d3a31471d">Thai1</option><option value="cc07d365a3cf45198d69b46e03c00485">The Big Warehouse</option><option value="cd7c98a3535342739eb55da5fbddac03">upc vendor</option><option value="e3e437a5bbad401e822e6119951fd873">Vendor 87</option><option value="3cf37ae0f8ac4544bcc57faf7a550585">Vendor for Taras Testing</option><option value="986b2bc24c4f408f8e5122edfe267341">vendorA</option><option value="66cd37d90b1d4d3b801b3f660932b220">we</option><option value="f3cccfac631a4c8a93d31ba15707347d">we1</option><option value="6665ace317aa4e45a27c3a656a680d65">werer</option><option value="940acdf0f2c34898ab3c7489f1950b59">werty</option><option value="793a71a8d3164d628dfe58b31995f43b">Zhopendor</option><option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option><option value="50024a49b2394657abca8fe1c2ce5e6a">ву</option><option value="45716ac1ab6a44f9bf66c81ceef734d6">уіцн кенлгрдюд</option><option value="643954c46cb24011b4bf5ecb15fd7671">Ыыыыыёба</option></select>
+						</td>
+						<td data-bind="visible: reportMode() === 'StoreTransfer'" style="display: none;">
+							<label data-bind="local: 'storeTransfer.storeOut'">Store Out</label>
+							<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeOutId"><option value="">All</option><option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option><option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option><option value="6050df646589491b81a3dd087204c5d4">New Store234</option><option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="6298584313f54a40b31d6403e55614d5">Store 2</option><option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option><option value="f596311134c747418136bd872557750c">Store 28</option><option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option><option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option></select>
+						</td>
+						<td>
+							<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
+							<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId"><option value="">All</option><option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option><option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option><option value="6050df646589491b81a3dd087204c5d4">New Store234</option><option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option><option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option><option value="6298584313f54a40b31d6403e55614d5">Store 2</option><option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option><option value="f596311134c747418136bd872557750c">Store 28</option><option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option><option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option></select>
+						</td>
+						<td>
+							<label data-bind="local: 'storeTransfer.employee'">Employee</label>
+							<select data-bind="options: employees, optionsText: 'name', optionsValue: 'id', value: employeeId"><option value="">All</option><option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option><option value="371ac292ea6944bebbadc98372c25d27">Amber  Queen</option><option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option><option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator 11111</option><option value="dba917a5c96648e68c7ff7cb2b654e21">Coca Coala</option><option value="3615390c21f842d8af56a84e81fd17c8">David Crunch</option><option value="f96519e4198a413cb8a374cef3b04b16">FirstName LastName</option><option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option><option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option><option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bourman</option><option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admin</option><option value="008102a9a7994c30be368f93339a35e6">Mustapha Ibrahim</option><option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option><option value="bdfdafa31e0341e88b4270923045a344">sss 434</option><option value="df35e42ad13a4fb4afedbb0ba885d578">test 922 test 922-2</option><option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Koval</option><option value="8602a23991aa4a88ae355f9d93073318">вм вм</option></select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div id="storeTransfersReportMessage"></div>
+
+			<div id="storeTransfersReportTable_wrapper" class="dataTables_wrapper no-footer" style="padding-right: 0;"><div id="storeTransfersReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="storeTransfersReportTable"></label></div><div id="storeTransfersReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div><table class="datatable po-receiving-mode dataTable no-footer" id="storeTransfersReportTable" data-bind="css: { 'store-transfer-mode': reportMode() === 'StoreTransfer', 'po-receiving-mode': reportMode() === 'POReceiving' }" role="grid">
+				<thead>
+					<tr role="row">
+						<th style="width: 100px;" data-bind="local: 'storeTransfer.id'" class="sorting_asc" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by descending columns" aria-sort="ascending">ID</th>
+						<th data-bind="local: poReceivingThirdField" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Vendor: Activate to sort by ascending columns">Vendor</th>
+						<th data-bind="local: 'storeTransfer.storeIn'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Store In: Activate to sort by ascending columns">Store In</th>
+						<th data-bind="local: 'storeTransfer.totalQuantity'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Total Qty: Activate to sort by ascending columns">Total Qty</th>
+						<th data-bind="local: 'storeTransfer.totalCost'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Total Cost: Activate to sort by ascending columns">Total Cost</th>
+						<th data-bind="local: 'storeTransfer.date'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns">Date</th>
+						<th data-bind="local: 'storeTransfer.employee'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Reference Number: Activate to sort by ascending columns">Reference Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr role="row" class="odd">
+						<td class="sorting_1">1634</td>
+						<td>10</td>
+						<td>BESTsTore</td>
+						<td>4</td>
+						<td>$10.00</td>
+						<td>14/05/2018 2:18:21 PM</td>
+						<td>John Smith</td>
+						<td>12345678</td>
+					</tr>
+					<tr role="row" class="even">
+						<td class="sorting_1">1636</td>
+						<td>10</td>
+						<td>Store 2</td>
+						<td>30</td>
+						<td>$60.00</td>
+						<td>04/06/2018 7:51:59 PM</td>
+						<td>Josh Huttel</td>
+						<td>12345678</td>
+					</tr>
+					<tr role="row" class="odd">
+						<td class="sorting_1">1639</td>
+						<td>10</td>
+						<td>BESTsTore</td>
+						<td>200</td>
+						<td>$0.00</td>
+						<td>04/06/2018 9:57:56 PM</td>
+						<td>Josh Huttel</td>
+						<td>12345678</td>
+					</tr>
+					<tr role="row" class="even">
+						<td class="sorting_1">1640</td>
+						<td>10</td>
+						<td>BESTsTore</td>
+						<td>5</td>
+						<td>$0.00</td>
+						<td>04/06/2018 9:58:06 PM</td>
+						<td>Josh Huttel</td>
+						<td>12345678</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="storeTransfersReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="storeTransfersReportTable" data-dt-idx="0" tabindex="0" id="storeTransfersReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="storeTransfersReportTable" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="storeTransfersReportTable" data-dt-idx="2" tabindex="0" id="storeTransfersReportTable_next">Next</a></div></div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>
