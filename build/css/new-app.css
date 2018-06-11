@@ -2409,6 +2409,10 @@
   display: block;
 }
 
+.s-tabs .inventory-transfer-options select, .s-tabs .inventory-transfer-options input[type=text] {
+  min-width: 100%;
+}
+
 .i-header {
   position: absolute;
   z-index: 50;
@@ -7291,6 +7295,19 @@ ul.main-menu li a .icon {
 
 select {
   padding-right: 38px;
+}
+
+.newDepartment .cancel-button,
+.inventory > input[type="text"] + button,
+.departments > input[type="text"] + button,
+.categories > input[type="text"] + button,
+.vendors-list > input[type="text"] + button,
+.item-list > input[type="text"] + button,
+.register-settings > div + button,
+.pane-tax div + button,
+.newCategory .cancel-button,
+.employee-manage-form .cancel-button {
+  margin-left: 10px;
 }
 
 @media only screen and (max-width: 1366px){

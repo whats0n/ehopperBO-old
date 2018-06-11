@@ -293,7 +293,7 @@
 					{% if singleLayout %}
 						{% block contentSingle %}{% endblock %}
 					{% else %}
-						<div class="pane pane-right">
+						<div class="pane pane-right {{contentClassList}}">
 							{% include "partials/_header.html" %}
 							{% if iHeader %}
 								{% for item in iHeader %}

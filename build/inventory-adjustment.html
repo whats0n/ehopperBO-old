@@ -40,7 +40,7 @@
 				
 
 					
-						<div class="pane pane-right">
+						<div class="pane pane-right ">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
 	<b><span data-part="navPath" data-bind="text: navigationPath">Inventory Adjustment</span></b>
@@ -71,9 +71,14 @@
 				<div class="s-tabs__content is-open" data-tabs-container="inventory-adjustment-products" data-tabs-collection="inventory-adjustment">
 					<div>
 	<table class="inventory-transfer-options po-receiving-options">
-	<tbody><tr>
+	<tbody>
+		<tr>
+			<td class="inventory-transfer-options-label">Ref Num</td>
+			<td>
+				<input class="form-control input-lg" type="text">
+			</td>
+		<td class="inventory-transfer-options-label" data-bind="local: 'inventoryAdjustment.vendor'">Vendor</td>
 		<td>
-			<label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label>
 			<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
 				<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
 				<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
@@ -108,8 +113,8 @@
 				<option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option>
 			</select>
 		</td>
+		<td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeIn'">Store In</td>
 		<td>
-			<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
 			<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
 				<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 				<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
@@ -120,9 +125,8 @@
 				<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 			</select>
 		</td>
-		<td style="position: relative">
-			<br>
-			<input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
+		<td class="inventory-transfer-search">
+			<input class="form-control input-lg datatable-search scannerInput" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
 			<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
 				<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
 			</div>
@@ -131,7 +135,7 @@
 </tbody></table>
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
-		<table class="datatable dataTable i-ingredients-table" role="grid">
+		<table class="datatable dataTable" role="grid">
 			<thead>
 				<tr role="row">
 					<th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
@@ -201,9 +205,14 @@
 				<div class="s-tabs__content " data-tabs-container="inventory-adjustment-ingredients" data-tabs-collection="inventory-adjustment">
 					<div>
 	<table class="inventory-transfer-options po-receiving-options">
-	<tbody><tr>
+	<tbody>
+		<tr>
+			<td class="inventory-transfer-options-label">Ref Num</td>
+			<td>
+				<input class="form-control input-lg" type="text">
+			</td>
+		<td class="inventory-transfer-options-label" data-bind="local: 'inventoryAdjustment.vendor'">Vendor</td>
 		<td>
-			<label data-bind="local: 'inventoryAdjustment.vendor'">Vendor</label>
 			<select data-bind="options: vendors, optionsText: 'name', optionsValue: 'id', value: vendorId">
 				<option value="144ad4039dd643e784fb1ceedaa8ca89">QAVENDOR</option>
 				<option value="1d2c99d58b6d46f1bfdbbd25a4a8aa5d">вввывыфв</option>
@@ -238,8 +247,8 @@
 				<option value="Samsunge228da1a8e4847f89c09ccbf8ba40926">Samsung</option>
 			</select>
 		</td>
+		<td class="inventory-transfer-options-label" data-bind="local: 'storeTransfer.storeIn'">Store In</td>
 		<td>
-			<label data-bind="local: 'storeTransfer.storeIn'">Store In</label>
 			<select data-bind="options: stores, optionsText: 'storeName', optionsValue: 'id', value: storeInId">
 				<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
 				<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
@@ -250,9 +259,8 @@
 				<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 			</select>
 		</td>
-		<td style="position: relative">
-			<br>
-			<input class="form-control input-lg datatable-search" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
+		<td class="inventory-transfer-search">
+			<input class="form-control input-lg datatable-search scannerInput" type="text" data-bind="value: searchString, valueUpdate: 'input', event: { blur: cancelSearch }, local: 'storeTransfer.search', localAttr: 'placeholder'" placeholder="Search item by title or code">
 			<div class="panel panel-default" data-bind="visible: isSearchOpened()" style="display: none;">
 				<ul class="panel-body" data-bind="foreach: foundProducts"></ul>
 			</div>
@@ -261,7 +269,7 @@
 </tbody></table>
 	<div id="storeTransferMessage"></div>
 	<div class="min-table-width-wrapper">
-		<table class="datatable dataTable i-ingredients-table" role="grid">
+		<table class="datatable dataTable" role="grid">
 			<thead>
 				<tr role="row">
 					<th style="width: 80px" data-bind="local: 'storeTransfer.id'">ID</th>
