@@ -1,0 +1,197 @@
+---
+title: Ingredients report
+headerTitle: Ingredients report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory">
+		
+		{{simpleFilters.call({
+			search: { placeholder: 'Search ingredient by name or ID' }
+		})}}
+		
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+			<div id="productMixReportTable_filter" class="dataTables_filter">
+				<label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label>
+			</div>
+			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="ingredientsReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
+						<th class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Ingredient: Activate to sort by descending columns" aria-sort="ascending">Ingredient</th>
+						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
+						{#<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>#}
+						{# <th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Quantity: Activate to sort by ascending columns">Quantity (UOM)</th> #}
+						<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (UOM)</th>
+						{# <th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Quantity (Stock unit)</th> #}
+						<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (Stock unit)</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="text-right row-expandable" colspan="5" rowspan="1">Total:</th>
+						<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
+						{# <th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
+						<th class="text-right numeric-data" rowspan="1" colspan="1">28</th> #}
+						<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					{% set table = [
+						{
+							id: '1',
+							title: 'cheese slice',
+							store: 'WestGuestCafe',
+							employee: 'John Wick',
+							register: 'Register 1',
+							uom: 'unit',
+							unit: 'box',
+							min: '1',
+							qty: '2',
+							sold: '2'
+						},
+						{
+							id: '2',
+							title: 'pepper',
+							store: 'WestGuestCafe',
+							employee: 'John Wick',
+							register: 'Register 1',
+							uom: 'unit',
+							unit: 'box',
+							min: '1',
+							qty: '4',
+							sold: '4'
+						},
+						{
+							id: '3',
+							title: 'milk',
+							store: 'WestGuestCafe',
+							employee: 'John Wick',
+							register: 'Register 1',
+							uom: 'l',
+							unit: 'pack',
+							min: '1',
+							qty: '2',
+							sold: '2'
+						},
+						{
+							id: '4',
+							title: 'potatoes',
+							store: 'WestGuestCafe',
+							employee: 'John Wick',
+							register: 'Register 1',
+							uom: 'kg',
+							unit: 'bag',
+							min: '1',
+							qty: '4',
+							sold: '4'
+						},
+						{
+							id: '5',
+							title: 'strawberry',
+							store: 'WestGuestCafe',
+							employee: 'John Wick',
+							register: 'Register 1',
+							uom: 'kg',
+							unit: 'box',
+							min: '1',
+							qty: '3',
+							sold: '3'
+						},
+						{
+							id: '6',
+							title: 'tomatoes',
+							store: 'WestGuestCafe',
+							employee: 'Ben Stiller',
+							register: 'Register 2',
+							uom: 'kg',
+							unit: 'case',
+							min: '1',
+							qty: '3',
+							sold: '3'
+						},
+						{
+							id: '7',
+							title: 'cream',
+							store: 'WestGuestCafe',
+							employee: 'Ben Stiller',
+							register: 'Register 2',
+							uom: 'unit',
+							unit: 'box',
+							min: '1',
+							qty: '2',
+							sold: '2'
+						},
+						{
+							id: '8',
+							title: 'rice',
+							store: 'WestGuestCafe',
+							employee: 'Ben Stiller',
+							register: 'Register 2',
+							uom: 'kg',
+							unit: 'pack',
+							min: '1',
+							qty: '1',
+							sold: '1'
+						},
+						{
+							id: '9',
+							title: 'pasta',
+							store: 'WestGuestCafe',
+							employee: 'Ben Stiller',
+							register: 'Register 2',
+							uom: 'kg',
+							unit: 'pack',
+							min: '1',
+							qty: '3',
+							sold: '3'
+						},
+						{
+							id: '10',
+							title: 'egg',
+							store: 'WestGuestCafe',
+							employee: 'Ben Stiller',
+							register: 'Register 2',
+							uom: 'unit',
+							unit: 'tray',
+							min: '1',
+							qty: '4',
+							sold: '4'
+						}
+					] %}
+					{% for item in table %}
+						<tr class="editable odd" role="row">
+							<td class=" row-expandable">{{item.id}}</td>
+							<td class="sorting_1">{{item.title}}</td>
+							<td>{{item.store}}</td>
+							<td>{{item.employee}}</td>
+							<td>{{item.register}}</td>
+							{#<td class=" numeric-data">{{item.min}}</td>#}
+							{# <td class=" numeric-data">{{item.qty}} ({{item.uom}})</td> #}
+							<td class=" numeric-data">{{item.sold}} ({{item.uom}})</td>
+							{# <td class=" numeric-data">{{item.qty}} ({{item.unit}})</td> #}
+							<td class=" numeric-data">{{item.sold}} ({{item.unit}})</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">466</a>
+				</span>
+				<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

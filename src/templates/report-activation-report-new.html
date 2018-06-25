@@ -1,0 +1,432 @@
+---
+title: Activation Report
+headerTitle: Activation Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory" data-bind="with: filter">
+
+		{{simpleFilters.call()}}
+
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper dataTables_wrapper_flexible">
+			<div id="productMixReportTable_filter" class="dataTables_filter">
+				<label>Search:
+					<input type="search" class="" placeholder="" aria-controls="activationReportTable">
+				</label>
+			</div>
+			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="activationReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-register"
+							aria-controls="productMixReportTable" 
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-method"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
+						{# <th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Commission Item: Activate to sort by ascending columns">Commission Item</th> #}
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Product Serial #: Activate to sort by ascending columns">Product Serial #</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-mobile"
+							aria-controls="productMixReportTable" 
+							aria-label="Mobile Number: Activate to sort by ascending columns">Mobile Number</th>
+						{# <th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-contract-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Contract Type: Activate to sort by ascending columns">Contract Type</th> #}
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-sppo-name"
+							aria-controls="productMixReportTable" 
+							aria-label="Service Plan Name: Activate to sort by ascending columns">Service Plan Name</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Service Plan Code: Activate to sort by ascending columns">Service Plan Code</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Service Plan Price: Activate to sort by ascending columns">Service Plan Price</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							data-table-report="col-exp"
+							aria-label="Service Plan Exp Comm: Activate to sort by ascending columns">Service Plan <br>Exp Comm</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							data-table-report="col-exp"
+							aria-label="Equipment Rebate Exp Comm: Activate to sort by ascending columns">Equipment Rebate <br>Exp Comm</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-service-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Service Date: Activate to sort by ascending columns">Service Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Date: Activate to sort by ascending columns">Transaction Date</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Carrier: Activate to sort by ascending columns">Carrier</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Employee: Activate to sort by descending columns" 
+							aria-sort="ascending">Employee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+						{# <th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="BAN: Activate to sort by ascending columns">BAN</th> #}
+						{# <th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Subscriber ID: Activate to sort by ascending columns">Subscriber ID</th> #}
+					</tr>
+				</thead>
+				{% set payments = [
+					{
+						store: '6408 Pacific Ave',
+						register: '1',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						serviceDate: '11/1/2017',
+						productDesc: 'Customer Phone',
+						serial: '&nbsp;',
+						transType: 'Sale',
+						transID: '3210',
+						transDate: '11/1/17 16:27',
+						customer: 'Roberto Flores',
+						mobile: '3235780912',
+						carrier: 'Net 10',
+						contractType: 'Activation',
+						sppoName: 'Net10 $35 Unlimited / 30 Days',
+						sppoCode: 'NTNS2U035ID',
+						mrc: '$35.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Cash',
+						paymentStatus: 'Completed',
+						orderID: '423332347052'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '1',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						serviceDate: '11/2/2017',
+						productDesc: 'Customer Phone',
+						serial: '&nbsp;',
+						transType: 'Sale',
+						transID: '3213',
+						transDate: '11/2/17 11:04',
+						customer: 'Juan Castillo',
+						mobile: '3233602247',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'Simple Mobile $50 Unlimited Talk, Text & Data (Truly Unlimited Data at 4G LTE speed)',
+						sppoCode: 'SMNS40050ILDID',
+						mrc: '$50.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Credit Card',
+						paymentStatus: 'Completed',
+						orderID: '423332352485'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '2',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						serviceDate: '11/3/2017',
+						productDesc: 'Tracfone LG Flip Phone',
+						serial: '014651007797347',
+						transType: 'Sale',
+						transID: '3227',
+						transDate: '11/3/17 11:15',
+						customer: 'Sara Corronadl',
+						mobile: '&nbsp;',
+						carrier: 'Tracfone',
+						contractType: 'Activation',
+						sppoName: 'Tracfone (Activation) - $19.99 (60min / 90day)',
+						sppoCode: 'TFRTR40060',
+						mrc: '$19.99',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Debit Card',
+						paymentStatus: 'Voided',
+						orderID: '493337111391'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '1',
+						person: 'Benigno, Oscar',
+						commission: 'SP',
+						serviceDate: '11/7/2017',
+						productDesc: 'Customer Phone',
+						serial: '35278508016657',
+						transType: 'Sale',
+						transID: '3260',
+						transDate: '11/7/17 12:06',
+						customer: 'Francisco Sandoval',
+						mobile: '4243499079',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'Simple Mobile $40 Unlimited talk and text & ILD / 4GB  / 30 Days',
+						sppoCode: 'SMNS40040ILDID',
+						mrc: '$40.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'External Payment',
+						paymentStatus: 'Completed',
+						orderID: '493337124808'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '4',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						serviceDate: '11/7/2017',
+						productDesc: 'Customer Phone',
+						serial: '&nbsp;',
+						transType: 'Sale',
+						transID: '3269',
+						transDate: '11/7/17 17:25',
+						customer: 'Manuel Jimenez',
+						mobile: '3237046430',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'SM (RTR) - $25 UNL TnT +ILD / 30day',
+						sppoCode: '&nbsp;',
+						mrc: '$25.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Split',
+						paymentStatus: 'Voided',
+						orderID: '413330895970'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '2',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						serviceDate: '11/9/17',
+						productDesc: 'Att Go Phone Unlocked GSM Flip Phone',
+						serial: '354104086084540',
+						transType: 'Sale',
+						transID: '3276',
+						transDate: '11/9/17 10:27',
+						customer: 'Jose Soto',
+						mobile: '3233623798',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'Simple Mobile $25 Unlimited Talk, Text, 1GB Data',
+						sppoCode: 'SMNS40025ILDID',
+						mrc: '$25.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Split',
+						paymentStatus: 'Completed',
+						orderID: '413330908650'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '2',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						serviceDate: '11/11/17',
+						productDesc: 'Customer Phone',
+						serial: '&nbsp;',
+						transType: 'Sale',
+						transID: '3287',
+						transDate: '11/11/17 10:38',
+						customer: 'Mariah Wells',
+						mobile: '3233540306',
+						carrier: 'GoSmart',
+						contractType: 'Activation',
+						sppoName: 'GoSmart (RTR) $35 - UNL TnT 4GB 3G DATA',
+						sppoCode: 'GSRTRU0035',
+						mrc: '$35.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Debit Card',
+						paymentStatus: 'Completed',
+						orderID: '413330913706'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '5',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						serviceDate: '11/11/17',
+						productDesc: 'Simple Mobile Rose Gold iPhone SE',
+						serial: '358633071736512',
+						transType: 'Sale',
+						transID: '3288',
+						transDate: '11/11/17 12:27',
+						customer: 'Oscar Benigno',
+						mobile: '3233606618',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'SM (RTR) - $40 UNL TnT +ILD 4GB / 30day',
+						sppoCode: 'SMNRTR20040',
+						mrc: '$40.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Credit Card',
+						paymentStatus: 'Voided',
+						orderID: '403332774711'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '2',
+						person: 'Tello, Janettzy',
+						commission: 'SP',
+						serviceDate: '11/11/17',
+						productDesc: 'Simple Mobile Space Gray iPhone SE',
+						serial: '353791081834910',
+						transType: 'Sale',
+						transID: '3290',
+						transDate: '11/11/17 14:44',
+						customer: 'Oscar Benigno',
+						mobile: '4247577739',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'Simple Mobile $40 Unlimited talk and text & ILD / 4GB  / 30 Days',
+						sppoCode: 'SMNS40040ILDID',
+						mrc: '$40.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'Cash',
+						paymentStatus: 'Completed',
+						orderID: '493337136294'
+					},
+					{
+						store: '6408 Pacific Ave',
+						register: '1',
+						person: 'alfaro, Marylene',
+						commission: 'SP',
+						serviceDate: '11/12/17',
+						productDesc: 'Customer Phone',
+						serial: '&nbsp;',
+						transType: 'Sale',
+						transID: '3295',
+						transDate: '11/12/17 11:16',
+						customer: 'Jose Renteria',
+						mobile: '3235484637',
+						carrier: 'Simple Mobile',
+						contractType: 'Activation',
+						sppoName: 'SM (RTR) - $25 UNL TnT +ILD / 30day',
+						sppoCode: '&nbsp;',
+						mrc: '$25.00',
+						ban: '&nbsp;',
+						subscriberID: '&nbsp;',
+						paymentMethod: 'External Payment',
+						paymentStatus: 'Voided',
+						orderID: '493337141142'
+					}
+				] %}	
+				<tbody>
+					{% for item in payments %}
+						<tr>
+							<td class="break-word">{{item.store | safe}}</td>
+							<td class="break-word" data-table-report="col-register">Register {{item.register}}</td>
+							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{item.orderID | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
+							{#<td class="break-word">{{item.commission | safe}}</td>#}
+							<td class="break-word">{{item.productDesc | safe}}</td>
+							<td class="break-word">{{item.serial | safe}}</td>
+							<td class="break-word" data-table-report="col-mobile">{{item.mobile | safe}}</td>
+							{# <td class="break-word" data-table-report="col-contract-type">{{item.contractType | safe}}</td> #}
+							<td class="break-word" data-table-report="col-sppo-name">{{item.sppoName | safe}}</td>
+							<td class="break-word">{{item.sppoCode |safe }}</td>
+							<td class="break-word">{{item.mrc | safe}}</td>
+							<td class="break-word" data-table-report="col-exp">$2.00</td>
+							<td class="break-word" data-table-report="col-exp">{% if item.serial != '&nbsp;' %}$3.00{% else %}$0.00{% endif %}</td>
+							<td class="break-word" data-table-report="col-service-date">{{item.serviceDate | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
+							<td class="break-word">{{item.carrier | safe}}</td>
+							<td class="break-word">{{item.person | safe}}</td>
+							<td class="break-word">{{item.customer | safe}}</td>
+							{# <td class="break-word">{{item.ban | safe}}</td> #}
+							{# <td class="break-word">{{item.subscriberID | safe}}</td> #}
+						</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="11">&nbsp;</td>
+						<td>Total</td>
+						<td>$374.99</td>
+						<td>$20.00</td>
+						<td>$15.00</td>
+						<td colspan="5">&nbsp;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">554</a>
+				</span>
+				<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

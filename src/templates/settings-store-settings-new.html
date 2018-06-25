@@ -1,0 +1,110 @@
+---
+title: Stores
+headerTitle: Stores
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body settings-list">
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="value: searchString, local: 'stores/storesList.search_store', localAttr: 'placeholder'" placeholder="Search for store">
+		<button class="btn btn-lg btn-primary settings-list__search-btn" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+		<!-- ko ifnot: isWirelessMode-->
+		<input type="button" class="btn btn-lg btn-primary pull-right" value="New Store" data-bind="click: newStore, local:'stores/storesList.new_store'">
+		<!-- /ko -->
+		<br class="clear">
+		<div id="storesTable_wrapper" class="dataTables_wrapper no-footer">
+			<div id="storesTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="storesTable"></label></div>
+			<div id="storesTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable no-footer" id="storesTable" role="grid" aria-describedby="storesTable_info">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'stores/storesList.store_name'" class="sorting_asc" tabindex="0" aria-controls="storesTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Store Name: Activate to sort by descending columns">Store Name</th>
+						<th data-bind="local: 'stores/storesList.status'" class="sorting" tabindex="0" aria-controls="storesTable" rowspan="1" colspan="1" aria-label="Status: Activate to sort by ascending columns" style="width: 150px;">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" id="5a4b11ccd458452facd24376cc851f7b" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>28 aug test</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, Namesupc7187 Name09862, 111 222, salesmanager 123 123, qqq qqq, www eee, Viktor Zhyb, new sales manager, VitaliyNek VitaliyNek, 12344 12345</p>
+						</td>
+						<td>Inactive</td>
+					</tr>
+					<tr class="editable even" id="ea56b32ca4064c43b2d943700b5a796c" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>28 august store</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, Namesupc7187 Name09862, 111 222, salesmanager 123 123, qqq qqq, www eee, Viktor Zhyb, new sales manager, VitaliyNek VitaliyNek, 12344 12345</p>
+						</td>
+						<td>Inactive</td>
+					</tr>
+					<tr class="editable odd" id="df17c52b068e428e94046bcacfd33adb" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>BESTsTore</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;Mustapha Ibrahim, Monica Levonsky, Anna A, Sarah Bernart, aaa aaaa, DENIS_boo2 Nikiforov_boo2, BO Operator 11111, T  employee, mrgoro sm, Bo BOoperator, Assigned to Store 2 Ass1, mrgoro sp, Fritz Schneider, www eee, test 4.0.1 test 4.0.1, DENIS_foo Nikiforov_foo, ManSale ManSale, David Crunch, qwert1 qwerty, Sales Manager test 0.4.1 Manager test 0.4.1, BO Operator, John Johnson, Test switch role Test switch role, SSD SSD, yandex yandex2, Sales11111 Person, Ralph  Lauren, prem123 prem234, qqq www, Job Steves, mrgoro BOO, Ralphe Lauren, Jim Beam, Aston Martin, B2B NY, alexg2 g, Danny Nikiforoff, LongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLong LongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLongTestNameLong, qqqqqqqqq fds, New SAles Person, Ope Rator, qqq qqqw, 111 222, salesmanager 123 123, John White, qwwqw 321, qqq qqq, vf vf, Sale Person test 0.4.1 Sale Person test 0.4.1, wd dwd, David Crack, qwert qwerty, Test_Administrator Test_Administrator, John Smith, Test_SaleManager Test_SaleManager, rrrfew cdsacds, www eee, aaa aa, qqq qqq, alex3 sales, Liza Simpson, Steve Workers, test emo test emo, BO Operator, qqq www, Test_SalesPerson Test_SalesPerson, Assigned to Best Store Ass2, ssss sssssss, DENIS_sm Nikiforov_sm, Anthony Omaha, Viktor Zhyb, Stiopa Uncle, new sales manager, new1 last1, Coca Coala, Tom Bibi, Lessly Bourman, fes fse, alexg g, test 922 test 922-2, Test_BackOfficeOperator Test_BackOfficeOperator, Roberto Soto, Haim Levy, Dr House, Oleksii Zagorodnii, VitaliyNek VitaliyNek, 12344 12345, mrgorotestadmin mrgorotestadmin, admin test 4.0.1 admin test 4.0.1, Person Person1</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="9b95b38021254511970c394af32606e1" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>FAstSTore</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, Namesupc7187 Name09862, Aston Martin, 111 222, salesmanager 123 123, qqq qqq, David Crack, www eee, Sam Black, Viktor Zhyb, new sales manager, VitaliyNek VitaliyNek, 12344 12345</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="dec86c0a82174c449744d003e8f3dceb" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>ivanstore</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;Anna A, BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, BO Operator, Test switch role Test switch role, prem123 prem234, Aston Martin, New SAles Person, Ope Rator, 111 222, salesmanager 123 123, qqq qqq, www eee, Liza Simpson, BO Operator, Namehhvf6684 Name57763, Viktor Zhyb, Unique_Sales pERSON, new sales manager, Coca Coala, Dr House, VitaliyNek VitaliyNek, 12344 12345, Person Person1</p>
+						</td>
+						<td>Inactive</td>
+					</tr>
+					<tr class="editable even" id="2d9e1fa2504149f1a36b2b7eaf90daef" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>New CSP Store</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;Anna A, BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, Test switch role Test switch role, 111 222, salesmanager 123 123, qqq qqq, www eee, Viktor Zhyb, new sales manager, Dr House, VitaliyNek VitaliyNek, 12344 12345</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="8c69323a6b28488f9f5e688f592979cf" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>New Store</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;Anna A, BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, BO Operator, Test switch role Test switch role, Ralph  Lauren, prem123 prem234, Ralphe Lauren, Aston Martin, New SAles Person, Ope Rator, 111 222, salesmanager 123 123, qqq qqq, www eee, Liza Simpson, BO Operator, Viktor Zhyb, new sales manager, Coca Coala, Dr House, VitaliyNek VitaliyNek, 12344 12345, Person Person1</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="662fd10aa39844839b3b909d232547a3" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>New Store  8931b</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;BO Operator 11111, T  employee, salesmanager 123 123, qqq qqq, new sales manager, 12344 12345</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="e926fc3cd7614d549d9ac824b3f92e23" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>New Store 32</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;Anna A, BO Operator 11111, T  employee, ManSale ManSale, Sales Manager test 0.4.1 Manager test 0.4.1, Test switch role Test switch role, Namesupc7187 Name09862, salesmanager 123 123, qqq qqq, www eee, Viktor Zhyb, new sales manager, Dr House, VitaliyNek VitaliyNek, 12344 12345</p>
+						</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="b3dcb79fc4474880af4fd17c2f9ac400" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class="sorting_1">
+							<b>New Store 8931a</b>
+							<p class="store-settings-employees-list">Employees:&nbsp;BO Operator 11111, T  employee, salesmanager 123 123, qqq qqq, Vasya Pupkin, new sales manager, 12344 12345</p>
+						</td>
+						<td>Active</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_info" id="storesTable_info" role="status" aria-live="polite">Showing 1 to 10 of 28 entriesInfoPostFix</div>
+			<div class="dataTables_paginate paging_simple_numbers" id="storesTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="storesTable" data-dt-idx="0" tabindex="0" id="storesTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="storesTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="storesTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="storesTable" data-dt-idx="3" tabindex="0">3</a>
+				</span>
+				<a class="paginate_button next" aria-controls="storesTable" data-dt-idx="4" tabindex="0" id="storesTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

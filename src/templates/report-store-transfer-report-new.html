@@ -1,0 +1,55 @@
+---
+title: Store Transfer Report
+headerTitle: Store Transfer Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body inventory" id="storeTransfersReport" data-bind="css: { loading: isLoading() }">
+		
+		
+		{{simpleFilters.call({
+			search: { placeholder: 'Search by: ID, Name, UPC, SKU, Ref Num' },
+			fields: [
+				{ label: 'Store Out' },
+				{ label: 'Store In' },
+				{ label: 'Employee' }
+			]
+		})}}
+
+		<div data-bind="visible: !isLoading()">
+
+			<div id="storeTransfersReportMessage"></div>
+
+			<div id="storeTransfersReportTable_wrapper" class="dataTables_wrapper no-footer" style="padding-right: 0;"><div id="storeTransfersReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="storeTransfersReportTable"></label></div><div id="storeTransfersReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div><table class="datatable store-transfer-mode dataTable no-footer" id="storeTransfersReportTable" data-bind="css: { 'store-transfer-mode': reportMode() === 'StoreTransfer', 'po-receiving-mode': reportMode() === 'POReceiving' }" role="grid">
+				<thead>
+					<tr role="row">
+						<th style="width: 100px;" data-bind="local: 'storeTransfer.id'" class="sorting_asc" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by descending columns" aria-sort="ascending">ID</th>
+						<th data-bind="local: poReceivingThirdField" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Store Out: Activate to sort by ascending columns">Store Out</th>
+						<th data-bind="local: 'storeTransfer.storeIn'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Store In: Activate to sort by ascending columns">Store In</th>
+						<th data-bind="local: 'storeTransfer.totalQuantity'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Total Qty: Activate to sort by ascending columns">Total Qty</th>
+						<th data-bind="local: 'storeTransfer.totalCost'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Total Cost: Activate to sort by ascending columns">Total Cost</th>
+						<th data-bind="local: 'storeTransfer.date'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns">Date</th>
+						<th data-bind="local: 'storeTransfer.employee'" class="sorting" tabindex="0" aria-controls="storeTransfersReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Ref Num: Activate to sort by ascending columns">Ref Num</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr role="row" class="odd">
+						<td class="sorting_1">1635</td>
+						<td>BESTsTore</td>
+						<td>Store 2</td>
+						<td>5</td>
+						<td>$0.00</td>
+						<td>04/06/2018 7:49:31 PM</td>
+						<td>Josh Huttel</td>
+						<td>12345678</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="storeTransfersReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="storeTransfersReportTable" data-dt-idx="0" tabindex="0" id="storeTransfersReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="storeTransfersReportTable" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="storeTransfersReportTable" data-dt-idx="2" tabindex="0" id="storeTransfersReportTable_next">Next</a></div></div>
+		</div>
+	</div>
+
+{% endblock %}

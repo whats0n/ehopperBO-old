@@ -1,0 +1,578 @@
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Bill Payment Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Bill Payment Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body inventory" data-bind="with: filter">
+	
+		
+<!-- begin v-simple-filters -->
+<div class="v-simple-filters">
+	<div class="v-simple-filters__row">
+		<!-- begin search -->
+		<div class="v-simple-filters__col">
+			<input 
+				type="text" 
+				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
+				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
+				placeholder="Search item by: Name">
+		</div>
+		<!-- end search -->
+
+		<div class="v-simple-filters__col">
+			<button 
+				type="button"
+				class="btn btn-lg btn-primary"
+				data-keypress="Enter" 
+				data-bind="local: 'common.searchButton', click: search">Search</button>
+		</div>
+
+		<!-- begin buttons -->
+		<div class="v-simple-filters__col pull-right">
+			
+				<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+					<date-filter params="value: dateRange">
+						<div class="pull-right">
+							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								&nbsp;
+								<span>Today</span> 
+								<b class="caret"></b>
+							</div>
+						</div>
+					</date-filter>
+				</div>
+			
+
+			<div class="report-export-wrapper pull-right v-simple-filters__export">
+				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+			</div>
+		</div>
+		<!-- end buttons -->
+	</div>
+	<div class="v-simple-filters__row">
+		<script>
+			function openDropdown(e) {
+				e.preventDefault();
+				$(e.currentTarget)
+					.closest('.ms-parent')
+					.find('.ms-drop')
+					.toggle();
+			}
+		</script>
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+						<div data-bind="with: $data.storesFilter, css: self.divStyle">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+							<div data-bind="css: contStyle" class="v-simple-filters__select">
+								<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+									multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+								</select>
+								<div class="ms-parent">
+									<button type="button" class="select" onclick="openDropdown(event)">
+										<div class="fl">
+											<div>
+												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+											</div>
+											<div>
+												<div></div>
+											</div>
+										</div>
+									</button>
+									<div class="ms-drop bottom" data-name="multipleSelect1">
+										<ul style="max-height: 250px;">
+											<li>
+												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+												<label for="allCheck">Select All</label>
+											</li>
+											
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+													<label for="payment-store-1">6408 Pacific Ave</label>
+												</li>
+											
+											<li class="ms-no-results">No matches found</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/ko-->
+				</div>
+			
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<label>Register:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Register 1</option>
+						
+							<option value="Register 2">Register 2</option>
+						
+							<option value="Register 3">Register 3</option>
+						
+							<option value="Register 4">Register 4</option>
+						
+							<option value="Register 5">Register 5</option>
+						
+					</select>
+				</div>
+			
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<label>Employee:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Employee 1</option>
+						
+							<option value="Register 2">Employee 2</option>
+						
+							<option value="Register 3">Employee 3</option>
+						
+							<option value="Register 4">Employee 4</option>
+						
+							<option value="Register 5">Employee 5</option>
+						
+					</select>
+				</div>
+			
+		
+	</div>
+</div>
+<!-- end v-simple-filters -->
+
+
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper dataTables_wrapper_flexible">
+			<div id="productMixReportTable_filter" class="dataTables_filter">
+				<label>Search:
+					<input type="search" class="" placeholder="" aria-controls="productMixReportTable">
+				</label>
+			</div>
+			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="paymentReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-register"
+							aria-controls="productMixReportTable" 
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-bill-pay-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Bill Payment ID: Activate to sort by ascending columns">Bill Payment ID</th>
+						
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-method"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-mobile"
+							aria-controls="productMixReportTable" 
+							aria-label="Mobile Number #: Activate to sort by ascending columns">Mobile Number</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
+						
+						<th class="sorting table-report-fee" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Fee: Activate to sort by ascending columns">Fee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Total Amount: Activate to sort by ascending columns">Total Amount</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Dealer Compensation: Activate to sort by ascending columns">Dealer Compensation</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Date: Activate to sort by descending columns" 
+							aria-sort="ascending">Transaction Date</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-tsp"
+							aria-controls="productMixReportTable" 
+							aria-label="TSP: Activate to sort by descending columns" 
+							aria-sort="ascending">TSP</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Created By: Activate to sort by ascending columns">Employee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+					</tr>
+				</thead>
+					
+				<tbody>
+					
+						<tr>
+							<td class="break-word">NM Missouri </td>
+							<td class="break-word" data-table-report="col-register">Register 1</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9662</td>
+							<td class="break-word" data-table-report="col-order-id">423332347052</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737167772</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5754491522</td>
+							<td class="break-word">$60.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$63.00</td>
+							<td class="break-word">$2.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">ochoa, elizabeth</td>
+							<td class="break-word">DANIEL . JIMENEZ</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Madrid</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9663</td>
+							<td class="break-word" data-table-report="col-order-id">423332352485</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737167826</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5758050516</td>
+							<td class="break-word">$50.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$53.00</td>
+							<td class="break-word">$2.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:00</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">Ochoa, Lupe</td>
+							<td class="break-word">RENEE . PADILLA</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Madrid</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9680</td>
+							<td class="break-word" data-table-report="col-order-id">493337111391</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737182622</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
+							<td class="break-word">Feature Change</td>
+							<td class="break-word" data-table-report="col-mobile">5752887429</td>
+							<td class="break-word">$5.00</td>
+							
+							<td class="break-word">$0.00</td>
+							<td class="break-word">$5.00</td>
+							<td class="break-word">$1.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:24</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">Rivera, Perla</td>
+							<td class="break-word">RUFINA MOLINA</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Missouri</td>
+							<td class="break-word" data-table-report="col-register">Register 1</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9685</td>
+							<td class="break-word" data-table-report="col-order-id">493337124808</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737188284</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Voided</td>
+							<td class="break-word">Activation Payment</td>
+							<td class="break-word" data-table-report="col-mobile">9153313591</td>
+							<td class="break-word">$55.00</td>
+							
+							<td class="break-word">$0.00</td>
+							<td class="break-word">$55.00</td>
+							<td class="break-word">$3.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:34</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">ochoa, elizabeth</td>
+							<td class="break-word">JOSE . CRUZ</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM El Paseo</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9695</td>
+							<td class="break-word" data-table-report="col-order-id">413330895970</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737201054</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Debit Card</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Reactivation-$3</td>
+							<td class="break-word" data-table-report="col-mobile">5755207160</td>
+							<td class="break-word">$40.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$43.00</td>
+							<td class="break-word">$1.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/2017 12:56</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">Lopez, Kathleen</td>
+							<td class="break-word">MARTIN ASTROGA</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Madrid</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9699</td>
+							<td class="break-word" data-table-report="col-order-id">413330908650</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737202678</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5753862085</td>
+							<td class="break-word">$30.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$33.00</td>
+							<td class="break-word">$3.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 12:58</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">Ochoa, Lupe</td>
+							<td class="break-word">JENNIE . MEETZE</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Missouri</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9700</td>
+							<td class="break-word" data-table-report="col-order-id">413330913706</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737208142</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5752226494</td>
+							<td class="break-word">$91.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$94.00</td>
+							<td class="break-word">$6.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:06</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">ochoa, carmen</td>
+							<td class="break-word">EMILI VASQUEZ</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Madrid</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9701</td>
+							<td class="break-word" data-table-report="col-order-id">403332774711</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737209342</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5752223551</td>
+							<td class="break-word">$41.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$44.00</td>
+							<td class="break-word">$5.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:08</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">Rivera, Perla</td>
+							<td class="break-word">MICHELLE SALAS</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM El Paseo</td>
+							<td class="break-word" data-table-report="col-register">Register 3</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9709</td>
+							<td class="break-word" data-table-report="col-order-id">493337136294</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737218418</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Credit Card</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">5756357935</td>
+							<td class="break-word">$91.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$94.00</td>
+							<td class="break-word">$7.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:21</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">veloz, jasmine</td>
+							<td class="break-word">ROBERTO . LAZO</td>
+						</tr>
+					
+						<tr>
+							<td class="break-word">NM Missouri</td>
+							<td class="break-word" data-table-report="col-register">Register 2</td>
+							<td class="break-word" data-table-report="col-trans-type">Sale</td>
+							<td class="break-word" data-table-report="col-trans-id">9710</td>
+							<td class="break-word" data-table-report="col-order-id">493337141142</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">737218744</td>
+							
+							<td class="break-word" data-table-report="col-payment-method">Cash</td>
+							<td class="break-word" data-table-report="col-payment-status">Completed</td>
+							<td class="break-word">Service Payment</td>
+							<td class="break-word" data-table-report="col-mobile">9153034848</td>
+							<td class="break-word">$122.00</td>
+							
+							<td class="break-word">$3.00</td>
+							<td class="break-word">$125.00</td>
+							<td class="break-word">$12.00</td>
+							<td class="break-word" data-table-report="col-trans-date">11/1/17 13:22</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">ochoa, carmen</td>
+							<td class="break-word">ANTWIONETTE . SMITH</td>
+						</tr>
+					
+				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="9">&nbsp;</td>
+						<td>Total</td>
+						<td>$585.00</td>
+						
+						<td>$24.00</td>
+						<td>$609.00</td>
+						<td>$543.00</td>
+						<td colspan="4">&nbsp;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">554</a>
+				</span>
+				<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

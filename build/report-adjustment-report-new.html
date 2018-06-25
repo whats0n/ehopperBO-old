@@ -1,0 +1,261 @@
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Adjustment Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right adjustment-report-wrapper">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Adjustment Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+	<div class="pane-body item-list">
+		
+		
+<!-- begin v-simple-filters -->
+<div class="v-simple-filters">
+	<div class="v-simple-filters__row">
+		<!-- begin search -->
+		<div class="v-simple-filters__col">
+			<input 
+				type="text" 
+				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
+				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
+				placeholder="Search by: ID, Name, UPC, SKU, Ref Num">
+		</div>
+		<!-- end search -->
+
+		<div class="v-simple-filters__col">
+			<button 
+				type="button"
+				class="btn btn-lg btn-primary"
+				data-keypress="Enter" 
+				data-bind="local: 'common.searchButton', click: search">Search</button>
+		</div>
+
+		<!-- begin buttons -->
+		<div class="v-simple-filters__col pull-right">
+			
+				<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+					<date-filter params="value: dateRange">
+						<div class="pull-right">
+							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								&nbsp;
+								<span>Today</span> 
+								<b class="caret"></b>
+							</div>
+						</div>
+					</date-filter>
+				</div>
+			
+
+			<div class="report-export-wrapper pull-right v-simple-filters__export">
+				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+			</div>
+		</div>
+		<!-- end buttons -->
+	</div>
+	<div class="v-simple-filters__row">
+		<script>
+			function openDropdown(e) {
+				e.preventDefault();
+				$(e.currentTarget)
+					.closest('.ms-parent')
+					.find('.ms-drop')
+					.toggle();
+			}
+		</script>
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+						<div data-bind="with: $data.storesFilter, css: self.divStyle">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+							<div data-bind="css: contStyle" class="v-simple-filters__select">
+								<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+									multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+								</select>
+								<div class="ms-parent">
+									<button type="button" class="select" onclick="openDropdown(event)">
+										<div class="fl">
+											<div>
+												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+											</div>
+											<div>
+												<div></div>
+											</div>
+										</div>
+									</button>
+									<div class="ms-drop bottom" data-name="multipleSelect1">
+										<ul style="max-height: 250px;">
+											<li>
+												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+												<label for="allCheck">Select All</label>
+											</li>
+											
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+													<label for="payment-store-1">6408 Pacific Ave</label>
+												</li>
+											
+											<li class="ms-no-results">No matches found</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/ko-->
+				</div>
+			
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<label>Vendor:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Vendor 1</option>
+						
+							<option value="Register 2">Vendor 2</option>
+						
+							<option value="Register 3">Vendor 3</option>
+						
+							<option value="Register 4">Vendor 4</option>
+						
+							<option value="Register 5">Vendor 5</option>
+						
+					</select>
+				</div>
+			
+		
+			
+			
+				<div class="v-simple-filters__col ">
+					<label>Employee:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Employee 1</option>
+						
+							<option value="Register 2">Employee 2</option>
+						
+							<option value="Register 3">Employee 3</option>
+						
+							<option value="Register 4">Employee 4</option>
+						
+							<option value="Register 5">Employee 5</option>
+						
+					</select>
+				</div>
+			
+		
+	</div>
+</div>
+<!-- end v-simple-filters -->
+
+
+		<div id="adjustmentReportMessage"></div>
+
+		<div id="tbl_adjustment_report_wrapper" class="dataTables_wrapper no-footer">
+			<div id="tbl_adjustment_report_filter" class="dataTables_filter">
+				<label>Search:<input type="search" class="" placeholder="" aria-controls="tbl_adjustment_report"></label>
+			</div>
+			<div id="tbl_adjustment_report_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable no-footer" id="tbl_adjustment_report" role="grid">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'inventory/inventoryList.id'" class="sorting_asc" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" style="width: 20em;" aria-label="ID: Activate to sort by descending columns" aria-sort="ascending">ID</th>
+						<th data-bind="local: 'orders/ordersList.date'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns">Date</th>
+						<th data-bind="local: 'orders/ordersList.store'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th data-bind="local: 'orders/ordersList.employee'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th data-bind="local: 'storeTransfer.totalCost'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Total Cost: Activate to sort by ascending columns">Total Cost</th>
+						<th data-bind="local: 'storeTransfer.delta'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Delta: Activate to sort by ascending columns">Delta</th>
+						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Ref Num: Activate to sort by ascending columns">Ref Num</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr role="row" class="odd">
+						<td class="sorting_1">1637</td>
+						<td>04/06/2018 7:54:24 PM</td>
+						<td>Store 2</td>
+						<td>Josh Huttel</td>
+						<td>$0.00</td>
+						<td>-32</td>
+						<td>12345678</td>
+					</tr>
+					<tr role="row" class="even">
+						<td class="sorting_1">1638</td>
+						<td>04/06/2018 7:56:00 PM</td>
+						<td>Store 2</td>
+						<td>Josh Huttel</td>
+						<td>$0.00</td>
+						<td>29</td>
+						<td>12345678</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="tbl_adjustment_report_paginate"><a class="paginate_button previous disabled" aria-controls="tbl_adjustment_report" data-dt-idx="0" tabindex="0" id="tbl_adjustment_report_previous">Previous</a><span><a class="paginate_button current" aria-controls="tbl_adjustment_report" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="tbl_adjustment_report" data-dt-idx="2" tabindex="0" id="tbl_adjustment_report_next">Next</a></div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

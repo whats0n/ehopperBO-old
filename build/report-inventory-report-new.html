@@ -1,0 +1,421 @@
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Inventory Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Inventory Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+
+	<div class="pane-body inventory">
+
+		
+<!-- begin v-simple-filters -->
+<div class="v-simple-filters">
+	<div class="v-simple-filters__row">
+		<!-- begin search -->
+		<div class="v-simple-filters__col">
+			<input 
+				type="text" 
+				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
+				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
+				placeholder="Search by: ID, Name, UPC">
+		</div>
+		<!-- end search -->
+
+		<div class="v-simple-filters__col">
+			<button 
+				type="button"
+				class="btn btn-lg btn-primary"
+				data-keypress="Enter" 
+				data-bind="local: 'common.searchButton', click: search">Search</button>
+		</div>
+
+		<!-- begin buttons -->
+		<div class="v-simple-filters__col pull-right">
+			
+
+			<div class="report-export-wrapper pull-right v-simple-filters__export">
+				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+			</div>
+		</div>
+		<!-- end buttons -->
+	</div>
+	<div class="v-simple-filters__row">
+		<script>
+			function openDropdown(e) {
+				e.preventDefault();
+				$(e.currentTarget)
+					.closest('.ms-parent')
+					.find('.ms-drop')
+					.toggle();
+			}
+		</script>
+		
+			
+				
+			
+			
+				<div class="v-simple-filters__col v-simple-filters__col_sm">
+					<label>Store:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Store 1</option>
+						
+							<option value="Register 2">Store 2</option>
+						
+							<option value="Register 3">Store 3</option>
+						
+							<option value="Register 4">Store 4</option>
+						
+							<option value="Register 5">Store 5</option>
+						
+					</select>
+				</div>
+			
+		
+			
+				
+			
+			
+				<div class="v-simple-filters__col v-simple-filters__col_sm">
+					<label>Department:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Department 1</option>
+						
+							<option value="Register 2">Department 2</option>
+						
+							<option value="Register 3">Department 3</option>
+						
+							<option value="Register 4">Department 4</option>
+						
+							<option value="Register 5">Department 5</option>
+						
+					</select>
+				</div>
+			
+		
+			
+				
+			
+			
+				<div class="v-simple-filters__col v-simple-filters__col_sm">
+					<label>Category:</label>
+					<select>
+						<option>All</option>
+						
+							<option value="Register 1">Category 1</option>
+						
+							<option value="Register 2">Category 2</option>
+						
+							<option value="Register 3">Category 3</option>
+						
+							<option value="Register 4">Category 4</option>
+						
+							<option value="Register 5">Category 5</option>
+						
+					</select>
+				</div>
+			
+		
+			
+				
+			
+			
+				<div class="v-simple-filters__col v-simple-filters__col_sm">
+					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+					
+					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+						<div data-bind="with: $data.storesFilter, css: self.divStyle">
+							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Inventory Type:</label>
+							<div data-bind="css: contStyle" class="v-simple-filters__select">
+								<select class="form-control input-lg" style="display: none;">
+									
+										<option value="Inventory">Inventory</option>
+									
+										<option value="Non-Inventory">Non-Inventory</option>
+									
+										<option value="Serialized">Serialized</option>
+									
+										<option value="Matrix">Matrix</option>
+									
+										<option value="With Ingredients">With Ingredients</option>
+									
+								</select>
+
+								<div class="ms-parent">
+									<button type="button" class="select" onclick="openDropdown(event)">
+										<div class="fl">
+											<div>
+												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+											</div>
+											<div>
+												<div></div>
+											</div>
+										</div>
+									</button>
+									<div class="ms-drop bottom" data-name="multipleSelect1">
+										<ul style="max-height: 250px;">
+											<li>
+												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+												<label for="allCheck">Select All</label>
+											</li>
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+													<label for="payment-store-1">Inventory</label>
+												</li>
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-2" checked>
+													<label for="payment-store-2">Non-Inventory</label>
+												</li>
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-3" checked>
+													<label for="payment-store-3">Serialized</label>
+												</li>
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-4" checked>
+													<label for="payment-store-4">Matrix</label>
+												</li>
+											
+												<li>
+													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-5" checked>
+													<label for="payment-store-5">With Ingredients</label>
+												</li>
+											
+											<li class="ms-no-results">No matches found</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/ko-->
+				</div>
+			
+		
+	</div>
+</div>
+<!-- end v-simple-filters -->
+
+
+		<div id="inventoryTable_wrapper" class="dataTables_wrapper" style="min-width: 1280px;">
+			<div id="inventoryTable_filter" class="dataTables_filter">
+				<label>Search:<input type="search" class="" placeholder="" aria-controls="inventoryTable"></label>
+			</div>
+			<div id="inventoryTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable selectablelist dataTable" id="inventoryTable" role="grid">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'inventory/inventoryList.id'" class="sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns" style="width: 60px;">ID</th>
+						<th data-bind="local: 'inventory/inventoryList.item'" class="force-wrap sorting_asc" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item: Activate to sort by descending columns" style="width: 140px;">Item</th>
+						<th data-bind="local: 'inventory/inventoryList.department'" class="force-wrap sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Department: Activate to sort by ascending columns" style="width: 140px;">Department</th>
+						<th data-bind="local: 'inventory/inventoryList.category'" class="force-wrap sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Category: Activate to sort by ascending columns" style="width: 140px;">Category</th>
+						<th data-bind="local: 'inventory/inventoryList.cost'" class="numeric-data break-word sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Cost: Activate to sort by ascending columns" style="width: 75px;">Cost</th>
+						<th data-bind="local: 'inventory/inventoryList.price'" class="numeric-data sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Price: Activate to sort by ascending columns" style="width: 95px;">Price</th>
+						<th data-bind="local: 'inventory/inventoryList.margin'" class="numeric-data sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Margin: Activate to sort by ascending columns" style="width: 90px;">Margin</th>
+						<th data-bind="local: 'inventory/inventoryList.totalquantity'" class="numeric-data sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Total Quantity: Activate to sort by ascending columns" style="width: 80px;">Total Quantity</th>
+						<th data-bind="local: 'inventory/inventoryList.totalCost'" class="numeric-data break-word sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Total Cost: Activate to sort by ascending columns" style="width: 95px;">Total Cost</th>
+						<th data-bind="local: 'inventory/inventoryList.value'" class="numeric-data break-word sorting" tabindex="0" aria-controls="inventoryTable" rowspan="1" colspan="1" aria-label="Total Value: Activate to sort by ascending columns" style="width: 95px;">Total Value</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr data-bind="visible: tableTotal.doDisplay" style="">
+						<th class="text-right force-wrap numeric-data break-word" colspan="7" data-bind="local: 'inventory/inventoryList.total'" rowspan="1">Total:</th>
+						<th class="text-right numeric-data" data-bind="text: tableTotal.quantityTotal" rowspan="1" colspan="1">532164718.49</th>
+						<th class="text-right numeric-data break-word" data-bind="text: tableTotal.costTotal" rowspan="1" colspan="1">($132,465,212,173.61)</th>
+						<th class="text-right numeric-data break-word" data-bind="text: tableTotal.valueTotal" rowspan="1" colspan="1">$152,339,072,038.36</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr id="1b95f76bfb514b6abb7c43de5d89af80" role="row" class="odd">
+						<td>6357</td>
+						<td class="force-wrap sorting_1">+mod + ingr</td>
+						<td class=" force-wrap">T</td>
+						<td class=" force-wrap">T</td>
+						<td class=" numeric-data break-word">$10.00</td>
+						<td class=" numeric-data">$500.00</td>
+						<td class=" numeric-data">98.00%</td>
+						<td class=" numeric-data">4</td>
+						<td class=" numeric-data break-word">$40.00</td>
+						<td class=" numeric-data break-word">$2,000.00</td>
+					</tr>
+					<tr id="089192192a764f4f9c89a9c5c01fbfd4" role="row" class="even">
+						<td>6069</td>
+						<td class="force-wrap sorting_1">1_1</td>
+						<td class=" force-wrap">T</td>
+						<td class=" force-wrap">T ingredients</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$92,832.00</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr id="8ab528cbbda54eacbf9ccb62b6c28d79" role="row" class="odd">
+						<td>6584</td>
+						<td class="force-wrap sorting_1">101 ingr</td>
+						<td class=" force-wrap">T</td>
+						<td class=" force-wrap">T</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$12.00</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr id="b9af1393ac2048d49f08026f81af64cc" role="row" class="even">
+						<td>6000</td>
+						<td class="force-wrap sorting_1">11</td>
+						<td class=" force-wrap">T</td>
+						<td class=" force-wrap">T ingredients</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$2.50</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr id="b1d812ba37e248b797be45b011478574" role="row" class="odd">
+						<td>6438</td>
+						<td class="force-wrap sorting_1">11 00</td>
+						<td class=" force-wrap">T1</td>
+						<td class=" force-wrap">T1</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$0.00</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr id="792b134460384b3dbbb4c403c07c99b1" role="row" class="even">
+						<td>5511</td>
+						<td class="force-wrap sorting_1">11_22_33</td>
+						<td class=" force-wrap">Drugs</td>
+						<td class=" force-wrap">Vitamins_renamed</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$1.10</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">2</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$2.20</td>
+					</tr>
+					<tr id="86ded696dac94d2bb8c386627402fffd" role="row" class="odd">
+						<td>5510</td>
+						<td class="force-wrap sorting_1">111222333</td>
+						<td class=" force-wrap">Drinks and Dessert</td>
+						<td class=" force-wrap">Fruits</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr id="bbba416b882a4a0eb72122c75f39a0d6" role="row" class="even">
+						<td>6038</td>
+						<td class="force-wrap sorting_1">112233</td>
+						<td class=" force-wrap">T</td>
+						<td class=" force-wrap">T ingredients</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$22.00</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">8</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$176.00</td>
+					</tr>
+					<tr id="3f3fa608abc94709b8c6a01d220b073a" role="row" class="odd">
+						<td>5479</td>
+						<td class="force-wrap sorting_1">112233</td>
+						<td class=" force-wrap">Drinks</td>
+						<td class=" force-wrap">Soft Drinks123</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$123.00</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">23</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$2,829.00</td>
+					</tr>
+					<tr id="94aa913dc6f14cc39ead11e84d9e9405" role="row" class="even">
+						<td>5509</td>
+						<td class="force-wrap sorting_1">1122334455</td>
+						<td class=" force-wrap">Drinks</td>
+						<td class=" force-wrap">Burger NEW</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data">$12.00</td>
+						<td class=" numeric-data">100.00%</td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="inventoryTable_paginate"><a class="paginate_button previous disabled" aria-controls="inventoryTable" data-dt-idx="0" tabindex="0" id="inventoryTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="inventoryTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="inventoryTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="inventoryTable" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="inventoryTable" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="inventoryTable" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="inventoryTable" data-dt-idx="6" tabindex="0">509</a></span><a class="paginate_button next" aria-controls="inventoryTable" data-dt-idx="7" tabindex="0" id="inventoryTable_next">Next</a></div>
+		</div>
+	</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

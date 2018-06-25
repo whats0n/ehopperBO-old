@@ -1,0 +1,383 @@
+---
+title: Bill Payment Report
+headerTitle: Bill Payment Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body inventory" data-bind="with: filter">
+	
+		{{simpleFilters.call()}}
+
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper dataTables_wrapper_flexible">
+			<div id="productMixReportTable_filter" class="dataTables_filter">
+				<label>Search:
+					<input type="search" class="" placeholder="" aria-controls="productMixReportTable">
+				</label>
+			</div>
+			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="paymentReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-register"
+							aria-controls="productMixReportTable" 
+							aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-type"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Type: Activate to sort by ascending columns">Transaction Type</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-trans-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction ID: Activate to sort by ascending columns">Transaction ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-order-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Order ID: Activate to sort by ascending columns">Order ID</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-bill-pay-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Bill Payment ID: Activate to sort by ascending columns">Bill Payment ID</th>
+						{# <th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-carrier-id"
+							aria-controls="productMixReportTable" 
+							aria-label="Carrier ID: Activate to sort by ascending columns">Carrier ID</th> #}
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-method"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Method: Activate to sort by ascending columns">Payment Method</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-payment-status"
+							aria-controls="productMixReportTable" 
+							aria-label="Payment Status: Activate to sort by ascending columns">Payment Status</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Product Name: Activate to sort by ascending columns">Product Name</th>
+						<th class="sorting" 
+							tabindex="0" 
+							data-table-report="col-mobile"
+							aria-controls="productMixReportTable" 
+							aria-label="Mobile Number #: Activate to sort by ascending columns">Mobile Number</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Payment: Activate to sort by ascending columns">Payment</th>
+						{# <th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Discount: Activate to sort by ascending columns">Discount</th> #}
+						<th class="sorting table-report-fee" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Fee: Activate to sort by ascending columns">Fee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Total Amount: Activate to sort by ascending columns">Total Amount</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Dealer Compensation: Activate to sort by ascending columns">Dealer Compensation</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-trans-date"
+							aria-controls="productMixReportTable" 
+							aria-label="Transaction Date: Activate to sort by descending columns" 
+							aria-sort="ascending">Transaction Date</th>
+						<th class="sorting_asc"
+							tabindex="0" 
+							data-table-report="col-tsp"
+							aria-controls="productMixReportTable" 
+							aria-label="TSP: Activate to sort by descending columns" 
+							aria-sort="ascending">TSP</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Created By: Activate to sort by ascending columns">Employee</th>
+						<th class="sorting" 
+							tabindex="0" 
+							aria-controls="productMixReportTable" 
+							aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+					</tr>
+				</thead>
+				{% set payments = [
+					{
+						store: 'NM Missouri ',
+						transDate: '11/1/2017 12:00',
+						transID: '9662',
+						productDesc: 'Service Payment',
+						customer: 'DANIEL . JIMENEZ',
+						tracking: '5754491522',
+						billPayID: '737167772',
+						carrierID: '811225820',
+						payment: '$60.00',
+						fee: '$3.00',
+						totalAmt: '$63.00',
+						createdBy: 'ochoa, elizabeth',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '1',
+						paymentStatus: 'Completed',
+						discount: '$2.00',
+						profit: '$58.00',
+						orderID: '423332347052'
+					},
+					{
+						store: 'NM Madrid',
+						transDate: '11/1/2017 12:00',
+						transID: '9663',
+						productDesc: 'Service Payment',
+						customer: 'RENEE . PADILLA',
+						tracking: '5758050516',
+						billPayID: '737167826',
+						carrierID: '811225908',
+						payment: '$50.00',
+						fee: '$3.00',
+						totalAmt: '$53.00',
+						createdBy: 'Ochoa, Lupe',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '2',
+						paymentStatus: 'Voided',
+						discount: '$2.00',
+						profit: '$48.00',
+						orderID: '423332352485'
+					},
+					{
+						store: 'NM Madrid',
+						transDate: '11/1/2017 12:24',
+						transID: '9680',
+						productDesc: 'Feature Change',
+						customer: 'RUFINA MOLINA',
+						tracking: '5752887429',
+						billPayID: '737182622',
+						carrierID: '811248758',
+						payment: '$5.00',
+						fee: '$0.00',
+						totalAmt: '$5.00',
+						createdBy: 'Rivera, Perla',
+						paymentMethod: 'Debit Card',
+						transType: 'Sale',
+						register: '3',
+						paymentStatus: 'Voided',
+						discount: '$1.00',
+						profit: '$4.00',
+						orderID: '493337111391'
+					},
+					{
+						store: 'NM Missouri',
+						transDate: '11/1/2017 12:34',
+						transID: '9685',
+						productDesc: 'Activation Payment',
+						customer: 'JOSE . CRUZ',
+						tracking: '9153313591',
+						billPayID: '737188284',
+						carrierID: '811257514',
+						payment: '$55.00',
+						fee: '$0.00',
+						totalAmt: '$55.00',
+						createdBy: 'ochoa, elizabeth',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '1',
+						paymentStatus: 'Voided',
+						discount: '$3.00',
+						profit: '$52.00',
+						orderID: '493337124808'
+					},
+					{
+						store: 'NM El Paseo',
+						transDate: '11/1/2017 12:56',
+						transID: '9695',
+						productDesc: 'Reactivation-$3',
+						customer: 'MARTIN ASTROGA',
+						tracking: '5755207160',
+						billPayID: '737201054',
+						carrierID: '811277297',
+						payment: '$40.00',
+						fee: '$3.00',
+						totalAmt: '$43.00',
+						createdBy: 'Lopez, Kathleen',
+						paymentMethod: 'Debit Card',
+						transType: 'Sale',
+						register: '2',
+						paymentStatus: 'Completed',
+						discount: '$1.00',
+						profit: '$39.00',
+						orderID: '413330895970'
+					},
+					{
+						store: 'NM Madrid',
+						transDate: '11/1/17 12:58',
+						transID: '9699',
+						productDesc: 'Service Payment',
+						customer: 'JENNIE . MEETZE',
+						tracking: '5753862085',
+						billPayID: '737202678',
+						carrierID: '811279730',
+						payment: '$30.00',
+						fee: '$3.00',
+						totalAmt: '$33.00',
+						createdBy: 'Ochoa, Lupe',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '2',
+						paymentStatus: 'Completed',
+						discount: '$3.00',
+						profit: '$27.00',
+						orderID: '413330908650'
+					},
+					{
+						store: 'NM Missouri',
+						transDate: '11/1/17 13:06',
+						transID: '9700',
+						productDesc: 'Service Payment',
+						customer: 'EMILI VASQUEZ',
+						tracking: '5752226494',
+						billPayID: '737208142',
+						carrierID: '811287598',
+						payment: '$91.00',
+						fee: '$3.00',
+						totalAmt: '$94.00',
+						createdBy: 'ochoa, carmen',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '2',
+						paymentStatus: 'Completed',
+						discount: '$6.00',
+						profit: '$85.00',
+						orderID: '413330913706'
+					},
+					{
+						store: 'NM Madrid',
+						transDate: '11/1/17 13:08',
+						transID: '9701',
+						productDesc: 'Service Payment',
+						customer: 'MICHELLE SALAS',
+						tracking: '5752223551',
+						billPayID: '737209342',
+						carrierID: '811289297',
+						payment: '$41.00',
+						fee: '$3.00',
+						totalAmt: '$44.00',
+						createdBy: 'Rivera, Perla',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '3',
+						paymentStatus: 'Completed',
+						discount: '$5.00',
+						profit: '$36.00',
+						orderID: '403332774711'
+					},
+					{
+						store: 'NM El Paseo',
+						transDate: '11/1/17 13:21',
+						transID: '9709',
+						productDesc: 'Service Payment',
+						customer: 'ROBERTO . LAZO',
+						tracking: '5756357935',
+						billPayID: '737218418',
+						carrierID: '811302407',
+						payment: '$91.00',
+						fee: '$3.00',
+						totalAmt: '$94.00',
+						createdBy: 'veloz, jasmine',
+						paymentMethod: 'Credit Card',
+						transType: 'Sale',
+						register: '3',
+						paymentStatus: 'Completed',
+						discount: '$7.00',
+						profit: '$84.00',
+						orderID: '493337136294'
+					},
+					{
+						store: 'NM Missouri',
+						transDate: '11/1/17 13:22',
+						transID: '9710',
+						productDesc: 'Service Payment',
+						customer: 'ANTWIONETTE . SMITH',
+						tracking: '9153034848',
+						billPayID: '737218744',
+						carrierID: '811302874',
+						payment: '$122.00',
+						fee: '$3.00',
+						totalAmt: '$125.00',
+						createdBy: 'ochoa, carmen',
+						paymentMethod: 'Cash',
+						transType: 'Sale',
+						register: '2',
+						paymentStatus: 'Completed',
+						discount: '$12.00',
+						profit: '$110.00',
+						orderID: '493337141142'
+					}
+				] %}	
+				<tbody>
+					{% for item in payments %}
+						<tr>
+							<td class="break-word">{{item.store}}</td>
+							<td class="break-word" data-table-report="col-register">Register {{item.register | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-type">{{item.transType | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-id">{{item.transID | safe}}</td>
+							<td class="break-word" data-table-report="col-order-id">{{item.orderID | safe}}</td>
+							<td class="break-word" data-table-report="col-bill-pay-id">{{item.billPayID | safe}}</td>
+							{# <td class="break-word" data-table-report="col-carrier-id">{{item.carrierID}}</td> #}
+							<td class="break-word" data-table-report="col-payment-method">{{item.paymentMethod | safe}}</td>
+							<td class="break-word" data-table-report="col-payment-status">{{item.paymentStatus | safe}}</td>
+							<td class="break-word">{{item.productDesc | safe}}</td>
+							<td class="break-word" data-table-report="col-mobile">{{item.tracking | safe}}</td>
+							<td class="break-word">{{item.payment | safe}}</td>
+							{# <td class="break-word">({{item.discount | safe}})</td> #}
+							<td class="break-word">{{item.fee | safe}}</td>
+							<td class="break-word">{{item.totalAmt | safe}}</td>
+							<td class="break-word">{{item.discount | safe}}</td>
+							<td class="break-word" data-table-report="col-trans-date">{{item.transDate | safe}}</td>
+							<td class="break-word" data-table-report="col-tsp">VidaPay</td>
+							<td class="break-word">{{item.createdBy | safe}}</td>
+							<td class="break-word">{{item.customer | safe}}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr class="report-total">
+						<td colspan="9">&nbsp;</td>
+						<td>Total</td>
+						<td>$585.00</td>
+						{#<td>($42.00)</td>#}
+						<td>$24.00</td>
+						<td>$609.00</td>
+						<td>$543.00</td>
+						<td colspan="4">&nbsp;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
+				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
+				<span>
+					<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
+					<span class="ellipsis">…</span>
+					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">554</a>
+				</span>
+				<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

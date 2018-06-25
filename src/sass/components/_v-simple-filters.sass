@@ -1,0 +1,34 @@
+$sflg: 1220	
+
+.v-simple-filters
+	font-size: 0
+	&__row
+		clear: both
+		padding-bottom: 10px
+		margin: -10px
+		+clr
+		+r($sflg)
+			padding-bottom: 15px
+			margin: -5px
+	&__col
+		display: inline-block
+		vertical-align: bottom
+		padding: 10px
+		width: 33.33%
+		max-width: 380px
+		font-size: 14px
+		+r($sflg)
+			padding: 5px
+		&_sm
+			width: 25%
+	&__select,
+	.select,
+	select
+		width: 100%
+		max-width: 100%
+	&__search
+		width: 100%
+		margin: 0
+	&__calendar
+		+ .v-simple-filters__export
+			margin-right: 15px

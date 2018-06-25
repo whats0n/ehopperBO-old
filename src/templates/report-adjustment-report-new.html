@@ -1,0 +1,63 @@
+---
+title: Adjustment Report
+headerTitle: Adjustment Report
+contentClassList: 'adjustment-report-wrapper'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		
+		{{simpleFilters.call({
+			search: { placeholder: 'Search by: ID, Name, UPC, SKU, Ref Num' },
+			fields: [
+				{ label: 'Stores' },
+				{ label: 'Vendor' },
+				{ label: 'Employee' }
+			]
+		})}}
+
+		<div id="adjustmentReportMessage"></div>
+
+		<div id="tbl_adjustment_report_wrapper" class="dataTables_wrapper no-footer">
+			<div id="tbl_adjustment_report_filter" class="dataTables_filter">
+				<label>Search:<input type="search" class="" placeholder="" aria-controls="tbl_adjustment_report"></label>
+			</div>
+			<div id="tbl_adjustment_report_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable no-footer" id="tbl_adjustment_report" role="grid">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'inventory/inventoryList.id'" class="sorting_asc" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" style="width: 20em;" aria-label="ID: Activate to sort by descending columns" aria-sort="ascending">ID</th>
+						<th data-bind="local: 'orders/ordersList.date'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns">Date</th>
+						<th data-bind="local: 'orders/ordersList.store'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
+						<th data-bind="local: 'orders/ordersList.employee'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th data-bind="local: 'storeTransfer.totalCost'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Total Cost: Activate to sort by ascending columns">Total Cost</th>
+						<th data-bind="local: 'storeTransfer.delta'" class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Delta: Activate to sort by ascending columns">Delta</th>
+						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_report" rowspan="1" colspan="1" aria-label="Ref Num: Activate to sort by ascending columns">Ref Num</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr role="row" class="odd">
+						<td class="sorting_1">1637</td>
+						<td>04/06/2018 7:54:24 PM</td>
+						<td>Store 2</td>
+						<td>Josh Huttel</td>
+						<td>$0.00</td>
+						<td>-32</td>
+						<td>12345678</td>
+					</tr>
+					<tr role="row" class="even">
+						<td class="sorting_1">1638</td>
+						<td>04/06/2018 7:56:00 PM</td>
+						<td>Store 2</td>
+						<td>Josh Huttel</td>
+						<td>$0.00</td>
+						<td>29</td>
+						<td>12345678</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="tbl_adjustment_report_paginate"><a class="paginate_button previous disabled" aria-controls="tbl_adjustment_report" data-dt-idx="0" tabindex="0" id="tbl_adjustment_report_previous">Previous</a><span><a class="paginate_button current" aria-controls="tbl_adjustment_report" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="tbl_adjustment_report" data-dt-idx="2" tabindex="0" id="tbl_adjustment_report_next">Next</a></div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+---
+title: Tax Manager
+headerTitle: Tax Manager
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body  settings-list">
+		<div id="messages"></div>
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="value: searchString, local: 'taxAgenies/taxAgeniesList.search_by_name', localAttr: 'placeholder'" placeholder="Search for Tax Agency">
+		<button class="btn btn-lg btn-primary settings-list__search-btn" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+		<div class="btn-group btn-group-lg pull-right">
+			<a class="btn btn-primary" href="#newTaxAgency" data-bind="local: 'taxAgenies/taxAgeniesList.new_tax_agency', click: newTaxAgency">New Tax Agency</a>
+		</div>
+		<button class="btn btn-lg pull-right btn-red delete-button-mark settings-list__delete" type="button" data-bind="click: deleteSelected , enable: hasSelected" disabled="">
+		<span class="" data-bind="local: 'common.delete_selected'">Delete</span>
+		</button>
+		<br class="clear">
+		<div id="taxAgeniesTable_wrapper" class="dataTables_wrapper no-footer">
+			<div id="taxAgeniesTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="taxAgeniesTable"></label></div>
+			<div id="taxAgeniesTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable selectablelist dataTable no-footer" id="taxAgeniesTable" role="grid">
+				<thead>
+					<tr role="row">
+						<th class="sorting_disabled" rowspan="1" colspan="1" aria-label="
+							">
+							<div class="checkbox">
+								<input type="checkbox" id="taxAgenciesSelectAll" data-bind="checked: selectAll">
+								<label for="taxAgenciesSelectAll"></label>
+							</div>
+						</th>
+						<th data-bind="local: 'taxAgenies/taxAgeniesList.name'" class="sorting_asc" tabindex="0" aria-controls="taxAgeniesTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: Activate to sort by descending columns">Name</th>
+						<th data-bind="local: 'taxAgenies/taxAgeniesList.isActive'" class="sorting" tabindex="0" aria-controls="taxAgeniesTable" rowspan="1" colspan="1" aria-label="Is Active: Activate to sort by ascending columns" style="width: 150px;">Is Active</th>
+						<th class="center no-padding sorting_disabled" rowspan="1" colspan="1" aria-label="
+							" style="width: 50px;">
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" id="row5c4803249782499491a8ef585a3a3608" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk5c4803249782499491a8ef585a3a3608" data-bind="checked: selected"><label for="chk5c4803249782499491a8ef585a3a3608" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">111</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="rowd5ce17aac0614b968a54ec5bb01a558e" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chkd5ce17aac0614b968a54ec5bb01a558e" data-bind="checked: selected"><label for="chkd5ce17aac0614b968a54ec5bb01a558e" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">123</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="row2217ba8718824f8aa4b2a83942cf96b8" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk2217ba8718824f8aa4b2a83942cf96b8" data-bind="checked: selected"><label for="chk2217ba8718824f8aa4b2a83942cf96b8" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">2</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row06ea970799574a07b82cca64347b647c" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk06ea970799574a07b82cca64347b647c" data-bind="checked: selected"><label for="chk06ea970799574a07b82cca64347b647c" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">231</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="rowd58a1b048c2445f4b7d79094bc4a3ef3" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chkd58a1b048c2445f4b7d79094bc4a3ef3" data-bind="checked: selected"><label for="chkd58a1b048c2445f4b7d79094bc4a3ef3" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">3</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row500e12811341484bb9bc5254e92e234b" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk500e12811341484bb9bc5254e92e234b" data-bind="checked: selected"><label for="chk500e12811341484bb9bc5254e92e234b" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">355</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="row2f8b597b1ad74a478389cc0d4d271d69" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk2f8b597b1ad74a478389cc0d4d271d69" data-bind="checked: selected"><label for="chk2f8b597b1ad74a478389cc0d4d271d69" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">3565</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row07688e3043ee49248ebc49e39b24b97f" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk07688e3043ee49248ebc49e39b24b97f" data-bind="checked: selected"><label for="chk07688e3043ee49248ebc49e39b24b97f" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">654</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable odd" id="row19c283df6f4a4bffaa653ecfe6ed3a49" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk19c283df6f4a4bffaa653ecfe6ed3a49" data-bind="checked: selected"><label for="chk19c283df6f4a4bffaa653ecfe6ed3a49" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">88888</td>
+						<td>Inactive</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+					<tr class="editable even" id="row9482b5f692dd40bbba01f3bf66124792" data-bind="click: edit" role="row">
+						<td>
+							<div class="checkbox"><input type="checkbox" id="chk9482b5f692dd40bbba01f3bf66124792" data-bind="checked: selected"><label for="chk9482b5f692dd40bbba01f3bf66124792" data-bind="click: selectItem"></label></div>
+						</td>
+						<td class="sorting_1">abcd 12345</td>
+						<td>Active</td>
+						<td class=" center no-padding"><input type="button" class="delete-row-button" data-bind="click: deleteRow"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="taxAgeniesTable_paginate"><a class="paginate_button previous disabled" aria-controls="taxAgeniesTable" data-dt-idx="0" tabindex="0" id="taxAgeniesTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="taxAgeniesTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="taxAgeniesTable" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="taxAgeniesTable" data-dt-idx="3" tabindex="0" id="taxAgeniesTable_next">Next</a></div>
+		</div>
+	</div>
+
+{% endblock %}

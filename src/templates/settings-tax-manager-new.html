@@ -1,0 +1,113 @@
+---
+title: Tax Manager
+headerTitle: Tax Manager
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body settings-list">
+		<div id="messages"></div>
+		<input class="form-control input-lg pull-left datatable-search" type="text" data-bind="value: searchString, local: 'taxes/taxesList.search_by_name_or_code', localAttr: 'placeholder'" placeholder="Search for tax">
+		<button class="btn btn-lg btn-primary pull-left settings-list__search-btn" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+		<div class="pull-left settings-list__search-checkbox">
+			<div class="checkbox">
+				<input type="checkbox" id="chkShowInactiveTaxes" data-bind="checked: isShowInactive">
+				<label for="chkShowInactiveTaxes" data-bind="local: 'taxes/taxesList.show_inactive'">Display inactive</label>
+			</div>
+		</div>
+		<div class="btn-group btn-group-lg pull-right">
+			<a class="btn btn-primary" href="#newTax" data-bind="local: 'taxes/taxesList.new_tax', click: newTax">New Tax</a>
+		</div>
+		<br class="clear">
+		<div id="taxesTable_wrapper" class="dataTables_wrapper no-footer">
+			<div id="taxesTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="taxesTable"></label></div>
+			<div id="taxesTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable no-footer" id="taxesTable" role="grid">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'taxes/taxesList.name'" class="sorting_asc" tabindex="0" aria-controls="taxesTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: Activate to sort by descending columns">Name</th>
+						<th data-bind="local: 'taxes/taxesList.rate_fee'" class="sorting" tabindex="0" aria-controls="taxesTable" rowspan="1" colspan="1" aria-label="Rate: Activate to sort by ascending columns">Rate</th>
+						<th data-bind="local: 'taxes/taxesList.taxAgency'" class="sorting" tabindex="0" aria-controls="taxesTable" rowspan="1" colspan="1" aria-label="Tax Agency: Activate to sort by ascending columns">Tax Agency</th>
+						<th data-bind="local: 'taxes/taxesList.isCombined'" class="sorting" tabindex="0" aria-controls="taxesTable" rowspan="1" colspan="1" aria-label="Is Combined: Activate to sort by ascending columns" style="width: 150px;">Is Combined</th>
+						<th data-bind="local: 'taxes/taxesList.isActive'" class="sorting" tabindex="0" aria-controls="taxesTable" rowspan="1" colspan="1" aria-label="Is Active: Activate to sort by ascending columns" style="width: 150px;">Is Active</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" id="4a2db7e45c1a43e68ae4b56593aed485" data-bind="click: edit" role="row">
+						<td class="sorting_1">1</td>
+						<td>1%</td>
+						<td>123</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="4dc872eaaca1443d94803adced0553dd" data-bind="click: edit" role="row">
+						<td class="sorting_1">1111111111</td>
+						<td>2%</td>
+						<td>111</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="45520aae75184dc89b6b169043ffbeaa" data-bind="click: edit" role="row">
+						<td class="sorting_1">11112</td>
+						<td>10%</td>
+						<td>123</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="f17ccf224f514681bc28a0ca1f61ca0a" data-bind="click: edit" role="row">
+						<td class="sorting_1">1112</td>
+						<td>11.12%</td>
+						<td>123</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="f922806d969b48e0a6374608e3765fcf" data-bind="click: edit" role="row">
+						<td class="sorting_1">12 %</td>
+						<td>12.12%</td>
+						<td>123</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="5e6a239be89c4425a8baaea8aee79fae" data-bind="click: edit" role="row">
+						<td class="sorting_1">121212121200</td>
+						<td>55%</td>
+						<td></td>
+						<td>Yes</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="204b7fc5ac2844e3a604e7c9cb2ae6d5" data-bind="click: edit" role="row">
+						<td class="sorting_1">123 123 456</td>
+						<td>35%</td>
+						<td>3</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="664e6ae813c64f06a4947e0d14080cef" data-bind="click: edit" role="row">
+						<td class="sorting_1">123---(15%)</td>
+						<td>15%</td>
+						<td></td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable odd" id="2f06096a8e3749579b9c5ddfb9947e61" data-bind="click: edit" role="row">
+						<td class="sorting_1">12345 abcdуа</td>
+						<td>33%</td>
+						<td>88888</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+					<tr class="editable even" id="af103cc629a64c6f80d4b5d5e01e04e0" data-bind="click: edit" role="row">
+						<td class="sorting_1">15901590909</td>
+						<td>25%</td>
+						<td>231</td>
+						<td>No</td>
+						<td>Active</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="taxesTable_paginate"><a class="paginate_button previous disabled" aria-controls="taxesTable" data-dt-idx="0" tabindex="0" id="taxesTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="taxesTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="taxesTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="taxesTable" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="taxesTable" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="taxesTable" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="taxesTable" data-dt-idx="6" tabindex="0">11</a></span><a class="paginate_button next" aria-controls="taxesTable" data-dt-idx="7" tabindex="0" id="taxesTable_next">Next</a></div>
+		</div>
+	</div>
+
+{% endblock %}
