@@ -1,0 +1,495 @@
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Product Mix Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Product Mix Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+
+	<div class="pane-body item-list" data-bind="with: filter">
+		
+<!-- begin v-simple-filters -->
+<div class="v-simple-filters">
+	<div class="v-simple-filters__row">
+		<!-- begin search -->
+		<div class="v-simple-filters__col">
+			<input 
+				type="text" 
+				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
+				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
+				placeholder="Search item by title or code">
+		</div>
+		<!-- end search -->
+
+		<div class="v-simple-filters__col">
+			<button 
+				type="button"
+				class="btn btn-lg btn-primary"
+				data-keypress="Enter" 
+				data-bind="local: 'common.searchButton', click: search">Search</button>
+		</div>
+
+		
+			<!-- begin buttons -->
+			<div class="v-simple-filters__col pull-right">
+				
+					<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+						<date-filter params="value: dateRange">
+							<div class="pull-right">
+								<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									&nbsp;
+									<span>Today</span> 
+									<b class="caret"></b>
+								</div>
+							</div>
+						</date-filter>
+					</div>
+				
+
+				<div class="report-export-wrapper pull-right v-simple-filters__export">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
+			</div>
+			<!-- end buttons -->
+		
+	</div>
+	
+		<div class="v-simple-filters__row">
+			<script>
+				function openDropdown(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.ms-parent')
+						.find('.ms-drop')
+						.toggle();
+				}
+			</script>
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+								<div data-bind="css: contStyle" class="v-simple-filters__select">
+									<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+										multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+									<div class="ms-parent">
+										<button type="button" class="select" onclick="openDropdown(event)">
+											<div class="fl">
+												<div>
+													<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+										<div class="ms-drop bottom" data-name="multipleSelect1">
+											<ul style="max-height: 250px;">
+												<li>
+													<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+													<label for="allCheck">Select All</label>
+												</li>
+												
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+														<label for="payment-store-1">6408 Pacific Ave</label>
+													</li>
+												
+												<li class="ms-no-results">No matches found</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/ko-->
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Department:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Department 1</option>
+							
+								<option value="Register 2">Department 2</option>
+							
+								<option value="Register 3">Department 3</option>
+							
+								<option value="Register 4">Department 4</option>
+							
+								<option value="Register 5">Department 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Category:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Category 1</option>
+							
+								<option value="Register 2">Category 2</option>
+							
+								<option value="Register 3">Category 3</option>
+							
+								<option value="Register 4">Category 4</option>
+							
+								<option value="Register 5">Category 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Register:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Register 1</option>
+							
+								<option value="Register 2">Register 2</option>
+							
+								<option value="Register 3">Register 3</option>
+							
+								<option value="Register 4">Register 4</option>
+							
+								<option value="Register 5">Register 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Employee:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Employee 1</option>
+							
+								<option value="Register 2">Employee 2</option>
+							
+								<option value="Register 3">Employee 3</option>
+							
+								<option value="Register 4">Employee 4</option>
+							
+								<option value="Register 5">Employee 5</option>
+							
+						</select>
+					</div>
+				
+			
+		</div>
+	
+</div>
+<!-- end v-simple-filters -->
+
+		<div class="product-mix-report-error"></div>
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+			<div id="productMixReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label></div>
+			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="productMixReportTable" data-bind="visible: !loading()" style="width: 100%; min-width: 1700px;" role="grid">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'reports/productMixReport.id'" style="width: 80px" class="row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
+						<th data-bind="local: 'reports/productMixReport.item'" class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Item: Activate to sort by descending columns" aria-sort="ascending">Item</th>
+						<th data-bind="local: 'reports/productMixReport.department'" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Department">Department</th>
+						<th data-bind="local: 'reports/productMixReport.category'" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Category">Category</th>
+						<th data-bind="local: 'reports/productMixReport.min_qty'" style="width: 100px" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Min. Qty: Activate to sort by ascending columns">Min. Qty</th>
+						<th data-bind="local: 'reports/productMixReport.quantity'" style="width: 100px" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Total Quantity: Activate to sort by ascending columns">Total Quantity</th>
+						<th data-bind="local: 'reports/productMixReport.qty_sold'" style="width: 100px" class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
+						<th data-bind="local: 'reports/productMixReport.cogs'" style="width: 100px" class="numeric-data break-word sorting_disabled" rowspan="1" colspan="1" aria-label="COGS">COGS</th>
+						<th data-bind="local: 'reports/productMixReport.gross_sales'" style="width: 100px;" class="numeric-data break-word sorting_disabled" rowspan="1" colspan="1" aria-label="Gross Sales">Gross Sales</th>
+						<th data-bind="local: 'reports/productMixReport.discounts'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Discounts: Activate to sort by ascending columns">Discounts</th>
+						<th data-bind="local: 'reports/productMixReport.refunds'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Refunds: Activate to sort by ascending columns">Refunds</th>
+						<th data-bind="local: 'reports/productMixReport.netSales'" style="width: 100px;" class="numeric-data break-word sorting_disabled" rowspan="1" colspan="1" aria-label="Net Sales">Net Sales</th>
+						<th data-bind="local: 'reports/productMixReport.grossProfit'" style="width: 100px;" class="numeric-data break-word sorting_disabled" rowspan="1" colspan="1" aria-label="Gross Profit">Gross Profit</th>
+						<th data-bind="local: 'reports/productMixReport.grossMargin'" style="width: 100px;" class="numeric-data break-word sorting_disabled" rowspan="1" colspan="1" aria-label="Gross Margin">Gross Margin</th>
+						<th data-bind="local: 'reports/productMixReport.taxAmount'" style="width: 100px;" class="numeric-data break-word sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Tax Amount: Activate to sort by ascending columns">Tax Amount</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="text-right row-expandable" colspan="4" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th>
+						<th class="numeric-data" rowspan="1" colspan="1">1199</th>
+						<th class="numeric-data" rowspan="1" colspan="1">-3580</th>
+						<th class="numeric-data" rowspan="1" colspan="1">87</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$1,000,000,134.89</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$892.98</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$3.17</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$16.00</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$873.81</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">($999,999,261.08)</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">-114441269.96%</th>
+						<th class="numeric-data break-word" rowspan="1" colspan="1">$35.80</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr class="editable odd" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">5198</td>
+						<td class="sorting_1">Apple</td>
+						<td>Drinks and Dessert</td>
+						<td>Fruits</td>
+						<td class=" numeric-data">44</td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data">9</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$58.50</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$58.50</td>
+						<td class=" numeric-data break-word">$58.50</td>
+						<td class=" numeric-data break-word">100%</td>
+						<td class=" numeric-data break-word">$0.60</td>
+					</tr>
+					<tr class="editable even" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">6542</td>
+						<td class="sorting_1">Cake</td>
+						<td>Hot Drinks1</td>
+						<td>bgfb</td>
+						<td class=" numeric-data">225</td>
+						<td class=" numeric-data">337</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data  break-word">$1.50</td>
+						<td class=" numeric-data break-word">$2.50</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$2.50</td>
+						<td class=" numeric-data break-word">$1.00</td>
+						<td class=" numeric-data break-word">40%</td>
+						<td class=" numeric-data break-word">$0.13</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">5546</td>
+						<td class="sorting_1">Cheeseburger</td>
+						<td>Food</td>
+						<td>Sandwiches</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">2</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$7.50</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$7.50</td>
+						<td class=" numeric-data break-word">$7.50</td>
+						<td class=" numeric-data break-word">100%</td>
+						<td class=" numeric-data break-word">$0.38</td>
+					</tr>
+					<tr class="editable even" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">6494</td>
+						<td class="sorting_1">Chocolate </td>
+						<td>Hot Drinks</td>
+						<td>Tea</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data">3</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$1.62</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$1.62</td>
+						<td class=" numeric-data break-word">$1.62</td>
+						<td class=" numeric-data break-word">100%</td>
+						<td class=" numeric-data break-word">$0.09</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">5540</td>
+						<td class="sorting_1">Ciabatta with chicken</td>
+						<td>Food</td>
+						<td>Sandwiches</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">-110</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$6.50</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$6.50</td>
+						<td class=" numeric-data break-word">$6.50</td>
+						<td class=" numeric-data break-word">100%</td>
+						<td class=" numeric-data break-word">$0.33</td>
+					</tr>
+					<tr class="editable even" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable"><span class="expand-icon"></span>6762</td>
+						<td class="sorting_1">Example Matrix</td>
+						<td>Test Dep</td>
+						<td>Test Cat</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">-2</td>
+						<td class=" numeric-data">2</td>
+						<td class=" numeric-data  break-word">$2.00</td>
+						<td class=" numeric-data break-word">$3.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$3.00</td>
+						<td class=" numeric-data break-word">$1.00</td>
+						<td class=" numeric-data break-word">33.33%</td>
+						<td class=" numeric-data break-word">$0.03</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable"><span class="expand-icon"></span>5804</td>
+						<td class="sorting_1">gfd</td>
+						<td>Department_with_Serials</td>
+						<td>sort name</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">-7</td>
+						<td class=" numeric-data">0</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word"></td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr class="editable even" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">5545</td>
+						<td class="sorting_1">Hamburger</td>
+						<td>Food</td>
+						<td>Sandwiches</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">-50</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data  break-word">$75.40</td>
+						<td class=" numeric-data break-word">$13.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$13.00</td>
+						<td class=" numeric-data break-word">($62.40)</td>
+						<td class=" numeric-data break-word">-480%</td>
+						<td class=" numeric-data break-word">$0.65</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">274</td>
+						<td class="sorting_1">iProd4</td>
+						<td>Alcohol</td>
+						<td>Craft beer</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data">-301</td>
+						<td class=" numeric-data">1</td>
+						<td class=" numeric-data  break-word">$0.00</td>
+						<td class=" numeric-data break-word">$43.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$43.00</td>
+						<td class=" numeric-data break-word">$43.00</td>
+						<td class=" numeric-data break-word">100%</td>
+						<td class=" numeric-data break-word">$0.00</td>
+					</tr>
+					<tr class="editable even" data-bind="click: selectItem" role="row">
+						<td class=" row-expandable">6488</td>
+						<td class="sorting_1">Mango</td>
+						<td>Hot Drinks</td>
+						<td>Tea</td>
+						<td class=" numeric-data"></td>
+						<td class=" numeric-data">86</td>
+						<td class=" numeric-data">11</td>
+						<td class=" numeric-data  break-word">$16.00</td>
+						<td class=" numeric-data break-word">$29.50</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$0.00</td>
+						<td class=" numeric-data break-word">$29.50</td>
+						<td class=" numeric-data break-word">$13.50</td>
+						<td class=" numeric-data break-word">45.76%</td>
+						<td class=" numeric-data break-word">$0.96</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a></span><a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0" id="productMixReportTable_next">Next</a></div>
+		</div>
+	</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

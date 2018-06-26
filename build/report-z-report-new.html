@@ -1,0 +1,235 @@
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Tax Report</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Tax Report</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+
+	<div class="pane-body item-list">
+		<div id="messages"></div>
+		<date-filter params="value: dateRange">
+			<div class="pull-right">
+				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					&nbsp;
+					<span>Today</span> 
+					<b class="caret"></b>
+				</div>
+			</div>
+		</date-filter>
+		<div style="margin-left:-40px; float:left;">
+			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+				<div data-bind="with: $data.storesFilter, css: self.divStyle">
+					<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+						<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+					</div>
+					<div data-bind="css: contStyle" class="filter_control_cont">
+						<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+							multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;">
+							<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
+							<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
+							<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+							<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+							<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
+							<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+							<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+							<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+							<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+							<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+							<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+							<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+							<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
+							<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+							<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
+							<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
+							<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
+							<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
+							<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
+							<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
+							<option value="f596311134c747418136bd872557750c">Store 28</option>
+							<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
+							<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+							<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
+							<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
+							<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+							<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+							<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+						</select>
+						<div class="ms-parent" style="width: 100px;">
+							<button type="button" class="select">
+								<div class="fl">
+									<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
+									<div>
+										<div></div>
+									</div>
+								</div>
+							</button>
+							<div class="ms-drop bottom" data-name="multipleSelect1">
+								<ul style="max-height: 250px;">
+									<li><input id="allCheck" type="checkbox" name="selectAllmultipleSelect1"> <label for="allCheck">Select All</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="5a4b11ccd458452facd24376cc851f7b" id="id_multipleSelect1_5a4b11ccd458452facd24376cc851f7b"> <label for="id_multipleSelect1_5a4b11ccd458452facd24376cc851f7b">28 aug test</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="ea56b32ca4064c43b2d943700b5a796c" id="id_multipleSelect1_ea56b32ca4064c43b2d943700b5a796c"> <label for="id_multipleSelect1_ea56b32ca4064c43b2d943700b5a796c">28 august store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="df17c52b068e428e94046bcacfd33adb" id="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb"> <label for="id_multipleSelect1_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="9b95b38021254511970c394af32606e1" id="id_multipleSelect1_9b95b38021254511970c394af32606e1"> <label for="id_multipleSelect1_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="dec86c0a82174c449744d003e8f3dceb" id="id_multipleSelect1_dec86c0a82174c449744d003e8f3dceb"> <label for="id_multipleSelect1_dec86c0a82174c449744d003e8f3dceb">ivanstore</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_multipleSelect1_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="8c69323a6b28488f9f5e688f592979cf" id="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf"> <label for="id_multipleSelect1_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="662fd10aa39844839b3b909d232547a3" id="id_multipleSelect1_662fd10aa39844839b3b909d232547a3"> <label for="id_multipleSelect1_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_multipleSelect1_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_multipleSelect1_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="a3474647d20d40a1b267cdc7cd141428" id="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428"> <label for="id_multipleSelect1_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="887cc460a3dd47a79a14203dc23dd111" id="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111"> <label for="id_multipleSelect1_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_multipleSelect1_b6f3d5c57a84498db16a3f5d4b22dfe6"> <label for="id_multipleSelect1_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_multipleSelect1_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="e359ba2d45c6467795cfe279152a7ccc" id="id_multipleSelect1_e359ba2d45c6467795cfe279152a7ccc"> <label for="id_multipleSelect1_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="6050df646589491b81a3dd087204c5d4" id="id_multipleSelect1_6050df646589491b81a3dd087204c5d4"> <label for="id_multipleSelect1_6050df646589491b81a3dd087204c5d4">New Store234</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_multipleSelect1_5d09b2d4754c498c8ec665b2ea4bf621"> <label for="id_multipleSelect1_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="29e2ac6d8a094defa9369454323ba645" id="id_multipleSelect1_29e2ac6d8a094defa9369454323ba645"> <label for="id_multipleSelect1_29e2ac6d8a094defa9369454323ba645">Olga Store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="6298584313f54a40b31d6403e55614d5" id="id_multipleSelect1_6298584313f54a40b31d6403e55614d5"> <label for="id_multipleSelect1_6298584313f54a40b31d6403e55614d5">Store 2</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_multipleSelect1_688cd61f63b24a5dadc4c526c0b2a7a2"> <label for="id_multipleSelect1_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="f596311134c747418136bd872557750c" id="id_multipleSelect1_f596311134c747418136bd872557750c"> <label for="id_multipleSelect1_f596311134c747418136bd872557750c">Store 28</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="46116dbcea1c43fd8a91c797c668147c" id="id_multipleSelect1_46116dbcea1c43fd8a91c797c668147c"> <label for="id_multipleSelect1_46116dbcea1c43fd8a91c797c668147c">Store 3</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="600172f4371c40aab4999b63a5775634" id="id_multipleSelect1_600172f4371c40aab4999b63a5775634"> <label for="id_multipleSelect1_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_multipleSelect1_eaa6a02e0a604f87a3450a897cd9649d"> <label for="id_multipleSelect1_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="46a47ec55ae34e5699a815196881f4bc" id="id_multipleSelect1_46a47ec55ae34e5699a815196881f4bc"> <label for="id_multipleSelect1_46a47ec55ae34e5699a815196881f4bc">TestCreation</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="86240cf9e12e41e585183105da181f67" id="id_multipleSelect1_86240cf9e12e41e585183105da181f67"> <label for="id_multipleSelect1_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_multipleSelect1_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
+									<li><input type="checkbox" name="selectItemmultipleSelect1" value="028f25cf079a4019a12f67d575d11512" id="id_multipleSelect1_028f25cf079a4019a12f67d575d11512"> <label for="id_multipleSelect1_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
+									<li class="ms-no-results">No matches found</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ko-->
+		</div>
+		<button class="btn btn-lg btn-primary" type="button" data-keypress="Enter" style="margin-left: 20px" data-bind="local: 'common.searchButton', click: search">Search</button>
+		<div class="report-export-wrapper pull-right">
+			<a href="api/Shifts/ExportZReport" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+		</div>
+		<br class="clear">
+		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
+		<div id="shiftsTable_wrapper" class="dataTables_wrapper no-footer">
+			<div id="shiftsTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="shiftsTable"></label></div>
+			<div id="shiftsTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable no-footer" id="shiftsTable" data-bind="visible: !loading()" role="grid" style="">
+				<thead>
+					<tr role="row">
+						<th class="center sorting" data-bind="local: 'shifts/shiftsList.register'" tabindex="0" aria-controls="shiftsTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
+						<th class="center sorting" data-bind="local: 'shifts/shiftsList.opened'" tabindex="0" aria-controls="shiftsTable" rowspan="1" colspan="1" style="width: 200px;" aria-label="Opened: Activate to sort by ascending columns">Opened</th>
+						<th class="center sorting" data-bind="local: 'shifts/shiftsList.closed'" tabindex="0" aria-controls="shiftsTable" rowspan="1" colspan="1" style="width: 200px;" aria-label="Closed: Activate to sort by ascending columns">Closed</th>
+						<th class="center sorting_desc" data-bind="local: 'shifts/shiftsList.transactions'" tabindex="0" aria-controls="shiftsTable" rowspan="1" colspan="1" aria-label="Transactions: Activate to sort by ascending columns" aria-sort="descending">Transactions</th>
+						<th class="center sorting_disabled" data-bind="local: 'shifts/shiftsList.total_tendered'" rowspan="1" colspan="1" aria-label="Total Tendered">Total Tendered</th>
+						<th class="center sorting_disabled" data-bind="local: 'shifts/shiftsList.variance'" rowspan="1" colspan="1" aria-label="Variance">Variance</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" data-bind="click: edit" role="row">
+						<td>28</td>
+						<td class=" center">27/10/2016 12:59:43 PM</td>
+						<td class=" center">07/06/2018 2:24:47 PM</td>
+						<td class="sorting_1">62</td>
+						<td class=" center">$6,565.14</td>
+						<td class=" center">($5,772.11)</td>
+					</tr>
+					<tr class="editable even" data-bind="click: edit" role="row">
+						<td>1</td>
+						<td class=" center">04/06/2018 5:20:21 PM</td>
+						<td class=" center">04/06/2018 8:50:11 PM</td>
+						<td class="sorting_1">19</td>
+						<td class=" center">$148.55</td>
+						<td class=" center">$151.45</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: edit" role="row">
+						<td>146</td>
+						<td class=" center">15/02/2016 1:16:52 PM</td>
+						<td class=" center">29/05/2018 6:46:19 PM</td>
+						<td class="sorting_1">12</td>
+						<td class=" center">$586.58</td>
+						<td class=" center">($578.10)</td>
+					</tr>
+					<tr class="editable even" data-bind="click: edit" role="row">
+						<td>23</td>
+						<td class=" center">11/01/2018 11:27:03 AM</td>
+						<td class=" center">22/06/2018 5:02:23 PM</td>
+						<td class="sorting_1">10</td>
+						<td class=" center">$62.24</td>
+						<td class=" center">($126.24)</td>
+					</tr>
+					<tr class="editable odd" data-bind="click: edit" role="row">
+						<td>1</td>
+						<td class=" center">04/06/2018 5:10:35 PM</td>
+						<td class=" center">04/06/2018 5:15:28 PM</td>
+						<td class="sorting_1">5</td>
+						<td class=" center">$227.79</td>
+						<td class=" center">$735.63</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="dataTables_paginate paging_simple_numbers" id="shiftsTable_paginate" style="display: block;"><a class="paginate_button previous disabled" aria-controls="shiftsTable" data-dt-idx="0" tabindex="0" id="shiftsTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="shiftsTable" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="shiftsTable" data-dt-idx="2" tabindex="0" id="shiftsTable_next">Next</a></div>
+		</div>
+	</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

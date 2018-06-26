@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Ingredients report</title>
+		<title>Modifiers report</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -44,14 +44,15 @@
 						<div class="pane pane-right ">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Ingredients report</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Modifiers report</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
 								
-	<div class="pane-body inventory">
-		
-		
+
+	<div class="pane-body item-list">
+		<form target="_blank" method="post" action="api/ModifiersReport/ExportModifiers" data-bind="submit: beforeExportSubmit">
+			
 <!-- begin v-simple-filters -->
 <div class="v-simple-filters">
 	<div class="v-simple-filters__row">
@@ -61,7 +62,7 @@
 				type="text" 
 				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
 				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
-				placeholder="Search ingredient by name or ID">
+				placeholder="Search by modifier">
 		</div>
 		<!-- end search -->
 
@@ -113,8 +114,10 @@
 			
 				
 				
+					
 				
-					<div class="v-simple-filters__col ">
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
 						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
 							<div data-bind="with: $data.storesFilter, css: self.divStyle">
@@ -160,8 +163,58 @@
 			
 				
 				
+					
 				
-					<div class="v-simple-filters__col ">
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Department:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Department 1</option>
+							
+								<option value="Register 2">Department 2</option>
+							
+								<option value="Register 3">Department 3</option>
+							
+								<option value="Register 4">Department 4</option>
+							
+								<option value="Register 5">Department 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
+						<label>Category:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Category 1</option>
+							
+								<option value="Register 2">Category 2</option>
+							
+								<option value="Register 3">Category 3</option>
+							
+								<option value="Register 4">Category 4</option>
+							
+								<option value="Register 5">Category 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+					
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
 						<label>Register:</label>
 						<select>
 							<option>All</option>
@@ -182,8 +235,10 @@
 			
 				
 				
+					
 				
-					<div class="v-simple-filters__col ">
+				
+					<div class="v-simple-filters__col v-simple-filters__col_xs">
 						<label>Employee:</label>
 						<select>
 							<option>All</option>
@@ -207,185 +262,119 @@
 </div>
 <!-- end v-simple-filters -->
 
-		
+		</form>
+
 		<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
-			<div id="productMixReportTable_filter" class="dataTables_filter">
-				<label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label>
-			</div>
-			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
-			<table class="datatable dataTable" id="ingredientsReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
-				<thead>
-					<tr role="row">
-						<th class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
-						<th class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Ingredient: Activate to sort by descending columns" aria-sort="ascending">Ingredient</th>
-						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
-						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
-						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
-						
-						
-						<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (UOM)</th>
-						
-						<th class="numeric-data sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold (Stock unit)</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<th class="text-right row-expandable" colspan="5" rowspan="1">Total:</th>
-						<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
-						
-						<th class="text-right numeric-data" rowspan="1" colspan="1">28</th>
-					</tr>
-				</tfoot>
-				<tbody>
-					
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">1</td>
-							<td class="sorting_1">cheese slice</td>
-							<td>WestGuestCafe</td>
-							<td>John Wick</td>
-							<td>Register 1</td>
-							
-							
-							<td class=" numeric-data">2 (unit)</td>
-							
-							<td class=" numeric-data">2 (box)</td>
+			<div id="modifiersReportTable_wrapper" class="dataTables_wrapper">
+				<div id="modifiersReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="modifiersReportTable"></label></div>
+				<div id="modifiersReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+				<table class="datatable dataTable" id="modifiersReportTable" role="grid">
+					<thead>
+						<tr role="row">
+							<th data-bind="local: 'modifiersReport.modifier'" class="sorting_asc" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Modifier: Activate to sort by descending columns" aria-sort="ascending">Modifier</th>
+							<th data-bind="local: 'modifiersReport.modifierGroup'" class="sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Modifier Group: Activate to sort by ascending columns">Modifier Group</th>
+							<th data-bind="local: 'modifiersReport.product'" class="sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Product: Activate to sort by ascending columns">Product</th>
+							<th data-bind="local: 'modifiersReport.qtySold'" class="numeric-data sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
+							<th data-bind="local: 'modifiersReport.grossSales'" class="numeric-data sorting_disabled" rowspan="1" colspan="1" aria-label="Gross Sales">Gross Sales</th>
+							<th data-bind="local: 'modifiersReport.netSales'" class="numeric-data sorting_disabled" rowspan="1" colspan="1" aria-label="Net Sales">Net Sales</th>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">2</td>
-							<td class="sorting_1">pepper</td>
-							<td>WestGuestCafe</td>
-							<td>John Wick</td>
-							<td>Register 1</td>
-							
-							
-							<td class=" numeric-data">4 (unit)</td>
-							
-							<td class=" numeric-data">4 (box)</td>
+					</thead>
+					<tfoot>
+						<tr>
+							<th class="text-right" colspan="3" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">39</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$263.75</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$252.75</th>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">3</td>
-							<td class="sorting_1">milk</td>
-							<td>WestGuestCafe</td>
-							<td>John Wick</td>
-							<td>Register 1</td>
-							
-							
-							<td class=" numeric-data">2 (l)</td>
-							
-							<td class=" numeric-data">2 (pack)</td>
+					</tfoot>
+					<tbody>
+						<tr role="row" class="odd">
+							<td class="sorting_1">110</td>
+							<td>imported prod 1 (Copy)</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$150.00</td>
+							<td class=" numeric-data">$150.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">4</td>
-							<td class="sorting_1">potatoes</td>
-							<td>WestGuestCafe</td>
-							<td>John Wick</td>
-							<td>Register 1</td>
-							
-							
-							<td class=" numeric-data">4 (kg)</td>
-							
-							<td class=" numeric-data">4 (bag)</td>
+						<tr role="row" class="even">
+							<td class="sorting_1">1234</td>
+							<td>Test Mod</td>
+							<td>Test Prod</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$2.00</td>
+							<td class=" numeric-data">$2.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">5</td>
-							<td class="sorting_1">strawberry</td>
-							<td>WestGuestCafe</td>
-							<td>John Wick</td>
-							<td>Register 1</td>
-							
-							
-							<td class=" numeric-data">3 (kg)</td>
-							
-							<td class=" numeric-data">3 (box)</td>
+						<tr role="row" class="odd">
+							<td class="sorting_1">12345</td>
+							<td>Test Mod</td>
+							<td>Test Prod</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$3.00</td>
+							<td class=" numeric-data">$0.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">6</td>
-							<td class="sorting_1">tomatoes</td>
-							<td>WestGuestCafe</td>
-							<td>Ben Stiller</td>
-							<td>Register 2</td>
-							
-							
-							<td class=" numeric-data">3 (kg)</td>
-							
-							<td class=" numeric-data">3 (case)</td>
+						<tr role="row" class="even">
+							<td class="sorting_1">dwa</td>
+							<td>dwa</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$0.00</td>
+							<td class=" numeric-data">$0.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">7</td>
-							<td class="sorting_1">cream</td>
-							<td>WestGuestCafe</td>
-							<td>Ben Stiller</td>
-							<td>Register 2</td>
-							
-							
-							<td class=" numeric-data">2 (unit)</td>
-							
-							<td class=" numeric-data">2 (box)</td>
+						<tr role="row" class="odd">
+							<td class="sorting_1">Extra Cheese</td>
+							<td>Add-Ons</td>
+							<td>Hamburger</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$1.00</td>
+							<td class=" numeric-data">$1.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">8</td>
-							<td class="sorting_1">rice</td>
-							<td>WestGuestCafe</td>
-							<td>Ben Stiller</td>
-							<td>Register 2</td>
-							
-							
-							<td class=" numeric-data">1 (kg)</td>
-							
-							<td class=" numeric-data">1 (pack)</td>
+						<tr role="row" class="even">
+							<td class="sorting_1">green</td>
+							<td>Colour</td>
+							<td>Pen2</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$4.00</td>
+							<td class=" numeric-data">$4.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">9</td>
-							<td class="sorting_1">pasta</td>
-							<td>WestGuestCafe</td>
-							<td>Ben Stiller</td>
-							<td>Register 2</td>
-							
-							
-							<td class=" numeric-data">3 (kg)</td>
-							
-							<td class=" numeric-data">3 (pack)</td>
+						<tr role="row" class="odd">
+							<td class="sorting_1">grey</td>
+							<td>Colour2</td>
+							<td>Pen1</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$10.00</td>
+							<td class=" numeric-data">$10.00</td>
 						</tr>
-					
-						<tr class="editable odd" role="row">
-							<td class=" row-expandable">10</td>
-							<td class="sorting_1">egg</td>
-							<td>WestGuestCafe</td>
-							<td>Ben Stiller</td>
-							<td>Register 2</td>
-							
-							
-							<td class=" numeric-data">4 (unit)</td>
-							
-							<td class=" numeric-data">4 (tray)</td>
+						<tr role="row" class="even">
+							<td class="sorting_1">gs</td>
+							<td>dsad</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$0.00</td>
+							<td class=" numeric-data">$0.00</td>
 						</tr>
-					
-				</tbody>
-			</table>
-			<div class="dataTables_paginate paging_simple_numbers" id="productMixReportTable_paginate">
-				<a class="paginate_button previous disabled" aria-controls="productMixReportTable" data-dt-idx="0" tabindex="0" id="productMixReportTable_previous">Previous</a>
-				<span>
-					<a class="paginate_button current" aria-controls="productMixReportTable" data-dt-idx="1" tabindex="0">1</a>
-					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="2" tabindex="0">2</a>
-					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="3" tabindex="0">3</a>
-					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="4" tabindex="0">4</a>
-					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="5" tabindex="0">5</a>
-					<span class="ellipsis">…</span>
-					<a class="paginate_button " aria-controls="productMixReportTable" data-dt-idx="6" tabindex="0">466</a>
-				</span>
-				<a class="paginate_button next" aria-controls="productMixReportTable" data-dt-idx="7" tabindex="0" id="productMixReportTable_next">Next</a>
+						<tr role="row" class="odd">
+							<td class="sorting_1">Large</td>
+							<td>Size</td>
+							<td>Hamburger</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$5.00</td>
+							<td class=" numeric-data">$5.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">m</td>
+							<td>Modif one</td>
+							<td>Mango</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$2.00</td>
+							<td class=" numeric-data">$2.00</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="dataTables_paginate paging_simple_numbers" id="modifiersReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="modifiersReportTable" data-dt-idx="0" tabindex="0" id="modifiersReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="modifiersReportTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="modifiersReportTable" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="modifiersReportTable" data-dt-idx="3" tabindex="0" id="modifiersReportTable_next">Next</a></div>
 			</div>
 		</div>
 	</div>
+
 
 							</div>
 						</div>

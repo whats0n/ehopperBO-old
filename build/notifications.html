@@ -53,10 +53,20 @@
 		<div class="new-notifications form wide-form">
 			<div class="new-notifications__body js-notifications" data-boxes="1">
 				<div class="new-notifications__checkbox">
-					<label class="new-checkbox">
+					<label class="new-checkbox new-notifications__checkbox-item">
 						<input type="checkbox" checked onchange="disableInput(event)">
 						<span class="new-checkbox__icon"></span>
 						<span class="new-checkbox__content">Minimum inventory email alert every 24 hrs</span>
+					</label>
+					<label class="new-checkbox new-notifications__checkbox-item js-checkbox">
+						<input type="checkbox" checked>
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Attach CSV report</span>
+					</label>
+					<label class="new-checkbox new-notifications__checkbox-item js-checkbox">
+						<input type="checkbox">
+						<span class="new-checkbox__icon"></span>
+						<span class="new-checkbox__content">Attach PDF report</span>
 					</label>
 				</div>
 				<div class="new-notifications__field js-mail-box">
@@ -90,6 +100,10 @@
 					$(e.currentTarget)
 						.closest('.js-notifications')
 						.find('.js-add-group-before')
+						.attr('hidden', !$(e.currentTarget).prop('checked'));
+					$(e.currentTarget)
+						.closest('.js-notifications')
+						.find('.js-checkbox')
 						.attr('hidden', !$(e.currentTarget).prop('checked'));
 				}
 

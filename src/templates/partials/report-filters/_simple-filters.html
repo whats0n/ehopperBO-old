@@ -20,146 +20,153 @@
 				data-bind="local: 'common.searchButton', click: search">Search</button>
 		</div>
 
-		<!-- begin buttons -->
-		<div class="v-simple-filters__col pull-right">
-			{% if not props.noCalendar %}
-				<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
-					<date-filter params="value: dateRange">
-						<div class="pull-right">
-							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-								&nbsp;
-								<span>Today</span> 
-								<b class="caret"></b>
+		{% if not props.noCalendar or not props.noFilters %}
+			<!-- begin buttons -->
+			<div class="v-simple-filters__col pull-right">
+				{% if not props.noCalendar %}
+					<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+						<date-filter params="value: dateRange">
+							<div class="pull-right">
+								<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									&nbsp;
+									<span>Today</span> 
+									<b class="caret"></b>
+								</div>
 							</div>
-						</div>
-					</date-filter>
-				</div>
-			{% endif %}
+						</date-filter>
+					</div>
+				{% endif %}
 
-			<div class="report-export-wrapper pull-right v-simple-filters__export">
-				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
-				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				<div class="report-export-wrapper pull-right v-simple-filters__export">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
 			</div>
-		</div>
-		<!-- end buttons -->
+			<!-- end buttons -->
+		{% endif %}
 	</div>
-	<div class="v-simple-filters__row">
-		<script>
-			function openDropdown(e) {
-				e.preventDefault();
-				$(e.currentTarget)
-					.closest('.ms-parent')
-					.find('.ms-drop')
-					.toggle();
-			}
-		</script>
-		{% for item in props.fields or [ { label: 'Stores' }, { label: 'Register' }, { label: 'Employee' } ] %}
-			{% if loop.length == 4 %}
-				{% set className = 'v-simple-filters__col_sm' %}
-			{% endif %}
-			{% if item.label == 'Stores' %}
-				<div class="v-simple-filters__col {{className}}">
-					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
-					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
-						<div data-bind="with: $data.storesFilter, css: self.divStyle">
-							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">{{item.label}}:</label>
-							<div data-bind="css: contStyle" class="v-simple-filters__select">
-								<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
-									multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
-								</select>
-								<div class="ms-parent">
-									<button type="button" class="select" onclick="openDropdown(event)">
-										<div class="fl">
-											<div>
-												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+	{% if not props.noFilters %}
+		<div class="v-simple-filters__row">
+			<script>
+				function openDropdown(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.ms-parent')
+						.find('.ms-drop')
+						.toggle();
+				}
+			</script>
+			{% for item in props.fields or [ { label: 'Stores' }, { label: 'Register' }, { label: 'Employee' } ] %}
+				{% if loop.length == 4 %}
+					{% set className = 'v-simple-filters__col_sm' %}
+				{% endif %}
+				{% if loop.length == 5 %}
+					{% set className = 'v-simple-filters__col_xs' %}
+				{% endif %}
+				{% if item.label == 'Stores' %}
+					<div class="v-simple-filters__col {{className}}">
+						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">{{item.label}}:</label>
+								<div data-bind="css: contStyle" class="v-simple-filters__select">
+									<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+										multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+									<div class="ms-parent">
+										<button type="button" class="select" onclick="openDropdown(event)">
+											<div class="fl">
+												<div>
+													<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
 											</div>
-											<div>
-												<div></div>
-											</div>
-										</div>
-									</button>
-									<div class="ms-drop bottom" data-name="multipleSelect1">
-										<ul style="max-height: 250px;">
-											<li>
-												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
-												<label for="allCheck">Select All</label>
-											</li>
-											{% set stores = [ '6408 Pacific Ave' ] %}
-											{% for item in stores %}
+										</button>
+										<div class="ms-drop bottom" data-name="multipleSelect1">
+											<ul style="max-height: 250px;">
 												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-{{loop.index}}" checked>
-													<label for="payment-store-{{loop.index}}">{{item}}</label>
+													<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+													<label for="allCheck">Select All</label>
 												</li>
-											{% endfor %}
-											<li class="ms-no-results">No matches found</li>
-										</ul>
+												{% set stores = [ '6408 Pacific Ave' ] %}
+												{% for item in stores %}
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-{{loop.index}}" checked>
+														<label for="payment-store-{{loop.index}}">{{item}}</label>
+													</li>
+												{% endfor %}
+												<li class="ms-no-results">No matches found</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!--/ko-->
 					</div>
-					<!--/ko-->
-				</div>
-			{% elif item.label == 'Inventory Type' %}
-				<div class="v-simple-filters__col {{className}}">
-					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
-					{% set inventoryType = [ 'Inventory', 'Non-Inventory', 'Serialized', 'Matrix', 'With Ingredients' ] %}
-					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
-						<div data-bind="with: $data.storesFilter, css: self.divStyle">
-							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">{{item.label}}:</label>
-							<div data-bind="css: contStyle" class="v-simple-filters__select">
-								<select class="form-control input-lg" style="display: none;">
-									{% for item in inventoryType %}
-										<option value="{{item}}">{{item}}</option>
-									{% endfor %}
-								</select>
+				{% elif item.label == 'Inventory Type' %}
+					<div class="v-simple-filters__col {{className}}">
+						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+						{% set inventoryType = [ 'Inventory', 'Non-Inventory', 'Serialized', 'Matrix', 'With Ingredients' ] %}
+						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">{{item.label}}:</label>
+								<div data-bind="css: contStyle" class="v-simple-filters__select">
+									<select class="form-control input-lg" style="display: none;">
+										{% for item in inventoryType %}
+											<option value="{{item}}">{{item}}</option>
+										{% endfor %}
+									</select>
 
-								<div class="ms-parent">
-									<button type="button" class="select" onclick="openDropdown(event)">
-										<div class="fl">
-											<div>
-												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+									<div class="ms-parent">
+										<button type="button" class="select" onclick="openDropdown(event)">
+											<div class="fl">
+												<div>
+													<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
 											</div>
-											<div>
-												<div></div>
-											</div>
-										</div>
-									</button>
-									<div class="ms-drop bottom" data-name="multipleSelect1">
-										<ul style="max-height: 250px;">
-											<li>
-												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
-												<label for="allCheck">Select All</label>
-											</li>
-											{% for item in inventoryType %}
+										</button>
+										<div class="ms-drop bottom" data-name="multipleSelect1">
+											<ul style="max-height: 250px;">
 												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-{{loop.index}}" checked>
-													<label for="payment-store-{{loop.index}}">{{item}}</label>
+													<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+													<label for="allCheck">Select All</label>
 												</li>
-											{% endfor %}
-											<li class="ms-no-results">No matches found</li>
-										</ul>
+												{% for item in inventoryType %}
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-{{loop.index}}" checked>
+														<label for="payment-store-{{loop.index}}">{{item}}</label>
+													</li>
+												{% endfor %}
+												<li class="ms-no-results">No matches found</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!--/ko-->
 					</div>
-					<!--/ko-->
-				</div>
-			{% else %}
-				<div class="v-simple-filters__col {{className}}">
-					<label>{{item.label}}:</label>
-					<select>
-						<option>All</option>
-						{% for option in range(0,5) %}
-							<option value="Register {{loop.index}}">{{item.label}} {{loop.index}}</option>
-						{% endfor %}
-					</select>
-				</div>
-			{% endif %}
-		{% endfor %}
-	</div>
+				{% else %}
+					<div class="v-simple-filters__col {{className}}">
+						<label>{{item.label}}:</label>
+						<select>
+							<option>All</option>
+							{% for option in range(0,5) %}
+								<option value="Register {{loop.index}}">{{item.label}} {{loop.index}}</option>
+							{% endfor %}
+						</select>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
 </div>
 <!-- end v-simple-filters -->
 {% endmacro %}

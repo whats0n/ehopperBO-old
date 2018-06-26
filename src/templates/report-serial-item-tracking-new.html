@@ -1,0 +1,58 @@
+---
+title: Serial Item Tracking Report
+headerTitle: Serial Item Tracking Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body item-list">
+		<div id="serialItemTrackingMessages"></div>
+		{{simpleFilters.call({
+			search: { placeholder: 'Serial Number' },
+			noCalendar:  true,
+			noExport: true,
+			noFilters: true
+		})}}
+		<br>
+		<p>
+			<strong data-bind="local: 'serialItemTracking.productId'">Product ID:</strong>
+			<span data-bind="text: productCode">4890</span>
+		</p>
+		<p>
+			<strong data-bind="local: 'serialItemTracking.productName'">Product Name:</strong>
+			<span data-bind="text: productName">Hoegaarden</span>
+		</p>
+		<table class="datatable dataTable">
+			<thead>
+				<tr>
+					<th data-bind="local: 'serialItemTracking.action'">Action</th>
+					<th data-bind="local: 'serialItemTracking.date'">Date</th>
+					<th data-bind="local: 'serialItemTracking.from'">From</th>
+					<th data-bind="local: 'serialItemTracking.to'">To</th>
+					<th data-bind="local: 'serialItemTracking.amount'">Amount</th>
+					<th data-bind="local: 'serialItemTracking.employee'">Employee</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: trackingData">
+				<tr>
+					<td data-bind="local: 'serialItemTracking.' + $data.action">Receiving</td>
+					<td data-bind="text: $root.formatDateTime($data.date)">08/12/2016 1:21:57 PM</td>
+					<td data-bind="text: from"></td>
+					<td data-bind="text: to"></td>
+					<td data-bind="text: $data.amount === null ? '' : $root.formatCurrency($data.amount)"></td>
+					<td data-bind="text: employee"></td>
+				</tr>
+				<tr>
+					<td data-bind="local: 'serialItemTracking.' + $data.action">Sale</td>
+					<td data-bind="text: $root.formatDateTime($data.date)">14/12/2016 4:19:39 PM</td>
+					<td data-bind="text: from">WestGuestCafe</td>
+					<td data-bind="text: to">Walk-In Walk-In</td>
+					<td data-bind="text: $data.amount === null ? '' : $root.formatCurrency($data.amount)">$0.00</td>
+					<td data-bind="text: employee">Admin Admin</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

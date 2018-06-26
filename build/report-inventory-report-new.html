@@ -74,177 +74,185 @@
 				data-bind="local: 'common.searchButton', click: search">Search</button>
 		</div>
 
-		<!-- begin buttons -->
-		<div class="v-simple-filters__col pull-right">
-			
+		
+			<!-- begin buttons -->
+			<div class="v-simple-filters__col pull-right">
+				
 
-			<div class="report-export-wrapper pull-right v-simple-filters__export">
-				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
-				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				<div class="report-export-wrapper pull-right v-simple-filters__export">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
 			</div>
-		</div>
-		<!-- end buttons -->
+			<!-- end buttons -->
+		
 	</div>
-	<div class="v-simple-filters__row">
-		<script>
-			function openDropdown(e) {
-				e.preventDefault();
-				$(e.currentTarget)
-					.closest('.ms-parent')
-					.find('.ms-drop')
-					.toggle();
-			}
-		</script>
-		
+	
+		<div class="v-simple-filters__row">
+			<script>
+				function openDropdown(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.ms-parent')
+						.find('.ms-drop')
+						.toggle();
+				}
+			</script>
 			
 				
-			
-			
-				<div class="v-simple-filters__col v-simple-filters__col_sm">
-					<label>Store:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Store 1</option>
-						
-							<option value="Register 2">Store 2</option>
-						
-							<option value="Register 3">Store 3</option>
-						
-							<option value="Register 4">Store 4</option>
-						
-							<option value="Register 5">Store 5</option>
-						
-					</select>
-				</div>
-			
-		
-			
-				
-			
-			
-				<div class="v-simple-filters__col v-simple-filters__col_sm">
-					<label>Department:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Department 1</option>
-						
-							<option value="Register 2">Department 2</option>
-						
-							<option value="Register 3">Department 3</option>
-						
-							<option value="Register 4">Department 4</option>
-						
-							<option value="Register 5">Department 5</option>
-						
-					</select>
-				</div>
-			
-		
-			
-				
-			
-			
-				<div class="v-simple-filters__col v-simple-filters__col_sm">
-					<label>Category:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Category 1</option>
-						
-							<option value="Register 2">Category 2</option>
-						
-							<option value="Register 3">Category 3</option>
-						
-							<option value="Register 4">Category 4</option>
-						
-							<option value="Register 5">Category 5</option>
-						
-					</select>
-				</div>
-			
-		
-			
-				
-			
-			
-				<div class="v-simple-filters__col v-simple-filters__col_sm">
-					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 					
-					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
-						<div data-bind="with: $data.storesFilter, css: self.divStyle">
-							<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Inventory Type:</label>
-							<div data-bind="css: contStyle" class="v-simple-filters__select">
-								<select class="form-control input-lg" style="display: none;">
-									
-										<option value="Inventory">Inventory</option>
-									
-										<option value="Non-Inventory">Non-Inventory</option>
-									
-										<option value="Serialized">Serialized</option>
-									
-										<option value="Matrix">Matrix</option>
-									
-										<option value="With Ingredients">With Ingredients</option>
-									
-								</select>
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Store:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Store 1</option>
+							
+								<option value="Register 2">Store 2</option>
+							
+								<option value="Register 3">Store 3</option>
+							
+								<option value="Register 4">Store 4</option>
+							
+								<option value="Register 5">Store 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Department:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Department 1</option>
+							
+								<option value="Register 2">Department 2</option>
+							
+								<option value="Register 3">Department 3</option>
+							
+								<option value="Register 4">Department 4</option>
+							
+								<option value="Register 5">Department 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Category:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Category 1</option>
+							
+								<option value="Register 2">Category 2</option>
+							
+								<option value="Register 3">Category 3</option>
+							
+								<option value="Register 4">Category 4</option>
+							
+								<option value="Register 5">Category 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+						
+						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Inventory Type:</label>
+								<div data-bind="css: contStyle" class="v-simple-filters__select">
+									<select class="form-control input-lg" style="display: none;">
+										
+											<option value="Inventory">Inventory</option>
+										
+											<option value="Non-Inventory">Non-Inventory</option>
+										
+											<option value="Serialized">Serialized</option>
+										
+											<option value="Matrix">Matrix</option>
+										
+											<option value="With Ingredients">With Ingredients</option>
+										
+									</select>
 
-								<div class="ms-parent">
-									<button type="button" class="select" onclick="openDropdown(event)">
-										<div class="fl">
-											<div>
-												<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+									<div class="ms-parent">
+										<button type="button" class="select" onclick="openDropdown(event)">
+											<div class="fl">
+												<div>
+													<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
 											</div>
-											<div>
-												<div></div>
-											</div>
+										</button>
+										<div class="ms-drop bottom" data-name="multipleSelect1">
+											<ul style="max-height: 250px;">
+												<li>
+													<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+													<label for="allCheck">Select All</label>
+												</li>
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+														<label for="payment-store-1">Inventory</label>
+													</li>
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-2" checked>
+														<label for="payment-store-2">Non-Inventory</label>
+													</li>
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-3" checked>
+														<label for="payment-store-3">Serialized</label>
+													</li>
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-4" checked>
+														<label for="payment-store-4">Matrix</label>
+													</li>
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-5" checked>
+														<label for="payment-store-5">With Ingredients</label>
+													</li>
+												
+												<li class="ms-no-results">No matches found</li>
+											</ul>
 										</div>
-									</button>
-									<div class="ms-drop bottom" data-name="multipleSelect1">
-										<ul style="max-height: 250px;">
-											<li>
-												<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
-												<label for="allCheck">Select All</label>
-											</li>
-											
-												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
-													<label for="payment-store-1">Inventory</label>
-												</li>
-											
-												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-2" checked>
-													<label for="payment-store-2">Non-Inventory</label>
-												</li>
-											
-												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-3" checked>
-													<label for="payment-store-3">Serialized</label>
-												</li>
-											
-												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-4" checked>
-													<label for="payment-store-4">Matrix</label>
-												</li>
-											
-												<li>
-													<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-5" checked>
-													<label for="payment-store-5">With Ingredients</label>
-												</li>
-											
-											<li class="ms-no-results">No matches found</li>
-										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!--/ko-->
 					</div>
-					<!--/ko-->
-				</div>
+				
 			
-		
-	</div>
+		</div>
+	
 </div>
 <!-- end v-simple-filters -->
 

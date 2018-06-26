@@ -73,105 +73,112 @@
 				data-bind="local: 'common.searchButton', click: search">Search</button>
 		</div>
 
-		<!-- begin buttons -->
-		<div class="v-simple-filters__col pull-right">
-			
-				<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
-					<date-filter params="value: dateRange">
-						<div class="pull-right">
-							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-								&nbsp;
-								<span>Today</span> 
-								<b class="caret"></b>
+		
+			<!-- begin buttons -->
+			<div class="v-simple-filters__col pull-right">
+				
+					<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+						<date-filter params="value: dateRange">
+							<div class="pull-right">
+								<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									&nbsp;
+									<span>Today</span> 
+									<b class="caret"></b>
+								</div>
 							</div>
-						</div>
-					</date-filter>
-				</div>
-			
+						</date-filter>
+					</div>
+				
 
-			<div class="report-export-wrapper pull-right v-simple-filters__export">
-				<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
-				<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				<div class="report-export-wrapper pull-right v-simple-filters__export">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
 			</div>
+			<!-- end buttons -->
+		
+	</div>
+	
+		<div class="v-simple-filters__row">
+			<script>
+				function openDropdown(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.ms-parent')
+						.find('.ms-drop')
+						.toggle();
+				}
+			</script>
+			
+				
+				
+				
+					<div class="v-simple-filters__col ">
+						<label>Vendor:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Vendor 1</option>
+							
+								<option value="Register 2">Vendor 2</option>
+							
+								<option value="Register 3">Vendor 3</option>
+							
+								<option value="Register 4">Vendor 4</option>
+							
+								<option value="Register 5">Vendor 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+				
+					<div class="v-simple-filters__col ">
+						<label>Store In:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Store In 1</option>
+							
+								<option value="Register 2">Store In 2</option>
+							
+								<option value="Register 3">Store In 3</option>
+							
+								<option value="Register 4">Store In 4</option>
+							
+								<option value="Register 5">Store In 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+				
+				
+					<div class="v-simple-filters__col ">
+						<label>Employee:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Employee 1</option>
+							
+								<option value="Register 2">Employee 2</option>
+							
+								<option value="Register 3">Employee 3</option>
+							
+								<option value="Register 4">Employee 4</option>
+							
+								<option value="Register 5">Employee 5</option>
+							
+						</select>
+					</div>
+				
+			
 		</div>
-		<!-- end buttons -->
-	</div>
-	<div class="v-simple-filters__row">
-		<script>
-			function openDropdown(e) {
-				e.preventDefault();
-				$(e.currentTarget)
-					.closest('.ms-parent')
-					.find('.ms-drop')
-					.toggle();
-			}
-		</script>
-		
-			
-			
-				<div class="v-simple-filters__col ">
-					<label>Vendor:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Vendor 1</option>
-						
-							<option value="Register 2">Vendor 2</option>
-						
-							<option value="Register 3">Vendor 3</option>
-						
-							<option value="Register 4">Vendor 4</option>
-						
-							<option value="Register 5">Vendor 5</option>
-						
-					</select>
-				</div>
-			
-		
-			
-			
-				<div class="v-simple-filters__col ">
-					<label>Store In:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Store In 1</option>
-						
-							<option value="Register 2">Store In 2</option>
-						
-							<option value="Register 3">Store In 3</option>
-						
-							<option value="Register 4">Store In 4</option>
-						
-							<option value="Register 5">Store In 5</option>
-						
-					</select>
-				</div>
-			
-		
-			
-			
-				<div class="v-simple-filters__col ">
-					<label>Employee:</label>
-					<select>
-						<option>All</option>
-						
-							<option value="Register 1">Employee 1</option>
-						
-							<option value="Register 2">Employee 2</option>
-						
-							<option value="Register 3">Employee 3</option>
-						
-							<option value="Register 4">Employee 4</option>
-						
-							<option value="Register 5">Employee 5</option>
-						
-					</select>
-				</div>
-			
-		
-	</div>
+	
 </div>
 <!-- end v-simple-filters -->
 

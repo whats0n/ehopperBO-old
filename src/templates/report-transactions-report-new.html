@@ -1,0 +1,686 @@
+---
+title: Transactions Report
+headerTitle: Transactions Report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body item-list">
+		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
+		<div class="form tran-report-form" data-bind="visible: !loading()" style="">
+			<span data-bind="text: errorMessage" class="fieldError"></span>
+			<form method="post" action="csvreport/tranreport" novalidate="" data-bind="attr: { target: isIOS ? '_blank' : null }">
+				<input name="csvHeaders" type="hidden" data-bind="value: csvHeaders" value="Account ID,Company Name,Store Name,Register Name,Transaction Type,Transaction ID,Order ID,Payment Method,Payment Status,Card Number,Auth Code,RefNum,Total Sales,Surcharge,Cash Discount Fee,Tips,Authorized,Captured,Payment Date,Employee,Customer,Customer Address Line 1,Customer Address Line 2,Customer City,Customer State,Customer Zip Code,Customer Phone #">
+				<input name="csvLocalization" type="hidden" data-bind="value: JSON.stringify(csvLocalization)" value="{&quot;Sale&quot;:&quot;Sale&quot;,&quot;Refund&quot;:&quot;Refund&quot;,&quot;Exchange&quot;:&quot;Exchange&quot;,&quot;EbtTypes&quot;:[&quot;EBT Cash Benefit&quot;,&quot;EBT Food Stamp&quot;],&quot;PayTypes&quot;:[&quot;cash&quot;,&quot;check&quot;,&quot;creditCard&quot;,&quot;giftCertificate&quot;,&quot;externalPayment&quot;,&quot;debitCard&quot;,&quot;custom&quot;,&quot;ebtCard&quot;],&quot;YesNo&quot;:[&quot;No&quot;,&quot;Yes&quot;],&quot;Statuses&quot;:[&quot;Pending&quot;,&quot;Completed&quot;,&quot;Failed&quot;,&quot;Voided&quot;,&quot;Completed&quot;,&quot;Pending&quot;,&quot;Failed&quot;,&quot;Completed&quot;,&quot;Failed&quot;,&quot;Completed&quot;]}">
+				<input name="enterpriseId" type="hidden" data-bind="value: enterpriseId" value="e228da1a8e4847f89c09ccbf8ba40926">
+				<input name="utcOffset" type="hidden" data-bind="value: utcOffset" value="180">
+				<input name="stores" type="hidden" data-bind="value: storesJSON" value="">
+				<div class="form-group">
+					<label data-bind="local: 'reports/transactionReport.customer'">Customer</label>
+					<select name="customerId" class="select" data-bind="options: customers, optionsText: 'displayName', optionsValue: 'id', optionsCaption: 'All', value: customerId">
+						<option value="">All</option>
+						<option value="515a5cabed74411d07649058470d9c36">    ..23 99</option>
+						<option value="8ec1bad8f76ce92b638530b8c29da1ae">  dfrgbrft ythryhrtyh...</option>
+						<option value="06e5a820d6167b443cb5aef8c65a0086"> e5srytjhufgjutyfhg  ...</option>
+						<option value="0fab85de907b48112399ac88932b9fb2">. .</option>
+						<option value="80fef523982946b3d057d6527687542b">...... ...</option>
+						<option value="a8de063a5949272c8924f31451f9cf97">@Petro $Petro</option>
+						<option value="b8ea704b2222b93b3b33ffc0068fec36">1</option>
+						<option value="5fcdc9f0c61f00e1b0f758852c4e1651">1 1</option>
+						<option value="1269b9206691e3e045b7f5586a68b0e6">11 2222</option>
+						<option value="31a5609005fda1d2f424746bad707045">111 111</option>
+						<option value="1a9e583c2bc47c6a00c651e376da068a">11111 hjkl11111 hjkl1...</option>
+						<option value="dd6dc9428fa608ffcf63af64cb3993d8">12 12</option>
+						<option value="c4744877bf3dcaa2dddbb77a85b5e75d">1212121 2121212</option>
+						<option value="1bbaacf20601fec7ad935448d7e0f2bc">121212121 121212121</option>
+						<option value="5302defdc0cea8d16c5bed72665097b5">1222229999    Abcdefg...</option>
+						<option value="3f7611fd685840b68ebccd96fb4e47f5">1223334444 1223334444</option>
+						<option value="5c83542cfe7957712dec3c78930f2938">123</option>
+						<option value="d14a24fe5940f4513544aa2ed7868a6c">123 qwerty 1234</option>
+						<option value="8f429cf9a46330f5cc390adde3d59d19">1234</option>
+						<option value="2bd22e21ae63e9f491aef178ffa21d79">1234 5647</option>
+						<option value="e4681b649808d519cb32c16de06d16e8">1234 567</option>
+						<option value="bc5ceb6f2a1bd019019e8734da48f20c">--12345 --12345</option>
+						<option value="6617c76515f09397247e0fb7bcb3eaf8">1assad assa</option>
+						<option value="64f336b2b6afe57dee9ee5b83c0784a6">1qqqq 2qqqqq</option>
+						<option value="5b519454fcb0a4048db2fe7e60f52e6c">321 123</option>
+						<option value="54420bd19762286295c43b593e559891">45 54</option>
+						<option value="066262e24d643baf22b75693cdb888cb">45 95</option>
+						<option value="5b8c19028f61cf79fe6b171a22e38c9c">77777 77777</option>
+						<option value="78a7a598d5ca1c7e35114ba1d66c40a1">a a</option>
+						<option value="446057f4e5c42020e711d46afd787c34">aaa asasa</option>
+						<option value="03A67412-E0F9-4C7A-B38D-41F5EC5CC0BB">aadg awfr</option>
+						<option value="052FC02A-6C36-4A18-B39A-5CDCFD9503F1">aadg awfr</option>
+						<option value="083AC308-ABA8-49B3-BC08-4EE6D991B617">aadg awfr</option>
+						<option value="1084D6C3-271C-4240-B469-8B3D60C52842">aadg awfr</option>
+						<option value="1358AE69-42BD-4986-AE1E-2E1118002AB1">aadg awfr</option>
+						<option value="14C72DFD-262F-4881-871A-170A1DB225E8">aadg awfr</option>
+						<option value="1673F595-D787-433B-AC07-713A7C93CCCC">aadg awfr</option>
+						<option value="16EA160F-97A3-488E-9C7B-FEA636C588B0">aadg awfr</option>
+						<option value="185EF55E-A024-405C-9EFF-BA0AD1A95DAC">aadg awfr</option>
+						<option value="1B69E43D-9F97-443F-941B-641194A9FFF5">aadg awfr</option>
+						<option value="21264D83-8014-4B04-B058-BCADA7767AF8">aadg awfr</option>
+						<option value="243E717A-42AE-410E-B6C4-37A8BFB6E409">aadg awfr</option>
+						<option value="24CD1B62-1D46-4EDE-A029-B176117CB0C1">aadg awfr</option>
+						<option value="24F27514-E3FD-4186-9235-535FE8A046B2">aadg awfr</option>
+						<option value="41D14D86-DB37-4542-9C3B-849661768B04">aadg awfr</option>
+						<option value="58796051-BB3F-45E9-BA11-5DDED3AF5A56">aadg awfr</option>
+						<option value="5AAD332F-391C-4B43-BD77-903873EED06F">aadg awfr</option>
+						<option value="5C8A8E5C-CB9D-4628-91F6-60FD14654F68">aadg awfr</option>
+						<option value="5EA678C5-A7F7-47A6-A7D1-B3A9C87BAC76">aadg awfr</option>
+						<option value="bcb47c775a6a31a6645c946cc13dda0d">aadg awfr</option>
+						<option value="6a3224a020e83a7d454de5894e5783fc">Abc Fghj</option>
+						<option value="e547a65202ff09ff8375451ea705bf2a">abc qwe</option>
+						<option value="2e8974db25f34bfaa98dd48e77aa3ea6">abcdefgh 33333</option>
+						<option value="a919d23c33eeca1928ca6ac0d1feb102">Active Active</option>
+						<option value="ce47fd4c8d7d91159d483ee71263cb9a">ada brown</option>
+						<option value="a72dc0d5f5c8c1ac735e9548c3f06b9b">Al Capone</option>
+						<option value="f92105f5f0d089dc103f0d51b9824794">as as</option>
+						<option value="3715f2db2b1eb282b3e80c4d9fd4a0f7">As Ton</option>
+						<option value="aa9ba2135b380bda2ecb977ca125185c">asd asd</option>
+						<option value="2fe0cca12d9373b02bf97b5e3c4ff552">asd sda</option>
+						<option value="a118c72c19447d509d684014e010196f">asdffff ffff</option>
+						<option value="b51d1a90e37d9392c35fa4c21a9a2790">b b</option>
+						<option value="e9db6d4cd76a7be2410899d05a6cea7b">Ba ba</option>
+						<option value="95de39d2d2bb21e12e60aa745c2c0c1c">bar bar</option>
+						<option value="59ad6e8146c542c977276500548c2ea1">Bart Johnson</option>
+						<option value="eca7048f67732d7cc965e65e7df59ea3">Bart simpson</option>
+						<option value="48084ec4469745db939bd11a2e3cd622">Bill Klington</option>
+						<option value="658d90a2c27f88ec094792bae9a83f13">blabla bla</option>
+						<option value="5cc187bd1cc76e52b63bd0002f5b0052">Business</option>
+						<option value="58d8f593e38142f58bff0654cae389f5">business company</option>
+						<option value="68332416e51343a2a87dd534a4d31b9a">business company</option>
+						<option value="8461f1a6b69b50d0a3c05d6545a569c0">c1 c1</option>
+						<option value="efc5e903cde12083063cf17ae7c81347">c11 n22</option>
+						<option value="0729500177e9d6fa04e8b717ca6a76ea">chachachacha 123</option>
+						<option value="89070ae54aa298d9ee5117711c7ae4d4">Company Business</option>
+						<option value="3b1635df7851c66c531836af6245a7bc">cTux12 cTux</option>
+						<option value="6cde125a46133c398fed5db9198eb5aa">customer personal 123...</option>
+						<option value="066f9825944cd64b97d78fec648667a1">d sd</option>
+						<option value="c4a0f1db20ba1dead6c59b7a524fea23">d12 c12</option>
+						<option value="010A24FC-5EB5-4F16-9E83-E6ECBACC3EA9">d2109 fgo90</option>
+						<option value="1a003deb9718ba1f5b71f0a9a4d1718d">daed rtdtg</option>
+						<option value="3f613af7d2bb9d98c79edb32ad7832a5">Dart Wader</option>
+						<option value="d38baeccfa182c3d46ac39142ce5bd5e">das sda</option>
+						<option value="d9e7e63969d762708783611a9f44d606">dcustoe ncustomer</option>
+						<option value="72ea94f574a38cf70a3a8693e476e439">dde123 dde123</option>
+						<option value="c7eb72634759c17e8af67378b9b12b4a">de dd</option>
+						<option value="54a1b452fcaec1535624e0a4757f4079">default customer</option>
+						<option value="5e0aabace0f6f508a997238b85cbd2da">default customer</option>
+						<option value="616702e96d3df389ef09a5731d4f11c5">default customer</option>
+						<option value="6e3d1bd51c11d6ae8f4680654fceae03">default customer</option>
+						<option value="a429fca417555e71b901829504cca7ba">default customer</option>
+						<option value="a97ecdda39349ba4e63399261ab9218d">default customer</option>
+						<option value="c2b6d3b5d89cdd09250dd678bfb8c4e2">default customer</option>
+						<option value="caadcde816e3df928b6f9cec06a4528a">default customer</option>
+						<option value="e0509eedad80a211364a02f27cdd6d87">default customer</option>
+						<option value="f956281fab1120c1e2bc7715fd5f7217">default customer</option>
+						<option value="3e8f75e5aa299233bec473168fcb274f">default024123 custome...</option>
+						<option value="e5050fb5b467245da10c060adc8f7e88">default024413 custome...</option>
+						<option value="dc8987adf773c631e90002517edc76d7">default030954 custome...</option>
+						<option value="5e993255f3d927d13cd4118fba59bdb4">default070778 custome...</option>
+						<option value="97aa8092e09bfb6f9665ff8d36984e65">default088769 custome...</option>
+						<option value="ee2bfb3946d584ddacfd9c7fc7c6b3ca">default1 customer1</option>
+						<option value="e33feaabf97fdb090780d1a391bcb053">default100456 custome...</option>
+						<option value="7d10a0be4a533c0a6f24b3192d5a6371">default101528 custome...</option>
+						<option value="a9cca9cb36bbf91f1c56270bab33dbe9">default102993 custome...</option>
+						<option value="748eb971470defe015011e5979551c23">default104161 custome...</option>
+						<option value="b6598b011d85ca2b686bb40ddabdbaa3">default109098 custome...</option>
+						<option value="5a445a73e7af875522cd17f7b3fb1e88">default117174 custome...</option>
+						<option value="986dd1145d5c03f0ac355273e90cebbf">default127099 custome...</option>
+						<option value="6075281c53c062bca225cb1cd6ffdadd">default134973 custome...</option>
+						<option value="c7e2378795d8c16a3c405ee96b32b95e">default137916 custome...</option>
+						<option value="6019e69f951b3c345b45cf72c76dfb67">default146938 custome...</option>
+						<option value="d547b82b9390097e518cb856ad1ab073">default150972 custome...</option>
+						<option value="670cfce85f589a1bb79801794745b2a3">default153162 custome...</option>
+						<option value="36bfef763e2b8d24000bd848170fa8b8">default154625 custome...</option>
+						<option value="ced179118e81bfbdd41bdccd390c7a98">default158589 custome...</option>
+						<option value="c2a020f95417db44b63636159efd44c3">default159334 custome...</option>
+						<option value="6224001ca141709e991d5b48aae00df7">default161285 custome...</option>
+						<option value="b80efef3380cc02d36c1445087ba2ed1">default166904 custome...</option>
+						<option value="173795c7d28ffaf66e0776e8feb32d58">default168447 custome...</option>
+						<option value="4ef60e05ec2f989f52a043f88ebc05fd">default178845 custome...</option>
+						<option value="7e82dfb485b9d208801b85381269a28a">default1798 customer</option>
+						<option value="7d4b6e0c85e0d4a06a7283d1f7150b10">default180500 custome...</option>
+						<option value="17e9b87d452a634cdcc328f05c9788b8">default185155 custome...</option>
+						<option value="4d27e8f3732ef26a0f413f3f77a41e5c">default192167 custome...</option>
+						<option value="88996e2be2a28e388ce2c0ff5961f9f5">default194028 custome...</option>
+						<option value="c46d7793158369cd446605dc0a173304">default199256 custome...</option>
+						<option value="9857a975aa62d6c81133894ec7aa9660">default200526 custome...</option>
+						<option value="58bd36180f1d4d20ad59de0995f0bd70">default210982 custome...</option>
+						<option value="53f0684fb91a7059aa04150e0abb168f">default211080 custome...</option>
+						<option value="9f33eb753793c60e1696afd1d29a155e">default211348 custome...</option>
+						<option value="5a4ff209399a0fc4a7b7423d4b562e7c">default215975 custome...</option>
+						<option value="28174548fc0b9bb22e1a2ffeb49eadd1">default219643 custome...</option>
+						<option value="e973f5ceb80f7f57823582a5c118aaec">default227584 custome...</option>
+						<option value="99c10654432a8423362d1f6e29496161">default227628 custome...</option>
+						<option value="6fb0acc81b8b0e10b24bde300cbdb1bb">default229218 custome...</option>
+						<option value="e1978b685906e7e729de4ff9325ee533">default233680 custome...</option>
+						<option value="16596bf456a8fed8e3fba1c3bb8bbf5d">default235646 custome...</option>
+						<option value="0f1d35e4c699f7ecfea1fe6db006fc3d">default235779 custome...</option>
+						<option value="b8b4fa3f1f521a563995f358e1deb626">default236276 custome...</option>
+						<option value="6a07945a1609086495206747f4fdc7d8">default245573 custome...</option>
+						<option value="52415f5b177a856134d3ed89f0b2dd90">default250490 custome...</option>
+						<option value="51a7c82f14f291452ab3633d286fde28">default251341 custome...</option>
+						<option value="0db864a75ea4324ec5449e60ccf1284f">default253737 custome...</option>
+						<option value="f0178cd1c031fda37f110da93f034c5b">default255726 custome...</option>
+						<option value="80a728b3c66f75ef9f1d93bafef199bd">default258577 custome...</option>
+						<option value="c7aab97de7c713cfe3c535030056f435">default265013 custome...</option>
+						<option value="5486b51e4d141c8f5574f9ae175eaed3">default265588 custome...</option>
+						<option value="26587c5e86565c8570f6296612455cd3">default266668 custome...</option>
+						<option value="c1a64c0c039d477447b5b0c3b2101a10">default267618 custome...</option>
+						<option value="71a9656f6f24c33185e6f7a58604055b">default271421 custome...</option>
+						<option value="7dafa2692749cd5edcace435dd41c400">default277906 custome...</option>
+						<option value="d59194f80147fc791eaad82d0841a11b">default2795 customer</option>
+						<option value="bbf84e60d0f77ef7e2f9f95be80ef806">default283917 custome...</option>
+						<option value="fbf9a3c27e341d7c23c0bc1d70380b61">default288705 custome...</option>
+						<option value="d81b99b42c41b817c71515c1fb6fe207">default298003 custome...</option>
+						<option value="8b44b70551af145f7400bebbc6c6c0e1">default302893 custome...</option>
+						<option value="d56a0a9c868a948116b450a467dbbb69">default310149 custome...</option>
+						<option value="3d06c04d59562ce2803d39085e7a4e45">default310460 custome...</option>
+						<option value="0011a3744c43819c37ea5fb845d5f1e6">default315110 custome...</option>
+						<option value="63484ab552e261e601137abac23e0c35">default325170 custome...</option>
+						<option value="9000d2edcb0b78d6b55c7c34e9e212fb">default328678 custome...</option>
+						<option value="af11142ee5a568e32a6cee4ba30d47cb">default330255 custome...</option>
+						<option value="de1bb063b52e91a38a3896fd7618795e">default332716 custome...</option>
+						<option value="9ac9fb10d93c4b20c00ca99017ee9449">default333171 custome...</option>
+						<option value="be0b0052fe5dcfee47a3539bb4f898e7">default354993 custome...</option>
+						<option value="2b64e9dd79e80d58b297eab48dbc18dd">default357584 custome...</option>
+						<option value="31b8610c289dd3f160ccafac64ce6b73">default367542 custome...</option>
+						<option value="491c85d63170788030fa07c89cc98d65">default36860 customer</option>
+						<option value="5f9474b8c8eb220278f44cb2d35735e4">default373531 custome...</option>
+						<option value="ce32729eee2199fe7be35ffebd0ee14a">default375176 custome...</option>
+						<option value="9e973a38f3d595285b15a5418d613d4e">default379810 custome...</option>
+						<option value="465872919a317168d409fe77e474be80">default38708 customer</option>
+						<option value="cc58ad5fddcccc6c25d7b6ca41ca25e7">default418873 custome...</option>
+						<option value="c73bf78f4bef4743af0bd5e7069cb2c5">default420604 custome...</option>
+						<option value="0ca711d263a29c2ad54dd8bd2f9b3efa">default427533 custome...</option>
+						<option value="eb9818509db6df460d5d6e349ced6b32">default430758 custome...</option>
+						<option value="2a9c22ccccf749048bbd08dee35023cb">default442967 custome...</option>
+						<option value="0a42ff2cfacd1272290e8a8ebf10734f">default447161 custome...</option>
+						<option value="f732b4cbcbc1eb5454374ba8edd7382e">default457397 custome...</option>
+						<option value="adf688b81a277f0f0ab7307d2ade09c5">default458643 custome...</option>
+						<option value="8cd80c49992266191698e44e6a8e5fb6">default480259 custome...</option>
+						<option value="ed8745c641f207c5bac58c7db5349265">default485039 custome...</option>
+						<option value="679f4e14a494f8844a10ec763715202c">default485878 custome...</option>
+						<option value="cdc39db7903cc89c53056b201d397f25">default487724 custome...</option>
+						<option value="367f87cd45c0463a1d2083f4a3cb3090">default498364 custome...</option>
+						<option value="a3cd252c65f902d92fd28c78971f8db5">default508620 custome...</option>
+						<option value="2b37f686b6e664593c60a9d403053ba1">default51205 customer</option>
+						<option value="100928cae0ba749da3abbb9b85fe4268">default517805 custome...</option>
+						<option value="efdc7733daa48e5d3e44d8ac82e45443">default53465 customer</option>
+						<option value="334252c26f8ed5db4130c9621d7f6de7">default540619 custome...</option>
+						<option value="fab138e990860f15daec7051a6794d30">default554073 custome...</option>
+						<option value="75b1daea290cbc7cc464571193c4fc8a">default570189 custome...</option>
+						<option value="13188ec1cc25978fbdc39e64347b8257">default582008 custome...</option>
+						<option value="8b75ca7dd0fcf7043f522301bed8c839">default598641 custome...</option>
+						<option value="841524f930897279233ce61a6e08fc51">default599918 custome...</option>
+						<option value="a55060d8807c0f7eef8a5c769f9e82f3">default603126 custome...</option>
+						<option value="a09e04c1f07c4e15e17c1a63f748e3f6">default609038 custome...</option>
+						<option value="4ae5189e93560f3daf6df60a2b175523">default609922 custome...</option>
+						<option value="929c1fe26feb6cd3fdac7cac94189ca2">default619437 custome...</option>
+						<option value="83108e6f22104bfd78ec87d1a0983222">default622593 custome...</option>
+						<option value="23b9d9e018fe6ba30be27c3451acdb93">default636933 custome...</option>
+						<option value="5569fe829f1af0da221c885122dd47b6">default646871 custome...</option>
+						<option value="6f0f2fc794d16f3483d4f3f331aef1f9">default648538 custome...</option>
+						<option value="c82c864cc55f51e7b9fd2e4db7a35a5a">default648717 custome...</option>
+						<option value="5e20405bc0eb397682929e1cf73ac1e5">default652427 custome...</option>
+						<option value="4d0be67913a0c703fb6edac4e5d186b9">default657349 custome...</option>
+						<option value="12c0ed390ff09a3a724d6e00b844a079">default659388 custome...</option>
+						<option value="8c967eec3c866fbf68546cdd12593df4">default66476 customer</option>
+						<option value="0e66695d72b9a9ff880b045d81e99447">default665141 custome...</option>
+						<option value="fb757bb7d4cd9a45f4375a3c9302f320">default677187 custome...</option>
+						<option value="b75580a2f19f1484ac33a7c8efb008ce">default694696 custome...</option>
+						<option value="4bb8db29bd70a7c61a3782ed47d9097c">default733148 custome...</option>
+						<option value="15d4558008cf62c46016cb20e6979310">default745808 custome...</option>
+						<option value="5cb7077c468dade13b949ff9619c195f">default750029 custome...</option>
+						<option value="02a3a7eb7b8f4dbbb78850d97123b70b">default778108 custome...</option>
+						<option value="cf96a68b631604bad077f5a624111b1a">default786862 custome...</option>
+						<option value="3b96ce2a1af9a7e17b11c61ca4bd570e">default787006 custome...</option>
+						<option value="1495d0cedd4daa35359b7e16012eb394">default790236 custome...</option>
+						<option value="d479925873561177c89163da7c7bccea">default792203 custome...</option>
+						<option value="95837d397fbe535a8a691d492edcbfa1">default792473 custome...</option>
+						<option value="ced1b84bf177a400601dcdb415dc25a8">default800466 custome...</option>
+						<option value="9355b2333760db4283dbc53d6f80d739">default809124 custome...</option>
+						<option value="5337026cc0a41bd84038176b07ee484d">default809535 custome...</option>
+						<option value="63655f52314300f9e90213734dc414e9">default814958 custome...</option>
+						<option value="45c681a1e4910061c25c7ae1f58af258">default820897 custome...</option>
+						<option value="4746339f41be13e5ce93add35df0a6b6">default821663 custome...</option>
+						<option value="d067ef86d5ade6cc0bb2d2b18b5dabff">default827536 custome...</option>
+						<option value="700b845b3f162abb82c359cb6956577f">default828131 custome...</option>
+						<option value="f588c92793dad1b0b0e4d538c8e1713e">default836921 custome...</option>
+						<option value="b4ce92ffb38d10e46f1e1700cb4b03a2">default838949 custome...</option>
+						<option value="0011fcff37614aab05564cf059942aa0">default847254 custome...</option>
+						<option value="4782f3c67c0c9c52d5c46fb7b51f4e6f">default852210 custome...</option>
+						<option value="3a3845e2513b48d7c0a5aa855e0d13a0">default853566 custome...</option>
+						<option value="2eba896062aa11cea3a14bb5a84988f7">default874167 custome...</option>
+						<option value="a2ddec9dce794e44a5dbf2887eccdb03">default879386 custome...</option>
+						<option value="286fa37bcc18e146883dd70fe8728891">default890379 custome...</option>
+						<option value="a15e736835b89faef275760cb29e17cb">default894642 custome...</option>
+						<option value="89fbaeca506ff6d99d54b7e0af1daecb">default896772 custome...</option>
+						<option value="1b952c45cbc342dc03c25f113d0c521e">default90298 customer</option>
+						<option value="7161a79312a8f1186c9656336b7a4dcc">default903775 custome...</option>
+						<option value="c3478792974cc1a4602a9d33aee64c1f">default921257 custome...</option>
+						<option value="d07731e4ccac51063957ecada0cd5ae9">default921413 custome...</option>
+						<option value="1e6940a98f920b073ce61ca96afa43b4">default932524 custome...</option>
+						<option value="e07c218919b1d750f1b2d58eafda95d5">default939746 custome...</option>
+						<option value="2cacc0963005ab01b6cbc73f695fedb1">default940771 custome...</option>
+						<option value="bf4fb06d315ec9c8dcf201f8777066ea">default941342 custome...</option>
+						<option value="fdaad392f2445062e656532e549c1227">default941498 custome...</option>
+						<option value="5aab78e726ed764969df4c862a4630c9">default941586 custome...</option>
+						<option value="a1b0ece848db9a6c4785ddd5f939094d">default944082 custome...</option>
+						<option value="a9c8c548d64d4bb10cbd68bd1af50630">default954956 custome...</option>
+						<option value="70977023d038d1c771a7be4abd7ff386">default954982 custome...</option>
+						<option value="80a8f0b95605f520a205a823269780e7">default966697 custome...</option>
+						<option value="acda2bf33fd26f3c4897b33c8d6a9b55">default977448 custome...</option>
+						<option value="fa66b9646194a10e58649ab627d5f190">default981485 custome...</option>
+						<option value="d6c7a3b157460a1fc7f4de178af5d4c5">default982420 custome...</option>
+						<option value="bd4275fcd9cb410791fc3ef605e613bb">DF2 DL</option>
+						<option value="a09b6f723b2b4d23c751e0061d6996c0">dnkiforov dnikiforov</option>
+						<option value="a4907b2fe3b17f69a545e5aba0df0d88">Don Dan</option>
+						<option value="b9f2a415881dd31161fd43eaa62d8128">dq dq</option>
+						<option value="88260e6990c99045d0c2215a95d5b9d1">DS AS</option>
+						<option value="8eab396a6db168432e372ff04a9b689c">ds ds</option>
+						<option value="161821729ef8ef452021f186d7b49b1d">e e</option>
+						<option value="a2d704d8519d00cbefae90fb2fcaecaf">edited John edited Co...</option>
+						<option value="a572a94112781d71070e60fce88c87ce">edited John edited Co...</option>
+						<option value="c5ce52ad0ac17bad754b0a4007c53778">edited John edited Co...</option>
+						<option value="d20e744c493aa38eef3aabade2482b54">edited John edited Co...</option>
+						<option value="6278d5783e8e45a986b85fc50deb3485">ehopper zxc</option>
+						<option value="112dec67ba9f1741ec9c8c2ba6945ddf">Ending September</option>
+						<option value="17c428d088a9c01845ea28f7c16afe76">fd fd</option>
+						<option value="6c4626aec73929524dfb4087b74ecba6">FE FE</option>
+						<option value="ae1b04f1d3bb0ba88ff3eb006fa44ba1">feff fefs</option>
+						<option value="7d5aa47e8f7a0af4d6c7ff53b0921aab">Ffgcdfsfdsfdsfds AS</option>
+						<option value="7fd23b66ba51eba52dbbb96c3cd87e17">first first</option>
+						<option value="51b11ce1f8a20a647953121d1074302f">First Last</option>
+						<option value="f577eea1aac7f03058c10e4b80869d00">first last</option>
+						<option value="899a63e0b163aa02e69b274566c91cd4">first name last name</option>
+						<option value="776c9ea35f48ae43ab4581a1ca4b9967">first name2</option>
+						<option value="232468048f509a50d045382b6f5d0ce6">first1 last2</option>
+						<option value="e639ec2cecdd6f1a3891dbbbedd194fa">First1111 Tt</option>
+						<option value="ea023292a131df745bea8270874f9cc4">fr cfd</option>
+						<option value="d41d3c0da1139c9ed4b228d405df4145">fsfd fsfd</option>
+						<option value="0230bef9ce02c0ecf37ac3c8b01ac727">gdr gd</option>
+						<option value="4d4ccfbcc5c8e25daed870487dbafed1">gert</option>
+						<option value="0cce255c05d6945b75a55b6dda8c4347">gf Ygg</option>
+						<option value="65179bd8bae6824fa3d2bf6130754067">ggg ffff</option>
+						<option value="386f77f318a1b7cfa25740f67084e86e">ghyuingg hbnkkj</option>
+						<option value="00E02E64-E8A7-4F15-8B9A-C40ACAA28C6A">Gill Beits</option>
+						<option value="0968EFFA-B14F-41BA-91D3-39EC0CBA2963">Gill Beits</option>
+						<option value="0E097BFD-5FEF-40D0-8307-4DB2557052A5">Gill Beits</option>
+						<option value="7df113f7aab342448af2071f37ed098e">Gill Beits</option>
+						<option value="744c8245a79f433da8fed8e1b18bc0c1">Haim Levy</option>
+						<option value="91f9e8c4ad35431a9548508c30365ac0">hgfhgf ghfgh</option>
+						<option value="588dc46c799c8ee064c8cf9e98f7b07a">hh hjh</option>
+						<option value="19e725f6a36fc0a4a7b5f44b8c2ddc2a">hhhh q</option>
+						<option value="fcdd020cc06524c97409e50bf1c96208">Ikki245 I</option>
+						<option value="26b75f009bd0e7bedcf398303186685c">ja ja</option>
+						<option value="3deb89b96d2a197b529c0cdb4943c510">ja ji</option>
+						<option value="1614aad04c956ba9e87e882bdbfe3252">jo jo</option>
+						<option value="491c919a114fc76269f3a0d4518bd3a6">jo jo</option>
+						<option value="92751833a31ded0d89a71f05a576bc88">jo jo</option>
+						<option value="1bcfd97dab832a62c88c5628a1ba7f14">joh joh</option>
+						<option value="e9d6c977ce29e7abe49a482ae9d6234e">joh joh</option>
+						<option value="07be64d2c05d31b23b68045c17e08373">John Connor</option>
+						<option value="aa8f968be0a614be1b72fcb1019a11b1">John Connor</option>
+						<option value="0387f8a5ba254fce1b1e573361faba4a">John Constantine</option>
+						<option value="6eda62539d2df6d76e903349d62c6ff7">John Constantine</option>
+						<option value="d91bde329f2e451391cc1841372eb644">John Smith</option>
+						<option value="000000003e0f10760001000b11f8e529">Josh  Huttel</option>
+						<option value="3068a42a200a416eaa8b9a3b94ee9e44">ku ku</option>
+						<option value="aa834bcba21b3bee8a725758c0f4de4b">Larry0 0Goodman</option>
+						<option value="693a007915e7ab383be1dbee191ecc50">Lesia 35</option>
+						<option value="958abcd245068cbef6c55ded10febd20">Lesia 35</option>
+						<option value="db874723f7ccd1b77b7c10438d067098">lomakotr traktor</option>
+						<option value="deb14ea2c22dd8e86975bddd0744b014">masha mas</option>
+						<option value="2797e392078250db08866aa390f3864d">matrix matrix</option>
+						<option value="bba9e69dbe157156141587c261737582">Michael Lanter</option>
+						<option value="dbd4b4949a5836de7e140e3142958c38">Mmmmmmmm Nnnnnnn</option>
+						<option value="BDAB450E-F2B4-431B-A76F-74BD1A6115B3">Monica Levonsky</option>
+						<option value="412c88b2b3b162b3ef34e028adbdb2ca">Monya Rabinovich</option>
+						<option value="84fafc1694801c1426cdb4939b9751dd">mos mos2</option>
+						<option value="364112c69e1c994c43e9b14beb8c36ca">Mr Qwerty</option>
+						<option value="00155C79-271B-4E3E-847E-9DD895048F6E">mrgoro mrgoro</option>
+						<option value="00aef9f0adfd962d71f71c8db2fdaeb3">mrgoro mrgoro</option>
+						<option value="ee43faeca3a540b5bce2180659c51509">muhamed ali</option>
+						<option value="47404442aea3d4870ecf7b00fa70b8ef">name name</option>
+						<option value="36f6c4ec92138b014e169e5ff22494fd">name1  name 2 </option>
+						<option value="f150c8a689c170f6b4b032564a015955">Name1 Name2</option>
+						<option value="4fc79d9322ecf345de2fb3de4bcdcd5e">Name2 Name1</option>
+						<option value="3723af3f236a96da5936d61a06ad25f4">new customer new cust...</option>
+						<option value="8ba872ae96dc0cf43413f04b809e18f0">new customer123 12</option>
+						<option value="063e10b5b875828e4d9d0d4e0ff5bcbd">new123 customer</option>
+						<option value="3e629884f76a00ee7d7aebf440e986a3">nmmnn 1</option>
+						<option value="5adb6ce0f2d5f7278f6c4c8d2e492b91">Oleg Test</option>
+						<option value="ea05a9e80f17cb2fa96bf6979bc59745">Pavlo Zibrov</option>
+						<option value="20aa7bac55b240876b4cf3ad52dec85d">ppoo ooo</option>
+						<option value="078e0928c62f744ae233d8a39a2315ca">QAProd f</option>
+						<option value="6806d4c38125e1ab52d0ce881b162bdb">Qweerty qwertty</option>
+						<option value="bd47c8e628a7baa4e54da7bbd7d3c54c">Qwer5 asdasasdas</option>
+						<option value="cb5f0c0a30612a042498fcbf9eefffa8">rama maslo</option>
+						<option value="1784928bf47d53f588c91049160da830">Rf Rf</option>
+						<option value="822bf7188eeb746d2a5f711f37f7848e">Rff Ggg</option>
+						<option value="f08c8a938c13b10d33813b8ae50d325f">rgrdg grgd</option>
+						<option value="00675358-24A0-43BF-82DF-924722B97D6C">Sarah Bernart</option>
+						<option value="2eec770fba3743ea822d061e5568a6cb">Sarah Bernart</option>
+						<option value="3389BD6F-5776-4E90-A0E6-83FA99410359">Sarah Bernart</option>
+						<option value="bcc60a0823f31ee9822531acc0dd0686">select select</option>
+						<option value="6448a017bbdef74e3bdd50c06ebe5fac">Sol Call</option>
+						<option value="98a7fffc11474f19ac1560f095661d57">SteveStevetttteteeete...</option>
+						<option value="90371c3ba4214877a90650ae1fb53537">Stiopa Uncle2</option>
+						<option value="fa6eb938baed7b560ebaa12501e71442">taras taras2 </option>
+						<option value="6b0d25b68899e55cfbd1e753260088fc">test 10.09.2015 test ...</option>
+						<option value="6326723b21ca4b2ea5007e6239b5c7df">Test A1000 Customer A...</option>
+						<option value="2c6df8e5b94349bfa7b73cb1018bb08c">Test A152 Customer A1...</option>
+						<option value="00000000ac3010760001000b11f8abb6">Test Customer</option>
+						<option value="f5f8d362b32901a9d81dc075abc9f905">Test Customer</option>
+						<option value="f1ec0e6b076d425c9c50af79068ace52">Test D Customer D</option>
+						<option value="088a498bbd1d44d0bd2b9df583e6a881">Test D2 Customer D2</option>
+						<option value="b0d440bb541de22c8cd8cbe8ef33f1d5">test test </option>
+						<option value="c9a4a5ea7e90c5f34b536341271d8426">test test</option>
+						<option value="a427ea235dfe66a2aa3e8c5d0cb535c0">Transactions Export</option>
+						<option value="c8a2fbde82515c826d09a6eacf36cacd">Tratata Tratata </option>
+						<option value="060b150de3faa8eef8fc8fa108f10203">trolebus 1</option>
+						<option value="6ec2ab041acd5866f591b60845401f8a">Ttttt Tttttt</option>
+						<option value="810ed114cb940cb5633a7a50ce280130">unique customer</option>
+						<option value="c3c5a98a20a3668fa893225ed65a9b2e">unique unique213</option>
+						<option value="cc7d6e4a88b484910dea76cb2b21abdf">User1 User1</option>
+						<option value="6afd7846aa38e5aba3ca0a6503d6c0a6">vad5 man</option>
+						<option value="1227fdb66d018e3394dc4e91290e0022">ValentynTest1</option>
+						<option value="86a6b2b66504193b7c0dc8d6f4d6b89b">w w</option>
+						<option value="00645754-0AC4-4E05-BFA0-1C836656C4D0">Walk-In Walk-In</option>
+						<option value="e228da1a8e4847f89c09ccbf8ba40926">Walk-In</option>
+						<option value="9692181739f8b44a888c17484f980302">xa ax</option>
+						<option value="20f68e3e6b28d5885dd1613897c7bfc0">zibrov zib</option>
+						<option value="125588f0f80db6bd73f6117f59d9ff1b">zzzzz zzzzz</option>
+						<option value="4c954dd546ede896576178fa341a0eb0">zzzzz zzzzzz</option>
+						<option value="1e0a65f336a9ca86af8eeed4b1062833">Прив Прив</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label data-bind="local: 'reports/transactionReport.employee'">Employee</label>
+					<select name="employeeId" class="select" data-bind="options: employees, optionsText: 'displayName', optionsValue: 'id', optionsCaption: 'All', value: employeeId">
+						<option value="">All</option>
+						<option value="267e0c7090d94f318d7af1ad4066e648"> bn  111</option>
+						<option value="068d977fcfa6482082d9fb63f0b43927">111 222</option>
+						<option value="7893395e97c942678cd697b74ed75fdb">111 222</option>
+						<option value="7bb37e23793843259ed7fcd71c33326a">165 263</option>
+						<option value="287dc9c5e2514b4ba063a1af8f4f9bbd">1store  test</option>
+						<option value="6ce5aab10fd147dbb95bd5dadd0b7104">Admin Admin</option>
+						<option value="fc22fc503ea0481fb995e842215504bb">admin test 4.0.1 admi...</option>
+						<option value="85bb776f19474de888fbd06e737da56b">aganUPD agan</option>
+						<option value="e9518d202f6d48c89ad1057106263a95">Alex Tryhleb</option>
+						<option value="df08d9757ed14a8982deebfd1ea49c0c">alexg g</option>
+						<option value="6af61b0680dd483a9fd830a48106eb45">alexg2 g</option>
+						<option value="371ac292ea6944bebbadc98372c25d27">Amber  Queen</option>
+						<option value="68c202fcd3cf44beb6f8a9b2b3b0a5a7">Aston Martin</option>
+						<option value="6af0173ba613423d9a0aa52df9ea4906">B2B NY</option>
+						<option value="1e0591ef2d5e425ab9a03810ecaecee9">Bill Yansen</option>
+						<option value="1d1367b0a7ef420eaf4447401a21d701">Bo BOoperator</option>
+						<option value="172c6332a76a41b1b4d9d24c38ca1a04">BO Operator 11111</option>
+						<option value="baa31e291f1e4adbadfeacacbd76ae53">Car Machine</option>
+						<option value="6f2699651f294de88e907b687fe4908f">Danny Nikiforoff</option>
+						<option value="3615390c21f842d8af56a84e81fd17c8">David Crunch</option>
+						<option value="d16746ae4c924005b500fe6ea3df0750">DENIS_sm Nikiforov_sm</option>
+						<option value="09b5cd1204444166a49cd96e5755cf75">DENIS_sp Nikiforov_sp</option>
+						<option value="6169b1fa75084042a3642d9ecb3609e1">dfa asdas</option>
+						<option value="ef38f1e5c5b54af39fbd95e3092ba080">Dr House</option>
+						<option value="2116d128f1ad422cac6345e1f53e0b88">First Last</option>
+						<option value="e9e669121e694ac49af11222d68396f2">Haim Levy</option>
+						<option value="5c4850df37244d1ea1a82d0b703e53ae">Job Steves</option>
+						<option value="e5af0f1ad569401dbb414ba91687e409">Joe  Porco</option>
+						<option value="7c4d97f9b38143a39e6f2a58d39d150b">John Baker</option>
+						<option value="4486076bf69946b3aa3153fc307ce7d0">John Johnson</option>
+						<option value="a2eae87d4ea849f2931f0e8239e23dae">John Smith</option>
+						<option value="cad4adb0569a4cc094ed18d9e29ae873">John Smith</option>
+						<option value="7e11a5a4ce01431c98706a83f0ca9a92">John White</option>
+						<option value="4f31e7a3bd114432a804b833ae8211bd">Josh Huttel</option>
+						<option value="dd5902876eaf440cb1558f5ffee06538">Lessly Bourman</option>
+						<option value="b5b902efd12848b6acc7e354ca75cea0">Liza Simpson</option>
+						<option value="706ebd30b00540ef91b5d581850660f9">LongTestNameLongTestN...</option>
+						<option value="e4e62e95de2445539d23e0b99484a206">Los  Angeles </option>
+						<option value="03b76edeb50741c88a3c571ace8fffe6">Marg Simpson</option>
+						<option value="2c7c33e89874465ab74785ee0d2de982">mrgoro admin</option>
+						<option value="1cb6240a2df24c248d22a6645283ff62">mrgoro sm</option>
+						<option value="249a6c08ac6d424e8e99ce50fcebe49c">mrgoro sp</option>
+						<option value="f4c1b6913a3a4932a38a026421c579d6">mrgorotestadmin mrgor...</option>
+						<option value="008102a9a7994c30be368f93339a35e6">Mustapha Ibrahim</option>
+						<option value="f04fcc56199e41e0bfbcba0ec3dba4de">New_Employee New_Empl...</option>
+						<option value="da6e6e1beb34400ca5bc68a74af16b47">new1 last1</option>
+						<option value="82e68a05827641eb81d403bc020e754b">nota nota</option>
+						<option value="e944368c9be04f58b60044dee804203e">Oleksii Test</option>
+						<option value="efea3be9714b41eab45fe2dc74f2be40">Oleksii Zagorodnii</option>
+						<option value="7268102e3aaf4670a92d295b7eeae644">Opppppppppp 855555555...</option>
+						<option value="aa461d9963774a2885ea1a8a2a0c7669">qqq qqq</option>
+						<option value="20d2ccfa5b664e25aff87fb3b2513718">qqqq qqqq</option>
+						<option value="7f92cba95a8442239e0db2600bf14459">qwwqw 321</option>
+						<option value="3c2259a17a494bc29e6d2b880f159ab2">Sales Manager test 0....</option>
+						<option value="5336868d3d5b47698924b253452f449c">Sales11111 Person</option>
+						<option value="abcc39a86ce54758a873b99882821f21">Sam Black</option>
+						<option value="098538221fd34627ad05a51bf1b8354c">Sarah Bernart</option>
+						<option value="bdfdafa31e0341e88b4270923045a344">sss 434</option>
+						<option value="19a6850d680a4836870741211f5c09e8">T  employee</option>
+						<option value="9ca0334a84a04f0dbc13cb8b2fd4cb72">Test_Administrator Te...</option>
+						<option value="a341c54d308f45468e992ad12439dc56">Test_SaleManager Test...</option>
+						<option value="c196810e43174c259b7f1e9a399396ff">Test_SalesPerson Test...</option>
+						<option value="dd401fba835b441faac0e9413e85e628">Tom Bibi</option>
+						<option value="5fa57628723946068287f918ff46c08c">Veniamin Zolotukhin</option>
+						<option value="12b10ed4c762451590027498e4bb7ed1">Victoria Fockeu</option>
+						<option value="4fd883f92cf34d76ab95bb5114907c61">yandex yandex2</option>
+						<option value="a980535d0fc447ab908855c33fe6ffc9">Yuliia Koval</option>
+						<option value="8602a23991aa4a88ae355f9d93073318">вм вм</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label data-bind="local: 'reports/transactionReport.stores', visible: $data.storesFilter.storesArr().length > 1" style="">Store</label>
+					<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+					<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true" style="">
+						<div data-bind="with: $data.storesFilter, css: self.divStyle">
+							<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible" style="display: none;">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+							</div>
+							<div data-bind="css: contStyle" class="tr_filter_control_cont">
+								<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+									multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" id="tr_report" style="display: none;">
+									<option value="5a4b11ccd458452facd24376cc851f7b">28 aug test</option>
+									<option value="ea56b32ca4064c43b2d943700b5a796c">28 august store</option>
+									<option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option>
+									<option value="9b95b38021254511970c394af32606e1">FAstSTore</option>
+									<option value="dec86c0a82174c449744d003e8f3dceb">ivanstore</option>
+									<option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option>
+									<option value="8c69323a6b28488f9f5e688f592979cf">New Store</option>
+									<option value="662fd10aa39844839b3b909d232547a3">New Store  8931b</option>
+									<option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option>
+									<option value="b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</option>
+									<option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option>
+									<option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option>
+									<option value="b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</option>
+									<option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option>
+									<option value="e359ba2d45c6467795cfe279152a7ccc">New Store X2</option>
+									<option value="6050df646589491b81a3dd087204c5d4">New Store234</option>
+									<option value="5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</option>
+									<option value="29e2ac6d8a094defa9369454323ba645">Olga Store</option>
+									<option value="6298584313f54a40b31d6403e55614d5">Store 2</option>
+									<option value="688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</option>
+									<option value="f596311134c747418136bd872557750c">Store 28</option>
+									<option value="46116dbcea1c43fd8a91c797c668147c">Store 3</option>
+									<option value="600172f4371c40aab4999b63a5775634">Store ulevan</option>
+									<option value="eaa6a02e0a604f87a3450a897cd9649d">STORE!</option>
+									<option value="46a47ec55ae34e5699a815196881f4bc">TestCreation</option>
+									<option value="86240cf9e12e41e585183105da181f67">Vlad store</option>
+									<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
+									<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+								</select>
+								<div class="ms-parent" style="width: 100px;">
+									<button type="button" class="select">
+										<div class="fl">
+											<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
+											<div>
+												<div></div>
+											</div>
+										</div>
+									</button>
+									<div class="ms-drop bottom" data-name="tr_report">
+										<ul style="max-height: 250px;">
+											<li><input id="allChecktr_report" type="checkbox" name="selectAlltr_report"> <label for="allChecktr_report">Select All</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="5a4b11ccd458452facd24376cc851f7b" id="id_tr_report_5a4b11ccd458452facd24376cc851f7b"> <label for="id_tr_report_5a4b11ccd458452facd24376cc851f7b">28 aug test</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="ea56b32ca4064c43b2d943700b5a796c" id="id_tr_report_ea56b32ca4064c43b2d943700b5a796c"> <label for="id_tr_report_ea56b32ca4064c43b2d943700b5a796c">28 august store</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="df17c52b068e428e94046bcacfd33adb" id="id_tr_report_df17c52b068e428e94046bcacfd33adb"> <label for="id_tr_report_df17c52b068e428e94046bcacfd33adb">BESTsTore</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="9b95b38021254511970c394af32606e1" id="id_tr_report_9b95b38021254511970c394af32606e1"> <label for="id_tr_report_9b95b38021254511970c394af32606e1">FAstSTore</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="dec86c0a82174c449744d003e8f3dceb" id="id_tr_report_dec86c0a82174c449744d003e8f3dceb"> <label for="id_tr_report_dec86c0a82174c449744d003e8f3dceb">ivanstore</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="2d9e1fa2504149f1a36b2b7eaf90daef" id="id_tr_report_2d9e1fa2504149f1a36b2b7eaf90daef"> <label for="id_tr_report_2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="8c69323a6b28488f9f5e688f592979cf" id="id_tr_report_8c69323a6b28488f9f5e688f592979cf"> <label for="id_tr_report_8c69323a6b28488f9f5e688f592979cf">New Store</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="662fd10aa39844839b3b909d232547a3" id="id_tr_report_662fd10aa39844839b3b909d232547a3"> <label for="id_tr_report_662fd10aa39844839b3b909d232547a3">New Store  8931b</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="e926fc3cd7614d549d9ac824b3f92e23" id="id_tr_report_e926fc3cd7614d549d9ac824b3f92e23"> <label for="id_tr_report_e926fc3cd7614d549d9ac824b3f92e23">New Store 32</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="b3dcb79fc4474880af4fd17c2f9ac400" id="id_tr_report_b3dcb79fc4474880af4fd17c2f9ac400"> <label for="id_tr_report_b3dcb79fc4474880af4fd17c2f9ac400">New Store 8931a</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="a3474647d20d40a1b267cdc7cd141428" id="id_tr_report_a3474647d20d40a1b267cdc7cd141428"> <label for="id_tr_report_a3474647d20d40a1b267cdc7cd141428">New Store a</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="887cc460a3dd47a79a14203dc23dd111" id="id_tr_report_887cc460a3dd47a79a14203dc23dd111"> <label for="id_tr_report_887cc460a3dd47a79a14203dc23dd111">New Store s</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="b6f3d5c57a84498db16a3f5d4b22dfe6" id="id_tr_report_b6f3d5c57a84498db16a3f5d4b22dfe6"> <label for="id_tr_report_b6f3d5c57a84498db16a3f5d4b22dfe6">New Store s2</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="fbff8a9bbec04e3f831b0c1b3f78184f" id="id_tr_report_fbff8a9bbec04e3f831b0c1b3f78184f"> <label for="id_tr_report_fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="e359ba2d45c6467795cfe279152a7ccc" id="id_tr_report_e359ba2d45c6467795cfe279152a7ccc"> <label for="id_tr_report_e359ba2d45c6467795cfe279152a7ccc">New Store X2</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="6050df646589491b81a3dd087204c5d4" id="id_tr_report_6050df646589491b81a3dd087204c5d4"> <label for="id_tr_report_6050df646589491b81a3dd087204c5d4">New Store234</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="5d09b2d4754c498c8ec665b2ea4bf621" id="id_tr_report_5d09b2d4754c498c8ec665b2ea4bf621"> <label for="id_tr_report_5d09b2d4754c498c8ec665b2ea4bf621">New Storeq</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="29e2ac6d8a094defa9369454323ba645" id="id_tr_report_29e2ac6d8a094defa9369454323ba645"> <label for="id_tr_report_29e2ac6d8a094defa9369454323ba645">Olga Store</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="6298584313f54a40b31d6403e55614d5" id="id_tr_report_6298584313f54a40b31d6403e55614d5"> <label for="id_tr_report_6298584313f54a40b31d6403e55614d5">Store 2</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="688cd61f63b24a5dadc4c526c0b2a7a2" id="id_tr_report_688cd61f63b24a5dadc4c526c0b2a7a2"> <label for="id_tr_report_688cd61f63b24a5dadc4c526c0b2a7a2">Store 27</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="f596311134c747418136bd872557750c" id="id_tr_report_f596311134c747418136bd872557750c"> <label for="id_tr_report_f596311134c747418136bd872557750c">Store 28</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="46116dbcea1c43fd8a91c797c668147c" id="id_tr_report_46116dbcea1c43fd8a91c797c668147c"> <label for="id_tr_report_46116dbcea1c43fd8a91c797c668147c">Store 3</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="600172f4371c40aab4999b63a5775634" id="id_tr_report_600172f4371c40aab4999b63a5775634"> <label for="id_tr_report_600172f4371c40aab4999b63a5775634">Store ulevan</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="eaa6a02e0a604f87a3450a897cd9649d" id="id_tr_report_eaa6a02e0a604f87a3450a897cd9649d"> <label for="id_tr_report_eaa6a02e0a604f87a3450a897cd9649d">STORE!</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="46a47ec55ae34e5699a815196881f4bc" id="id_tr_report_46a47ec55ae34e5699a815196881f4bc"> <label for="id_tr_report_46a47ec55ae34e5699a815196881f4bc">TestCreation</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="86240cf9e12e41e585183105da181f67" id="id_tr_report_86240cf9e12e41e585183105da181f67"> <label for="id_tr_report_86240cf9e12e41e585183105da181f67">Vlad store</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="2b2f054ecc58450aa7c59cb9a03ec6ac" id="id_tr_report_2b2f054ecc58450aa7c59cb9a03ec6ac"> <label for="id_tr_report_2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</label></li>
+											<li><input type="checkbox" name="selectItemtr_report" value="028f25cf079a4019a12f67d575d11512" id="id_tr_report_028f25cf079a4019a12f67d575d11512"> <label for="id_tr_report_028f25cf079a4019a12f67d575d11512">WestGuestCafe</label></li>
+											<li class="ms-no-results">No matches found</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/ko-->                   
+				</div>
+				<div class="form-group">
+					<label data-bind="local: 'reports/transactionReport.register'">Register</label>
+					<select name="registerId" class="select" data-bind="options: registers, optionsText: 'name', optionsValue: 'id', optionsCaption: 'All', value: registerId">
+						<option value="">All</option>
+						<option value="acb46842b3cb4ec983df23655b0a3bbc">28 august store - Register 1</option>
+						<option value="086eba2fd48f42769dcbe0572468661f">BESTsTore - BestRegister</option>
+						<option value="80c333a78565473ea0018543a47cd49a">BESTsTore - Register 3</option>
+						<option value="32dd841316074f6d951d59796589f9d6">BESTsTore - Register 4</option>
+						<option value="c9c21dee32614461adfc8028831eaa21">BESTsTore - regNamebfse3477</option>
+						<option value="ce7907f2c2f2486584520c68de478121">FAstSTore - Register 1</option>
+						<option value="a46892a1be6042258ff58e60a5f1582b">FAstSTore - Register 2</option>
+						<option value="e2ddf75799df4d89818184196787fe14">New CSP Store - Register 1</option>
+						<option value="4bc8f4727dc44d6284275192864c0796">New Store - Register 1</option>
+						<option value="6ea82e72678a435b83a62d12a61d58cf">New Store 32 - AK 1</option>
+						<option value="5e04a9cf99d1481da625b03e5dd7c3da">New Store 32 - New Registercs32</option>
+						<option value="752b56c54ba745b9ac4a2f35caca2120">New Store a - Register 1</option>
+						<option value="55e51ce0376742108d6162dea4bc45a9">New Store s - Register 1</option>
+						<option value="a887c09de24e46a7b8ccee0a523df70e">New Store s - Register 2</option>
+						<option value="8978fa57b78841a5be89451a86d0e93e">New Store X1 - Register 1</option>
+						<option value="5c494aa7523840ef92c3af57daab37f5">New Store X2 - Register 1</option>
+						<option value="ced31ed315ee49128a42183bca6302ea">New Store234 - Register 1</option>
+						<option value="dd37478689d04eafa0eb4833de44dd9f">Olga Store - Register 1</option>
+						<option value="36bd2a2a1b5e45eab437b5e36d3a349a">Olga Store - Register 3</option>
+						<option value="7a8eea70f05140469d399ae5c75f472d">Olga Store - Register 4</option>
+						<option value="f514531ecf6c40b294be1ec3707bba3a">Store 2 - Vlad Register 1</option>
+						<option value="b1dbaf1dc6654caba6f16d774661a27f">Store 27 - Register 1</option>
+						<option value="71584beb246e4c11a0e795eac9075a14">Store 3 - New Register2</option>
+						<option value="a8a32c1ab2f6418586d39dbfc90e9fad">Store 3 - Register 2</option>
+						<option value="24649d7ca7d949df83604b88f63b95f4">Store ulevan - Register 1</option>
+						<option value="828c9683dbb24e36a3f33257b7d1f203">TestCreation - Register 1</option>
+						<option value="d007a0cf1ea941c88fda80cedac4dcb1">Vlad store - Register 1</option>
+						<option value="8443b743918d46c4af9d27b91ffa7fad">West Street Cafe - Register 2</option>
+						<option value="3730e3a555a64dc59592aeb01dce5f2d">West Street Cafe - regNamesmax3924</option>
+						<option value="d9dceb9cb19b433a9c900ec709126c22">WestGuestCafe - Android tablet1</option>
+						<option value="eacf243055df4cc28de04e788b4c341d">WestGuestCafe - BestRegister</option>
+						<option value="c6e3c0c986df40e9942fb9c28cc8ae04">WestGuestCafe - CASSA</option>
+						<option value="5a288fc511054c2ba1eb9349a509b553">WestGuestCafe - New Register1213</option>
+						<option value="459dce0c55644a52a3faf11560744009">WestGuestCafe - New Registerasdasdasd</option>
+						<option value="83274455f0b74b9eb45fed90e4941cf5">WestGuestCafe - New RegisterTest</option>
+						<option value="91498eecf1234acebc2236b574b20327">WestGuestCafe - Register 0</option>
+						<option value="4b0795c6abbc45059c24160fd5774c89">WestGuestCafe - Register 1</option>
+						<option value="b1669bc23fb6452e9bdc4f2f8d18a62f">WestGuestCafe - Register 13</option>
+						<option value="d656a538f299497eaf12ee0bf22f30a4">WestGuestCafe - Register 14</option>
+						<option value="70e8af6258234907a4cea7ee2972bbba">WestGuestCafe - Register 15</option>
+						<option value="73c6d3b7d20247b38da18d5e46fced80">WestGuestCafe - Register 16</option>
+						<option value="4e2b2fc046ff4af5b4e781190274c8b6">WestGuestCafe - Register 17</option>
+						<option value="b529ff5161b34b3cb8e39a749e107b69">WestGuestCafe - Register 19</option>
+						<option value="9f2c4f2e2287497a9d960d2bb30b7aee">WestGuestCafe - Register 2</option>
+						<option value="e993ba8444b3484b85f24230945783ac">WestGuestCafe - Register 20</option>
+						<option value="7719029c877c4f80b549ddbf84b2354f">WestGuestCafe - Register 22</option>
+						<option value="dba86662ca2147868cc51d75a73b4ba4">WestGuestCafe - Register 24</option>
+						<option value="687c22e0523f4c3e8684d12826d50a01">WestGuestCafe - Register 25UPD</option>
+						<option value="5da9797de0b848e8a1a07760ca21f66f">WestGuestCafe - Register 26</option>
+						<option value="1e3e97b8ccc442118a631d072a0b2936">WestGuestCafe - Register 28</option>
+						<option value="9d38c1d4f505473a80b50ec1fd09a0fe">WestGuestCafe - Register 29</option>
+						<option value="06414eeaad6a4704a9d5b4a5f7e31de4">WestGuestCafe - Register 3</option>
+						<option value="f546823618a449b3bcda2ca71a314703">WestGuestCafe - Register 30</option>
+						<option value="738da54718994c95a48b07a2c47b542b">WestGuestCafe - Register 32</option>
+						<option value="52e976234a594a6d909e66b21df87fa8">WestGuestCafe - Register 34</option>
+						<option value="379097eeea95461082c1841402e8030a">WestGuestCafe - Register 35</option>
+						<option value="9fc4ac8029f64548be8e8d8c99bc8659">WestGuestCafe - Register 36</option>
+						<option value="7bfc860628744ec3a48067555adee08f">WestGuestCafe - Register 373</option>
+						<option value="5ba4231b4f064c41b0c1083c31d286c2">WestGuestCafe - Register 38</option>
+						<option value="9b06d7b170034ed78b66dbbd58cde272">WestGuestCafe - Register 39</option>
+						<option value="7754e64ecaaf4775973ac3c79ce5f8b2">WestGuestCafe - Register 40</option>
+						<option value="f24e699965944981a3770e4eeafc60f9">WestGuestCafe - Register 41</option>
+						<option value="984fbc770dbe490c9d02a3e94b1c716e">WestGuestCafe - Register 42</option>
+						<option value="fe9ddc788d2f4c93a44ad292c15d0976">WestGuestCafe - Register 43</option>
+						<option value="5bb33cf5de5b478cbb821de2d6fbbf8f">WestGuestCafe - Register 44</option>
+						<option value="7ceda4082230456b953fa1597bcb0d54">WestGuestCafe - Register 45</option>
+						<option value="f2a3a22cb5624890bae5ee775a326553">WestGuestCafe - Register 46</option>
+						<option value="77851291483b41e3a7f69a2b051425c8">WestGuestCafe - Register 48</option>
+						<option value="d976d5d3489145578e19624ae03b1f9b">WestGuestCafe - Register 49</option>
+						<option value="f4e24cda30e4496ea57ff1f148e77c8c">WestGuestCafe - Register 4-sync test</option>
+						<option value="3aa7ef13e5c54ec0b8a2db804ad93371">WestGuestCafe - Register 5</option>
+						<option value="2770a60fc6dc4c7d86f23831d540551f">WestGuestCafe - Register 7</option>
+						<option value="c169a3d35f0b4696a562e1368c08ecd3">WestGuestCafe - Register 8</option>
+						<option value="dc508c8068dc4da98c61cc1e2e233fe9">WestGuestCafe - regName7138</option>
+						<option value="42775de9838a46ffbb5ce47d89b23ba7">WestGuestCafe - regNamebcav2231</option>
+						<option value="9ac4a43446da431fa7f5a4d204500c3e">WestGuestCafe - regNamefkhk7805</option>
+						<option value="14d2f758831b47b3a7d1bbf271350dd0">WestGuestCafe - Venya POS</option>
+						<option value="7eab6be0c45e49cd868cdcc785fc9bec">WestGuestCafe - vgorobei</option>
+						<option value="0d5cfe1469544ccaac88ee342b3b1918">WestGuestCafe - Yurii 23</option>
+						<option value="ddbe28aa7b414c20a93c827862bae5ba">WestGuestCafe - Yurii 33</option>
+					</select>
+				</div>
+				<div class="form-group tran-report-period">
+					<label data-bind="local: 'reports/transactionReport.period'">Time Period</label>
+					<date-filter params="value: dateRange">
+						<div class="pull-right">
+							<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+								<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								&nbsp;
+								<span>Today</span> 
+								<b class="caret"></b>
+							</div>
+						</div>
+					</date-filter>
+					<input name="dateFrom" type="hidden" data-bind="value: dateFrom" value="">
+					<input name="dateTo" type="hidden" data-bind="value: dateTo" value="">
+				</div>
+				<div class="form-group row amount-range">
+					<div class="col-xs-12">
+						<label data-bind="local: 'reports/transactionReport.amountRange'">$ Amount Range</label>
+					</div>
+					<div class="col-xs-6">
+						<label data-bind="local: 'reports/transactionReport.from'">From</label>
+						<input name="amountFrom" class="form-control input-lg" type="text" placeholder="From" maxlength="10" data-bind="value: amountFrom, keydown: checkInputValue">
+					</div>
+					<div class="col-xs-6">
+						<label data-bind="local: 'reports/transactionReport.to'">To</label>
+						<input name="amountTo" class="form-control input-lg" type="text" placeholder="To" maxlength="10" data-bind="value: amountTo, keydown: checkInputValue">
+					</div>
+				</div>
+				<div class="form-buttons">
+					<button class="btn btn-lg btn-primary export-report-button" type="submit" data-bind="click: beforeSubmit, local: 'reports/transactionReport.export'">Export</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

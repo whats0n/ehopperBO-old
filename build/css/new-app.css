@@ -5865,6 +5865,10 @@
   margin-bottom: 20px;
 }
 
+.new-notifications__checkbox-item {
+  margin-right: 20px;
+}
+
 .new-notifications__field {
   position: relative;
   padding-right: 50px;
@@ -6067,6 +6071,10 @@
 
 .v-simple-filters__col_sm {
   width: 25%;
+}
+
+.v-simple-filters__col_xs {
+  width: 20%;
 }
 
 .v-simple-filters__select,
@@ -7395,7 +7403,8 @@ select {
 }
 
 @media only screen and (max-width: 1360px){
-  .select-stores-width-adaptive .select select{
+  .select-stores-width-adaptive .select,
+  .select-stores-width-adaptive select{
     width: 240px !important;
   }
 }
@@ -7407,7 +7416,8 @@ select {
 }
 
 @media only screen and (max-width: 1240px){
-  .select-stores-width-adaptive .select{
+  .select-stores-width-adaptive .select,
+  .select-stores-width-adaptive select{
     width: 200px !important;
   }
 }

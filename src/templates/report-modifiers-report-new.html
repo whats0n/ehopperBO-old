@@ -1,0 +1,134 @@
+---
+title: Modifiers report
+headerTitle: Modifiers report
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<div class="pane-body item-list">
+		<form target="_blank" method="post" action="api/ModifiersReport/ExportModifiers" data-bind="submit: beforeExportSubmit">
+			{{simpleFilters.call({
+				search: { placeholder: 'Search by modifier' },
+				fields: [
+					{ label: 'Stores' },
+					{ label: 'Department' },
+					{ label: 'Category' },
+					{ label: 'Register' },
+					{ label: 'Employee' }
+				]
+			})}}
+		</form>
+
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+			<div id="modifiersReportTable_wrapper" class="dataTables_wrapper">
+				<div id="modifiersReportTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="modifiersReportTable"></label></div>
+				<div id="modifiersReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+				<table class="datatable dataTable" id="modifiersReportTable" role="grid">
+					<thead>
+						<tr role="row">
+							<th data-bind="local: 'modifiersReport.modifier'" class="sorting_asc" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Modifier: Activate to sort by descending columns" aria-sort="ascending">Modifier</th>
+							<th data-bind="local: 'modifiersReport.modifierGroup'" class="sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Modifier Group: Activate to sort by ascending columns">Modifier Group</th>
+							<th data-bind="local: 'modifiersReport.product'" class="sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Product: Activate to sort by ascending columns">Product</th>
+							<th data-bind="local: 'modifiersReport.qtySold'" class="numeric-data sorting" tabindex="0" aria-controls="modifiersReportTable" rowspan="1" colspan="1" aria-label="Qty Sold: Activate to sort by ascending columns">Qty Sold</th>
+							<th data-bind="local: 'modifiersReport.grossSales'" class="numeric-data sorting_disabled" rowspan="1" colspan="1" aria-label="Gross Sales">Gross Sales</th>
+							<th data-bind="local: 'modifiersReport.netSales'" class="numeric-data sorting_disabled" rowspan="1" colspan="1" aria-label="Net Sales">Net Sales</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th class="text-right" colspan="3" data-bind="local: 'reports/productMixReport.total'" rowspan="1">Total:</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">39</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$263.75</th>
+							<th class="text-right numeric-data" rowspan="1" colspan="1">$252.75</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr role="row" class="odd">
+							<td class="sorting_1">110</td>
+							<td>imported prod 1 (Copy)</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$150.00</td>
+							<td class=" numeric-data">$150.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">1234</td>
+							<td>Test Mod</td>
+							<td>Test Prod</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$2.00</td>
+							<td class=" numeric-data">$2.00</td>
+						</tr>
+						<tr role="row" class="odd">
+							<td class="sorting_1">12345</td>
+							<td>Test Mod</td>
+							<td>Test Prod</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$3.00</td>
+							<td class=" numeric-data">$0.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">dwa</td>
+							<td>dwa</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$0.00</td>
+							<td class=" numeric-data">$0.00</td>
+						</tr>
+						<tr role="row" class="odd">
+							<td class="sorting_1">Extra Cheese</td>
+							<td>Add-Ons</td>
+							<td>Hamburger</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$1.00</td>
+							<td class=" numeric-data">$1.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">green</td>
+							<td>Colour</td>
+							<td>Pen2</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$4.00</td>
+							<td class=" numeric-data">$4.00</td>
+						</tr>
+						<tr role="row" class="odd">
+							<td class="sorting_1">grey</td>
+							<td>Colour2</td>
+							<td>Pen1</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$10.00</td>
+							<td class=" numeric-data">$10.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">gs</td>
+							<td>dsad</td>
+							<td>Trident</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$0.00</td>
+							<td class=" numeric-data">$0.00</td>
+						</tr>
+						<tr role="row" class="odd">
+							<td class="sorting_1">Large</td>
+							<td>Size</td>
+							<td>Hamburger</td>
+							<td class=" numeric-data">1</td>
+							<td class=" numeric-data">$5.00</td>
+							<td class=" numeric-data">$5.00</td>
+						</tr>
+						<tr role="row" class="even">
+							<td class="sorting_1">m</td>
+							<td>Modif one</td>
+							<td>Mango</td>
+							<td class=" numeric-data">2</td>
+							<td class=" numeric-data">$2.00</td>
+							<td class=" numeric-data">$2.00</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="dataTables_paginate paging_simple_numbers" id="modifiersReportTable_paginate"><a class="paginate_button previous disabled" aria-controls="modifiersReportTable" data-dt-idx="0" tabindex="0" id="modifiersReportTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="modifiersReportTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="modifiersReportTable" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="modifiersReportTable" data-dt-idx="3" tabindex="0" id="modifiersReportTable_next">Next</a></div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
