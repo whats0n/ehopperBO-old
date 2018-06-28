@@ -1,0 +1,161 @@
+---
+title: Store Settings
+headerTitle: Store Settings
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<div class="pane-body item-list">
+		<div class="form wide-form store-settings" style="display: block;">
+			<div class="store-settings-tabs tab-control">
+				<span class="tab" data-for="#generalTab">
+					<span class="tab-title">General</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#contactsTab">
+					<span class="tab-title">Contacts</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#receiptTab">
+					<span class="tab-title">Receipt</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab selected" data-for="#tipsTab">
+					<span class="tab-title">Tips</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#taxesTab">
+					<span class="tab-title">Taxes</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#paymentTab">
+					<span class="tab-title">Payment Gateway</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#localizationTab">
+					<span class="tab-title">Localization</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+				<span class="tab" data-for="#registerListTab">
+					<span class="tab-title">Registers</span>
+					<span class="tab-selected-arrow"></span>
+				</span>
+			</div>
+			<div id="saveMessages"></div>
+			
+			<div class="tab-content" 
+				id="tipsTab" 
+				data-bind="compose: {
+					model: 'viewmodels/stores/store-settings-tabs/tips',
+					view: 'views/stores/store-settings-tabs/tips.html'
+				}" style="display: block;">
+				<div class="form-horizontal" 
+					data-bind="with: model" 
+					data-view="views/stores/store-settings-tabs/tips" 
+					data-active-view="true">
+				
+					<div class="form-group">
+						<div class="col-xs-6 col-sm-3">
+							<script>
+								function checkTarget() {
+									var targetStyle = document.querySelector('.js-check-target').style;
+
+									event.currentTarget.checked
+										? targetStyle.display = 'block'
+										: targetStyle.display = 'none';
+								}
+								function toggleCashTips(e, classList) {
+									var state = $(e.currentTarget).prop('checked');
+									var radios = $(classList);
+									radios.attr('disabled', !state);
+								}
+							</script>
+							<div class="checkbox" style="min-height: 37px;">
+								<input type="checkbox" id="isOn" data-bind="checked: tips" onchange="(function(e) { checkTarget(), toggleCashTips(e, '.js-cash-tips-type') })(event)">
+								<label for="isOn" data-bind="local: 'storeSettings/store-settings-tabs/tips.tips'">Tips</label>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-3 js-check-target" style="display: none;">
+							<div class="checkbox" style="min-height: 37px;">
+								<input type="checkbox" id="act" data-bind="checked: tips" onchange="toggleCashTips(event, '.js-cash-tips')">
+								<label for="act" data-bind="local: 'storeSettings/store-settings-tabs/tips.tips'">Allow cash tips</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12">
+							<label>Card tips type</label>
+							<span data-bind="foreach: tipsSignatureSettings" class="radio-button-group">
+								<input class="js-cash-tips-type" type="radio" name="cardTipsType" id="$" disabled checked><label for="$">$</label>
+								<input class="js-cash-tips-type" type="radio" name="cardTipsType" id="%" disabled><label for="%">%</label>
+								<input class="js-cash-tips-type" type="radio" name="cardTipsType" id="$/%" disabled><label for="$/%">$ / %</label>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12">
+							<label data-bind="local: 'storeSettings/store-settings-tabs/receipt.tipsNSignature'">Cash tips</label>
+							<span data-bind="foreach: tipsSignatureSettings" class="radio-button-group">
+								<input class="js-cash-tips" type="radio" name="tipsAndSignature" data-bind="attr: { id: $data }, value: $index, checked: $parent.signatureOnReceipt" id="Screen" value="0" disabled checked><label data-bind="attr: { 'for': $data }, text: ko.T('storeSettings/store-settings-tabs/receipt.' + $data)" for="Screen">on screen</label>
+							
+								<input class="js-cash-tips" type="radio" name="tipsAndSignature" data-bind="attr: { id: $data }, value: $index, checked: $parent.signatureOnReceipt" id="Receipt" value="1" disabled><label data-bind="attr: { 'for': $data }, text: ko.T('storeSettings/store-settings-tabs/receipt.' + $data)" for="Receipt">on receipt</label>
+							</span>
+						</div>
+					</div>
+
+					<!-- ko if: tipsAndSignatureOnPos !== undefined && isCompanySettings --><!-- /ko -->
+
+					<div class="form-group">
+						<div class="col-xs-6 col-sm-5">
+							<label data-bind="local: 'storeSettings/store-settings-tabs/tips.keyboard_shortcut_settings'">Keyboard Shortcut Settings</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-6 col-sm-3">
+							<label class="control-label" data-bind="text: ko.local('storeSettings/store-settings-tabs/tips.for_curr_amount', null,  ko.numeric.currencyFormat() ? ko.numeric.currencyFormat().symbol : '')">For $ Amount</label>
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" data-bind="currencyVal: tipsMoneyValue1, attr: { placeholder: ko.numeric.formatCurrency(0) }" placeholder="$0.00"><span class="fieldError" style="display: none;"></span>
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" data-bind="currencyVal: tipsMoneyValue2, attr: { placeholder: ko.numeric.formatCurrency(0) }" placeholder="$0.00"><span class="fieldError" style="display: none;"></span>
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" data-bind="currencyVal: tipsMoneyValue3, attr: { placeholder: ko.numeric.formatCurrency(0) }" placeholder="$0.00"><span class="fieldError" style="display: none;"></span>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-6 col-sm-3">
+							<label class="control-label" data-bind="local: 'storeSettings/store-settings-tabs/tips.for_%_amount'">For % Amount</label>
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" placeholder="0 %" data-bind="percentVal: tipsPercentValue1.percent">
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" placeholder="0 %" data-bind="percentVal: tipsPercentValue2.percent">
+						</div>
+
+						<div class="col-xs-6 col-sm-3">
+							<input class="form-control input-lg js-cash-tips" disabled type="text" placeholder="0 %" data-bind="percentVal: tipsPercentValue3.percent">
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="form-buttons">
+				<input data-fat="fat-global-done-button" class="btn btn-lg btn-primary uppercase" type="button" value="Done" data-bind="click: save, local:'storeSettings/storeSettings.done' ">
+				<input class="btn btn-lg btn-default" type="button" value="Cancel" data-bind="click: cancel, local: 'storeSettings/storeSettings.cancel' ">
+			</div>
+		</div>
+	</div>
+{% endblock %}
