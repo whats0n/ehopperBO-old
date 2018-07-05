@@ -1,0 +1,399 @@
+
+
+
+
+<!doctype html>
+<html>
+	<head>
+		<title>Orders</title>
+		<base /> 
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+		<link rel="shortcut icon" href="content/favicon.ico">
+		<link rel="stylesheet" href="content/bootstrap.css" />
+		<link rel="stylesheet" href="content/bootstrap-NsBo-theme.css" />
+		<link rel="stylesheet" href="content/font-awesome.css" />
+		<link rel="stylesheet" href="content/durandal.css" />
+		<link rel="stylesheet" href="content/morrisJs/morris.css" />
+		<link rel="stylesheet" href="content/jquery.datatables/css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="content/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="content/daterangepicker/daterangepicker.css" />
+		<link rel="stylesheet" href="content/colorpicker/bootstrap.colorpickersliders.css" />
+		<link rel="stylesheet" href="content/jQuery-File-Upload/css/jquery.fileupload.css" />
+		<link rel="stylesheet" href="content/slim/slim.min.css" />
+		<link rel="stylesheet" href="content/jQuery-Tag-Input/jquery.tag-editor.css" />
+		<link rel="stylesheet" href="content/app.css" />
+		<link rel="stylesheet" href="css/new-app.css" />
+	</head>
+	<body>
+	
+		<div id="applicationHost">
+			
+			<div class="main-container">
+				
+
+				
+				<section id="content" class="hide-content">
+				
+
+					
+						<div class="pane pane-right ">
+							<div class="pane-header">
+	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Orders</span></b>
+</div>
+							
+							<div class="pane-body-wrapper ">
+								
+
+	<div class="pane-body inventory">
+		<div id="messages"></div>
+		
+<!-- begin v-simple-filters -->
+<div class="v-simple-filters">
+	<div class="v-simple-filters__row">
+		<!-- begin search -->
+		<div class="v-simple-filters__col">
+			<input 
+				type="text" 
+				class="form-control input-lg pull-left datatable-search v-simple-filters__search" 
+				data-bind="local: 'reports/productMixReport.search_item_by_title_or_code', localAttr: 'placeholder'" 
+				placeholder="Search for order, serial #">
+		</div>
+		<!-- end search -->
+
+		<div class="v-simple-filters__col">
+			<button 
+				type="button"
+				class="btn btn-lg btn-primary"
+				data-keypress="Enter" 
+				data-bind="local: 'common.searchButton', click: search">Search</button>
+		</div>
+
+		
+			<!-- begin buttons -->
+			<div class="v-simple-filters__col pull-right">
+				
+					<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+						<date-filter params="value: dateRange">
+							<div class="pull-right">
+								<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									&nbsp;
+									<span>Today</span> 
+									<b class="caret"></b>
+								</div>
+							</div>
+						</date-filter>
+					</div>
+				
+
+				<div class="report-export-wrapper pull-right v-simple-filters__export">
+					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+				</div>
+			</div>
+			<!-- end buttons -->
+		
+	</div>
+	
+		<div class="v-simple-filters__row">
+			<script>
+				function openDropdown(e) {
+					e.preventDefault();
+					$(e.currentTarget)
+						.closest('.ms-parent')
+						.find('.ms-drop')
+						.toggle();
+				}
+			</script>
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
+						<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true">
+							<div data-bind="with: $data.storesFilter, css: self.divStyle">
+								<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
+								<div data-bind="css: contStyle" class="v-simple-filters__select">
+									<select class="form-control input-lg" data-bind="options: storesArr, optionsText: 'storeName', optionsValue: 'id',
+										multipleSelect: storesArr, selectedElements: stores, multipleSelectOptions: setupMultiSelect(), attr: { id: name }" style="display: none;"><option value="df17c52b068e428e94046bcacfd33adb">BESTsTore</option><option value="9b95b38021254511970c394af32606e1">FAstSTore</option><option value="2d9e1fa2504149f1a36b2b7eaf90daef">New CSP Store</option><option value="8c69323a6b28488f9f5e688f592979cf">New Store</option><option value="e926fc3cd7614d549d9ac824b3f92e23">New Store 32</option><option value="a3474647d20d40a1b267cdc7cd141428">New Store a</option><option value="887cc460a3dd47a79a14203dc23dd111">New Store s</option><option value="fbff8a9bbec04e3f831b0c1b3f78184f">New Store X1</option><option value="600172f4371c40aab4999b63a5775634">Store ulevan</option><option value="86240cf9e12e41e585183105da181f67">Vlad store</option><option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
+									</select>
+									<div class="ms-parent">
+										<button type="button" class="select" onclick="openDropdown(event)">
+											<div class="fl">
+												<div>
+													<input id="txtMs_data_undefined" class="filter-text" type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">
+												</div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</button>
+										<div class="ms-drop bottom" data-name="multipleSelect1">
+											<ul style="max-height: 250px;">
+												<li>
+													<input id="allCheck" type="checkbox" name="selectAllmultipleSelect1" checked>
+													<label for="allCheck">Select All</label>
+												</li>
+												
+												
+													<li>
+														<input type="checkbox" name="selectItemmultipleSelect1" id="payment-store-1" checked>
+														<label for="payment-store-1">6408 Pacific Ave</label>
+													</li>
+												
+												<li class="ms-no-results">No matches found</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/ko-->
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Order Type:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Order Type 1</option>
+							
+								<option value="Register 2">Order Type 2</option>
+							
+								<option value="Register 3">Order Type 3</option>
+							
+								<option value="Register 4">Order Type 4</option>
+							
+								<option value="Register 5">Order Type 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Order Status:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Order Status 1</option>
+							
+								<option value="Register 2">Order Status 2</option>
+							
+								<option value="Register 3">Order Status 3</option>
+							
+								<option value="Register 4">Order Status 4</option>
+							
+								<option value="Register 5">Order Status 5</option>
+							
+						</select>
+					</div>
+				
+			
+				
+					
+				
+				
+				
+					<div class="v-simple-filters__col v-simple-filters__col_sm">
+						<label>Fulfillment:</label>
+						<select>
+							<option>All</option>
+							
+								<option value="Register 1">Fulfillment 1</option>
+							
+								<option value="Register 2">Fulfillment 2</option>
+							
+								<option value="Register 3">Fulfillment 3</option>
+							
+								<option value="Register 4">Fulfillment 4</option>
+							
+								<option value="Register 5">Fulfillment 5</option>
+							
+						</select>
+					</div>
+				
+			
+		</div>
+	
+</div>
+<!-- end v-simple-filters -->
+
+
+		
+		<div id="transactionsTable_wrapper" class="dataTables_wrapper" style="min-width: 1180px;">
+			<div id="transactionsTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="transactionsTable"></label></div>
+			<div id="transactionsTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+			<table class="datatable dataTable" id="transactionsTable" role="grid" aria-describedby="transactionsTable_info">
+				<thead>
+					<tr role="row">
+						<th data-bind="local: 'orders/ordersList.order_id'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Order ID: Activate to sort by ascending columns" style="width: 230px;">Order ID</th>
+						<th data-bind="local: 'orders/ordersList.order_name'" class="tenderData sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Order Name: Activate to sort by ascending columns">Order Name</th>
+						<th data-bind="local: 'orders/ordersList.type'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Type: Activate to sort by ascending columns" style="width: 100px;">Type</th>
+						<th data-bind="local: 'orders/ordersList.fulfillmentColumn'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Fulfillment: Activate to sort by ascending columns" style="width: 150px;">Fulfillment</th>
+						<th data-bind="local: 'orders/ordersList.status'" class="center sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Status: Activate to sort by ascending columns">Status</th>
+						<th data-bind="local: 'orders/ordersList.total'" class="break-word sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Total Sales: Activate to sort by ascending columns">Total Sales</th>
+						<th data-bind="local: 'orders/ordersList.date'" class="sorting_desc" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Date: Activate to sort by ascending columns" aria-sort="descending">Date</th>
+						<th data-bind="local: 'orders/ordersList.employee'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
+						<th data-bind="local: 'orders/ordersList.customer'" class="sorting" tabindex="0" aria-controls="transactionsTable" rowspan="1" colspan="1" aria-label="Customer: Activate to sort by ascending columns">Customer</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="editable odd" id="bd34d62c69a24e9bbadffc5fb51c0a15" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">031830015666</td>
+						<td class=" tenderData"></td>
+						<td>Take Out</td>
+						<td class=" center"><i class="fa fa-plus-square-o fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$24.45</td>
+						<td class="sorting_1">02/07/2018 4:45:41 PM</td>
+						<td>WooCommerce WooCommerce</td>
+						<td>ss sss</td>
+					</tr>
+					<tr class="editable even" id="000000001007107600110001120f3a68" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">171780811504</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-ban fa-lg status-voided"></i></td>
+						<td class=" break-word">$2.63</td>
+						<td class="sorting_1">27/06/2018 1:00:10 PM</td>
+						<td>Admin Admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable odd" id="000000001007107600110001120ff57b" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">171780784281</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-arrow-left fa-lg status-refunded"></i></td>
+						<td class=" break-word">$2.63</td>
+						<td class="sorting_1">27/06/2018 12:56:58 PM</td>
+						<td>Admin Admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable even" id="000000001008107600170001120a180c" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">231739585123</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$15.23</td>
+						<td class="sorting_1">22/06/2018 5:02:02 PM</td>
+						<td>Car Machine</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable odd" id="000000001005107600170001120a84d5" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">231739572133</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$0.23</td>
+						<td class="sorting_1">22/06/2018 4:49:29 PM</td>
+						<td>Los  Angeles </td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable even" id="00000000101a1076002100011208c339" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">331717085872</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$105.00</td>
+						<td class="sorting_1">20/06/2018 1:31:45 PM</td>
+						<td>Admin Admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable odd" id="00000000100b1076002100011208efd5" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">331717075048</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$4.20</td>
+						<td class="sorting_1">20/06/2018 1:20:57 PM</td>
+						<td>Admin Admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable even" id="00000000ac02107600320001120144da" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">501640210263</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$6.09</td>
+						<td class="sorting_1">13/06/2018 5:06:13 PM</td>
+						<td>mrgoro admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable odd" id="0000000021c11076003200011201bd30" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">501640208628</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$6.09</td>
+						<td class="sorting_1">13/06/2018 5:05:44 PM</td>
+						<td>mrgoro admin</td>
+						<td>Walk-In</td>
+					</tr>
+					<tr class="editable even" id="00000000c2b71076003200011201308b" data-bind="click: edit, css:{checked: checked()}" role="row">
+						<td class=" center">501640191227</td>
+						<td class=" tenderData"></td>
+						<td>Quick Sale</td>
+						<td class=" center"><i class="fa fa-thumbs-up fa-lg fulfilment-color"></i></td>
+						<td class=" center"><i class="fa fa-check fa-lg status-paid"></i></td>
+						<td class=" break-word">$5.83</td>
+						<td class="sorting_1">13/06/2018 5:05:08 PM</td>
+						<td>mrgoro admin</td>
+						<td>Walk-In</td>
+					</tr>
+				</tbody>
+				<tfoot class="tfooter-total">
+					<tr>
+						<th class="text-right center tenderData" colspan="5" data-bind="local: 'orders/ordersList.totalAmountFooter'" rowspan="1">Total amount:</th>
+						<th class="text-left break-word" rowspan="1" colspan="1">$485.98</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="dataTables_info" id="transactionsTable_info" role="status" aria-live="polite">Showing 1 to 10 of 33 entriesInfoPostFix</div>
+			<div class="dataTables_paginate paging_simple_numbers" id="transactionsTable_paginate"><a class="paginate_button previous disabled" aria-controls="transactionsTable" data-dt-idx="0" tabindex="0" id="transactionsTable_previous">Previous</a><span><a class="paginate_button current" aria-controls="transactionsTable" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="transactionsTable" data-dt-idx="4" tabindex="0">4</a></span><a class="paginate_button next" aria-controls="transactionsTable" data-dt-idx="5" tabindex="0" id="transactionsTable_next">Next</a></div>
+		</div>
+	</div>
+
+
+							</div>
+						</div>
+					
+					
+				</section>
+			</div>
+		</div>
+
+		<!-- BEGIN scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- END scripts -->
+
+	</body>
+</html>

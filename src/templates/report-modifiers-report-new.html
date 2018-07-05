@@ -6,7 +6,7 @@ headerTitle: Modifiers report
 
 {% block content %}
 
-	<div class="pane-body item-list">
+	<div class="pane-body inventory">
 		<form target="_blank" method="post" action="api/ModifiersReport/ExportModifiers" data-bind="submit: beforeExportSubmit">
 			{{simpleFilters.call({
 				search: { placeholder: 'Search by modifier' },

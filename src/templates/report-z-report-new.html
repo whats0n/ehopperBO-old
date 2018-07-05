@@ -1,14 +1,15 @@
 ---
-title: Tax Report
-headerTitle: Tax Report
+title: Z Report
+headerTitle: Z Report
 ---
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
 
-	<div class="pane-body item-list">
+	<div class="pane-body inventory">
 		<div id="messages"></div>
-		<date-filter params="value: dateRange">
+		{{smallFilters.call()}}
+		{#<date-filter params="value: dateRange">
 			<div class="pull-right">
 				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
 					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -111,7 +112,7 @@ headerTitle: Tax Report
 			<a href="api/Shifts/ExportZReport" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
 			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
 		</div>
-		<br class="clear">
+		<br class="clear">#}
 		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
 		<div id="shiftsTable_wrapper" class="dataTables_wrapper no-footer">
 			<div id="shiftsTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="shiftsTable"></label></div>

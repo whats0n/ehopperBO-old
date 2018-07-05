@@ -6092,6 +6092,49 @@
   margin-right: 15px;
 }
 
+.v-small-filters {
+  margin: -10px;
+  font-size: 0;
+  *zoom: 1;
+}
+
+.v-small-filters:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.v-small-filters__col {
+  float: left;
+  padding: 10px;
+  width: 21%;
+  max-width: 380px;
+  font-size: 14px;
+}
+
+.v-small-filters__col_btn {
+  padding-top: 35px;
+  width: auto;
+}
+
+.v-small-filters__col_btns {
+  float: right;
+  padding-top: 20px;
+  width: 40%;
+  max-width: none;
+}
+
+.v-small-filters .filter_control_cont,
+.v-small-filters .select,
+.v-small-filters select {
+  width: 100%;
+  max-width: 100%;
+}
+
+.v-small-filters__btn {
+  float: right;
+}
+
 .products-sortable__placeholder {
   position: relative;
   float: left;
@@ -7380,6 +7423,10 @@ select {
   margin-right: 10px;
 }
 
+.inventory {
+  min-width: 1000px;
+}
+
 @media only screen and (max-height: 840px){
   .v-guide-form__field{
     padding: 7px 10px;
@@ -7415,6 +7462,10 @@ select {
 }
 
 @media only screen and (max-width: 1240px){
+  .v-small-filters__btn{
+    text-align: right;
+    clear: both;
+  }
   .select-stores-width-adaptive .select,
   .select-stores-width-adaptive select{
     width: 200px !important;

@@ -1,10 +1,11 @@
 
 
 
+
 <!doctype html>
 <html>
 	<head>
-		<title>Tax Report</title>
+		<title>Z Report</title>
 		<base /> 
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -44,29 +45,23 @@
 						<div class="pane pane-right ">
 							<div class="pane-header">
 	<div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
-	<b><span data-part="navPath" data-bind="text: navigationPath">Tax Report</span></b>
+	<b><span data-part="navPath" data-bind="text: navigationPath">Z Report</span></b>
 </div>
 							
 							<div class="pane-body-wrapper ">
 								
 
-	<div class="pane-body item-list">
+	<div class="pane-body inventory">
 		<div id="messages"></div>
-		<date-filter params="value: dateRange">
-			<div class="pull-right">
-				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-					&nbsp;
-					<span>Today</span> 
-					<b class="caret"></b>
-				</div>
-			</div>
-		</date-filter>
-		<div style="margin-left:-40px; float:left;">
+		
+<!-- begin v-small-filters -->
+<div class="v-small-filters">
+	<div class="v-small-filters__col">
+		<div>
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
-			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
+			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true" style="">
 				<div data-bind="with: $data.storesFilter, css: self.divStyle">
-					<div class="stores-filter-label-wrapper" data-bind="visible: !labelNotVisible">
+					<div class="v-small-filters__label" data-bind="visible: !labelNotVisible">
 						<label data-bind="local: 'employees/manage-tabs/generalTab.stores'">Stores:</label>
 					</div>
 					<div data-bind="css: contStyle" class="filter_control_cont">
@@ -101,7 +96,7 @@
 							<option value="2b2f054ecc58450aa7c59cb9a03ec6ac">West Street Cafe</option>
 							<option value="028f25cf079a4019a12f67d575d11512">WestGuestCafe</option>
 						</select>
-						<div class="ms-parent" style="width: 100px;">
+						<div class="ms-parent" style="width: 151px;">
 							<button type="button" class="select">
 								<div class="fl">
 									<div><input id="txtMs_data_undefined" class="filter-text  " type="text" dataid="data_undefined" selectid="undefined" placeholder="Select store(s)" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false"></div>
@@ -150,12 +145,32 @@
 			</div>
 			<!--/ko-->
 		</div>
-		<button class="btn btn-lg btn-primary" type="button" data-keypress="Enter" style="margin-left: 20px" data-bind="local: 'common.searchButton', click: search">Search</button>
-		<div class="report-export-wrapper pull-right">
-			<a href="api/Shifts/ExportZReport" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
+	</div>
+	
+	<div class="v-small-filters__col v-small-filters__col_btn">
+		<button class="btn btn-lg btn-primary" type="button" data-keypress="Enter" data-bind="local: 'common.searchButton', click: search">Search</button>
+	</div>
+	<div class="v-small-filters__col v-small-filters__col_btns">
+		<date-filter params="value: dateRange">
+			<div class="v-small-filters__btn" style="margin: 15px 0 0 15px;">
+				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+					&nbsp;
+					<span>June 20, 2018 - June 28, 2018</span> 
+					<b class="caret"></b>
+				</div>
+			</div>
+		</date-filter>
+		<div class="report-export-wrapper v-small-filters__btn" style="margin: 15px 0 0 15px;">
+			<button class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</button>
 			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
+			<a style="display: none" id="extraFeeReportLink"></a>
 		</div>
-		<br class="clear">
+	</div>
+</div>
+<!-- end v-small-filters -->
+
+		
 		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
 		<div id="shiftsTable_wrapper" class="dataTables_wrapper no-footer">
 			<div id="shiftsTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="shiftsTable"></label></div>

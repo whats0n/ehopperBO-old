@@ -6,8 +6,11 @@ headerTitle: Tips Report
 
 {% block content %}
 
-	<div class="pane-body item-list">
-		<div class="pull-left stores-filter-wrapper select-stores-width-adaptive">
+	<div class="pane-body inventory">
+		{{smallFilters.call({
+			secondary: 'Employee'
+		})}}
+		{#<div class="pull-left stores-filter-wrapper select-stores-width-adaptive">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" style="" data-active-view="true">
 				<div data-bind="with: $data.storesFilter, css: self.divStyle">
@@ -291,7 +294,7 @@ headerTitle: Tips Report
 			<a href="api/Payment/TipsExport" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
 			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
 		</div>
-		<br class="clear">
+		<br class="clear">#}
 		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
 		<div id="tipsTable_wrapper" class="dataTables_wrapper">
 			<div id="tipsTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="tipsTable"></label></div>

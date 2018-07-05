@@ -6,7 +6,7 @@ headerTitle: Product Mix Report
 
 {% block content %}
 
-	<div class="pane-body item-list" data-bind="with: filter">
+	<div class="pane-body inventory" data-bind="with: filter">
 		{{simpleFilters.call({
 			search: { placeholder: 'Search item by title or code' },
 			fields: [

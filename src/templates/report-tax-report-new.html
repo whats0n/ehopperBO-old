@@ -6,9 +6,12 @@ headerTitle: Tax Report
 
 {% block content %}
 
-	<div class="pane-body item-list">
+	<div class="pane-body inventory">
 		<div id="taxReportMessages"></div>
-		<div style="float:left;margin-left:-40px;" class="select-stores-width-adaptive">
+		{{smallFilters.call({
+			secondary: 'Tax Agency'
+		})}}
+		{#<div style="float:left;margin-left:-40px;" class="select-stores-width-adaptive">
 			<!--ko compose: { view: 'controls/storesFilter.html', mode:'templated' }-->
 			<div data-bind="if: $data.storesFilter.storesArr().length > 1" data-view="views/controls/storesFilter" data-active-view="true" style="">
 				<div data-bind="with: $data.storesFilter, css: self.divStyle">
@@ -137,7 +140,7 @@ headerTitle: Tax Report
 			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
 			<a style="display: none" id="taxReportLink"></a>
 		</div>
-		<br class="clear">
+		<br class="clear">#}
 		<div class="loader-container" data-bind="visible: loading()" style="min-height: 400px; display: none;"></div>
 		<div data-bind="visible: !loading()" class="mt30" style="">
 			<p>
