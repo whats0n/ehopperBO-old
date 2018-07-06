@@ -23,6 +23,13 @@ $sflg: 1220
 			width: 25%
 		&_xs
 			width: 20%
+		&_btn 
+			width: auto
+		&_btns
+			float: right
+			margin-top: -15px
+			width: 40%
+			max-width: none
 	&__select,
 	.select,
 	select
@@ -31,6 +38,9 @@ $sflg: 1220
 	&__search
 		width: 100%
 		margin: 0
-	&__calendar
-		+ .v-simple-filters__export
-			margin-right: 15px
+	&__btn
+		float: right
+		margin: 15px 0 0 15px
+		+r(1240)
+			text-align: right
+			clear: both

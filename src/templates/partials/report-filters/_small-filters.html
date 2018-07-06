@@ -108,7 +108,7 @@
 	</div>
 	<div class="v-small-filters__col v-small-filters__col_btns">
 		<date-filter params="value: dateRange">
-			<div class="v-small-filters__btn" style="margin: 15px 0 0 15px;">
+			<div class="v-small-filters__btn">
 				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
 					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
 					&nbsp;
@@ -117,7 +117,7 @@
 				</div>
 			</div>
 		</date-filter>
-		<div class="report-export-wrapper v-small-filters__btn" style="margin: 15px 0 0 15px;">
+		<div class="report-export-wrapper v-small-filters__btn">
 			<button class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</button>
 			<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
 			<a style="display: none" id="extraFeeReportLink"></a>

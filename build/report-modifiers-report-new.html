@@ -67,7 +67,7 @@
 		</div>
 		<!-- end search -->
 
-		<div class="v-simple-filters__col">
+		<div class="v-simple-filters__col v-simple-filters__col_btn">
 			<button 
 				type="button"
 				class="btn btn-lg btn-primary"
@@ -77,9 +77,9 @@
 
 		
 			<!-- begin buttons -->
-			<div class="v-simple-filters__col pull-right">
+			<div class="v-simple-filters__col v-simple-filters__col_btns">
 				
-					<div class="pull-right tips-filter no-margin v-simple-filters__calendar">
+					<div class="v-simple-filters__btn">
 						<date-filter params="value: dateRange">
 							<div class="pull-right">
 								<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
@@ -93,7 +93,7 @@
 					</div>
 				
 
-				<div class="report-export-wrapper pull-right v-simple-filters__export">
+				<div class="report-export-wrapper v-simple-filters__btn">
 					<a href="api/ProductMixReport/ExportProductMix" target="_blank" class="btn-report-export" data-bind="click: exportTableData, local: 'shell.exportReport'">Export</a>
 					<i class="fa fa-file-excel-o" aria-hidden="true" data-bind="click: exportTableData"></i>
 				</div>

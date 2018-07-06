@@ -6076,6 +6076,17 @@
   width: 20%;
 }
 
+.v-simple-filters__col_btn {
+  width: auto;
+}
+
+.v-simple-filters__col_btns {
+  float: right;
+  margin-top: -15px;
+  width: 40%;
+  max-width: none;
+}
+
 .v-simple-filters__select,
 .v-simple-filters .select,
 .v-simple-filters select {
@@ -6088,8 +6099,9 @@
   margin: 0;
 }
 
-.v-simple-filters__calendar + .v-simple-filters__export {
-  margin-right: 15px;
+.v-simple-filters__btn {
+  float: right;
+  margin: 15px 0 0 15px;
 }
 
 .v-small-filters {
@@ -6133,6 +6145,7 @@
 
 .v-small-filters__btn {
   float: right;
+  margin: 15px 0 0 15px;
 }
 
 .products-sortable__placeholder {
@@ -7462,6 +7475,10 @@ select {
 }
 
 @media only screen and (max-width: 1240px){
+  .v-simple-filters__btn{
+    text-align: right;
+    clear: both;
+  }
   .v-small-filters__btn{
     text-align: right;
     clear: both;
