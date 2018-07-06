@@ -209,16 +209,16 @@
 <!-- end v-simple-filters -->
 
 		
-		<div id="productMixReportTable_wrapper" class="dataTables_wrapper">
+		<div id="productMixReportTable_wrapper" class="dataTables_wrapper" style="min-width: auto;">
 			<div id="productMixReportTable_filter" class="dataTables_filter">
 				<label>Search:<input type="search" class="" placeholder="" aria-controls="productMixReportTable"></label>
 			</div>
 			<div id="productMixReportTable_processing" class="dataTables_processing" style="display: none;">Processing...</div>
-			<table class="datatable dataTable" id="ingredientsReportTable" data-bind="visible: !loading()" style="width: 100%;" role="grid">
+			<table class="datatable dataTable" id="ingredientsReportTable" data-bind="visible: !loading()" style="width: 100%; min-width: auto;" role="grid">
 				<thead>
 					<tr role="row">
-						<th class="w80 row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns">ID</th>
-						<th class="w150 sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Ingredient: Activate to sort by descending columns" aria-sort="ascending">Ingredient</th>
+						<th class="row-expandable sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="ID: Activate to sort by ascending columns" style="width: 80px;">ID</th>
+						<th class="sorting_asc" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Ingredient: Activate to sort by descending columns" aria-sort="ascending" style="width: 20%;">Ingredient</th>
 						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Store: Activate to sort by ascending columns">Store</th>
 						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Employee: Activate to sort by ascending columns">Employee</th>
 						<th class="sorting" tabindex="0" aria-controls="productMixReportTable" rowspan="1" colspan="1" aria-label="Register: Activate to sort by ascending columns">Register</th>
