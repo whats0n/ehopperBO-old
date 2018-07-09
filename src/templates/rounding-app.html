@@ -1,0 +1,24 @@
+---
+title: Product
+headerTitle: New Inventory Item
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+<div class="app-block" data-bind="click: $root.appClick">
+	<div class="app-block_header">
+		<img src="img/coins.png" alt="" class="app-block_header_logo">
+	</div>
+	<div class="app-block_content">
+		<div class="app-block_content_header" data-bind="text: $data.name">Cash Rounding</div>
+		<div class="block_content_producer" data-bind="text: $data.company">by eHopper</div>
+		<div class="app-block_content_package">
+			<div class="app-block_content_package_name" data-bind="text: $data.packageName">Freedom Package</div>
+			<div class="app-block_content_package_desc" data-bind="text: $data.packageDescription">Freedom Plan only</div>
+		</div>
+	</div>
+	<!--
+	<div class="app-modal" data-bind="template: { name: 'views/appstore/apps/' + $data.template } "></div>
+	-->
+</div>
+{% endblock %}
