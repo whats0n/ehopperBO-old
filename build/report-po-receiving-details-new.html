@@ -58,12 +58,12 @@
 				<input type="hidden" name="fileName" id="drilldownFormFileName">
 			</form>
 			<div class="btn-group">
-				<div class="dropdown">
-					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="dropdown js-exp">
+					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showDropdown(event)">
 						<span data-bind="local: 'shell.exportReport'">Export</span>
 						<b class="caret"></b>
 					</button>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu js-exp-dd">
 						<a class="dropdown-item" data-bind="attr: { href: exportTableData }" href="api/Products/ExportPODrilldown?id=3418350d-090a-4237-a58d-35c04045c57b&amp;ingredientMode=false&amp;storetransfer=false&amp;tzoffset=-180">
 							<i class="fa fa-file-excel-o"></i>
 							CSV
@@ -75,6 +75,14 @@
 					</div>
 				</div>
 			</div>
+			<script>
+				function showDropdown(e) {
+					$(e.currentTarget)
+						.closest('.js-exp')
+						.find('.js-exp-dd')
+						.toggle();
+				}
+			</script>
 		</div>
 		<br class="clear"><br>
 		<div id="storeTransferDetailsMessage"></div>

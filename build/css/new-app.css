@@ -7440,6 +7440,25 @@ select {
   min-width: 1000px;
 }
 
+.report-export-wrapper .dropdown-menu {
+  left: initial;
+  right: 0;
+}
+
+.drilldown .btn-group .dropdown-menu > .dropdown-item {
+  text-decoration: none;
+}
+
+.drilldown .btn-group .dropdown-menu > .dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+.drilldown .btn-group .dropdown-menu > .dropdown-item > i {
+  color: #333;
+  font-size: 125%;
+  margin-right: 4px;
+}
+
 @media only screen and (max-height: 840px){
   .v-guide-form__field{
     padding: 7px 10px;

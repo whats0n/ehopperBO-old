@@ -9,7 +9,9 @@
     border-color: #9096a5;
     color: #fff;
 }
-
+    .btn-default[disabled] {
+        color: lightgray;
+    }
 .btn-primary {
   background-color: #2E9ADB;
   border-color: #2E9ADB;
@@ -18,6 +20,12 @@
 .btn-primary:hover {
   background-color: #1B79B2;
   border-color: #1B79B2;
+}
+
+.btn-primary:focus:not(:hover) {
+    background-color: #2E9ADB;
+    border-color: #2E9ADB;
+    outline: none;
 }
 
 .btn-blue {
@@ -50,6 +58,24 @@
     left: 0;
     margin-top: 0;
     right: 0;
+    width: min-content;
+}
+
+    .btn-group > .dropdown-menu > li {
+        display: block;
+    }
+
+ .btn-group .dropdown-menu > .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #2E9ADB;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
 }
 
 .dropdown-menu > li > a {
@@ -95,6 +121,7 @@ input[type="tel"].input-lg {
 input[type="number"].input-lg {
     padding-bottom: 10px;
     padding-top: 10px;
+    height: 53px;
 }
 
 .btn-group.btn-group-lg > a:nth-child(1) {
@@ -112,7 +139,8 @@ input[type="number"].input-lg {
     font-family: FontAwesome;
 }
 
-.btn-group.open > .dropdown-toggle > .caret:before {
+.btn-group.open > .dropdown-toggle > .caret:before,
+.dropdown.open .caret:before {
     content: "\f077";
 }
 

@@ -13,12 +13,12 @@ headerTitle: Store Transfer Details
 				<input type="hidden" name="fileName" id="drilldownFormFileName">
 			</form>
 			<div class="btn-group">
-				<div class="dropdown">
-					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="dropdown js-exp">
+					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showDropdown(event)">
 						<span data-bind="local: 'shell.exportReport'">Export</span>
 						<b class="caret"></b>
 					</button>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu js-exp-dd">
 						<a class="dropdown-item" data-bind="attr: { href: exportTableData }" href="api/Products/ExportPODrilldown?id=a4636039-43e1-4208-a1a0-fbb95b8d06b6&amp;ingredientMode=false&amp;storetransfer=true&amp;tzoffset=-180">
 							<i class="fa fa-file-excel-o"></i>
 							CSV
@@ -30,6 +30,14 @@ headerTitle: Store Transfer Details
 					</div>
 				</div>
 			</div>
+			<script>
+				function showDropdown(e) {
+					$(e.currentTarget)
+						.closest('.js-exp')
+						.find('.js-exp-dd')
+						.toggle();
+				}
+			</script>
 		</div>
 		<br class="clear"><br>
 		<div id="storeTransferDetailsMessage"></div>

@@ -14,12 +14,12 @@ headerTitle: Adjustment Report
 				<input type="hidden" name="fileName" id="adjustmentDrilldownFormFileName">
 			</form>
 			<div class="btn-group">
-				<div class="dropdown">
-					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="dropdown js-exp">
+					<button type="button" class="btn dropdown-toggle btn-report-export" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showDropdown(event)">
 						<span data-bind="local: 'shell.exportReport'">Export</span>
 						<b class="caret"></b>
 					</button>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu js-exp-dd">
 						<a class="dropdown-item" data-bind="click: exportData">
 							<i class="fa fa-file-excel-o"></i>
 							CSV
@@ -31,6 +31,14 @@ headerTitle: Adjustment Report
 					</div>
 				</div>
 			</div>
+			<script>
+				function showDropdown(e) {
+					$(e.currentTarget)
+						.closest('.js-exp')
+						.find('.js-exp-dd')
+						.toggle();
+				}
+			</script>
 		</div>
 		<br class="clear"><br>
 		<table class="store-transfer-attr">
@@ -69,7 +77,7 @@ headerTitle: Adjustment Report
 			<table class="datatable dataTable" id="tbl_adjustment_drilldown" role="grid">
 				<thead>
 					<tr role="row">
-						<th class="sorting_asc" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: Activate to sort by descending columns" style="width: 20em;">ID</th>
+						<th class="sorting_asc" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: Activate to sort by descending columns" style="width: 80px;">ID</th>
 						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="Name: Activate to sort by ascending columns">Name</th>
 						<th data-bind="html: barCodeHeader" class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="UPC: Activate to sort by ascending columns">UPC</th>
 						<th class="sorting" tabindex="0" aria-controls="tbl_adjustment_drilldown" rowspan="1" colspan="1" aria-label="SKU: Activate to sort by ascending columns">SKU</th>
