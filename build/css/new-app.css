@@ -6170,8 +6170,25 @@
   float: right;
 }
 
-.list-filters__pt {
-  padding-top: 35px;
+.list-filters__group {
+  display: table;
+  width: 100%;
+}
+
+.list-filters__group-in {
+  display: table-row;
+}
+
+.list-filters__group-label, .list-filters__group-field {
+  display: table-cell;
+}
+
+.list-filters__group-label {
+  padding-right: 15px;
+}
+
+.list-filters__group-field {
+  width: 100%;
 }
 
 .products-sortable__placeholder {

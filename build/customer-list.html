@@ -53,18 +53,24 @@
 	<div class="pane-body employees">
 		<div id="messages"></div>
 		<div class="list-filters">
-			<div class="list-filters__col list-filters__pt">
+			<div class="list-filters__col">
 				<input class="form-control input-lg datatable-search" type="text" placeholder="Search for customer">
 			</div>
 			<div class="list-filters__col">
-				<label>Type:</label>
-				<select>
-					<option value="All">All</option>
-					<option value="Personal">Personal</option>
-					<option value="Business">Business</option>
-				</select>
+				<div class="list-filters__group">
+					<div class="list-filters__group-in">
+						<label class="list-filters__group-label">Type:</label>
+						<div class="list-filters__group-field">
+							<select>
+								<option value="All">All</option>
+								<option value="Personal">Personal</option>
+								<option value="Business">Business</option>
+							</select>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="list-filters__btns list-filters__pt">
+			<div class="list-filters__btns">
 				<div class="btn-toolbar">
 					<div class="report-export-wrapper pull-left">
 						<a href="api/Products/ExportProductList" target="_blank" class="btn-report-export" data-bind="click: exportProducts, local: 'shell.exportReport'">Export</a>
