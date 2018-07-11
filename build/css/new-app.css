@@ -6148,6 +6148,32 @@
   margin: 15px 0 0 15px;
 }
 
+.list-filters {
+  margin: -10px;
+}
+
+.list-filters__col {
+  float: left;
+  padding: 10px;
+  width: 25%;
+  max-width: 380px;
+}
+
+.list-filters__col .select,
+.list-filters__col select,
+.list-filters__col input {
+  width: 100%;
+}
+
+.list-filters__btns {
+  padding: 10px;
+  float: right;
+}
+
+.list-filters__pt {
+  padding-top: 35px;
+}
+
 .products-sortable__placeholder {
   position: relative;
   float: left;
