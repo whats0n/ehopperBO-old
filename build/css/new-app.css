@@ -6042,6 +6042,12 @@
   margin-top: 40px;
 }
 
+.permissions__title {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
 .v-simple-filters {
   font-size: 0;
 }
