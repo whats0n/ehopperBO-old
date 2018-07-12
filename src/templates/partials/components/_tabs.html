@@ -7,6 +7,10 @@
 				</li>
 			{% endfor %}
 		</ul>
+
+		{% if tabsTopRightCorner %}
+			{% include tabsTopRightCorner %}
+		{% endif %}
 	</div>
 	<div class="s-tabs__body">
 		{% for item in tabs %}

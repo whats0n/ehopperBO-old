@@ -2339,6 +2339,22 @@
   right: 20px;
 }
 
+.s-tabs__top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.s-tabs__top-right label,
+.s-tabs__top-right select {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.s-tabs__top-right label {
+  margin: 16px 5px 16px 0;
+}
+
 .s-tabs__list {
   padding: 0;
   margin: 0;
