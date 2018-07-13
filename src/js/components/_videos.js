@@ -43,7 +43,7 @@ if (videos.length) {
 		const iframeVideos = document.createElement('iframe');
 
 		iframeVideos.setAttribute('name', 'videosIframe');
-		iframeVideos.setAttribute('src', 'https://ehopper.com/wp-content/uploads/videosIframe.html');
+		iframeVideos.setAttribute('src', 'https://ehopper.com/bo/bo-videosiframe.html');
 
 		body.appendChild(iframeVideos);
 
